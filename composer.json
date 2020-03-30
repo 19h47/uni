@@ -1,0 +1,32 @@
+{
+	"require": {
+		"woocommerce/woocommerce": "^4.0",
+		"timber/timber": "^1.15",
+		"vlucas/phpdotenv": "^4.1"
+	},
+	"name": "19h47/uni",
+	"description": "UNI's WordPress theme",
+	"type": "wordpress-theme",
+	"authors": [
+		{
+			"name": "Jérémy Levron",
+			"email": "jeremylevron@19h47.fr"
+		}
+	],
+	"autoload": {
+		"psr-4": {
+			"UNI\\": "inc/"
+		}
+	},
+	"require-dev": {
+		"squizlabs/php_codesniffer": "^3.5",
+		"wp-coding-standards/wpcs": "^2.2"
+	},
+	"extra": {
+		"installer-paths": {
+			"../../plugins/{$name}/": [
+				"type:wordpress-plugin"
+			]
+		}
+	}
+}
