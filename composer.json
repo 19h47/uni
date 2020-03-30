@@ -2,7 +2,8 @@
 	"require": {
 		"woocommerce/woocommerce": "^4.0",
 		"timber/timber": "^1.15",
-		"vlucas/phpdotenv": "^4.1"
+		"vlucas/phpdotenv": "^4.1",
+		"dealerdirect/phpcodesniffer-composer-installer": "^0.6.2"
 	},
 	"name": "19h47/uni",
 	"description": "UNI's WordPress theme",

@@ -1,0 +1,16 @@
+{% block content %}
+
+	{# {% do action( 'woocommerce_cart_is_empty' ) %} #}
+
+	<div class="woocommerce-notices-wrapper">{{ fn( 'wc_print_notices' ) }}</div>
+	<p class="cart-empty woocommerce-info">{{ __( 'Your cart is currently empty.', 'woocommerce' ) }}</p>
+
+	{% if page_id > 0 %}
+		<p class="return-to-shop">
+			<a class="button wc-backward" href="{{ url }}">
+				{{ __( 'Return to shop', 'woocommerce' ) }}
+			</a>
+		</p>
+	{% endif %}
+
+{% endblock %}

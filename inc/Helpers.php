@@ -3,10 +3,10 @@
  * UNI helpers class
  *
  * @package UNI
+ * @subpackage UNI/Helpers
  */
 
 namespace UNI;
-
 
 /**
  * Helpers class
@@ -21,7 +21,7 @@ class Helpers {
 	public static function get_theme_manifest() {
 		$file = get_template_directory() . '/dist/manifest.json';
 
-		return json_decode( file_get_contents( $file ), true );
+		return json_decode( file_get_contents( $file ), true ); // phpcs:ignore
 	}
 
 
@@ -65,5 +65,21 @@ class Helpers {
 	public static function html_class( $class = '' ) : string {
 		// Separates classes with a single space, collates classes for html element.
 		return 'class="' . join( ' ', self::get_html_class( $class ) ) . '"';
+	}
+
+
+	/**
+	 * Set product
+	 *
+	 * @param  mixed $post
+	 * @return void
+	 * @see https://timber.github.io/docs/guides/woocommerce/#tease-product
+	 */
+	public static function set_product( $post ) {
+		global $product;
+
+		if ( is_woocommerce() ) {
+			$product = wc_get_product( $post->ID );
+		}
 	}
 }

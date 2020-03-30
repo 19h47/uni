@@ -12,16 +12,18 @@ use Timber\{ Timber };
 use UNI\{ Managers };
 
 $timber = new Timber();
-Timber::$dirname = array( 'templates', 'dist' );
+
+Timber::$dirname = array( 'views', 'templates', 'dist' );
 
 add_action(
-    'after_setup_theme',
-    function () {
-        $managers = array(
+	'after_setup_theme',
+	function () {
+		$managers = array(
 			new Managers\WordPress(),
+			new Managers\WooCommerce(),
 		);
 
-        $theme_manager = new Managers\Theme( wp_get_theme()->Name, wp_get_theme()->Version, $managers );
-        $theme_manager->run();
-    }
+		$theme_manager = new Managers\Theme( wp_get_theme()->Name, wp_get_theme()->Version, $managers );
+		$theme_manager->run();
+	}
 );

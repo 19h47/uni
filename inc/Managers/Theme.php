@@ -1,15 +1,27 @@
-<?php
+<?php // phpcs:ignore
 /**
  * Bootstraps WordPress theme related functions, most importantly enqueuing javascript and styles.
+ *
+ * @package UNI
+ * @subpackage UNI/Managers/Theme
  */
+
 namespace UNI\Managers;
 
 use Timber\{ Menu };
 use UNI\{ Helpers };
 use Twig\{ TwigFunction };
 
+/**
+ * Theme
+ */
 class Theme {
-	private $managers = [];
+	/**
+	 * Managers
+	 *
+	 * @var array
+	 */
+	private $managers = array();
 
 	/**
 	 * The name of the theme
@@ -37,14 +49,14 @@ class Theme {
 	 */
 	private $theme_manifest;
 
-    /**
-     * Constructor
-     *
-	 * @param  string $theme_name    The theme name.
-	 * @param  string $theme_version The theme version.
-     * @param array $managers Array of managers
-     */
-    public function __construct( string $theme_name, string $theme_version, array $managers) {
+	/**
+	 * Constructor
+	 *
+	 * @param string $theme_name    The theme name.
+	 * @param string $theme_version The theme version.
+	 * @param array  $managers Array of managers.
+	 */
+	public function __construct( string $theme_name, string $theme_version, array $managers ) {
 		$this->theme_name    = $theme_name;
 		$this->theme_version = $theme_version;
 		$this->managers      = $managers;
@@ -54,21 +66,36 @@ class Theme {
 		add_filter( 'timber/twig', array( $this, 'add_to_twig' ) );
 		add_filter( 'timber_context', array( $this, 'add_socials_to_context' ) );
 		add_filter( 'timber_context', array( $this, 'add_manifest_to_context' ) );
-    }
+	}
 
 
-    /**
-     * Runs initialization tasks.
-     *
-     * @return void
-     */
-    public function run() {
-        if ( count( $this->managers ) > 0) {
-            foreach ( $this->managers as $manager ) {
-                $manager->run();
-            }
+	/**
+	 * Runs initialization tasks.
+	 *
+	 * @return void
+	 */
+	public function run() {
+		if ( count( $this->managers ) > 0 ) {
+			foreach ( $this->managers as $manager ) {
+				$manager->run();
+			}
 		}
 
+		$this->add_theme_supports();
+		$this->add_post_type_supports();
+
+		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_style' ) );
+		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
+		add_action( 'admin_init', array( $this, 'register_menus' ) );
+	}
+
+
+	/**
+	 * Add theme supports
+	 *
+	 * @return void
+	 */
+	public function add_theme_supports() : void {
 		add_theme_support( 'title-tag' );
 
 		/*
@@ -92,16 +119,20 @@ class Theme {
 				'caption',
 			)
 		);
+		add_theme_support( 'woocommerce' );
+	}
 
+
+	/**
+	 * Add post type supports
+	 *
+	 * @return void
+	 */
+	public function add_post_type_supports() {
 		add_post_type_support( 'page', 'excerpt' );
+	}
 
-		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_style' ) );
-		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
-		add_action( 'admin_init', array( $this,'register_menus' ) );
-    }
-
-
-    /**
+	/**
 	 * Add to Twig
 	 *
 	 * @param object $twig Twig environment.
@@ -127,6 +158,15 @@ class Theme {
 			)
 		);
 
+		$twig->addFunction(
+			new TwigFunction(
+				'set_product',
+				function( $post ) {
+					return Helpers::set_product( $post );
+				}
+			)
+		);
+
 		return $twig;
 	}
 
@@ -134,7 +174,7 @@ class Theme {
 	/**
 	 * Add manifest to context
 	 *
-	 * @param array $context Timber context
+	 * @param array $context Timber context.
 	 */
 	public function add_manifest_to_context( array $context ) : array {
 		$context['manifest'] = $this->get_theme_manifest();
@@ -146,7 +186,8 @@ class Theme {
 	/**
 	 * Add socials to context
 	 *
-	 * @param array $context Timber context
+	 * @param array $context Timber context.
+	 * @return array
 	 */
 	public function add_socials_to_context( array $context ) : array {
 		// Share and Socials links.
@@ -190,21 +231,22 @@ class Theme {
 	}
 
 
+
 	/**
-     * Registers and adds menus to context
-     *
-     * @param array $context Timber context
-     *
-     * @return array
-     */
-    public function add_menus_to_context( array $context ) : array {
+	 * Add menus to context
+	 *
+	 * @param array $context Timber context.
+	 * @return array
+	 * @since  1.0.0
+	 */
+	public function add_menus_to_context( array $context ) : array {
 		$menus = get_registered_nav_menus();
 
 		foreach ( $menus as $menu => $value ) {
 			$context['menus'][ $menu ] = new Menu( $menu );
 		}
-        return $context;
-    }
+		return $context;
+	}
 
 
 	/**
@@ -275,18 +317,18 @@ class Theme {
 
 
 	/**
-     * Register nav menus
-     *
-     * @return void
-     */
-    public function register_menus() {
+	 * Register nav menus
+	 *
+	 * @return void
+	 */
+	public function register_menus() {
 		register_nav_menus(
 			array(
 				'menu'   => __( 'Menu', 'uni' ),
 				'footer' => __( 'Footer', 'uni' ),
 			)
 		);
-    }
+	}
 
 
 	/**

@@ -7,8 +7,7 @@
  * It is used to display a page when nothing more specific matches a query.
  * E.g., it puts together the home page when no home.php file exists.
  *
- * @package WordPress
- * @subpackage UNI
+ * @package UNI
  * @author  Jérémy Levron <jeremylevron@19h47.fr> (https://19h47.fr)
  * @link https://codex.wordpress.org/Template_Hierarchy
  * @since 0.0.0
