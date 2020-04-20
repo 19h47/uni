@@ -66,6 +66,7 @@ class Theme {
 		add_filter( 'timber/twig', array( $this, 'add_to_twig' ) );
 		add_filter( 'timber_context', array( $this, 'add_socials_to_context' ) );
 		add_filter( 'timber_context', array( $this, 'add_manifest_to_context' ) );
+		add_filter( 'timber_context', array( $this, 'add_menus_to_context' ) );
 	}
 
 
@@ -83,6 +84,7 @@ class Theme {
 
 		$this->add_theme_supports();
 		$this->add_post_type_supports();
+		$this->register_menus();
 
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_style' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
@@ -167,6 +169,17 @@ class Theme {
 			)
 		);
 
+		if ( function_exists( 'pll_the_languages' ) ) {
+			$twig->addFunction(
+				new TwigFunction(
+					'pll_the_languages',
+					function() {
+						return pll_the_languages( array( 'raw' => 1 ) );
+					}
+				)
+			);
+		}
+
 		return $twig;
 	}
 
@@ -229,7 +242,6 @@ class Theme {
 
 		return $context;
 	}
-
 
 
 	/**
@@ -324,8 +336,8 @@ class Theme {
 	public function register_menus() {
 		register_nav_menus(
 			array(
-				'menu'   => __( 'Menu', 'uni' ),
-				'footer' => __( 'Footer', 'uni' ),
+				'main_primary'   => __( 'Main Primary', 'uni' ),
+				'main_secondary' => __( 'Main Secondary', 'uni' ),
 			)
 		);
 	}

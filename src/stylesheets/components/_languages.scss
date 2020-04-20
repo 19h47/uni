@@ -1,0 +1,55 @@
+/**
+ * Languages
+ *
+ *
+ *
+ *
+ */
+.Languages {
+	@extend %list-style-type-none, %font-weight-light, %position-relative;
+	@extend .d-flex, .flex-row, .flex-md-column;
+	@include margin(left 24px);
+
+	font-size: 0.75em;
+	z-index: 2;
+
+	@at-root .Site-header & {
+		@include media-breakpoint-up(md) {
+			@include margin(top 24px left 0);
+		}
+
+		@include media-breakpoint-up(hd) {
+			@include margin(top 40px);
+		}
+	}
+
+	&__item {
+		@extend %text-transform-uppercase, %text-align-center;
+
+		border-right: 1px solid the_color(black);
+
+		@include media-breakpoint-up(md) {
+			border-bottom: 1px solid the_color(black);
+			border-right: none;
+		}
+
+		&:last-child {
+			border-bottom: none;
+			border-right: none;
+		}
+
+		a {
+			@extend .d-inline-block;
+			@extend %vertical-align-middle;
+			@include padding(right 5px left 5px);
+
+			@include media-breakpoint-up(md) {
+				@include padding(right 0 left 0);
+			}
+
+			&.current-lang {
+				@extend %font-weight-extralight;
+			}
+		}
+	}
+}

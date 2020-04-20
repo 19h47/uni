@@ -1,0 +1,20 @@
+/**
+ * Mini cart
+ *
+ *
+ *
+ */
+.Mini-cart {
+	@extend %position-relative;
+	@include margin(bottom 0);
+
+	z-index: 2;
+
+	svg {
+		@include size(22.2px);
+
+		@include media-breakpoint-up(hd) {
+			@include size(37px);
+		}
+	}
+}

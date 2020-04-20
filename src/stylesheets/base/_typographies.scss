@@ -1,0 +1,80 @@
+/**
+ * Basic typography style for copy text
+ */
+
+// @include reset-selection( get_color( black ), get_color( white ) );
+
+h1,
+.h1 {
+	@extend %font-family-title;
+	@include letter-spacing(50);
+
+	font-size: 2.5em;
+	line-height: 1.2;
+
+	@include margin(top #{$base-line-height}px bottom #{$base-line-height * 2}px);
+}
+
+h2,
+.h2 {
+	@extend %font-weight-bold, %font-style-italic, %font-family-title;
+
+	font-size: $base-font-size-px * power($scale-factor, 2);
+	line-height: #{$base-line-height * 2}px;
+
+	@include margin(top #{$base-line-height}px bottom #{$base-line-height}px);
+}
+
+h3,
+.h3 {
+	@extend %font-weight-bold, %font-style-italic, %font-family-title;
+
+	@include margin(top #{$base-line-height * 1}px bottom 0);
+
+	font-size: $base-font-size-px * power($scale-factor, 1);
+	line-height: #{$base-line-height * 1}px;
+}
+
+h4,
+.h4 {
+	@extend %font-weight-bold, %font-family-title;
+
+	@include margin(top #{$base-line-height}px bottom 0);
+
+	@include media-breakpoint-up(md) {
+		font-size: 50px;
+		line-height: 60px;
+	}
+}
+
+h5,
+.h5 {
+	@extend %font-weight-bold, %font-family-title;
+
+	@include margin(top #{$base-line-height}px bottom 0);
+
+	@include media-breakpoint-up(md) {
+		font-size: 35px;
+		line-height: 40px;
+	}
+}
+
+h6,
+.h6 {
+	@extend %font-weight-bold, %font-family-title;
+
+	font-size: 24px;
+	line-height: 30px;
+}
+
+.dh1 {
+}
+
+.dh2 {
+}
+
+.dh3 {
+}
+
+.dh4 {
+}

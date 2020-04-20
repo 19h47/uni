@@ -1,0 +1,46 @@
+/**
+ * Base
+ */
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	@extend %font-weight-regular, %font-family-body, %position-relative;
+	@include padding(top 20px right 20px bottom 20px left 20px);
+
+	font-size: #{60 * $base-font-size / 100}px;
+	line-height: #{60 * $base-line-height / 100}px;
+
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+
+	text-rendering: optimizeLegibility;
+
+	@extend %overflow-x-hidden, %overflow-y-scroll;
+
+	@include media-breakpoint-up(hd) {
+		font-size: $base-font-size-px;
+		line-height: #{$base-line-height}px;
+	}
+}
+
+a,
+button {
+	cursor: pointer;
+	outline: none;
+}
+
+a {
+	color: currentColor;
+	text-decoration: none;
+}
+
+p {
+	@include margin(top 0 bottom #{$base-line-height}px);
+}
+
+strong {
+	@extend %font-weight-bold;
+}

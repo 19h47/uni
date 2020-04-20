@@ -1,0 +1,14 @@
+{#
+
+Languages
+
+#}
+<ul class="Languages">
+	{% for lang in pll_the_languages() %}
+		<li class="Languages__item">
+			<a id="lang-{{ lang.id }}" href="{{ lang.url }}" class="{{ lang.classes | join( ' ' ) }}" aria-label="{{ lang.name }}">
+				{{- lang.slug -}}
+			</a>
+		</li>
+	{% endfor %}
+</ul>
