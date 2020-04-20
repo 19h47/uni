@@ -8,7 +8,12 @@
 .Menu {
 	$this: &;
 
-	@include absolute(top 0 right 0 bottom 0 left 0);
+	@include autoAlpha(0);
+
+	transform: scaleX(0);
+
+	@include fixed(top 0 right 0 bottom 0 left 0);
+	@include margin(top 80px right 20px bottom 20px left 20px);
 
 	// Grid.
 	display: grid;
@@ -26,12 +31,14 @@
 	}
 
 	@include media-breakpoint-up(md) {
+		@include margin(top 20px left 100px);
 		@include padding(
 			top #{(36 * 100) / $prototype-height-unitless}vh bottom #{(36 * 100) /
 				$prototype-height-unitless}vh
 		);
 	}
 	@include media-breakpoint-up(hd) {
+		@include margin(left 140px);
 		@include padding(
 			top #{(60 * 100) / $prototype-height-unitless}vh bottom #{(60 * 100) /
 				$prototype-height-unitless}vh
