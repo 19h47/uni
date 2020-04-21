@@ -2,6 +2,8 @@ import StartingBlocks, { polyfills } from 'starting-blocks';
 
 import WebpackAsyncBlockBuilder from 'services/WebpackAsyncBlockBuilder';
 
+import HorizontalPage from 'pages/HorizontalPage';
+
 const production = 'production' !== process.env.NODE_ENV;
 
 (() => {
@@ -15,6 +17,8 @@ const production = 'production' !== process.env.NODE_ENV;
 	});
 
 	startingBlocks.provider('BlockBuilder', WebpackAsyncBlockBuilder);
+
+	startingBlocks.instanceFactory('HorizontalPage', c => new HorizontalPage(c));
 
 	startingBlocks.boot();
 })();

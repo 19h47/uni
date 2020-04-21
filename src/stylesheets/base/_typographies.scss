@@ -49,14 +49,12 @@ h4,
 
 h5,
 .h5 {
-	@extend %font-weight-bold, %font-family-title;
+	@extend %font-family-title;
+
+	font-size: 0.6em;
+	line-height: 1.2;
 
 	@include margin(top #{$base-line-height}px bottom 0);
-
-	@include media-breakpoint-up(md) {
-		font-size: 35px;
-		line-height: 40px;
-	}
 }
 
 h6,

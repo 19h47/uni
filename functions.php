@@ -2,28 +2,11 @@
 /**
  * UNI functions and definitions
  *
- * @package UNI
+ * @package uni
  */
 
 // Autoloader.
 require_once get_template_directory() . '/vendor/autoload.php';
 
-use Timber\{ Timber };
-use UNI\{ Managers };
+UNI\Init::run_services();
 
-$timber = new Timber();
-
-Timber::$dirname = array( 'views', 'templates', 'dist' );
-
-add_action(
-	'after_setup_theme',
-	function () {
-		$managers = array(
-			new Managers\WordPress(),
-			new Managers\WooCommerce(),
-		);
-
-		$theme_manager = new Managers\Theme( wp_get_theme()->Name, wp_get_theme()->Version, $managers );
-		$theme_manager->run();
-	}
-);

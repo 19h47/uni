@@ -7,14 +7,13 @@
  */
 
 use Timber\{ Timber };
-use UNI\{ Transients };
 
 $context = Timber::get_context();
 
 // $context['cart'] = WC()->cart->get_cart_contents_count();
 
-
 if ( is_singular( 'product' ) ) {
+	$context['node_type'] = 'HorizontalPage';
 
 	$context['post']    = Timber::get_post();
 	$product            = wc_get_product( $context['post']->ID );

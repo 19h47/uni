@@ -19,9 +19,6 @@ use Timber\{ Timber, Post };
 
 $context = Timber::context();
 
-$context['cart']     = WC()->cart;
-$context['cart_url'] = wc_get_page_permalink( 'cart' );
-
 $context['post']      = new Post();
 $context['namespace'] = 'page';
 

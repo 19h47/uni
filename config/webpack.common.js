@@ -54,6 +54,7 @@ module.exports = {
 			blocks: resolve('src/scripts/blocks'),
 			polyfills: resolve('src/scripts/polyfills'),
 			abstracts: resolve('src/scripts/abstracts'),
+			vendors: resolve('src/scripts/vendors'),
 
 			// stylesheets
 			stylesheets: resolve('src/stylesheets'),

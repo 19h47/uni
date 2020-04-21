@@ -9,9 +9,43 @@
 {# Header #}
 {% include 'header.html.twig' %}
 
+<main id="{{ post.id ? "page-#{post.id}" : 'page' }}" class="page-content Site-wrapper" data-node-type="{{ node_type | default( 'DefaultPage' ) }}">
 
-{# Content #}
-{% block content %}{% endblock %}
+	<header class="Site-header">
+		<div class="d-flex flex-row flex-md-column">
+			<button class="Menu__button js-menu-button" type="button">
+				{% include 'svg/use.html.twig' with { icon: 'bars', classes: [ 'Pointer-events-none' ] } only %}
+			</button>
+			{% include 'components/languages.html.twig' %}
+		</div>
+
+		<a class="Logo" href="{{ site.link }}">
+			{% include 'svg/use.html.twig' with { icon: 'logo-vertical', classes: [ 'd-none', 'd-md-block' ] } only %}
+			{% include 'svg/use.html.twig' with { icon: 'logo-horizontal', classes: [ 'd-md-none' ] } only %}
+		</a>
+
+		<{{ ( cart.is_empty ? 'p' : "a href=\"#{cart_url}\"" ) | raw }} class="Mini-cart" data-cart-count="{{ cart.get_cart_contents_count() }}">
+			{% include 'svg/use.html.twig' with { icon: 'cart' } %}
+		</{{ ( cart.is_empty ? 'p' : 'a' ) | raw }}>
+
+	</header>
+
+	{% include 'components/menu.html.twig' %}
+
+
+	{# <div class="Site-content"> #}
+
+		{% block content %}
+			<div class="Site-content">
+				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, possimus quas provident molestiae nesciunt dolores suscipit unde eligendi, porro, fugiat modi deleniti culpa placeat quo maiores dolorem natus dolor vero.</p>
+				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni itaque quas blanditiis, possimus animi, adipisci doloremque iure nulla voluptatum quo sint repellat maxime quis quisquam odit perspiciatis optio molestias provident.</p>
+				<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corporis, est eum. Rem labore sint perferendis expedita nobis, eveniet quisquam veritatis sapiente, accusantium sunt amet totam possimus soluta, atque ipsum recusandae.</p>
+			</div>
+		{% endblock %}
+
+	{# </div> #}
+
+</main>
 
 
 {# Footer #}

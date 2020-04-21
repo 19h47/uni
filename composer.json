@@ -16,8 +16,11 @@
 	],
 	"autoload": {
 		"psr-4": {
-			"UNI\\": "inc/"
-		}
+			"UNI\\": "./inc"
+		},
+		"files": [
+			"./inc/helpers.php"
+		]
 	},
 	"require-dev": {
 		"squizlabs/php_codesniffer": "^3.5",

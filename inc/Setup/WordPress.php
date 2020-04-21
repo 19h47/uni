@@ -2,11 +2,11 @@
 /**
  * Mostly involved with cleaning up default WordPress cruft.
  *
- * @package UNI
- * @subpackage UNI/Managers/WordPress
+ * @package uni
+ * @subpackage UNI/Setup/WordPress
  */
 
-namespace UNI\Managers;
+namespace UNI\Setup;
 
 /**
  * WordPress

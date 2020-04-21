@@ -6,7 +6,7 @@
  * @subpackage UNI/Transients
  */
 
-namespace UNI;
+namespace UNI\Core;
 
 use Timber\{ Timber };
 

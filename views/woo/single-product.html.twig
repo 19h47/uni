@@ -2,28 +2,76 @@
 
 {% block content %}
 
-    {% do action('woocommerce_before_single_product') %}
+	<div class="vs-section">
+		<div class="vs-track">
 
-    <article itemscope itemtype="http://schema.org/Product" class="single-product-details {{ post.class }}">
+			{% do action('woocommerce_before_single_product') %}
 
-        <div class="entry-images">
-            {% do action( 'woocommerce_before_single_product_summary' ) %}
+			<article itemscope itemtype="http://schema.org/Product" class="Single-product__details single-product-details {{ post.class }}">
 
-            <img src="{{ post.thumbnail.src( 'shop_single' ) }}" />
-        </div>
+				<div class="entry-images">
+					{% do action( 'woocommerce_before_single_product_summary' ) %}
 
-        <div class="summary entry-summary">
-            {% do action( 'woocommerce_single_product_summary' ) %}
-        </div>
+					<img src="{{ post.thumbnail.src( 'shop_single' ) }}" />
+				</div>
 
-        {% do action( 'woocommerce_after_single_product_summary' ) %}
+				<div class="summary entry-summary">
+					{% do action( 'woocommerce_single_product_summary' ) %}
+				</div>
 
-        <meta itemprop="url" content="{{ post.link }}" />
+				{% do action( 'woocommerce_after_single_product_summary' ) %}
 
-    </article>
+				<meta itemprop="url" content="{{ post.link }}" />
 
-    {% include 'partials/tease-product.html.twig' with { products: related_products } %}
+			</article>
 
-    {% do action( 'woocommerce_after_single_product' ) %}
+			{% include 'partials/tease-product.html.twig' with { products: related_products } %}
+
+			{% do action( 'woocommerce_after_single_product' ) %}
+
+			<footer class="Site-footer">
+				<div class="Site-footer__grid">
+					<div>
+						<ul class="Site-footer__items">
+							<li class="Site-footer__item"><h5>{{- pll__( 'Navigation' ) -}}</h5></li>
+							<li class="Site-footer__item"><a href="">Philosophie</a></li>
+							<li class="Site-footer__item"><a href="">Habitat</a></li>
+							<li class="Site-footer__item"><a href="">Archives</a></li>
+							<li class="Site-footer__item"><a href="">Objets</a></li>
+							<li class="Site-footer__item"><a href="">Boutique</a></li>
+							<li class="Site-footer__item"><a href="">À propos</a></li>
+						</ul>
+					</div>
+					<div>
+						<ul class="Site-footer__items">
+							<li class="Site-footer__item"><h5>{{- pll__( 'Informations' ) -}}</h5></li>
+							<li class="Site-footer__item"><a href="">Livraisons & retours</a></li>
+							<li class="Site-footer__item"><a href="">CGV</a></li>
+							<li class="Site-footer__item"><a href="">Mentions légales</a></li>
+							<li class="Site-footer__item"><a href="">Politique de confidentialité</a></li>
+						</ul>
+					</div>
+					<div>
+						<ul class="Site-footer__items">
+							<li class="Site-footer__item"><h5>{{- pll__( 'Téléchargements' ) -}}</h5></li>
+							<li class="Site-footer__item"><a href="">PressKit Habitat</a></li>
+							<li class="Site-footer__item"><a href="">PressKit Objets</a></li>
+							<li class="Site-footer__item"><a href="">PressKit Global</a></li>
+						</ul>
+					</div>
+					<div>
+						<ul class="Site-footer__items">
+							<li class="Site-footer__item"><h5>{{- pll__( 'Suivez- nous' ) -}}</h5></li>
+							<li class="Site-footer__item"><a href="">Instagram</a></li>
+							<li class="Site-footer__item"><a href="">Facebook</a></li>
+						</ul>
+					</div>
+					<div></div>
+					<div></div>
+				</div>
+			</footer>
+		</div>
+	</div>
+
 
 {% endblock  %}

@@ -31,7 +31,7 @@
 	&-wrapper {
 		@extend .d-flex, .flex-column, .flex-md-row, .flex-nowrap;
 
-		height: calc(100vh - 40px);
+		height: 100%;
 	}
 
 	/**
@@ -41,22 +41,34 @@
 	 */
 	&-content {
 		@include padding(top 20px right 20px bottom 20px left 20px);
-		@extend %position-relative;
+		@include margin(top 100px right 20px bottom 20px left 20px);
+		@extend %position-relative, %overflow-hidden;
 
 		border-radius: 12px;
 		box-shadow: 2px 2px 3px rgba(the_color(black), 0.2);
 
 		@include media-breakpoint-up(md) {
-			@include margin(left 80px);
-
-			@include size(100%);
+			@include margin(top 20px left 100px);
 		}
 
 		@include media-breakpoint-up(hd) {
-			@include padding(top 40px right 40px bottom 40px left 40px);
+			@include padding(top 40px right 60px bottom 40px left 60px);
 			@include margin(left 120px);
 
 			border-radius: 20px;
 		}
+	}
+}
+
+.vs-section {
+	@include fixed(top 0 bottom 0 left 0);
+}
+
+.vs-track {
+	@extend .d-flex, .flex-nowrap;
+	height: 100%;
+
+	& > * {
+		@extend .flex-shrink-0;
 	}
 }

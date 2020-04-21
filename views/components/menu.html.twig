@@ -1,0 +1,24 @@
+{#  #}
+<div id="menu" class="Menu page-block" data-node-type="MenuBlock">
+	<div class="Menu__primary js-menu-item">
+		<ul class="Menu__items" itemscope itemtype="http://schema.org/SiteNavigationElement">
+			{% for item in menus.main_primary.items %}
+				<li class="Menu__item">
+					<h1>
+						<a href="{{ item.url }}" class="Menu__link{{ item.current ? ' is-active' }}" itemprop="url"{{ item.target ? " target=\"#{item.target}\"" }}>{{- item.title -}}</a>
+					</h1>
+				</li>
+			{% endfor %}
+		</ul>
+	</div>
+	<div class="Menu__secondary js-menu-item">
+		<ul class="Menu__items" itemscope itemtype="http://schema.org/SiteNavigationElement">
+			{% for item in menus.main_secondary.items %}
+				<li class="Menu__item">
+					<a href="{{ item.url }}" class="Menu__link{{ item.current ? ' is-active' }}" itemprop="url"{{ item.target ? " target=\"#{item.target}\"" }}>{{- item.title -}}</a>
+				</li>
+			{% endfor %}
+		</ul>
+	</div>
+	<div class="js-menu-item">{{- pll__( 'Rencontrons nous :' ) }} <span class="font-family-title font-style-italic">contact@uni-habitat.fr</span></div>
+</div>

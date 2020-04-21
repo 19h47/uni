@@ -2,11 +2,11 @@
 /**
  *
  *
- * @package UNI
- * @subpackage UNI/Managers/WooCommerce
+ * @package uni
+ * @subpackage UNI/Plugins/WooCommerce
  */
 
-namespace UNI\Managers;
+namespace UNI\Plugins;
 
 /**
  * WordPress
