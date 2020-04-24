@@ -31,40 +31,42 @@ foreach ( WC()->cart->get_cart() as $cart_item_key => $cart_item ) {
 
 	if ( $_product && $_product->exists() && $cart_item['quantity'] > 0 && apply_filters( 'woocommerce_cart_item_visible', true, $cart_item, $cart_item_key ) ) {
 
+		$products_array['item_class'] = apply_filters( 'woocommerce_cart_item_class', 'cart_item', $cart_item, $cart_item_key );
+
 		// URL.
 		$product_permalink     = apply_filters( 'woocommerce_cart_item_permalink', $_product->is_visible() ? $_product->get_permalink( $cart_item ) : '', $cart_item, $cart_item_key );
 		$products_array['url'] = get_permalink( $product_id );
 
-		// Delete button.
-		$myarray['delete_permalink'] = esc_url( wc_get_cart_remove_url( $cart_item_key ) );
-		$products_array['delete_productid'] = esc_attr( $product_id );
-		$products_array['delete_sku'] = esc_attr( $_product->get_sku() );
+		// Remove.
+		$products_array['remove'] = apply_filters( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			'woocommerce_cart_item_remove_link',
+			sprintf(
+				'<a href="%s" class="remove" aria-label="%s" data-product_id="%s" data-product_sku="%s">&times;</a>',
+				esc_url( wc_get_cart_remove_url( $cart_item_key ) ),
+				esc_html__( 'Remove this item', 'woocommerce' ),
+				esc_attr( $product_id ),
+				esc_attr( $_product->get_sku() )
+			),
+			$cart_item_key
+		);
 
 		// Thumbnail.
-		$thumbnail = get_the_post_thumbnail_url( $product_id );
+		$thumbnail = apply_filters( 'woocommerce_cart_item_thumbnail', $_product->get_image(), $cart_item, $cart_item_key );
 
 		if ( ! $product_permalink ) {
 			$products_array['thumbnail'] = $thumbnail;
 		} else {
-			$products_array['thumbnail'] = $thumbnail;
+			$products_array['thumbnail'] = sprintf( '<a href="%s">%s</a>', esc_url( $product_permalink ), $thumbnail );
 		}
 
-		// Title.
+		// Name.
 		if ( ! $product_permalink ) {
-			$products_array['title'] = apply_filters(
-				'woocommerce_cart_item_name',
-				$_product->get_name(),
-				$cart_item,
-				$cart_item_key
-			);
+			$products_array['name'] = wp_kses_post( apply_filters( 'woocommerce_cart_item_name', $_product->get_name(), $cart_item, $cart_item_key ) . '&nbsp;' );
 		} else {
-			$products_array['title'] = apply_filters(
-				'woocommerce_cart_item_name',
-				$_product->get_name(),
-				$cart_item,
-				$cart_item_key
-			);
+			$products_array['name'] = wp_kses_post( apply_filters( 'woocommerce_cart_item_name', sprintf( '<a href="%s">%s</a>', esc_url( $product_permalink ), $_product->get_name() ), $cart_item, $cart_item_key ) );
 		}
+
+		do_action( 'woocommerce_after_cart_item_name', $cart_item, $cart_item_key );
 
 		// Backorder notification.
 		if ( $_product->backorders_require_notification() && $_product->is_on_backorder( $cart_item['quantity'] ) ) {
@@ -95,27 +97,19 @@ foreach ( WC()->cart->get_cart() as $cart_item_key => $cart_item ) {
 				false
 			);
 		}
-		$products_array['quantity'] = apply_filters(
-			'woocommerce_cart_item_quantity',
-			$product_quantity,
-			$cart_item_key,
-			$cart_item
-		);
 
-		// Total.
-		$products_array['total'] = apply_filters(
-			'woocommerce_cart_item_subtotal',
-			WC()->cart->get_product_subtotal( $_product, $cart_item['quantity'] ),
-			$cart_item,
-			$cart_item_key
-		);
+		$products_array['quantity'] = apply_filters( 'woocommerce_cart_item_quantity', $product_quantity, $cart_item_key, $cart_item );
+
+		// Subtotal.
+		$products_array['subtotal'] = apply_filters( 'woocommerce_cart_item_subtotal', WC()->cart->get_product_subtotal( $_product, $cart_item['quantity'] ), $cart_item, $cart_item_key );
 
 		// Merge with products.
 		$context['products'][] = $products_array;
 	}
 }
 
-$context['nonce']  = wp_nonce_field( 'woocommerce-cart' );
-$context['action'] = esc_url( wc_get_cart_url() );
+$context['coupon'] = wc_coupons_enabled();
+$context['nonce']  = wp_nonce_field( 'woocommerce-cart', 'woocommerce-cart-nonce' );
+$context['action'] = wc_get_cart_url();
 
 Timber::render( 'woo/cart/cart.html.twig', $context );

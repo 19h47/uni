@@ -54,7 +54,7 @@ class ProductPost extends Post {
 		$related_limit = wc_get_loop_prop( 'columns' );
 		$related_ids   = wc_get_related_products( $this->id, $related_limit );
 
-		return Timber::get_posts( $related_ids );
+		return Timber::get_posts( $related_ids, 'UNI\Models\ProductPost' );
 	}
 
 

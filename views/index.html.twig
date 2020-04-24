@@ -34,17 +34,17 @@
 	{% include 'components/menu.html.twig' %}
 
 
-	{# <div class="Site-content"> #}
+	{% do action( 'woocommerce_before_main_content' ) %}
 
-		{% block content %}
-			<div class="Site-content">
-				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, possimus quas provident molestiae nesciunt dolores suscipit unde eligendi, porro, fugiat modi deleniti culpa placeat quo maiores dolorem natus dolor vero.</p>
-				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni itaque quas blanditiis, possimus animi, adipisci doloremque iure nulla voluptatum quo sint repellat maxime quis quisquam odit perspiciatis optio molestias provident.</p>
-				<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corporis, est eum. Rem labore sint perferendis expedita nobis, eveniet quisquam veritatis sapiente, accusantium sunt amet totam possimus soluta, atque ipsum recusandae.</p>
-			</div>
-		{% endblock %}
+	{% block content %}
+		<div class="Site-content">
+			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, possimus quas provident molestiae nesciunt dolores suscipit unde eligendi, porro, fugiat modi deleniti culpa placeat quo maiores dolorem natus dolor vero.</p>
+			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni itaque quas blanditiis, possimus animi, adipisci doloremque iure nulla voluptatum quo sint repellat maxime quis quisquam odit perspiciatis optio molestias provident.</p>
+			<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corporis, est eum. Rem labore sint perferendis expedita nobis, eveniet quisquam veritatis sapiente, accusantium sunt amet totam possimus soluta, atque ipsum recusandae.</p>
+		</div>
+	{% endblock %}
 
-	{# </div> #}
+	{% do action( 'woocommerce_after_main_content' ) %}
 
 </main>
 

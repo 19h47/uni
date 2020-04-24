@@ -7,7 +7,8 @@
 
 @import 'base/fonts';
 
-@import '~ress/ress', '~flickity/css/flickity';
+@import '~ress/ress';
+@import '~flickity/css/flickity';
 
 // Functions
 @import '~@19h47/architecture/src/stylesheets/abstracts/functions';
@@ -27,21 +28,38 @@
 @import '~@19h47/architecture/src/stylesheets/abstracts/placeholders';
 
 // Base stuff
-@import 'base/base', 'base/typographies';
+@import 'base/base';
+@import 'base/typographies';
 
 // Layout
-@import 'layout/site', 'layout/header', 'layout/footer', 'layout/carousel', 'layout/product';
+@import 'layout/site';
+@import 'layout/header';
+@import 'layout/footer';
+@import 'layout/carousel';
+@import 'layout/product';
+@import 'layout/products';
 
 // Components
-@import 'components/logo', 'components/menu', 'components/form', 'components/button',
-	'components/input', 'components/radio', 'components/checkbox', 'components/textarea',
-	'components/mini-cart', 'components/languages';
+@import 'components/logo';
+@import 'components/menu';
+@import 'components/form';
+@import 'components/button';
+@import 'components/input';
+@import 'components/radio';
+@import 'components/checkbox';
+@import 'components/textarea';
+@import 'components/mini-cart';
+@import 'components/languages';
+@import 'components/heading';
 
 // Pages
-@import 'pages/page', 'pages/front-page', 'pages/single-product';
+@import 'pages/page';
+@import 'pages/front-page';
+@import 'pages/single-product';
 
 // Utilities.
-@import 'vendors/architecture-variables', '~@19h47/architecture/src/stylesheets/utilities/colors',
+@import 'vendors/architecture-variables';
+@import '~@19h47/architecture/src/stylesheets/utilities/colors',
 	'~@19h47/architecture/src/stylesheets/utilities/cursors',
 	// 	'~@19h47/architecture/src/stylesheets/utilities/displays',
 		'~@19h47/architecture/src/stylesheets/utilities/floats',

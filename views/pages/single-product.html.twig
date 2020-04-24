@@ -4,8 +4,7 @@
 
 	<div class="vs-section">
 		<div class="vs-track">
-
-			{% do action('woocommerce_before_single_product') %}
+			{% do action( 'woocommerce_before_single_product' ) %}
 
 			<article id="product-{{ post.id }}" itemscope itemtype="http://schema.org/Product" class="Product {{ post.class }}">
 				<meta itemprop="url" content="{{ post.link }}" />
@@ -13,6 +12,9 @@
 				{% do action( 'woocommerce_before_single_product_summary' ) %}
 
 				<div class="Product__summary summary entry-summary">
+
+					{% do action( 'woocommerce_single_product_summary' ) %}
+
 					<div class="Product__summary__grid">
 
 						<div class="Product__header">
@@ -23,7 +25,7 @@
 						</div>
 
 						<div class="Product__short-description woocommerce-product-details__short-description">
-							{{- post.post_excerpt | nl2br -}}
+							{{- post.post_excerpt | apply_filters( 'woocommerce_short_description', post.post_excerpt ) -}}
 							{{- post.terms( 'product_cat' ) | map( c => "<div class=\"Product__category-description\"><span>#{c.name}</span><br>#{c.description}</div>" ) | join( ', ' ) -}}
 						</div>
 
@@ -43,9 +45,7 @@
 							{% do action( 'woocommerce_product_meta_end' ) %}
 						</div>
 
-						<div>
-							{% include 'woo/single-product/add-to-cart/simple.html.twig' %}
-						</div>
+						<div>{% include 'woo/single-product/add-to-cart/simple.html.twig' %}</div>
 
 					</div>
 
@@ -55,9 +55,34 @@
 
 			</article>
 
+			{% if post.related_products %}
+				<section class="Products related products">
+					<div class="Heading">
+						<h2>{{- pll__( 'Dans la même collection' ) -}}</h2>
+					</div>
+					<ul class="Products__items">
+						{% for product in post.related_products %}
+							<li class="Products__item">
+
+								<header class="Products__item__header">
+									<h3>{{- product.title -}}</h3>
+								</header>
+
+								<a class="Products__item__thumbnail" href="{{ product.link }}">
+									<img src="{{ Image( product.thumbnail ).src }}" alt="">
+								</a>
+							</li>
+						{% endfor %}
+					</ul>
+				</section>
+			{% endif %}
+
 			{% do action( 'woocommerce_after_single_product' ) %}
 
-			{% include 'partials/tease-product.html.twig' with { products: post.related_products } %}
+			<div class="Heading color-gray-very-light-02">
+				<h2><a href="{{ site.link }}">{{- pll__( 'Retour à la boutique' ) -}}</a></h2>
+			</div>
+
 
 			<footer class="Site-footer">
 				<div class="Site-footer__grid">
@@ -100,8 +125,9 @@
 					<div></div>
 				</div>
 			</footer>
+
+			<div id="modal-{{ post.id }}" class="page-block" data-node-type="ModalBlock">YO</div>
 		</div>
 	</div>
-
 
 {% endblock  %}
