@@ -1,4 +1,5 @@
 import { AbstractBlock } from 'starting-blocks';
+import $ from 'jquery';
 
 import { disableScroll, enableScroll } from 'utils/scroll';
 import { elements } from 'scripts/config';
@@ -27,7 +28,7 @@ export default class ModalBlock extends AbstractBlock {
 	init() {
 		super.init();
 
-		this.buttons = document.querySelectorAll('.js-modal-button') || [];
+		this.buttons = [...this.rootElement.querySelectorAll('.js-modal-button')] || [];
 	}
 
 	/**
@@ -38,7 +39,7 @@ export default class ModalBlock extends AbstractBlock {
 		super.initEvents();
 
 		// On click
-		[...this.buttons].forEach(button => button.addEventListener('click', this.toggle));
+		this.buttons.forEach(button => button.addEventListener('click', this.toggle));
 
 		// On esc key
 		document.onkeydown = event => {
@@ -47,7 +48,7 @@ export default class ModalBlock extends AbstractBlock {
 			}
 		};
 
-		document.body.addEventListener('added_to_cart', event => {
+		$(document.body).on('added_to_cart', event => {
 			this.toggle();
 			console.log(event);
 		});

@@ -26,7 +26,7 @@
 
 		<{{ ( cart.is_empty ? 'p' : "a href=\"#{cart_url}\"" ) | raw }} class="Mini-cart js-total">
 			<span class="js-cart-contents-count">({{- cart.get_cart_contents_count() -}})</span>
-			{% include 'svg/use.html.twig' with { icon: 'cart' } %}
+			{% include 'svg/use.html.twig' with { icon: 'cart' } only %}
 		</{{ ( cart.is_empty ? 'p' : 'a' ) | raw }}>
 
 	</header>

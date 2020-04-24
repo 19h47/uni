@@ -2,6 +2,30 @@
 
 {% block content %}
 
+	<div id="modal-{{ post.id }}" class="Modal page-block" data-node-type="ModalBlock">
+		<div class="Modal__wrapper">
+			<button class="Modal__close js-modal-button" type="button">
+				{% include 'svg/use.html.twig' with { icon: 'times', classes: [ 'Pointer-events-none' ] } only %}
+			</button>
+			<p class="Modal__title">{{- pll__( 'Cet objet a été ajouté à votre panier :' ) -}}</p>
+			<div class="Modal__body">
+				<p class="Modal__product-title">{{- post.title -}}</p>
+				<img class="Modal__thumbnail" src="{{ Image( post.thumbnail ).src }}" alt="{{ Image( post.thumbnail ).alt }}" width="{{ Image( post.thumbnail ).width }}" height="{{ Image( post.thumbnail ).height }}">
+				<p class="Modal__product-price">{{- fn( 'wc_price', post.product.price ) -}}</p>
+			</div>
+			<footer class="Modal__footer">
+				<button type="submit" class="Modal__footer__button">
+					{%- include 'svg/use.html.twig' with { icon: 'times', classes: [ 'Pointer-events-none' ] } only -%}
+					{{- pll__( 'Continuer vos achats' ) -}}
+				</button>
+				<a class="Modal__footer__button" href="{{ cart_url }}">
+					{%- include 'svg/use.html.twig' with { icon: 'cart' } only -%}
+					{{- pll__( 'Accéder à votre panier' ) -}}
+				</a>
+			</footer>
+		</div>
+	</div>
+
 	<div class="vs-section">
 		<div class="vs-track">
 			{% do action( 'woocommerce_before_single_product' ) %}
@@ -125,8 +149,6 @@
 					<div></div>
 				</div>
 			</footer>
-
-			<div id="modal-{{ post.id }}" class="page-block d-none" data-node-type="ModalBlock">YO</div>
 		</div>
 	</div>
 
