@@ -26,7 +26,7 @@ export default class CarouselBlock extends AbstractBlock {
 		this.carousel = false;
 		this.options = {};
 
-		this.initPlugins();
+		return this.initPlugins();
 	}
 
 	initPlugins() {

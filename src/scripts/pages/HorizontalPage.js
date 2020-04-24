@@ -17,8 +17,6 @@ export default class HorizontalPage extends AbstractPage {
 
 		this.scroll = null;
 		this.targetY = 0;
-
-		this.onResize = this.onResize.bind(this);
 	}
 
 	async init() {
@@ -53,12 +51,6 @@ export default class HorizontalPage extends AbstractPage {
 				this.moveTo(`${this.targetY}px`);
 			});
 		});
-
-		this.rootElement.addEventListener('resize', this.onResize);
-
-		const resizeObserver = new ResizeObserver(() => this.onResize());
-
-		resizeObserver.observe(this.$track);
 	}
 
 	moveTo(x) {
@@ -66,7 +58,8 @@ export default class HorizontalPage extends AbstractPage {
 	}
 
 	onResize() {
-		console.log('HorizontalPage.onResize');
+		super.onResize();
+
 		this.width = this.$track.scrollWidth;
 
 		this.$view.style.setProperty('width', `${window.innerWidth}px`);

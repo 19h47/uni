@@ -47,14 +47,17 @@ export default class ModalBlock extends AbstractBlock {
 			}
 		};
 
-		document.addEventListener('added_to_cart', () => this.toggle);
+		document.body.addEventListener('added_to_cart', event => {
+			this.toggle();
+			console.log(event);
+		});
 	}
 
 	/**
 	 * Modal.toggle
 	 */
 	toggle() {
-		// console.info('Modal.toggle');
+		console.info('Modal.toggle');
 		if (this.isOpen) return this.close();
 
 		return this.open();

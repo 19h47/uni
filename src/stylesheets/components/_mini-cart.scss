@@ -22,5 +22,12 @@
 	span {
 		@include absolute(bottom 100% left 100%);
 		@extend .d-block;
+
+		line-height: 1.2;
+		font-size: #{(60 * 25) / 100}px;
+
+		@include media-breakpoint-up(hd) {
+			font-size: #{(25/30)}em;
+		}
 	}
 }

@@ -41,6 +41,9 @@ module.exports = {
 	output: {
 		publicPath: process.env.PUBLIC_PATH,
 	},
+	externals: {
+		jquery: 'jQuery',
+	},
 	resolve: {
 		alias: {
 			'@': resolve('src'),
