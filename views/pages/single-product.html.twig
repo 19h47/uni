@@ -7,27 +7,57 @@
 
 			{% do action('woocommerce_before_single_product') %}
 
-			<article itemscope itemtype="http://schema.org/Product" class="Single-product__details single-product-details {{ post.class }}">
+			<article id="product-{{ post.id }}" itemscope itemtype="http://schema.org/Product" class="Product {{ post.class }}">
+				<meta itemprop="url" content="{{ post.link }}" />
 
-				<div class="entry-images">
-					{% do action( 'woocommerce_before_single_product_summary' ) %}
+				{% do action( 'woocommerce_before_single_product_summary' ) %}
 
-					<img src="{{ post.thumbnail.src( 'shop_single' ) }}" />
-				</div>
+				<div class="Product__summary summary entry-summary">
+					<div class="Product__summary__grid">
 
-				<div class="summary entry-summary">
-					{% do action( 'woocommerce_single_product_summary' ) %}
+						<div class="Product__header">
+							{{ post.terms( 'product_cat' ) | map( c => "<a href=\"#{c.link}\">#{c.name}</a>") | join( ', ' ) }}
+							<h1 class="Product__title product_title entry-title margin-0">
+								{{- post.title -}}
+							</h1>
+						</div>
+
+						<div class="Product__short-description woocommerce-product-details__short-description">
+							{{- post.post_excerpt | nl2br -}}
+							{{- post.terms( 'product_cat' ) | map( c => "<div class=\"Product__category-description\"><span>#{c.name}</span><br>#{c.description}</div>" ) | join( ', ' ) -}}
+						</div>
+
+						<div>
+							<ul class="Product__attributes">
+								{% for attribute in post.attributes %}
+									<li>
+										<div class="Product__attributes__name">{{- attribute.get_name() -}}</div>
+										<div class="Product__attributes__options">{{- attribute.get_options() | join( ' ' ) | replace( { 'mm' : '<span>mm</span>' } ) -}}</div>
+									</li>
+								{% endfor %}
+							</ul>
+						</div>
+
+						<div class="product_meta">
+							{% do action( 'woocommerce_product_meta_start' ) %}
+							{% do action( 'woocommerce_product_meta_end' ) %}
+						</div>
+
+						<div>
+							{% include 'woo/single-product/add-to-cart/simple.html.twig' %}
+						</div>
+
+					</div>
+
 				</div>
 
 				{% do action( 'woocommerce_after_single_product_summary' ) %}
 
-				<meta itemprop="url" content="{{ post.link }}" />
-
 			</article>
 
-			{% include 'partials/tease-product.html.twig' with { products: related_products } %}
-
 			{% do action( 'woocommerce_after_single_product' ) %}
+
+			{% include 'partials/tease-product.html.twig' with { products: post.related_products } %}
 
 			<footer class="Site-footer">
 				<div class="Site-footer__grid">

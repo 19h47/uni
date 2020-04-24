@@ -35,7 +35,6 @@ export default class HorizontalPage extends AbstractPage {
 	}
 
 	initPlugins() {
-		console.log(this.rootElement, ' All images are loaded');
 		this.scroll = new VirtualScroll();
 	}
 
@@ -48,15 +47,18 @@ export default class HorizontalPage extends AbstractPage {
 
 				this.targetY += deltaY;
 
-				console.log(this.targetY);
 				this.targetY = Math.max((this.width - window.innerWidth) * -1, this.targetY);
 				this.targetY = Math.min(0, this.targetY);
 
 				this.moveTo(`${this.targetY}px`);
 			});
-
-			window.addEventListener('resize', this.onResize);
 		});
+
+		this.rootElement.addEventListener('resize', this.onResize);
+
+		const resizeObserver = new ResizeObserver(() => this.onResize());
+
+		resizeObserver.observe(this.$track);
 	}
 
 	moveTo(x) {
@@ -64,6 +66,7 @@ export default class HorizontalPage extends AbstractPage {
 	}
 
 	onResize() {
+		console.log('HorizontalPage.onResize');
 		this.width = this.$track.scrollWidth;
 
 		this.$view.style.setProperty('width', `${window.innerWidth}px`);

@@ -28,6 +28,7 @@
 		grid-row-gap: 0px;
 
 		max-height: 100%;
+		height: 100%;
 
 		div:nth-child(1) {
 			grid-area: 2 / 3 / 5 / 4;
@@ -56,26 +57,35 @@
 	&__item {
 		@include margin(top 1em bottom 1em);
 
-		h5 {
-			@extend %font-family-body, %font-weight-regular;
-			@include margin(top 0);
-
-			font-size: 18px;
-			line-height: 30px;
-		}
-
-		a {
-			@extend %font-family-title;
-
-			font-size: 15px;
-			line-height: 18px;
-		}
-
 		&:first-child {
 			@include margin(top 0 bottom 2em);
 		}
 		&:last-child {
 			@include margin(bottom 0);
+		}
+
+		line-height: 1.2;
+		font-size: #{(60 * 15) / 100}px;
+
+		@include media-breakpoint-up(hd) {
+			font-size: #{(15/30)}em;
+		}
+
+		h5 {
+			@extend %font-family-body, %font-weight-regular;
+			@include margin(top 0);
+
+			line-height: 1.2;
+			font-size: #{(60 * 18) / 100}px;
+
+			@include media-breakpoint-up(hd) {
+				font-size: 1em;
+			}
+		}
+
+		a {
+			@extend .d-inline-block;
+			@extend %font-family-title;
 		}
 	}
 }

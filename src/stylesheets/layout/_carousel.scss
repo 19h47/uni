@@ -5,15 +5,48 @@
  * @package DLAP
  */
 .Carousel {
-	@extend %overflow-hidden;
-
 	.flickity-viewport {
-		overflow: visible;
+		height: 100%;
 	}
 
 	// .Carousel__items
-	&__items {}
+	&__items {
+		@extend %overflow-hidden;
+		@include size(100%);
+
+		border-radius: 12px;
+
+		@include media-breakpoint-up(hd) {
+			border-radius: 20px;
+		}
+	}
 
 	// .Carousel__item
-	&__item {}
+	&__item {
+	}
+
+	&__navigation {
+		@include margin(top $grid-gutter-width);
+		@extend .d-flex, .justify-content-between, .align-items-center;
+
+		button {
+			@extend .d-flex, .align-items-center;
+			@include size(14px, 12px);
+
+			svg {
+				@include size(100%);
+			}
+		}
+	}
+
+	&__current {
+		@include letter-spacing(50);
+
+		line-height: 1.2;
+		font-size: #{(60 * 20) / 100}px;
+
+		@include media-breakpoint-up(hd) {
+			font-size: #{(20/30)}em;
+		}
+	}
 }

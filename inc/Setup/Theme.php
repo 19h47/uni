@@ -194,7 +194,7 @@ class Theme {
 	 */
 	public function add_to_context( array $context ) : array {
 		$context['cart']     = WC()->cart;
-		$context['cart_url'] = wc_get_page_permalink( 'cart' );
+		$context['cart_url'] = wc_get_cart_url();
 
 		return $context;
 	}

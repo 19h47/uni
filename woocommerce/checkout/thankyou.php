@@ -1,8 +1,8 @@
 <?php
 /**
- * Thankyou page
+ * Thank you page
  *
- * @package UNI
+ * @package uni
  */
 
 use Timber\{ Timber, Post };
@@ -44,4 +44,4 @@ if ( $order ) {
 	$context['order_id']       = $order->get_id();
 }
 
-Timber::render( 'woo/thankyou.html.twig', $context );
+Timber::render( 'woo/checkout/thankyou.html.twig', $context );

@@ -12,16 +12,15 @@
 
 	svg {
 		@extend .d-block;
-		@include size(22.2px);
+		@include size(#{(60 * 37) / 100}px);
 
 		@include media-breakpoint-up(hd) {
 			@include size(37px);
 		}
 	}
 
-	&::after {
+	span {
 		@include absolute(bottom 100% left 100%);
 		@extend .d-block;
-		content: '(' attr(data-cart-count) ')';
 	}
 }

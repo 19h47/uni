@@ -7,7 +7,7 @@
 
 @import 'base/fonts';
 
-@import '~ress/ress';
+@import '~ress/ress', '~flickity/css/flickity';
 
 // Functions
 @import '~@19h47/architecture/src/stylesheets/abstracts/functions';
@@ -30,7 +30,7 @@
 @import 'base/base', 'base/typographies';
 
 // Layout
-@import 'layout/site', 'layout/header', 'layout/footer', 'layout/carousel';
+@import 'layout/site', 'layout/header', 'layout/footer', 'layout/carousel', 'layout/product';
 
 // Components
 @import 'components/logo', 'components/menu', 'components/form', 'components/button',

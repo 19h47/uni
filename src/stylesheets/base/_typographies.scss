@@ -6,8 +6,8 @@
 
 h1,
 .h1 {
-	@extend %font-family-title;
-	@include letter-spacing(50);
+	@extend %font-family-title, %font-weight-regular;
+	@include letter-spacing(100);
 
 	font-size: 2.5em;
 	line-height: 1.2;

@@ -2,8 +2,7 @@
 /**
  * Template Name: Cart
  *
- * @package WordPress
- * @subpackage UNI
+ * @package uni
  */
 
 use Timber\{ Timber, Post };
@@ -12,4 +11,4 @@ $context = Timber::get_context();
 
 $context['post'] = new Post();
 
-Timber::render( 'pages/page-cart.html.twig', $context );
+Timber::render( 'pages/cart-page.html.twig', $context );

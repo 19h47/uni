@@ -1,0 +1,27 @@
+{#
+
+Simple product add to cart
+
+#}
+
+{# {{ post.stock_html }} #}
+
+{% do action( 'woocommerce_before_add_to_cart_form' ) %}
+
+<form class="cart" action="{{ post.add_to_cart_form_action }}" method="post" enctype='multipart/form-data'>
+	{% do action( 'woocommerce_before_add_to_cart_button' ) %}
+	{% do action( 'woocommerce_before_add_to_cart_quantity' ) %}
+
+	{# {{ post.quantity_input }} #}
+
+	{% do action( 'woocommerce_after_add_to_cart_quantity' ) %}
+
+	<button type="submit" name="add-to-cart" value="{{ post.product.id }}" class="Product__add-to-cart-button single_add_to_cart_button button alt test">
+		{% include 'svg/use.html.twig' with { icon: 'cart' } %}
+		{{- post.add_to_cart_text -}}
+	</button>
+
+	{% do action( 'woocommerce_after_add_to_cart_button' ) %}
+</form>
+
+{% do action( 'woocommerce_after_add_to_cart_form' ) %}
