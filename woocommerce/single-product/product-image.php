@@ -28,7 +28,7 @@ $wrapper_classes = apply_filters(
 
 $context['wrapper_class'] = esc_attr( implode( ' ', array_map( 'sanitize_html_class', $wrapper_classes ) ) );
 
-
 $context['image_ids'] = $product->get_gallery_image_ids();
+
 
 Timber::render( 'woocommerce/single-product/product-image.html.twig', $context );

@@ -19,12 +19,31 @@
 		@include media-breakpoint-up(hd) {
 			border-radius: 20px;
 		}
-	}
 
-	// .Carousel__item
-	&__item {
-	}
+		.woocommerce-product-gallery__image:first-child {
+			@extend %overflow-hidden;
 
+			border-top-left-radius: 12px;
+			border-bottom-left-radius: 12px;
+
+			@include media-breakpoint-up(hd) {
+				border-top-left-radius: 20px;
+				border-bottom-left-radius: 20px;
+			}
+		}
+
+		.woocommerce-product-gallery__image:last-child {
+			@extend %overflow-hidden;
+
+			border-top-right-radius: 12px;
+			border-bottom-right-radius: 12px;
+
+			@include media-breakpoint-up(hd) {
+				border-top-right-radius: 20px;
+				border-bottom-right-radius: 20px;
+			}
+		}
+	}
 	&__navigation {
 		@include margin(top $grid-gutter-width);
 		@extend .d-flex, .justify-content-between, .align-items-center;
