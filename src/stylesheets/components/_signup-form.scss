@@ -1,0 +1,80 @@
+/**
+ * Signup form
+ *
+ *
+ *
+ *
+ *
+ */
+.Signup-form {
+	color: the_color(gray, very-dark);
+
+	// .Signup__label
+	&__label {
+		@extend .d-block;
+		@include margin(bottom 2em);
+
+		line-height: (30/18);
+		font-size: #{(60 * 18) / 100}px;
+
+		@include media-breakpoint-up(hd) {
+			font-size: #{(18/30)}em;
+		}
+	}
+
+	// .Signup__group
+	&__group {
+		@extend .d-flex;
+		@extend %position-relative;
+
+		line-height: 1.2;
+		font-size: #{(60 * 20) / 100}px;
+		border: 1px solid the_color(gray, very-dark);
+		border-radius: 5px;
+
+		@include media-breakpoint-up(hd) {
+			font-size: #{(20/30)}em;
+		}
+	}
+
+	[type='email'] {
+		@include padding(top 10px right 10px bottom 10px left 10px);
+
+		@include reset-placeholder(the_color(gray, very-light-03));
+
+		width: percentage(400 / 600);
+		border-radius: 5px 0 0 5px;
+
+		&:focus {
+			outline: none;
+			box-shadow: 0 0 0 0.2rem rgba(the_color(gray, very-light-03), 0.5);
+		}
+	}
+
+	[type='submit'] {
+		@include padding(top 10px right 10px bottom 10px left 10px);
+
+		border-left: 1px solid the_color(gray, very-dark);
+		border-radius: 0 5px 5px 0;
+		width: percentage(200 / 600);
+
+		&:focus {
+			outline: none;
+			box-shadow: 0 0 0 0.2rem rgba(the_color(gray, very-light-03), 0.5);
+		}
+	}
+
+	.error-message {
+		@include padding(top 10px bottom 10px);
+		@include absolute(top 100% right 0 left 0);
+
+		color: the_color(red, bright);
+	}
+
+	.success-message {
+		@include padding(top 10px bottom 10px);
+		@include absolute(top 100% right 0 left 0);
+
+		color: the_color(green, dark-lime);
+	}
+}

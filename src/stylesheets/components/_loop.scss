@@ -1,0 +1,85 @@
+/**
+ * Loop
+ *
+ *
+ *
+ *
+ *
+ */
+.Loop {
+	@extend .d-flex;
+	@include size(#{(800 * 100) / $prototype-width-unitless}vw, 100%);
+
+	&__header {
+		@extend .d-flex, .flex-row, .justify-content-between, .align-items-end;
+		@include size(percentage(200/800), 100%);
+		@include padding(
+			top calc(#{(80 * 100) / $prototype-width-unitless}vh + 20px) right #{(20 * 100) / $prototype-width-unitless}vw
+				bottom calc(#{(80 * 100) / $prototype-width-unitless}vh + 20px) left #{(20 * 100) /
+				$prototype-width-unitless}vw
+		);
+
+		writing-mode: vertical-rl;
+		transform: rotate(180deg);
+		transform-origin: center;
+		min-height: 100%;
+	}
+
+	&__product-title {
+		@include margin(top 0 bottom 0);
+
+		line-height: 1.2;
+		font-size: #{(60 * 25) / 100}px;
+
+		@include media-breakpoint-up(hd) {
+			font-size: #{(25/30)}em;
+		}
+	}
+
+	&__price {
+		line-height: 1.2;
+		font-size: #{(60 * 25) / 100}px;
+
+		@include media-breakpoint-up(hd) {
+			font-size: #{(25/30)}em;
+		}
+	}
+
+	&__thumbnail {
+		@extend %position-relative;
+		@extend .d-block;
+		@include size(percentage(600/800), 100%);
+
+		background-color: the_color(gray, very-light-01);
+
+		&:hover {
+			img:nth-child(2) {
+				@include autoAlpha(1);
+			}
+		}
+
+		img {
+			@extend .d-block;
+			@include size(100%);
+		}
+
+		img:nth-child(1) {
+			@extend %position-relative;
+
+			object-position: center;
+			object-fit: contain;
+			z-index: 1;
+		}
+
+		img:nth-child(2) {
+			@include absolute(top 0 right 0 bottom 0 left 0);
+			@include autoAlpha(0);
+
+			object-position: center;
+			object-fit: cover;
+			transition: opacity 0.7s map-get($easings, ease-out-expo),
+				visibility 0.7s map-get($easings, ease-out-expo);
+			z-index: 2;
+		}
+	}
+}

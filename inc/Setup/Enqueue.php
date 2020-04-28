@@ -60,10 +60,12 @@ class Enqueue {
 				'api_url'                => home_url( 'wp-json' ),
 				'current_url'            => get_permalink(),
 				'nonce'                  => wp_create_nonce( 'security' ),
-				'popupContent'           => nl2br( get_option( 'address' ) ),
-				'coordinates'            => array(
-					'latitude'  => get_option( 'latitude' ),
-					'longitude' => get_option( 'longitude' ),
+				'messages'               => array(
+					'value_missing' => _x( 'Please fill out this field.', 'messages', 'uni' ),
+					'type_mismatch' => array(
+						'email' => _x( 'Please enter an email address.', 'messages', 'uni' ),
+						'url'   => _x( 'Please enter a URL.', 'messages', 'uni' ),
+					),
 				),
 			)
 		);

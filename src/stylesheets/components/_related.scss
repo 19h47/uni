@@ -1,0 +1,12 @@
+/**
+ * Related
+ *
+ *
+ *
+ *
+ *
+ */
+.Related {
+	@extend .d-flex;
+	@include margin(right #{(400 * 100) / $prototype-width-unitless}vw);
+}

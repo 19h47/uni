@@ -5,38 +5,55 @@
 	<div id="modal-{{ post.id }}" class="Modal page-block" data-node-type="ModalBlock">
 		<div class="Modal__wrapper">
 			<button class="Modal__close js-modal-button" type="button">
-				{% include 'svg/use.html.twig' with { icon: 'times', classes: [ 'Pointer-events-none' ] } only %}
+				{%- include 'svg/use.html.twig' with { icon: 'times', classes: [ 'Pointer-events-none' ] } only -%}
 			</button>
-			<p class="Modal__title">{{- pll__( 'Cet objet a été ajouté à votre panier :' ) -}}</p>
+			<p class="Modal__title">{{- __( 'This item has been added to your basket:', 'uni' ) -}}</p>
 			<div class="Modal__body">
 				<p class="Modal__product-title">{{- post.title -}}</p>
 				<img class="Modal__thumbnail" src="{{ Image( post.thumbnail ).src }}" alt="{{ Image( post.thumbnail ).alt }}" width="{{ Image( post.thumbnail ).width }}" height="{{ Image( post.thumbnail ).height }}">
-				<p class="Modal__product-price">{{- fn( 'wc_price', post.product.price ) -}}</p>
+				<p class="Modal__product-price">{{- fn( 'wc_price', post.product.get_price() ) -}}</p>
 			</div>
 			<footer class="Modal__footer">
 				<button type="submit" class="Modal__footer__button">
 					{%- include 'svg/use.html.twig' with { icon: 'times', classes: [ 'Pointer-events-none' ] } only -%}
-					{{- pll__( 'Continuer vos achats' ) -}}
+					{{- __( 'Continue your purchases', 'uni' ) -}}
 				</button>
 				<a class="Modal__footer__button" href="{{ cart_url }}">
 					{%- include 'svg/use.html.twig' with { icon: 'cart' } only -%}
-					{{- pll__( 'Accéder à votre panier' ) -}}
+					{{- __( 'Access your basket', 'uni' ) -}}
 				</a>
 			</footer>
 		</div>
 	</div>
 
-	<div class="vs-section">
-		<div class="vs-track">
+	<div class="Horizontal-page__section">
+		<div class="Horizontal-page__track js-track">
+
+			{#
+ 				Hook: woocommerce_before_single_product.
+
+ 				@hooked wc_print_notices - 10
+			 #}
 			{% do action( 'woocommerce_before_single_product' ) %}
 
 			<article id="product-{{ post.id }}" itemscope itemtype="http://schema.org/Product" class="Product {{ post.class }}">
 				<meta itemprop="url" content="{{ post.link }}" />
 
+				{#
+					Hook: woocommerce_before_single_product_summary.
+
+	 				@hooked woocommerce_show_product_sale_flash - 10
+					@hooked woocommerce_show_product_images - 20
+				 #}
 				{% do action( 'woocommerce_before_single_product_summary' ) %}
 
 				<div class="Product__summary summary entry-summary">
 
+					{#
+		 				Hook: woocommerce_single_product_summary.
+
+						@hooked WC_Structured_Data::generate_product_data() - 60
+					 #}
 					{% do action( 'woocommerce_single_product_summary' ) %}
 
 					<div class="Product__summary__grid">
@@ -49,7 +66,12 @@
 						</div>
 
 						<div class="Product__short-description woocommerce-product-details__short-description">
-							{{- post.post_excerpt | apply_filters( 'woocommerce_short_description', post.post_excerpt ) -}}
+							{#
+								Hook: woocommerce_single_product_content
+
+								@hooked UNI\Plugins\WooCommerce::template_single_product_content - 20
+							 #}
+							{% do action( 'woocommerce_single_product_content' ) %}
 							{{- post.terms( 'product_cat' ) | map( c => "<div class=\"Product__category-description\"><span>#{c.name}</span><br>#{c.description}</div>" ) | join( ', ' ) -}}
 						</div>
 
@@ -64,91 +86,49 @@
 							</ul>
 						</div>
 
-						<div class="product_meta">
-							{% do action( 'woocommerce_product_meta_start' ) %}
-							{% do action( 'woocommerce_product_meta_end' ) %}
+						<div>
+							{#
+								Hook: woocommerce_single_product_meta
+
+								@hooked woocommerce_template_single_meta 40
+							 #}
+							{% do action( 'woocommerce_single_product_meta' ) %}
 						</div>
 
-						<div>{% include 'woo/single-product/add-to-cart/simple.html.twig' %}</div>
+						<div>{% include 'woocommerce/single-product/add-to-cart/simple.html.twig' %}</div>
 
 					</div>
 
 				</div>
+				{#
+					Hook: woocommerce_after_single_product_summary.
 
+					@hooked woocommerce_upsell_display - 15
+				 #}
 				{% do action( 'woocommerce_after_single_product_summary' ) %}
 
 			</article>
 
 			{% if post.related_products %}
-				<section class="Products related products">
-					<div class="Heading">
-						<h2>{{- pll__( 'Dans la même collection' ) -}}</h2>
-					</div>
-					<ul class="Products__items">
+				<section class="Related related products">
+					{% include 'components/heading.html.twig' with { title: fn( 'apply_filters', 'woocommerce_product_related_products_heading', __( 'In the same collection', 'uni' ) )  } only %}
+					<ul class="Products">
 						{% for product in post.related_products %}
-							<li class="Products__item">
-
-								<header class="Products__item__header">
-									<h3>{{- product.title -}}</h3>
-								</header>
-
-								<a class="Products__item__thumbnail" href="{{ product.link }}">
-									<img src="{{ Image( product.thumbnail ).src }}" alt="">
-								</a>
-							</li>
+							{% include 'partials/product-content.html.twig' %}
 						{% endfor %}
 					</ul>
 				</section>
 			{% endif %}
 
+			{#
+				Hook: woocommerce_after_single_product
+			 #}
 			{% do action( 'woocommerce_after_single_product' ) %}
 
-			<div class="Heading color-gray-very-light-02">
-				<h2><a href="{{ site.link }}">{{- pll__( 'Retour à la boutique' ) -}}</a></h2>
-			</div>
+			{% include 'components/heading.html.twig' with { classes: [ 'color-gray-very-light-02' ], link: shop_url, title: __( 'Return to shop', 'uni' )  } only %}
 
+			{% include 'components/footer.html.twig' %}
 
-			<footer class="Site-footer">
-				<div class="Site-footer__grid">
-					<div>
-						<ul class="Site-footer__items">
-							<li class="Site-footer__item"><h5>{{- pll__( 'Navigation' ) -}}</h5></li>
-							<li class="Site-footer__item"><a href="">Philosophie</a></li>
-							<li class="Site-footer__item"><a href="">Habitat</a></li>
-							<li class="Site-footer__item"><a href="">Archives</a></li>
-							<li class="Site-footer__item"><a href="">Objets</a></li>
-							<li class="Site-footer__item"><a href="">Boutique</a></li>
-							<li class="Site-footer__item"><a href="">À propos</a></li>
-						</ul>
-					</div>
-					<div>
-						<ul class="Site-footer__items">
-							<li class="Site-footer__item"><h5>{{- pll__( 'Informations' ) -}}</h5></li>
-							<li class="Site-footer__item"><a href="">Livraisons & retours</a></li>
-							<li class="Site-footer__item"><a href="">CGV</a></li>
-							<li class="Site-footer__item"><a href="">Mentions légales</a></li>
-							<li class="Site-footer__item"><a href="">Politique de confidentialité</a></li>
-						</ul>
-					</div>
-					<div>
-						<ul class="Site-footer__items">
-							<li class="Site-footer__item"><h5>{{- pll__( 'Téléchargements' ) -}}</h5></li>
-							<li class="Site-footer__item"><a href="">PressKit Habitat</a></li>
-							<li class="Site-footer__item"><a href="">PressKit Objets</a></li>
-							<li class="Site-footer__item"><a href="">PressKit Global</a></li>
-						</ul>
-					</div>
-					<div>
-						<ul class="Site-footer__items">
-							<li class="Site-footer__item"><h5>{{- pll__( 'Suivez- nous' ) -}}</h5></li>
-							<li class="Site-footer__item"><a href="">Instagram</a></li>
-							<li class="Site-footer__item"><a href="">Facebook</a></li>
-						</ul>
-					</div>
-					<div></div>
-					<div></div>
-				</div>
-			</footer>
 		</div>
 	</div>
 

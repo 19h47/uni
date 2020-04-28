@@ -13,14 +13,12 @@ $context = Timber::get_context();
 
 $context['products'] = Timber::get_posts();
 
-if ( is_product_category() ) {
-	$term_id             = get_queried_object()->term_id;
-	$context['category'] = get_term( $term_id, 'product_cat' );
-	$context['title']    = single_term_title( '', false );
-} else {
-	$context['post']    = Timber::get_post( get_option( 'woocommerce_shop_page_id' ) );
-	$context['title']   = $context['post']->title;
-	$context['content'] = $context['post']->content;
-}
+$context['show_page_title'] = apply_filters( 'woocommerce_show_page_title', true );
+$context['page_title']      = woocommerce_page_title( false );
+$context['product_loop']    = woocommerce_product_loop();
 
-Timber::render( 'woo/archive.html.twig', $context );
+$context['post'] = Timber::get_post( get_option( 'woocommerce_shop_page_id' ) );
+
+$context['post']->node_type = 'HorizontalPage';
+
+Timber::render( 'pages/archive-product.html.twig', $context );

@@ -1,9 +1,8 @@
 import { AbstractPage } from 'starting-blocks';
 import VirtualScroll from 'virtual-scroll';
-// import { elements } from 'scripts/config';
-import gsap from 'gsap';
+import { elements } from 'scripts/config';
 
-const imagesLoaded = require('imagesloaded');
+// const imagesLoaded = require('imagesloaded');
 
 /**
  * Y Scroll page
@@ -17,17 +16,20 @@ export default class HorizontalPage extends AbstractPage {
 
 		this.scroll = null;
 		this.targetY = 0;
+
+		elements.html.style.setProperty('overflow', '100%');
+		elements.html.style.setProperty('height', '100%');
+
+		elements.body.style.setProperty('overflow', 'hidden');
+		elements.body.style.setProperty('width', '100%');
+		elements.body.style.setProperty('height', '100%');
 	}
 
 	async init() {
-		this.$track = this.rootElement.querySelector('.vs-track');
-		this.$view = document.querySelector('.vs-view');
-		this.$section = document.querySelector('.vs-section');
+		this.$track = this.rootElement.querySelector('.js-track');
+		// this.$section = document.querySelector('.js-section');
 
-		imagesLoaded(this.rootElement, () => {
-			this.onResize();
-			this.initPlugins();
-		});
+		this.initPlugins();
 
 		await super.init();
 	}
@@ -39,32 +41,10 @@ export default class HorizontalPage extends AbstractPage {
 	initEvents() {
 		super.initEvents();
 
-		imagesLoaded(this.rootElement, () => {
-			this.scroll.on(event => {
-				const { deltaY } = event;
+		this.scroll.on(event => {
+			const { deltaY } = event;
 
-				this.targetY += deltaY;
-
-				this.targetY = Math.max((this.width - window.innerWidth) * -1, this.targetY);
-				this.targetY = Math.min(0, this.targetY);
-
-				this.moveTo(`${this.targetY}px`);
-			});
+			this.$track.scrollLeft -= deltaY;
 		});
-	}
-
-	moveTo(x) {
-		gsap.to(this.$section, { x });
-	}
-
-	onResize() {
-		super.onResize();
-
-		this.width = this.$track.scrollWidth;
-
-		this.$view.style.setProperty('width', `${window.innerWidth}px`);
-		this.$view.style.setProperty('height', `${this.width}px`);
-		this.$section.style.setProperty('width', `${window.innerWidth}px`);
-		this.$section.style.setProperty('height', `${window.innerHeight}px`);
 	}
 }

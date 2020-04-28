@@ -7,9 +7,15 @@
  */
 .Site-footer {
 	@include margin(top 20px bottom 20px);
+	@extend %position-relative;
 
 	color: the_color(gray, very-dark);
 	width: 50vw;
+	z-index: 2;
+
+	a:hover {
+		@extend %text-decoration-underline;
+	}
 
 	&__grid {
 		@include padding(
@@ -86,6 +92,38 @@
 		a {
 			@extend .d-inline-block;
 			@extend %font-family-title;
+		}
+	}
+
+	&__copyright {
+		color: the_color(gray, very-dark);
+
+		& > *:first-child {
+			@include margin(top 0);
+		}
+		& > *:last-child {
+			@include margin(bottom 0);
+		}
+
+		h5 {
+			@extend %font-family-body;
+			@include margin(bottom 1em);
+
+			line-height: (30/18);
+			font-size: #{(60 * 18) / 100}px;
+
+			@include media-breakpoint-up(hd) {
+				font-size: #{(18/30)}em;
+			}
+		}
+
+		p {
+			line-height: 1.2;
+			font-size: #{(60 * 15) / 100}px;
+
+			@include media-breakpoint-up(hd) {
+				font-size: #{(15/30)}em;
+			}
 		}
 	}
 }

@@ -31,4 +31,4 @@ $context['wrapper_class'] = esc_attr( implode( ' ', array_map( 'sanitize_html_cl
 
 $context['image_ids'] = $product->get_gallery_image_ids();
 
-Timber::render( 'woo/single-product/product-image.html.twig', $context );
+Timber::render( 'woocommerce/single-product/product-image.html.twig', $context );

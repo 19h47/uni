@@ -1,7 +1,9 @@
 {% extends 'index.html.twig' %}
 
 {% block content %}
-    {% filter shortcodes %}
-        [woocommerce_cart]
-    {% endfilter %}
+	<div class="Site-content">
+		{% apply shortcodes %}
+			[woocommerce_cart]
+		{% endapply %}
+	</div>
 {% endblock %}

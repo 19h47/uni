@@ -73,9 +73,9 @@ class Theme {
 
 		$twig->addFunction(
 			new TwigFunction(
-				'set_product',
+				'set_product_global',
 				function( $post ) {
-					return set_product( $post );
+					return set_product_global( $post );
 				}
 			)
 		);
@@ -153,6 +153,11 @@ class Theme {
 				'link'  => 'https://www.linkedin.com/sharing/share-offsite/?url=',
 				'url'   => get_option( 'linkedin' ),
 			),
+			array(
+				'title' => 'Instagram',
+				'slug'  => 'instagram',
+				'url'   => get_option( 'instagram' ),
+			),
 		);
 
 		foreach ( $socials as $social ) {
@@ -195,6 +200,14 @@ class Theme {
 	public function add_to_context( array $context ) : array {
 		$context['cart']     = WC()->cart;
 		$context['cart_url'] = wc_get_cart_url();
+
+		$context['mailchimp'] = array(
+			'url'  => get_option( 'mailchimp_url' ),
+			'id'   => get_option( 'mailchimp_id' ),
+			'user' => get_option( 'mailchimp_user' ),
+		);
+
+		$context['shop_url'] = get_permalink( wc_get_page_id( 'shop' ) );
 
 		return $context;
 	}

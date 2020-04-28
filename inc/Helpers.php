@@ -61,13 +61,13 @@ function html_class( $class = '' ) : string {
 
 
 /**
- * Set product
+ * Set product global
  *
  * @param  mixed $post
  * @return void
  * @see https://timber.github.io/docs/guides/woocommerce/#tease-product
  */
-function set_product( $post ) {
+function set_product_global( $post ) {
 	global $product;
 
 	if ( is_woocommerce() ) {

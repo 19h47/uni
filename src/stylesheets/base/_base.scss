@@ -3,14 +3,11 @@
  */
 
 html {
-	@include size(100%);
-
 	scroll-behavior: smooth;
 }
 
 body {
-	@extend %font-weight-regular, %font-family-body, %position-relative, %overflow-hidden;
-	@include size(100%);
+	@extend %font-weight-regular, %font-family-body, %position-relative;
 
 	font-size: #{60 * $base-font-size / 100}px;
 	line-height: #{60 * $base-line-height / 100}px;
@@ -38,7 +35,7 @@ a {
 }
 
 p {
-	@include margin(top 0 bottom #{$base-line-height}px);
+	@include margin(top 0 bottom 1em);
 }
 
 strong {

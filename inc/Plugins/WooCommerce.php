@@ -9,6 +9,7 @@
 namespace UNI\Plugins;
 
 use WC_AJAX;
+use Timber\{ Timber };
 
 /**
  * WordPress
@@ -22,12 +23,14 @@ class WooCommerce {
 	public function run() {
 		add_filter( 'woocommerce_gallery_thumbnail_size', array( $this, 'gallery_thumbnail_size' ) );
 		add_filter( 'woocommerce_add_to_cart_fragments', array( $this, 'add_to_cart_fragments' ), 10, 1 );
-		add_filter( 'woocommerce_enqueue_styles', '__return_empty_array' );
 
-		add_filter( 'woocommerce_product_related_posts_query', array( $this, 'related_product_query' ), 10, 3 );
+		add_filter( 'woocommerce_enqueue_styles', '__return_empty_array' );
+		add_filter( 'woocommerce_get_related_product_cat_terms', '__return_empty_array', 10, 2 );
 
 		remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20 );
 
+		// Single product
+		// Summary.
 		remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_title', 5 );
 		remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_rating', 10 );
 		remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_price', 10 );
@@ -36,11 +39,43 @@ class WooCommerce {
 		remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40 );
 		remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_sharing', 50 );
 
+		// Content.
+		add_action( 'woocommerce_single_product_content', array( $this, 'template_single_product_content' ), 20 );
+
+		// Meta.
+		add_action( 'woocommerce_single_product_meta', 'woocommerce_template_single_meta', 40 );
+
+		// After single product summary.
 		remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_product_data_tabs', 10 );
 		remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20 );
 
+		// Loop
+		// Before shop loop item.
+		remove_action( 'woocommerce_before_shop_loop_item', 'woocommerce_template_loop_product_link_open', 10 );
+
+		// Before shop loop item title.
+		remove_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_template_loop_product_thumbnail', 10 );
+
+		// Shop loop title.
+		remove_action( 'woocommerce_shop_loop_item_title', 'woocommerce_template_loop_product_title', 10 );
+
+		add_action( 'woocommerce_shop_loop_item_title', array( $this, 'template_loop_product_title' ), 10 );
+		add_action( 'woocommerce_shop_loop_item_title', array( $this, 'template_loop_price' ), 15 );
+
+		// After shop loop title.
+		add_action( 'woocommerce_after_shop_loop_item_title', array( $this, 'template_loop_product_thumbnail' ), 10 );
+		remove_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_price', 10 );
+
+		// After shop loop item.
+		remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_product_link_close', 5 );
+		remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 10 );
+
 		add_action( 'wp_ajax_uni_add_to_cart', array( $this, 'add_to_cart' ) );
 		add_action( 'wp_ajax_nopriv_uni_add_to_cart', array( $this, 'add_to_cart' ) );
+
+		// Remove default wrappers.
+		remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper' );
+		remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end' );
 	}
 
 
@@ -62,27 +97,9 @@ class WooCommerce {
 	 * @return array $fragments
 	 */
 	public function add_to_cart_fragments( array $fragments ) {
-
 		$fragments['span.js-cart-contents-count'] = '<span class="js-cart-contents-count">(' . WC()->cart->get_cart_contents_count() . ')</span>';
 
 		return $fragments;
-	}
-
-
-	/**
-	 * Return a list of products in same category
-	 *
-	 * @param array $query Current query.
-	 * @param int   $product_id  Product ID.
-	 * @param array $args Array of arguments.
-	 *
-	 * @see https://github.com/woocommerce/woocommerce/blob/master/includes/data-stores/class-wc-product-data-store-cpt.php#L1244
-	 */
-	public function related_product_query( array $query, int $product_id, array $args ) : array {
-		// @see https://developer.wordpress.org/reference/classes/wp_term_query/__construct/
-		$args['categories'] = wp_get_post_terms( $product_id, 'product_cat', array( 'fields' => 'ids' ) );
-
-		return $query;
 	}
 
 
@@ -119,12 +136,59 @@ class WooCommerce {
 
 			$data = array(
 				'error'       => true,
-				'product_url' => apply_filters( 'woocommerce_cart_redirect_after_error', get_permalink( $product_id ), $product_id ) );
+				'product_url' => apply_filters( 'woocommerce_cart_redirect_after_error', get_permalink( $product_id ), $product_id ),
+			);
 
-			echo wp_send_json( $data );
+			echo wp_send_json( $data ); // phpcs:ignore
 		}
 
 		wp_die();
+	}
+
+
+	/**
+	 * Show the product title in the product loop.
+	 *
+	 * @return void
+	 */
+	public function template_loop_product_title() : void {
+		global $product;
+
+		echo Timber::compile( 'woocommerce/loop/product-title.html.twig', array( 'title' => get_the_title( $product->get_id() ) ) );
+	}
+
+	/**
+	 *
+	 *
+	 * @return void
+	 */
+	public function template_loop_price() : void {
+		global $product;
+
+		echo Timber::compile( 'woocommerce/loop/price.html.twig', array( 'price_html' => $product->get_price_html() ) );
+	}
+
+
+	/**
+	 *
+	 *
+	 *
+	 * @return void
+	 */
+	public function template_loop_product_thumbnail() : void {
+		global $product;
+
+		echo Timber::compile( 'woocommerce/loop/product-thumbnail.html.twig', array( 'product' => Timber::get_post( $product->get_id() ) ) );
+	}
+
+
+	/**
+	 *
+	 *
+	 * @return void
+	 */
+	public function template_single_product_content() {
+		the_content();
 	}
 }
 

@@ -30,8 +30,11 @@ class Menus {
 	public function register_menus() : void {
 		register_nav_menus(
 			array(
-				'main_primary'   => __( 'Main Primary', 'uni' ),
-				'main_secondary' => __( 'Main Secondary', 'uni' ),
+				'main_primary'     => __( 'Main Primary', 'uni' ),
+				'main_secondary'   => __( 'Main Secondary', 'uni' ),
+				'footer_primary'   => __( 'Footer Primary', 'uni' ),
+				'footer_secondary' => __( 'Footer Secondary', 'uni' ),
+				'footer_tertiary'  => __( 'Footer Tertiary', 'uni' ),
 			)
 		);
 	}

@@ -1,0 +1,9 @@
+.jetpack-lazy-image {
+	@include autoAlpha(0);
+
+	transition: opacity 0.3s map-get($easings, ease-out-expo);
+}
+
+.jetpack-lazy-image--handled {
+	@include autoAlpha(1);
+}

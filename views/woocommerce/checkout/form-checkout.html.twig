@@ -1,0 +1,47 @@
+{#
+
+Form checkout
+
+#}
+{% block content %}
+
+{% do action( 'woocommerce_before_checkout_form', checkout ) %}
+
+<form name="checkout" method="post" class="checkout woocommerce-checkout" action="{{ checkout_url }}" enctype="multipart/form-data">
+
+	{% if checkout_fields %}
+
+		{% do action( 'woocommerce_checkout_before_customer_details' ) %}
+
+		<div class="col2-set" id="customer_details">
+			<div class="col-1">
+				{% do action( 'woocommerce_checkout_billing' ) %}
+			</div>
+
+			<div class="col-2">
+				{% do action( 'woocommerce_checkout_shipping' ) %}
+			</div>
+		</div>
+
+		{% do action( 'woocommerce_checkout_after_customer_details' ) %}
+
+	{% endif %}
+
+
+	{% do action( 'woocommerce_checkout_before_order_review_heading' ) %}
+
+	<h3 id="order_review_heading">{{- _x( 'Your order', 'form checkout', 'uni' ) -}}</h3>
+
+	{% do action( 'woocommerce_checkout_before_order_review' ) %}
+
+	<div id="order_review" class="woocommerce-checkout-review-order">
+		{% do action( 'woocommerce_checkout_order_review' ) %}
+	</div>
+
+	{% do action( 'woocommerce_checkout_after_order_review' ) %}
+
+</form>
+
+{% do action( 'woocommerce_after_checkout_form', checkout ) %}
+
+{% endblock %}

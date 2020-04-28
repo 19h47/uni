@@ -28,6 +28,8 @@ class Init {
 			Setup\Menus::class,
 			Setup\Supports::class,
 			Setup\Textdomain::class,
+			Api\Customizer\Mailchimp::class,
+			Api\Customizer\Contact::class,
 			Custom\Extras::class,
 			Plugins\WooCommerce::class,
 		);

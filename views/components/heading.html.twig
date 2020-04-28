@@ -1,0 +1,8 @@
+{#  #}
+<div class="Heading{{ classes ? ' ' ~ classes  | join( ' ' ) }}">
+	<h2>
+		{{- link ? "<a href=\"#{ link }\">" | raw -}}
+			{{- title -}}
+		{{- link ? '</a>' | raw -}}
+	</h2>
+</div>

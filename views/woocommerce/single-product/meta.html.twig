@@ -1,0 +1,14 @@
+{#  #}
+<div class="product_meta">
+	{% do action( 'woocommerce_product_meta_start' ) %}
+
+	{# {%- if sku -%}
+		<span class="sku_wrapper">{{- __( 'SKU:', 'uni' ) -}}&nbsp;
+		<span class="sku">{{- sku ? sku : __( 'N/A', 'uni' ) -}}</span></span>
+	{%- endif -%} #}
+
+	{# {{- product_category_list -}} #}
+	{# {{- product_tag_list -}} #}
+
+	{% do action( 'woocommerce_product_meta_end' ) %}
+</div>

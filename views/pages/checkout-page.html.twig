@@ -1,9 +1,9 @@
 {% extends 'index.html.twig' %}
 
 {% block content %}
-
-    {% filter shortcodes %}
-        [woocommerce_checkout]
-    {% endfilter %}
-
+	<div class="Site-content">
+		{% apply shortcodes %}
+			[woocommerce_checkout]
+		{% endapply %}
+	</div>
 {% endblock %}

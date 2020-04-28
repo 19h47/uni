@@ -1,0 +1,45 @@
+{#
+	The template for displaying product content within loops
+ #}
+
+{{ fn( 'set_product_global', product ) }}
+
+<li {{ fn( 'wc_product_class', 'Loop', product ) }}>
+
+	{#
+		Hook: woocommerce_before_shop_loop_item.
+	 #}
+	{% do action( 'woocommerce_before_shop_loop_item' ) %}
+
+	{#
+		Hook: woocommerce_before_shop_loop_item_title.
+
+		@hooked woocommerce_show_product_loop_sale_flash - 10
+	 #}
+	{% do action( 'woocommerce_before_shop_loop_item_title' ) %}
+
+
+	<header class="Loop__header">
+		{#
+			Hook: woocommerce_shop_loop_item_title.
+
+			@hooked UNI\Plugins\WooCommerce::template_loop_product_title - 10
+			@hooked UNI\Plugins\WooCommerce::template_loop_price - 15
+		#}
+		{% do action( 'woocommerce_shop_loop_item_title' ) %}
+	</header>
+
+	{#
+		Hook: woocommerce_after_shop_loop_item_title.
+
+		@hooked woocommerce_template_loop_rating - 5
+		@hooked UNI\Plugins\WooCommerce::template_loop_product_thumbnail - 10
+	#}
+	{% do action( 'woocommerce_after_shop_loop_item_title' ) %}
+
+	{#
+		Hook: woocommerce_after_shop_loop_item.
+	 #}
+	{% do action( 'woocommerce_after_shop_loop_item', [] ) %}
+
+</li>

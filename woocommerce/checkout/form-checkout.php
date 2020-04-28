@@ -9,12 +9,10 @@ use Timber\{ Timber, Post };
 
 $context = Timber::get_context();
 
-$context['post']     = new Post();
-$context['action']   = wc_get_checkout_url();
-$context['checkout'] = $checkout;
+$context['post'] = new Post();
 
-if ( $checkout->get_checkout_fields() ) {
-	$context['show_fields'] = true;
-}
+$context['checkout_url']    = wc_get_checkout_url();
+$context['checkout_fields'] = $checkout->get_checkout_fields();
+$context['checkout']        = $checkout;
 
-Timber::render( 'woo/checkout/form-checkout.html.twig', $context );
+Timber::render( 'woocommerce/checkout/form-checkout.html.twig', $context );

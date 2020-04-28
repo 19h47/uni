@@ -1,0 +1,126 @@
+/**
+ * Horizontal page
+ *
+ *
+ *
+ *
+ *
+ */
+.Horizontal-page {
+	&__section {
+		@include absolute(top 0 right 0 bottom 0 left 0);
+	}
+
+	&__track {
+		@include absolute(top 0 right 0 bottom 0 left 0);
+		@extend %overflow-x-auto, %overflow-y-hidden;
+		@extend .d-flex;
+
+		z-index: 0;
+		height: 100vh;
+
+		& > * {
+			@extend .flex-shrink-0;
+		}
+
+		& > *:first-child {
+			@include media-breakpoint-up(md) {
+				@include padding(left 100px);
+			}
+		}
+	}
+
+	&__grid {
+		@include size(#{(2200 * 100) / $prototype-width-unitless}vw, 100%);
+
+		position: sticky;
+		top: 0;
+		bottom: 0;
+		left: 0;
+
+		display: grid;
+		grid-template-columns: repeat(11, 1fr);
+		grid-template-rows: repeat(11, 1fr);
+		grid-column-gap: 0px;
+		grid-row-gap: 0px;
+		min-height: 100%;
+
+		z-index: 1;
+
+		div:nth-child(1) {
+			grid-area: 2 / 4 / 3 / 10;
+		}
+		div:nth-child(2) {
+			grid-area: 4 / 5 / 10 / 10;
+		}
+
+		@include media-breakpoint-up(md) {
+			@include padding(
+				top #{(36 * 100) / $prototype-height-unitless}vh bottom #{(36 * 100) /
+					$prototype-height-unitless}vh
+			);
+		}
+
+		@include media-breakpoint-up(hd) {
+			@include padding(
+				top #{(60 * 100) / $prototype-height-unitless}vh bottom #{(60 * 100) /
+					$prototype-height-unitless}vh
+			);
+		}
+	}
+
+	&__gallery {
+		@extend .d-flex, .flex-nowrap;
+		@extend %position-relative;
+
+		background-color: the_color(white);
+		z-index: 2;
+
+		&__item {
+			@include size(#{(2000 * 100) / $prototype-width-unitless}vw, 100%);
+
+			display: grid;
+			grid-template-columns: repeat(10, 1fr);
+			grid-template-rows: repeat(11, 1fr);
+			grid-column-gap: 0px;
+			grid-row-gap: 0px;
+			min-height: 100%;
+
+			& > div:nth-child(1) {
+				grid-area: 1 / 1 / 2 / 9;
+			}
+			& > div:nth-child(2) {
+				grid-area: 2 / 1 / 11 / 9;
+			}
+			& > div:nth-child(3) {
+				grid-area: 11 / 1 / 12 / 9;
+			}
+
+			@include media-breakpoint-up(md) {
+				@include padding(
+					top #{(36 * 100) / $prototype-height-unitless}vh bottom #{(36 * 100) /
+						$prototype-height-unitless}vh
+				);
+			}
+
+			@include media-breakpoint-up(hd) {
+				@include padding(
+					top #{(60 * 100) / $prototype-height-unitless}vh bottom #{(60 * 100) /
+						$prototype-height-unitless}vh
+				);
+			}
+
+			img {
+				@include size(100%);
+
+				object-fit: cover;
+				object-position: center;
+				border-radius: 12px;
+
+				@include media-breakpoint-up(hd) {
+					border-radius: 20px;
+				}
+			}
+		}
+	}
+}

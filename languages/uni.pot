@@ -1,0 +1,278 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"Project-Id-Version: uni\n"
+"POT-Creation-Date: 2020-04-27 18:28+0200\n"
+"PO-Revision-Date: 2020-04-27 09:39+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.3\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: style.css\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2;pll__\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.min.js\n"
+"X-Poedit-SearchPathExcluded-1: vendor\n"
+"X-Poedit-SearchPathExcluded-2: node_modules\n"
+"X-Poedit-SearchPathExcluded-3: wpcs\n"
+"X-Poedit-SearchPathExcluded-4: dist\n"
+
+#: inc/Api/Customizer/Contact.php:40
+msgid "Contact"
+msgstr ""
+
+#: inc/Api/Customizer/Contact.php:41 inc/Api/Customizer/Mailchimp.php:41
+msgid "Contact settings"
+msgstr ""
+
+#: inc/Api/Customizer/Contact.php:57
+msgid "Facebook"
+msgstr ""
+
+#: inc/Api/Customizer/Contact.php:58
+msgid "Facebook URL"
+msgstr ""
+
+#: inc/Api/Customizer/Contact.php:76
+msgid "Instagram"
+msgstr ""
+
+#: inc/Api/Customizer/Contact.php:77
+msgid "Instagram URL"
+msgstr ""
+
+#: inc/Api/Customizer/Contact.php:95
+msgid "Phone number"
+msgstr ""
+
+#: inc/Api/Customizer/Contact.php:113
+msgid "Address"
+msgstr ""
+
+#: inc/Api/Customizer/Mailchimp.php:40
+msgid "Mailchimp"
+msgstr ""
+
+#: inc/Api/Customizer/Mailchimp.php:57
+msgid "Mailchimp URL"
+msgstr ""
+
+#: inc/Api/Customizer/Mailchimp.php:75
+msgid "Mailchimp user"
+msgstr ""
+
+#: inc/Api/Customizer/Mailchimp.php:93
+msgid "Mailchimp id"
+msgstr ""
+
+#: inc/Setup/Enqueue.php:64
+msgctxt "messages"
+msgid "Please fill out this field."
+msgstr ""
+
+#: inc/Setup/Enqueue.php:66
+msgctxt "messages"
+msgid "Please enter an email address."
+msgstr ""
+
+#: inc/Setup/Enqueue.php:67
+msgctxt "messages"
+msgid "Please enter a URL."
+msgstr ""
+
+#: inc/Setup/Menus.php:33
+msgid "Main Primary"
+msgstr ""
+
+#: inc/Setup/Menus.php:34
+msgid "Main Secondary"
+msgstr ""
+
+#: inc/Setup/Theme.php:133
+msgid "Share on Twitter"
+msgstr ""
+
+#: inc/Setup/Theme.php:140
+msgid "Share on Facebook"
+msgstr ""
+
+#: inc/Setup/Theme.php:152
+msgid "Share on LinkedIn"
+msgstr ""
+
+#: woocommerce/cart/cart.php:46
+msgid "Remove this item"
+msgstr ""
+
+#: woocommerce/checkout/thankyou.php:21
+msgid "Thank you. Your order has been received."
+msgstr ""
+
+#: views/components/menu.html.twig:23
+msgid "Let's meet up:"
+msgstr ""
+
+#: views/pages/horizontal-page.html.twig:18
+msgid "Discover our online store"
+msgstr ""
+
+#: views/pages/horizontal-page.html.twig:26
+#: views/pages/single-product.html.twig:115
+msgid "Navigation"
+msgstr ""
+
+#: views/pages/horizontal-page.html.twig:37
+#: views/pages/single-product.html.twig:126
+msgid "Information"
+msgstr ""
+
+#: views/pages/horizontal-page.html.twig:46
+#: views/pages/single-product.html.twig:135
+msgid "Downloads"
+msgstr ""
+
+#: views/pages/horizontal-page.html.twig:55
+#: views/pages/single-product.html.twig:143
+msgid "Follow us"
+msgstr ""
+
+#: views/pages/horizontal-page.html.twig:65
+#: views/pages/single-product.html.twig:151
+msgid "Credits:"
+msgstr ""
+
+#: views/pages/single-product.html.twig:10
+msgid "This item has been added to your basket:"
+msgstr ""
+
+#: views/pages/single-product.html.twig:19
+msgid "Continue your purchases"
+msgstr ""
+
+#: views/pages/single-product.html.twig:23
+msgid "Access your basket"
+msgstr ""
+
+#: views/pages/single-product.html.twig:85
+msgid "In the same collection"
+msgstr ""
+
+#: views/pages/single-product.html.twig:107
+#: views/woo/cart/cart-empty.html.twig:9
+msgid "Return to shop"
+msgstr ""
+
+#: views/partials/signup-form.html.twig:9
+msgid "Newsletter subscriptions"
+msgstr ""
+
+#: views/partials/signup-form.html.twig:17
+msgid "Your email"
+msgstr ""
+
+#: views/partials/signup-form.html.twig:17
+msgid ""
+"The domain portion of the email address is invalid (the portion after the @)."
+msgstr ""
+
+#: views/partials/signup-form.html.twig:18
+msgid "Send"
+msgstr ""
+
+#: views/woo/cart/cart.html.twig:16 views/woo/cart/cart.html.twig:32
+msgid "Product"
+msgstr ""
+
+#: views/woo/cart/cart.html.twig:17 views/woo/cart/cart.html.twig:33
+msgid "Price"
+msgstr ""
+
+#: views/woo/cart/cart.html.twig:18 views/woo/cart/cart.html.twig:34
+msgid "Quantity"
+msgstr ""
+
+#: views/woo/cart/cart.html.twig:19 views/woo/cart/cart.html.twig:35
+msgid "Subtotal"
+msgstr ""
+
+#: views/woo/cart/cart.html.twig:48
+msgid "Coupon:"
+msgstr ""
+
+#: views/woo/cart/cart.html.twig:49
+msgid "Coupon code"
+msgstr ""
+
+#: views/woo/cart/cart.html.twig:50 views/woo/cart/cart.html.twig:51
+msgid "Apply coupon"
+msgstr ""
+
+#: views/woo/cart/cart.html.twig:57 views/woo/cart/cart.html.twig:58
+msgid "Update cart"
+msgstr ""
+
+#: views/woo/checkout/form-checkout.html.twig:33
+msgid "Your order"
+msgstr ""
+
+#: views/woo/checkout/thankyou.html.twig:15
+msgid ""
+"Unfortunately your order cannot be processed as the originating bank/"
+"merchant has declined your transaction. Please attempt your purchase again."
+msgstr ""
+
+#: views/woo/checkout/thankyou.html.twig:20
+msgid "Pay"
+msgstr ""
+
+#: views/woo/checkout/thankyou.html.twig:24
+msgid "My account"
+msgstr ""
+
+#: views/woo/checkout/thankyou.html.twig:36
+msgid "Order number:"
+msgstr ""
+
+#: views/woo/checkout/thankyou.html.twig:41
+msgid "Date:"
+msgstr ""
+
+#: views/woo/checkout/thankyou.html.twig:47
+msgid "Email:"
+msgstr ""
+
+#: views/woo/checkout/thankyou.html.twig:53
+msgid "Total:"
+msgstr ""
+
+#: views/woo/checkout/thankyou.html.twig:59
+msgid "Payment method:"
+msgstr ""
+
+#. Theme Name of the plugin/theme
+msgid "UNI"
+msgstr ""
+
+#. Theme URI of the plugin/theme
+msgid "http://www.uni-habitat.fr/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "UNI habit"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "19h47"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "https://19h47.fr/"
+msgstr ""

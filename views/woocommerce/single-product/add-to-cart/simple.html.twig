@@ -16,7 +16,7 @@ Simple product add to cart
 
 	{% do action( 'woocommerce_after_add_to_cart_quantity' ) %}
 
-	<button type="submit" name="add-to-cart" value="{{ post.product.id }}" class="Product__add-to-cart-button js-add-to-cart-button single_add_to_cart_button button alt test">
+	<button type="submit" name="add-to-cart" value="{{ post.product.get_id() }}" class="Product__add-to-cart-button js-add-to-cart-button single_add_to_cart_button button alt test">
 		{% include 'svg/use.html.twig' with { icon: 'cart', classes: [ 'Pointer-events-none' ] } only %}
 		{{- post.add_to_cart_text -}}
 	</button>

@@ -4,6 +4,8 @@ import WebpackAsyncBlockBuilder from 'services/WebpackAsyncBlockBuilder';
 
 import HorizontalPage from 'pages/HorizontalPage';
 
+require('scripts/vendors/validate');
+
 const production = 'production' !== process.env.NODE_ENV;
 
 (() => {

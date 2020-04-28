@@ -1,13 +1,17 @@
-{#  #}
+{#
+	Single Product Image
+ #}
 <div id="product-image-{{ post_thumbnail_id }}" class="{{ wrapper_class }} page-block" data-columns="{{ columns }}" data-node-type="CarouselBlock" style="opacity: 0; transition: opacity .25s ease-in-out;">
 	<div class="Product__gallery__grid Carousel">
 		<div>
 			<figure class="Carousel__items woocommerce-product-gallery__wrapper">
 				{% for id in image_ids %}
 					<div data-thumb="{{ Image( id ).src }}" data-thumb-alt="{{ Image( id ).alt }}" class="woocommerce-product-gallery__image">
-						<img src="{{ Image( id ).src }}" alt="" width="{{ Image( id ).width }}" height="{{ Image( id ).height }}" title="{{ Image( id ).title }}">
+						{% include 'partials/image.html.twig' with { image: id } %}
 					</div>
 				{% endfor %}
+
+				{% do action( 'woocommerce_product_thumbnails' ) %}
 			</figure>
 		</div>
 		<div class="Carousel__navigation">

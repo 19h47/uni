@@ -112,4 +112,4 @@ $context['coupon'] = wc_coupons_enabled();
 $context['nonce']  = wp_nonce_field( 'woocommerce-cart', 'woocommerce-cart-nonce' );
 $context['action'] = wc_get_cart_url();
 
-Timber::render( 'woo/cart/cart.html.twig', $context );
+Timber::render( 'woocommerce/cart/cart.html.twig', $context );
