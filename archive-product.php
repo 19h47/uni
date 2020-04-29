@@ -19,6 +19,11 @@ $context['product_loop']    = woocommerce_product_loop();
 
 $context['post'] = Timber::get_post( get_option( 'woocommerce_shop_page_id' ) );
 
-$context['post']->node_type = 'HorizontalPage';
+if ( is_product_category() ) {
+	$context['post'] = Timber::get_term( get_queried_object()->term_id, 'product_cat' );
+}
+
+$context['post']->body_classes = array( 'Archive-product' );
+$context['post']->node_type    = 'HorizontalPage';
 
 Timber::render( 'pages/archive-product.html.twig', $context );

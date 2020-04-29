@@ -29,96 +29,102 @@
 	<div class="Horizontal-page__section">
 		<div class="Horizontal-page__track js-track">
 
-			{#
- 				Hook: woocommerce_before_single_product.
-
- 				@hooked wc_print_notices - 10
-			 #}
-			{% do action( 'woocommerce_before_single_product' ) %}
-
-			<article id="product-{{ post.id }}" itemscope itemtype="http://schema.org/Product" class="Product {{ post.class }}">
-				<meta itemprop="url" content="{{ post.link }}" />
-
+			<div class="Horizontal-page__wrapper">
 				{#
-					Hook: woocommerce_before_single_product_summary.
+					Hook: woocommerce_before_single_product.
 
-	 				@hooked woocommerce_show_product_sale_flash - 10
-					@hooked woocommerce_show_product_images - 20
-				 #}
-				{% do action( 'woocommerce_before_single_product_summary' ) %}
+					@hooked wc_print_notices - 10
+				#}
+				{% do action( 'woocommerce_before_single_product' ) %}
 
-				<div class="Product__summary summary entry-summary">
+				<article id="product-{{ post.id }}" itemscope itemtype="http://schema.org/Product" class="Product {{ post.class }}">
+					<meta itemprop="url" content="{{ post.link }}" />
 
 					{#
-		 				Hook: woocommerce_single_product_summary.
+						Hook: woocommerce_before_single_product_summary.
 
-						@hooked WC_Structured_Data::generate_product_data() - 60
-					 #}
-					{% do action( 'woocommerce_single_product_summary' ) %}
+						@hooked woocommerce_show_product_sale_flash - 10
+						@hooked woocommerce_show_product_images - 20
+					#}
+					{% do action( 'woocommerce_before_single_product_summary' ) %}
 
-					<div class="Product__summary__grid">
+					<div class="Product__summary summary entry-summary">
 
-						<div class="Product__header">
-							{{ post.terms( 'product_cat' ) | map( c => "<a href=\"#{c.link}\">#{c.name}</a>") | join( ', ' ) }}
-							<h1 class="Product__title product_title entry-title margin-0">
-								{{- post.title -}}
-							</h1>
+						{#
+							Hook: woocommerce_single_product_summary.
+
+							@hooked WC_Structured_Data::generate_product_data() - 60
+						#}
+						{% do action( 'woocommerce_single_product_summary' ) %}
+
+						<div class="Product__summary__grid">
+
+							<div class="Product__header">
+								{{ post.terms( 'product_cat' ) | map( c => "<a href=\"#{c.link}\">#{c.name}</a>") | join( ', ' ) }}
+								<h1 class="Product__title product_title entry-title margin-0">
+									{{- post.title -}}
+								</h1>
+							</div>
+
+							<div class="Product__short-description woocommerce-product-details__short-description">
+								{#
+									Hook: woocommerce_single_product_content
+
+									@hooked UNI\Plugins\WooCommerce::template_single_product_content - 20
+								#}
+								{% do action( 'woocommerce_single_product_content' ) %}
+								{{- post.terms( 'product_cat' ) | map( c => "<div class=\"Product__category-description\"><span>#{c.name}</span><br>#{c.description}</div>" ) | join( ', ' ) -}}
+							</div>
+
+							<div>
+								<ul class="Product__attributes">
+									{% for attribute in post.attributes %}
+										<li>
+											<div class="Product__attributes__name">{{- attribute.get_name() -}}</div>
+											<div class="Product__attributes__options">{{- attribute.get_options() | join( ' ' ) | replace( { 'mm' : '<span>mm</span>' } ) -}}</div>
+										</li>
+									{% endfor %}
+								</ul>
+							</div>
+
+							<div>
+								{#
+									Hook: woocommerce_single_product_meta
+
+									@hooked woocommerce_template_single_meta 40
+								#}
+								{% do action( 'woocommerce_single_product_meta' ) %}
+							</div>
+
+							<div>{% include 'woocommerce/single-product/add-to-cart/simple.html.twig' %}</div>
+
 						</div>
-
-						<div class="Product__short-description woocommerce-product-details__short-description">
-							{#
-								Hook: woocommerce_single_product_content
-
-								@hooked UNI\Plugins\WooCommerce::template_single_product_content - 20
-							 #}
-							{% do action( 'woocommerce_single_product_content' ) %}
-							{{- post.terms( 'product_cat' ) | map( c => "<div class=\"Product__category-description\"><span>#{c.name}</span><br>#{c.description}</div>" ) | join( ', ' ) -}}
-						</div>
-
-						<div>
-							<ul class="Product__attributes">
-								{% for attribute in post.attributes %}
-									<li>
-										<div class="Product__attributes__name">{{- attribute.get_name() -}}</div>
-										<div class="Product__attributes__options">{{- attribute.get_options() | join( ' ' ) | replace( { 'mm' : '<span>mm</span>' } ) -}}</div>
-									</li>
-								{% endfor %}
-							</ul>
-						</div>
-
-						<div>
-							{#
-								Hook: woocommerce_single_product_meta
-
-								@hooked woocommerce_template_single_meta 40
-							 #}
-							{% do action( 'woocommerce_single_product_meta' ) %}
-						</div>
-
-						<div>{% include 'woocommerce/single-product/add-to-cart/simple.html.twig' %}</div>
 
 					</div>
+					{#
+						Hook: woocommerce_after_single_product_summary.
 
-				</div>
-				{#
-					Hook: woocommerce_after_single_product_summary.
+						@hooked woocommerce_upsell_display - 15
+					#}
+					{% do action( 'woocommerce_after_single_product_summary' ) %}
 
-					@hooked woocommerce_upsell_display - 15
-				 #}
-				{% do action( 'woocommerce_after_single_product_summary' ) %}
+				</article>
 
-			</article>
 
-			{% if post.related_products %}
-				<section class="Related related products">
+				{% if post.related_products %}
+
 					{% include 'components/heading.html.twig' with { title: fn( 'apply_filters', 'woocommerce_product_related_products_heading', __( 'In the same collection', 'uni' ) )  } only %}
-					<ul class="Products">
-						{% for product in post.related_products %}
-							{% include 'partials/product-content.html.twig' %}
-						{% endfor %}
-					</ul>
-				</section>
-			{% endif %}
+
+					<section class="Related related products">
+						<ul class="Products">
+							{% for product in post.related_products %}
+								{% include 'partials/product-content.html.twig' %}
+							{% endfor %}
+						</ul>
+					</section>
+
+				{% endif %}
+			</div>
 
 			{#
 				Hook: woocommerce_after_single_product

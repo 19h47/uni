@@ -1,0 +1,47 @@
+/**
+ * Archive product
+ *
+ *
+ *
+ *
+ */
+.Archive-product {
+	&__header {
+		@include size(#{((6 * 200) * 100) / $prototype-width-unitless}vw, 100%);
+
+		display: grid;
+		grid-template-columns: repeat(6, 1fr);
+		grid-template-rows: repeat(11, 1fr);
+		grid-column-gap: 0px;
+		grid-row-gap: 0px;
+		min-height: 100%;
+
+		z-index: 100;
+
+		div:nth-child(1) {
+			grid-area: 2 / 2 / 4 / 7;
+		}
+
+		div:nth-child(2) {
+			grid-area: 4 / 3 / 9 / 7;
+		}
+
+		div:nth-child(3) {
+			grid-area: 9 / 3 / 10 / 7;
+		}
+
+		@include media-breakpoint-up(md) {
+			@include padding(
+				top #{(36 * 100) / $prototype-height-unitless}vh bottom #{(36 * 100) /
+					$prototype-height-unitless}vh
+			);
+		}
+
+		@include media-breakpoint-up(hd) {
+			@include padding(
+				top #{(60 * 100) / $prototype-height-unitless}vh bottom #{(60 * 100) /
+					$prototype-height-unitless}vh
+			);
+		}
+	}
+}

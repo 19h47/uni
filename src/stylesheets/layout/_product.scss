@@ -10,8 +10,6 @@
 
 	// .Product__gallery
 	&__gallery {
-		@include margin(top 20px bottom 20px);
-
 		&__grid {
 			@include size(#{(2000 * 100) / $prototype-width-unitless}vw, 100%);
 
@@ -81,8 +79,6 @@
 	}
 
 	&__summary {
-		@include margin(top 20px bottom 20px);
-
 		&__grid {
 			@include size(#{(1600 * 100) / $prototype-width-unitless}vw, 100%);
 

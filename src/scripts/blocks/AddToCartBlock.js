@@ -9,7 +9,7 @@ import $ from 'jquery';
  */
 export default class AddToCartBlock extends AbstractBlock {
 	constructor(container) {
-		console.info('AddToCartBlock.constructor');
+		// console.info('AddToCartBlock.constructor');
 
 		super(container, 'AddToCartBlock');
 	}

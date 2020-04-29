@@ -70,12 +70,19 @@ class WooCommerce {
 		remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_product_link_close', 5 );
 		remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 10 );
 
+		// Before main content.
+		remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10 );
+
+		// After main content.
+		remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10 );
+
+		// Before shop loop.
+		remove_action( 'woocommerce_before_shop_loop', 'woocommerce_result_count', 20 );
+		remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30 );
+
 		add_action( 'wp_ajax_uni_add_to_cart', array( $this, 'add_to_cart' ) );
 		add_action( 'wp_ajax_nopriv_uni_add_to_cart', array( $this, 'add_to_cart' ) );
 
-		// Remove default wrappers.
-		remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper' );
-		remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end' );
 	}
 
 

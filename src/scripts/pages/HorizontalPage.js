@@ -1,6 +1,7 @@
 import { AbstractPage } from 'starting-blocks';
 import VirtualScroll from 'virtual-scroll';
 import { elements } from 'scripts/config';
+import gsap from 'gsap';
 
 // const imagesLoaded = require('imagesloaded');
 
@@ -15,7 +16,8 @@ export default class HorizontalPage extends AbstractPage {
 		super(container, 'HorizontalPage');
 
 		this.scroll = null;
-		this.targetY = 0;
+		// this.targetY = 0;
+		// this.ease = 0.1;
 
 		elements.html.style.setProperty('overflow', '100%');
 		elements.html.style.setProperty('height', '100%');
@@ -27,7 +29,14 @@ export default class HorizontalPage extends AbstractPage {
 
 	async init() {
 		this.$track = this.rootElement.querySelector('.js-track');
-		// this.$section = document.querySelector('.js-section');
+		this.$footer = this.rootElement.querySelector('.js-footer');
+
+		this.scrollWidth = 0;
+		this.clientWidth = 0;
+
+		if (this.$footer) {
+			this.onResize();
+		}
 
 		this.initPlugins();
 
@@ -45,6 +54,21 @@ export default class HorizontalPage extends AbstractPage {
 			const { deltaY } = event;
 
 			this.$track.scrollLeft -= deltaY;
+
+			if (this.$footer) {
+				const x = (this.$track.scrollLeft * 100) / (this.scrollWidth - this.clientWidth);
+
+				gsap.to(this.$footer, {
+					x,
+				});
+			}
 		});
+	}
+
+	onResize() {
+		super.onResize();
+
+		this.scrollWidth = this.$track.scrollWidth;
+		this.clientWidth = document.body.clientWidth;
 	}
 }

@@ -5,15 +5,15 @@
 			<figure class="Carousel__items woocommerce-product-gallery__wrapper">
 				{% for id in image_ids %}
 					<div data-thumb="{{ Image( id ).src }}" data-thumb-alt="{{ Image( id ).alt }}" class="woocommerce-product-gallery__image">
-						<img src="{{ Image( id ).src }}" alt="" width="{{ Image( id ).width }}" height="{{ Image( id ).height }}" title="{{ Image( id ).title }}">
+						{% include 'partials/image.html.twig' with { image: id } only %}
 					</div>
 				{% endfor %}
 			</figure>
 		</div>
 		<div class="Carousel__navigation">
-			<button class="js-previous" type="button">{% include 'svg/use.html.twig' with { icon: 'arrow-left' } only %}</button>
-			<div class="Carousel__current"><span class="js-current">01</span>&nbsp;/&nbsp;{{ "%02d"|format( image_ids | length ) }}</div>
-			<button class="js-next" type="button">{% include 'svg/use.html.twig' with { icon: 'arrow-right' } only %}</button>
+			<button class="js-previous" type="button" aria-label="{{ __( 'Previous', 'uni' ) }}">{% include 'svg/use.html.twig' with { icon: 'arrow-left' } only %}</button>
+			<div class="Carousel__current"><span class="js-current">01</span>&nbsp;/&nbsp;{{ "%02d" | format( image_ids | length ) }}</div>
+			<button class="js-next" type="button" aria-label="{{ __( 'Next', 'uni' ) }}">{% include 'svg/use.html.twig' with { icon: 'arrow-right' } only %}</button>
 		</div>
 	</div>
 </div>

@@ -9,7 +9,7 @@ woocommerce_single_product_meta
 ```
 
 ```php
-woocommerce_single_product_excerpt
+woocommerce_single_product_content
 ```
 
 ## Authors

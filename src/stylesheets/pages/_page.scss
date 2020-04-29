@@ -6,4 +6,29 @@
  * @package UNI
  */
 .Page {
+	&__content {
+		// .Page__content__title
+		&__title {
+			h1 {
+				@include margin(top 0 bottom 0);
+				@extend %text-transform-uppercase;
+
+				span {
+					@extend %font-family-body, %text-transform-none;
+					@extend .d-block;
+					@include letter-spacing(0);
+
+					font-size: #{(30/75)}em;
+					line-height: (36/30);
+				}
+			}
+		}
+		// .Page__content__footer
+		&__footer {
+			@extend .align-self-end;
+			@extend %font-family-title, %font-style-italic;
+
+			line-height: (40/30);
+		}
+	}
 }

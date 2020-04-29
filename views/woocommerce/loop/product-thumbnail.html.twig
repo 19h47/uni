@@ -1,5 +1,5 @@
 {#  #}
 <a class="Loop__thumbnail" href="{{ product.link }}">
-	{% include 'partials/image.html.twig' with { image: product.thumbnail } %}
-	{% include 'partials/image.html.twig' with { image: product.get_field( 'image_hover' ) } %}
+	{% include 'partials/image.html.twig' with { classes: [ 'Loop__thumbnail__image' ], image: product.thumbnail } %}
+	{% include 'partials/image.html.twig' with { classes: [ 'Loop__thumbnail__hover' ], image: product.get_field( 'image_hover' ) } %}
 </a>

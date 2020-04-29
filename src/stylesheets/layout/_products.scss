@@ -6,5 +6,6 @@
  *
  */
 .Products {
+	@include margin(top -20px bottom -20px);
 	@extend .d-flex;
 }
