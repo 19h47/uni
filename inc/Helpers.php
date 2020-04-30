@@ -70,9 +70,7 @@ function html_class( $class = '' ) : string {
 function set_product_global( $post ) {
 	global $product;
 
-	if ( is_woocommerce() ) {
-		$product = wc_get_product( $post->ID );
-	}
+	$product = wc_get_product( $post->ID );
 }
 
 

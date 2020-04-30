@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: uni\n"
-"POT-Creation-Date: 2020-04-29 14:25+0200\n"
-"PO-Revision-Date: 2020-04-29 14:26+0200\n"
+"POT-Creation-Date: 2020-04-30 15:57+0200\n"
+"PO-Revision-Date: 2020-04-30 15:58+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fr_FR\n"
@@ -164,8 +164,8 @@ msgstr "Crédits :"
 msgid "Let's meet up:"
 msgstr "Rencontrons nous :"
 
-#: views/pages/archive-product.html.twig:15
-msgid "Collection No."
+#: views/pages/archive-product.html.twig:16
+msgid "Collection N°"
 msgstr "Collection N°"
 
 #: views/pages/horizontal-page.html.twig:30
@@ -184,14 +184,18 @@ msgstr "Continuer vos achats"
 msgid "Access your basket"
 msgstr "Accéder à votre panier"
 
-#: views/pages/single-product.html.twig:116
+#: views/pages/single-product.html.twig:117
 msgid "In the same collection"
 msgstr "Dans la même collection"
 
-#: views/pages/single-product.html.twig:134
+#: views/pages/single-product.html.twig:135
 #: views/woocommerce/cart/cart-empty.html.twig:9
 msgid "Return to shop"
 msgstr "Retour à la boutique"
+
+#: views/partials/product-variations.html.twig:7
+msgid "Exists in:"
+msgstr "Existe en :"
 
 #: views/partials/signup-form.html.twig:9
 msgid "Newsletter subscriptions"
@@ -297,11 +301,11 @@ msgctxt "thankyou"
 msgid "Payment method:"
 msgstr "Méthode paiement :"
 
-#: views/woocommerce/single-product/product-image.html.twig:14
+#: views/woocommerce/single-product/product-image.html.twig:21
 msgid "Previous"
 msgstr ""
 
-#: views/woocommerce/single-product/product-image.html.twig:16
+#: views/woocommerce/single-product/product-image.html.twig:23
 msgid "Next"
 msgstr ""
 

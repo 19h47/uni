@@ -8,7 +8,7 @@
 
 namespace UNI;
 
-use UNI\{ Setup, Plugins, Custom, Api };
+use UNI\{ Core, Setup, Plugins, Custom, Api };
 
 /**
  * Init
@@ -32,6 +32,9 @@ class Init {
 			Api\Customizer\Contact::class,
 			Custom\Extras::class,
 			Plugins\WooCommerce::class,
+			Plugins\ACF::class,
+			Core\ProductTag::class,
+			Core\Product::class,
 		);
 	}
 

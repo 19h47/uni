@@ -73,7 +73,7 @@
 									@hooked UNI\Plugins\WooCommerce::template_single_product_content - 20
 								#}
 								{% do action( 'woocommerce_single_product_content' ) %}
-								{{- post.terms( 'product_cat' ) | map( c => "<div class=\"Product__category-description\"><span>#{c.name}</span><br>#{c.description}</div>" ) | join( ', ' ) -}}
+								{{- post.terms( 'product_cat' ) | map( c => "<div class=\"Product__category-description\">#{c.description}</div>" ) | join( ', ' ) -}}
 							</div>
 
 							<div>
@@ -81,7 +81,7 @@
 									{% for attribute in post.attributes %}
 										<li>
 											<div class="Product__attributes__name">{{- attribute.get_name() -}}</div>
-											<div class="Product__attributes__options">{{- attribute.get_options() | join( ' ' ) | replace( { 'mm' : '<span>mm</span>' } ) -}}</div>
+											<div class="Product__attributes__options">{{- attribute.get_options() | join( ' ' ) | replace( { 'mm' : '<span>mm</span>', '⌀': '<span>⌀</span>', 'h': '<span>h</span>' } ) -}}</div>
 										</li>
 									{% endfor %}
 								</ul>
@@ -91,6 +91,7 @@
 								{#
 									Hook: woocommerce_single_product_meta
 
+									@hooked UNI\Plugins\WooCommerce::template_product_variations - 15
 									@hooked woocommerce_template_single_meta 40
 								#}
 								{% do action( 'woocommerce_single_product_meta' ) %}
@@ -118,7 +119,7 @@
 					<section class="Related related products">
 						<ul class="Products">
 							{% for product in post.related_products %}
-								{% include 'partials/product-content.html.twig' %}
+								{% include 'partials/product-content.html.twig' with { variations: true, price: false } %}
 							{% endfor %}
 						</ul>
 					</section>

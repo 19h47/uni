@@ -85,6 +85,8 @@ module.exports = merge(common, {
 				'modal--is-open',
 				'Menu--footer',
 				'menu-mobile--is-open',
+				'page-template-page-horizontal',
+				'Single-product',
 				'iframe',
 				'input',
 				'button',

@@ -29,6 +29,7 @@
 		"imagesloaded": "^4.1.4",
 		"ress": "^2.0.4",
 		"starting-blocks": "^5.0.7",
+		"url-loader": "^4.1.0",
 		"virtual-scroll": "ayamflow/virtual-scroll"
 	},
 	"devDependencies": {

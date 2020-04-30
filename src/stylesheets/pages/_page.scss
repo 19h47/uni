@@ -18,8 +18,8 @@
 					@extend .d-block;
 					@include letter-spacing(0);
 
-					font-size: #{(30/75)}em;
 					line-height: (36/30);
+					font-size: #{(30/75)}em;
 				}
 			}
 		}

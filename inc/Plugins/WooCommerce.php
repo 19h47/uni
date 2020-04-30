@@ -43,6 +43,7 @@ class WooCommerce {
 		add_action( 'woocommerce_single_product_content', array( $this, 'template_single_product_content' ), 20 );
 
 		// Meta.
+		add_action( 'woocommerce_single_product_meta', array( $this, 'template_product_variations' ), 10 );
 		add_action( 'woocommerce_single_product_meta', 'woocommerce_template_single_meta', 40 );
 
 		// After single product summary.
@@ -58,6 +59,7 @@ class WooCommerce {
 
 		// Shop loop title.
 		remove_action( 'woocommerce_shop_loop_item_title', 'woocommerce_template_loop_product_title', 10 );
+		add_action( 'woocommerce_shop_loop_item_title', array( $this, 'template_product_variations' ), 15 );
 
 		add_action( 'woocommerce_shop_loop_item_title', array( $this, 'template_loop_product_title' ), 10 );
 		add_action( 'woocommerce_shop_loop_item_title', array( $this, 'template_loop_price' ), 15 );
@@ -161,7 +163,7 @@ class WooCommerce {
 	public function template_loop_product_title() : void {
 		global $product;
 
-		echo Timber::compile( 'woocommerce/loop/product-title.html.twig', array( 'title' => get_the_title( $product->get_id() ) ) );
+		Timber::render( 'woocommerce/loop/product-title.html.twig', array( 'title' => get_the_title( $product->get_id() ) ) );
 	}
 
 	/**
@@ -172,7 +174,13 @@ class WooCommerce {
 	public function template_loop_price() : void {
 		global $product;
 
-		echo Timber::compile( 'woocommerce/loop/price.html.twig', array( 'price_html' => $product->get_price_html() ) );
+		Timber::render(
+			'woocommerce/loop/price.html.twig',
+			array(
+				'price_html' => $product->get_price_html(),
+				'render'     => is_product_category() || is_shop(),
+			)
+		);
 	}
 
 
@@ -185,7 +193,7 @@ class WooCommerce {
 	public function template_loop_product_thumbnail() : void {
 		global $product;
 
-		echo Timber::compile( 'woocommerce/loop/product-thumbnail.html.twig', array( 'product' => Timber::get_post( $product->get_id() ) ) );
+		Timber::render( 'woocommerce/loop/product-thumbnail.html.twig', array( 'product' => Timber::get_post( $product->get_id() ) ) );
 	}
 
 
@@ -196,6 +204,18 @@ class WooCommerce {
 	 */
 	public function template_single_product_content() {
 		the_content();
+	}
+
+
+	/**
+	 *
+	 *
+	 * @return void
+	 */
+	public function template_product_variations() : void {
+		global $product;
+
+		Timber::render( 'partials/product-variations.html.twig', array( 'render' => is_product(), 'product' => Timber::get_post( $product->get_id(), 'UNI\Models\ProductPost' ) ) );
 	}
 }
 

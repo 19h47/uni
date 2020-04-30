@@ -6,7 +6,6 @@ export default class InViewBlock extends AbstractInViewBlock {
 
 		this.observerOptions = {
 			...this.observerOptions,
-			root: document,
 			threshold: 1,
 		};
 	}

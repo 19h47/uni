@@ -6,7 +6,7 @@ import gsap from 'gsap';
 // const imagesLoaded = require('imagesloaded');
 
 /**
- * Y Scroll page
+ * Horizontal page
  *
  * @extends {HorizontalPage}
  * @class

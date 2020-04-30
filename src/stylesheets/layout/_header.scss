@@ -15,7 +15,7 @@
 	border-radius: 12px;
 	box-shadow: 2px 2px 3px rgba(the_color(black), 0.2);
 	background-color: the_color(white);
-	z-index: 2;
+	z-index: 5;
 
 	@include media-breakpoint-up(md) {
 		@include size(60px, auto);

@@ -41,7 +41,8 @@
 		@extend .d-flex, .flex-nowrap;
 		@include margin(top 20px bottom 20px);
 
-		@at-root .page-template-page-horizontal & {
+		@at-root .page-template-page-horizontal &,
+			.Single-product & {
 			@include margin(right #{((200 * 2) * 100) / $prototype-width-unitless}vw);
 		}
 	}

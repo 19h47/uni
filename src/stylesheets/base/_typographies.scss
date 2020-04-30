@@ -9,7 +9,7 @@ h1,
 	@extend %font-family-title, %font-weight-regular;
 	@include letter-spacing(100);
 
-	font-size: 2.5em;
+	font-size: #{(75/30)}em;
 	line-height: 1.2;
 
 	@include margin(top #{$base-line-height}px bottom #{$base-line-height * 2}px);

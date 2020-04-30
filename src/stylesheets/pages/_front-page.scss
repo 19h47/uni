@@ -4,4 +4,120 @@
  *
  * @package DLAP
  */
-.Front-page {}
+.Front-page {
+	@extend %overflow-hidden;
+
+	height: 100%;
+
+	.Site-content {
+		@extend %position-relative, %overflow-hidden;
+
+		color: the_color(white);
+		width: 100%;
+		border-radius: 12px;
+
+		@include media-breakpoint-up(hd) {
+			border-radius: 20px;
+		}
+	}
+
+	&__grid {
+		@extend %position-relative;
+
+		display: grid;
+		grid-template-columns: repeat(12, 1fr);
+		grid-template-rows: repeat(11, 1fr);
+		grid-column-gap: 0px;
+		grid-row-gap: 0px;
+
+		// background-color: the_color(yellow, dark-grayish);
+		height: 100%;
+		z-index: 2;
+
+		div:nth-child(1) {
+			grid-area: 1 / 2 / 3 / 12;
+		}
+		div:nth-child(2) {
+			grid-area: 4 / 5 / 8 / 9;
+		}
+		div:nth-child(3) {
+			grid-area: 9 / 2 / 10 / 5;
+		}
+		div:nth-child(4) {
+			grid-area: 9 / 9 / 10 / 12;
+		}
+		div:nth-child(5) {
+			grid-area: 11 / 2 / 12 / 12;
+		}
+
+		@include media-breakpoint-up(md) {
+			@include padding(
+				top #{(36 * 100) / $prototype-height-unitless}vh bottom #{(36 * 100) /
+					$prototype-height-unitless}vh
+			);
+		}
+
+		@include media-breakpoint-up(hd) {
+			@include padding(
+				top #{(60 * 100) / $prototype-height-unitless}vh bottom #{(60 * 100) /
+					$prototype-height-unitless}vh
+			);
+		}
+	}
+
+	&__logo {
+		svg {
+			@include size(100%);
+		}
+	}
+
+	&__content {
+		@include letter-spacing(25);
+	}
+
+	&__link {
+		@extend %text-align-center;
+		@extend .d-block;
+
+		span {
+			@extend .d-block;
+			@extend %font-family-title, %text-transform-uppercase;
+			@include letter-spacing(250);
+
+			font-size: #{(75/30)}em;
+			line-height: 1.2;
+		}
+	}
+
+	&__footer {
+		@extend %font-family-title, %font-style-italic, %text-align-center;
+
+		line-height: (45/35);
+		font-size: #{(35 * 60) / 100}px;
+
+		@include media-breakpoint-up(hd) {
+			font-size: #{(35/30)}em;
+		}
+	}
+
+	&__video {
+		@include absolute(top 0 right 0 bottom 0 left 0);
+		@extend %overflow-hidden;
+
+		z-index: 1;
+
+		// Safari workaround
+		border-radius: 12px;
+
+		@include media-breakpoint-up(hd) {
+			border-radius: 20px;
+		}
+
+		video {
+			@include size(100%);
+
+			object-fit: cover;
+			object-position: center;
+		}
+	}
+}

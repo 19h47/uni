@@ -11,6 +11,7 @@ namespace UNI\Models;
 
 use Timber\{ Timber, Post };
 use WC_Product;
+use UNI\Core\{ Transients };
 
 /**
  * Product post
@@ -23,6 +24,16 @@ class ProductPost extends Post {
 	 * @var string $node_type
 	 */
 	public $node_type = 'HorizontalPage';
+
+
+	/**
+	 * Construct
+	 *
+	 * @param mixed $pid Post object.
+	 */
+	public function __construct( $pid = null ) {
+		parent::__construct( $pid );
+	}
 
 
 	/**
@@ -46,15 +57,34 @@ class ProductPost extends Post {
 
 
 	/**
+	 * Product variations
+	 *
+	 * @return array
+	 */
+	public function product_variations() : array {
+		return Transients::product_variations( $this->id );
+	}
+
+
+	/**
 	 * Related products
 	 *
 	 * @return array
 	 */
 	public function related_products() : array {
-		$related_limit = wc_get_loop_prop( 'columns' );
-		$related_ids   = wc_get_related_products( $this->id, $related_limit );
+		$transient = get_transient( 'uni_related_products_' . $this->id );
 
-		return Timber::get_posts( $related_ids, 'UNI\Models\ProductPost' );
+		if ( $transient ) {
+			return $transient;
+		}
+
+		$related_ids = wc_get_related_products( $this->id, -1 );
+
+		$related_products = Timber::get_posts( $related_ids, 'UNI\Models\ProductPost' );
+
+		set_transient( 'uni_related_products_' . $this->id, $related_products );
+
+		return $related_products ? $related_products : array();
 	}
 
 
@@ -63,10 +93,10 @@ class ProductPost extends Post {
 	 * Get HTML to show product stock.
 	 *
 	 * @see https://github.com/woocommerce/woocommerce/blob/e1aaa6c63c02bd6197d4b40fce317cf8d424d36b/includes/wc-template-functions.php#L3392
-	 * @return string
+	 * @return string string
 	 */
 	public function stock_html() : string {
-		return wc_get_stock_html( $this->product );
+		return wc_get_stock_html( $this->product() );
 	}
 
 

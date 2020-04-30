@@ -1,0 +1,23 @@
+{% extends 'index.html.twig' %}
+
+{% block content %}
+	<div class="Site-content">
+		<div class="Front-page__grid">
+			<div class="Front-page__logo">
+				{% include 'svg/use.html.twig' with { icon: 'logo-baseline'} only %}
+			</div>
+			<div class="Wysiwyg Front-page__content js-content">{{- post.content -}}</div>
+			<div><a class="Front-page__link" href="">Explorer nos :<span>Habitat</span></a></div>
+			<div><a class="Front-page__link" href="">Découvrir nos :<span>Objets</span></a></div>
+			<div class="Front-page__footer Wysiwyg">
+				<p>Tout comme nos productions d’objets, nos habitats sont emprunts de nos valeurs :<br>raffinement, singularité et savoir-faire artisanal.</p>
+			</div>
+		</div>
+
+		<div class="Front-page__video">
+			<video class="js-player" preload="auto">
+				<source src="{{ theme.link }}/{{ manifest['videos/front-page.mp4'] }}" type="video/mp4">
+			</video>
+		</div>
+	</div>
+{% endblock %}

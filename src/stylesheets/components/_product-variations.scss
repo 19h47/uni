@@ -1,0 +1,86 @@
+/**
+ * Product: variations
+ *
+ *
+ *
+ *
+ *
+ *
+ */
+.Product-variations {
+	$this: &;
+
+	&__title {
+		@include margin(bottom 0.5em);
+		line-height: 1.2;
+
+		@at-root .Loop #{ $this } #{ $this }__title {
+			@extend .d-none;
+		}
+	}
+
+	&__items {
+		@extend %list-style-type-none;
+		@extend .d-flex;
+	}
+
+	&__item {
+		@include margin(right #{(10 * 60) / 100}px left #{(10 * 60) / 100}px);
+
+		@include media-breakpoint-up(hd) {
+			@include margin(right #{(10/30)}em left #{(10/30)}em);
+		}
+
+		&:first-child {
+			@include margin(top 0);
+		}
+		&:last-child {
+			@include margin(right 0);
+		}
+
+		@at-root .Loop #{ $this } #{ $this }__item {
+			@include margin(top #{(10 * 60) / 100}px right 0 bottom #{(10 * 60) / 100}px left 0);
+
+			&:first-child {
+				@include margin(top 0 left 0);
+			}
+			&:last-child {
+				@include margin(bottom 0 right 0);
+			}
+
+			@include media-breakpoint-up(hd) {
+				@include margin(top #{(10/30)}em bottom #{(10/30)}em);
+			}
+		}
+
+		a {
+			@extend .d-block;
+
+			border-radius: 10px;
+
+			@include size(#{(50 * 60) / 100}px);
+
+			@include media-breakpoint-up(hd) {
+				@include size(#{(50/30)}em);
+			}
+
+			&.is-active {
+				box-shadow: 2px 2px 1px rgba(the_color(black), 0.2);
+			}
+
+			@at-root .Loop #{ $this } #{ $this }__item a {
+				border-radius: 5px;
+
+				@include size(#{(25 * 60) / 100}px);
+
+				@include media-breakpoint-up(hd) {
+					@include size(#{(25/30)}em);
+				}
+			}
+
+			@at-root .Loop #{ $this } #{ $this }__item a.is-active {
+				box-shadow: none;
+			}
+		}
+	}
+}

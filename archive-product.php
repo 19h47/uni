@@ -11,7 +11,7 @@ use Timber\{ Timber };
 
 $context = Timber::get_context();
 
-$context['products'] = Timber::get_posts();
+$context['products'] = Timber::get_posts( 'UNI\Models\ProductPost' );
 
 $context['show_page_title'] = apply_filters( 'woocommerce_show_page_title', true );
 $context['page_title']      = woocommerce_page_title( false );
