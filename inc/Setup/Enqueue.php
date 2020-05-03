@@ -44,7 +44,7 @@ class Enqueue {
 		wp_register_script( // phpcs:ignore
 			get_theme_name() . '-main',
 			get_template_directory_uri() . '/' . get_theme_manifest()['main.js'],
-			array( 'jquery' ),
+			array( 'jquery', 'jquery-blockui' ),
 			false,
 			true
 		);

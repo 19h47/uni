@@ -17,6 +17,8 @@ export default class AddToCartBlock extends AbstractBlock {
 	init() {
 		super.init();
 
+		this.$wrapper = $('.js-wrapper');
+
 		this.$button = this.rootElement.querySelector('.js-add-to-cart-button');
 		this.$quantity = this.rootElement.querySelector('input[name=quantity]');
 		this.$productId = this.rootElement.querySelector('input[name=product_id]');
@@ -55,6 +57,15 @@ export default class AddToCartBlock extends AbstractBlock {
 			quantity: this.quantity,
 			variation_id: this.variationId,
 		});
+
+		this.$wrapper.block({
+			message: null,
+			overlayCSS: {
+				background: '#fff',
+				opacity: 0.6,
+			},
+		});
+
 		fetch(request, {
 			method: 'POST',
 			headers,
@@ -67,7 +78,9 @@ export default class AddToCartBlock extends AbstractBlock {
 					response.cart_hash,
 					$(this.$button),
 				]);
+
+				this.$wrapper.unblock();
 			})
-			.catch(error => console.log(error));
+			.catch(error => console.log(error.message));
 	}
 }

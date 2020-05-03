@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: uni\n"
 "POT-Creation-Date: 2020-05-01 11:58+0200\n"
-"PO-Revision-Date: 2020-05-03 16:45+0200\n"
+"PO-Revision-Date: 2020-05-03 16:49+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fr_FR\n"
@@ -311,7 +311,7 @@ msgstr "Choisir une option"
 
 #: views/woocommerce/single-product/add-to-cart/variable.html.twig:60
 msgid "This product is currently out of stock and unavailable."
-msgstr ""
+msgstr "Ce produit est actuellement en rupture de stock et indisponible."
 
 #: views/woocommerce/single-product/product-image.html.twig:21
 msgid "Previous"
