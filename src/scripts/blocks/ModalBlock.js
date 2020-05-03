@@ -11,7 +11,7 @@ import { elements } from 'scripts/config';
  */
 export default class ModalBlock extends AbstractBlock {
 	constructor(container) {
-		// console.info('Modal.constructor');
+		// console.info('ModalBlock.constructor');
 
 		super(container, 'ModalBlock');
 
@@ -29,13 +29,14 @@ export default class ModalBlock extends AbstractBlock {
 		super.init();
 
 		this.buttons = [...this.rootElement.querySelectorAll('.js-modal-button')] || [];
+		this.$price = this.rootElement.querySelector('.js-modal-price');
 	}
 
 	/**
-	 * Modal.initEvents
+	 * ModalBlock.initEvents
 	 */
 	initEvents() {
-		// console.info('Modal.setupEvents');
+		// console.info('ModalBlock.setupEvents');
 		super.initEvents();
 
 		// On click
@@ -52,23 +53,27 @@ export default class ModalBlock extends AbstractBlock {
 			this.toggle();
 			console.log(event);
 		});
+
+		$(document.body).on('found_variation', (event, variation) => {
+			this.$price.innerHTML = variation.price_html;
+		});
 	}
 
 	/**
-	 * Modal.toggle
+	 * ModalBlock.toggle
 	 */
 	toggle() {
-		console.info('Modal.toggle');
+		// console.info('ModalBlock.toggle');
 		if (this.isOpen) return this.close();
 
 		return this.open();
 	}
 
 	/**
-	 * Modal.open
+	 * ModalBlock.open
 	 */
 	open() {
-		console.info('Modal.open');
+		// console.info('ModalBlock.open');
 		if (this.isOpen) return false;
 
 		this.isOpen = true;
@@ -82,10 +87,10 @@ export default class ModalBlock extends AbstractBlock {
 	}
 
 	/**
-	 * Modal.close
+	 * ModalBlock.close
 	 */
 	close() {
-		// console.info('Modal.close');
+		// console.info('ModalBlock.close');
 		if (!this.isOpen) return false;
 
 		this.isOpen = false;

@@ -33,19 +33,31 @@
 
 	{% include 'components/menu.html.twig' %}
 
+	{#
+	 # woocommerce_before_main_content hook.
+	 #}
 	{% do action( 'woocommerce_before_main_content' ) %}
 
 	{% block content %}
 		<div class="Site-content">
 			<div><h1>{{- post.title -}}</h1></div>
 			<div class="Wysiwyg">{{- post.content -}}</div>
+
+			{% include 'components/footer-vertical.html.twig' %}
 		</div>
 	{% endblock %}
 
+	{#
+	 # woocommerce_after_main_content hook.
+	 #}
 	{% do action( 'woocommerce_after_main_content' ) %}
 
 </main>
 
+{#
+ # woocommerce_sidebar hook.
+ #}
+{% do action( 'woocommerce_sidebar' ) %}
 
 {# Footer #}
 {% include 'footer.html.twig' %}

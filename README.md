@@ -12,6 +12,10 @@ woocommerce_single_product_meta
 woocommerce_single_product_content
 ```
 
+```php
+woocommerce_single_product_add_to_cart
+```
+
 ## Authors
 
 The website has been designed by [L'atelier inconnu](http://www.atelierinconnu.com/) and developed by [19h47](http://www.19h47.fr/).

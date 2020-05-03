@@ -1,61 +1,12 @@
 /**
- * Site: footer
+ * Site footer
  *
  *
  *
- * @package uni
+ *
+ *
  */
 .Site-footer {
-	@include margin(top 20px bottom 20px);
-	@extend %position-relative;
-
-	color: the_color(gray, very-dark);
-	width: 50vw;
-	z-index: 2;
-
-	a:hover {
-		@extend %text-decoration-underline;
-	}
-
-	&__grid {
-		@include padding(
-			top #{(36 * 100) / $prototype-height-unitless}vh bottom #{(36 * 100) /
-				$prototype-height-unitless}vh
-		);
-		@include margin(right 20px);
-
-		border-radius: 0px 20px 20px 0px;
-		box-shadow: 2px 2px 3px rgba(the_color(black), 0.2);
-		// Grid.
-		display: grid;
-		grid-template-columns: repeat(6, 1fr);
-		grid-template-rows: repeat(11, 1fr);
-		grid-column-gap: 0px;
-		grid-row-gap: 0px;
-
-		max-height: 100%;
-		height: 100%;
-
-		div:nth-child(1) {
-			grid-area: 2 / 3 / 5 / 4;
-		}
-		div:nth-child(2) {
-			grid-area: 2 / 5 / 5 / 6;
-		}
-		div:nth-child(3) {
-			grid-area: 5 / 3 / 7 / 4;
-		}
-		div:nth-child(4) {
-			grid-area: 5 / 5 / 7 / 6;
-		}
-		div:nth-child(5) {
-			grid-area: 8 / 3 / 9 / 6;
-		}
-		div:nth-child(6) {
-			grid-area: 10 / 3 / 11 / 6;
-		}
-	}
-
 	&__items {
 		@extend %list-style-type-none;
 	}
@@ -92,38 +43,6 @@
 		a {
 			@extend .d-inline-block;
 			@extend %font-family-title;
-		}
-	}
-
-	&__copyright {
-		color: the_color(gray, very-dark);
-
-		& > *:first-child {
-			@include margin(top 0);
-		}
-		& > *:last-child {
-			@include margin(bottom 0);
-		}
-
-		h5 {
-			@extend %font-family-body;
-			@include margin(bottom 1em);
-
-			line-height: (30/18);
-			font-size: #{(60 * 18) / 100}px;
-
-			@include media-breakpoint-up(hd) {
-				font-size: #{(18/30)}em;
-			}
-		}
-
-		p {
-			line-height: 1.2;
-			font-size: #{(60 * 15) / 100}px;
-
-			@include media-breakpoint-up(hd) {
-				font-size: #{(15/30)}em;
-			}
 		}
 	}
 }

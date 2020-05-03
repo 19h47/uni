@@ -4,24 +4,28 @@ Simple product add to cart
 
 #}
 
-{# {{ post.stock_html }} #}
+{# {{ stock_html }} #}
 
-{% do action( 'woocommerce_before_add_to_cart_form' ) %}
+{% if is_in_stock %}
 
-<form id="add-to-cart-{{ post.id }}" class="cart page-block" action="{{ post.add_to_cart_form_action }}" method="post" enctype="multipart/form-data" data-node-type="AddToCartBlock">
-	{% do action( 'woocommerce_before_add_to_cart_button' ) %}
-	{% do action( 'woocommerce_before_add_to_cart_quantity' ) %}
+	{% do action( 'woocommerce_before_add_to_cart_form' ) %}
 
-	{# {{ post.quantity_input }} #}
+	<form id="add-to-cart-{{ id }}" class="cart page-block" action="{{ form_action }}" method="post" enctype="multipart/form-data" data-node-type="AddToCartBlock">
+		{% do action( 'woocommerce_before_add_to_cart_button' ) %}
+		{% do action( 'woocommerce_before_add_to_cart_quantity' ) %}
 
-	{% do action( 'woocommerce_after_add_to_cart_quantity' ) %}
+		{# {{ quantity_input }} #}
 
-	<button type="submit" name="add-to-cart" value="{{ post.product.get_id() }}" class="Product__add-to-cart-button js-add-to-cart-button single_add_to_cart_button button alt test">
-		{% include 'svg/use.html.twig' with { icon: 'cart', classes: [ 'Pointer-events-none' ] } only %}
-		{{- post.add_to_cart_text -}}
-	</button>
+		{% do action( 'woocommerce_after_add_to_cart_quantity' ) %}
 
-	{% do action( 'woocommerce_after_add_to_cart_button' ) %}
-</form>
+		<button type="submit" value="{{ id }}" class="Product__add-to-cart-button js-add-to-cart-button single_add_to_cart_button button alt test">
+			{% include 'svg/use.html.twig' with { icon: 'cart', classes: [ 'Pointer-events-none' ] } only %}
+			{{- text -}}
+		</button>
 
-{% do action( 'woocommerce_after_add_to_cart_form' ) %}
+		{% do action( 'woocommerce_after_add_to_cart_button' ) %}
+	</form>
+
+	{% do action( 'woocommerce_after_add_to_cart_form' ) %}
+
+{% endif %}

@@ -1,5 +1,16 @@
-{#  #}
-<a class="Loop__thumbnail" href="{{ product.link }}">
-	{% include 'partials/image.html.twig' with { classes: [ 'Loop__thumbnail__image' ], image: product.thumbnail } %}
-	{% include 'partials/image.html.twig' with { classes: [ 'Loop__thumbnail__hover' ], image: product.get_field( 'image_hover' ) } %}
+{#
+ # Product thumbnail
+ #}
+<a class="Product-thumbnail js-link" href="{{ product.link }}">
+
+	{% if is_product and product.product_colors is not empty %}
+		{%- for product_color in product.product_colors -%}
+			{% include 'partials/image.html.twig' with { classes: [ 'Product-thumbnail__image', product_color.current ? 'is-active' : null ], attributes: { 'data-color': product_color.color }, image: product_color.thumbnail } %}
+		{%- else -%}
+			{% include 'partials/image.html.twig' with { classes: [ 'Product-thumbnail__image' ], attributes: { 'data-color': product_color.color }, image: product.thumbnail } %}
+		{%- endfor -%}
+	{% else %}
+		{% include 'partials/image.html.twig' with { classes: [ 'Product-thumbnail__image', 'is-active' ], image: product.thumbnail } %}
+		{% include 'partials/image.html.twig' with { classes: [ 'Product-thumbnail__hover' ], image: product.get_field( 'image_hover' ) } %}
+	{% endif %}
 </a>

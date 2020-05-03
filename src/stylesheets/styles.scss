@@ -37,6 +37,8 @@
 @import 'layout/site';
 @import 'layout/header';
 @import 'layout/footer';
+@import 'layout/footer-horizontal';
+@import 'layout/footer-vertical';
 @import 'layout/carousel';
 @import 'layout/product';
 @import 'layout/products';
@@ -58,7 +60,9 @@
 @import 'components/signup-form';
 @import 'components/wysiwyg';
 @import 'components/loop';
-@import 'components/product-variations';
+@import 'components/product-colors';
+@import 'components/product-summary';
+@import 'components/product-thumbnail';
 
 // Pages
 @import 'pages/page';

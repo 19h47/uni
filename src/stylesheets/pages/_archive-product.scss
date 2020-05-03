@@ -11,12 +11,17 @@
 
 		display: grid;
 		grid-template-columns: repeat(6, 1fr);
-		grid-template-rows: repeat(11, 1fr);
+		grid-template-rows: repeat(11, percentage(1/11));
 		grid-column-gap: 0px;
 		grid-row-gap: 0px;
 		min-height: 100%;
+		grid-auto-rows: 1fr;
 
 		z-index: 100;
+
+		& > div {
+			grid-column: 1;
+		}
 
 		div:nth-child(1) {
 			grid-area: 2 / 2 / 4 / 7;

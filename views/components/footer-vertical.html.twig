@@ -1,0 +1,30 @@
+{% import 'macros/footer.twig' as footer %}
+
+<footer class="Site-footer-vertical">
+	<div>
+		{{- footer.list( menus.footer_primary.items, __( 'Navigation', 'uni' ) ) -}}
+	</div>
+	<div>
+		{{- footer.list( menus.footer_secondary.items, __( 'Information', 'uni' ) ) -}}
+	</div>
+	<div>
+		{% include 'partials/socials.html.twig' %}
+	</div>
+	<div>
+		{{- footer.list( menus.footer_tertiary.items, __( 'Downloads', 'uni' ) ) -}}
+	</div>
+	<div>
+		<ul class="Site-footer__items">
+			<li class="Site-footer__item"><h5>{{- __( 'Credits:', 'uni' ) -}}</h5></li>
+			<li class="Site-footer__item">
+				<a href="http://www.atelierinconnu.com/" target="_blank" rel="noopener">Atelier Inconu</a>
+			</li>
+			<li class="Site-footer__item">
+				<a href="https://19h47.fr" target="_blank" rel="noopener">19h47</a>
+			</li>
+		</ul>
+	</div>
+	<div>
+		{%- include 'partials/signup-form.html.twig' with { id: post.id } only -%}
+	</div>
+</footer>

@@ -1,0 +1,28 @@
+/**
+ * Footer: vertical
+ *
+ *
+ *
+ *
+ *
+ */
+.Site-footer-vertical {
+	@extend .d-flex;
+
+	& > div {
+		flex-grow: 1;
+		width: percentage(1/8);
+	}
+
+	& > div:last-child {
+		width: percentage(3/8);
+	}
+
+	@include padding(
+		top 150px right #{(200 * 100) / $prototype-width-unitless}vw bottom 130px left #{(200 * 100) /
+			$prototype-width-unitless}vw
+	);
+
+	border-radius: 0px 0px 20px 20px;
+	box-shadow: 0px 4px 2px rgba(0, 0, 0, 0.2);
+}

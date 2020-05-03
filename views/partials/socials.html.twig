@@ -1,0 +1,9 @@
+{#  #}
+{% if socials is iterable %}
+	<ul class="Site-footer__items">
+		<li class="Site-footer__item"><h5>{{- __( 'Follow us', 'uni' ) -}}</h5></li>
+		{%- for social in socials -%}
+			<li class="Site-footer__item"><a href="{{ social.url }}">{{- social.title -}}</a></li>
+		{%- endfor -%}
+	</ul>
+{% endif %}

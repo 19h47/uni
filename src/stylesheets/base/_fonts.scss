@@ -27,6 +27,19 @@
 	font-display: swap;
 }
 
+@font-face {
+	font-family: "Suisse Int'l";
+	src: url('../../src/fonts/suisseintl/suisseintl-regular.eot');
+	src: url('../../src/fonts/suisseintl/suisseintl-regular.woff2') format('woff2'),
+		url('../../src/fonts/suisseintl/suisseintl-regular.woff') format('woff'),
+		url('../../src/fonts/suisseintl/suisseintl-regular.eot?#iefix') format('embedded-opentype'),
+		url('../../src/fonts/suisseintl/suisseintl-regular.ttf') format('truetype'),
+		url('../../src/fonts/suisseintl/suisseintl-regular.svg#suisseintl-regular') format('svg');
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
 // Suisse Works regular
 @font-face {
 	font-family: 'Suisse Works';

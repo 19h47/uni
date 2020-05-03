@@ -84,7 +84,7 @@
 
 		font-size: #{(60 * 25) / 100}px;
 
-		.amount {
+		& > span {
 			@include margin(left auto);
 		}
 

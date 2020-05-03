@@ -1,5 +1,5 @@
 /**
- * Product: variations
+ * Product: colors
  *
  *
  *
@@ -7,7 +7,7 @@
  *
  *
  */
-.Product-variations {
+.Product-colors {
 	$this: &;
 
 	&__title {
@@ -57,6 +57,7 @@
 			@extend .d-block;
 
 			border-radius: 10px;
+			transition: box-shadow 0.7s map-get($easings, ease-out-expo);
 
 			@include size(#{(50 * 60) / 100}px);
 

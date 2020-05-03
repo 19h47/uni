@@ -28,7 +28,11 @@
 			@extend .align-self-end;
 			@extend %font-family-title, %font-style-italic;
 
-			line-height: (40/30);
+			.term-description {
+				& > p:last-child {
+					@include margin(bottom 0);
+				}
+			}
 		}
 	}
 }

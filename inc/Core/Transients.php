@@ -41,26 +41,36 @@ class Transients {
 	}
 
 
-	public static function product_variations( int $id ) : array {
-		$transient = get_transient( 'uni_product_variations_' . $id );
+	/**
+	 * Product colors
+	 *
+	 * @param int $id Post id.
+	 *
+	 * @return array
+	 */
+	public static function product_colors( int $id ) : array {
+		$transient = get_transient( 'uni_product_colors_' . $id );
 
 		if ( $transient ) {
 			return $transient;
 		}
 
-		$products    = Timber::get_posts( get_field( 'product_variations', $id ) );
+		$products = Timber::get_posts( get_field( 'product_colors', $id ) );
+
 		$product_tag = get_the_terms( $id, 'product_tag' );
 		$variations  = array();
 
-		if ( ! is_array( $product_tag ) ) {
-			return array();
+		if ( ! is_array( $product_tag ) || ! is_array( $products ) ) {
+			return $variations;
 		}
 
 		// Current variation.
 		$variations[] = array(
-			'link'    => get_permalink( $id ),
-			'color'   => get_field( 'color', 'product_tag_' . $product_tag[0]->term_id ),
-			'current' => true,
+			'link'      => get_permalink( $id ),
+			'color'     => get_field( 'color', 'product_tag_' . $product_tag[0]->term_id ),
+			'current'   => true,
+			'thumbnail' => get_post_thumbnail_id( $id ),
+			'title'     => get_the_title( $id ),
 		);
 
 		foreach ( $products as $p ) {
@@ -71,13 +81,15 @@ class Transients {
 			}
 
 			$variations[] = array(
-				'link'    => $p->link(),
-				'color'   => get_field( 'color', 'product_tag_' . $p_tag[0]->term_id ),
-				'current' => false,
+				'link'      => $p->link(),
+				'color'     => get_field( 'color', 'product_tag_' . $p_tag[0]->term_id ),
+				'current'   => false,
+				'thumbnail' => get_post_thumbnail_id( $p->id ),
+				'title'     => $p->get_title(),
 			);
 		}
 
-		set_transient( 'uni_product_variations_' . $id, $variations );
+		set_transient( 'uni_product_colors_' . $id, $variations );
 
 		return $variations;
 	}

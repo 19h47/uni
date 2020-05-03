@@ -46,42 +46,4 @@
 			font-size: #{(25/30)}em;
 		}
 	}
-
-	&__thumbnail {
-		@extend %position-relative;
-		@extend .d-block;
-		@include size(percentage(600/800), 100%);
-
-		background-color: the_color(gray, very-light-01);
-
-		&:hover {
-			#{ $this }__thumbnail__hover {
-				@include autoAlpha(1);
-			}
-		}
-
-		img {
-			@extend .d-block;
-			@include size(100%);
-		}
-
-		&__image {
-			@extend %position-relative;
-
-			object-position: center;
-			object-fit: contain;
-			z-index: 1;
-		}
-
-		&__hover {
-			@include absolute(top 0 right 0 bottom 0 left 0);
-			@include autoAlpha(0);
-
-			object-position: center;
-			object-fit: cover;
-			transition: opacity 0.7s map-get($easings, ease-out-expo),
-				visibility 0.7s map-get($easings, ease-out-expo);
-			z-index: 2;
-		}
-	}
 }

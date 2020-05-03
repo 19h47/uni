@@ -2,7 +2,7 @@
 	The template for displaying product content within loops
  #}
 
-<li id="product-content-{{ product.id }}" {{ fn( 'wc_product_class', 'Loop', product ) }}>
+<li id="product-content-{{ product.id }}" {{ fn( 'wc_product_class', 'Loop page-block', product ) }} data-node-type="ProductContentBlock">
 	{{ fn( 'set_product_global', product ) }}
 
 	{#

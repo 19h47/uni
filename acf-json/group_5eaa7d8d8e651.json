@@ -1,13 +1,13 @@
 {
     "key": "group_5eaa7d8d8e651",
-    "title": "Produit",
+    "title": "Options du Produit",
     "fields": [
         {
             "key": "field_5eaa7dbb921be",
-            "label": "Variations",
-            "name": "product_variations",
+            "label": "Couleurs",
+            "name": "product_colors",
             "type": "relationship",
-            "instructions": "",
+            "instructions": "Indiquer le ou les couleurs du produit",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -45,5 +45,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1588236017
+    "modified": 1588507447
 }

@@ -1,0 +1,17 @@
+{#
+ # Product: colors
+ #
+ #}
+{% if render and product.product_colors is not empty %}
+	<div class="Product-colors">
+		<p class="Product-colors__title">{{- __( 'Exists in:', 'uni' ) -}}</p>
+
+		<ul class="Product-colors__items">
+			{%- for product_color in product.product_colors -%}
+				<li class="Product-colors__item">
+					<a class="{{ 1 < loop.length ? 'js-color' }}{{ product_color.current ? ' is-active' }}" href="{{ product_color.link }}" data-link="{{ product_color.link }}" data-color="{{ product_color.color }}" style="background-color: {{ product_color.color }};" aria-label="{{ product_color.title }}"></a>
+				</li>
+			{%- endfor -%}
+		</ul>
+	</div>
+{% endif %}

@@ -1,4 +1,7 @@
-{#  #}
+{#
+ # Cart Page
+ #
+ #}
 {% block content %}
 
 	{% do action( 'woocommerce_before_cart' ) %}
@@ -11,13 +14,13 @@
 
 			<thead>
 				<tr>
-				<th class="product-remove">&nbsp;</th>
-				<th class="product-thumbnail">&nbsp;</th>
-				<th class="product-name">{{ pll__( 'Product' ) }}</th>
-				<th class="product-price">{{ pll__( 'Price' ) }}</th>
-				<th class="product-quantity">{{ pll__( 'Quantity' ) }}</th>
-				<th class="product-subtotal">{{ pll__( 'Subtotal' ) }}</th>
-			</tr>
+					{# <th class="product-remove">&nbsp;</th> #}
+					<th class="product-thumbnail">{{- pll__( 'Product' ) -}}</th>
+					<th class="product-name">&nbsp;</th>
+					<th class="product-price">{{- pll__( 'Price' ) -}}</th>
+					<th class="product-quantity">{{- pll__( 'Quantity' ) -}}</th>
+					<th class="product-subtotal">{{- pll__( 'Total' ) -}}</th>
+				</tr>
 			</thead>
 
 			<tbody>
@@ -27,12 +30,12 @@
 				{% for product in products %}
 
 					<tr class="woocommerce-cart-form__cart-item {{ product.item_class }}">
-						<td class="product-remove">{{- product.remove -}}</td>
+						{# <td class="product-remove">{{- product.remove -}}</td> #}
 						<td class="product-thumbnail">{{- product.thumbnail -}}</td>
 						<td class="product-name" data-title="{{ pll__( 'Product' ) }}">{{- product.name -}}</td>
 						<td class="product-price" data-title="{{ pll__( 'Price' ) }}">{{- product.price -}}</td>
 						<td class="product-quantity" data-title="{{ pll__( 'Quantity' ) }}">{{- product.quantity -}}</td>
-						<td class="product-subtotal" data-title="{{ pll__( 'Subtotal' ) }}">{{- product.subtotal -}}</td>
+						<td class="product-subtotal" data-title="{{ pll__( 'Total' ) }}">{{- product.subtotal -}}</td>
 					</tr>
 
 				{% endfor %}
@@ -76,7 +79,12 @@
 
 	</form>
 
-
+	{#
+	 #	 Cart collaterals hook.
+	 #
+	 #	 @hooked woocommerce_cross_sell_display
+	 #	 @hooked woocommerce_cart_totals - 10
+	 #}
 	{% do action( 'woocommerce_before_cart_collaterals' ) %}
 
     <div class="cart-collaterals">

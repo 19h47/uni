@@ -1,0 +1,68 @@
+{#
+ # Variable
+ #
+ #}
+{% do action( 'woocommerce_before_add_to_cart_form' ) %}
+
+<form class="variations_form cart" action="{{ form_action }}" method="post" enctype='multipart/form-data' data-product_id="{{ id }}" data-product_variations="{{ variations_attr }}">
+	{% do action( 'woocommerce_before_variations_form' ) %}
+
+	{% if available_variations %}
+		<table class="variations" cellspacing="0">
+			<tbody>
+				{% for attribute_name, options in attributes %}
+					<tr>
+						<td class="label">
+							<label for="{{ fn( 'sanitize_title', attribute_name ) }}">
+								{{- fn ( 'wc_attribute_label', attribute_name ) -}}
+							</label>
+						</td>
+						<td class="value">
+							{{-
+								fn( 'wc_dropdown_variation_attribute_options',
+									{
+										'class': 'js-select-variation',
+										'options': options,
+										'attribute': attribute_name,
+										'product': product,
+										'show_option_none': false
+									}
+								)
+							-}}
+							{{- ( attribute_keys | last ) == attribute_name ? "<a class=\"reset_variations\" href=\"#\">#{ __( 'Clear', 'uni' ) }</a>" | apply_filters( 'woocommerce_reset_variations_link' )  }}
+						</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+
+		<div class="single_variation_wrap">
+			{#
+				# Hook: woocommerce_before_single_variation.
+				#}
+			{% do action( 'woocommerce_before_single_variation' ) %}
+
+			{#
+				# Hook: woocommerce_single_variation. Used to output the cart button and placeholder for variation data.
+				#
+				# @since 2.4.0
+				# @hooked woocommerce_single_variation - 10 Empty div for variation data.
+				# @hooked woocommerce_single_variation_add_to_cart_button - 20 Qty and cart button.
+				#}
+			{% do action( 'woocommerce_single_variation' ) %}
+
+			{#
+				# Hook: woocommerce_after_single_variation.
+				#}
+			{% do action( 'woocommerce_after_single_variation' ) %}
+		</div>
+	{% else %}
+		<p class="stock out-of-stock">
+			{{- __( 'This product is currently out of stock and unavailable.', 'uni' ) | apply_filters( 'woocommerce_out_of_stock_message' ) -}}
+		</p>
+	{% endif %}
+
+	{% do action( 'woocommerce_after_variations_form' ) %}
+</form>
+
+{% do action( 'woocommerce_after_add_to_cart_form' ) %}
