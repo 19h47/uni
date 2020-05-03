@@ -131,16 +131,20 @@
 		font-size: #{60 * 30 / 100}px;
 		line-height: 1.2;
 
+		@at-root .product-type-variable & {
+			@include margin(top #{(67 * 100) / $prototype-height-unitless}vh);
+		}
+
 		@include media-breakpoint-up(hd) {
 			font-size: #{(30/30)}em;
 		}
 
 		svg {
-			@include size(#{(60 * 37) / 100}px);
 			@include margin(right 10px);
+			@include size(#{(60 * 36) / 100}px);
 
 			@include media-breakpoint-up(hd) {
-				@include size(37px);
+				@include size(#{(36/30)}em);
 			}
 		}
 	}

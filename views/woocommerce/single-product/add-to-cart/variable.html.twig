@@ -8,33 +8,36 @@
 	{% do action( 'woocommerce_before_variations_form' ) %}
 
 	{% if available_variations %}
-		<table class="variations" cellspacing="0">
-			<tbody>
-				{% for attribute_name, options in attributes %}
-					<tr>
-						<td class="label">
-							<label for="{{ fn( 'sanitize_title', attribute_name ) }}">
-								{{- fn ( 'wc_attribute_label', attribute_name ) -}}
-							</label>
-						</td>
-						<td class="value">
+		<ul class="Product-variations variations" cellspacing="0">
+
+			{% for attribute_name, options in attributes %}
+				<li class="Product-variations__item">
+					<div class="Product-variations__label label">
+						<label for="{{ fn( 'sanitize_title', attribute_name ) }}">
+							{{- fn ( 'wc_attribute_label', attribute_name ) -}}
+						</label>
+					</div>
+					<div class="Product-variations__value value">
+						<div class="Select">
 							{{-
 								fn( 'wc_dropdown_variation_attribute_options',
 									{
-										'class': 'js-select-variation',
 										'options': options,
 										'attribute': attribute_name,
 										'product': product,
-										'show_option_none': false
+										'show_option_none': false,
+										'id': fn( 'sanitize_title', attribute_name ),
 									}
 								)
 							-}}
-							{{- ( attribute_keys | last ) == attribute_name ? "<a class=\"reset_variations\" href=\"#\">#{ __( 'Clear', 'uni' ) }</a>" | apply_filters( 'woocommerce_reset_variations_link' )  }}
-						</td>
-					</tr>
-				{% endfor %}
-			</tbody>
-		</table>
+							{% include 'svg/use.html.twig' with { icon: 'arrows' } only %}
+						</div>
+						{# {{- ( attribute_keys | last ) == attribute_name ? "<a class=\"reset_variations\" href=\"#\">#{ __( 'Clear', 'uni' ) }</a>" | apply_filters( 'woocommerce_reset_variations_link' )  }} #}
+					</div>
+				</li>
+			{% endfor %}
+
+		</ul>
 
 		<div class="single_variation_wrap">
 			{#
