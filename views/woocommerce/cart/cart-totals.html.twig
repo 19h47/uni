@@ -1,0 +1,81 @@
+{#  #}
+<div class="cart_totals{{ has_calculated_shipping ? ' ' ~ calculated_shipping }}">
+
+	{% do action( 'woocommerce_before_cart_totals' ) %}
+
+	<h2 class="h1 margin-top-0">{{- __( 'Cart totals', 'uni' ) -}}</h2>
+
+	<table cellspacing="0" class="Shop-table shop_table shop_table_responsive">
+
+		<tr class="cart-subtotal">
+			<th>{{- __( 'Subtotal', 'uni' ) -}}</th>
+			<td data-title="{{ __( 'Subtotal', 'uni' ) }}">{{- cart_totals_subtotal_html -}}</td>
+		</tr>
+
+		{% for code, coupon in coupons %}
+			<tr class="cart-discount coupon-{{ fn( 'sanitize_title', code ) }}">
+				<th>{{- fn( 'wc_cart_totals_coupon_label', coupon ) -}}</th>
+				<td data-title="{{ fn( 'wc_cart_totals_coupon_label', coupon, false ) }}">{{- fn( 'wc_cart_totals_coupon_html', coupon ) -}}</td>
+			</tr>
+		{% endfor %}
+
+		{% if needs_shipping and show_shipping %}
+
+			{% do action( 'woocommerce_cart_totals_before_shipping' ) %}
+
+			{{- cart_totals_shipping_html -}}
+
+			{% do action( 'woocommerce_cart_totals_after_shipping' ) %}
+
+		{% elseif needs_shipping and 'yes' == enable_shipping_calc %}
+
+			<tr class="shipping">
+				<th>{{- __( 'Shipping', 'uni' ) -}}</th>
+				<td data-title="{{ __( 'Shipping', 'uni' ) }}">{{- woocommerce_shipping_calculator -}}</td>
+			</tr>
+
+		{% endif %}
+
+		{% for fee in fees %}
+			<tr class="fee">
+				<th>{{- fee.name -}}</th>
+				<td data-title="<?php echo esc_attr( $fee->name ); ?>">{{- fn( 'wc_cart_totals_fee_html', fee ) -}}</td>
+			</tr>
+		{% endfor %}
+
+		{% if 'itemized' == tax_total_display %}
+			{% for code, tax in tax_totals %}
+				<tr class="tax-rate tax-rate-{{ fn( 'sanitize_title', code ) }}">
+					<th>{{- tax.label ~ estimated_text -}}></th>
+					<td data-title="{{ tax.label }}">{{- tax.formatted_amount -}}</td>
+				</tr>
+			{% endfor %}
+		{% else %}
+			<tr class="tax-total">
+				<th>{{- tax_or_vat ~ estimated_text -}}</th>
+				<td data-title="{{ tax_or_vat }}">{{- cart_totals_taxes_total_html -}}</td>
+			</tr>
+		{% endif %}
+
+		<tr class="order-total">
+			<th>{{- __( 'Total', 'uni' ) -}}</th>
+			<td data-title="{{ __( 'Total', 'uni' ) }}">{{- cart_totals_order_total_html -}}</td>
+		</tr>
+
+
+		{% do action( 'woocommerce_cart_totals_after_order_total' ) %}
+
+	</table>
+
+	<div class="wc-proceed-to-checkout">
+		{#
+		 # Hook: woocommerce_proceed_to_checkout
+		 #
+		 # @hooked wc_get_pay_buttons - 10
+		 # @hooked woocommerce_button_proceed_to_checkout - 20
+		 #}
+		{% do action( 'woocommerce_proceed_to_checkout' ) %}
+	</div>
+
+	{% do action( 'woocommerce_after_cart_totals' ) %}
+</div>

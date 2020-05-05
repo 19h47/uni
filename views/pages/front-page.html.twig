@@ -1,3 +1,8 @@
+{#
+ # Front page
+ #
+ #
+ #}
 {% extends 'index.html.twig' %}
 
 {% block content %}
@@ -7,8 +12,8 @@
 				{% include 'svg/use.html.twig' with { icon: 'logo-baseline'} only %}
 			</div>
 			<div class="Wysiwyg Front-page__content js-content">{{- post.content -}}</div>
-			<div><a class="Front-page__link" href="">Explorer nos :<span>Habitat</span></a></div>
-			<div><a class="Front-page__link" href="">Découvrir nos :<span>Objets</span></a></div>
+			<div><a class="Front-page__link" href="{{ habitat_page }}">Explorer nos :<span>Habitat</span></a></div>
+			<div><a class="Front-page__link" href="{{ objects_page }}">Découvrir nos :<span>Objets</span></a></div>
 			<div class="Front-page__footer Wysiwyg">
 				<p>Tout comme nos productions d’objets, nos habitats sont emprunts de nos valeurs :<br>raffinement, singularité et savoir-faire artisanal.</p>
 			</div>

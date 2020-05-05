@@ -22,6 +22,7 @@ class ACF {
 	public function run() {
 		add_filter( 'acf/fields/relationship/query/name=product_colors', array( $this, 'product_colors_query' ), 10, 3 );
 		add_filter( 'acf/fields/relationship/result/name=product_colors', array( $this, 'product_colors_result' ), 10, 4 );
+		add_filter( 'acf/fields/page_link/result/name=product_link', array( $this, 'product_colors_result' ), 10, 4 );
 	}
 
 

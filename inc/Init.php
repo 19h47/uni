@@ -30,6 +30,7 @@ class Init {
 			Setup\Textdomain::class,
 			Api\Customizer\Mailchimp::class,
 			Api\Customizer\Contact::class,
+			Api\Customizer\Pages::class,
 			Custom\Extras::class,
 			Plugins\WooCommerce::class,
 			Plugins\ACF::class,

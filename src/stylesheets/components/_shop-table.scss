@@ -1,0 +1,38 @@
+/**
+ * Shop table
+ *
+ *
+ *
+ *
+ *
+ */
+.Shop-table {
+	@include margin(top 7em);
+	width: 100%;
+	table-layout: fixed;
+	overflow-wrap: break-word;
+
+	line-height: 1.2;
+	font-size: #{(60 * 25) / 100}px;
+
+	@include media-breakpoint-up(hd) {
+		font-size: #{(25/30)}em;
+	}
+
+	th,
+	td {
+		@include padding(top 0.5em bottom 0.5em);
+	}
+
+	th {
+		@extend %text-align-left;
+	}
+
+	td {
+		@extend %text-align-right;
+	}
+
+	tr.order-total {
+		@extend %font-weight-semibold;
+	}
+}

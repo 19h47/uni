@@ -29,6 +29,7 @@
 
 	&__product-title {
 		@include margin(top 0 bottom 0);
+		@extend %font-weight-regular, %font-style-italic;
 
 		line-height: 1.2;
 		font-size: #{(60 * 25) / 100}px;

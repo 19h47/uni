@@ -41,7 +41,7 @@
 		@extend .d-flex, .flex-nowrap;
 		@include margin(top 20px bottom 20px);
 
-		@at-root .page-template-page-horizontal &,
+		@at-root .page-template-horizontal-page &,
 			.Single-product & {
 			@include margin(right #{((200 * 2) * 100) / $prototype-width-unitless}vw);
 		}
@@ -163,6 +163,16 @@
 			@include media-breakpoint-up(hd) {
 				border-radius: 20px;
 			}
+		}
+
+		span {
+			@extend %Pointer-events-none;
+			@extend .h1;
+			@include absolute(top 0 bottom 0);
+			@include margin(top 0 bottom 0);
+
+			// mix-blend-mode: difference;
+			opacity: 0;
 		}
 	}
 }

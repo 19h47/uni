@@ -4,23 +4,29 @@
  *
  */
 .Input {
-	@include reset-placeholder(the_color(white));
-	@include padding(
-		top $grid-gutter-width / 2 right $grid-gutter-width bottom $grid-gutter-width / 2 left
-			$grid-gutter-width
-	);
+	input {
+		@include reset-placeholder(the_color(gray, dark));
 
-	background-color: rgba(the_color(white), 0.15);
-	transition: box-shadow 0.3s map-get($easings, ease-out-expo);
-	color: the_color(white);
-	width: 100%;
+		@include padding(
+			top #{(20 * 60) / 100}px right #{(20 * 60) / 100}px bottom #{(20 * 60) / 100}px left #{(
+					20 * 60
+				) / 100}px
+		);
 
-	&:focus {
-		outline: none;
-		box-shadow: 0 0 0 3px rgba(the_color(white), 0.05);
-	}
+		transition: box-shadow 0.3s map-get($easings, ease-out-expo);
 
-	&[type='number'] {
-		@include padding(right 0);
+		border-radius: 5px;
+		max-width: 100%;
+
+		@include media-breakpoint-up(hd) {
+			@include padding(
+				top #{(20/30)}em right #{(20/30)}em bottom #{(20/30)}em left #{(20/30)}em
+			);
+		}
+
+		&:focus {
+			outline: none;
+			box-shadow: 0 0 0 0.2rem rgba(the_color(gray, very-light-03), 0.5);
+		}
 	}
 }

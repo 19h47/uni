@@ -19,6 +19,7 @@ export default class FrontPage extends AbstractPage {
 
 		this.scroll = null;
 		this.currentTime = 0;
+		this.options = { preventTouch: true };
 	}
 
 	async init() {
@@ -31,7 +32,7 @@ export default class FrontPage extends AbstractPage {
 	}
 
 	initPlugins() {
-		this.scroll = new VirtualScroll();
+		this.scroll = new VirtualScroll(this.options);
 	}
 
 	initEvents() {
@@ -40,7 +41,7 @@ export default class FrontPage extends AbstractPage {
 		this.scroll.on(event => {
 			const { deltaY } = event;
 
-			this.currentTime += ((deltaY * -1) / this.$player.duration) * 0.1;
+			this.currentTime += (deltaY * -1) / (this.$player.duration * 100);
 
 			this.currentTime = clamp(this.currentTime, 0, this.$player.duration);
 

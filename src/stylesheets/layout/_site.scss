@@ -41,7 +41,7 @@
 	 */
 	&-content {
 		@include margin(top 100px right 20px bottom 20px left 20px);
-		@extend %position-relative, /* %overflow-hidden */;
+		@extend %position-relative /*, %overflow-hidden */;
 
 		max-width: 100%;
 		width: 100%;
@@ -51,7 +51,7 @@
 		}
 
 		@include media-breakpoint-up(hd) {
-			@include margin(left 120px);
+			@include margin(left 140px);
 		}
 	}
 }

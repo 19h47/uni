@@ -1,0 +1,30 @@
+{#  #}
+{% if max_value and min_value == max_value %}
+	<div class="quantity hidden">
+		<input type="hidden" id="{{ input.id }}" class="qty" name="{{ input.name }}" value="{{ min_value }}" />
+	</div>
+{% else %}
+
+	<div class="Input quantity">
+		{% do action( 'woocommerce_before_quantity_input_field' ) %}
+
+		<label class="screen-reader-text" for="{{ input.id }}">{{- label -}}</label>
+
+		<input
+			type="number"
+			id="{{ input.id }}"
+			class="{{ input.classes | join( ' ' ) }}"
+			step="{{ input.step }}"
+			min="{{ min_value }}"
+			max="{{ 0 < max_value ? max_value : '' }}"
+			name="{{ input.name }}"
+			value="{{ input.value }}"
+			title="{{ _x( 'Qty', 'Product quantity input tooltip', 'uni' ) }}"
+			size="4"
+			placeholder="{{ input.placeholder }}"
+			inputmode="{{ input.inputmode }}"
+		/>
+		{% do action( 'woocommerce_after_quantity_input_field' ) %}
+	</div>
+
+{% endif %}

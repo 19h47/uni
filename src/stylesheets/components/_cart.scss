@@ -1,0 +1,116 @@
+/**
+ * Cart
+ *
+ *
+ *
+ *
+ */
+.Cart {
+	.Notices {
+		@include absolute(top 0 right 0 left 0);
+	}
+
+	&__wrapper {
+		@include padding();
+		@extend %position-relative;
+		@extend .d-flex;
+	}
+
+	&__form {
+		@include padding(
+			top #{(250 * 100) / $prototype-height-unitless}vh right percentage(0.5 / 12) bottom #{(
+					250 * 100
+				) / $prototype-height-unitless}vh left percentage(1 / 12)
+		);
+		width: percentage(6.5 / 12);
+		border-right: 1px solid rgba(the_color(black), 1);
+
+		&__contents {
+			width: 100%;
+			table-layout: fixed;
+			overflow-wrap: break-word;
+
+			line-height: 1.2;
+			font-size: #{(60 * 25) / 100}px;
+
+			@include media-breakpoint-up(hd) {
+				font-size: #{(25/30)}em;
+			}
+
+			thead tr th {
+				@extend %font-weight-bold;
+				@include padding(top #{(20 * 60) / 100}px bottom #{(20 * 60) / 100}px);
+
+				border-bottom: 1px solid the_color(gray, very-dark);
+
+				@include media-breakpoint-up(hd) {
+					@include padding(top #{(20/30)}em bottom #{(20/30)}em);
+				}
+			}
+
+			.product-thumbnail {
+				@extend %text-align-left;
+				width: percentage(200 / 1000);
+
+				a {
+					@extend .d-block;
+					@include margin(right 20px);
+				}
+
+				img {
+					@extend .d-block;
+					@include size(100%, #{(128 * 100) / $prototype-height-unitless}vh);
+
+					border-radius: 10px;
+					object-fit: contain;
+					object-position: center;
+					background-color: the_color(gray, very-light-01);
+				}
+			}
+			.product-name {
+				@extend %font-family-title, %font-style-italic;
+
+				line-height: (45/25);
+				width: percentage(200 / 1000);
+			}
+			.product-price {
+				@extend %text-align-right;
+				width: percentage(200 / 1000);
+			}
+			.product-quantity {
+				width: percentage(200 / 1000);
+			}
+			.product-subtotal {
+				width: percentage(200 / 1000);
+			}
+
+			.actions {
+				@include padding(top #{(20 * 60) / 100}px bottom #{(20 * 60) / 100}px);
+				@include media-breakpoint-up(hd) {
+					@include padding(top #{(20/30)}em bottom #{(20/30)}em);
+				}
+				width: 100%;
+			}
+		}
+
+		&__item {
+			td {
+				@include padding(top #{(20 * 60) / 100}px bottom #{(20 * 60) / 100}px);
+
+				@include media-breakpoint-up(hd) {
+					@include padding(top #{(20/30)}em bottom #{(20/30)}em);
+				}
+
+				border-bottom: 1px solid the_color(gray, very-dark);
+			}
+		}
+	}
+	&__collaterals {
+		@include padding(
+			top #{(250 * 100) / $prototype-height-unitless}vh right percentage(1 / 12) bottom #{(
+					250 * 100
+				) / $prototype-height-unitless}vh left percentage(0.5 / 12)
+		);
+		width: percentage(5.5 / 12);
+	}
+}

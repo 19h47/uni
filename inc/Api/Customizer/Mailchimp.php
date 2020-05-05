@@ -1,9 +1,9 @@
 <?php
 /**
- * Customizer
+ * Mailchimp
  *
  * @category Customizer
- * @package  dlap
+ * @package  uni
  * @author   Jérémy Levron <jeremylevron@19h47.fr> (https://19h47.fr)
  * @license  http://opensource.org/licenses/gpl-license.php GNU Public License
  */
@@ -33,12 +33,12 @@ class Mailchimp {
 	 * @param WP_Customize_Manager $wp_customize Customizer object.
 	 */
 	public function register( WP_Customize_Manager $wp_customize ) {
-		// Add contact section.
+		// Add Mailchimp section.
 		$wp_customize->add_section(
 			'mailchimp',
 			array(
 				'title'       => __( 'Mailchimp', 'uni' ),
-				'description' => __( 'Contact settings', 'uni' ),
+				'description' => __( 'Mailchimp Settings', 'uni' ),
 			)
 		);
 

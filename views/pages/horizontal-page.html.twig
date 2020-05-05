@@ -1,3 +1,7 @@
+{#
+ # Horizontal page
+ #
+ #}
 {% extends 'index.html.twig' %}
 
 {% block content %}
@@ -20,7 +24,12 @@
 				<div class="Horizontal-page__gallery js-gallery">
 					{% for image in post.get_field( 'gallery' ) %}
 						<div id="image-{{ image.id }}" class="Horizontal-page__image page-block" data-index="{{ loop.index }}" data-node-type="InViewBlock">
-							<div>{%- include 'partials/image.html.twig' with { image: image } only -%}</div>
+							<div>
+								<a class="d-block w-100 h-100 position-relative js-link" href="{{ TimberPost( image.id ).get_field( 'product_link' ) }}">
+									<span class="js-title">{{- image.title -}}</span>
+									{%- include 'partials/image.html.twig' with { image: image } only -%}
+								</a>
+							</div>
 						</div>
 					{% endfor %}
 				</div>

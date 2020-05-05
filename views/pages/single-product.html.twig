@@ -33,10 +33,10 @@
 
 			<div class="Horizontal-page__wrapper js-wrapper">
 				{#
-					Hook: woocommerce_before_single_product.
-
-					@hooked wc_print_notices - 10
-				#}
+				 # Hook: woocommerce_before_single_product.
+				 #
+				 # @hooked wc_print_notices - 10
+				 #}
 				{% do action( 'woocommerce_before_single_product' ) %}
 
 				<article id="product-{{ post.id }}" itemscope itemtype="http://schema.org/Product" class="Product {{ post.class }}">

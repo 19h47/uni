@@ -38,7 +38,7 @@ class Contact {
 			'contact',
 			array(
 				'title'       => __( 'Contact', 'uni' ),
-				'description' => __( 'Contact settings', 'uni' ),
+				'description' => __( 'Contact Settings', 'uni' ),
 			)
 		);
 

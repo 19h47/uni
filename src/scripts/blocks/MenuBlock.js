@@ -25,7 +25,9 @@ export default class MenuBlock extends AbstractBlock {
 	init() {
 		super.init();
 
-		this.items = [...this.rootElement.querySelectorAll('.js-menu-item')];
+		this.onResize();
+
+		// this.items = [...this.rootElement.querySelectorAll('.js-menu-item')];
 
 		this.timeline = gsap.timeline({ paused: true });
 
@@ -34,31 +36,32 @@ export default class MenuBlock extends AbstractBlock {
 			this.rootElement,
 			{
 				duration: 0.3,
-				autoAlpha: 0,
-				scaleX: 0,
-				transformOrigin: 'right center',
+				// autoAlpha: 0,
+				x: this.rect.width + 20,
+				// transformOrigin: 'right center',
 				ease: 'power3.in',
 			},
 			{
-				autoAlpha: 1,
-				scaleX: 1,
-			},
-		);
-		this.timeline.fromTo(
-			this.items,
-			{
-				x: `+=20px`,
-				autoAlpha: 0,
-				duration: 0.1,
-				ease: 'power2.inOut',
-			},
-			{
+				// autoAlpha: 1,
 				x: 0,
-				autoAlpha: 1,
-				stagger: 0.05,
 			},
-			'-=0.1',
 		);
+
+		// this.timeline.fromTo(
+		// 	this.items,
+		// 	{
+		// 		x: `+=20px`,
+		// 		autoAlpha: 0,
+		// 		duration: 0.1,
+		// 		ease: 'power2.inOut',
+		// 	},
+		// 	{
+		// 		x: 0,
+		// 		autoAlpha: 1,
+		// 		stagger: 0.05,
+		// 	},
+		// 	'-=0.1',
+		// );
 
 		this.buttons = document.querySelectorAll('.js-menu-button') || [];
 	}
@@ -129,5 +132,11 @@ export default class MenuBlock extends AbstractBlock {
 		this.enableScroll();
 
 		return true;
+	}
+
+	onResize() {
+		super.onResize();
+
+		this.rect = this.rootElement.getBoundingClientRect();
 	}
 }

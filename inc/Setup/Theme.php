@@ -209,6 +209,9 @@ class Theme {
 
 		$context['shop_url'] = get_permalink( wc_get_page_id( 'shop' ) );
 
+		$context['objects_page'] = get_permalink( get_option( 'objects_page' ) );
+		$context['habitat_page'] = get_permalink( get_option( 'habitat_page' ) );
+
 		return $context;
 	}
 }

@@ -28,6 +28,7 @@
 @import '~@19h47/architecture/src/stylesheets/abstracts/placeholders';
 
 @import 'vendors/jetpack';
+@import 'vendors/wordpress';
 
 // Base stuff
 @import 'base/base';
@@ -64,7 +65,10 @@
 @import 'components/product-summary';
 @import 'components/product-thumbnail';
 @import 'components/product-variations';
-@import 'components/Select';
+@import 'components/select';
+@import 'components/cart';
+@import 'components/notices';
+@import 'components/shop-table';
 
 // Pages
 @import 'pages/page';

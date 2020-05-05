@@ -16,8 +16,7 @@ export default class HorizontalPage extends AbstractPage {
 		super(container, 'HorizontalPage');
 
 		this.scroll = null;
-		// this.targetY = 0;
-		// this.ease = 0.1;
+		this.options = { mouseMultiplier: 4, touchMultiplier: 8 };
 
 		elements.html.style.setProperty('overflow', '100%');
 		elements.html.style.setProperty('height', '100%');
@@ -44,7 +43,7 @@ export default class HorizontalPage extends AbstractPage {
 	}
 
 	initPlugins() {
-		this.scroll = new VirtualScroll();
+		this.scroll = new VirtualScroll(this.options);
 	}
 
 	initEvents() {
@@ -53,7 +52,7 @@ export default class HorizontalPage extends AbstractPage {
 		this.scroll.on(event => {
 			const { deltaY } = event;
 
-			this.$track.scrollLeft -= deltaY;
+			this.$track.scrollLeft -= deltaY * 0.5;
 
 			if (this.$footer) {
 				const x = (this.$track.scrollLeft * 100) / (this.scrollWidth - this.clientWidth);

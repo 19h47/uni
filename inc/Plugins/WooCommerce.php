@@ -8,7 +8,7 @@
 
 namespace UNI\Plugins;
 
-use WC_AJAX;
+use WC_AJAX, WC_Product;
 use Timber\{ Timber };
 
 /**
@@ -88,6 +88,85 @@ class WooCommerce {
 		add_action( 'wp_ajax_nopriv_uni_add_to_cart', array( $this, 'add_to_cart' ) );
 
 		remove_action( 'woocommerce_sidebar', 'woocommerce_get_sidebar', 10 );
+
+		// add_filter( 'woocommerce_quantity_input_classes', array( $this, 'quantity_input_classes' ), 10, 2 );
+
+		add_action( 'woocommerce_before_cart', array( $this, 'output_before_cart_wrapper' ), 15 );
+		add_action( 'woocommerce_after_cart', array( $this, 'output_after_cart_wrapper' ), 10 );
+
+		add_action( 'woocommerce_before_cart_table', array( $this, 'before_cart_table' ), 10 );
+		add_action( 'woocommerce_after_cart_table', array( $this, 'after_cart_table' ), 10 );
+
+		remove_action( 'woocommerce_before_cart', 'woocommerce_output_all_notices', 10 );
+		add_action( 'woocommerce_before_cart', array( $this, 'output_all_notices' ), 10 );
+	}
+
+
+	/**
+	 * Output all notices
+	 *
+	 * @return void
+	 */
+	public function output_all_notices() : void {
+		echo '<div class="Notices woocommerce-notices-wrapper">';
+		wc_print_notices();
+		echo '</div>';
+	}
+
+
+	/**
+	 * After cart table
+	 *
+	 * @return void
+	 */
+	public function after_cart_table() : void {
+		echo '<a class="Button button wc-backward" href="' . esc_url( apply_filters( 'woocommerce_return_to_shop_redirect', wc_get_page_permalink( 'shop' ) ) ) . '">' . esc_html__( 'Return to shop', 'uni' ) . '</a>';
+	}
+
+
+
+	/**
+	 * Before cart table
+	 *
+	 * @return void
+	 */
+	public function before_cart_table() : void {
+		the_title( '<h1 class="margin-top-0">', '</h1>' );
+	}
+
+
+	/**
+	 * Output before cart wrapper
+	 *
+	 * @return void
+	 */
+	public function output_before_cart_wrapper() : void {
+		echo '<div class="Cart__wrapper">';
+	}
+
+
+	/**
+	 * Output before cart wrapper
+	 *
+	 * @return void
+	 */
+	public function output_after_cart_wrapper() : void {
+		echo '</div>';
+	}
+
+
+	/**
+	 * Quantity input classes
+	 *
+	 * @param array      $classes Array of classes.
+	 * @param WC_Product $product Product.
+	 *
+	 * @return array
+	 */
+	public function quantity_input_classes( array $classes, WC_Product $product ) {
+		$classes[] = 'Input';
+
+		return $classes;
 	}
 
 
