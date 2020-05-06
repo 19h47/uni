@@ -2,7 +2,7 @@
  # Product: colors
  #
  #}
-{% if render and product.product_colors is not empty %}
+{% if render and product.product_colors is not empty and ( product.product_colors | length ) > 1 %}
 	<div class="Product-colors">
 		<p class="Product-colors__title">{{- __( 'Exists in:', 'uni' ) -}}</p>
 

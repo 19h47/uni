@@ -28,12 +28,12 @@ export default class ProductContentBlock extends AbstractBlock {
 			if (target.matches('.js-color')) {
 				const color = target.getAttribute('data-color');
 				const link = target.getAttribute('data-link');
-				const img = this.rootElement.querySelector(`img[data-color="${color}"]`);
+				const images = [...this.rootElement.querySelectorAll(`img[data-color="${color}"]`)];
 
 				this.images.map(image => image.classList.remove('is-active'));
 				this.$link.setAttribute('href', link);
 
-				return img.classList.add('is-active');
+				return images.map(image => image.classList.add('is-active'));
 			}
 
 			return false;

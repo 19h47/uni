@@ -70,6 +70,7 @@ class Transients {
 			'color'     => get_field( 'color', 'product_tag_' . $product_tag[0]->term_id ),
 			'current'   => true,
 			'thumbnail' => get_post_thumbnail_id( $id ),
+			'packshot'  => get_field( 'image_packshot', $id ),
 			'title'     => get_the_title( $id ),
 		);
 
@@ -85,6 +86,7 @@ class Transients {
 				'color'     => get_field( 'color', 'product_tag_' . $p_tag[0]->term_id ),
 				'current'   => false,
 				'thumbnail' => get_post_thumbnail_id( $p->id ),
+				'packshot'  => get_field( 'image_packshot', $p->id ),
 				'title'     => $p->get_title(),
 			);
 		}

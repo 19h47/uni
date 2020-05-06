@@ -17,7 +17,7 @@
 	background-color: the_color(gray, very-light-01);
 
 	&:hover {
-		#{ $this }__hover {
+		#{ $this }__hover.is-active {
 			@include autoAlpha(1);
 		}
 	}

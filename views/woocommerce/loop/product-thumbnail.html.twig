@@ -6,11 +6,13 @@
 	{% if is_product and product.product_colors is not empty %}
 		{%- for product_color in product.product_colors -%}
 			{% include 'partials/image.html.twig' with { classes: [ 'Product-thumbnail__image', product_color.current ? 'is-active' : null ], attributes: { 'data-color': product_color.color }, image: product_color.thumbnail } %}
+			{% include 'partials/image.html.twig' with { classes: [ 'Product-thumbnail__hover', product_color.current ? 'is-active' : null ], attributes: { 'data-color': product_color.color }, image: product_color.packshot } %}
 		{%- else -%}
-			{% include 'partials/image.html.twig' with { classes: [ 'Product-thumbnail__image' ], attributes: { 'data-color': product_color.color }, image: product.thumbnail } %}
+			{% include 'partials/image.html.twig' with { classes: [ 'Product-thumbnail__image' ], attributes: { 'data-color': product.color }, image: product.thumbnail } %}
+			{% include 'partials/image.html.twig' with { classes: [ 'Product-thumbnail__hover' ], attributes: { 'data-color': product.color }, image: product.get_field( 'image_packshot' ) } %}
 		{%- endfor -%}
 	{% else %}
 		{% include 'partials/image.html.twig' with { classes: [ 'Product-thumbnail__image', 'is-active' ], image: product.thumbnail } %}
-		{% include 'partials/image.html.twig' with { classes: [ 'Product-thumbnail__hover' ], image: product.get_field( 'image_hover' ) } %}
+		{% include 'partials/image.html.twig' with { classes: [ 'Product-thumbnail__hover', 'is-active' ], image: product.get_field( 'image_hover' ) } %}
 	{% endif %}
 </a>
