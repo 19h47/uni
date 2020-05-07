@@ -11,7 +11,7 @@
 		{% if true | apply_filters( 'woocommerce_shipping_calculator_enable_country' ) %}
 			<p class="form-row form-row-wide" id="calc_shipping_country_field">
 				<select name="calc_shipping_country" id="calc_shipping_country" class="country_to_state country_select" rel="calc_shipping_state">
-					<option value="">{{- _( 'Select a country / region&hellip;', 'woocommerce' ) -}}</option>
+					<option value="">{{- __( 'Select a country / region&hellip;', 'uni' ) -}}</option>
 					{% for key, value in shipping.countries %}
 						<option value="{{ key }}" {{ fn( 'selected', shipping.country, key, false ) }}>{{- value -}}</option>';
 					{% endfor %}
@@ -33,7 +33,7 @@
 					<option value="">{{- __( 'Select an option&hellip;', 'uni' ) -}}</option>
 
 					{% for key, value in states %}
-						<option value="{{ key }}" {{ fn( 'selected', shipping.state, key, false ) }}>{{- value -}}</option>
+						<option value="{{ key }}" {{ fn( 'selected', shipping.state, key, false ) }}>{{- value -}}</option>
 					{% endfor %}
 					?>
 				</select>

@@ -11,7 +11,6 @@ $context = Timber::get_context();
 
 $context['has_calculated_shipping'] = WC()->customer->has_calculated_shipping();
 
-
 $context['cart_totals_subtotal_html'] = Helper::ob_function( 'wc_cart_totals_subtotal_html' );
 
 $context['coupons'] = WC()->cart->get_coupons();
@@ -28,7 +27,7 @@ $context['woocommerce_shipping_calculator'] = Helper::ob_function( 'woocommerce_
 $context['fees'] = WC()->cart->get_fees();
 
 if ( wc_tax_enabled() && ! WC()->cart->display_prices_including_tax() ) {
-	$taxable_address = WC()->customer->get_taxable_address();
+	$taxable_address           = WC()->customer->get_taxable_address();
 	$context['estimated_text'] = '';
 
 	if ( WC()->customer->is_customer_outside_base() && ! WC()->customer->has_calculated_shipping() ) {

@@ -25,6 +25,6 @@ $context['shipping'] = array(
 	'postcode'  => WC()->customer->get_shipping_postcode(),
 );
 
-$context['nonce_field'] = wp_nonce_field( 'woocommerce-shipping-calculator', 'woocommerce-shipping-calculator-nonce', true, false )
+$context['nonce_field'] = wp_nonce_field( 'woocommerce-shipping-calculator', 'woocommerce-shipping-calculator-nonce', true, false );
 
 Timber::render( 'woocommerce/cart/shipping-calculator.html.twig' );

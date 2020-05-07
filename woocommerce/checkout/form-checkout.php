@@ -2,17 +2,16 @@
 /**
  * Checkout Form
  *
+ * @param WC_Checkout $checkout
+ *
  * @package UNI
  */
 
-use Timber\{ Timber, Post };
+use Timber\{ Timber };
 
 $context = Timber::get_context();
 
-$context['post'] = new Post();
-
-$context['checkout_url']    = wc_get_checkout_url();
-$context['checkout_fields'] = $checkout->get_checkout_fields();
-$context['checkout']        = $checkout;
+$context['checkout_url'] = wc_get_checkout_url();
+$context['checkout']     = $checkout;
 
 Timber::render( 'woocommerce/checkout/form-checkout.html.twig', $context );
