@@ -6,7 +6,11 @@
  * @package DLAP
  */
 .Site-header {
-	@extend .d-flex, .flex-row, .flex-md-column, .align-items-center, .justify-content-between;
+	@extend .d-flex,
+		.flex-row-reverse,
+		.flex-md-column,
+		.align-items-center,
+		.justify-content-between;
 	@include fixed(top 0 right 0 left 0);
 	@include size(auto, 60px);
 	@include padding(top 20px right 20px bottom 20px left 20px);

@@ -9,8 +9,9 @@ use Timber\{ Timber, Helper };
 
 $context = Timber::get_context();
 
-$context['cart']     = WC()->cart;
-$context['customer'] = WC()->customer;
+$context['cart']      = WC()->cart;
+$context['customer']  = WC()->customer;
+$context['countries'] = WC()->countries;
 
 $context['html'] = array(
 	'subtotal'    => Helper::ob_function( 'wc_cart_totals_subtotal_html' ),
@@ -20,21 +21,11 @@ $context['html'] = array(
 );
 
 $context['enable_shipping_calc'] = get_option( 'woocommerce_enable_shipping_calc' );
+$context['tax_total_display']    = get_option( 'woocommerce_tax_total_display' );
 
 $context['shipping_calculator'] = Helper::ob_function( 'woocommerce_shipping_calculator', __( 'Validate', 'uni' ) );
 
-if ( wc_tax_enabled() && ! WC()->cart->display_prices_including_tax() ) {
-	$taxable_address           = WC()->customer->get_taxable_address();
-	$context['estimated_text'] = '';
-
-	if ( WC()->customer->is_customer_outside_base() && ! WC()->customer->has_calculated_shipping() ) {
-		/* translators: %s location. */
-		$context['estimated_text'] = sprintf( ' <small>' . esc_html__( '(estimated for %s)', 'woocommerce' ) . '</small>', WC()->countries->estimated_for_prefix( $taxable_address[0] ) . WC()->countries->countries[ $taxable_address[0] ] );
-	}
-
-	$context['tax_total_display'] = get_option( 'woocommerce_tax_total_display' );
-	$context['tax_or_vat']        = WC()->countries->tax_or_vat();
-}
+$context['tax_enabled'] = wc_tax_enabled();
 
 
 Timber::render( 'woocommerce/cart/cart-totals.html.twig', $context );

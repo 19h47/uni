@@ -2,7 +2,7 @@
 /**
  * Thank you page
  *
- * @param WC_Order $order
+ * @param WC_Order $order Order object.
  *
  * @package uni
  */

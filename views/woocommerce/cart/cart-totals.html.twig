@@ -65,20 +65,32 @@
 				</tr>
 			{% endfor %}
 
-			{% if 'itemized' == tax_total_display %}
-				{% for code, tax in cart.get_tax_totals() %}
-					<tr class="tax-rate tax-rate-{{ fn( 'sanitize_title', code ) }}">
-						<th>{{- tax.label ~ estimated_text -}}></th>
-						<td data-title="{{ tax.label }}">{{- tax.formatted_amount -}}</td>
+			{% if tax_enabled and not cart.display_prices_including_tax() %}
+				{% if 'itemized' == tax_total_display %}
+					{% for code, tax in cart.get_tax_totals() %}
+						<tr class="tax-rate tax-rate-{{ fn( 'sanitize_title', code ) }}">
+							<th>
+								{{- tax.label }}&nbsp;
+								{% if customer.is_customer_outside_base() and not customer.has_calculated_shipping() %}
+									{# translators: %s location. #}
+									{{ fn( 'sprintf', " <small> #{ __( '(estimated for %s)', 'uni' ) }</small>", countries.estimated_for_prefix( customer.get_taxable_address()[0] ) ~ countries.countries[ customer.get_taxable_address()[0] ] ) -}}
+								{% endif %}
+							</th>
+							<td data-title="{{ tax.label }}">{{- tax.formatted_amount -}}</td>
+						</tr>
+					{% endfor %}
+				{% else %}
+					<tr class="tax-total">
+						<th>
+							{{- countries.tax_or_vat() }}&nbsp;
+							{% if customer.is_customer_outside_base() and not customer.has_calculated_shipping() %}
+								{# translators: %s location. #}
+								{{ fn( 'sprintf', " <small> #{ __( '(estimated for %s)', 'uni' ) }</small>", countries.estimated_for_prefix( customer.get_taxable_address()[0] ) ~ countries.countries[ customer.get_taxable_address()[0] ] ) -}}
+							{% endif %}
+						</th>
+						<td data-title="{{ countries.tax_or_vat() }}">{{- html.taxes_total -}}</td>
 					</tr>
-				{% endfor %}
-			{% else %}
-				<tr class="tax-total">
-					<th>{{- tax_or_vat ~ estimated_text -}}</th>
-					<td data-title="{{ tax_or_vat }}">
-						{{- html.taxes_total -}}
-					</td>
-				</tr>
+				{% endif %}
 			{% endif %}
 		</tbody>
 
@@ -86,7 +98,8 @@
 			<tr class="order-total">
 				<th>{{- __( 'Total', 'uni' ) -}}</th>
 				<td data-title="{{ __( 'Total', 'uni' ) }}">
-					{{- html.order_total -}}</td>
+					{{- html.order_total -}}
+				</td>
 			</tr>
 
 			{#

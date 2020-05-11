@@ -9,7 +9,8 @@
 	<div class="Site-content">
 		<div class="Front-page__grid">
 			<div class="Front-page__logo">
-				{% include 'svg/use.html.twig' with { icon: 'logo-baseline'} only %}
+				{% include 'svg/use.html.twig' with { classes: [ 'd-none', 'd-md-inline' ], icon: 'logo-baseline' } only %}
+				{% include 'svg/use.html.twig' with { classes: [ 'd-md-none' ], icon: 'logo-mobile' } only %}
 			</div>
 			<div class="Wysiwyg Front-page__content js-content">{{- post.content -}}</div>
 			<div><a class="Front-page__link" href="{{ habitat_page }}">Explorer nos :<span>Habitat</span></a></div>
