@@ -1,0 +1,66 @@
+{#
+ # Checkout shipping information form
+ #
+ #}
+
+<div class="woocommerce-additional-fields">
+	{#
+	 # Hook: woocommerce_before_order_notes.
+	 #}
+	{% do action( 'woocommerce_before_order_notes', checkout ) %}
+
+	{% if 'yes' is same as( enable_order_comments | apply_filters( 'woocommerce_enable_order_notes_field' ) ) %}
+
+		{% if not cart.needs_shipping() or ship_to_billing_address_only %}
+			<h3>{{- __( 'Additional information', 'uni' ) -}}</h3>
+		{% endif %}
+
+		<div class="woocommerce-additional-fields__field-wrapper">
+			{% for key, field in checkout.get_checkout_fields( 'order' ) %}
+				{{- fn( 'woocommerce_form_field', key, field, checkout.get_value( key ) ) -}}
+			{% endfor %}
+		</div>
+
+	{% endif %}
+
+	{#
+	 # Hook: woocommerce_after_order_notes.
+	 #}
+	{% do action( 'woocommerce_after_order_notes', checkout ) %}
+</div>
+
+<div class="woocommerce-shipping-fields">
+	{% if cart.needs_shipping_address() %}
+		<p id="ship-to-different-address">
+			<label class="woocommerce-form__label woocommerce-form__label-for-checkbox checkbox">
+				<input
+					id="ship-to-different-address-checkbox"
+					class="woocommerce-form__input woocommerce-form__input-checkbox input-checkbox"
+					{{ fn( 'checked', 'shipping' is same as( ship_to_destination | apply_filters( 'woocommerce_ship_to_different_address_checked' ) ) ? 1 : 0, 1 ) }}
+					type="checkbox"
+					name="ship_to_different_address"
+					value="1"
+				/>
+					<span>{{- __( 'Ship to a different address?', 'uni' ) -}}</span>
+			</label>
+		</p>
+
+		<div class="shipping_address">
+			{#
+			 # Hook: woocommerce_before_checkout_shipping_form.
+			 #}
+			{% do action( 'woocommerce_before_checkout_shipping_form', checkout ) %}
+
+			<div class="Shipping-fields__field-wrapper woocommerce-shipping-fields__field-wrapper">
+				{% for key, field in checkout.get_checkout_fields( 'shipping' ) %}
+					{{- fn( 'woocommerce_form_field', key, field, checkout.get_value( key ) ) -}}
+				{% endfor %}
+			</div>
+			{#
+			 # Hook: woocommerce_after_checkout_shipping_form.
+			 #}
+			{% do action( 'woocommerce_after_checkout_shipping_form', checkout ) %}
+
+		</div>
+	{% endif %}
+</div>

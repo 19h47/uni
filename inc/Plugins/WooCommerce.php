@@ -95,12 +95,84 @@ class WooCommerce {
 		add_action( 'woocommerce_after_cart', array( $this, 'output_after_cart_wrapper' ), 10 );
 
 		add_action( 'woocommerce_before_cart_table', array( $this, 'before_cart_table' ), 10 );
-		add_action( 'woocommerce_after_cart_table', array( $this, 'after_cart_table' ), 10 );
+		add_action( 'woocommerce_cart_actions', array( $this, 'cart_actions' ), 10 );
 
 		remove_action( 'woocommerce_before_cart', 'woocommerce_output_all_notices', 10 );
 		add_action( 'woocommerce_before_cart', array( $this, 'output_all_notices' ), 10 );
+
+		add_filter( 'woocommerce_checkout_fields', array( $this, 'checkout_fields' ) );
+		add_filter( 'woocommerce_default_address_fields', array( $this, 'address_fields' ) );
+
+		add_filter( 'woocommerce_form_field_args', array( $this, 'form_field_args' ), 10, 3 );
 	}
 
+
+	/**
+	 * Form fields args
+	 *
+	 * @param array  $args Arguments.
+	 * @param string $key key.
+	 * @param string $value (default: null).
+	 *
+	 * @return array $args
+	 */
+	public function form_field_args( array $args, string $key, $value ) : array {
+		$args['class'][] = 'Input';
+
+		return $args;
+	}
+
+	/**
+	 * Checkout fields
+	 *
+	 * @param array $fields Array of fields.
+	 *
+	 * @return array $fields
+	 */
+	public function checkout_fields( array $fields ) : array {
+		// order.
+		$fields['order']['order_comments']['label']       = __( 'Note', 'uni' );
+		$fields['order']['order_comments']['placeholder'] = '';
+
+		// billing.
+		$fields['billing']['billing_email']['label'] = __( 'Email address', 'uni' );
+		$fields['billing']['billing_phone']['class'] = array( 'form-row-first' );
+		$fields['billing']['billing_email']['class'] = array( 'form-row-last' );
+
+		return $fields;
+	}
+
+
+	/**
+	 * Address fields
+	 *
+	 * @param array $address_fields Array of fields address.
+	 *
+	 * @see https://docs.woocommerce.com/document/tutorial-customising-checkout-fields-using-actions-and-filters/
+	 * @return array $adddress_fields
+	 */
+	public function address_fields( array $address_fields ) : array {
+		$address_fields['last_name']['priority'] = 10;
+		$address_fields['last_name']['class']    = array( 'form-row-first' );
+
+		$address_fields['first_name']['priority'] = 20;
+		$address_fields['first_name']['class']    = array( 'form-row-last' );
+
+		$address_fields['address_1']['priority']  = 40;
+		$address_fields['postcode']['priority']   = 60;
+		$address_fields['city']['priority']       = 65;
+		$address_fields['country']['priority']    = 70;
+
+		$address_fields['company']['label'] = __( 'Company', 'uni' );
+		$address_fields['country']['label'] = __( 'Country', 'uni' );
+
+		$address_fields['address_1']['label']       = __( 'Address', 'uni' );
+		$address_fields['address_1']['placeholder'] = '';
+
+		unset( $address_fields['address_2'] );
+
+		return $address_fields;
+	}
 
 	/**
 	 * Output all notices
@@ -115,12 +187,12 @@ class WooCommerce {
 
 
 	/**
-	 * After cart table
+	 * Cart actions
 	 *
 	 * @return void
 	 */
-	public function after_cart_table() : void {
-		echo '<a class="Button button wc-backward" href="' . esc_url( apply_filters( 'woocommerce_return_to_shop_redirect', wc_get_page_permalink( 'shop' ) ) ) . '">' . esc_html__( 'Return to shop', 'uni' ) . '</a>';
+	public function cart_actions() : void {
+		echo '<a class="Button button wc-backward d-inline-block margin-right-2" href="' . esc_url( apply_filters( 'woocommerce_return_to_shop_redirect', wc_get_page_permalink( 'shop' ) ) ) . '">' . esc_html__( 'Return to shop', 'uni' ) . '</a>';
 	}
 
 

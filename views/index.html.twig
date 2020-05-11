@@ -9,7 +9,7 @@
 {# Header #}
 {% include 'header.html.twig' %}
 
-<main id="{{ post.id ? "page-#{post.id}" : 'page' }}" class="page-content Site-wrapper" data-node-type="{{ post.node_type | default( 'DefaultPage' ) }}" role="main">
+<main id="{{ post.id ? "page-#{post.id}" : 'page' }}" class="page-content Site-wrapper" data-node-type="{{ post.node_type | default( 'DefaultPage' ) }}">
 
 	<header class="Site-header">
 		<div class="d-flex flex-row flex-md-column">

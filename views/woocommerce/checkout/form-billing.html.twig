@@ -1,0 +1,75 @@
+{#
+ # Checkout billing information form
+ #}
+<div class="Billing-fields woocommerce-billing-fields">
+
+	<h3 class="h1 margin-top-0 font-style-normal">
+		{%- if ship_to_billing_address_only and cart.needs_shipping() -%}
+			{{- __( 'Billing &amp; Shipping', 'uni' ) -}}
+		{%- else -%}
+			{{- __( 'Billing', 'uni' ) -}}
+		{%- endif -%}
+	</h3>
+
+
+	<div class="Billing-fields__field-wrapper woocommerce-billing-fields__field-wrapper">
+		{#
+		 # Hook: woocommerce_before_checkout_billing_form.
+		 #}
+		{% do action( 'woocommerce_before_checkout_billing_form', checkout ) %}
+
+		{% for key, field in checkout.get_checkout_fields( 'billing' ) %}
+			{{- fn( 'woocommerce_form_field', key, field, checkout.get_value( key ) ) -}}
+		{% endfor %}
+
+		{#
+		 # Hook: woocommerce_after_checkout_billing_form.
+		 #}
+		{% do action( 'woocommerce_after_checkout_billing_form', checkout ) %}
+	</div>
+
+</div>
+
+{% if not is_user_logged_in and checkout.is_registration_enabled() %}
+	<div class="woocommerce-account-fields">
+
+		{% if not checkout.is_registration_required() %}
+
+			<p class="form-row form-row-wide create-account">
+				<label class="woocommerce-form__label woocommerce-form__label-for-checkbox checkbox">
+					<input
+						class="woocommerce-form__input woocommerce-form__input-checkbox input-checkbox"
+						id="createaccount"
+						{{ fn( 'checked', true is same as( checkout.get_value( 'createaccount' ) ) or true is same as( false | apply_filters( 'woocommerce_create_account_default_checked' ) ), true ) }}
+						type="checkbox"
+						name="createaccount"
+						value="1"
+					/>
+						<span>{{- __( 'Create an account?', 'uni' ) -}}</span>
+				</label>
+			</p>
+
+		{% endif %}
+
+		{#
+		 # Hook: woocommerce_before_checkout_registration_form.
+		 #}
+		{% do action( 'woocommerce_before_checkout_registration_form', checkout ) %}
+
+		{% if checkout.get_checkout_fields( 'account' ) %}
+
+			<div class="create-account">
+				{% for key, field in checkout.get_checkout_fields( 'account' ) %}
+					{{- fn( 'woocommerce_form_field', key, field, checkout.get_value( key ) ) -}}
+				{% endfor %}
+			</div>
+
+		{% endif %}
+
+		{#
+		 # Hook: woocommerce_after_checkout_registration_form.
+		 #}
+		{% do action( 'woocommerce_after_checkout_registration_form', checkout ) %}
+
+	</div>
+{% endif %}

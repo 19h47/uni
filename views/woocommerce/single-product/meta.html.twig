@@ -1,5 +1,10 @@
-{#  #}
+{#
+ #
+ #}
 <div class="product_meta">
+	{#
+	 # Hook: woocommerce_product_meta_start.
+	 #}
 	{% do action( 'woocommerce_product_meta_start' ) %}
 
 	{# {%- if sku -%}
@@ -10,5 +15,8 @@
 	{# {{- product_category_list -}} #}
 	{# {{- product_tag_list -}} #}
 
+	{#
+	 # Hook: woocommerce_product_meta_end.
+	 #}
 	{% do action( 'woocommerce_product_meta_end' ) %}
 </div>

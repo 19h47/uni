@@ -2,9 +2,16 @@
  # Variable
  #
  #}
+
+{#
+ # Hook: woocommerce_before_add_to_cart_form.
+ #}
 {% do action( 'woocommerce_before_add_to_cart_form' ) %}
 
 <form class="variations_form cart" action="{{ form_action }}" method="post" enctype='multipart/form-data' data-product_id="{{ id }}" data-product_variations="{{ variations_attr }}">
+	{#
+	 # Hook: woocommerce_before_variations_form.
+	 #}
 	{% do action( 'woocommerce_before_variations_form' ) %}
 
 	{% if available_variations %}
@@ -41,31 +48,38 @@
 
 		<div class="single_variation_wrap">
 			{#
-				# Hook: woocommerce_before_single_variation.
-				#}
+			 # Hook: woocommerce_before_single_variation.
+			 #}
 			{% do action( 'woocommerce_before_single_variation' ) %}
 
 			{#
-				# Hook: woocommerce_single_variation. Used to output the cart button and placeholder for variation data.
-				#
-				# @since 2.4.0
-				# @hooked woocommerce_single_variation - 10 Empty div for variation data.
-				# @hooked woocommerce_single_variation_add_to_cart_button - 20 Qty and cart button.
-				#}
+			 # Hook: woocommerce_single_variation. Used to output the cart button and placeholder for variation data.
+			 #
+			 # @hooked woocommerce_single_variation - 10 Empty div for variation data.
+			 # @hooked woocommerce_single_variation_add_to_cart_button - 20 Qty and cart button.
+			 #}
 			{% do action( 'woocommerce_single_variation' ) %}
 
 			{#
-				# Hook: woocommerce_after_single_variation.
-				#}
+			 # Hook: woocommerce_after_single_variation.
+			 #}
 			{% do action( 'woocommerce_after_single_variation' ) %}
 		</div>
 	{% else %}
 		<p class="stock out-of-stock">
-			{{- __( 'This product is currently out of stock and unavailable.', 'uni' ) | apply_filters( 'woocommerce_out_of_stock_message' ) -}}
+			{% apply apply_filters( 'woocommerce_out_of_stock_message' ) %}
+				{{- __( 'This product is currently out of stock and unavailable.', 'uni' ) -}}
+			{% endapply %}
 		</p>
 	{% endif %}
 
+	{#
+	 # Hook: woocommerce_after_variations_form.
+	 #}
 	{% do action( 'woocommerce_after_variations_form' ) %}
 </form>
 
+{#
+ # Hook: woocommerce_after_add_to_cart_form.
+ #}
 {% do action( 'woocommerce_after_add_to_cart_form' ) %}

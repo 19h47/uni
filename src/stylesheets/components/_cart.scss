@@ -29,6 +29,8 @@
 			width: 100%;
 			table-layout: fixed;
 			overflow-wrap: break-word;
+			border-spacing: 0;
+			border-collapse: collapse;
 
 			line-height: 1.2;
 			font-size: #{(60 * 25) / 100}px;
@@ -45,6 +47,16 @@
 
 				@include media-breakpoint-up(hd) {
 					@include padding(top #{(20/30)}em bottom #{(20/30)}em);
+				}
+			}
+
+			tfoot {
+				.actions {
+					@include padding(top #{(90 * 60) / 100}px);
+
+					@include media-breakpoint-up(hd) {
+						@include padding(top #{(90/30)}em);
+					}
 				}
 			}
 
@@ -95,10 +107,22 @@
 
 		&__item {
 			td {
-				@include padding(top #{(20 * 60) / 100}px bottom #{(20 * 60) / 100}px);
+				@include padding(
+					top #{(20 * 60) / 100}px right #{(10 * 60) / 100}px bottom #{(20 * 60) / 100}px left
+						#{(10 * 60) / 100}px
+				);
 
 				@include media-breakpoint-up(hd) {
-					@include padding(top #{(20/30)}em bottom #{(20/30)}em);
+					@include padding(
+						top #{(20/30)}em right #{(10/30)}em bottom #{(20/30)}em left #{(10/30)}em
+					);
+				}
+
+				&:first-child {
+					@include padding(left 0);
+				}
+				&:last-child {
+					@include padding(right 0);
 				}
 
 				border-bottom: 1px solid the_color(gray, very-dark);
@@ -112,5 +136,13 @@
 				) / $prototype-height-unitless}vh left percentage(0.5 / 12)
 		);
 		width: percentage(5.5 / 12);
+
+		.wc-proceed-to-checkout {
+			@include margin(top #{(90 * 60) / 100}px);
+
+			@include media-breakpoint-up(hd) {
+				@include margin(top #{(90/30)}em);
+			}
+		}
 	}
 }

@@ -1,0 +1,33 @@
+/**
+ * Checkout page
+ *
+ *
+ *
+ *
+ */
+.Checkout {
+	&__form {
+		@include padding();
+		@extend %position-relative;
+		@extend .d-flex;
+	}
+
+	&__details {
+		@include padding(
+			top #{(250 * 100) / $prototype-height-unitless}vh right percentage(0.5 / 12) bottom #{(
+					250 * 100
+				) / $prototype-height-unitless}vh left percentage(1 / 12)
+		);
+		width: percentage(6.5 / 12);
+		border-right: 1px solid rgba(the_color(black), 1);
+	}
+
+	&__order {
+		@include padding(
+			top #{(250 * 100) / $prototype-height-unitless}vh right percentage(1 / 12) bottom #{(
+					250 * 100
+				) / $prototype-height-unitless}vh left percentage(0.5 / 12)
+		);
+		width: percentage(5.5 / 12);
+	}
+}

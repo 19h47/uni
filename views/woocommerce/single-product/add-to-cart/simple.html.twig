@@ -1,21 +1,34 @@
 {#
-
-Simple product add to cart
-
-#}
+ #
+ # Simple product add to cart
+ #
+ #}
 
 {# {{ stock_html }} #}
 
 {% if is_in_stock %}
 
+	{#
+	 # Hook: woocommerce_before_add_to_cart_form.
+	 #}
 	{% do action( 'woocommerce_before_add_to_cart_form' ) %}
 
 	<form id="add-to-cart-{{ id }}" class="cart page-block" action="{{ form_action }}" method="post" enctype="multipart/form-data" data-node-type="AddToCartBlock">
+		{#
+		 # Hook: woocommerce_before_add_to_cart_button.
+		 #}
 		{% do action( 'woocommerce_before_add_to_cart_button' ) %}
+
+		{#
+		 # Hook: woocommerce_before_add_to_cart_quantity.
+		 #}
 		{% do action( 'woocommerce_before_add_to_cart_quantity' ) %}
 
 		{# {{ quantity_input }} #}
 
+		{#
+		 # Hook: woocommerce_after_add_to_cart_quantity.
+		 #}
 		{% do action( 'woocommerce_after_add_to_cart_quantity' ) %}
 
 		<button type="submit" value="{{ id }}" class="Product__add-to-cart-button js-add-to-cart-button single_add_to_cart_button button alt test">
@@ -23,9 +36,15 @@ Simple product add to cart
 			{{- text -}}
 		</button>
 
+		{#
+		 # Hook: woocommerce_after_add_to_cart_button.
+		 #}
 		{% do action( 'woocommerce_after_add_to_cart_button' ) %}
 	</form>
 
+	{#
+	 # Hook: woocommerce_after_add_to_cart_form.
+	 #}
 	{% do action( 'woocommerce_after_add_to_cart_form' ) %}
 
 {% endif %}

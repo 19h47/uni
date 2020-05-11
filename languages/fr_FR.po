@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: uni\n"
-"POT-Creation-Date: 2020-05-07 08:22+0200\n"
-"PO-Revision-Date: 2020-05-07 08:22+0200\n"
+"POT-Creation-Date: 2020-05-09 22:52+0200\n"
+"PO-Revision-Date: 2020-05-09 23:00+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fr_FR\n"
@@ -53,7 +53,7 @@ msgstr "URL du compte Instagram"
 msgid "Phone number"
 msgstr "Numéro de téléphone"
 
-#: inc/Api/Customizer/Contact.php:113
+#: inc/Api/Customizer/Contact.php:113 inc/Plugins/WooCommerce.php:147
 msgid "Address"
 msgstr "Adresse"
 
@@ -93,7 +93,23 @@ msgstr "Page Objets"
 msgid "Habitat Page"
 msgstr "Page Habitat"
 
-#: inc/Plugins/WooCommerce.php:123 views/pages/single-product.html.twig:144
+#: inc/Plugins/WooCommerce.php:117
+msgid "Note"
+msgstr "Note"
+
+#: inc/Plugins/WooCommerce.php:121
+msgid "Email address"
+msgstr "Adresse e-mail"
+
+#: inc/Plugins/WooCommerce.php:145
+msgid "Company"
+msgstr "Entreprise"
+
+#: inc/Plugins/WooCommerce.php:146
+msgid "Country"
+msgstr "Pays"
+
+#: inc/Plugins/WooCommerce.php:170 views/pages/single-product.html.twig:144
 #: views/woocommerce/cart/cart-empty.html.twig:16
 msgid "Return to shop"
 msgstr "Retour à la boutique"
@@ -155,9 +171,13 @@ msgstr "Valider"
 msgid "(estimated for %s)"
 msgstr "(estimé pour %s)"
 
-#: woocommerce/cart/cart.php:46
+#: woocommerce/cart/cart.php:38
 msgid "Remove this item"
 msgstr "Enlever cet élément"
+
+#: woocommerce/cart/cart.php:68
+msgid "Available on backorder"
+msgstr ""
 
 #. translators: %s: Quantity.
 #: woocommerce/global/quantity-input.php:39
@@ -167,7 +187,7 @@ msgstr "quantité de %s"
 
 #: woocommerce/global/quantity-input.php:39
 #: views/woocommerce/cart/cart.html.twig:31
-#: views/woocommerce/cart/cart.html.twig:47
+#: views/woocommerce/cart/cart.html.twig:54
 msgid "Quantity"
 msgstr "Quantité"
 
@@ -258,24 +278,24 @@ msgstr "Envoyer"
 msgid "Follow us"
 msgstr "Suivez-nous"
 
-#: views/woocommerce/cart/cart-totals.html.twig:6
+#: views/woocommerce/cart/cart-totals.html.twig:10
 msgid "Cart totals"
 msgstr "Total panier"
 
-#: views/woocommerce/cart/cart-totals.html.twig:11
-#: views/woocommerce/cart/cart-totals.html.twig:12
+#: views/woocommerce/cart/cart-totals.html.twig:15
+#: views/woocommerce/cart/cart-totals.html.twig:16
 msgid "Subtotal"
 msgstr "Sous-total"
 
-#: views/woocommerce/cart/cart-totals.html.twig:33
-#: views/woocommerce/cart/cart-totals.html.twig:34
+#: views/woocommerce/cart/cart-totals.html.twig:42
+#: views/woocommerce/cart/cart-totals.html.twig:43
 msgid "Shipping"
 msgstr "Expédition"
 
-#: views/woocommerce/cart/cart-totals.html.twig:61
-#: views/woocommerce/cart/cart-totals.html.twig:62
+#: views/woocommerce/cart/cart-totals.html.twig:72
+#: views/woocommerce/cart/cart-totals.html.twig:73
 #: views/woocommerce/cart/cart.html.twig:32
-#: views/woocommerce/cart/cart.html.twig:48
+#: views/woocommerce/cart/cart.html.twig:55
 msgid "Total"
 msgstr "Total"
 
@@ -284,29 +304,29 @@ msgid "Products"
 msgstr "Produits"
 
 #: views/woocommerce/cart/cart.html.twig:30
-#: views/woocommerce/cart/cart.html.twig:46
+#: views/woocommerce/cart/cart.html.twig:53
 msgid "Price"
 msgstr "Prix"
 
-#: views/woocommerce/cart/cart.html.twig:45
+#: views/woocommerce/cart/cart.html.twig:48
 msgid "Product"
 msgstr "Produit"
 
-#: views/woocommerce/cart/cart.html.twig:61
+#: views/woocommerce/cart/cart.html.twig:69
 msgid "Coupon:"
 msgstr "Code promo :"
 
-#: views/woocommerce/cart/cart.html.twig:62
+#: views/woocommerce/cart/cart.html.twig:70
 msgid "Coupon code"
 msgstr "Code promo"
 
-#: views/woocommerce/cart/cart.html.twig:63
-#: views/woocommerce/cart/cart.html.twig:64
+#: views/woocommerce/cart/cart.html.twig:71
+#: views/woocommerce/cart/cart.html.twig:72
 msgid "Apply coupon"
 msgstr "Appliquer le code promo"
 
-#: views/woocommerce/cart/cart.html.twig:71
-#: views/woocommerce/cart/cart.html.twig:72
+#: views/woocommerce/cart/cart.html.twig:87
+#: views/woocommerce/cart/cart.html.twig:88
 msgid "Update cart"
 msgstr "Mettre à jour le panier"
 
@@ -334,7 +354,7 @@ msgstr ""
 
 #: views/woocommerce/cart/shipping-calculator.html.twig:47
 msgid "City"
-msgstr ""
+msgstr "Ville"
 
 #: views/woocommerce/cart/shipping-calculator.html.twig:53
 msgid "Postcode / ZIP"
@@ -344,9 +364,29 @@ msgstr ""
 msgid "Update"
 msgstr "Mettre à jour le panier"
 
-#: views/woocommerce/checkout/form-checkout.html.twig:55
+#: views/woocommerce/checkout/form-billing.html.twig:8
+msgid "Billing &amp; Shipping"
+msgstr ""
+
+#: views/woocommerce/checkout/form-billing.html.twig:10
+msgid "Billing details"
+msgstr ""
+
+#: views/woocommerce/checkout/form-billing.html.twig:46
+msgid "Create an account?"
+msgstr ""
+
+#: views/woocommerce/checkout/form-checkout.html.twig:58
 msgid "Your order"
 msgstr "Votre commande"
+
+#: views/woocommerce/checkout/form-shipping.html.twig:16
+msgid "Additional information"
+msgstr ""
+
+#: views/woocommerce/checkout/form-shipping.html.twig:46
+msgid "Ship to a different address?"
+msgstr "Expédier à une adresse différente ?"
 
 #: views/woocommerce/checkout/thankyou.html.twig:18
 msgctxt "thankyou"

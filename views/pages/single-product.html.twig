@@ -1,3 +1,6 @@
+{#
+ #
+ #}
 {% extends 'index.html.twig' %}
 
 {% block content %}
@@ -43,20 +46,20 @@
 					<meta itemprop="url" content="{{ post.link }}" />
 
 					{#
-						Hook: woocommerce_before_single_product_summary.
-
-						@hooked woocommerce_show_product_sale_flash - 10
-						@hooked woocommerce_show_product_images - 20
-					#}
+					 # Hook: woocommerce_before_single_product_summary.
+					 #
+					 # @hooked woocommerce_show_product_sale_flash - 10
+					 # @hooked woocommerce_show_product_images - 20
+					 #}
 					{% do action( 'woocommerce_before_single_product_summary' ) %}
 
 					<div class="Product-summary summary entry-summary">
 
 						{#
-							Hook: woocommerce_single_product_summary.
-
-							@hooked WC_Structured_Data::generate_product_data() - 60
-						#}
+						 # Hook: woocommerce_single_product_summary.
+						 #
+						 # @hooked WC_Structured_Data::generate_product_data() - 60
+						 #}
 						{% do action( 'woocommerce_single_product_summary' ) %}
 
 						<div class="Product-summary__grid">
@@ -70,10 +73,10 @@
 
 							<div class="Product__short-description woocommerce-product-details__short-description">
 								{#
-									Hook: woocommerce_single_product_content
-
-									@hooked UNI\Plugins\WooCommerce::template_single_product_content - 20
-								#}
+								 # Hook: woocommerce_single_product_content
+								 #
+								 # @hooked UNI\Plugins\WooCommerce::template_single_product_content - 20
+								 #}
 								{% do action( 'woocommerce_single_product_content' ) %}
 								{{- post.terms( 'product_cat' ) | map( c => "<div class=\"Product__category-description\">#{c.description}</div>" ) | join( ', ' ) -}}
 							</div>
@@ -114,9 +117,9 @@
 
 					</div>
 					{#
-						Hook: woocommerce_after_single_product_summary.
-
-						@hooked woocommerce_upsell_display - 15
+					 # Hook: woocommerce_after_single_product_summary.
+					 #
+					 # @hooked woocommerce_upsell_display - 15
 					#}
 					{% do action( 'woocommerce_after_single_product_summary' ) %}
 
@@ -137,7 +140,7 @@
 			</div>
 
 			{#
-				Hook: woocommerce_after_single_product
+			 # Hook: woocommerce_after_single_product
 			 #}
 			{% do action( 'woocommerce_after_single_product' ) %}
 

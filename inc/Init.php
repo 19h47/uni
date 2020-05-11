@@ -33,6 +33,7 @@ class Init {
 			Api\Customizer\Pages::class,
 			Custom\Extras::class,
 			Plugins\WooCommerce::class,
+			Plugins\MailchimpWooCommerce::class,
 			Plugins\ACF::class,
 			Core\ProductTag::class,
 			Core\Product::class,

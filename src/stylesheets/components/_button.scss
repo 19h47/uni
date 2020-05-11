@@ -6,6 +6,7 @@
  * @package UNI
  */
 .Button {
+	@extend %white-space-nowrap;
 	@include letter-spacing(50);
 	@include padding(
 		top #{(20 * 60) / 100}px right #{(20 * 60) / 100}px bottom #{(20 * 60) / 100}px left #{(
@@ -28,8 +29,7 @@
 	}
 
 	&:disabled {
-		cursor: not-allowed;
-		@extend %Pointer-events-none;
+		@extend %cursor-not-allowed;
 		opacity: 0.6;
 	}
 

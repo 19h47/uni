@@ -11,8 +11,8 @@ use Timber\{ Timber };
 
 $context = Timber::get_context();
 
-$context['order']              = $order;
-$context['order_date_created'] = wc_format_datetime( $order->get_date_created() );
+$context['order']              = $order; // $order;
+$context['order_date_created'] = $order ? wc_format_datetime( $order->get_date_created() ) : false;
 
 $context['is_user_logged_in']   = is_user_logged_in();
 $context['current_user_id']     = get_current_user_id();

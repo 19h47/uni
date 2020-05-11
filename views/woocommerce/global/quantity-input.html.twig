@@ -10,6 +10,9 @@
 {% else %}
 
 	<div class="Input quantity">
+		{#
+		 # Hook: woocommerce_before_quantity_input_field.
+		 #}
 		{% do action( 'woocommerce_before_quantity_input_field' ) %}
 
 		<label class="screen-reader-text" for="{{ input.id }}">{{- label -}}</label>
@@ -20,15 +23,18 @@
 			class="{{ input.classes | join( ' ' ) }}"
 			step="{{ input.step }}"
 			min="{{ input.min_value }}"
-			max="{{ 0 < input.max_value ? input.max_value : '' }}"
+			{{ input.max_value ? "max=\"#{input.max_value}\"" | raw }}
 			name="{{ input.name }}"
 			value="{{ input.value }}"
 			title="{{ _x( 'Qty', 'quantity input title', 'uni' ) }}"
-			size="{{ input.size }}"
+			{# size="{{ input.size }}" #}
 			placeholder="{{ input.placeholder }}"
 			inputmode="{{ input.inputmode }}"
 		/>
 
+		{#
+		 # Hook: woocommerce_after_quantity_input_field.
+		 #}
 		{% do action( 'woocommerce_after_quantity_input_field' ) %}
 	</div>
 

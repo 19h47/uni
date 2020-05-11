@@ -1,0 +1,74 @@
+{#
+ # Payment
+ #
+ #}
+{% if not is_ajax %}
+	{#
+	 # Hook: woocommerce_review_order_before_payment.
+	 #}
+	{% do action( 'woocommerce_review_order_before_payment' ) %}
+{% endif %}
+
+<div id="payment" class="woocommerce-checkout-payment">
+
+	{% if cart.needs_payment() %}
+		<ul class="wc_payment_methods payment_methods methods">
+
+			{% if available_gateways is not empty %}
+				{% for gateway in available_gateways %}
+					{{- fn( 'wc_get_template', 'checkout/payment-method.php',  { 'gateway': gateway } ) -}}
+				{% endfor %}
+			{% else %}
+				<li class="woocommerce-notice woocommerce-notice--info woocommerce-info">
+					{% if billing_country %}
+						{{- __( 'Sorry, it seems that there are no available payment methods for your state. Please contact us if you require assistance or wish to make alternate arrangements.', 'uni' ) -}}
+					{% else %}
+						{% apply apply_filters( 'woocommerce_no_available_payment_methods_message' ) %}
+							{{- __( 'Please fill in your details above to see available payment methods.', 'uni' ) -}}
+						{% endapply %}
+					{% endif %}
+				</li>
+			{% endif %}
+		</ul>
+	{% endif %}
+
+	<div class="form-row place-order">
+		<noscript>
+			<?php
+			{# translators: $1 and $2 opening and closing emphasis tags respectively #}
+			{{- fn( 'printf', __( 'Since your browser does not support JavaScript, or it is disabled, please ensure you click the %1$sUpdate Totals%2$s button before placing your order. You may be charged more than the amount stated above if you fail to do so.', 'uni' ), '<em>', '</em>' ) -}}
+			<br/>
+			<button type="submit" class="Button button alt" name="woocommerce_checkout_update_totals" value="{{ __( 'Update totals', 'uni' ) }}">
+				{{- __( 'Update totals', 'uni' ) -}}
+			</button>
+		</noscript>
+
+		{{- fn( 'wc_get_template', 'checkout/terms.php' ) -}}
+
+		{#
+		 # Hook: woocommerce_review_order_before_submit.
+		 #}
+		{% do action( 'woocommerce_review_order_before_submit' ) %}
+
+		{% apply apply_filters( 'woocommerce_order_button_html') %}
+			<button type="submit" class="Button button alt" name="woocommerce_checkout_place_order" id="place_order" value="{{ order_button_text }}" data-value="{{ order_button_text }}">
+				{{- order_button_text -}}
+			</button>
+		{% endapply %}
+
+		{#
+		 # Hook: woocommerce_review_order_after_submit.
+		 #}
+		{% do action( 'woocommerce_review_order_after_submit' ) %}
+
+		{{- nonce_field -}}
+	</div>
+
+</div>
+
+{% if not is_ajax %}
+	{#
+	 # Hook: woocommerce_review_order_after_payment.
+	 #}
+	{% do action( 'woocommerce_review_order_after_payment' ) %}
+{% endif %}

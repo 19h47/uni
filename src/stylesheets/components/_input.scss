@@ -4,6 +4,14 @@
  *
  */
 .Input {
+	label {
+		@extend .d-block;
+	}
+
+	& > span {
+		@extend .d-block;
+	}
+
 	input {
 		@include reset-placeholder(the_color(gray, dark));
 
@@ -17,6 +25,9 @@
 
 		border-radius: 5px;
 		max-width: 100%;
+		width: 100%;
+
+		border: 1px solid the_color(gray, very-dark);
 
 		@include media-breakpoint-up(hd) {
 			@include padding(
