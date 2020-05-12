@@ -40,7 +40,7 @@
 					<input
 						class="woocommerce-form__input woocommerce-form__input-checkbox input-checkbox"
 						id="createaccount"
-						{{ fn( 'checked', true is same as( checkout.get_value( 'createaccount' ) ) or true is same as( false | apply_filters( 'woocommerce_create_account_default_checked' ) ), true ) }}
+						{{ fn( 'checked', true is same as( checkout.get_value( 'createaccount' ) ) or true is same as( false | apply_filters( 'woocommerce_create_account_default_checked' ) ), false ) }}
 						type="checkbox"
 						name="createaccount"
 						value="1"

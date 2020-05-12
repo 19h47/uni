@@ -6,6 +6,11 @@
 .Input {
 	label {
 		@extend .d-block;
+		@include margin(bottom 1em);
+
+		.required {
+			@extend %text-decoration-none;
+		}
 	}
 
 	& > span {
@@ -34,6 +39,20 @@
 				top #{(20/30)}em right #{(20/30)}em bottom #{(20/30)}em left #{(20/30)}em
 			);
 		}
+
+		&:focus {
+			outline: none;
+			box-shadow: 0 0 0 0.2rem rgba(the_color(gray, very-light-03), 0.5);
+		}
+	}
+
+	textarea {
+		@extend .d-block;
+		@include size(100%, 80px);
+
+		border-radius: 5px;
+		border: 1px solid the_color(gray, very-dark);
+		transition: box-shadow 0.3s map-get($easings, ease-out-expo);
 
 		&:focus {
 			outline: none;

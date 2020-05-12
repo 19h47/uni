@@ -92,6 +92,7 @@ module.exports = merge(common, {
 				'iframe',
 				'input',
 				'button',
+				'textarea',
 				'current-lang',
 				'error-message',
 				'success-message',

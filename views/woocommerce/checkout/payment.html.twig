@@ -9,24 +9,26 @@
 	{% do action( 'woocommerce_review_order_before_payment' ) %}
 {% endif %}
 
-<div id="payment" class="woocommerce-checkout-payment">
+<div id="payment" class="Payment woocommerce-checkout-payment">
 
 	{% if cart.needs_payment() %}
-		<ul class="wc_payment_methods payment_methods methods">
+		<ul class="Payment__methods wc_payment_methods payment_methods methods">
 
 			{% if available_gateways is not empty %}
 				{% for gateway in available_gateways %}
 					{{- fn( 'wc_get_template', 'checkout/payment-method.php',  { 'gateway': gateway } ) -}}
 				{% endfor %}
 			{% else %}
-				<li class="woocommerce-notice woocommerce-notice--info woocommerce-info">
-					{% if billing_country %}
-						{{- __( 'Sorry, it seems that there are no available payment methods for your state. Please contact us if you require assistance or wish to make alternate arrangements.', 'uni' ) -}}
-					{% else %}
-						{% apply apply_filters( 'woocommerce_no_available_payment_methods_message' ) %}
-							{{- __( 'Please fill in your details above to see available payment methods.', 'uni' ) -}}
-						{% endapply %}
-					{% endif %}
+				<li class="Payment__method woocommerce-notice woocommerce-notice--info woocommerce-info">
+					<div class="Payment__method__header">
+						{% if customer.get_billing_country() %}
+							{{- __( 'Sorry, it seems that there are no available payment methods for your state. Please contact us if you require assistance or wish to make alternate arrangements.', 'uni' ) -}}
+						{% else %}
+							{% filter apply_filters( 'woocommerce_no_available_payment_methods_message' ) %}
+								{{- __( 'Please fill in your details above to see available payment methods.', 'uni' ) -}}
+							{% endfilter %}
+						{% endif %}
+					</div>
 				</li>
 			{% endif %}
 		</ul>
@@ -45,16 +47,20 @@
 
 		{{- fn( 'wc_get_template', 'checkout/terms.php' ) -}}
 
+	</div>
+
+	<div class="form-row text-align-center margin-top-5">
 		{#
 		 # Hook: woocommerce_review_order_before_submit.
 		 #}
 		{% do action( 'woocommerce_review_order_before_submit' ) %}
 
-		{% apply apply_filters( 'woocommerce_order_button_html') %}
+
+		{% filter apply_filters( 'woocommerce_order_button_html') %}
 			<button type="submit" class="Button button alt" name="woocommerce_checkout_place_order" id="place_order" value="{{ order_button_text }}" data-value="{{ order_button_text }}">
 				{{- order_button_text -}}
 			</button>
-		{% endapply %}
+		{% endfilter %}
 
 		{#
 		 # Hook: woocommerce_review_order_after_submit.
@@ -63,7 +69,6 @@
 
 		{{- nonce_field -}}
 	</div>
-
 </div>
 
 {% if not is_ajax %}

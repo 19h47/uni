@@ -102,6 +102,22 @@ class WooCommerce {
 		add_filter( 'woocommerce_default_address_fields', array( $this, 'address_fields' ) );
 
 		add_filter( 'woocommerce_form_field_args', array( $this, 'form_field_args' ), 10, 3 );
+
+		add_filter( 'woocommerce_order_button_text', array( $this, 'order_button_text' ), 10, 1 );
+	}
+
+
+	/**
+	 * Pay order button text
+	 *
+	 * @param string $text Order button text.
+	 *
+	 * @return string $text
+	 */
+	public function order_button_text( string $text ) : string {
+		$text = __( 'Confirm your order', 'uni' );
+
+		return $text;
 	}
 
 

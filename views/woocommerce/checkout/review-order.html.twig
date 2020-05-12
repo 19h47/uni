@@ -1,0 +1,119 @@
+{#
+ # Review order table
+ #}
+<table class="Shop-table shop_table woocommerce-checkout-review-order-table">
+	<thead>
+		<tr>
+			<th class="product-name">{{- __( 'Product', 'uni' ) -}}</th>
+			<th class="product-total">{{- __( 'Subtotal', 'uni' ) -}}</th>
+		</tr>
+	</thead>
+
+	<tbody>
+		{#
+		 # Hook: woocommerce_review_order_before_cart_contents.
+		 #}
+		{% do action( 'woocommerce_review_order_before_cart_contents' ) %}
+
+
+		{% for key, item in cart.get_cart() %}
+			{% set _product = item.data | apply_filters( 'woocommerce_cart_item_product', item, key ) %}
+
+			{% if _product and _product.exists() and item.quantity > 0 and true | apply_filters( 'woocommerce_checkout_cart_item_visible', item, key ) %}
+				<tr class="{{ 'cart_item' | apply_filters( 'woocommerce_cart_item_class', item, key ) }}">
+					<td class="product-name">
+
+						{% filter apply_filters( 'woocommerce_cart_item_name', item, key ) %}
+							{{- _product.get_name() }}&nbsp;
+						{% endfilter %}
+
+						{% filter apply_filters( 'woocommerce_checkout_cart_item_quantity', tag, item, key ) %}
+							<strong class="product-quantity">{{- fn( 'sprintf', '&times;&nbsp;%s', item.quantity ) -}}</strong>
+						{% endfilter %}
+
+						{{- fn( 'wc_get_formatted_cart_item_data', item ) -}}
+					</td>
+					<td class="product-total">
+						{% filter apply_filters( 'woocommerce_cart_item_subtotal', item, key ) %}
+							{{- cart.get_product_subtotal( _product, item.quantity )  -}}
+						{% endfilter %}
+					</td>
+				</tr>
+			{% endif %}
+		{% endfor %}
+
+		{#
+		 # Hook: woocommerce_review_order_after_cart_contents.
+		 #}
+		{% do action( 'woocommerce_review_order_after_cart_contents' ) %}
+	</tbody>
+
+	<tfoot>
+
+		<tr class="cart-subtotal">
+			<th>{{- __( 'Subtotal', 'uni' ) -}}</th>
+			<td>{{- html.subtotal -}}</td>
+		</tr>
+
+		{% for code, coupon in cart.get_coupons() %}
+			<tr class="cart-discount coupon-{{ fn( 'sanitize_title', code ) }}">
+				<th>{{- fn( 'wc_cart_totals_coupon_label', coupon ) -}}</th>
+				<td>{{- fn( 'wc_cart_totals_coupon_html', coupon ) -}}</td>
+			</tr>
+		{% endfor %}
+
+		{% if cart.needs_shipping() and cart.show_shipping() %}
+			{#
+			 # Hook: woocommerce_review_order_before_shipping.
+			 #}
+			{% do action( 'woocommerce_review_order_before_shipping' ) %}
+
+			{{- html.shipping -}}
+
+			{#
+			 # Hook: woocommerce_review_order_after_shipping.
+			 #}
+			{% do action( 'woocommerce_review_order_after_shipping' ) %}
+
+		{% endif %}
+
+		{% for fee in cart.get_fees() %}
+			<tr class="fee">
+				<th>{{- fee.name -}}</th>
+				<td>{{- fn( 'wc_cart_totals_fee_html', fee ) -}}</td>
+			</tr>
+		{% endfor %}
+
+		{% if tax_enabled and not cart.display_prices_including_tax() %}
+			{% if 'itemized' is same as( tax_total_display ) %}
+				{% for code, tax in cart.get_tax_totals() %}
+					<tr class="tax-rate tax-rate-{{ fn( 'sanitize_title', code ) }}">
+						<th>{{- tax.label -}}</th>
+						<td>{{- tax.formatted_amount -}}</td>
+					</tr>
+				{% endfor %}
+			{% else %}
+				<tr class="tax-total">
+					<th>{{- countries.tax_or_vat() -}}</th>
+					<td>{{- html.taxes_total -}}</td>
+				</tr>
+			{% endif %}
+		{% endif %}
+
+		{#
+		 # Hook: woocommerce_review_order_before_order_total.
+		 #}
+		{% do action( 'woocommerce_review_order_before_order_total' ) %}
+
+		<tr class="order-total">
+			<th>{{- __( 'Total', 'uni' ) -}}</th>
+			<td>{{- html.order_total -}}</td>
+		</tr>
+
+		{#
+		 # Hook: woocommerce_review_order_after_order_total.
+		 #}
+		{% do action( 'woocommerce_review_order_after_order_total' ) %}
+
+	</tfoot>
+</table>

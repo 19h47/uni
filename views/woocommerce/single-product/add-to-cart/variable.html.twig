@@ -67,9 +67,9 @@
 		</div>
 	{% else %}
 		<p class="stock out-of-stock">
-			{% apply apply_filters( 'woocommerce_out_of_stock_message' ) %}
+			{% filter apply_filters( 'woocommerce_out_of_stock_message' ) %}
 				{{- __( 'This product is currently out of stock and unavailable.', 'uni' ) -}}
-			{% endapply %}
+			{% endfilter %}
 		</p>
 	{% endif %}
 

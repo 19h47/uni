@@ -16,12 +16,12 @@ $context = Timber::get_context();
 
 $context['is_ajax']  = is_ajax();
 $context['cart']     = WC()->cart;
-$context['checkout'] = (object) $checkout;
+$context['customer'] = WC()->customer;
 
+// @see https://github.com/woocommerce/woocommerce/blob/master/includes/wc-template-functions.php#L2240
+$context['checkout']           = (object) $checkout;
 $context['available_gateways'] = (array) $available_gateways;
 $context['order_button_text']  = (string) $order_button_text;
-
-$context['billing_country'] = WC()->customer->get_billing_country();
 
 $context['nonce_field'] = wp_nonce_field( 'woocommerce-process_checkout', 'woocommerce-process-checkout-nonce' );
 
