@@ -51,23 +51,21 @@ class WooCommerce {
 		remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_product_data_tabs', 10 );
 		remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20 );
 
-		// Loop
 		// Before shop loop item.
 		remove_action( 'woocommerce_before_shop_loop_item', 'woocommerce_template_loop_product_link_open', 10 );
 
 		// Before shop loop item title.
 		remove_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_template_loop_product_thumbnail', 10 );
 
-		// Shop loop title.
+		// Shop loop item title.
 		remove_action( 'woocommerce_shop_loop_item_title', 'woocommerce_template_loop_product_title', 10 );
-		add_action( 'woocommerce_shop_loop_item_title', array( $this, 'template_product_colors' ), 15 );
-
 		add_action( 'woocommerce_shop_loop_item_title', array( $this, 'template_loop_product_title' ), 10 );
 		add_action( 'woocommerce_shop_loop_item_title', array( $this, 'template_loop_price' ), 15 );
+		add_action( 'woocommerce_shop_loop_item_title', array( $this, 'template_product_colors' ), 20 );
 
 		// After shop loop title.
-		add_action( 'woocommerce_after_shop_loop_item_title', array( $this, 'template_loop_product_thumbnail' ), 10 );
 		remove_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_price', 10 );
+		add_action( 'woocommerce_after_shop_loop_item_title', array( $this, 'template_loop_product_thumbnail' ), 10 );
 
 		// After shop loop item.
 		remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_product_link_close', 5 );
@@ -89,16 +87,16 @@ class WooCommerce {
 
 		remove_action( 'woocommerce_sidebar', 'woocommerce_get_sidebar', 10 );
 
-		// add_filter( 'woocommerce_quantity_input_classes', array( $this, 'quantity_input_classes' ), 10, 2 );
-
-		add_action( 'woocommerce_before_cart', array( $this, 'output_before_cart_wrapper' ), 15 );
-		add_action( 'woocommerce_after_cart', array( $this, 'output_after_cart_wrapper' ), 10 );
-
-		add_action( 'woocommerce_before_cart_table', array( $this, 'before_cart_table' ), 10 );
 		add_action( 'woocommerce_cart_actions', array( $this, 'cart_actions' ), 10 );
 
+		// before cart.
 		remove_action( 'woocommerce_before_cart', 'woocommerce_output_all_notices', 10 );
+		add_action( 'woocommerce_before_cart', array( $this, 'output_before_cart_wrapper' ), 15 );
+		add_action( 'woocommerce_before_cart_table', array( $this, 'before_cart_table' ), 10 );
 		add_action( 'woocommerce_before_cart', array( $this, 'output_all_notices' ), 10 );
+
+		// after cart.
+		add_action( 'woocommerce_after_cart', array( $this, 'output_after_cart_wrapper' ), 10 );
 
 		add_filter( 'woocommerce_checkout_fields', array( $this, 'checkout_fields' ) );
 		add_filter( 'woocommerce_default_address_fields', array( $this, 'address_fields' ) );
@@ -228,26 +226,11 @@ class WooCommerce {
 
 
 	/**
-	 * Quantity input classes
-	 *
-	 * @param array      $classes Array of classes.
-	 * @param WC_Product $product Product.
-	 *
-	 * @return array
-	 */
-	public function quantity_input_classes( array $classes, WC_Product $product ) {
-		$classes[] = 'Input';
-
-		return $classes;
-	}
-
-
-	/**
 	 * Gallery thumbnail size
 	 *
 	 * @return array
 	 */
-	public function gallery_thumbnail_size() {
+	public function gallery_thumbnail_size() : array {
 		return array( 1600, 1050 );
 	}
 
@@ -259,7 +242,7 @@ class WooCommerce {
 	 *
 	 * @return array $fragments
 	 */
-	public function add_to_cart_fragments( array $fragments ) {
+	public function add_to_cart_fragments( array $fragments ) : array {
 		$fragments['span.js-cart-contents-count'] = '<span class="js-cart-contents-count">(' . WC()->cart->get_cart_contents_count() . ')</span>';
 
 		return $fragments;
@@ -271,7 +254,7 @@ class WooCommerce {
 	 *
 	 * @return void
 	 */
-	public function add_to_cart() {
+	public function add_to_cart() : void {
 		check_ajax_referer( 'security', 'nonce' );
 
 		if ( ! isset( $_POST['product_id'] ) ) {
@@ -361,7 +344,7 @@ class WooCommerce {
 	 *
 	 * @return void
 	 */
-	public function template_single_product_content() {
+	public function template_single_product_content() : void {
 		the_content();
 	}
 

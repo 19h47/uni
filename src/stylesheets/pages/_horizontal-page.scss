@@ -171,7 +171,7 @@
 			@include absolute(top 0 bottom 0);
 			@include margin(top 0 bottom 0);
 
-			// mix-blend-mode: difference;
+			mix-blend-mode: difference;
 			opacity: 0;
 		}
 	}
