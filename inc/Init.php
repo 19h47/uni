@@ -28,6 +28,8 @@ class Init {
 			Setup\Menus::class,
 			Setup\Supports::class,
 			Setup\Textdomain::class,
+			Setup\Settings::class,
+			Setup\PostStates::class,
 			Api\Customizer\Mailchimp::class,
 			Api\Customizer\Contact::class,
 			Api\Customizer\Pages::class,
@@ -37,6 +39,7 @@ class Init {
 			Plugins\ACF::class,
 			Core\ProductTag::class,
 			Core\Product::class,
+			Core\Project::class,
 		);
 	}
 

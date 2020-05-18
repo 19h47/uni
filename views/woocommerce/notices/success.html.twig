@@ -1,0 +1,12 @@
+{#
+ #
+ #}
+{% if notices is iterable and notices is not empty %}
+
+	{% for notice in notices %}
+		<div class="Message woocommerce-message"{{ fn( 'wc_get_notice_data_attr', notice ) }} role="alert">
+			{{- notice.notice -}}
+		</div>
+	{% endfor %}
+
+{% endif %}

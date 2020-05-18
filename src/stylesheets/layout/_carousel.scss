@@ -45,12 +45,12 @@
 		}
 	}
 	&__navigation {
-		@include margin(top $grid-gutter-width);
+		@include margin(top 1em);
 		@extend .d-flex, .justify-content-between, .align-items-center;
 
 		button {
 			@extend .d-flex, .align-items-center;
-			@include size(14px, 12px);
+			@include size(15px, 13px);
 
 			svg {
 				@include size(100%);
@@ -60,12 +60,8 @@
 
 	&__current {
 		@include letter-spacing(50);
+		@include font-sizes(15, 20);
 
-		line-height: 1.2;
-		font-size: #{(60 * 20) / 100}px;
-
-		@include media-breakpoint-up(hd) {
-			font-size: #{(20/30)}em;
-		}
+		line-height: (24/20);
 	}
 }

@@ -4,6 +4,12 @@
  *
  */
 .Input {
+	$this: &;
+
+	@include font-sizes(25);
+
+	line-height: (30/25);
+
 	label {
 		@extend .d-block;
 		@include margin(bottom 1em);
@@ -19,12 +25,7 @@
 
 	input {
 		@include reset-placeholder(the_color(gray, dark));
-
-		@include padding(
-			top #{(20 * 60) / 100}px right #{(20 * 60) / 100}px bottom #{(20 * 60) / 100}px left #{(
-					20 * 60
-				) / 100}px
-		);
+		@include padding(top #{(20/30)}em right #{(20/30)}em bottom #{(20/30)}em left #{(20/30)}em);
 
 		transition: box-shadow 0.3s map-get($easings, ease-out-expo);
 
@@ -34,15 +35,18 @@
 
 		border: 1px solid the_color(gray, very-dark);
 
-		@include media-breakpoint-up(hd) {
-			@include padding(
-				top #{(20/30)}em right #{(20/30)}em bottom #{(20/30)}em left #{(20/30)}em
-			);
-		}
-
 		&:focus {
 			outline: none;
 			box-shadow: 0 0 0 0.2rem rgba(the_color(gray, very-light-03), 0.5);
+		}
+
+		&[type='checkbox'] {
+			width: auto;
+		}
+
+		@at-root #{ $this }.woocommerce-invalid input {
+			box-shadow: 0 0 0 0.2rem rgba(the_color(red, light-grayish-02), 0.5);
+			border-color: the_color(red, light-grayish-02);
 		}
 	}
 

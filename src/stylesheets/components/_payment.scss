@@ -1,5 +1,5 @@
 /**
- *
+ * Payment
  *
  *
  *
@@ -7,6 +7,13 @@
  *
  */
 .Payment {
+	& > *:first-child {
+		@include margin(top 0);
+	}
+
+	& > *:last-child {
+		@include margin(bottom 0);
+	}
 	&__methods {
 		@include margin(top 1em bottom 1em);
 		@extend %list-style-type-none;
@@ -14,18 +21,10 @@
 
 	&__method {
 		@include padding(top 20px);
+		@include font-sizes(16);
 
 		border-bottom: 1px solid the_color(gray, very-dark);
-
-		font-size: #{(15 * 60) / 100}px;
-		line-height: (24/20);
-
-		@include media-breakpoint-up(md) {
-			font-size: #{(20 * 60) / 100}px;
-		}
-		@include media-breakpoint-up(hd) {
-			font-size: #{(20/30)}em;
-		}
+		line-height: (19.2/16);
 
 		&__header {
 			@include margin(bottom 20px);

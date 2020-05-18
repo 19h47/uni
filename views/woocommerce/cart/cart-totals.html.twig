@@ -8,7 +8,7 @@
 	 #}
 	{% do action( 'woocommerce_before_cart_totals' ) %}
 
-	<h2 class="h1 margin-top-0 font-style-normal">
+	<h2 class="h1 margin-top-md-0 font-style-normal">
 		{{- __( 'Cart totals', 'uni' ) -}}
 	</h2>
 
@@ -23,7 +23,7 @@
 			</tr>
 
 			{% for code, coupon in cart.get_coupons() %}
-				<tr class="cart-discount coupon-{{ fn( 'sanitize_title', code ) }}">
+				<tr class="cart-discount coupon-{{ sanitize_title( code ) }}">
 					<th>{{- fn( 'wc_cart_totals_coupon_label', coupon ) -}}</th>
 					<td data-title="{{ fn( 'wc_cart_totals_coupon_label', coupon, false ) }}">
 						{{- fn( 'wc_cart_totals_coupon_html', coupon ) -}}
@@ -68,12 +68,14 @@
 			{% if tax_enabled and not cart.display_prices_including_tax() %}
 				{% if 'itemized' == tax_total_display %}
 					{% for code, tax in cart.get_tax_totals() %}
-						<tr class="tax-rate tax-rate-{{ fn( 'sanitize_title', code ) }}">
+						<tr class="tax-rate tax-rate-{{ sanitize_title( code ) }}">
 							<th>
 								{{- tax.label }}&nbsp;
 								{% if customer.is_customer_outside_base() and not customer.has_calculated_shipping() %}
 									{# translators: %s location. #}
-									{{ fn( 'sprintf', " <small> #{ __( '(estimated for %s)', 'uni' ) }</small>", countries.estimated_for_prefix( customer.get_taxable_address()[0] ) ~ countries.countries[ customer.get_taxable_address()[0] ] ) -}}
+									{% apply format( countries.estimated_for_prefix( customer.get_taxable_address()[0] ) ~ countries.countries[ customer.get_taxable_address()[0] ] ) %}
+										<small>{{- __( '(estimated for %s)', 'uni' ) -}}</small>
+									{% endapply %}
 								{% endif %}
 							</th>
 							<td data-title="{{ tax.label }}">{{- tax.formatted_amount -}}</td>
@@ -85,7 +87,9 @@
 							{{- countries.tax_or_vat() }}&nbsp;
 							{% if customer.is_customer_outside_base() and not customer.has_calculated_shipping() %}
 								{# translators: %s location. #}
-								{{ fn( 'sprintf', " <small> #{ __( '(estimated for %s)', 'uni' ) }</small>", countries.estimated_for_prefix( customer.get_taxable_address()[0] ) ~ countries.countries[ customer.get_taxable_address()[0] ] ) -}}
+								{% apply format( countries.estimated_for_prefix( customer.get_taxable_address()[0] ) ~ countries.countries[ customer.get_taxable_address()[0] ] ) %}
+									<small>{{- __( '(estimated for %s)', 'uni' ) -}}</small>
+								{% endapply %}
 							{% endif %}
 						</th>
 						<td data-title="{{ countries.tax_or_vat() }}">{{- html.taxes_total -}}</td>

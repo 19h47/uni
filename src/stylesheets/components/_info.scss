@@ -1,0 +1,34 @@
+/**
+ * Info
+ *
+ *
+ *
+ */
+.Info {
+	@extend %margin-y-2;
+	@include padding(
+		top #{(20 * 60) / 100}px right #{(20 * 60) / 100}px bottom #{(20 * 60) / 100}px left #{(
+				20 * 60
+			) / 100}px
+	);
+
+	line-height: 1.2;
+	font-size: #{(60 * 25) / 100}px;
+
+	border-radius: 5px;
+	box-shadow: 1px 1px 2px rgba(the_color(black), 0.2);
+	background-color: the_color(cyan, light-grayish-01);
+	border: 1px solid the_color(cyan, light-grayish-02);
+	color: the_color(cyan, very-dark-01);
+
+	a {
+		@extend %text-decoration-underline;
+
+		color: the_color(cyan, very-dark-02);
+	}
+
+	@include media-breakpoint-up(hd) {
+		@include padding(top #{(20/30)}em right #{(20/30)}em bottom #{(20/30)}em left #{(20/30)}em);
+		font-size: #{(25/30)}em;
+	}
+}

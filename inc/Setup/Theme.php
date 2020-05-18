@@ -102,6 +102,17 @@ class Theme {
 			);
 		}
 
+		if ( function_exists( 'sanitize_title' ) ) {
+			$twig->addFunction(
+				new TwigFunction(
+					'sanitize_title',
+					function ( string $title, string $fallback_title = '', string $context = 'save' ) : string {
+						return sanitize_title( $title, $fallback_title, $context );
+					}
+				)
+			);
+		}
+
 		return $twig;
 	}
 

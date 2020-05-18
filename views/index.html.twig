@@ -40,8 +40,10 @@
 
 	{% block content %}
 		<div class="Site-content">
-			<div><h1>{{- post.title -}}</h1></div>
-			<div class="Wysiwyg">{{- post.content -}}</div>
+			<div class="Site-content__inner">
+				<h1 class="margin-top-0">{{- post.title -}}</h1>
+				<div class="Wysiwyg">{{- post.content -}}</div>
+			</div>
 
 			{% include 'components/footer-vertical.html.twig' %}
 		</div>

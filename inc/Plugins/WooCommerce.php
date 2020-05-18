@@ -89,21 +89,35 @@ class WooCommerce {
 
 		add_action( 'woocommerce_cart_actions', array( $this, 'cart_actions' ), 10 );
 
-		// before cart.
-		remove_action( 'woocommerce_before_cart', 'woocommerce_output_all_notices', 10 );
 		add_action( 'woocommerce_before_cart', array( $this, 'output_before_cart_wrapper' ), 15 );
+
+		// before cart table.
 		add_action( 'woocommerce_before_cart_table', array( $this, 'before_cart_table' ), 10 );
-		add_action( 'woocommerce_before_cart', array( $this, 'output_all_notices' ), 10 );
 
 		// after cart.
 		add_action( 'woocommerce_after_cart', array( $this, 'output_after_cart_wrapper' ), 10 );
 
+		// checkout fields.
 		add_filter( 'woocommerce_checkout_fields', array( $this, 'checkout_fields' ) );
 		add_filter( 'woocommerce_default_address_fields', array( $this, 'address_fields' ) );
 
 		add_filter( 'woocommerce_form_field_args', array( $this, 'form_field_args' ), 10, 3 );
 
 		add_filter( 'woocommerce_order_button_text', array( $this, 'order_button_text' ), 10, 1 );
+
+		// cart_is empty.
+		remove_action( 'woocommerce_cart_is_empty', 'wc_empty_cart_message', 10 );
+		add_action( 'woocommerce_cart_is_empty', array( $this, 'empty_cart_message' ), 10 );
+	}
+
+
+	/**
+	 * Show notice if cart is empty.
+	 *
+	 * @return void
+	 */
+	public function empty_cart_message() {
+		Timber::render( 'partials/empty-cart-message.html.twig' );
 	}
 
 
@@ -153,6 +167,25 @@ class WooCommerce {
 		$fields['billing']['billing_phone']['class'] = array( 'form-row-first' );
 		$fields['billing']['billing_email']['class'] = array( 'form-row-last' );
 
+		$fields['billing']['billing_company']['label'] = __( 'Company', 'uni' );
+		$fields['billing']['billing_country']['label'] = __( 'Country', 'uni' );
+		$fields['billing']['billing_country']['priority']    = 70;
+
+		// shipping.
+		$fields['shipping']['shipping_last_name']['priority'] = 10;
+		$fields['shipping']['shipping_last_name']['class']    = array( 'form-row-first' );
+
+		$fields['shipping']['shipping_first_name']['priority'] = 20;
+		$fields['shipping']['shipping_first_name']['class']    = array( 'form-row-last' );
+
+		$fields['shipping']['shipping_address_1']['priority']  = 40;
+		$fields['shipping']['shipping_postcode']['priority']   = 60;
+		$fields['shipping']['shipping_city']['priority']       = 65;
+		$fields['shipping']['shipping_country']['priority']    = 70;
+
+		$fields['shipping']['shipping_company']['label'] = __( 'Company', 'uni' );
+		$fields['shipping']['shipping_country']['label'] = __( 'Country', 'uni' );
+
 		return $fields;
 	}
 
@@ -163,40 +196,15 @@ class WooCommerce {
 	 * @param array $address_fields Array of fields address.
 	 *
 	 * @see https://docs.woocommerce.com/document/tutorial-customising-checkout-fields-using-actions-and-filters/
-	 * @return array $adddress_fields
+	 * @return array $address_fields
 	 */
 	public function address_fields( array $address_fields ) : array {
-		$address_fields['last_name']['priority'] = 10;
-		$address_fields['last_name']['class']    = array( 'form-row-first' );
-
-		$address_fields['first_name']['priority'] = 20;
-		$address_fields['first_name']['class']    = array( 'form-row-last' );
-
-		$address_fields['address_1']['priority']  = 40;
-		$address_fields['postcode']['priority']   = 60;
-		$address_fields['city']['priority']       = 65;
-		$address_fields['country']['priority']    = 70;
-
-		$address_fields['company']['label'] = __( 'Company', 'uni' );
-		$address_fields['country']['label'] = __( 'Country', 'uni' );
-
 		$address_fields['address_1']['label']       = __( 'Address', 'uni' );
 		$address_fields['address_1']['placeholder'] = '';
 
 		unset( $address_fields['address_2'] );
 
 		return $address_fields;
-	}
-
-	/**
-	 * Output all notices
-	 *
-	 * @return void
-	 */
-	public function output_all_notices() : void {
-		echo '<div class="Notices woocommerce-notices-wrapper">';
-		wc_print_notices();
-		echo '</div>';
 	}
 
 
@@ -217,7 +225,7 @@ class WooCommerce {
 	 * @return void
 	 */
 	public function before_cart_table() : void {
-		the_title( '<h1 class="margin-top-0">', '</h1>' );
+		the_title( '<h1 class="margin-top-md-0">', '</h1>' );
 	}
 
 

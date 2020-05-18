@@ -1,5 +1,6 @@
 // Dependencies
 @import 'vendors/bootstrap-imports';
+@import 'vendors/architecture-variables';
 
 @import '~@19h47/architecture/src/stylesheets/abstracts/easings';
 
@@ -29,6 +30,8 @@
 
 @import 'vendors/jetpack';
 @import 'vendors/wordpress';
+@import 'vendors/woocommerce';
+@import 'vendors/select2';
 
 // Base stuff
 @import 'base/base';
@@ -73,17 +76,22 @@
 @import 'components/checkout';
 @import 'components/billing-fields';
 @import 'components/shipping-fields';
+@import 'components/shipping-methods';
 @import 'components/payment';
+@import 'components/terms-and-conditions';
+@import 'components/info';
+@import 'components/error';
+@import 'components/message';
 
 // Pages
 @import 'pages/page';
 @import 'pages/front-page';
 @import 'pages/single-product';
 @import 'pages/horizontal-page';
-@import 'pages/archive-product';
+@import 'pages/archive-page';
+@import 'pages/about-page';
 
 // Utilities.
-@import 'vendors/architecture-variables';
 @import '~@19h47/architecture/src/stylesheets/utilities/colors',
 	'~@19h47/architecture/src/stylesheets/utilities/cursors',
 	// 	'~@19h47/architecture/src/stylesheets/utilities/displays',

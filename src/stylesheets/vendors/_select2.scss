@@ -1,0 +1,55 @@
+/**
+ * Select2
+ *
+ *
+ *
+ *
+ */
+.select2 {
+	$this: &;
+
+	@extend %text-align-left;
+
+	&-container {
+		@extend .d-block;
+
+		border-radius: 5px;
+
+		&.select2-container--focus {
+			outline: none;
+			box-shadow: 0 0 0 0.2rem rgba(the_color(gray, very-light-03), 0.5);
+		}
+
+		.select2-selection--single {
+			border: 1px solid the_color(gray, very-dark);
+			border-radius: 5px;
+			height: auto;
+
+			&:focus {
+				outline: none;
+			}
+
+			#{ $this }-selection__rendered {
+				@include padding(
+					top #{(20/30)}em right #{(20/30)}em bottom #{(20/30)}em left #{(20/30)}em
+				);
+
+				line-height: (30/25);
+			}
+
+			#{ $this }-selection__arrow {
+				@include absolute(top 0 right 0 bottom 0);
+				@include margin(right #{(20/30)}em);
+				@include size(1em, auto);
+			}
+		}
+
+		.select2-selection__arrow {
+		}
+
+		[role='option']:focus,
+		input[type='text']:focus {
+			outline: none;
+		}
+	}
+}

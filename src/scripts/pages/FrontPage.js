@@ -49,7 +49,9 @@ export default class FrontPage extends AbstractPage {
 				roundProps: this.currentTime,
 				currentTime: this.currentTime,
 			});
-			gsap.to(this.$content, 0, { opacity: 1 - this.currentTime / this.$player.duration });
+			gsap.to(this.$content, 0, {
+				opacity: 1 - this.currentTime / (this.$player.duration * 0.5),
+			});
 		});
 	}
 

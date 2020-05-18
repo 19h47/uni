@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: uni\n"
-"POT-Creation-Date: 2020-05-12 14:10+0200\n"
-"PO-Revision-Date: 2020-05-12 14:10+0200\n"
+"POT-Creation-Date: 2020-05-18 08:46+0200\n"
+"PO-Revision-Date: 2020-05-18 08:46+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fr_FR\n"
@@ -53,7 +53,7 @@ msgstr "URL du compte Instagram"
 msgid "Phone number"
 msgstr "Numéro de téléphone"
 
-#: inc/Api/Customizer/Contact.php:113 inc/Plugins/WooCommerce.php:183
+#: inc/Api/Customizer/Contact.php:113 inc/Plugins/WooCommerce.php:202
 msgid "Address"
 msgstr "Adresse"
 
@@ -93,28 +93,249 @@ msgstr "Page Objets"
 msgid "Habitat Page"
 msgstr "Page Habitat"
 
-#: inc/Plugins/WooCommerce.php:118
+#: inc/Core/Project.php:97
+msgid "Thumbnail"
+msgstr "Miniature"
+
+#. translators: Publish box date format, see https://secure.php.net/date
+#: inc/Core/Project.php:151
+msgid "M j, Y @ H:i"
+msgstr "M j, Y @ H:i"
+
+#: inc/Core/Project.php:156 inc/Core/Project.php:234
+msgid "View Project"
+msgstr "Voir le projet"
+
+#: inc/Core/Project.php:162 inc/Core/Project.php:168
+msgid "Preview Project"
+msgstr "Prévisualiser le projet"
+
+#: inc/Core/Project.php:173 inc/Core/Project.php:176 inc/Core/Project.php:254
+msgid "Project updated."
+msgstr "Publication mise à jour."
+
+#: inc/Core/Project.php:174
+msgid "Custom field updated."
+msgstr "Champ personnalisé mis à jour."
+
+#: inc/Core/Project.php:175
+msgid "Custom field deleted."
+msgstr "Champ personnalisé supprimé."
+
+#. translators: %s: date and time of the revision
+#: inc/Core/Project.php:178
+#, php-format
+msgid "Project restored to revision from %s."
+msgstr "Projet rétabli à partir de la révision du %s."
+
+#: inc/Core/Project.php:179 inc/Core/Project.php:250
+msgid "Project published."
+msgstr "Projet mis en ligne."
+
+#: inc/Core/Project.php:180
+msgid "Project saved."
+msgstr "Projet enregistré."
+
+#: inc/Core/Project.php:181
+msgid "Project submitted."
+msgstr "Projet envoyé."
+
+#: inc/Core/Project.php:182
+#, php-format
+msgid "Project scheduled for: %s."
+msgstr "Projet planifié pour le : %s."
+
+#: inc/Core/Project.php:183
+msgid "Project draft updated."
+msgstr "Le brouillon du projet a été mis à jour."
+
+#. translators: %s: Number of projects.
+#: inc/Core/Project.php:203
+#, php-format
+msgid "%s project updated."
+msgid_plural "%s projects updated."
+msgstr[0] "%s projet mis à jour."
+msgstr[1] "%s projets mis à jour."
+
+#: inc/Core/Project.php:204
+msgid "1 project not updated, somebody is editing it."
+msgstr "1 projet non mis à jour, quelqu’un l’édite."
+
+#. translators: %s: Number of partners.
+#: inc/Core/Project.php:206
+#, php-format
+msgid "%s project not updated, somebody is editing it."
+msgid_plural "%s projects not updated, somebody is editing them."
+msgstr[0] ""
+"%s projet n’a pas été mis à jour : quelqu’un est déjà en train de le "
+"modifier."
+msgstr[1] ""
+"%s projets n’ont pas été mis à jour : quelqu’un est déjà en train de les "
+"modifier."
+
+#. translators: %s: Number of partners.
+#: inc/Core/Project.php:208
+#, php-format
+msgid "%s project permanently deleted."
+msgid_plural "%s project permanently deleted."
+msgstr[0] "%s projet définitivement supprimé."
+msgstr[1] "%s projets définitivement supprimés."
+
+#. translators: %s: Number of projects..
+#: inc/Core/Project.php:210
+#, php-format
+msgid "%s project moved to the Trash."
+msgid_plural "%s project moved to the Trash."
+msgstr[0] "%s projet déplacé dans la corbeille."
+msgstr[1] "%s projets déplacés dans la corbeille."
+
+#. translators: %s: Number of partners.
+#: inc/Core/Project.php:212
+#, php-format
+msgid "%s project restored from the Trash."
+msgid_plural "%s project restored from the Trash."
+msgstr[0] "%s projet récupéré depuis la corbeille."
+msgstr[1] "%s projets récupérés depuis la corbeille."
+
+#: inc/Core/Project.php:227
+msgctxt "project type generale name"
+msgid "Projects"
+msgstr "Projets"
+
+#: inc/Core/Project.php:228
+msgctxt "project type singular name"
+msgid "Project"
+msgstr "Projet"
+
+#: inc/Core/Project.php:229
+msgctxt "project type"
+msgid "Add New"
+msgstr "Ajouter"
+
+#: inc/Core/Project.php:230
+msgid "Add New Project"
+msgstr "Ajouter un nouveau projet"
+
+#: inc/Core/Project.php:231
+msgid "Edit Project"
+msgstr "Éditer le projet"
+
+#: inc/Core/Project.php:232
+msgid "New Project"
+msgstr "Nouveau projet"
+
+#: inc/Core/Project.php:233
+msgid "View Projects"
+msgstr "Voir les projets"
+
+#: inc/Core/Project.php:235
+msgid "Search Projects"
+msgstr "Rechercher des projets"
+
+#: inc/Core/Project.php:236
+msgid "No projects found."
+msgstr "Aucun projet trouvé."
+
+#: inc/Core/Project.php:237
+msgid "No projects found in Trash."
+msgstr "Aucun projet trouvé dans la corbeille."
+
+#: inc/Core/Project.php:238
+#, fuzzy
+#| msgid "Parent Partner:"
+msgid "Parent Projet:"
+msgstr "Projet parent :"
+
+#: inc/Core/Project.php:239
+msgid "All Projects"
+msgstr "Tous les projets"
+
+#: inc/Core/Project.php:240
+msgid "Project Archives"
+msgstr "Archives des projets"
+
+#: inc/Core/Project.php:241
+msgid "Project Attributes"
+msgstr "Attributs de projets"
+
+#: inc/Core/Project.php:242
+msgid "Insert into project"
+msgstr "Insérer dans le projet"
+
+#: inc/Core/Project.php:243
+msgid "Uploaded to this project"
+msgstr "Téléversés sur ce projet"
+
+#: inc/Core/Project.php:244
+msgctxt "project"
+msgid "Featured Image"
+msgstr "Image mise en avant"
+
+#: inc/Core/Project.php:245
+msgctxt "project"
+msgid "Set featured image"
+msgstr "Définir l’image mise en avant"
+
+#: inc/Core/Project.php:246
+msgctxt "project"
+msgid "Remove featured image"
+msgstr "Supprimer l’image mise en avant"
+
+#: inc/Core/Project.php:247
+msgctxt "project"
+msgid "Use as featured image"
+msgstr "Utiliser comme image mise en avant"
+
+#: inc/Core/Project.php:248
+msgid "Projects list navigation"
+msgstr "Navigation de la liste des projets"
+
+#: inc/Core/Project.php:249
+msgid "Projects list"
+msgstr "Liste des projets"
+
+#: inc/Core/Project.php:251
+msgid "Project published privately."
+msgstr "Projet mis en ligne en privé."
+
+#: inc/Core/Project.php:252
+msgid "Project reverted to draft."
+msgstr "Projet reconverti en brouillon."
+
+#: inc/Core/Project.php:253
+msgid "Project scheduled."
+msgstr "Projet planifiée."
+
+#: inc/Core/Project.php:263
+msgid "Project"
+msgstr "Projet"
+
+#: inc/Plugins/MailchimpWooCommerce.php:39
+msgid "Subscribe to our newsletter"
+msgstr "Abonnez-vous à notre newsletter"
+
+#: inc/Plugins/WooCommerce.php:132
 msgid "Confirm your order"
 msgstr "Valider votre commande"
 
-#: inc/Plugins/WooCommerce.php:148
+#: inc/Plugins/WooCommerce.php:162
 msgid "Note"
 msgstr "Note"
 
-#: inc/Plugins/WooCommerce.php:152
+#: inc/Plugins/WooCommerce.php:166
 msgid "Email address"
 msgstr "Adresse e-mail"
 
-#: inc/Plugins/WooCommerce.php:180
+#: inc/Plugins/WooCommerce.php:170 inc/Plugins/WooCommerce.php:186
 msgid "Company"
 msgstr "Entreprise"
 
-#: inc/Plugins/WooCommerce.php:181
+#: inc/Plugins/WooCommerce.php:171 inc/Plugins/WooCommerce.php:187
 msgid "Country"
 msgstr "Pays"
 
-#: inc/Plugins/WooCommerce.php:209 views/pages/single-product.html.twig:147
-#: views/woocommerce/cart/cart-empty.html.twig:16
+#: inc/Plugins/WooCommerce.php:217 views/pages/single-product.html.twig:148
+#: views/woocommerce/cart/cart-empty.html.twig:18
 msgid "Return to shop"
 msgstr "Retour à la boutique"
 
@@ -153,15 +374,23 @@ msgstr "Second menu pied de page"
 msgid "Footer Tertiary"
 msgstr "Troisième menu pied de page"
 
-#: inc/Setup/Theme.php:133
+#: inc/Setup/PostStates.php:42
+msgid "Terms & Conditions Page"
+msgstr ""
+
+#: inc/Setup/Settings.php:34
+msgid "Terms & Conditions page"
+msgstr ""
+
+#: inc/Setup/Theme.php:144
 msgid "Share on Twitter"
 msgstr "Partager sur Twitter"
 
-#: inc/Setup/Theme.php:140
+#: inc/Setup/Theme.php:151
 msgid "Share on Facebook"
 msgstr "Partager sur Facebook"
 
-#: inc/Setup/Theme.php:152
+#: inc/Setup/Theme.php:163
 msgid "Share on LinkedIn"
 msgstr "Partager sur LinkedIn"
 
@@ -184,8 +413,8 @@ msgid "%s quantity"
 msgstr "quantité de %s"
 
 #: woocommerce/global/quantity-input.php:39
-#: views/woocommerce/cart/cart.html.twig:31
-#: views/woocommerce/cart/cart.html.twig:54
+#: views/woocommerce/cart/cart.html.twig:32
+#: views/woocommerce/cart/cart.html.twig:55
 msgid "Quantity"
 msgstr "Quantité"
 
@@ -225,11 +454,11 @@ msgstr "Crédits :"
 msgid "Let's meet up:"
 msgstr "Rencontrons nous :"
 
-#: views/pages/archive-product.html.twig:18
+#: views/pages/archive-product.html.twig:20
 msgid "Collection N°"
 msgstr "Collection N°"
 
-#: views/pages/horizontal-page.html.twig:39
+#: views/pages/horizontal-page.html.twig:59
 msgid "Discover our online store"
 msgstr "Découvrir notre boutique en ligne"
 
@@ -245,9 +474,13 @@ msgstr "Continuer vos achats"
 msgid "Access your basket"
 msgstr "Accéder à votre panier"
 
-#: views/pages/single-product.html.twig:131
+#: views/pages/single-product.html.twig:132
 msgid "In the same collection"
 msgstr "Dans la même collection"
+
+#: views/partials/empty-cart-message.html.twig:6
+msgid "Your cart is currently empty."
+msgstr "Votre panier est actuellement vide."
 
 #: views/partials/product-colors.html.twig:7
 msgid "Exists in:"
@@ -276,6 +509,46 @@ msgstr "Envoyer"
 msgid "Follow us"
 msgstr "Suivez-nous"
 
+#. $s shipping destination.
+#: views/woocommerce/cart/cart-shipping.html.twig:40
+#, php-format
+msgid "Shipping to %s."
+msgstr "Livraison vers %s."
+
+#: views/woocommerce/cart/cart-shipping.html.twig:41
+msgid "Change address"
+msgstr "Modifier l’adresse"
+
+#: views/woocommerce/cart/cart-shipping.html.twig:44
+msgid "Shipping options will be updated during checkout."
+msgstr "Les options de livraison seront mises à jour lors de la commande."
+
+#: views/woocommerce/cart/cart-shipping.html.twig:53
+msgid "Shipping costs are calculated during checkout."
+msgstr "Les frais de livraison sont calculés lors du paiement."
+
+#: views/woocommerce/cart/cart-shipping.html.twig:57
+msgid "Enter your address to view shipping options."
+msgstr "Saisissez votre adresse pour voir les options de livraison."
+
+#: views/woocommerce/cart/cart-shipping.html.twig:62
+msgid ""
+"There are no shipping options available. Please ensure that your address has "
+"been entered correctly, or contact us if you need any help."
+msgstr ""
+"Aucune méthode de livraison disponible. Assurez-vous que l’adresse que vous "
+"avez saisi est correcte ou contactez-nous si vous avez besoin d’aide."
+
+#. $s shipping destination.
+#: views/woocommerce/cart/cart-shipping.html.twig:67
+#, php-format
+msgid "No shipping options were found for %s."
+msgstr "Options de livraison introuvables pour %s."
+
+#: views/woocommerce/cart/cart-shipping.html.twig:69
+msgid "Enter a different address"
+msgstr "Saisissez une autre adresse"
+
 #: views/woocommerce/cart/cart-totals.html.twig:12
 msgid "Cart totals"
 msgstr "Total panier"
@@ -292,39 +565,48 @@ msgstr "Sous-total"
 msgid "Shipping"
 msgstr "Expédition"
 
-#: views/woocommerce/cart/cart-totals.html.twig:99
-#: views/woocommerce/cart/cart-totals.html.twig:100
-#: views/woocommerce/cart/cart.html.twig:32
-#: views/woocommerce/cart/cart.html.twig:55
+#: views/woocommerce/cart/cart-totals.html.twig:77
+#: views/woocommerce/cart/cart-totals.html.twig:91
+#, php-format
+msgid "(estimated for %s)"
+msgstr "(estimé pour %s)"
+
+#: views/woocommerce/cart/cart-totals.html.twig:103
+#: views/woocommerce/cart/cart-totals.html.twig:104
+#: views/woocommerce/cart/cart.html.twig:33
+#: views/woocommerce/cart/cart.html.twig:56
 #: views/woocommerce/checkout/review-order.html.twig:109
 msgid "Total"
 msgstr "Total"
 
-#: views/woocommerce/cart/cart.html.twig:28
+#: views/woocommerce/cart/cart.html.twig:29
 msgid "Products"
 msgstr "Produits"
 
-#: views/woocommerce/cart/cart.html.twig:30
-#: views/woocommerce/cart/cart.html.twig:53
+#: views/woocommerce/cart/cart.html.twig:31
+#: views/woocommerce/cart/cart.html.twig:54
 msgid "Price"
 msgstr "Prix"
 
-#: views/woocommerce/cart/cart.html.twig:48
+#: views/woocommerce/cart/cart.html.twig:49
 #: views/woocommerce/checkout/review-order.html.twig:7
 msgid "Product"
 msgstr "Produit"
 
-#: views/woocommerce/cart/cart.html.twig:70
+#: views/woocommerce/cart/cart.html.twig:71
+#: views/woocommerce/checkout/form-coupon.html.twig:13
 msgid "Coupon code"
 msgstr "Code promo"
 
-#: views/woocommerce/cart/cart.html.twig:71
 #: views/woocommerce/cart/cart.html.twig:72
+#: views/woocommerce/cart/cart.html.twig:73
+#: views/woocommerce/checkout/form-coupon.html.twig:15
+#: views/woocommerce/checkout/form-coupon.html.twig:16
 msgid "Apply coupon"
 msgstr "Appliquer le code promo"
 
-#: views/woocommerce/cart/cart.html.twig:98
 #: views/woocommerce/cart/cart.html.twig:99
+#: views/woocommerce/cart/cart.html.twig:100
 msgid "Update cart"
 msgstr "Mettre à jour le panier"
 
@@ -332,61 +614,77 @@ msgstr "Mettre à jour le panier"
 msgid "Proceed to checkout"
 msgstr "Valider la commande"
 
-#: views/woocommerce/cart/shipping-calculator.html.twig:13
+#: views/woocommerce/cart/shipping-calculator.html.twig:15
 msgid "Calculate shipping"
 msgstr "Calculer les frais d&rsquo;expédition"
 
-#: views/woocommerce/cart/shipping-calculator.html.twig:22
+#: views/woocommerce/cart/shipping-calculator.html.twig:25
 msgid "Select a country / region&hellip;"
 msgstr "Sélectionner un pays/région&hellip;"
 
-#: views/woocommerce/cart/shipping-calculator.html.twig:35
 #: views/woocommerce/cart/shipping-calculator.html.twig:38
-#: views/woocommerce/cart/shipping-calculator.html.twig:46
+#: views/woocommerce/cart/shipping-calculator.html.twig:41
+#: views/woocommerce/cart/shipping-calculator.html.twig:49
 msgid "State / County"
 msgstr "Région / Département"
 
-#: views/woocommerce/cart/shipping-calculator.html.twig:39
+#: views/woocommerce/cart/shipping-calculator.html.twig:42
 msgid "Select an option&hellip;"
 msgstr "Sélectionner une option&hellip;"
 
-#: views/woocommerce/cart/shipping-calculator.html.twig:53
+#: views/woocommerce/cart/shipping-calculator.html.twig:56
 msgid "City"
 msgstr "Ville"
 
-#: views/woocommerce/cart/shipping-calculator.html.twig:59
+#: views/woocommerce/cart/shipping-calculator.html.twig:62
 msgid "Postcode / ZIP"
 msgstr "Code postal"
 
-#: views/woocommerce/cart/shipping-calculator.html.twig:65
+#: views/woocommerce/cart/shipping-calculator.html.twig:68
 msgid "Update"
 msgstr "Mettre à jour le panier"
 
-#: views/woocommerce/checkout/form-billing.html.twig:8
+#: views/woocommerce/checkout/form-billing.html.twig:5
+msgid "Informations"
+msgstr "Informations"
+
+#: views/woocommerce/checkout/form-billing.html.twig:9
 msgid "Billing &amp; Shipping"
 msgstr "Facturation &amp; Expédition"
 
-#: views/woocommerce/checkout/form-billing.html.twig:10
+#: views/woocommerce/checkout/form-billing.html.twig:11
 msgid "Billing"
 msgstr "Facturation"
 
-#: views/woocommerce/checkout/form-billing.html.twig:48
+#: views/woocommerce/checkout/form-billing.html.twig:50
 msgid "Create an account?"
 msgstr "Créer un compte ?"
 
-#: views/woocommerce/checkout/form-checkout.html.twig:61
+#: views/woocommerce/checkout/form-checkout.html.twig:21
+msgid "You must be logged in to checkout."
+msgstr "Vous devez être identifié pour commander."
+
+#: views/woocommerce/checkout/form-checkout.html.twig:71
 msgid "Your order"
 msgstr "Votre commande"
+
+#: views/woocommerce/checkout/form-coupon.html.twig:7
+msgid "Have a coupon?"
+msgstr "Avez-vous un code promo ?"
+
+#: views/woocommerce/checkout/form-coupon.html.twig:7
+msgid "Click here to enter your code"
+msgstr "Cliquez ici pour saisir votre code"
 
 #: views/woocommerce/checkout/form-shipping.html.twig:15
 msgid "Additional information"
 msgstr "Informations complémentaires"
 
-#: views/woocommerce/checkout/form-shipping.html.twig:44
+#: views/woocommerce/checkout/form-shipping.html.twig:45
 msgid "Ship to a different address?"
 msgstr "Expédier à une adresse différente ?"
 
-#: views/woocommerce/checkout/payment.html.twig:24
+#: views/woocommerce/checkout/payment.html.twig:26
 msgid ""
 "Sorry, it seems that there are no available payment methods for your state. "
 "Please contact us if you require assistance or wish to make alternate "
@@ -396,14 +694,14 @@ msgstr ""
 "votre état. Veuillez nous contacter si vous avez besoin d’aide ou si vous "
 "désirez mettre en place une alternative."
 
-#: views/woocommerce/checkout/payment.html.twig:27
+#: views/woocommerce/checkout/payment.html.twig:28
 msgid "Please fill in your details above to see available payment methods."
 msgstr ""
 "Veuillez saisir une adresse de livraison ci-dessus pour voir les moyens de "
 "paiement disponibles."
 
 #. $1 and $2 opening and closing emphasis tags respectively
-#: views/woocommerce/checkout/payment.html.twig:39
+#: views/woocommerce/checkout/payment.html.twig:41
 #, php-format
 msgid ""
 "Since your browser does not support JavaScript, or it is disabled, please "
@@ -415,8 +713,8 @@ msgstr ""
 "passer votre commande. Vous pouvez être facturé plus que le montant indiqué "
 "ci-dessus si vous omettez de le faire."
 
-#: views/woocommerce/checkout/payment.html.twig:41
-#: views/woocommerce/checkout/payment.html.twig:42
+#: views/woocommerce/checkout/payment.html.twig:43
+#: views/woocommerce/checkout/payment.html.twig:44
 msgid "Update totals"
 msgstr "Mise à jour des totaux"
 
@@ -479,7 +777,7 @@ msgctxt "quantity input title"
 msgid "Qty"
 msgstr "Qté"
 
-#: views/woocommerce/single-product/add-to-cart/variable.html.twig:71
+#: views/woocommerce/single-product/add-to-cart/variable.html.twig:70
 msgid "This product is currently out of stock and unavailable."
 msgstr "Ce produit est actuellement en rupture de stock et indisponible."
 
@@ -517,10 +815,6 @@ msgstr "19h47"
 #. Author URI of the plugin/theme
 msgid "https://19h47.fr/"
 msgstr "https://19h47.fr/"
-
-#, php-format
-#~ msgid "(estimated for %s)"
-#~ msgstr "(estimé pour %s)"
 
 #~ msgid "Coupon:"
 #~ msgstr "Code promo :"

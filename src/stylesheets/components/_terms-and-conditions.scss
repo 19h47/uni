@@ -1,0 +1,18 @@
+/**
+ * Terms and conditions
+ *
+ *
+ *
+ *
+ */
+.Terms-and-conditions {
+	.woocommerce-privacy-policy-text {
+		@include font-sizes(16);
+
+		line-height: (19.2/16);
+	}
+
+	a {
+		@extend %text-decoration-underline;
+	}
+}

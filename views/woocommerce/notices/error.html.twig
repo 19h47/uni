@@ -1,0 +1,14 @@
+{#
+ #
+ #}
+{% if notices is iterable and notices is not empty %}
+
+	<ul class="Error woocommerce-error" role="alert">
+		{% for notice in notices %}
+			<li{{ fn( 'wc_get_notice_data_attr', notice ) }}>
+				{{- notice.notice -}}
+			</li>
+		{% endfor %}
+	</ul>
+
+{% endif %}

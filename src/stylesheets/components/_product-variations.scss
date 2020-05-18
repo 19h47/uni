@@ -9,13 +9,9 @@
 .Product-variations {
 	@extend %list-style-type-none;
 	@include letter-spacing(50);
+	@include font-sizes(25);
 
-	line-height: 1.2;
-	font-size: #{(60 * 25) / 100}px;
-
-	@include media-breakpoint-up(hd) {
-		font-size: #{(25/30)}em;
-	}
+	line-height: (30/25);
 
 	&__item {
 		@extend .d-flex, .align-items-center;
@@ -29,9 +25,11 @@
 			@include margin(bottom 0);
 		}
 	}
+
 	&__label {
 		@include margin(right 20px);
 	}
+
 	&__value {
 	}
 }

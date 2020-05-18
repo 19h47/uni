@@ -13,17 +13,20 @@
 	&__wrapper {
 		@include padding();
 		@extend %position-relative;
-		@extend .d-flex;
+		@extend .d-md-flex;
 	}
 
 	&__form {
-		@include padding(
-			top #{(250 * 100) / $prototype-height-unitless}vh right percentage(0.5 / 12) bottom #{(
-					250 * 100
-				) / $prototype-height-unitless}vh left percentage(1 / 12)
-		);
-		width: percentage(6.5 / 12);
-		border-right: 1px solid rgba(the_color(black), 1);
+		@include media-breakpoint-up(md) {
+			@include padding(
+				top #{(250 * 100) / $prototype-height-unitless}vh right percentage(0.5 / 12) bottom #{(
+						250 * 100
+					) / $prototype-height-unitless}vh left percentage(1 / 12)
+			);
+
+			width: percentage(6.5 / 12);
+			border-right: 1px solid rgba(the_color(black), 1);
+		}
 
 		&__contents {
 			width: 100%;
@@ -32,11 +35,14 @@
 			border-spacing: 0;
 			border-collapse: collapse;
 
-			line-height: 1.2;
-			font-size: #{(60 * 25) / 100}px;
+			.product-thumbnail,
+			.product-name,
+			.product-price,
+			.product-quantity,
+			.product-subtotal {
+				@include font-sizes(25);
 
-			@include media-breakpoint-up(hd) {
-				font-size: #{(25/30)}em;
+				line-height: (30/25);
 			}
 
 			thead tr th {
@@ -60,9 +66,34 @@
 				}
 			}
 
+			.product-quantity {
+				@extend %text-align-right;
+
+				input {
+					@extend %text-align-right;
+				}
+			}
+
+			.product-subtotal {
+				@extend %text-align-right;
+			}
+
 			.product-thumbnail {
 				@extend %text-align-left;
-				width: percentage(200 / 1000);
+
+				width: 0;
+				font-size: 0;
+				border: 0;
+				padding: 0;
+
+				@include media-breakpoint-up(md) {
+					@include font-sizes(25);
+					@include padding(right #{(10/30)}em);
+
+					width: percentage(200 / 1000);
+					border-bottom: 1px solid the_color(gray, very-dark);
+					line-height: (30/25);
+				}
 
 				a {
 					@extend .d-block;
@@ -130,12 +161,14 @@
 		}
 	}
 	&__collaterals {
-		@include padding(
-			top #{(250 * 100) / $prototype-height-unitless}vh right percentage(1 / 12) bottom #{(
-					250 * 100
-				) / $prototype-height-unitless}vh left percentage(0.5 / 12)
-		);
-		width: percentage(5.5 / 12);
+		@include media-breakpoint-up(md) {
+			@include padding(
+				top #{(250 * 100) / $prototype-height-unitless}vh right percentage(1 / 12) bottom #{(
+						250 * 100
+					) / $prototype-height-unitless}vh left percentage(0.5 / 12)
+			);
+			width: percentage(5.5 / 12);
+		}
 
 		.wc-proceed-to-checkout {
 			@include margin(top #{(90 * 60) / 100}px);

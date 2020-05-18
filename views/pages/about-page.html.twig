@@ -1,0 +1,42 @@
+{#
+ # About page
+ #
+ #}
+{% extends 'index.html.twig' %}
+
+{% block content %}
+
+	<div class="Horizontal-page__section">
+		<div class="Horizontal-page__track js-track">
+
+			<div class="Horizontal-page__wrapper js-wrapper">
+
+				<div class="Horizontal-page__thumbnail">
+					{% include 'partials/image.html.twig' with { image: post.thumbnail } only %}
+				</div>
+
+				<div class="Horizontal-page__content">
+
+					<div class="Page__content__title">
+						<h1>{{- post.subtitle ? "<span>#{ post.subtitle }</span>" -}}{{- post.title -}}</h1>
+					</div>
+
+					<ul>
+					{% for item in post.get_field( 'contents' ) %}
+						<li>
+							<div class="Wysiwyg">
+								{{ item.content }}
+							</div>
+						</li>
+					{% endfor %}
+					</ul>
+				</div>
+
+			</div>
+
+			{% include 'components/footer-horizontal.html.twig' %}
+
+		</div>
+	</div>
+
+{% endblock  %}

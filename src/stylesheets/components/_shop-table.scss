@@ -7,17 +7,17 @@
  *
  */
 .Shop-table {
+	$this: &;
+
 	@include margin(top 7em);
+	@include font-sizes(25);
+
 	width: 100%;
 	table-layout: fixed;
 	overflow-wrap: break-word;
+	border-collapse: collapse;
 
-	line-height: 1.2;
-	font-size: #{(60 * 25) / 100}px;
-
-	@include media-breakpoint-up(hd) {
-		font-size: #{(25/30)}em;
-	}
+	line-height: (30/25);
 
 	th,
 	td {
@@ -25,7 +25,7 @@
 	}
 
 	th {
-		@extend %text-align-left;
+		@extend %text-align-left, %vertical-align-top;
 	}
 
 	td {
@@ -34,5 +34,29 @@
 
 	tr.order-total {
 		@extend %font-weight-semibold;
+	}
+
+	@at-root .Checkout #{ $this } {
+		@include margin(top 0);
+		thead {
+			th,
+			td {
+				@include padding(top 0 bottom 0.8em);
+				border-bottom: 1px solid the_color(gray, very-dark);
+			}
+		}
+
+		tbody {
+			.product-name {
+				@extend %text-align-left;
+			}
+
+			& > .cart_item {
+				.product-name,
+				.product-total {
+					@include padding(top 0.8em);
+				}
+			}
+		}
 	}
 }

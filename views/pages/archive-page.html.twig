@@ -1,0 +1,49 @@
+{#
+ # Archive product
+ #
+ #
+ #}
+{% extends 'index.html.twig' %}
+
+{% block content %}
+	<div class="Horizontal-page__section">
+		<div class="Horizontal-page__track js-track">
+
+			<div class="Horizontal-page__wrapper">
+				<header class="Archive-page__header woocommerce-products-header">
+					<div class="Page__content__title woocommerce-products-header__title page-title">
+						<h1>
+							{{- post.subtitle ? "<span>#{ post.subtitle }</span>" -}}
+							{{- post.title -}}
+						</h1>
+					</div>
+
+					<div class="Wysiwyg">
+						{{- post.content -}}
+					</div>
+
+				</header>
+
+				<ul class="Products">
+					{% for item in post.get_field( 'gallery' ) %}
+						<li class="Loop">
+
+							<header class="Loop__header"></header>
+
+							<div class="Product-thumbnail">
+								{% include 'partials/image.html.twig' with { classes: [ 'Product-thumbnail__image', 'is-active' ], image: item.image } %}
+								{% include 'partials/image.html.twig' with { classes: [ 'Product-thumbnail__hover', 'is-active' ], image: item.image_hover } %}
+							</div>
+
+						</li>
+					{% endfor %}
+				</ul>
+			</div>
+
+			{% include 'components/heading.html.twig' with { classes: [ 'color-gray-very-light-02', 'background-color-white' ], link: post.get_field( 'link' ).url, title: post.get_field( 'link' ).title  } only %}
+
+			{% include 'components/footer-horizontal.html.twig' %}
+
+		</div>
+	</div>
+{% endblock %}

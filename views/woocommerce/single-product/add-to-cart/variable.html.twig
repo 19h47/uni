@@ -8,7 +8,7 @@
  #}
 {% do action( 'woocommerce_before_add_to_cart_form' ) %}
 
-<form class="variations_form cart" action="{{ form_action }}" method="post" enctype='multipart/form-data' data-product_id="{{ id }}" data-product_variations="{{ variations_attr }}">
+<form class="variations_form cart" action="{{ form_action }}" method="post" enctype='multipart/form-data' data-product_id="{{ product.get_id() }}" data-product_variations="{{ variations_attr }}">
 	{#
 	 # Hook: woocommerce_before_variations_form.
 	 #}
@@ -20,7 +20,7 @@
 			{% for attribute_name, options in attributes %}
 				<li class="Product-variations__item">
 					<div class="Product-variations__label label">
-						<label for="{{ fn( 'sanitize_title', attribute_name ) }}">
+						<label for="{{ sanitize_title( attribute_name ) }}">
 							{{- fn ( 'wc_attribute_label', attribute_name ) -}}
 						</label>
 					</div>
@@ -29,11 +29,10 @@
 							{{-
 								fn( 'wc_dropdown_variation_attribute_options',
 									{
-										'options': options,
-										'attribute': attribute_name,
-										'product': product,
-										'show_option_none': false,
-										'id': fn( 'sanitize_title', attribute_name ),
+										options: options,
+										attribute: attribute_name,
+										product: product,
+										show_option_none: false,
 									}
 								)
 							-}}

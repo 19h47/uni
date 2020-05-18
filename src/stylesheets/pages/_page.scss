@@ -18,20 +18,22 @@
 					@extend .d-block;
 					@include letter-spacing(0);
 
-					line-height: (36/30);
-					font-size: #{(30/75)}em;
+					@include font-sizes(25, 30, 75);
+
+					line-height: (75/30);
 				}
 			}
 		}
+
 		// .Page__content__footer
 		&__footer {
-			@extend .align-self-end;
 			@extend %font-family-title, %font-style-italic;
+			@include margin(top 1em);
 
-			.term-description {
-				& > p:last-child {
-					@include margin(bottom 0);
-				}
+			&::first-line {
+				@include font-sizes(35);
+
+				line-height: (45/35);
 			}
 		}
 	}

@@ -20,7 +20,27 @@ class Supports {
 	public function run() : void {
 		add_action( 'after_setup_theme', array( $this, 'add_theme_supports' ) );
 		add_action( 'after_setup_theme', array( $this, 'add_post_type_supports' ) );
+		add_action( 'init', array( $this, 'remove_template_about_page_editor' ) );
 	}
+
+
+	/**
+	 * Remove template about page editor
+	 *
+	 * @return void
+	 */
+	public function remove_template_about_page_editor() : void {
+		if ( ! $_GET || ! isset( $_GET['post'] ) ) { // phpcs:ignore
+			return;
+		}
+
+		$template_file = get_post_meta( $_GET['post'], '_wp_page_template', true );
+
+		if ( 'templates/about-page.php' === $template_file ) {
+			remove_post_type_support( 'page', 'editor' );
+		}
+	}
+
 
 	/**
 	 * Add theme supports

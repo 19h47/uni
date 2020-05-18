@@ -1,0 +1,21 @@
+/**
+ * About page
+ *
+ *
+ *
+ *
+ */
+.About-page {
+	.Page__content__title {
+		@include media-breakpoint-up(md) {
+			@include margin(top #{(116.36 * 100) / $prototype-height-unitless}vh);
+			@include padding(left #{(200 * 100) / $prototype-width-unitless}vw);
+
+			width: #{((200 * 6) * 100) / $prototype-width-unitless}vw;
+
+			position: sticky;
+			top: 0;
+			left: 0;
+		}
+	}
+}

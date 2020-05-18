@@ -15,28 +15,51 @@
 						<div class="Horizontal-page__navigation js-navigation">
 							{%- include 'svg/use.html.twig' with { icon: 'arrow-right'} only -%}
 						</div>
-						<div class="Page__content__title"><h1><span>Mobiliers &</span>{{- post.title -}}</h1></div>
+						<div class="Page__content__title"><h1>{{- post.subtitle ? "<span>#{ post.subtitle }</span>" -}}{{- post.title -}}</h1></div>
 						<div class="Wysiwyg">{{- post.content -}}</div>
-						<div class="Page__content__footer js-footer">Odyssée :<br>Récit de voyage plus ou moins mouvementé et rempli d'aventures singulières</div>
+						<div class="Page__content__footer js-footer">
+							{{- post.footer | nl2br -}}
+						</div>
 					</div>
 				</div>
 
-				<div class="Horizontal-page__gallery js-gallery">
-					{% for image in post.get_field( 'gallery' ) %}
-						<div id="image-{{ image.id }}" class="Horizontal-page__image page-block" data-index="{{ loop.index }}" data-node-type="InViewBlock">
-							<div>
-								<a class="d-block w-100 h-100 position-relative js-link" href="{{ TimberPost( image.id ).get_field( 'product_link' ).link }}">
-									<span class="js-title" style="color: {{  TimberPost( image.id ).get_field( 'product_link' ).get_terms( 'product_tag' )[0].get_field( 'color' ) }};">{{- image.title -}}</span>
-									{%- include 'partials/image.html.twig' with { image: image } only -%}
-								</a>
+				{% if post.get_field( 'gallery' ) %}
+					<div class="Horizontal-page__gallery">
+						{% for image in post.get_field( 'gallery' ) %}
+
+							{% set _product_link = TimberPost( image.id ).get_field( 'product_link' ).link %}
+
+							<div id="image-{{ image.id }}" class="Horizontal-page__image page-block" data-index="{{ loop.index }}" data-node-type="ImageBlock">
+								<div class="js-container">
+
+									{% if _product_link %}
+										<a class="d-block w-100 h-100 position-relative js-link cursor-none" href="{{ _product_link }}">
+									{% endif %}
+
+										{% if image.description %}
+											<span class="js-description">{{- image.description | nl2br -}}</span>
+										{% endif %}
+
+										{%- include 'partials/image.html.twig' with { image: image, loading: 'eager' } only -%}
+
+									{{ _product_link ? '</a>' | raw }}
+
+								</div>
 							</div>
-						</div>
-					{% endfor %}
-				</div>
+						{% endfor %}
+					</div>
+				{% endif %}
 			</div>
 
-
-			{% include 'components/heading.html.twig' with { classes: [ 'color-gray-very-light-02', 'background-color-white' ], link: site.link, title: __( 'Discover our online store', 'uni' )  } only %}
+			{%
+				include 'components/heading.html.twig'
+				with {
+					classes: [ 'color-gray-very-light-02', 'background-color-white' ],
+					link: post.get_field( 'link' ).url | default( site.link ),
+					title: post.get_field( 'link' ).title | default( __( 'Discover our online store', 'uni' ) )
+				}
+				only
+			%}
 
 			{% include 'components/footer-horizontal.html.twig' %}
 

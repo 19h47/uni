@@ -16,7 +16,8 @@
                 "id": ""
             },
             "post_type": [
-                "product"
+                "product",
+                "project"
             ],
             "taxonomy": "",
             "allow_null": 0,
@@ -42,5 +43,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1589231362
+    "modified": 1589619835
 }

@@ -109,68 +109,33 @@
 
 	&__content {
 		@include letter-spacing(50);
+		@include font-sizes(25, 30);
 
-		font-size: #{(25 * 60) / 100}px;
-		line-height: 1.4;
-
-		@include media-breakpoint-up(md) {
-			@include letter-spacing(25);
-			font-size: #{(30 * 60) / 100}px;
-			line-height: (40/30);
-		}
-
-		@include media-breakpoint-up(hd) {
-			font-size: #{(30/30)}em;
-		}
+		line-height: (40/30);
 	}
 
 	&__link {
 		@extend %text-align-center;
 		@extend .d-block;
+		@include font-sizes(20, 30);
 
-		font-size: #{(20 * 60) / 100}px;
 		line-height: (30/20);
-
-		@include media-breakpoint-up(md) {
-			font-size: #{(30 * 60) / 100}px;
-			line-height: (40/30);
-		}
-		@include media-breakpoint-up(hd) {
-			font-size: #{(30/30)}em;
-		}
 
 		span {
 			@extend .d-block;
 			@extend %font-family-title, %text-transform-uppercase;
 			@include letter-spacing(250);
+			@include font-sizes(40, 75, 30);
 
-			font-size: #{(40 * 60) / 100}px;
-			line-height: 1.2;
-
-			@include media-breakpoint-up(md) {
-				font-size: #{(75 * 60) / 100}px;
-			}
-
-			@include media-breakpoint-up(hd) {
-				font-size: #{(75/30)}em;
-			}
+			line-height: (90/70);
 		}
 	}
 
 	&__footer {
 		@extend %font-family-title, %font-style-italic, %text-align-center;
+		@include font-sizes(25, 35);
 
-		font-size: #{(30 * 60) / 100}px;
-		line-height: 1.2;
-
-		@include media-breakpoint-up(md) {
-			font-size: #{(35 * 60) / 100}px;
-			line-height: (45/35);
-		}
-
-		@include media-breakpoint-up(hd) {
-			font-size: #{(35/30)}em;
-		}
+		line-height: (45/35);
 	}
 
 	&__video {

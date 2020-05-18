@@ -8,53 +8,95 @@
 .Site-footer-horizontal {
 	$this: &;
 
-	@include margin(top 20px bottom 20px);
+	@include margin(top 20px);
 	@extend %position-relative;
 
 	color: the_color(gray, very-dark);
-	width: 50vw;
 	z-index: 2;
 
 	a:hover {
 		@extend %text-decoration-underline;
 	}
 
+	@include media-breakpoint-up(md) {
+		@include margin(bottom 20px);
+		width: 50vw;
+	}
+
 	&__grid {
 		@include padding(
-			top #{(36 * 100) / $prototype-height-unitless}vh bottom #{(36 * 100) /
-				$prototype-height-unitless}vh
+			top 100px right #{(42 * 100) / 750}vw bottom 100px left #{(42 * 100) / 750}vw
 		);
-		@include margin(right 20px);
 
-		border-radius: 0px 20px 20px 0px;
-		box-shadow: 3px 2px 3px rgba(the_color(black), 0.2);
+		border-radius: 0px 0px 20px 20px;
+		box-shadow: 0px 4px 2px rgba(0, 0, 0, 0.2);
 		// Grid.
 		display: grid;
-		grid-template-columns: repeat(6, 1fr);
-		grid-template-rows: repeat(11, percentage(1 / 11));
+		grid-template-columns: repeat(10, 1fr);
+		grid-template-rows: repeat(8, 1fr);
 		grid-column-gap: 0px;
 		grid-row-gap: 0px;
 
-		max-height: 100%;
-		height: 100%;
+		@include media-breakpoint-up(md) {
+			@include margin(right 20px left 0);
+			@include padding(
+				top #{(36 * 100) / $prototype-height-unitless}vh right 0 bottom #{(36 * 100) /
+					$prototype-height-unitless}vh left 0
+			);
+
+			border-radius: 0px 20px 20px 0px;
+			max-height: 100%;
+			height: 100%;
+
+			grid-template-columns: repeat(6, 1fr);
+			grid-template-rows: repeat(11, percentage(1 / 11));
+
+			box-shadow: 3px 2px 3px rgba(the_color(black), 0.2);
+		}
 
 		& > div:nth-child(1) {
-			grid-area: 2 / 3 / 5 / 4;
+			grid-area: 1 / 1 / 4 / 6;
+
+			@include media-breakpoint-up(md) {
+				grid-area: 2 / 3 / 5 / 4;
+			}
 		}
 		& > div:nth-child(2) {
-			grid-area: 2 / 5 / 5 / 6;
+			grid-area: 1 / 6 / 4 / 11;
+
+			@include media-breakpoint-up(md) {
+				grid-area: 2 / 5 / 5 / 6;
+			}
 		}
 		& > div:nth-child(3) {
-			grid-area: 5 / 3 / 7 / 4;
+			grid-area: 4 / 1 / 7 / 6;
+
+			@include media-breakpoint-up(md) {
+				grid-area: 5 / 3 / 7 / 4;
+			}
 		}
 		& > div:nth-child(4) {
-			grid-area: 5 / 5 / 7 / 6;
+			grid-area: 4 / 6 / 7 / 11;
+
+			@include media-breakpoint-up(md) {
+				grid-area: 5 / 5 / 7 / 6;
+			}
 		}
 		& > div:nth-child(5) {
-			grid-area: 8 / 3 / 9 / 6;
+			grid-area: 7 / 1 / 8 / 11;
+
+			@include media-breakpoint-up(md) {
+				grid-area: 8 / 3 / 9 / 6;
+			}
 		}
 		& > div:nth-child(6) {
-			grid-area: 10 / 3 / 11 / 6;
+			grid-area: 8 / 1 / 9 / 11;
+			align-self: end;
+
+			@include media-breakpoint-up(md) {
+				grid-area: 10 / 3 / 11 / 6;
+				align-self: auto;
+			}
 		}
 	}
 }

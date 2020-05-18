@@ -7,6 +7,24 @@
  *
  */
 .Billing-fields {
+	& > h3 {
+		@extend %font-style-normal, %font-family-body;
+		@include margin(top 0 bottom 0.8em);
+		@include padding(bottom 0.8em);
+
+		font-size: #{(60 * 25) / 100}px;
+		line-height: (30/25);
+
+		border-bottom: 1px solid the_color(gray, very-dark);
+
+		@include media-breakpoint-up(hd) {
+			@include padding(
+				top #{(20/30)}em right #{(20/30)}em bottom #{(20/30)}em left #{(20/30)}em
+			);
+			font-size: #{(25/30)}em;
+		}
+	}
+
 	&__field-wrapper {
 		@extend .d-flex;
 

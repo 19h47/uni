@@ -55,5 +55,17 @@
 		@include media-breakpoint-up(hd) {
 			@include margin(left 140px);
 		}
+
+		&__inner {
+			@include media-breakpoint-up(md) {
+				@include margin(
+					top #{(200 * 100) / $prototype-height-unitless}vh right #{(200 * 100) /
+						$prototype-width-unitless}vw bottom #{(200 * 100) / $prototype-height-unitless}vh
+						left #{(200 * 100) / $prototype-width-unitless}vw
+				);
+				max-width: #{((200 * 4) * 100) / $prototype-width-unitless}vw;
+				width: 100%;
+			}
+		}
 	}
 }

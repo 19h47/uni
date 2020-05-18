@@ -6,12 +6,14 @@
 	{#
 	 # Hook: woocommerce_cart_is_empty.
 	 #
-	 # @hooked wc_empty_cart_message - 10
+	 # @hooked UNI\Plugins\WooCommerce::empty_cart_message - 10
+	 #
+	 # @unhooked wc_empty_cart_message - 10
 	 #}
 	{% do action( 'woocommerce_cart_is_empty' ) %}
 
 	{% if page.id > 0 %}
-		<p class="return-to-shop">
+		<p class="return-to-shop Info">
 			<a class="button wc-backward" href="{{ page.permalink | apply_filters( 'woocommerce_return_to_shop_redirect' ) }}">
 				{{- __( 'Return to shop', 'uni' ) -}}
 			</a>

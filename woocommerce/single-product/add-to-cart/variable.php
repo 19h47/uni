@@ -19,7 +19,6 @@ $context['attributes']           = $attributes;
 $context['attribute_keys']       = array_keys( $attributes );
 $context['available_variations'] = $available_variations;
 $context['form_action']          = apply_filters( 'woocommerce_add_to_cart_form_action', $product->get_permalink() );
-$context['id']                   = $product->get_id();
 
 Timber::render( 'woocommerce/single-product/add-to-cart/variable.html.twig', $context );
 

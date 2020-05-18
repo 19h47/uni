@@ -1,5 +1,6 @@
 {#
  # Shipping calculator
+ #
  #}
 
 {#
@@ -9,9 +10,11 @@
 
 <form class="woocommerce-shipping-calculator" action="{{ cart_url }}" method="post">
 
-	<a href="#" class="Button d-inline-block shipping-calculator-button">
-		{{- button_text | default( __( 'Calculate shipping', 'uni' ) ) -}}
-	</a>
+	<p>
+		<a href="#" class="Button w-100 d-block shipping-calculator-button">
+			{{- button_text | default( __( 'Calculate shipping', 'uni' ) ) -}}
+		</a>
+	</p>
 
 	<section class="shipping-calculator-form" style="display:none;">
 
@@ -29,7 +32,7 @@
 		{% endif %}
 
 		{% if true | apply_filters( 'woocommerce_shipping_calculator_enable_state' ) %}
-			<p class="form-row form-row-wide" id="calc_shipping_state_field">
+			<p class="form-row form-row-wide Input" id="calc_shipping_state_field">
 
 				{% if states is iterable and states is empty %}
 					<input type="hidden" name="calc_shipping_state" id="calc_shipping_state" placeholder="{{ __( 'State / County', 'uni' ) }}" />
@@ -49,19 +52,19 @@
 		{% endif %}
 
 		{% if true | apply_filters( 'woocommerce_shipping_calculator_enable_city' ) %}
-			<p class="form-row form-row-wide" id="calc_shipping_city_field">
+			<p class="form-row form-row-wide Input" id="calc_shipping_city_field">
 				<input type="text" class="input-text" value="{{ shipping.city }}" placeholder="{{ __( 'City', 'uni' ) }}" name="calc_shipping_city" id="calc_shipping_city" />
 			</p>
 		{% endif %}
 
 		{% if true | apply_filters( 'woocommerce_shipping_calculator_enable_postcode' ) %}
-			<p class="form-row form-row-wide" id="calc_shipping_postcode_field">
+			<p class="form-row form-row-wide Input" id="calc_shipping_postcode_field">
 				<input type="text" class="input-text" value="{{ shipping.postcode }}" placeholder="{{ __( 'Postcode / ZIP', 'uni' ) }}" name="calc_shipping_postcode" id="calc_shipping_postcode" />
 			</p>
 		{% endif %}
 
 		<p>
-			<button type="submit" name="calc_shipping" value="1" class="Button button">
+			<button type="submit" name="calc_shipping" value="1" class="Button button w-100">
 				{{- __( 'Update', 'uni' ) -}}
 			</button>
 		</p>

@@ -12,7 +12,9 @@
 
 	&__title {
 		@include margin(bottom 0.5em);
-		line-height: 1.2;
+		@include font-sizes(30);
+
+		line-height: (36/30);
 
 		@at-root .Loop #{ $this } #{ $this }__title {
 			@extend .d-none;
@@ -32,20 +34,24 @@
 		}
 
 		&:first-child {
-			@include margin(top 0);
+			@include margin(top 0 left 0);
 		}
 		&:last-child {
 			@include margin(right 0);
 		}
 
 		@at-root .Loop #{ $this } #{ $this }__item {
-			@include margin(top #{(10 * 60) / 100}px right 0 bottom #{(10 * 60) / 100}px left 0);
-
 			&:first-child {
 				@include margin(top 0 left 0);
 			}
 			&:last-child {
 				@include margin(bottom 0 right 0);
+			}
+
+			@include media-breakpoint-up(md) {
+				@include margin(
+					top #{(10 * 60) / 100}px right 0 bottom #{(10 * 60) / 100}px left 0
+				);
 			}
 
 			@include media-breakpoint-up(hd) {

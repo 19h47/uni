@@ -86,6 +86,7 @@ module.exports = merge(common, {
 				'Menu--footer',
 				'menu-mobile--is-open',
 				'page-template-horizontal-page',
+				'page-template-archive-page',
 				'product-type-variable',
 				'select',
 				'Single-product',
@@ -101,6 +102,7 @@ module.exports = merge(common, {
 				'a',
 			],
 			whitelistPatternsChildren: [
+				/^woocommerce/,
 				/^Cart/,
 				/^Form/,
 				/^leaflet-/,
@@ -115,6 +117,7 @@ module.exports = merge(common, {
 				/^grecaptcha/,
 				/^Product/,
 				/^jetpack/,
+				/^select2/,
 			],
 		}),
 	],

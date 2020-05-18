@@ -12,7 +12,16 @@
 
 	svg {
 		@extend .d-block;
-		@include size(#{(60 * 37) / 100}px);
+
+		@include size(#{(((33 * 60) / 100) * 60) / 100}px);
+
+		@include media-breakpoint-up(sm) {
+			@include size(#{(60 * 33) / 100}px);
+		}
+
+		@include media-breakpoint-up(md) {
+			@include size(#{(60 * 37) / 100}px);
+		}
 
 		@include media-breakpoint-up(hd) {
 			@include size(37px);
@@ -23,8 +32,12 @@
 		@include absolute(bottom 100% left 100%);
 		@extend .d-block;
 
-		line-height: 1.2;
-		font-size: #{(60 * 25) / 100}px;
+		font-size: #{(((25 * 60) / 100) * 60) / 100}px;
+
+		@include media-breakpoint-up(sm) {
+			line-height: 1.2;
+			font-size: #{(60 * 25) / 100}px;
+		}
 
 		@include media-breakpoint-up(hd) {
 			font-size: #{(25/30)}em;

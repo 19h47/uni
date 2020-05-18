@@ -7,12 +7,13 @@
 	{#
 	 # Hook: woocommerce_before_cart.
 	 #
-	 # @hooked woocommerce_output_all_notices - 10
+	 # @hooked UNI\Plugins\WooCommerce::output_all_notices - 10
 	 # @hooked UNI\Plugins\WooCommerce::output_before_cart_wrapper - 15
 	 #}
 	{% do action( 'woocommerce_before_cart' ) %}
 
 	<form class="Cart__form woocommerce-cart-form" action="{{ cart_url }}" method="post">
+
 		{#
 		 # Hook: woocommerce_before_cart_table
 		 #

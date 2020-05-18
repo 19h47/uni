@@ -12,7 +12,7 @@
 	@at-root .Site-header & {
 		@include absolute(top 0 right 0 bottom 0 left 0);
 		@include margin(top auto right auto bottom auto left auto);
-		@include size(111px, 36px);
+		@include size(#{(111 * 60) / 100}px, #{(36 * 60) / 100}px);
 
 		z-index: 1;
 

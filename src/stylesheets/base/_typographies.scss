@@ -8,76 +8,49 @@ h1,
 .h1 {
 	@extend %font-family-title, %font-weight-regular;
 	@include letter-spacing(100);
+	@include margin(top 1em bottom 2em);
+	@include font-sizes(50, 75);
 
-	font-size: #{(50/30)}em;
-	line-height: (53/50);
-
-	@include media-breakpoint-up(md) {
-		font-size: #{(75/30)}em;
-		line-height: 1.2;
-	}
-
-	@include margin(top #{$base-line-height}px bottom #{$base-line-height * 2}px);
+	line-height: (90 / 75);
 }
 
 h2,
 .h2 {
-	@extend %font-weight-bold, %font-style-italic, %font-family-title;
+	@extend %font-weight-regular, %font-family-body;
+	@include font-sizes(30);
+	@include margin(top 1em bottom 1em);
 
-	font-size: $base-font-size-px * power($scale-factor, 2);
-	line-height: #{$base-line-height * 2}px;
-
-	@include margin(top #{$base-line-height}px bottom #{$base-line-height}px);
+	line-height: (40/30);
 }
 
 h3,
 .h3 {
-	@extend %font-weight-bold, %font-style-italic, %font-family-title;
+	@extend %font-weight-regular, %font-style-italic, %font-family-title;
+	@include font-sizes(35);
+	@include margin(top 1em bottom 0);
 
-	@include margin(top #{$base-line-height * 1}px bottom 0);
-
-	font-size: $base-font-size-px * power($scale-factor, 1);
-	line-height: #{$base-line-height * 1}px;
+	line-height: (45/30);
 }
 
 h4,
 .h4 {
-	@extend %font-weight-bold, %font-family-title;
+	@extend %font-weight-regular, %font-family-title;
+	@include font-sizes(35);
+	@include margin(top 1em bottom 0);
 
-	@include margin(top #{$base-line-height}px bottom 0);
-
-	@include media-breakpoint-up(md) {
-		font-size: 50px;
-		line-height: 60px;
-	}
+	line-height: (45/30);
 }
 
 h5,
 .h5 {
-	@extend %font-family-title;
+	@extend %font-weight-regular, %font-family-title;
+	@include font-sizes(18);
 
-	font-size: 0.6em;
-	line-height: 1.2;
+	line-height: (30/30);
 
-	@include margin(top #{$base-line-height}px bottom 0);
+	@include margin(top 1em bottom 0);
 }
 
 h6,
 .h6 {
-	@extend %font-weight-bold, %font-family-title;
-
-	font-size: 24px;
-	line-height: 30px;
-}
-
-.dh1 {
-}
-
-.dh2 {
-}
-
-.dh3 {
-}
-
-.dh4 {
 }

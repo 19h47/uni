@@ -1,4 +1,6 @@
 {#
+ # Archive product
+ #
  #
  #}
 {% extends 'index.html.twig' %}
@@ -10,7 +12,7 @@
 
 			<div class="Horizontal-page__wrapper">
 
-				<header class="Archive-product__header woocommerce-products-header">
+				<header class="Archive-page__header woocommerce-products-header">
 					<div class="Page__content__title woocommerce-products-header__title page-title">
 						{% if show_page_title %}
 							<h1>
@@ -22,19 +24,21 @@
 						{% endif %}
 					</div>
 
-					<div class="Wysiwyg">{{- post.get_field( 'long_description' ) ? post.get_field( 'long_description' ) : post.content -}}</div>
+					<div class="Wysiwyg">
+						{{- post.get_field( 'long_description' ) ? post.get_field( 'long_description' ) : post.content -}}
 
-					{% if post.description %}
-						<div class="Page__content__footer">
-							{#
-							 # Hook: woocommerce_archive_description.
-							 #
-							 # @hooked woocommerce_taxonomy_archive_description - 10
-							 # @hooked woocommerce_product_archive_description - 10
-							 #}
-							{%- do action( 'woocommerce_archive_description' ) -%}
-						</div>
-					{% endif %}
+						{% if post.description %}
+							<div class="Page__content__footer">
+								{#
+								# Hook: woocommerce_archive_description.
+								#
+								# @hooked woocommerce_taxonomy_archive_description - 10
+								# @hooked woocommerce_product_archive_description - 10
+								#}
+								{%- do action( 'woocommerce_archive_description' ) -%}
+							</div>
+						{% endif %}
+					</div>
 
 				</header>
 

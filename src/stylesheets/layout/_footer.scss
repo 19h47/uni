@@ -21,23 +21,14 @@
 			@include margin(bottom 0);
 		}
 
-		line-height: 1.2;
-		font-size: #{(60 * 15) / 100}px;
+		@include font-sizes(15);
 
-		@include media-breakpoint-up(hd) {
-			font-size: #{(15/30)}em;
-		}
+		line-height: (18/15);
 
 		h5 {
 			@extend %font-family-body, %font-weight-regular;
-			@include margin(top 0);
-
-			line-height: 1.2;
-			font-size: #{(60 * 18) / 100}px;
-
-			@include media-breakpoint-up(hd) {
-				font-size: 1em;
-			}
+			@include font-sizes(18, 18, 15);
+			@include margin(top 0 bottom 0);
 		}
 
 		a {

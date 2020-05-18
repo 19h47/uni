@@ -9,8 +9,9 @@
 	@extend %list-style-type-none, %font-weight-light, %position-relative;
 	@extend .d-flex, .flex-column;
 	@include margin(right 24px);
+	@include font-sizes(20);
 
-	font-size: 0.75em;
+	line-height: (58/20);
 	z-index: 2;
 
 	@include media-breakpoint-up(md) {
@@ -38,7 +39,7 @@
 
 		a {
 			@extend .d-inline-block;
-			@extend %vertical-align-middle;
+			@extend %vertical-align-middle, %font-weight-extralight;
 			@include padding(right 5px left 5px);
 
 			@include media-breakpoint-up(md) {
@@ -46,7 +47,8 @@
 			}
 
 			&.current-lang {
-				@extend %font-weight-extralight;
+				@include letter-spacing(60);
+				@extend %font-weight-light;
 			}
 		}
 	}

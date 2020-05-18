@@ -13,4 +13,15 @@
 	& > *:last-child {
 		@include margin(bottom 0);
 	}
+
+	blockquote {
+		@include margin(bottom 1em left #{(200 * 100) / $prototype-width-unitless}vw);
+
+		& > *:first-child {
+			@include margin(top 0);
+		}
+		& > *:last-child {
+			@include margin(bottom 0);
+		}
+	}
 }

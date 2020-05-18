@@ -1,3 +1,4 @@
+/* global uni */
 import StartingBlocks, { polyfills } from 'starting-blocks';
 
 import WebpackAsyncBlockBuilder from 'services/WebpackAsyncBlockBuilder';
@@ -17,6 +18,11 @@ const production = 'production' !== process.env.NODE_ENV;
 	const startingBlocks = new StartingBlocks({
 		// manualDomAppend: true,
 		debug: production ? 1 : 0,
+	});
+
+	window.addEventListener('mousemove', event => {
+		uni.clientX = event.clientX;
+		uni.clientY = event.clientY;
 	});
 
 	startingBlocks.provider('BlockBuilder', WebpackAsyncBlockBuilder);

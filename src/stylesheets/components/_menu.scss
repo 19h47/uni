@@ -28,18 +28,12 @@
 	z-index: 4;
 
 	div:nth-child(3) {
-		grid-area: 9 / 2 / 10 / 10;
+		@include font-sizes(25, 30);
 
-		font-size: #{(25 * 60) / 100}px;
-		line-height: (58/25);
+		grid-area: 9 / 2 / 10 / 10;
 
 		@include media-breakpoint-up(md) {
 			grid-area: 10 / 3 / 11 / 10;
-			font-size: #{(30 * 60) / 100}px;
-			line-height: (58/30);
-		}
-		@include media-breakpoint-up(hd) {
-			font-size: #{(58/30)}em;
 		}
 	}
 
@@ -78,20 +72,6 @@
 		#{ $this }__item {
 			h1 {
 				@include margin(top 2em bottom 2em);
-
-				@include media-breakpoint-up(md) {
-					@include margin(
-						top #{(100 * 100) / $prototype-height-unitless}vh bottom #{(100 * 100) /
-							$prototype-height-unitless}vh
-					);
-				}
-
-				@include media-breakpoint-up(hd) {
-					@include margin(
-						top #{(180 * 100) / $prototype-height-unitless}vh bottom #{(180 * 100) /
-							$prototype-height-unitless}vh
-					);
-				}
 			}
 
 			&:first-child {
@@ -126,7 +106,7 @@
 		}
 
 		#{ $this }__item {
-			@include margin(top #{(4 / 3)}em bottom #{(4 / 3)}em);
+			@include margin(top 1em bottom 1em);
 
 			&:first-child {
 				@include margin(top 0);
@@ -147,8 +127,15 @@
 			@include size(22.8px, 21px);
 			@extend %vertical-align-middle;
 
+			@include media-breakpoint-up(sm) {
+			}
+
+			@include media-breakpoint-up(md) {
+				@include size(#{(37 * 60) / 100}px, #{(32 * 60) / 100}px);
+			}
+
 			@include media-breakpoint-up(hd) {
-				@include size(38px, 35px);
+				@include size(37px, 32px);
 			}
 		}
 	}

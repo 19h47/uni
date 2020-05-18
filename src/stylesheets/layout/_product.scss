@@ -6,33 +6,58 @@
  *
  */
 .Product {
-	@extend .d-flex;
+	@extend .d-md-flex;
+	@include padding(top 100px bottom 20px);
+
+	@include media-breakpoint-up(md) {
+		@include padding(top 0 bottom 0);
+	}
 
 	// .Product__gallery
 	&__gallery {
+		@include margin(bottom 1em);
+
+		@include media-breakpoint-up(md) {
+			@include margin(bottom 0);
+		}
+
 		&__grid {
-			@include size(#{(2000 * 100) / $prototype-width-unitless}vw, 100%);
+			@include size(100%);
 
 			display: grid;
 			grid-template-columns: repeat(10, 1fr);
-			grid-template-rows: repeat(11, 1fr);
+			grid-template-rows: repeat(5, 1fr);
 			grid-column-gap: 0px;
 			grid-row-gap: 0px;
 
 			max-height: 100%;
 
 			& > div:nth-child(1) {
-				grid-area: 2 / 2 / 10 / 10;
+				grid-area: 1 / 1 / 5 / 11;
+				height: #{(475 * 100) / 1334}vh;
+
+				@include media-breakpoint-up(md) {
+					grid-area: 2 / 2 / 10 / 10;
+					height: auto;
+				}
 			}
 			& > div:nth-child(2) {
-				grid-area: 10 / 2 / 11 / 10;
+				grid-area: 5 / 1 / 6 / 11;
+
+				@include media-breakpoint-up(md) {
+					grid-area: 10 / 2 / 11 / 10;
+				}
 			}
 
 			@include media-breakpoint-up(md) {
+				@include size(#{(2000 * 100) / $prototype-width-unitless}vw, 100%);
 				@include padding(
 					top #{(36 * 100) / $prototype-height-unitless}vh bottom #{(36 * 100) /
 						$prototype-height-unitless}vh
 				);
+
+				grid-template-columns: repeat(10, 1fr);
+				grid-template-rows: repeat(11, 1fr);
 			}
 
 			@include media-breakpoint-up(hd) {
@@ -62,15 +87,12 @@
 
 	&__category-description {
 		@extend %font-family-title, %font-style-italic;
-		@include margin(top 1em);
+		@include margin(top 2em);
 
-		span {
-			font-size: #{60 * 35 / 100}px;
+		&::first-line {
+			@include font-sizes(35);
 
-			@include media-breakpoint-up(hd) {
-				font-size: #{(35/30)}em;
-				line-height: (45 / 35);
-			}
+			line-height: (45/35);
 		}
 	}
 
@@ -99,27 +121,22 @@
 		}
 
 		&__name {
-			line-height: (4/3);
+			@include font-sizes(30);
+
+			line-height: (40/30);
 		}
+
 		&__options {
 			@include letter-spacing(50);
 			@extend %font-family-title;
 
-			font-size: #{60 * 65 / 100}px;
-			line-height: 1.2;
+			@include font-sizes(65);
 
-			@include media-breakpoint-up(hd) {
-				font-size: #{65/30}em;
-			}
+			line-height: (78/65);
 
 			span {
 				@extend %font-family-body;
-
-				font-size: #{60 * 30 / 100}px;
-
-				@include media-breakpoint-up(hd) {
-					font-size: 1em;
-				}
+				@include font-sizes(30, 30, 65);
 			}
 		}
 	}
@@ -128,15 +145,12 @@
 		@extend .d-flex, .align-items-center;
 		@extend %text-decoration-underline;
 
-		font-size: #{60 * 30 / 100}px;
-		line-height: 1.2;
+		@include font-sizes(30);
+
+		line-height: (40/30);
 
 		@at-root .product-type-variable & {
 			@include margin(top #{(67 * 100) / $prototype-height-unitless}vh);
-		}
-
-		@include media-breakpoint-up(hd) {
-			font-size: #{(30/30)}em;
 		}
 
 		svg {

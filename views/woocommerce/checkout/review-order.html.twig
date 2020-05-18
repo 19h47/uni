@@ -28,7 +28,7 @@
 						{% endfilter %}
 
 						{% filter apply_filters( 'woocommerce_checkout_cart_item_quantity', tag, item, key ) %}
-							<strong class="product-quantity">{{- fn( 'sprintf', '&times;&nbsp;%s', item.quantity ) -}}</strong>
+							<strong class="product-quantity">{{- '&times;&nbsp;%s' | format( item.quantity ) -}}</strong>
 						{% endfilter %}
 
 						{{- fn( 'wc_get_formatted_cart_item_data', item ) -}}
@@ -56,7 +56,7 @@
 		</tr>
 
 		{% for code, coupon in cart.get_coupons() %}
-			<tr class="cart-discount coupon-{{ fn( 'sanitize_title', code ) }}">
+			<tr class="cart-discount coupon-{{ sanitize_title( code ) }}">
 				<th>{{- fn( 'wc_cart_totals_coupon_label', coupon ) -}}</th>
 				<td>{{- fn( 'wc_cart_totals_coupon_html', coupon ) -}}</td>
 			</tr>
@@ -87,7 +87,7 @@
 		{% if tax_enabled and not cart.display_prices_including_tax() %}
 			{% if 'itemized' is same as( tax_total_display ) %}
 				{% for code, tax in cart.get_tax_totals() %}
-					<tr class="tax-rate tax-rate-{{ fn( 'sanitize_title', code ) }}">
+					<tr class="tax-rate tax-rate-{{ sanitize_title( code ) }}">
 						<th>{{- tax.label -}}</th>
 						<td>{{- tax.formatted_amount -}}</td>
 					</tr>

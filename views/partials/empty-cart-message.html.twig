@@ -1,0 +1,8 @@
+{#
+ #}
+
+<p class="cart-empty woocommerce-info Info">
+	{% filter apply_filters( 'wc_empty_cart_message' ) %}
+		{{- __( 'Your cart is currently empty.', 'uni' ) -}}
+	{% endfilter %}
+</p>
