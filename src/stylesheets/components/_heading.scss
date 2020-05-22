@@ -7,10 +7,10 @@
 .Heading {
 	@extend .d-md-flex, .align-items-md-center;
 	@extend %position-relative;
-	@include padding(
-		top #{(80 * 100) / $prototype-width-unitless}vh bottom #{(80 * 100) /
-			$prototype-width-unitless}vh
-	);
+	// @include padding(
+	// 	top #{(80 * 100) / $prototype-width-unitless}vh bottom #{(80 * 100) /
+	// 		$prototype-width-unitless}vh
+	// );
 
 	z-index: 2;
 

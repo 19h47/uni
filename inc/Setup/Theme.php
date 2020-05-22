@@ -218,7 +218,7 @@ class Theme {
 			'user' => get_option( 'mailchimp_user' ),
 		);
 
-		$context['shop_url'] = get_permalink( wc_get_page_id( 'shop' ) );
+		$context['shop_url'] = get_term_link( 26, 'product_cat' );
 
 		$context['objects_page'] = get_permalink( get_option( 'objects_page_' . pll_current_language() ) );
 		$context['habitat_page'] = get_permalink( get_option( 'habitat_page_' . pll_current_language() ) );
