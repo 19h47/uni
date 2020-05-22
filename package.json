@@ -28,6 +28,7 @@
 		"gsap": "^3.2.6",
 		"imagesloaded": "^4.1.4",
 		"ress": "^2.0.4",
+		"smooth-scrolling": "^2.3.12",
 		"starting-blocks": "^5.0.7",
 		"virtual-scroll": "ayamflow/virtual-scroll"
 	},
@@ -38,7 +39,7 @@
 		"@babel/plugin-transform-parameters": "^7.9.3",
 		"@babel/plugin-transform-runtime": "^7.9.6",
 		"@babel/preset-env": "^7.9.6",
-		"autoprefixer": "^9.7.5",
+		"autoprefixer": "^9.8.0",
 		"babel-eslint": "^10.1.0",
 		"babel-loader": "^8.1.0",
 		"clean-webpack-plugin": "^3.0.0",

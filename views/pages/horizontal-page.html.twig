@@ -6,11 +6,11 @@
 
 {% block content %}
 
-	<div class="Horizontal-page__section">
+	<div class="Horizontal-page__section js-section">
 		<div class="Horizontal-page__track js-track">
 
 			<div class="Horizontal-page__wrapper js-wrapper">
-				<div class="Horizontal-page__grid">
+				<div class="Horizontal-page__grid js-grid">
 					<div class="Horizontal-page__grid__inner">
 						<div class="Horizontal-page__navigation js-navigation">
 							{%- include 'svg/use.html.twig' with { icon: 'arrow-right'} only -%}
@@ -33,12 +33,12 @@
 								<div class="js-container">
 
 									{% if _product_link %}
-										<a class="d-block w-100 h-100 position-relative js-link cursor-none" href="{{ _product_link }}">
+										<a class="d-block w-100 h-100 position-relative js-link" href="{{ _product_link }}">
 									{% endif %}
 
-										{% if image.description %}
+										{# {% if image.description %}
 											<span class="js-description">{{- image.description | nl2br -}}</span>
-										{% endif %}
+										{% endif %} #}
 
 										{%- include 'partials/image.html.twig' with { image: image, loading: 'eager' } only -%}
 

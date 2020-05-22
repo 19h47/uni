@@ -22,25 +22,6 @@
             "append": ""
         },
         {
-            "key": "field_5ec1290f5865e",
-            "label": "Sur-titre",
-            "name": "subtitle",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
-        },
-        {
             "key": "field_5ebb942323860",
             "label": "Pied de page",
             "name": "footer",
@@ -119,5 +100,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "Options du template Horizontal page",
-    "modified": 1589717277
+    "modified": 1589795747
 }

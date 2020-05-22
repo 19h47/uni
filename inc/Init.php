@@ -32,7 +32,6 @@ class Init {
 			Setup\PostStates::class,
 			Api\Customizer\Mailchimp::class,
 			Api\Customizer\Contact::class,
-			Api\Customizer\Pages::class,
 			Custom\Extras::class,
 			Plugins\WooCommerce::class,
 			Plugins\MailchimpWooCommerce::class,

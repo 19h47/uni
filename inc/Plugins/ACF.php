@@ -23,6 +23,7 @@ class ACF {
 		add_filter( 'acf/fields/relationship/query/name=product_colors', array( $this, 'product_colors_query' ), 10, 3 );
 		add_filter( 'acf/fields/relationship/result/name=product_colors', array( $this, 'product_colors_result' ), 10, 4 );
 		add_filter( 'acf/fields/post_object/result/name=product_link', array( $this, 'product_colors_result' ), 10, 4 );
+		add_filter( 'acf/location/rule_match/page_type', array( $this, 'rule_match_page_type' ), 20, 3 );
 	}
 
 
@@ -61,6 +62,67 @@ class ACF {
 			$title = "<span style=\"display: inline-block; vertical-align: middle; border-radius: 0.1em; width: 1em; height: 1em; background-color: $color;\"></span>&nbsp;" . $title;
 		}
 		return $title;
+	}
+
+
+    public function page_on_front( $match ) {
+
+		wp_die( func_get_args() );
+
+        if ( ! $this->filtered ) {
+            add_filter( 'option_page_on_front', array( $this, 'translate_page_on_front' ) );
+            // Prevent second hooking
+            $this->filtered = true;
+        }
+
+        return $match;
+    }
+
+
+	/**
+	 *
+	 *
+	 */
+	public function rule_match_page_type( $match, $rule, $options ) {
+		if ( empty( $options['post_id'] ) ) {
+			return $match;
+		}
+
+		$post = get_post( $options['post_id'] );
+
+		if ( 'front_page' === $rule['value'] ) {
+			$front_page   = (int) get_option( 'page_on_front' );
+			$translations = pll_get_post_translations( $front_page );
+
+			switch ( $rule['operator'] ) {
+				case '==':
+					$match = in_array( $post->ID, $translations, true );
+
+					break;
+
+				case '!=':
+					$match = ! in_array( $post->ID, $translations, true );
+
+					break;
+			}
+		}
+
+		if ( 'posts_page' === $rule['value'] ) {
+			$posts_page   = (int) get_option( 'page_for_posts' );
+			$translations = pll_get_post_translations( $posts_page );
+
+			switch ( $rule['operator'] ) {
+				case '==':
+					$match = in_array( $post->ID, $translations, true );
+					break;
+
+				case '!=':
+					$match = ! in_array( $post->ID, $translations, true );
+					break;
+			}
+		}
+
+		return $match;
 	}
 }
 

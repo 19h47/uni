@@ -28,7 +28,6 @@
 		// .Page__content__footer
 		&__footer {
 			@extend %font-family-title, %font-style-italic;
-			@include margin(top 1em);
 
 			&::first-line {
 				@include font-sizes(35);

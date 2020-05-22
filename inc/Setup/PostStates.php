@@ -20,7 +20,7 @@ class PostStates {
 	 * @return void
 	 */
 	public function run() : void {
-		add_filter( 'display_post_states', array( $this, 'display' ), 10, 2 );
+		add_filter( 'display_post_states', array( $this, 'terms_post_state' ), 10, 2 );
 	}
 
 	/**
@@ -31,15 +31,16 @@ class PostStates {
 	 *
 	 * @return array $states
 	 */
-	function display( array $states, WP_Post $post ) {
+	public function terms_post_state( array $states, WP_Post $post ) {
+		$languages = pll_languages_list( array( 'hide_empty' => false ) );
 
-		$terms_page = (int) get_option( 'terms_page' );
+		foreach ( $languages as $lang ) {
+			$terms_page = (int) get_option( 'terms_page_' . $lang );
 
-		if ( $post->ID !== $terms_page ) {
-			return $states;
+			if ( $post->ID === $terms_page ) {
+				$states[] = __( 'Terms & Conditions Page', 'uni' );
+			}
 		}
-
-		$states['terms'] = __( 'Terms & Conditions Page', 'uni' );
 
 		return $states;
 	}

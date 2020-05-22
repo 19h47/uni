@@ -135,9 +135,10 @@ export default class MenuBlock extends AbstractBlock {
 	}
 
 	onResize() {
-		console.info('Menu.onResize');
+		// console.info('Menu.onResize');
 		super.onResize();
 
 		this.rect = this.rootElement.getBoundingClientRect();
+		gsap.set(this.rootElement, { x: this.rect.width + 20 });
 	}
 }

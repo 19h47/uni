@@ -2,7 +2,9 @@
 
 <footer class="Site-footer-vertical">
 	<div>
-		{{- footer.list( menus.footer_primary.items, __( 'Navigation', 'uni' ) ) -}}
+		{% if menus.footer_primary.items %}
+			{{- footer.list( menus.footer_primary.items, __( 'Navigation', 'uni' ) ) -}}
+		{% endif %}
 	</div>
 	<div>
 		{{- footer.list( menus.footer_secondary.items, __( 'Information', 'uni' ) ) -}}

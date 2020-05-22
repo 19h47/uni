@@ -59,7 +59,11 @@
 		}
 		div:nth-child(3) {
 			align-self: center;
-			grid-area: 7 / 1 / 9 / 6;
+			grid-area: 8 / 1 / 10 / 6;
+
+			@include media-breakpoint-up(sm) {
+				grid-area: 7 / 1 / 9 / 6;
+			}
 
 			@include media-breakpoint-up(md) {
 				grid-area: 9 / 2 / 10 / 5;
@@ -69,8 +73,11 @@
 		}
 		div:nth-child(4) {
 			align-self: center;
+			grid-area: 8 / 6 / 10 / 11;
 
-			grid-area: 7 / 6 / 9 / 11;
+			@include media-breakpoint-up(sm) {
+				grid-area: 7 / 6 / 9 / 11;
+			}
 
 			@include media-breakpoint-up(md) {
 				grid-area: 9 / 9 / 10 / 12;
@@ -79,7 +86,11 @@
 			}
 		}
 		div:nth-child(5) {
-			grid-area: 9 / 1 / 11 / 11;
+			grid-area: 10 / 1 / 11 / 11;
+
+			@include media-breakpoint-up(sm) {
+				grid-area: 9 / 1 / 11 / 11;
+			}
 
 			@include media-breakpoint-up(md) {
 				grid-area: 11 / 2 / 12 / 12;

@@ -29,28 +29,67 @@ class Settings {
 	 */
 	public function register_settings() : void {
 
-		add_settings_field(
-			'terms_page',
-			__( 'Terms & Conditions Page', 'uni' ),
-			array( $this, 'terms_page_callback' ),
-			'reading',
-		);
+		$languages = pll_languages_list( array( 'hide_empty' => false ) );
 
-		register_setting( 'reading', 'terms_page' );
+		foreach ( $languages as $lang ) {
+			add_settings_field(
+				'terms_page_' . $lang,
+				__( 'Terms & Conditions Page', 'uni' ) . ' (' . ucfirst( $lang ) . ')',
+				array( $this, 'page_callback' ),
+				'reading',
+				'default',
+				array(
+					'lang' => $lang,
+					'type' => 'terms_page_',
+				)
+			);
+
+			add_settings_field(
+				'habitat_page_' . $lang,
+				__( 'Habitat Page', 'uni' ) . ' (' . ucfirst( $lang ) . ')',
+				array( $this, 'page_callback' ),
+				'reading',
+				'default',
+				array(
+					'lang' => $lang,
+					'type' => 'habitat_page_',
+				)
+			);
+
+			add_settings_field(
+				'objects_page_' . $lang,
+				__( 'Objects Page', 'uni' ) . ' (' . ucfirst( $lang ) . ')',
+				array( $this, 'page_callback' ),
+				'reading',
+				'default',
+				array(
+					'lang' => $lang,
+					'type' => 'objects_page_',
+				)
+			);
+
+			register_setting( 'reading', 'terms_page_' . $lang );
+			register_setting( 'reading', 'habitat_page_' . $lang );
+			register_setting( 'reading', 'objects_page_' . $lang );
+		}
 	}
 
 
 	/**
-	 * Terms page callback
+	 * Page callback
+	 *
+	 * @param array $args Arguments.
 	 *
 	 * @return void
 	 */
-	public function terms_page_callback() : void {
+	public function page_callback( array $args ) : void {
 		wp_dropdown_pages(
 			array(
-				'echo'     => true,
-				'selected' => get_option( 'terms_page' ),
-				'name'     => 'terms_page',
+				'echo'             => true,
+				'selected'         => get_option( $args['type'] . $args['lang'] ), // phpcs:ignore
+				'name'             => $args['type'] . $args['lang'], // phpcs:ignore
+				'lang'             => $args['lang'], // phpcs:ignore
+				'show_option_none' => __( 'Please select a page', 'uni' ), // phpcs:ignore
 			)
 		);
 	}

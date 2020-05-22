@@ -4,13 +4,17 @@
 
 @mixin font-sizes($mobile, $desktop: $mobile, $base: $base-font-size) {
 	font-size: #{($mobile / $base)}em;
+	font-size: #{($mobile * 100) / $prototype-height-unitless}vh;
 
 	@include media-breakpoint-up(md) {
 		font-size: #{($desktop / $base)}em;
+		font-size: #{($desktop * 100) / $prototype-height-unitless}vh;
 	}
 }
 
 html {
+	@include size(100%);
+
 	scroll-behavior: smooth;
 }
 
@@ -18,17 +22,21 @@ body {
 	@extend %font-weight-regular, %font-family-body, %position-relative;
 
 	font-size: #{$base-font-size * 0.4}px; // 12
+	font-size: #{(($base-font-size) * 100) / $prototype-height-unitless}vh;
 
 	@include media-breakpoint-up(sm) {
 		font-size: #{$base-font-size * 0.5}px; // 15
+		font-size: #{(($base-font-size) * 100) / $prototype-height-unitless}vh;
 	}
 
 	@include media-breakpoint-up(md) {
 		font-size: #{$base-font-size * 0.6}px; // 18
+		font-size: #{(($base-font-size) * 100) / $prototype-height-unitless}vh;
 	}
 
 	@include media-breakpoint-up(hd) {
 		font-size: #{$base-font-size}px; // 30
+		font-size: #{(($base-font-size) * 100) / $prototype-height-unitless}vh;
 	}
 
 	line-height: $base-line-height / $base-font-size;
@@ -37,6 +45,14 @@ body {
 	-webkit-font-smoothing: antialiased;
 
 	text-rendering: optimizeLegibility;
+
+	&.is-native-scroll.y-scroll {
+		@extend %overflow-y-scroll, %overflow-x-hidden;
+	}
+
+	&.is-native-scroll {
+		overscroll-behavior: none;
+	}
 }
 
 a,
