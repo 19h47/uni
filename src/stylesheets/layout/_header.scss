@@ -17,7 +17,8 @@
 	@include margin(top 20px right 20px bottom 20px left 20px);
 
 	border-radius: map-get($borders, radius);
-	box-shadow: 2px 2px 3px rgba(the_color(black), 0.2);
+	box-shadow: 1px 1px 3px rgba(the_color(black), 0.2);
+
 	background-color: the_color(white);
 	z-index: 5;
 
