@@ -16,15 +16,14 @@
 	@include padding(top 20px right 20px bottom 20px left 20px);
 	@include margin(top 20px right 20px bottom 20px left 20px);
 
-	border-radius: map-get($borders, radius);
 	box-shadow: 1px 1px 3px rgba(the_color(black), 0.2);
 
 	background-color: the_color(white);
 	z-index: 5;
 
 	@include media-breakpoint-up(md) {
-		@include size(#{(100 * 100) / $prototype-width-unitless}vw, auto);
-		@include margin(right 0 bottom 20px);
+		@include size(#{(100 * 100) / $prototype-width-unitless}vw, 100%);
+		@include margin(top 0 right 0 bottom 0);
 
 		right: auto;
 		bottom: 0;
