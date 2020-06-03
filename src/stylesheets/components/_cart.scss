@@ -104,7 +104,7 @@
 					@extend .d-block;
 					@include size(100%, #{(128 * 100) / $prototype-height-unitless}vh);
 
-					border-radius: 10px;
+					border-radius: map-get($borders, radius);
 					object-fit: contain;
 					object-position: center;
 					background-color: the_color(gray, very-light-01);

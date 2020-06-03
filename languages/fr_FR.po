@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: uni\n"
 "POT-Creation-Date: 2020-05-18 08:46+0200\n"
-"PO-Revision-Date: 2020-05-18 08:46+0200\n"
+"PO-Revision-Date: 2020-05-25 08:53+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fr_FR\n"
@@ -241,8 +241,6 @@ msgid "No projects found in Trash."
 msgstr "Aucun projet trouvé dans la corbeille."
 
 #: inc/Core/Project.php:238
-#, fuzzy
-#| msgid "Parent Partner:"
 msgid "Parent Projet:"
 msgstr "Projet parent :"
 
@@ -374,13 +372,9 @@ msgstr "Second menu pied de page"
 msgid "Footer Tertiary"
 msgstr "Troisième menu pied de page"
 
-#: inc/Setup/PostStates.php:42
+#: inc/Setup/PostStates.php:42 inc/Setup/Settings.php:34
 msgid "Terms & Conditions Page"
-msgstr ""
-
-#: inc/Setup/Settings.php:34
-msgid "Terms & Conditions page"
-msgstr ""
+msgstr "Page des mentions légales"
 
 #: inc/Setup/Theme.php:144
 msgid "Share on Twitter"

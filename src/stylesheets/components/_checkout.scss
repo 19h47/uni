@@ -11,6 +11,7 @@
 		@extend .d-md-flex;
 
 		flex-wrap: wrap;
+
 		& > *:first-child {
 			@include margin(top 0);
 		}

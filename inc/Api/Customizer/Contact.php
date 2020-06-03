@@ -1,4 +1,4 @@
-<?php
+<?php // phpcs:ignore
 /**
  * Contact
  *
@@ -92,9 +92,9 @@ class Contact {
 		$wp_customize->add_control(
 			'phone_number',
 			array(
-				'label'       => __( 'Phone number', 'uni' ),
-				'section'     => 'contact',
-				'settings'    => 'phone_number',
+				'label'    => __( 'Phone number', 'uni' ),
+				'section'  => 'contact',
+				'settings' => 'phone_number',
 			)
 		);
 

@@ -14,11 +14,7 @@
 
 		color: the_color(white);
 		width: 100%;
-		border-radius: 12px;
-
-		@include media-breakpoint-up(hd) {
-			border-radius: 20px;
-		}
+		border-radius: map-get($borders, radius);
 	}
 
 	&__grid {
@@ -156,11 +152,7 @@
 		z-index: 1;
 
 		// Safari workaround
-		border-radius: 12px;
-
-		@include media-breakpoint-up(hd) {
-			border-radius: 20px;
-		}
+		border-radius: map-get($borders, radius);
 
 		video {
 			@include size(100%);

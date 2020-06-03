@@ -65,9 +65,10 @@ class ACF {
 	}
 
 
+	/**
+	 * Page on front
+	 */
     public function page_on_front( $match ) {
-
-		wp_die( func_get_args() );
 
         if ( ! $this->filtered ) {
             add_filter( 'option_page_on_front', array( $this, 'translate_page_on_front' ) );
@@ -80,7 +81,7 @@ class ACF {
 
 
 	/**
-	 *
+	 * Rule match page type
 	 *
 	 */
 	public function rule_match_page_type( $match, $rule, $options ) {

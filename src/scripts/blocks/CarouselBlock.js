@@ -34,7 +34,7 @@ export default class CarouselBlock extends AbstractBlock {
 			pageDots: false,
 			prevNextButtons: false,
 			cellSelector: '.woocommerce-product-gallery__image',
-			// draggable: true,
+			wrapAround: true,
 			setGallerySize: false,
 			imagesLoaded: true,
 			contain: true,
@@ -61,6 +61,10 @@ export default class CarouselBlock extends AbstractBlock {
 
 		this.carousel.on('select', index => {
 			this.$current.innerHTML = `${index + 1}`.padStart(2, '0');
+		});
+
+		this.carousel.on('staticClick', () => {
+			return next(this.carousel);
 		});
 	}
 }

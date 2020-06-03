@@ -62,7 +62,7 @@
 		a {
 			@extend .d-block;
 
-			border-radius: 10px;
+			border-radius: map-get($borders, radius);
 			transition: box-shadow 0.7s map-get($easings, ease-out-expo);
 
 			@include size(#{(50 * 60) / 100}px);
@@ -76,7 +76,7 @@
 			}
 
 			@at-root .Loop #{ $this } #{ $this }__item a {
-				border-radius: 5px;
+				border-radius: map-get($borders, radius);
 
 				@include size(#{(25 * 60) / 100}px);
 

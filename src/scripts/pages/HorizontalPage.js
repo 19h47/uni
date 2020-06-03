@@ -1,10 +1,7 @@
 import { AbstractPage } from 'starting-blocks';
 import Smooth from 'utils/smooth-scrolling.custom';
 import { elements } from 'scripts/config';
-// import { gsap } from 'gsap';
 import mediaBreakpointUp from 'utils/mediaBreakpointUp';
-
-const imagesLoaded = require('imagesloaded');
 
 /**
  * Horizontal page
@@ -25,19 +22,18 @@ export default class HorizontalPage extends AbstractPage {
 		return true;
 	}
 
-	async init() {
-		await super.init();
+	init() {
+		super.init();
 
 		if (!this.md) {
 			return false;
 		}
 
 		this.$track = this.rootElement.querySelector('.js-track');
-		this.$footer = this.rootElement.querySelector('.js-footer');
 		this.$section = this.rootElement.querySelector('.js-section');
 
 		this.options = {
-			preload: false,
+			preload: true,
 			native: true,
 			direction: 'vertical',
 			section: this.$section,
@@ -48,44 +44,8 @@ export default class HorizontalPage extends AbstractPage {
 	}
 
 	initPlugins() {
-		console.info('initPlugins');
-		this.scroll = new Smooth(this.options);
+		// console.info('initPlugins');
 
-		imagesLoaded(this.rootElement, () => {
-			this.scroll.init();
-		});
-	}
-
-	// initEvents() {
-	// 	// console.info('initEvents');
-	// 	super.initEvents();
-
-	// 	this.scroll.on(event => {
-	// 		console.log(event);
-	// 		const { deltaY } = event;
-
-	// 		this.$track.scrollLeft -= deltaY * 0.5;
-
-	// 		if (this.$footer && this.md) {
-	// 			const x = (this.$track.scrollLeft * 100) / (this.scrollWidth - this.clientWidth);
-
-	// 			gsap.to(this.$footer, {
-	// 				x,
-	// 			});
-	// 		}
-	// 	});
-	// }
-
-	onResize() {
-		super.onResize();
-
-		if (!this.md) {
-			return false;
-		}
-
-		this.scrollWidth = this.$track.scrollWidth;
-		this.clientWidth = document.body.clientWidth;
-
-		return true;
+		this.scroll = new Smooth(this.options).init();
 	}
 }

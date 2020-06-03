@@ -26,7 +26,7 @@
 
 		line-height: (24/20);
 		border: 1px solid the_color(gray, very-dark);
-		border-radius: 5px;
+		border-radius: map-get($borders, radius);
 	}
 
 	[type='email'] {
@@ -34,7 +34,7 @@
 		@include reset-placeholder(the_color(gray, very-light-03));
 
 		width: percentage(400 / 600);
-		border-radius: 5px 0 0 5px;
+		border-radius: map-get($borders, radius) 0 0 5px;
 
 		&:focus {
 			outline: none;
@@ -46,7 +46,7 @@
 		@include padding(top 10px right 10px bottom 10px left 10px);
 
 		border-left: 1px solid the_color(gray, very-dark);
-		border-radius: 0 5px 5px 0;
+		border-radius: 0 map-get($borders, radius) map-get($borders, radius) 0;
 		width: percentage(200 / 600);
 
 		&:focus {

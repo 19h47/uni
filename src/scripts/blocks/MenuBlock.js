@@ -20,6 +20,8 @@ export default class MenuBlock extends AbstractBlock {
 		// Scroll
 		this.disableScroll = disableScroll;
 		this.enableScroll = enableScroll;
+
+		this.close = this.close.bind(this);
 	}
 
 	init() {
@@ -47,22 +49,6 @@ export default class MenuBlock extends AbstractBlock {
 			},
 		);
 
-		// this.timeline.fromTo(
-		// 	this.items,
-		// 	{
-		// 		x: `+=20px`,
-		// 		autoAlpha: 0,
-		// 		duration: 0.1,
-		// 		ease: 'power2.inOut',
-		// 	},
-		// 	{
-		// 		x: 0,
-		// 		autoAlpha: 1,
-		// 		stagger: 0.05,
-		// 	},
-		// 	'-=0.1',
-		// );
-
 		this.buttons = document.querySelectorAll('.js-menu-button') || [];
 	}
 
@@ -76,6 +62,14 @@ export default class MenuBlock extends AbstractBlock {
 		// On click
 		[...this.buttons].forEach(button => {
 			button.addEventListener('click', () => this.toggle());
+		});
+
+		this.rootElement.addEventListener('click', event => {
+			const { tagName } = event.target;
+
+			if ('A' !== tagName) {
+				this.close();
+			}
 		});
 
 		// On esc key

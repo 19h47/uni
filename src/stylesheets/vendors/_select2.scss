@@ -13,7 +13,7 @@
 	&-container {
 		@extend .d-block;
 
-		border-radius: 5px;
+		border-radius: map-get($borders, radius);
 
 		&.select2-container--focus {
 			outline: none;
@@ -22,7 +22,7 @@
 
 		.select2-selection--single {
 			border: 1px solid the_color(gray, very-dark);
-			border-radius: 5px;
+			border-radius: map-get($borders, radius);
 			height: auto;
 
 			&:focus {

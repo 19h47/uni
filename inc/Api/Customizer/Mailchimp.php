@@ -1,4 +1,4 @@
-<?php
+<?php // phpcs:ignore
 /**
  * Mailchimp
  *
@@ -54,9 +54,9 @@ class Mailchimp {
 		$wp_customize->add_control(
 			'mailchimp_url',
 			array(
-				'label'       => __( 'Mailchimp URL', 'uni' ),
-				'section'     => 'mailchimp',
-				'settings'    => 'mailchimp_url',
+				'label'    => __( 'Mailchimp URL', 'uni' ),
+				'section'  => 'mailchimp',
+				'settings' => 'mailchimp_url',
 			)
 		);
 

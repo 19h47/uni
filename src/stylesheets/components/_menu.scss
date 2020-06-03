@@ -22,7 +22,7 @@
 	grid-column-gap: 0px;
 	grid-row-gap: 0px;
 
-	border-radius: 12px;
+	border-radius: map-get($borders, radius);
 	background-color: rgba(the_color(white), 0.97);
 	box-shadow: 2px 2px 3px rgba(the_color(black), 0.2);
 	z-index: 4;
@@ -38,7 +38,7 @@
 	}
 
 	@include media-breakpoint-up(md) {
-		@include margin(top 20px left 100px);
+		@include margin(top 20px left calc(#{(100 * 100) / $prototype-width-unitless}vw + 40px));
 		@include padding(
 			top #{(36 * 100) / $prototype-height-unitless}vh bottom #{(36 * 100) /
 				$prototype-height-unitless}vh
@@ -53,8 +53,6 @@
 			top #{(60 * 100) / $prototype-height-unitless}vh bottom #{(60 * 100) /
 				$prototype-height-unitless}vh
 		);
-
-		border-radius: 20px;
 	}
 
 	&__items {
@@ -124,18 +122,14 @@
 		z-index: 2;
 
 		svg {
-			@include size(22.8px, 21px);
 			@extend %vertical-align-middle;
-
-			@include media-breakpoint-up(sm) {
-			}
+			@include size(#{(37 * 100) / 750}vw, #{(32 * 100) / 750}vw);
 
 			@include media-breakpoint-up(md) {
-				@include size(#{(37 * 60) / 100}px, #{(32 * 60) / 100}px);
-			}
-
-			@include media-breakpoint-up(hd) {
-				@include size(37px, 32px);
+				@include size(
+					#{(37 * 100) / $prototype-width-unitless}vw,
+					#{(32 * 100) / $prototype-width-unitless}vw
+				);
 			}
 		}
 	}

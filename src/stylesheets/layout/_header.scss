@@ -16,25 +16,20 @@
 	@include padding(top 20px right 20px bottom 20px left 20px);
 	@include margin(top 20px right 20px bottom 20px left 20px);
 
-	border-radius: 12px;
+	border-radius: map-get($borders, radius);
 	box-shadow: 2px 2px 3px rgba(the_color(black), 0.2);
 	background-color: the_color(white);
 	z-index: 5;
 
 	@include media-breakpoint-up(md) {
-		@include size(60px, auto);
+		@include size(#{(100 * 100) / $prototype-width-unitless}vw, auto);
 		@include margin(right 0 bottom 20px);
 
 		right: auto;
 		bottom: 0;
-		min-width: 60px;
 	}
 
 	@include media-breakpoint-up(hd) {
-		@include size(100px, auto);
 		@include padding(top 40px right 0 bottom 40px left 0);
-
-		min-width: 100px;
-		border-radius: 20px;
 	}
 }
