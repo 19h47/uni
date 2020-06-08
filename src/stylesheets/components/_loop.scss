@@ -16,7 +16,7 @@
 	}
 
 	&__header {
-		@extend .d-flex, .flex-md-row, .justify-content-between, .align-items-end;
+		@extend .d-flex, .flex-md-row, .justify-content-between;
 		@include margin(right 1em bottom 1em left 1em);
 
 		height: 100px;

@@ -89,7 +89,7 @@ class Settings {
 				'selected'         => get_option( $args['type'] . $args['lang'] ), // phpcs:ignore
 				'name'             => $args['type'] . $args['lang'], // phpcs:ignore
 				'lang'             => $args['lang'], // phpcs:ignore
-				'show_option_none' => __( 'Please select a page', 'uni' ), // phpcs:ignore
+				'show_option_none' => _x( 'Please select a page', 'settings', 'uni' ), // phpcs:ignore
 			)
 		);
 	}

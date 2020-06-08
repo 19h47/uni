@@ -45,7 +45,7 @@ class Enqueue {
 			get_theme_name() . '-main',
 			get_template_directory_uri() . '/' . get_theme_manifest()['main.js'],
 			array( 'jquery', 'jquery-blockui' ),
-			false,
+			null,
 			true
 		);
 
@@ -97,7 +97,7 @@ class Enqueue {
 			get_theme_name() . '-main',
 			get_template_directory_uri() . '/' . get_theme_manifest()['main.css'],
 			$webfonts,
-			false
+			null
 		);
 
 		wp_enqueue_style( get_theme_name() . '-main' );

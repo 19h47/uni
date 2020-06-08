@@ -26,22 +26,28 @@
 				</header>
 
 				<ul class="Products">
-					{% for item in post.get_field( 'gallery' ) %}
+					{% for item in post.meta( 'gallery' ) %}
 						<li class="Loop">
 
-							<header class="Loop__header"></header>
-
-							<div class="Product-thumbnail">
+							<{{- item.project[0] ? "a href=\"#{item.project[0].link}\"" | raw : 'div' | raw }} class="Product-thumbnail">
 								{% include 'partials/image.html.twig' with { classes: [ 'Product-thumbnail__image', 'is-active' ], image: item.image } %}
 								{% include 'partials/image.html.twig' with { classes: [ 'Product-thumbnail__hover', 'is-active' ], image: item.image_hover } %}
-							</div>
+							</{{-  item.project[0] ? 'a' : 'div' -}}>
+
+							<header class="Loop__header">
+								{% if item.project[0] %}
+									<h3 class="{{ fn( 'apply_filters', 'woocommerce_product_loop_title_classes', 'Loop__product-title', 'woocommerce-loop-product__title' ) }}">
+										{{- item.project[0].title -}}
+									</h3>
+								{% endif %}
+							</header>
 
 						</li>
 					{% endfor %}
 				</ul>
 			</div>
 
-			{% include 'components/heading.html.twig' with { classes: [ 'color-gray-very-light-02', 'background-color-white' ], link: post.get_field( 'link' ).url, title: post.get_field( 'link' ).title  } only %}
+			{% include 'components/heading.html.twig' with { classes: [ 'color-gray-very-light-02', 'background-color-white' ], link: post.meta( 'link' ).url, title: post.meta( 'link' ).title  } only %}
 
 			{% include 'components/footer-horizontal.html.twig' %}
 

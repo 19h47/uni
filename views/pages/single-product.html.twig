@@ -65,7 +65,7 @@
 						<div class="Product-summary__grid">
 
 							<div class="Product__header">
-								{{ post.terms( 'product_cat' ) | map( c => "<a href=\"#{c.link}\">#{c.name}</a>") | join( ', ' ) }}
+								{{- post.terms( 'product_cat' ) | map( c => "<a href=\"#{c.link}\">#{c.name}</a>") | join( ', ' ) -}}
 								<h1 class="Product__title product_title entry-title margin-0">
 									{{- post.title -}}
 								</h1>
@@ -83,16 +83,7 @@
 							</div>
 
 							<div>
-								<ul class="Product__attributes">
-									{% for attribute in post.attributes %}
-										{% if attribute.visible %}
-											<li>
-												<div class="Product__attributes__name">{{- attribute.get_name() -}}</div>
-												<div class="Product__attributes__options">{{- attribute.get_options() | join( ' ' ) | replace( { 'd': '<span>d</span>', 'mm' : '<span>mm</span>', 'ø': '<span>⌀</span>', '⌀': '<span>⌀</span>', 'h': '<span>h</span>' } ) -}}</div>
-											</li>
-										{% endif %}
-									{% endfor %}
-								</ul>
+								{% include 'partials/attributes.html.twig' with { attributes: post.attributes } %}
 							</div>
 
 							<div>

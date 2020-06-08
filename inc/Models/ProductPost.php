@@ -27,16 +27,6 @@ class ProductPost extends Post {
 
 
 	/**
-	 * Construct
-	 *
-	 * @param mixed $pid Post object.
-	 */
-	public function __construct( $pid = null ) {
-		parent::__construct( $pid );
-	}
-
-
-	/**
 	 * Product
 	 *
 	 * @return WC_Product
@@ -52,7 +42,27 @@ class ProductPost extends Post {
 	 * @return array
 	 */
 	public function attributes() : array {
-		return $this->product->get_attributes();
+		$attributes = array();
+
+		foreach ( $this->product->get_attributes() as $attribute ) {
+			if ( $attribute->get_visible() ) {
+				$options = array();
+
+				foreach ( $attribute->get_options() as $option ) {
+					$search  = array( 'd', 'mm', 'ø', '⌀', 'h');
+					$replace = array( '<span>d</span>', '<span>mm</span>', '<span>⌀</span>', '<span>⌀</span>', '<span>h</span>' );
+
+					$options[] = str_replace( $search, $replace, $option );
+				}
+
+				$attributes[] = array(
+					'name'    => $attribute->get_name(),
+					'options' => $options,
+				);
+			}
+		}
+
+		return $attributes;
 	}
 
 
@@ -85,5 +95,17 @@ class ProductPost extends Post {
 		set_transient( 'uni_related_products_' . $this->id, $related_products );
 
 		return $related_products ? $related_products : array();
+	}
+
+
+	/**
+	 * Upcoming
+	 *
+	 * Return either product is upcoming or not
+	 *
+	 * @return bool
+	 */
+	public function upcoming() {
+		return get_post_meta( $this->id, '_upcoming', true );
 	}
 }

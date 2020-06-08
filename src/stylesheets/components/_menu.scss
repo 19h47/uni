@@ -27,16 +27,6 @@
 	box-shadow: 2px 2px 3px rgba(the_color(black), 0.2);
 	z-index: 4;
 
-	div:nth-child(3) {
-		@include font-sizes(25, 30);
-
-		grid-area: 9 / 2 / 10 / 10;
-
-		@include media-breakpoint-up(md) {
-			grid-area: 10 / 3 / 11 / 10;
-		}
-	}
-
 	@include media-breakpoint-up(md) {
 		@include margin(top 20px left calc(#{(100 * 100) / $prototype-width-unitless}vw + 40px));
 		@include padding(

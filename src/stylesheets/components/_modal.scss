@@ -38,7 +38,7 @@
 
 		border-radius: map-get($borders, radius);
 		background-color: the_color(white);
-		box-shadow: 2px 2px 3px rgba(the_color(black), 0.2);
+		box-shadow: 1px 1px 3px rgba(the_color(black), 0.2);
 	}
 
 	&__body {

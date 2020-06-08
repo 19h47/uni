@@ -24,5 +24,6 @@ $context['quantity_input'] = woocommerce_quantity_input(
 
 $context['add_to_cart_text'] = $product->single_add_to_cart_text();
 $context['id']               = $product->get_id();
+$context['upcoming']         = get_post_meta( $product->get_id(), '_upcoming', true );
 
 Timber::render( 'woocommerce/single-product/add-to-cart/variation-add-to-cart-button.html.twig', $context );

@@ -1,7 +1,7 @@
 {
 	"require": {
 		"woocommerce/woocommerce": "^4.0",
-		"timber/timber": "^1.15",
+		"timber/timber": "^1.16",
 		"vlucas/phpdotenv": "^4.1"
 	},
 	"name": "19h47/uni",

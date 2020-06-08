@@ -16,8 +16,8 @@
 					<div class="Page__content__title woocommerce-products-header__title page-title">
 						{% if show_page_title %}
 							<h1>
-								{%- if post.get_field( 'number' ) -%}
-									<span>{{- __( 'Collection N°', 'uni' ) -}}{{- post.get_field( 'number' ) -}}</span>
+								{%- if post.meta( 'number' ) -%}
+									<span>{{- __( 'Collection N°', 'uni' ) -}}{{- post.meta( 'number' ) -}}</span>
 								{%- endif -%}
 								{{- post.title -}}
 							</h1>
@@ -25,7 +25,7 @@
 					</div>
 
 					<div class="Wysiwyg">
-						{{- post.get_field( 'long_description' ) ? post.get_field( 'long_description' ) : post.content -}}
+						{{- post.meta( 'long_description' ) ? post.meta( 'long_description' ) : post.content -}}
 
 						{% if post.description %}
 							<div class="Page__content__footer">

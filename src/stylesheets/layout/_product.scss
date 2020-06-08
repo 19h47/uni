@@ -106,41 +106,6 @@
 	&__short-description {
 	}
 
-	&__attributes {
-		@extend %list-style-type-none;
-
-		li {
-			@include margin(top 2em bottom 2em);
-
-			&:last-child {
-				@include margin(bottom 0);
-			}
-			&:first-child {
-				@include margin(top 0);
-			}
-		}
-
-		&__name {
-			@include font-sizes(30);
-
-			line-height: (40/30);
-		}
-
-		&__options {
-			@include letter-spacing(50);
-			@extend %font-family-title;
-
-			@include font-sizes(65);
-
-			line-height: (78/65);
-
-			span {
-				@extend %font-family-body;
-				@include font-sizes(30, 30, 65);
-			}
-		}
-	}
-
 	&__add-to-cart-button {
 		@extend .d-flex, .align-items-center;
 		@extend %text-decoration-underline;

@@ -20,13 +20,6 @@
 
 		z-index: 100;
 
-		@include media-breakpoint-up(md) {
-			@include padding(top 0 bottom 0);
-
-			grid-template-columns: repeat(6, 1fr);
-			grid-template-rows: repeat(11, percentage(1/11));
-		}
-
 		& > div:nth-child(1) {
 			grid-area: 1 / 1 / 3 / 11;
 
@@ -44,19 +37,15 @@
 		}
 
 		@include media-breakpoint-up(md) {
-			@include size(#{((6 * 200) * 100) / $prototype-width-unitless}vw, 100%);
+			@include size(#{((7 * 200) * 100) / $prototype-width-unitless}vw, 100%);
 
-			@include padding(
-				top #{(36 * 100) / $prototype-height-unitless}vh bottom #{(36 * 100) /
-					$prototype-height-unitless}vh
-			);
-		}
-
-		@include media-breakpoint-up(hd) {
 			@include padding(
 				top #{(60 * 100) / $prototype-height-unitless}vh bottom #{(60 * 100) /
 					$prototype-height-unitless}vh
 			);
+
+			grid-template-columns: repeat(7, 1fr);
+			grid-template-rows: repeat(11, percentage(1/11));
 		}
 	}
 }

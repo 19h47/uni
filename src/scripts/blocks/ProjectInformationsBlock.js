@@ -9,13 +9,13 @@ import { elements } from 'scripts/config';
  * @constructor
  * @param {object} container
  */
-export default class MenuBlock extends AbstractBlock {
+export default class ProjectInformationsBlock extends AbstractBlock {
 	constructor(container) {
-		// console.info('Menu.constructor');
+		// console.info('ProjectInformations.constructor');
 
-		super(container, 'MenuBlock');
+		super(container, 'ProjectInformationsBlock');
 
-		this.isOpen = elements.body.classList.contains('menu--is-open');
+		this.isOpen = elements.body.classList.contains('project-informations--is-open');
 
 		// Scroll
 		this.disableScroll = disableScroll;
@@ -41,14 +41,14 @@ export default class MenuBlock extends AbstractBlock {
 			{ x: 0 },
 		);
 
-		this.buttons = document.querySelectorAll('.js-menu-button') || [];
+		this.buttons = document.querySelectorAll('.js-project-informations-button') || [];
 	}
 
 	/**
-	 * Menu.initEvents
+	 * ProjectInformations.initEvents
 	 */
 	initEvents() {
-		// console.info('Menu.setupEvents');
+		// console.info('ProjectInformations.setupEvents');
 		super.initEvents();
 
 		// On click
@@ -73,55 +73,55 @@ export default class MenuBlock extends AbstractBlock {
 	}
 
 	/**
-	 * Menu.toggle
+	 * ProjectInformations.toggle
 	 */
 	toggle() {
-		// console.info('Menu.toggle');
+		// console.info('ProjectInformations.toggle');
 		if (this.isOpen) return this.close();
 
 		return this.open();
 	}
 
 	/**
-	 * Menu.open
+	 * ProjectInformations.open
 	 */
 	open() {
-		console.info('Menu.open');
+		console.info('ProjectInformations.open');
 		if (this.isOpen) return false;
 
 		this.isOpen = true;
 
-		elements.body.classList.add('menu--is-open');
+		elements.body.classList.add('project-informations--is-open');
 
 		this.timeline.play();
 
-		// When menu is open, disableScroll
+		// When ProjectInformations is open, disableScroll
 		this.disableScroll();
 
 		return true;
 	}
 
 	/**
-	 * Menu.close
+	 * ProjectInformations.close
 	 */
 	close() {
-		// console.info('Menu.close');
+		// console.info('ProjectInformations.close');
 		if (!this.isOpen) return false;
 
 		this.isOpen = false;
 
-		elements.body.classList.remove('menu--is-open');
+		elements.body.classList.remove('ProjectInformations--is-open');
 
 		this.timeline.reverse();
 
-		// When menu is closed, enableScroll
+		// When ProjectInformations is closed, enableScroll
 		this.enableScroll();
 
 		return true;
 	}
 
 	onResize() {
-		// console.info('Menu.onResize');
+		// console.info('ProjectInformations.onResize');
 		super.onResize();
 
 		this.rect = this.rootElement.getBoundingClientRect();

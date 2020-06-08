@@ -8,6 +8,8 @@
 
 namespace UNI\Core;
 
+use WP_Post;
+
 /**
  * Project class
  */
@@ -255,7 +257,7 @@ class Project {
 		);
 
 		$rewrite = array(
-			'slug'       => 'partenaires',
+			'slug'       => 'projets',
 			'with_front' => true,
 		);
 

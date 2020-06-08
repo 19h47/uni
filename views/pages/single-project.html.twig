@@ -1,0 +1,70 @@
+{#
+ #
+ #}
+{% extends 'index.html.twig' %}
+
+{% block content %}
+
+	<div id="project-informations-{{ post.id }}" class="Single-project__informations page-block" data-node-type="ProjectInformationsBlock">
+		<div class="Single-project__title">
+			<h1>
+				<span>{{- post.get_terms( 'project_cat' ) | map( cat => cat.name ) | join( ', ' ) -}}</span>
+				{{- post.title -}}
+			</h1>
+		</div>
+		<div class="Wysiwyg">
+			{{- post.project_content -}}
+		</div>
+		<div>
+			{% include 'partials/attributes.html.twig' with { attributes: post.attributes } %}
+		</div>
+	</div>
+
+	<div class="Horizontal-page__section js-section">
+		<div class="Horizontal-page__track js-track">
+
+			<div class="Horizontal-page__wrapper js-wrapper">
+				<div class="Single-project__grid">
+					<div class="Single-project__title">
+						<h1>
+							<span>{{- post.get_terms( 'project_cat' ) | map( cat => cat.name ) | join( ', ' ) -}}</span>
+							{{- post.title -}}
+						</h1>
+						<button class="Single-project__readmore js-project-informations-button" type="button">+ <span class="text-decoration-underline">Informations</span></button>
+					</div>
+				</div>
+
+				<div class="Single-project__images">
+
+					{% for image in post.meta( 'images' ) %}
+						<div class="Single-project__image">
+							{%- include 'partials/image.html.twig' with { image: image, loading: 'eager' } only -%}
+						</div>
+					{% endfor %}
+
+				</div>
+
+				<div class="Single-project__content">
+					<div class="Single-project__title">
+						<h1>
+							<span>{{- projects_settings.subtitle -}}</span>
+							{{- projects_settings.title -}}
+						</h1>
+					</div>
+					<div class="Wysiwyg">
+						{{- projects_settings.content -}}
+					</div>
+				</div>
+
+			</div>
+
+			{% if post.next %}
+				{% include 'components/heading.html.twig' with { classes: [ 'color-gray-very-light-02' ], link: post.next.link, title: __( 'Next Project', 'uni' )  } only %}
+			{% endif %}
+
+			{% include 'components/footer-horizontal.html.twig' %}
+
+		</div>
+	</div>
+
+{% endblock  %}

@@ -9,7 +9,7 @@
 namespace UNI\Plugins;
 
 use WC_AJAX, WC_Product;
-use Timber\{ Timber };
+use Timber\{ Timber, Helper };
 
 /**
  * WordPress
@@ -108,6 +108,9 @@ class WooCommerce {
 		// cart_is empty.
 		remove_action( 'woocommerce_cart_is_empty', 'wc_empty_cart_message', 10 );
 		add_action( 'woocommerce_cart_is_empty', array( $this, 'empty_cart_message' ), 10 );
+
+		add_filter( 'woocommerce_product_options_advanced', array( $this, 'product_options_advanced' ), 10 );
+		add_action( 'woocommerce_process_product_meta', array( $this, 'update_meta_data' ), 10, 1 );
 	}
 
 
@@ -339,6 +342,7 @@ class WooCommerce {
 			'woocommerce/loop/price.html.twig',
 			array(
 				'price_html' => $product->get_price_html(),
+				'upcoming'   => get_post_meta( $product->get_id(), '_upcoming', true ),
 				'render'     => is_product_category() || is_shop(),
 			)
 		);
@@ -389,5 +393,43 @@ class WooCommerce {
 			)
 		);
 	}
+
+
+	/**
+	 * Product options advanced
+	 *
+	 * @return void
+	 */
+	public function product_options_advanced() : void {
+		$args = array(
+			'id'    => '_upcoming',
+			'value' => get_post_meta( get_the_ID(), '_upcoming', true ),
+			'label' => __( 'Upcoming Product', 'uni' ),
+		);
+
+		echo '<div class="options_group upcoming">';
+
+		woocommerce_wp_checkbox( $args );
+
+		echo '</div>';
+
+		do_action( 'woocommerce_product_options_upcoming' );
+	}
+
+
+	/**
+	 * Update meta data
+	 *
+	 * @param int $post_id Post id.
+	 *
+	 * @return void
+	 */
+	public function update_meta_data( int $post_id ) : void {
+
+		$upcoming = isset( $_POST[ '_upcoming' ] ) ? sanitize_text_field( wp_unslash( $_POST[ '_upcoming' ] ) ) : '';
+
+		update_post_meta( $post_id, '_upcoming', $upcoming );
+	}
+
 }
 

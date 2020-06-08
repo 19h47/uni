@@ -2,35 +2,37 @@
  # Single variation cart button
  #
  #}
-<div id="add-to-cart-{{ id }}" class="woocommerce-variation-add-to-cart variations_button page-block" data-node-type="AddToCartBlock">
-	{#
-	 # Hook: woocommerce_before_add_to_cart_button.
-	 #}
-	{% do action( 'woocommerce_before_add_to_cart_button' ) %}
+{% if not upcoming %}
+	<div id="add-to-cart-{{ id }}" class="woocommerce-variation-add-to-cart variations_button page-block" data-node-type="AddToCartBlock">
+		{#
+			# Hook: woocommerce_before_add_to_cart_button.
+			#}
+		{% do action( 'woocommerce_before_add_to_cart_button' ) %}
 
-	{#
-	 # Hook: woocommerce_before_add_to_cart_quantity.
-	 #}
-	{% do action( 'woocommerce_before_add_to_cart_quantity' ) %}
+		{#
+			# Hook: woocommerce_before_add_to_cart_quantity.
+			#}
+		{% do action( 'woocommerce_before_add_to_cart_quantity' ) %}
 
-	{# {{ quantity_input }} #}
+		{# {{ quantity_input }} #}
 
-	{#
-	 # Hook: woocommerce_after_add_to_cart_quantity.
-	 #}
-	{% do action( 'woocommerce_after_add_to_cart_quantity' ) %}
+		{#
+			# Hook: woocommerce_after_add_to_cart_quantity.
+			#}
+		{% do action( 'woocommerce_after_add_to_cart_quantity' ) %}
 
-	<button type="submit" value="{{ id }}" class="Product__add-to-cart-button js-add-to-cart-button single_add_to_cart_button button alt">
-		{% include 'svg/use.html.twig' with { icon: 'cart', classes: [ 'Pointer-events-none' ] } only %}
-		{{- add_to_cart_text -}}
-	</button>
+		<button type="submit" value="{{ id }}" class="Product__add-to-cart-button js-add-to-cart-button single_add_to_cart_button button alt">
+			{% include 'svg/use.html.twig' with { icon: 'cart', classes: [ 'Pointer-events-none' ] } only %}
+			{{- add_to_cart_text -}}
+		</button>
 
-	{#
-	 # Hook: woocommerce_after_add_to_cart_button.
-	 #}
-	{% do action( 'woocommerce_after_add_to_cart_button' ) %}
+		{#
+			# Hook: woocommerce_after_add_to_cart_button.
+			#}
+		{% do action( 'woocommerce_after_add_to_cart_button' ) %}
 
-	<input type="hidden" name="add-to-cart" value="{{ id }}" />
-	<input type="hidden" name="product_id" value="{{ id }}" />
-	<input type="hidden" name="variation_id" class="variation_id" value="0" />
-</div>
+		<input type="hidden" name="add-to-cart" value="{{ id }}" />
+		<input type="hidden" name="product_id" value="{{ id }}" />
+		<input type="hidden" name="variation_id" class="variation_id" value="0" />
+	</div>
+{% endif %}

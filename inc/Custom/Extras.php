@@ -51,6 +51,10 @@ class Extras {
 			$classes[] = 'Single-product';
 		}
 
+		if ( is_singular( 'project' ) ) {
+			$classes[] = 'Single-project';
+		}
+
 		// if ( is_cart() ) {
 		// 	$classes[] = 'Cart';
 		// }

@@ -42,25 +42,6 @@ class Contact {
 			)
 		);
 
-		// Facebook.
-		$wp_customize->add_setting(
-			'facebook',
-			array(
-				'type'      => 'option',
-				'transport' => 'postMessage',
-			)
-		);
-
-		$wp_customize->add_control(
-			'facebook',
-			array(
-				'label'       => __( 'Facebook', 'uni' ),
-				'description' => __( 'Facebook URL', 'uni' ),
-				'section'     => 'contact',
-				'settings'    => 'facebook',
-			)
-		);
-
 		// Instagram.
 		$wp_customize->add_setting(
 			'instagram',
@@ -77,6 +58,25 @@ class Contact {
 				'description' => __( 'Instagram URL', 'uni' ),
 				'section'     => 'contact',
 				'settings'    => 'instagram',
+			)
+		);
+
+		// Facebook.
+		$wp_customize->add_setting(
+			'facebook',
+			array(
+				'type'      => 'option',
+				'transport' => 'postMessage',
+			)
+		);
+
+		$wp_customize->add_control(
+			'facebook',
+			array(
+				'label'       => __( 'Facebook', 'uni' ),
+				'description' => __( 'Facebook URL', 'uni' ),
+				'section'     => 'contact',
+				'settings'    => 'facebook',
 			)
 		);
 

@@ -9,10 +9,10 @@
 			{% include 'partials/image.html.twig' with { classes: [ 'Product-thumbnail__hover', product_color.current ? 'is-active' : null ], attributes: { 'data-color': product_color.color }, image: product_color.packshot } %}
 		{%- else -%}
 			{% include 'partials/image.html.twig' with { classes: [ 'Product-thumbnail__image' ], attributes: { 'data-color': product.color }, image: product.thumbnail } %}
-			{% include 'partials/image.html.twig' with { classes: [ 'Product-thumbnail__hover' ], attributes: { 'data-color': product.color }, image: product.get_field( 'image_packshot' ) } %}
+			{% include 'partials/image.html.twig' with { classes: [ 'Product-thumbnail__hover' ], attributes: { 'data-color': product.color }, image: product.meta( 'image_packshot' ) } %}
 		{%- endfor -%}
 	{% else %}
 		{% include 'partials/image.html.twig' with { classes: [ 'Product-thumbnail__image', 'is-active' ], image: product.thumbnail } %}
-		{% include 'partials/image.html.twig' with { classes: [ 'Product-thumbnail__hover', 'is-active' ], image: product.get_field( 'image_packshot' ) } %}
+		{% include 'partials/image.html.twig' with { classes: [ 'Product-thumbnail__hover', 'is-active' ], image: product.meta( 'image_packshot' ) } %}
 	{% endif %}
 </a>

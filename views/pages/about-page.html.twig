@@ -11,9 +11,9 @@
 
 			<div class="Horizontal-page__wrapper js-wrapper">
 
-				<div class="Horizontal-page__thumbnail">
+				{# <div class="Horizontal-page__thumbnail">
 					{% include 'partials/image.html.twig' with { image: post.thumbnail } only %}
-				</div>
+				</div> #}
 
 				<div class="Horizontal-page__content">
 
@@ -22,13 +22,21 @@
 					</div>
 
 					<ul>
-					{% for item in post.get_field( 'contents' ) %}
-						<li>
-							<div class="Wysiwyg">
-								{{ item.content }}
-							</div>
-						</li>
-					{% endfor %}
+						{% for item in post.meta( 'layouts' ) %}
+							{% if item.acf_fc_layout == 'text' %}
+								<li class="column-{{ item.columns }}">
+									<div class="Wysiwyg">
+										{{ item.text }}
+									</div>
+								</li>
+							{% endif %}
+
+							{% if item.acf_fc_layout == 'image' %}
+								<li class="column-10">
+									{% include 'partials/image.html.twig' with { image: item.image } %}
+								</li>
+							{% endif %}
+						{% endfor %}
 					</ul>
 				</div>
 

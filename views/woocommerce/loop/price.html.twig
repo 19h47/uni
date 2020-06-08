@@ -1,6 +1,12 @@
 {#
+ # Price
  #
+ # @param string price_html
+ # @param boolean render
+ # @param boolean upcoming
  #}
-{% if price_html and render %}
+{% if price_html and render and not upcoming %}
 	<span class="Loop__price price">{{- price_html -}}</span>
+{% elseif upcoming %}
+	<span class="Loop__price price">{{- __( 'Coming soon', 'uni' ) -}}</span>
 {% endif %}

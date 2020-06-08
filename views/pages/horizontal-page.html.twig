@@ -13,7 +13,7 @@
 				<div class="Horizontal-page__grid js-grid">
 					<div class="Horizontal-page__grid__inner">
 						<div class="Horizontal-page__navigation js-navigation">
-							{%- include 'svg/use.html.twig' with { icon: 'arrow-right'} only -%}
+							{%- include 'svg/use.html.twig' with { icon: 'arrow-right' } only -%}
 						</div>
 						<div class="Page__content__title"><h1>{{- post.subtitle ? "<span>#{ post.subtitle }</span>" -}}{{- post.title -}}</h1></div>
 						<div class="Wysiwyg">{{- post.content -}}</div>
@@ -23,17 +23,17 @@
 					</div>
 				</div>
 
-				{% if post.get_field( 'gallery' ) %}
+				{% if post.meta( 'gallery' ) %}
 					<div class="Horizontal-page__gallery">
-						{% for image in post.get_field( 'gallery' ) %}
+						{% for image in post.meta( 'gallery' ) %}
 
-							{% set _product_link = TimberPost( image.id ).get_field( 'product_link' ).link %}
+							{% set _product_link = TimberPost( image.id ).meta( 'product_link' ).link %}
 
 							<div id="image-{{ image.id }}" class="Horizontal-page__image page-block" data-index="{{ loop.index }}" data-node-type="ImageBlock">
-								<div class="js-container">
+								<div class="d-inline-block js-container h-100">
 
 									{% if _product_link %}
-										<a class="d-block w-100 h-100 position-relative js-link" href="{{ _product_link }}">
+										<a class="d-inline-block h-100 position-relative js-link" href="{{ _product_link }}">
 									{% endif %}
 
 										{# {% if image.description %}
@@ -55,8 +55,8 @@
 				include 'components/heading.html.twig'
 				with {
 					classes: [ 'color-gray-very-light-02', 'background-color-white' ],
-					link: post.get_field( 'link' ).url | default( site.link ),
-					title: post.get_field( 'link' ).title | default( __( 'Discover our online store', 'uni' ) )
+					link: post.meta( 'link' ).url | default( site.link ),
+					title: post.meta( 'link' ).title | default( __( 'Discover our online store', 'uni' ) )
 				}
 				only
 			%}

@@ -1,0 +1,19 @@
+{#
+ #
+ # Attributes
+ #
+ # @param array attributes
+ #
+ #}
+<ul class="Attributes">
+	{% for attribute in post.attributes %}
+		<li>
+			<div class="Attributes__name">
+				{{- attribute.name -}}
+			</div>
+			<div class="Attributes__options">
+				{{- attribute.options | join( ' ' ) -}}
+			</div>
+		</li>
+	{% endfor %}
+</ul>

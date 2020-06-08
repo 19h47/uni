@@ -16,7 +16,7 @@
 			<div><a class="Front-page__link" href="{{ habitat_page }}">Explorer nos :<span>Habitat</span></a></div>
 			<div><a class="Front-page__link" href="{{ objects_page }}">Découvrir nos :<span>Objets</span></a></div>
 			<div class="Front-page__footer Wysiwyg">
-				{{- post.get_field( 'footer' ) ? post.get_field( 'footer' ) -}}
+				{{- post.meta( 'footer' ) ? post.meta( 'footer' ) -}}
 			</div>
 		</div>
 

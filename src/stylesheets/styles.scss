@@ -83,6 +83,7 @@
 @import 'components/info';
 @import 'components/error';
 @import 'components/message';
+@import 'components/attributes';
 
 // Pages
 @import 'pages/page';
@@ -91,6 +92,7 @@
 @import 'pages/horizontal-page';
 @import 'pages/archive-page';
 @import 'pages/about-page';
+@import 'pages/single-project';
 
 // Utilities.
 @import '~@19h47/architecture/src/stylesheets/utilities/colors',

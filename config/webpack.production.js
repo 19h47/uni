@@ -99,6 +99,9 @@ module.exports = merge(common, {
 				'error-message',
 				'success-message',
 				'screen-reader-text',
+				'column-3',
+				'column-4',
+				'column-10',
 				// tag
 				'select',
 				'iframe',

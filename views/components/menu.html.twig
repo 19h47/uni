@@ -1,6 +1,6 @@
 {#  #}
 <div id="menu" class="Menu page-block" data-node-type="MenuBlock">
-	<div class="Menu__primary js-menu-item">
+	<div class="Menu__primary">
 		<ul class="Menu__items" itemscope itemtype="http://schema.org/SiteNavigationElement">
 			{% for item in menus.main_primary.items %}
 				<li class="Menu__item">
@@ -11,7 +11,7 @@
 			{% endfor %}
 		</ul>
 	</div>
-	<div class="Menu__secondary js-menu-item">
+	<div class="Menu__secondary">
 		<ul class="Menu__items" itemscope itemtype="http://schema.org/SiteNavigationElement">
 			{% for item in menus.main_secondary.items %}
 				<li class="Menu__item">
@@ -19,8 +19,5 @@
 				</li>
 			{% endfor %}
 		</ul>
-	</div>
-	<div class="js-menu-item">
-		{{- __( "Let's meet up:", 'uni' ) }}&nbsp;<a class="font-family-title font-style-italic" href="mailto:contact@uni-habitat.fr">contact@uni-habitat.fr</a>
 	</div>
 </div>

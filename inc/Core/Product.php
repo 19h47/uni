@@ -16,6 +16,7 @@ use WP_Post;
  * Transients class
  */
 class Product {
+
 	/**
 	 * Runs initialization tasks.
 	 *

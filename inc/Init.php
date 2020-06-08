@@ -36,9 +36,11 @@ class Init {
 			Plugins\WooCommerce::class,
 			Plugins\MailchimpWooCommerce::class,
 			Plugins\ACF::class,
+			Plugins\TinyMCE::class,
 			Core\ProductTag::class,
 			Core\Product::class,
 			Core\Project::class,
+			Core\ProjectCat::class,
 		);
 	}
 

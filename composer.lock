@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0df9b5284206fbb4a18fb70cea345b6b",
+    "content-hash": "f0c2913c354a5b9b08724843e46fcc94",
     "packages": [
         {
             "name": "altorouter/altorouter",
@@ -118,16 +118,16 @@
         },
         {
             "name": "automattic/jetpack-autoloader",
-            "version": "v1.6.0",
+            "version": "v1.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Automattic/jetpack-autoloader.git",
-                "reference": "3bcbe1ae19febd6beeb181cf11af0bf0b7abe7e7"
+                "reference": "7c6736eeee0f9fc49fa691fe3e958725efb27ca0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Automattic/jetpack-autoloader/zipball/3bcbe1ae19febd6beeb181cf11af0bf0b7abe7e7",
-                "reference": "3bcbe1ae19febd6beeb181cf11af0bf0b7abe7e7",
+                "url": "https://api.github.com/repos/Automattic/jetpack-autoloader/zipball/7c6736eeee0f9fc49fa691fe3e958725efb27ca0",
+                "reference": "7c6736eeee0f9fc49fa691fe3e958725efb27ca0",
                 "shasum": ""
             },
             "require": {
@@ -150,7 +150,7 @@
                 "GPL-2.0-or-later"
             ],
             "description": "Creates a custom autoloader for a plugin or theme.",
-            "time": "2020-03-26T07:57:53+00:00"
+            "time": "2020-04-23T02:28:37+00:00"
         },
         {
             "name": "automattic/jetpack-constants",
@@ -496,25 +496,25 @@
         },
         {
             "name": "symfony/css-selector",
-            "version": "v5.0.8",
+            "version": "v5.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/css-selector.git",
-                "reference": "5f8d5271303dad260692ba73dfa21777d38e124e"
+                "reference": "e544e24472d4c97b2d11ade7caacd446727c6bf9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/css-selector/zipball/5f8d5271303dad260692ba73dfa21777d38e124e",
-                "reference": "5f8d5271303dad260692ba73dfa21777d38e124e",
+                "url": "https://api.github.com/repos/symfony/css-selector/zipball/e544e24472d4c97b2d11ade7caacd446727c6bf9",
+                "reference": "e544e24472d4c97b2d11ade7caacd446727c6bf9",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.2.5"
+                "php": ">=7.2.5"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "5.0-dev"
+                    "dev-master": "5.1-dev"
                 }
             },
             "autoload": {
@@ -559,7 +559,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-03-27T16:56:45+00:00"
+            "time": "2020-05-20T17:43:50+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",
@@ -889,16 +889,16 @@
         },
         {
             "name": "vlucas/phpdotenv",
-            "version": "v4.1.5",
+            "version": "v4.1.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/vlucas/phpdotenv.git",
-                "reference": "539bb6927c101a5605d31d11a2d17185a2ce2bf1"
+                "reference": "0b32505d67c1abbfa829283c86bfc0642a661bf6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/vlucas/phpdotenv/zipball/539bb6927c101a5605d31d11a2d17185a2ce2bf1",
-                "reference": "539bb6927c101a5605d31d11a2d17185a2ce2bf1",
+                "url": "https://api.github.com/repos/vlucas/phpdotenv/zipball/0b32505d67c1abbfa829283c86bfc0642a661bf6",
+                "reference": "0b32505d67c1abbfa829283c86bfc0642a661bf6",
                 "shasum": ""
             },
             "require": {
@@ -959,7 +959,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-05-02T14:08:57+00:00"
+            "time": "2020-05-23T09:43:32+00:00"
         },
         {
             "name": "woocommerce/action-scheduler",
@@ -998,33 +998,33 @@
         },
         {
             "name": "woocommerce/woocommerce",
-            "version": "4.1.1",
+            "version": "4.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/woocommerce/woocommerce.git",
-                "reference": "4bff750fde0731ee4197ae013ffd7b36a51af991"
+                "reference": "b2a0e738669ce9a9eb299180a02902a4322664b1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/woocommerce/woocommerce/zipball/4bff750fde0731ee4197ae013ffd7b36a51af991",
-                "reference": "4bff750fde0731ee4197ae013ffd7b36a51af991",
+                "url": "https://api.github.com/repos/woocommerce/woocommerce/zipball/b2a0e738669ce9a9eb299180a02902a4322664b1",
+                "reference": "b2a0e738669ce9a9eb299180a02902a4322664b1",
                 "shasum": ""
             },
             "require": {
-                "automattic/jetpack-autoloader": "1.6.0",
+                "automattic/jetpack-autoloader": "^1.7.0",
                 "automattic/jetpack-constants": "^1.1",
                 "composer/installers": "1.7.0",
                 "maxmind-db/reader": "1.6.0",
                 "pelago/emogrifier": "^3.1",
-                "php": ">=5.6|>=7.0",
+                "php": ">=7.0",
                 "woocommerce/action-scheduler": "3.1.6",
-                "woocommerce/woocommerce-admin": "1.1.3",
+                "woocommerce/woocommerce-admin": "1.2.3",
                 "woocommerce/woocommerce-blocks": "2.5.16",
-                "woocommerce/woocommerce-rest-api": "1.0.7"
+                "woocommerce/woocommerce-rest-api": "1.0.8"
             },
             "require-dev": {
                 "phpunit/phpunit": "7.5.20",
-                "woocommerce/woocommerce-sniffs": "0.0.9",
+                "woocommerce/woocommerce-sniffs": "0.0.10",
                 "wp-cli/i18n-command": "^2.2"
             },
             "type": "wordpress-plugin",
@@ -1066,20 +1066,20 @@
             ],
             "description": "An eCommerce toolkit that helps you sell anything. Beautifully.",
             "homepage": "https://woocommerce.com/",
-            "time": "2020-05-20T17:26:17+00:00"
+            "time": "2020-06-02T22:58:33+00:00"
         },
         {
             "name": "woocommerce/woocommerce-admin",
-            "version": "v1.1.3",
+            "version": "v1.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/woocommerce/woocommerce-admin.git",
-                "reference": "8bc27a150218a2e3195400701754d286aa12911e"
+                "reference": "5560c9b6e31e1d794a55a0eb4ccf040fd2cee4c7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/woocommerce/woocommerce-admin/zipball/8bc27a150218a2e3195400701754d286aa12911e",
-                "reference": "8bc27a150218a2e3195400701754d286aa12911e",
+                "url": "https://api.github.com/repos/woocommerce/woocommerce-admin/zipball/5560c9b6e31e1d794a55a0eb4ccf040fd2cee4c7",
+                "reference": "5560c9b6e31e1d794a55a0eb4ccf040fd2cee4c7",
                 "shasum": ""
             },
             "require": {
@@ -1113,7 +1113,7 @@
             ],
             "description": "A modern, javascript-driven WooCommerce Admin experience.",
             "homepage": "https://github.com/woocommerce/woocommerce-admin",
-            "time": "2020-05-18T20:57:31+00:00"
+            "time": "2020-05-22T18:45:16+00:00"
         },
         {
             "name": "woocommerce/woocommerce-blocks",
@@ -1164,16 +1164,16 @@
         },
         {
             "name": "woocommerce/woocommerce-rest-api",
-            "version": "1.0.7",
+            "version": "1.0.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/woocommerce/woocommerce-rest-api.git",
-                "reference": "49162ec26a25bd0c6efc0f3452b113cdfff0a823"
+                "reference": "0756027c669bb5749554ee58b9416cbdcceaa752"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/woocommerce/woocommerce-rest-api/zipball/49162ec26a25bd0c6efc0f3452b113cdfff0a823",
-                "reference": "49162ec26a25bd0c6efc0f3452b113cdfff0a823",
+                "url": "https://api.github.com/repos/woocommerce/woocommerce-rest-api/zipball/0756027c669bb5749554ee58b9416cbdcceaa752",
+                "reference": "0756027c669bb5749554ee58b9416cbdcceaa752",
                 "shasum": ""
             },
             "require": {
@@ -1200,7 +1200,7 @@
             ],
             "description": "The WooCommerce core REST API.",
             "homepage": "https://github.com/woocommerce/woocommerce-rest-api",
-            "time": "2020-01-28T21:04:51+00:00"
+            "time": "2020-05-11T14:54:30+00:00"
         }
     ],
     "packages-dev": [
