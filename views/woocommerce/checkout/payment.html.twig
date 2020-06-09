@@ -36,7 +36,6 @@
 
 	<div class="form-row place-order">
 		<noscript>
-			<?php
 			{# translators: $1 and $2 opening and closing emphasis tags respectively #}
 			{{- fn( 'printf', __( 'Since your browser does not support JavaScript, or it is disabled, please ensure you click the %1$sUpdate Totals%2$s button before placing your order. You may be charged more than the amount stated above if you fail to do so.', 'uni' ), '<em>', '</em>' ) -}}
 			<br/>
@@ -49,15 +48,15 @@
 
 	</div>
 
-	<div class="form-row text-align-center margin-top-5">
+	<div class="form-row text-align-md-center margin-y-2 margin-top-md-5 margin-bottom-md-0">
 		{#
 		 # Hook: woocommerce_review_order_before_submit.
 		 #}
 		{% do action( 'woocommerce_review_order_before_submit' ) %}
 
 
-		{% filter apply_filters( 'woocommerce_order_button_html') %}
-			<button type="submit" class="Button button alt" name="woocommerce_checkout_place_order" id="place_order" value="{{ order_button_text }}" data-value="{{ order_button_text }}">
+		{% filter apply_filters( 'woocommerce_order_button_html' ) %}
+			<button type="submit" class="Button button alt w-100 w-md-auto" name="woocommerce_checkout_place_order" id="place_order" value="{{ order_button_text }}" data-value="{{ order_button_text }}">
 				{{- order_button_text -}}
 			</button>
 		{% endfilter %}

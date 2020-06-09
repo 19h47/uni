@@ -7,10 +7,12 @@
 .Heading {
 	@extend .d-md-flex, .align-items-md-center;
 	@extend %position-relative;
+	@include margin(top 20px bottom 20px);
 
 	z-index: 2;
 
 	@include media-breakpoint-up(md) {
+		@include margin(top 0 bottom 0);
 		@include size(#{(200 * 100) / $prototype-width-unitless}vw, 100%);
 	}
 

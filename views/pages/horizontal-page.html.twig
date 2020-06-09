@@ -36,11 +36,7 @@
 										<a class="d-inline-block h-100 position-relative js-link" href="{{ _product_link }}">
 									{% endif %}
 
-										{# {% if image.description %}
-											<span class="js-description">{{- image.description | nl2br -}}</span>
-										{% endif %} #}
-
-										{%- include 'partials/image.html.twig' with { image: image, loading: 'eager' } only -%}
+									{%- include 'partials/image.html.twig' with { image: image, loading: 'eager' } only -%}
 
 									{{ _product_link ? '</a>' | raw }}
 

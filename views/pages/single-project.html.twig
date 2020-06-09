@@ -13,7 +13,7 @@
 			</h1>
 		</div>
 		<div class="Wysiwyg">
-			{{- post.project_content -}}
+			{{- post.get_field( 'project_content' ) -}}
 		</div>
 		<div>
 			{% include 'partials/attributes.html.twig' with { attributes: post.attributes } %}
@@ -30,8 +30,15 @@
 							<span>{{- post.get_terms( 'project_cat' ) | map( cat => cat.name ) | join( ', ' ) -}}</span>
 							{{- post.title -}}
 						</h1>
-						<button class="Single-project__readmore js-project-informations-button" type="button">+ <span class="text-decoration-underline">Informations</span></button>
+						<button class="Single-project__readmore d-none d-md-inline-block js-project-informations-button" type="button">+ <span class="text-decoration-underline">Informations</span></button>
 					</div>
+					<div class="Wysiwyg d-md-none">
+						{{- post.get_field( 'project_content' ) -}}
+					</div>
+				</div>
+
+				<div class="d-md-none margin-y-2">
+					{% include 'partials/attributes.html.twig' with { attributes: post.attributes } %}
 				</div>
 
 				<div class="Single-project__images">

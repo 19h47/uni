@@ -7,6 +7,6 @@
  #}
 {% if price_html and render and not upcoming %}
 	<span class="Loop__price price">{{- price_html -}}</span>
-{% elseif upcoming %}
+{% elseif upcoming and render %}
 	<span class="Loop__price price">{{- __( 'Coming soon', 'uni' ) -}}</span>
 {% endif %}

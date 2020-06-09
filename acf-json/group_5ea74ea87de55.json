@@ -3,7 +3,7 @@
     "title": "Images",
     "fields": [
         {
-            "key": "field_5ea74eca5b0d6",
+            "key": "field_5eb24d1ca8cbc",
             "label": "Survol",
             "name": "image_hover",
             "type": "image",
@@ -11,31 +11,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "50",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "array",
-            "preview_size": "medium",
-            "library": "all",
-            "min_width": "",
-            "min_height": "",
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": ""
-        },
-        {
-            "key": "field_5eb24d1ca8cbc",
-            "label": "Packshot",
-            "name": "image_packshot",
-            "type": "image",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "50",
+                "width": "",
                 "class": "",
                 "id": ""
             },
@@ -68,5 +44,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1588748141
+    "modified": 1591686931
 }

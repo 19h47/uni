@@ -1,6 +1,6 @@
 {
     "key": "group_5eaa7d8d8e651",
-    "title": "Options du Produit",
+    "title": "Options",
     "fields": [
         {
             "key": "field_5eaa7dbb921be",
@@ -44,6 +44,6 @@
     "instruction_placement": "label",
     "hide_on_screen": "",
     "active": 1,
-    "description": "",
-    "modified": 1588507447
+    "description": "Options d'un Produit",
+    "modified": 1591686845
 }

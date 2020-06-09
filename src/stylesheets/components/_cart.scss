@@ -58,8 +58,6 @@
 
 			tfoot {
 				.actions {
-					@include padding(top #{(90 * 60) / 100}px);
-
 					@include media-breakpoint-up(hd) {
 						@include padding(top #{(90/30)}em);
 					}
@@ -161,21 +159,16 @@
 		}
 	}
 	&__collaterals {
+		@include margin(bottom 20px);
+
 		@include media-breakpoint-up(md) {
+			@include margin(bottom 0);
 			@include padding(
 				top #{(250 * 100) / $prototype-height-unitless}vh right percentage(1 / 12) bottom #{(
 						250 * 100
 					) / $prototype-height-unitless}vh left percentage(0.5 / 12)
 			);
 			width: percentage(5.5 / 12);
-		}
-
-		.wc-proceed-to-checkout {
-			@include margin(top #{(90 * 60) / 100}px);
-
-			@include media-breakpoint-up(hd) {
-				@include margin(top #{(90/30)}em);
-			}
 		}
 	}
 }

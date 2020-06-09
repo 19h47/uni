@@ -12,7 +12,7 @@
 	line-height: (30/25);
 
 	label {
-		@extend .d-block;
+		@extend .d-flex, .align-items-center;
 
 		.required {
 			@extend %text-decoration-none;

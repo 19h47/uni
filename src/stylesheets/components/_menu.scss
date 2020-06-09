@@ -51,7 +51,7 @@
 
 	// .Menu__primary
 	&__primary {
-		grid-area: 2 / 2 / 6 / 11;
+		grid-area: 2 / 2 / 7 / 11;
 
 		@include media-breakpoint-up(md) {
 			grid-area: 2 / 3 / 8 / 6;
@@ -77,7 +77,7 @@
 
 	// .Menu__secondary
 	&__secondary {
-		grid-area: 6 / 4 / 8 / 11;
+		grid-area: 8 / 2 / 8 / 11;
 
 		@include media-breakpoint-up(md) {
 			grid-area: 2 / 10 / 8 / 12;

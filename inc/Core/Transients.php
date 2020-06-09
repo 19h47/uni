@@ -70,7 +70,7 @@ class Transients {
 			'color'     => get_field( 'color', 'product_tag_' . $product_tag[0]->term_id ),
 			'current'   => true,
 			'thumbnail' => get_post_thumbnail_id( $id ),
-			'packshot'  => get_field( 'image_packshot', $id ),
+			'hover'     => get_field( 'image_hover', $id ),
 			'title'     => get_the_title( $id ),
 		);
 

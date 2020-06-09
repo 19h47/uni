@@ -14,7 +14,7 @@
 	@include fixed(top 0 right 0 left 0);
 	@include size(auto, 60px);
 	@include padding(top 20px right 20px bottom 20px left 20px);
-	@include margin(top 20px right 20px bottom 20px left 20px);
+	@include margin(top 20px bottom 20px);
 
 	box-shadow: 1px 1px 3px rgba(the_color(black), 0.2);
 
@@ -22,14 +22,11 @@
 	z-index: 5;
 
 	@include media-breakpoint-up(md) {
+		@include padding(top 40px right 20px bottom 40px left 20px);
 		@include size(#{(100 * 100) / $prototype-width-unitless}vw, 100%);
-		@include margin(top 0 right 0 bottom 0);
+		@include margin(top 0 bottom 0 left 20px);
 
 		right: auto;
 		bottom: 0;
-	}
-
-	@include media-breakpoint-up(hd) {
-		@include padding(top 40px right 0 bottom 40px left 0);
 	}
 }
