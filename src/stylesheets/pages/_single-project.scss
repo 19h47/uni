@@ -90,7 +90,6 @@
 			@include margin(top 0 bottom 0);
 		}
 
-
 		img {
 			@include size(100%, auto);
 			@extend %vertical-align-middle;
@@ -140,6 +139,10 @@
 
 		@include media-breakpoint-up(md) {
 			@include size(#{((8 * 200) * 100) / $prototype-width-unitless}vw, 100%);
+			@include padding(
+				top #{(36 * 100) / $prototype-height-unitless}vh bottom #{(36 * 100) /
+					$prototype-height-unitless}vh
+			);
 
 			grid-template-columns: repeat(8, 1fr);
 			grid-template-rows: repeat(11, 1fr);
@@ -180,10 +183,8 @@
 					bottom 20px
 			);
 			@include padding(
-				top #{(36 * 100) / $prototype-height-unitless}vh
-				right 0
-				bottom #{(36 * 100) / $prototype-height-unitless}vh
-				left 0
+				top #{(36 * 100) / $prototype-height-unitless}vh right 0 bottom #{(36 * 100) /
+					$prototype-height-unitless}vh left 0
 			);
 		}
 	}

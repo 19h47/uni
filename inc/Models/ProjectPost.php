@@ -30,9 +30,14 @@ class ProjectPost extends Post {
 	 * @return array
 	 */
 	public function attributes() : array {
-		$attributes = array();
+		$attributes         = array();
+		$project_attributes = get_field( 'project_attributes', $this->id );
 
-		foreach ( get_field( 'project_attributes', $this->id ) as $item ) {
+		if ( ! $project_attributes ) {
+			return $attributes;
+		}
+
+		foreach ( $project_attributes as $item ) {
 			$attribute = $item['attribute'];
 
 			array_push(

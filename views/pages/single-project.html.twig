@@ -41,15 +41,17 @@
 					{% include 'partials/attributes.html.twig' with { attributes: post.attributes } %}
 				</div>
 
-				<div class="Single-project__images">
+				{% if post.meta( 'images' ) is iterable %}
+					<div class="Single-project__images">
 
-					{% for image in post.meta( 'images' ) %}
-						<div class="Single-project__image">
-							{%- include 'partials/image.html.twig' with { image: image, loading: 'eager' } only -%}
-						</div>
-					{% endfor %}
+						{% for image in post.meta( 'images' ) %}
+							<div class="Single-project__image">
+								{%- include 'partials/image.html.twig' with { image: image, loading: 'eager' } only -%}
+							</div>
+						{% endfor %}
 
-				</div>
+					</div>
+				{% endif %}
 
 				<div class="Single-project__content">
 					<div class="Single-project__title">
