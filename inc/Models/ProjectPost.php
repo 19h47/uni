@@ -52,4 +52,24 @@ class ProjectPost extends Post {
 
 		return $attributes;
 	}
+
+	/**
+	 * Images
+	 */
+	public function images() : array {
+		$images = get_field( 'images', $this->id );
+		$count  = count( $images );
+
+		for ( $i = 0; $i < $count; $i++ ) {
+			$rows = get_field( 'rows', $images[ $i ]['id'] );
+
+			if ( $rows ) {
+				$padding = ( ( ( ( 116.36 * ( 11 - $rows ) ) * 100 ) / 1440 ) / 2 ) . 'vh';
+
+				$images[ $i ]['style'] = "padding-top: $padding; padding-bottom: $padding;";
+			}
+		}
+
+		return $images;
+	}
 }
