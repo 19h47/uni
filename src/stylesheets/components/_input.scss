@@ -23,6 +23,7 @@
 		@extend .d-block;
 	}
 
+	select,
 	input {
 		@include reset-placeholder(the_color(gray, dark));
 		@include padding(top #{(20/30)}em right #{(20/30)}em bottom #{(20/30)}em left #{(20/30)}em);
@@ -53,6 +54,7 @@
 	textarea {
 		@extend .d-block;
 		@include size(100%, 80px);
+		@include padding(top #{(20/30)}em right #{(20/30)}em bottom #{(20/30)}em left #{(20/30)}em);
 
 		border-radius: map-get($borders, radius);
 		border: 1px solid the_color(gray, very-dark);

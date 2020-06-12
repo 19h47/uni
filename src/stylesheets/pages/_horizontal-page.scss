@@ -87,7 +87,7 @@
 
 		@include media-breakpoint-up(md) {
 			@include padding(
-				top #{(36 * 100) / $prototype-height-unitless}vh bottom #{(36 * 100) /
+				top #{(60 * 100) / $prototype-height-unitless}vh bottom #{(60 * 100) /
 					$prototype-height-unitless}vh
 			);
 		}
@@ -102,27 +102,35 @@
 		li {
 			@extend .d-md-flex;
 			@extend %position-relative;
-			@include margin( top 1em bottom 1em);
+			@include margin(top 1em bottom 1em);
 
 			&:last-child {
 				@include margin(bottom 0);
 			}
 
-
 			.Wysiwyg {
-
 				@include media-breakpoint-up(md) {
-					@include margin(top #{((116.36 * 3) * 100) / $prototype-height-unitless}vh left #{((200 * 2) * 100) / $prototype-width-unitless}vw);
+					@include margin(
+						top #{((116.36 * 3) * 100) / $prototype-height-unitless}vh left #{(
+								(200 * 2) * 100
+							) / $prototype-width-unitless}vw
+					);
 				}
 			}
 
 			img {
 				@include size(100%, auto);
 
-
-				@include media-breakpoint-up(md){
-					@include size( 100%, calc( #{ ((146.36 * 2) * 100) / $prototype-height-unitless}vh + 100%));
-					@include margin( top #{(-146.36 * 100) / $prototype-height-unitless}vh bottom #{(-146.36 * 100) / $prototype-height-unitless}vh);
+				@include media-breakpoint-up(md) {
+					@include size(
+						100%,
+						calc(#{((146.36 * 2) * 100) / $prototype-height-unitless}vh + 100%)
+					);
+					@include margin(
+						top #{(-146.36 * 100) / $prototype-height-unitless}vh bottom #{(
+								-146.36 * 100
+							) / $prototype-height-unitless}vh
+					);
 
 					object-fit: cover;
 					object-position: center;
@@ -231,13 +239,6 @@
 
 			@include media-breakpoint-up(md) {
 				@include padding(
-					top #{(36 * 100) / $prototype-height-unitless}vh bottom #{(36 * 100) /
-						$prototype-height-unitless}vh
-				);
-			}
-
-			@include media-breakpoint-up(hd) {
-				@include padding(
 					top #{(60 * 100) / $prototype-height-unitless}vh bottom #{(60 * 100) /
 						$prototype-height-unitless}vh
 				);
@@ -255,19 +256,19 @@
 
 		@include media-breakpoint-up(md) {
 			@include padding(
-				top #{(36 * 100) / $prototype-height-unitless}vh bottom #{(36 * 100) /
+				top #{(60 * 100) / $prototype-height-unitless}vh bottom #{(60 * 100) /
 					$prototype-height-unitless}vh
 			);
 		}
 	}
 
 	&__image {
-		@include margin( top 20px bottom 20px);
+		@include margin(top 20px bottom 20px);
 
 		background-color: the_color(white);
 
 		&:first-child {
-			@include margin( top 0);
+			@include margin(top 0);
 
 			background-color: transparent;
 		}
@@ -279,7 +280,7 @@
 
 		@include media-breakpoint-up(md) {
 			@include padding(left #{(200 * 100) / $prototype-width-unitless}vw);
-			@include margin( top 0 bottom 0);
+			@include margin(top 0 bottom 0);
 
 			height: 100%;
 		}

@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Horizontal page
+ * Template Name: Contact page
  *
  * @package uni
  */
@@ -12,6 +12,6 @@ $context = Timber::get_context();
 $context['post'] = new Post();
 
 $context['post']->node_type    = 'HorizontalPage';
-$context['post']->body_classes = array( 'Horizontal-page' );
+$context['post']->body_classes = array( 'Contact-page', 'Horizontal-page' );
 
-Timber::render( 'pages/horizontal-page.html.twig', $context );
+Timber::render( 'pages/contact-page.html.twig', $context );

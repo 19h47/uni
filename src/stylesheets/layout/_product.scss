@@ -52,19 +52,12 @@
 			@include media-breakpoint-up(md) {
 				@include size(#{(2000 * 100) / $prototype-width-unitless}vw, 100%);
 				@include padding(
-					top #{(36 * 100) / $prototype-height-unitless}vh bottom #{(36 * 100) /
+					top #{(60 * 100) / $prototype-height-unitless}vh bottom #{(60 * 100) /
 						$prototype-height-unitless}vh
 				);
 
 				grid-template-columns: repeat(10, 1fr);
 				grid-template-rows: repeat(11, 1fr);
-			}
-
-			@include media-breakpoint-up(hd) {
-				@include padding(
-					top #{(60 * 100) / $prototype-height-unitless}vh bottom #{(60 * 100) /
-						$prototype-height-unitless}vh
-				);
 			}
 		}
 

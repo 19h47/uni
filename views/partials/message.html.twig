@@ -1,0 +1,9 @@
+<p>Adresse e-mail<br>{{ post.meta( 'email' ) }}</p>
+<p>Vous êtes intéressé(e) par ?<br>{{- post.meta( 'interest' ) -}}</p>
+<p>L’objet de votre message<br>{{- post.meta( 'subject' ) -}}</p>
+<p>Vous êtes ?<br>{{- post.meta( 'you' ) -}}</p>
+<p>Votre message<br>{{ post.meta( 'message' ) }}</p>
+
+{% if post.meta( 'about-us' ) %}
+	<p>Comment nous avez-vous connus ?<br>{{- post.meta( 'about-us' ) -}}</p>
+{% endif %}

@@ -11,7 +11,6 @@
 	}
 
 	&__wrapper {
-		@include padding();
 		@extend %position-relative;
 		@extend .d-md-flex;
 	}
@@ -86,7 +85,7 @@
 
 				@include media-breakpoint-up(md) {
 					@include font-sizes(25);
-					@include padding(right #{(10/30)}em);
+					@include padding(top #{(20/30)}em right #{(10/30)}em bottom #{(20/30)}em);
 
 					width: percentage(200 / 1000);
 					border-bottom: 1px solid the_color(gray, very-dark);
@@ -126,11 +125,14 @@
 			}
 
 			.actions {
-				@include padding(top #{(20 * 60) / 100}px bottom #{(20 * 60) / 100}px);
-				@include media-breakpoint-up(hd) {
-					@include padding(top #{(20/30)}em bottom #{(20/30)}em);
-				}
 				width: 100%;
+
+				.Coupon {
+					@include padding(top #{(20 * 60) / 100}px bottom #{(20 * 60) / 100}px);
+					@include media-breakpoint-up(hd) {
+						@include padding(top #{(20/30)}em bottom #{(20/30)}em);
+					}
+				}
 			}
 		}
 

@@ -61,10 +61,13 @@ class Enqueue {
 				'current_url'            => get_permalink(),
 				'nonce'                  => wp_create_nonce( 'security' ),
 				'messages'               => array(
-					'value_missing' => _x( 'Please fill out this field.', 'messages', 'uni' ),
+					'value_missing' => array(
+						'default' => _x( 'Please fill out this field.', 'messages', 'uni' ),
+					),
 					'type_mismatch' => array(
-						'email' => _x( 'Please enter an email address.', 'messages', 'uni' ),
-						'url'   => _x( 'Please enter a URL.', 'messages', 'uni' ),
+						'email'   => _x( 'Please enter an email address.', 'messages', 'uni' ),
+						'url'     => _x( 'Please enter a URL.', 'messages', 'uni' ),
+						'default' => _x( 'Please match the expected format.', 'messages', 'uni' ),
 					),
 				),
 			)

@@ -41,7 +41,7 @@
 
 		@include media-breakpoint-up(md) {
 			@include padding(
-				top #{(36 * 100) / $prototype-height-unitless}vh right 0 bottom #{(36 * 100) /
+				top #{(60 * 100) / $prototype-height-unitless}vh right 0 bottom #{(60 * 100) /
 					$prototype-height-unitless}vh left 0
 			);
 			max-height: 100%;

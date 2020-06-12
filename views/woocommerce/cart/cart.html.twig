@@ -87,20 +87,22 @@
 			<tfoot>
 
 				<tr>
-					<td colspan="5" class="actions text-align-md-right padding-top-2 padding-top-md-5">
+					<td colspan="5" class="actions">
 
-						{#
-						 # Hook: woocommerce_cart_actions.
-						 #
-						 # @hooked UNI\Plugins\WooCommerce::cart_actions - 10
-						 #}
-						{% do action( 'woocommerce_cart_actions' ) %}
+						<div class="text-align-md-right padding-top-2 padding-top-md-5">
+							{#
+							# Hook: woocommerce_cart_actions.
+							#
+							# @hooked UNI\Plugins\WooCommerce::cart_actions - 10
+							#}
+							{% do action( 'woocommerce_cart_actions' ) %}
 
-						<button type="submit" class="Button button" name="update_cart" value="{{ __( 'Update cart', 'uni' ) }}">
-							{{- __( 'Update cart', 'uni' ) -}}
-						</button>
+							<button type="submit" class="Button button" name="update_cart" value="{{ __( 'Update cart', 'uni' ) }}">
+								{{- __( 'Update cart', 'uni' ) -}}
+							</button>
 
-						{{ nonce_field }}
+							{{- nonce_field -}}
+						</div>
 
 					</td>
 

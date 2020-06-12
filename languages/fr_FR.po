@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: uni\n"
-"POT-Creation-Date: 2020-06-05 19:01+0200\n"
-"PO-Revision-Date: 2020-06-05 19:01+0200\n"
+"POT-Creation-Date: 2020-06-11 20:22+0200\n"
+"PO-Revision-Date: 2020-06-12 07:45+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fr_FR\n"
@@ -77,14 +77,176 @@ msgstr "Utilisateur Mailchimp"
 msgid "Mailchimp id"
 msgstr "Identifiant Mailchimp"
 
+#. translators: Publish box date format, see https://secure.php.net/date
+#: inc/Core/Message.php:42 inc/Core/Project.php:153
+msgid "M j, Y @ H:i"
+msgstr "M j, Y @ H:i"
+
+#: inc/Core/Message.php:47 inc/Core/Message.php:95
+msgid "View Message"
+msgstr "Voir le message"
+
+#: inc/Core/Message.php:53 inc/Core/Message.php:59
+msgid "Preview Message"
+msgstr "Prévisualiser le message"
+
+#: inc/Core/Message.php:64 inc/Core/Message.php:67 inc/Core/Message.php:117
+msgid "Message updated."
+msgstr "Message mis à jour."
+
+#: inc/Core/Message.php:65 inc/Core/Project.php:176
+msgid "Custom field updated."
+msgstr "Champ personnalisé mis à jour."
+
+#: inc/Core/Message.php:66 inc/Core/Project.php:177
+msgid "Custom field deleted."
+msgstr "Champ personnalisé supprimé."
+
+#. translators: %s: date and time of the revision
+#: inc/Core/Message.php:69
+#, php-format
+msgid "Message restored to revision from %s."
+msgstr "Message rétabli à partir de la révision du %s."
+
+#: inc/Core/Message.php:70 inc/Core/Message.php:113
+msgid "Message published."
+msgstr "Message mis en ligne."
+
+#: inc/Core/Message.php:71
+msgid "Message saved."
+msgstr "Message enregistré."
+
+#: inc/Core/Message.php:72
+msgid "Message submitted."
+msgstr "Message envoyé."
+
+#: inc/Core/Message.php:73
+#, php-format
+msgid "Message scheduled for: %s."
+msgstr "Message planifié pour le : %s."
+
+#: inc/Core/Message.php:74
+msgid "Message draft updated."
+msgstr "Le brouillon du message a été mis à jour."
+
+#: inc/Core/Message.php:89
+msgctxt "message general name"
+msgid "Messages"
+msgstr "Messages"
+
+#: inc/Core/Message.php:90
+msgctxt "message singular name"
+msgid "Message"
+msgstr "Message"
+
+#: inc/Core/Message.php:91
+msgctxt "message"
+msgid "Add New"
+msgstr "Ajouter"
+
+#: inc/Core/Message.php:92
+msgid "Add New Messages"
+msgstr "Ajouter un nouveau message"
+
+#: inc/Core/Message.php:93
+msgid "Edit Message"
+msgstr "Modifier le message"
+
+#: inc/Core/Message.php:94
+msgid "New Message"
+msgstr "Nouveau message"
+
+#: inc/Core/Message.php:96
+msgid "View Messages"
+msgstr "Voir le message"
+
+#: inc/Core/Message.php:97
+msgid "Search Messages"
+msgstr "Rechercher des messages"
+
+#: inc/Core/Message.php:98
+msgid "No messages found."
+msgstr "Aucun message trouvé."
+
+#: inc/Core/Message.php:99
+msgid "No messages found in Trash."
+msgstr "Aucun message trouvé dans la corbeille."
+
+#: inc/Core/Message.php:100
+msgid "Parent Message:"
+msgstr "Message parent :"
+
+#: inc/Core/Message.php:101
+msgid "All messages"
+msgstr "Tous les messages"
+
+#: inc/Core/Message.php:102
+msgid "Message Archives"
+msgstr "Archives des messages"
+
+#: inc/Core/Message.php:103
+msgid "Message Attributes"
+msgstr "Attributs de messages"
+
+#: inc/Core/Message.php:104
+msgid "Insert into message"
+msgstr "Insérer dans le message"
+
+#: inc/Core/Message.php:105
+msgid "Uploaded to this message"
+msgstr "Téléversés sur ce message"
+
+#: inc/Core/Message.php:106
+msgctxt "message"
+msgid "Featured Image"
+msgstr "Image mise en avant"
+
+#: inc/Core/Message.php:107
+msgctxt "message"
+msgid "Set featured image"
+msgstr "Définir l’image mise en avant"
+
+#: inc/Core/Message.php:108
+msgctxt "message"
+msgid "Remove featured image"
+msgstr "Supprimer l’image mise en avant"
+
+#: inc/Core/Message.php:109
+msgctxt "message"
+msgid "Use as featured image"
+msgstr "Utiliser comme image mise en avant"
+
+#: inc/Core/Message.php:110
+msgid "Filter messages list"
+msgstr "Filtrer la liste des messages"
+
+#: inc/Core/Message.php:111
+msgid "Messages list navigation"
+msgstr "Navigation de la liste des messages"
+
+#: inc/Core/Message.php:112
+msgid "Messages list"
+msgstr "Liste des messages"
+
+#: inc/Core/Message.php:114
+msgid "Message published privately."
+msgstr "Message mis en ligne en privé."
+
+#: inc/Core/Message.php:115
+msgid "Message reverted to draft."
+msgstr "Message reconverti en brouillon."
+
+#: inc/Core/Message.php:116
+msgid "Message scheduled."
+msgstr "Message planifié."
+
+#: inc/Core/Message.php:121
+msgid "Message"
+msgstr "Message"
+
 #: inc/Core/Project.php:99
 msgid "Thumbnail"
 msgstr "Miniature"
-
-#. translators: Publish box date format, see https://secure.php.net/date
-#: inc/Core/Project.php:153
-msgid "M j, Y @ H:i"
-msgstr "M j, Y @ H:i"
 
 #: inc/Core/Project.php:158 inc/Core/Project.php:236
 msgid "View Project"
@@ -97,14 +259,6 @@ msgstr "Prévisualiser le projet"
 #: inc/Core/Project.php:175 inc/Core/Project.php:178 inc/Core/Project.php:256
 msgid "Project updated."
 msgstr "Publication mise à jour."
-
-#: inc/Core/Project.php:176
-msgid "Custom field updated."
-msgstr "Champ personnalisé mis à jour."
-
-#: inc/Core/Project.php:177
-msgid "Custom field deleted."
-msgstr "Champ personnalisé supprimé."
 
 #. translators: %s: date and time of the revision
 #: inc/Core/Project.php:180
@@ -286,7 +440,7 @@ msgstr "Projet reconverti en brouillon."
 
 #: inc/Core/Project.php:255
 msgid "Project scheduled."
-msgstr "Projet planifiée."
+msgstr "Projet planifié."
 
 #: inc/Core/Project.php:265
 msgid "Project"
@@ -380,6 +534,10 @@ msgstr "Plus utilisés"
 msgid "&larr; Back to Categories"
 msgstr "&larr; Revenir aux catégories"
 
+#: inc/Core/SendMessage.php:77
+msgid "UNI: New message"
+msgstr "UNI : Nouveau message"
+
 #: inc/Plugins/ACF.php:148 inc/Plugins/ACF.php:149
 msgid "Projects Settings"
 msgstr "Paramètres des projects"
@@ -396,7 +554,7 @@ msgstr "Valider votre commande"
 msgid "Note"
 msgstr "Note"
 
-#: inc/Plugins/WooCommerce.php:169
+#: inc/Plugins/WooCommerce.php:169 views/pages/contact-page.html.twig:24
 msgid "Email address"
 msgstr "Adresse e-mail"
 
@@ -469,15 +627,15 @@ msgctxt "settings"
 msgid "Please select a page"
 msgstr "Veuillez choisir une page"
 
-#: inc/Setup/Theme.php:144
+#: inc/Setup/Theme.php:147
 msgid "Share on Twitter"
 msgstr "Partager sur Twitter"
 
-#: inc/Setup/Theme.php:151
+#: inc/Setup/Theme.php:154
 msgid "Share on Facebook"
 msgstr "Partager sur Facebook"
 
-#: inc/Setup/Theme.php:163
+#: inc/Setup/Theme.php:166
 msgid "Share on LinkedIn"
 msgstr "Partager sur LinkedIn"
 
@@ -541,7 +699,72 @@ msgstr "Crédits :"
 msgid "Collection N°"
 msgstr "Collection N°"
 
-#: views/pages/horizontal-page.html.twig:59
+#: views/pages/contact-page.html.twig:28
+msgctxt "contact page"
+msgid "Are you interested in?"
+msgstr "Vous êtes intéressé(e) par ?"
+
+#: views/pages/contact-page.html.twig:30
+msgctxt "contact page"
+msgid "Habitat"
+msgstr "L’habitat"
+
+#: views/pages/contact-page.html.twig:31
+msgctxt "contact page"
+msgid "Object"
+msgstr "L’objet"
+
+#: views/pages/contact-page.html.twig:35
+msgctxt "contact page"
+msgid "The subject of your message"
+msgstr "L’objet de votre message"
+
+#: views/pages/contact-page.html.twig:41
+msgctxt "contact page"
+msgid "You are?"
+msgstr "Vous êtes ?"
+
+#: views/pages/contact-page.html.twig:43
+msgctxt "contact page"
+msgid "A particular"
+msgstr "Un particulier"
+
+#: views/pages/contact-page.html.twig:44
+msgctxt "contact page"
+msgid "A professional"
+msgstr "Un professionnel"
+
+#: views/pages/contact-page.html.twig:45
+msgctxt "contact page"
+msgid "A shop"
+msgstr "Une boutique"
+
+#: views/pages/contact-page.html.twig:46
+msgctxt "contact page"
+msgid "Other"
+msgstr "Autre"
+
+#: views/pages/contact-page.html.twig:50
+msgctxt "contact page"
+msgid "How did you hear about us?"
+msgstr "Comment nous avez-vous connus ?"
+
+#: views/pages/contact-page.html.twig:56
+msgctxt "contact page"
+msgid "Your message"
+msgstr "Votre message"
+
+#: views/pages/contact-page.html.twig:61
+msgctxt "contact page"
+msgid "Send"
+msgstr "Envoyez"
+
+#: views/pages/contact-page.html.twig:63
+msgctxt "contact page"
+msgid "All fields marked with * are required"
+msgstr "Les champs suivis d’un astérisque* sont obligatoire"
+
+#: views/pages/horizontal-page.html.twig:55
 msgid "Discover our online store"
 msgstr "Découvrir notre boutique en ligne"
 
@@ -561,7 +784,7 @@ msgstr "Accéder à votre panier"
 msgid "In the same collection"
 msgstr "Dans la même collection"
 
-#: views/pages/single-project.html.twig:62
+#: views/pages/single-project.html.twig:71
 msgid "Next Project"
 msgstr "Projet suivant"
 
@@ -692,8 +915,8 @@ msgstr "Code promo"
 msgid "Apply coupon"
 msgstr "Appliquer le code promo"
 
-#: views/woocommerce/cart/cart.html.twig:99
 #: views/woocommerce/cart/cart.html.twig:100
+#: views/woocommerce/cart/cart.html.twig:101
 msgid "Update cart"
 msgstr "Mettre à jour le panier"
 
@@ -788,7 +1011,7 @@ msgstr ""
 "paiement disponibles."
 
 #. $1 and $2 opening and closing emphasis tags respectively
-#: views/woocommerce/checkout/payment.html.twig:41
+#: views/woocommerce/checkout/payment.html.twig:40
 #, php-format
 msgid ""
 "Since your browser does not support JavaScript, or it is disabled, please "
@@ -800,8 +1023,8 @@ msgstr ""
 "passer votre commande. Vous pouvez être facturé plus que le montant indiqué "
 "ci-dessus si vous omettez de le faire."
 
+#: views/woocommerce/checkout/payment.html.twig:42
 #: views/woocommerce/checkout/payment.html.twig:43
-#: views/woocommerce/checkout/payment.html.twig:44
 msgid "Update totals"
 msgstr "Mise à jour des totaux"
 
@@ -907,6 +1130,9 @@ msgstr "19h47"
 msgid "https://19h47.fr/"
 msgstr "https://19h47.fr/"
 
+#~ msgid "View Contact"
+#~ msgstr "Contact"
+
 #~ msgid "Enable for upcoming product"
 #~ msgstr "Activer pour le produit à venir"
 
@@ -915,9 +1141,6 @@ msgstr "https://19h47.fr/"
 #~ msgctxt "project category singular name"
 #~ msgid "Company"
 #~ msgstr "Entreprise"
-
-#~ msgid "Pages"
-#~ msgstr "Pages"
 
 #~ msgid "Let's meet up:"
 #~ msgstr "Rencontrons nous :"

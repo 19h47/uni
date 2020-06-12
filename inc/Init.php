@@ -41,6 +41,7 @@ class Init {
 			Core\Product::class,
 			Core\Project::class,
 			Core\ProjectCat::class,
+			Core\Message::class,
 		);
 	}
 

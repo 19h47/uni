@@ -1,0 +1,74 @@
+{#
+ # Contact page
+ #
+ #}
+{% extends 'index.html.twig' %}
+
+{% block content %}
+
+	<div class="Horizontal-page__section js-section">
+		<div class="Horizontal-page__track js-track">
+
+			<div class="Horizontal-page__wrapper js-wrapper">
+
+				<form id="contact-block" class="Contact-page__content page-block" data-node-type="ContactBlock">
+
+					<div class="Page__content__title">
+						<h1><span>|&nbsp;U&nbsp;|&nbsp;N&nbsp;|&nbsp;I&nbsp;|</span>{{- post.title -}}</h1>
+					</div>
+					<div class="Wysiwyg">{{- post.content -}}</div>
+					<div><p>contact@uni-habitat.fr</p></div>
+					<div><p>contact@uni-objets.fr</p></div>
+					<div>
+						<p class="Input">
+							<label for="email" class="">{{- __( 'Email address', 'uni' ) -}}&nbsp;<abbr class="required" title="obligatoire">*</abbr></label>
+							<input id="email" name="email" type="email" value="" autocomplete="email" required>
+						</p>
+						<p class="Input">
+							<label for="interest" class="">{{- _x( 'Are you interested in?', 'contact page', 'uni' ) -}}&nbsp;<abbr class="required" title="obligatoire">*</abbr></label>
+							<select id="interest" name="interest" required>
+								<option value="habitat">{{- _x( 'Habitat', 'contact page', 'uni' ) -}}</option>
+								<option value="object">{{- _x( 'Object', 'contact page', 'uni' ) -}}</option>
+							</select>
+						</p>
+						<p class="Input">
+							<label for="subject" class="">{{- _x( 'The subject of your message', 'contact page', 'uni' ) -}}&nbsp;<abbr class="required" title="obligatoire">*</abbr></label>
+							<input id="subject" name="subject" type="text" value="" required>
+						</p>
+					</div>
+					<div>
+						<p class="Input">
+							<label for="you" class="">{{- _x( 'You are?', 'contact page', 'uni' ) -}}&nbsp;<abbr class="required" title="obligatoire">*</abbr></label>
+							<select id="you" name="you" required>
+								<option value="a-particular">{{- _x( 'A particular', 'contact page', 'uni' ) -}}</option>
+								<option value="a-professional">{{- _x( 'A professional', 'contact page', 'uni' ) -}}</option>
+								<option value="a-shop">{{- _x( 'A shop', 'contact page', 'uni' ) -}}</option>
+								<option value="other">{{- _x( 'Other', 'contact page', 'uni' ) -}}</option>
+							</select>
+						</p>
+						<p class="Input">
+							<label for="about-us" class="">{{- _x( 'How did you hear about us?', 'contact page', 'uni' ) -}}</label>
+							<textarea id="about-us" name="about-us"></textarea>
+						</p>
+					</div>
+					<div>
+						<p class="Input">
+							<label for="message" class="">{{- _x( 'Your message', 'contact page', 'uni' ) -}}&nbsp;<abbr class="required" title="obligatoire">*</abbr></label>
+							<textarea id="message" class="" name="message" required></textarea>
+						</p>
+					</div>
+					<div>
+						<p><button type="submit" class="Button w-100" id="">{{- _x( 'Send', 'contact page', 'uni' ) -}}</button></p>
+					</div>
+					<div><p class="Contact-page__mandatory">{{- _x( 'All fields marked with * are required', 'contact page', 'uni' ) -}}</p></div>
+
+				</form>
+
+			</div>
+
+			{% include 'components/footer-horizontal.html.twig' %}
+
+		</div>
+	</div>
+
+{% endblock  %}

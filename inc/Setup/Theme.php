@@ -10,6 +10,7 @@ namespace UNI\Setup;
 
 use Timber\{ Timber, Menu };
 use Twig\{ TwigFunction };
+use UNI\Core\{ SendMessage };
 
 $timber = new Timber();
 
@@ -36,6 +37,8 @@ class Theme {
 	 */
 	public function run() : void {
 		$this->theme_manifest = get_theme_manifest();
+
+		new SendMessage();
 
 		add_filter( 'timber/twig', array( $this, 'add_to_twig' ) );
 		add_filter( 'timber_context', array( $this, 'add_socials_to_context' ) );

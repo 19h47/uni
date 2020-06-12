@@ -12,6 +12,7 @@
 		top 7em right #{(200 * 100) / $prototype-width-unitless}vw bottom 7em left #{(200 * 100) /
 			$prototype-width-unitless}vw
 	);
+	@include margin(top 20px);
 
 	flex-flow: wrap;
 

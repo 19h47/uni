@@ -25,7 +25,7 @@
 
 			<div class="Horizontal-page__wrapper js-wrapper">
 				<div class="Single-project__grid">
-					<div class="Single-project__title">
+					<div class="Single-project__title js-title">
 						<h1>
 							<span>{{- post.get_terms( 'project_cat' ) | map( cat => cat.name ) | join( ', ' ) -}}</span>
 							{{- post.title -}}
@@ -53,18 +53,18 @@
 					</div>
 				{% endif %}
 
-				<div class="Single-project__content">
-					<div class="Single-project__title">
-						<h1>
-							<span>{{- projects_settings.subtitle -}}</span>
-							{{- projects_settings.title -}}
-						</h1>
-					</div>
-					<div class="Wysiwyg">
-						{{- projects_settings.content -}}
-					</div>
-				</div>
+			</div>
 
+			<div class="Single-project__content">
+				<div class="Single-project__title">
+					<h1>
+						<span>{{- projects_settings.subtitle -}}</span>
+						{{- projects_settings.title -}}
+					</h1>
+				</div>
+				<div class="Wysiwyg">
+					{{- projects_settings.content -}}
+				</div>
 			</div>
 
 			{% if post.next %}

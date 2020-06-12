@@ -7,6 +7,10 @@
  *
  */
 .Single-project {
+	.Horizontal-page__wrapper {
+		background-color: the_color(white);
+	}
+
 	&__readmore {
 		@include font-sizes(35);
 
@@ -38,12 +42,17 @@
 		@include media-breakpoint-up(md) {
 			@include size(#{((5 * 200) * 100) / $prototype-width-unitless}vw, 100%);
 			@include padding(
-				top #{(36 * 100) / $prototype-height-unitless}vh bottom #{(36 * 100) /
+				top #{(60 * 100) / $prototype-height-unitless}vh bottom #{(60 * 100) /
 					$prototype-height-unitless}vh
 			);
 
 			grid-template-columns: repeat(5, 1fr);
 			grid-template-rows: repeat(11, 1fr);
+		}
+
+		.Single-project__title {
+			color: the_color(white);
+			mix-blend-mode: difference;
 		}
 	}
 
@@ -68,9 +77,10 @@
 
 		@include media-breakpoint-up(md) {
 			@include padding(
-				top #{(36 * 100) / $prototype-height-unitless}vh bottom #{(36 * 100) /
+				top #{(60 * 100) / $prototype-height-unitless}vh bottom #{(60 * 100) /
 					$prototype-height-unitless}vh
 			);
+			@include margin(left #{((200 * -3) * 100) / $prototype-width-unitless}vw);
 		}
 	}
 
@@ -140,7 +150,7 @@
 		@include media-breakpoint-up(md) {
 			@include size(#{((8 * 200) * 100) / $prototype-width-unitless}vw, 100%);
 			@include padding(
-				top #{(36 * 100) / $prototype-height-unitless}vh bottom #{(36 * 100) /
+				top #{(60 * 100) / $prototype-height-unitless}vh bottom #{(60 * 100) /
 					$prototype-height-unitless}vh
 			);
 
@@ -183,7 +193,7 @@
 					bottom 20px
 			);
 			@include padding(
-				top #{(36 * 100) / $prototype-height-unitless}vh right 0 bottom #{(36 * 100) /
+				top #{(60 * 100) / $prototype-height-unitless}vh right 0 bottom #{(60 * 100) /
 					$prototype-height-unitless}vh left 0
 			);
 		}

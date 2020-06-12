@@ -75,6 +75,7 @@ module.exports = merge(common, {
 				'Horizontal-page',
 				'Page',
 				'Single-product',
+				'Single-project',
 				// template
 				'page-template-horizontal-page',
 				'page-template-archive-page',

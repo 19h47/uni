@@ -6,7 +6,7 @@ for (var i = 0; i < forms.length; i++) {
 }
 
 // Validate the field
-var hasError = function(field) {
+var hasError = function (field) {
 	// Don't validate submits, buttons, file and reset inputs, and disabled fields
 	if (
 		field.disabled ||
@@ -24,7 +24,7 @@ var hasError = function(field) {
 	if (validity.valid) return;
 
 	// If field is required and empty
-	if (validity.valueMissing) return uni.messages.value_missing;
+	if (validity.valueMissing) return uni.messages.value_missing.default;
 
 	// If not the right type
 	if (validity.typeMismatch) {
@@ -83,7 +83,7 @@ var hasError = function(field) {
 };
 
 // Show an error message
-var showError = function(field, error) {
+var showError = function (field, error) {
 	// Add error class to field
 	field.classList.add('error');
 
@@ -137,7 +137,7 @@ var showError = function(field, error) {
 };
 
 // Remove the error message
-var removeError = function(field) {
+var removeError = function (field) {
 	// Remove error class to field
 	field.classList.remove('error');
 
@@ -171,7 +171,7 @@ var removeError = function(field) {
 
 // Serialize the form data into a query string
 // Forked and modified from https://stackoverflow.com/a/30153391/1293256
-var serialize = function(form) {
+var serialize = function (form) {
 	// Setup our serialized data
 	var serialized = '';
 
@@ -201,7 +201,7 @@ var serialize = function(form) {
 };
 
 // Display the form status
-window.displayMailChimpStatus = function(data) {
+window.displayMailChimpStatus = function (data) {
 	// Make sure the data is in the right format and that there's a status container
 	if (!data.result || !data.msg || !mcStatus) return;
 
@@ -221,7 +221,7 @@ window.displayMailChimpStatus = function(data) {
 };
 
 // Submit the form
-var submitMailChimpForm = function(form) {
+var submitMailChimpForm = function (form) {
 	// Get the Submit URL
 	var url = form.getAttribute('action');
 	url = url.replace('/post?u=', '/post-json?u=');
@@ -249,7 +249,7 @@ var submitMailChimpForm = function(form) {
 // Listen to all blur events
 document.addEventListener(
 	'blur',
-	function(event) {
+	function (event) {
 		// Only run if the field is in a form to be validated
 		if (!event.target.form || !event.target.form.classList.contains('validate')) return;
 
@@ -271,7 +271,7 @@ document.addEventListener(
 // Check all fields on submit
 document.addEventListener(
 	'submit',
-	function(event) {
+	function (event) {
 		// Only run on forms flagged for validation
 		if (!event.target.classList.contains('validate')) return;
 
