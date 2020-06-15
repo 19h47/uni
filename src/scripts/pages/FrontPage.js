@@ -1,11 +1,5 @@
 import { AbstractPage } from 'starting-blocks';
-import VirtualScroll from 'virtual-scroll';
-// import { elements } from 'scripts/config';
 import gsap from 'gsap';
-
-// const imagesLoaded = require('imagesloaded');
-
-// const clamp = (number, min, max) => Math.min(Math.max(number, min), max);
 
 /**
  * Front Page
@@ -17,60 +11,63 @@ export default class FrontPage extends AbstractPage {
 	constructor(container) {
 		super(container, 'FrontPage');
 
-		this.scroll = null;
 		this.currentTime = 0;
-		this.options = { preventTouch: true };
+		this.current = 0;
+		this.playing = false;
 	}
 
 	async init() {
-		this.$player = this.rootElement.querySelector('.js-player');
+		this.players = [...this.rootElement.querySelectorAll('.js-player')];
 		this.$content = this.rootElement.querySelector('.js-content');
 
-		this.$player.load();
-
-		this.initPlugins();
+		this.players[0].load();
 
 		await super.init();
-	}
-
-	initPlugins() {
-		this.scroll = new VirtualScroll(this.options);
 	}
 
 	initEvents() {
 		super.initEvents();
 
-		// this.scroll.on(event => {
-		// 	const { deltaY } = event;
+		this.rootElement.addEventListener('wheel', () => {
+			if (!this.playing) {
+				this.playing = true;
 
-		// 	this.currentTime += (deltaY * -1) / (this.$player.duration * 100);
-
-		// 	this.currentTime = clamp(this.currentTime, 0, this.$player.duration);
-
-		// 	gsap.to(this.$player, 0, {
-		// 		roundProps: this.currentTime,
-		// 		currentTime: this.currentTime,
-		// 	});
-		// 	gsap.to(this.$content, 0, {
-		// 		opacity: 1 - this.currentTime / (this.$player.duration * 0.5),
-		// 	});
-		// });
-
-		window.addEventListener('mousewheel', () => {
-			this.playing = true;
-			this.$player.play();
+				this.players[this.current].play();
+			}
 		});
 
-		this.$player.addEventListener('timeupdate', () => {
-			console.log(this.$player.currentTime);
+		this.rootElement.addEventListener('click', () => {
+			if (!this.playing) {
+				this.playing = true;
 
-			gsap.to(this.$content, 0, {
-				opacity: 1 - this.$player.currentTime / (this.$player.duration * 0.5),
+				this.players[this.current].play();
+			}
+		});
+
+		this.players.forEach(($player, index) => {
+			$player.addEventListener('timeupdate', () => {
+				gsap.to(this.$content, 0, {
+					autoAlpha:
+						0 === this.current
+							? 1 - $player.currentTime / ($player.duration * 0.5)
+							: 0 + $player.currentTime / ($player.duration * 0.5),
+				});
 			});
-		});
 
-		this.$player.addEventListener('ended', () => {
-			this.playing = false;
+			$player.addEventListener('ended', () => {
+				this.playing = false;
+
+				$player.classList.add('is-hidden');
+				$player.currentTime = 0;
+
+				if (0 === index) {
+					this.current = 1;
+					this.players[1].classList.remove('is-hidden');
+				} else {
+					this.current = 0;
+					this.players[0].classList.remove('is-hidden');
+				}
+			});
 		});
 	}
 

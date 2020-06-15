@@ -26,13 +26,12 @@
 		"flickity": "^2.2.1",
 		"flickity-imagesloaded": "^2.0.0",
 		"formbouncerjs": "^1.4.6",
-		"gsap": "^3.3.1",
+		"gsap": "^3.3.3",
 		"imagesloaded": "^4.1.4",
 		"prettier": "^2.0.5",
 		"ress": "^2.0.4",
 		"smooth-scrolling": "^2.3.12",
-		"starting-blocks": "^5.0.7",
-		"virtual-scroll": "ayamflow/virtual-scroll"
+		"starting-blocks": "^5.0.7"
 	},
 	"devDependencies": {
 		"@19h47/prettier-config": "^1.0.0",
@@ -47,7 +46,7 @@
 		"clean-webpack-plugin": "^3.0.0",
 		"compression-webpack-plugin": "^4.0.0",
 		"core-js": "^3.6.5",
-		"css-loader": "^3.5.3",
+		"css-loader": "^3.6.0",
 		"cssnano": "^4.1.10",
 		"dotenv": "^8.2.0",
 		"eslint": "^7.2.0",
@@ -65,7 +64,7 @@
 		"node-sass": "^4.14.1",
 		"postcss-loader": "^3.0.0",
 		"postcss-object-fit-images": "^1.1.2",
-		"purgecss-webpack-plugin": "^2.2.0",
+		"purgecss-webpack-plugin": "^2.3.0",
 		"sass-loader": "^8.0.2",
 		"svg-sprite-loader": "^5.0.0",
 		"svg-transform-loader": "^2.0.13",

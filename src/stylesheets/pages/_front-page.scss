@@ -149,9 +149,17 @@
 
 		video {
 			@include size(100%);
+			@include absolute(top 0 right 0 bottom 0 left 0);
 
 			object-fit: cover;
 			object-position: center;
+			z-index: 2;
+
+			&.is-hidden {
+				@include autoAlpha(0);
+
+				z-index: 1;
+			}
 		}
 	}
 }

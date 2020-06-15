@@ -90,6 +90,7 @@ module.exports = merge(common, {
 				'is-in-view',
 				'is-native-scroll',
 				'is-selected',
+				'is-hidden',
 				'has-background',
 				'menu--is-open',
 				'modal--is-open',

@@ -13,8 +13,8 @@
 				{% include 'svg/use.html.twig' with { classes: [ 'd-md-none' ], icon: 'logo-mobile' } only %}
 			</div>
 			<div class="Wysiwyg Front-page__content js-content">{{- post.content -}}</div>
-			<div><a class="Front-page__link" href="{{ habitat_page }}">Explorer nos :<span>Habitat</span></a></div>
-			<div><a class="Front-page__link" href="{{ objects_page }}">Découvrir nos :<span>Objets</span></a></div>
+			<div><a class="Front-page__link" href="{{ habitat_page }}">{{- _x( 'Explore our:', 'front page', 'uni' ) -}}<span>{{- __( 'Habitat', 'uni' ) -}}</span></a></div>
+			<div><a class="Front-page__link" href="{{ objects_page }}">{{- _x( 'Discover our:', 'front page', 'uni' ) -}}<span>{{- __( 'Objects', 'uni' ) -}}</span></a></div>
 			<div class="Front-page__footer Wysiwyg">
 				{{- post.meta( 'footer' ) ? post.meta( 'footer' ) -}}
 			</div>
@@ -22,7 +22,10 @@
 
 		<div class="Front-page__video">
 			<video class="js-player" preload="auto" muted>
-				<source src="{{ theme.link }}/{{ manifest['videos/front-page.mp4'] }}" type="video/mp4">
+				<source src="{{ theme.link }}/{{ manifest['videos/front-page-forward.mp4'] }}" type="video/mp4">
+			</video>
+			<video class="js-player is-hidden" preload="auto" muted>
+				<source src="{{ theme.link }}/{{ manifest['videos/front-page-backward.mp4'] }}" type="video/mp4">
 			</video>
 		</div>
 	</div>

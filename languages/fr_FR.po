@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: uni\n"
-"POT-Creation-Date: 2020-06-11 20:22+0200\n"
-"PO-Revision-Date: 2020-06-12 07:45+0200\n"
+"POT-Creation-Date: 2020-06-15 09:50+0200\n"
+"PO-Revision-Date: 2020-06-15 09:51+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fr_FR\n"
@@ -575,20 +575,25 @@ msgstr "Retour à la boutique"
 msgid "Upcoming Product"
 msgstr "Produit à venir"
 
-#: inc/Setup/Enqueue.php:64
+#: inc/Setup/Enqueue.php:65
 msgctxt "messages"
 msgid "Please fill out this field."
 msgstr "Veuillez remplir ce champ."
 
-#: inc/Setup/Enqueue.php:66
+#: inc/Setup/Enqueue.php:68
 msgctxt "messages"
 msgid "Please enter an email address."
 msgstr "Veuillez entrer une adresse email."
 
-#: inc/Setup/Enqueue.php:67
+#: inc/Setup/Enqueue.php:69
 msgctxt "messages"
 msgid "Please enter a URL."
 msgstr "Veuillez entrer une URL."
+
+#: inc/Setup/Enqueue.php:70
+msgctxt "messages"
+msgid "Please match the expected format."
+msgstr "Veuillez correspondre au format attendu."
 
 #: inc/Setup/Menus.php:33
 msgid "Main Primary"
@@ -764,6 +769,16 @@ msgctxt "contact page"
 msgid "All fields marked with * are required"
 msgstr "Les champs suivis d’un astérisque* sont obligatoire"
 
+#: views/pages/front-page.html.twig:16
+msgctxt "front page"
+msgid "Explore our:"
+msgstr "Explorer nos :"
+
+#: views/pages/front-page.html.twig:17
+msgctxt "front page"
+msgid "Discover our:"
+msgstr "Découvrir nos :"
+
 #: views/pages/horizontal-page.html.twig:55
 msgid "Discover our online store"
 msgstr "Découvrir notre boutique en ligne"
@@ -784,7 +799,7 @@ msgstr "Accéder à votre panier"
 msgid "In the same collection"
 msgstr "Dans la même collection"
 
-#: views/pages/single-project.html.twig:71
+#: views/pages/single-project.html.twig:75
 msgid "Next Project"
 msgstr "Projet suivant"
 
