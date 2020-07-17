@@ -1,4 +1,5 @@
 import { AbstractPage } from 'starting-blocks';
+import mediaBreakpointUp from 'utils/mediaBreakpointUp';
 import gsap from 'gsap';
 
 /**
@@ -26,6 +27,10 @@ export default class FrontPage extends AbstractPage {
 	}
 
 	initEvents() {
+		if (!mediaBreakpointUp('md')) {
+			return;
+		}
+
 		super.initEvents();
 
 		this.rootElement.addEventListener('wheel', () => {

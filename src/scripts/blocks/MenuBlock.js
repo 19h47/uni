@@ -98,6 +98,11 @@ export default class MenuBlock extends AbstractBlock {
 		// When menu is open, disableScroll
 		this.disableScroll();
 
+		const projectInformations = this.page.blocks.find(
+			block => 'project-informations' === block.id,
+		);
+		projectInformations.close();
+
 		return true;
 	}
 

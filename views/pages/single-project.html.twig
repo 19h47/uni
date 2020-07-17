@@ -5,7 +5,7 @@
 
 {% block content %}
 
-	<div id="project-informations-{{ post.id }}" class="Single-project__informations page-block" data-node-type="ProjectInformationsBlock">
+	<div id="project-informations" class="Single-project__informations page-block" data-node-type="ProjectInformationsBlock">
 		<div class="Single-project__title">
 			<h1>
 				<span>{{- post.get_terms( 'project_cat' ) | map( cat => cat.name ) | join( ', ' ) -}}</span>
