@@ -5,7 +5,7 @@
  *
  */
 .Heading {
-	@extend .d-md-flex, .align-items-md-center;
+	@extend .d-md-flex, .align-items-md-center, .justify-content-center;
 	@extend %position-relative;
 	@include margin(top 20px bottom 20px);
 
