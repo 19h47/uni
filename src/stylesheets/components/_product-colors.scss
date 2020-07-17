@@ -65,10 +65,10 @@
 			border-radius: map-get($borders, radius);
 			transition: box-shadow 0.7s map-get($easings, ease-out-expo);
 
-			@include size(#{(50 * 60) / 100}px);
+			@include size(#{(25 * 60) / 100}px);
 
 			@include media-breakpoint-up(hd) {
-				@include size(#{(50/30)}em);
+				@include size(#{(25/30)}em);
 			}
 
 			&.is-active {
@@ -77,12 +77,6 @@
 
 			@at-root .Loop #{ $this } #{ $this }__item a {
 				border-radius: map-get($borders, radius);
-
-				@include size(#{(25 * 60) / 100}px);
-
-				@include media-breakpoint-up(hd) {
-					@include size(#{(25/30)}em);
-				}
 			}
 
 			@at-root .Loop #{ $this } #{ $this }__item a.is-active {
