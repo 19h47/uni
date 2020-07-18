@@ -51,11 +51,19 @@ class Transients {
 	public static function product_colors( int $id ) : array {
 		$transient = get_transient( 'uni_product_colors_' . $id );
 
-		if ( $transient ) {
-			return $transient;
+		// if ( $transient ) {
+		// 	return $transient;
+		// }
+
+		$product_colors = get_field( 'product_colors', $id );
+
+		if ( ! $product_colors ) {
+			set_transient( 'uni_product_colors_' . $id, array() );
+
+			return array();
 		}
 
-		$products = Timber::get_posts( get_field( 'product_colors', $id ) );
+		$products = Timber::get_posts( $product_colors );
 
 		$product_tag = get_the_terms( $id, 'product_tag' );
 		$variations  = array();
