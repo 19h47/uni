@@ -20,6 +20,7 @@ export default class FrontPage extends AbstractPage {
 	async init() {
 		this.players = [...this.rootElement.querySelectorAll('.js-player')];
 		this.$content = this.rootElement.querySelector('.js-content');
+		this.$grid = this.rootElement.querySelector('.js-grid');
 
 		this.players[0].load();
 
@@ -33,7 +34,7 @@ export default class FrontPage extends AbstractPage {
 
 		super.initEvents();
 
-		this.rootElement.addEventListener('wheel', () => {
+		this.$grid.addEventListener('wheel', () => {
 			if (!this.playing) {
 				this.playing = true;
 
@@ -41,7 +42,7 @@ export default class FrontPage extends AbstractPage {
 			}
 		});
 
-		this.rootElement.addEventListener('click', () => {
+		this.$grid.addEventListener('click', () => {
 			if (!this.playing) {
 				this.playing = true;
 
