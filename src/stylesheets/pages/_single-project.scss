@@ -18,7 +18,7 @@
 	}
 
 	&__grid {
-		@include padding(top 100px bottom 20px);
+		@include padding(top 80px bottom 20px);
 		@include size(100%, auto);
 
 		display: grid;

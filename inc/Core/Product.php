@@ -38,6 +38,7 @@ class Product {
 	 */
 	public function save( int $post_ID, WP_Post $post, bool $update ) : void {
 		delete_transient( 'uni_product_variations_' . $post_ID );
+		delete_transient( 'uni_product_colors_' . $post_id );
 		delete_transient( 'uni_related_products_' . $post_ID );
 	}
 }

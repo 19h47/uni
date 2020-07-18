@@ -27,20 +27,22 @@
 					<div class="Horizontal-page__gallery">
 						{% for image in post.meta( 'gallery' ) %}
 
-							{% set _product_link = TimberPost( image.id ).meta( 'product_link' ).link %}
+							{% set _product = TimberPost( image.id ).meta( 'product_link' ) %}
 
 							<div id="image-{{ image.id }}" class="Horizontal-page__image page-block" data-index="{{ loop.index }}" data-node-type="ImageBlock">
-								<div class="d-inline-block js-container h-100">
+								<div class="d-inline-block js-container h-100 w-100">
 
-									{% if _product_link %}
-										<a class="d-inline-block h-100 position-relative js-link" href="{{ _product_link }}">
+									{% if _product %}
+										<a class="d-inline-block h-100 position-relative js-link" href="{{ _product.link }}">
 									{% endif %}
 
 									{%- include 'partials/image.html.twig' with { image: image, loading: 'eager' } only -%}
 
-									{{ _product_link ? '</a>' | raw }}
+									{{ _product.link ? '</a>' | raw }}
 
 								</div>
+
+								{{- _product ? "<h5 class=\"text-align-right\">#{ _product.title }</h5>" -}}
 							</div>
 						{% endfor %}
 					</div>
@@ -52,7 +54,7 @@
 				with {
 					classes: [ 'color-gray-very-light-02', 'background-color-white' ],
 					link: post.meta( 'link' ).url | default( site.link ),
-					title: post.meta( 'link' ).title | default( __( 'Discover our online store', 'uni' ) )
+					title: post.meta( 'link' ).title | default( __( 'Discover<br>our online store', 'uni' ) )
 				}
 				only
 			%}

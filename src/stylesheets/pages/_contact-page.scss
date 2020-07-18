@@ -19,7 +19,7 @@
 	}
 
 	&__content {
-		@include padding(top 100px bottom 20px);
+		@include padding(top 80px bottom 20px);
 
 		@include media-breakpoint-up(md) {
 			@include padding(top 0 bottom 0);

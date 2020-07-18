@@ -8,7 +8,7 @@
 .Archive-page {
 	&__header {
 		@include size(100%, 100vh);
-		@include padding(top 100px bottom 20px);
+		@include padding(top 80px bottom 20px);
 
 		display: grid;
 		grid-template-columns: repeat(10, 1fr);

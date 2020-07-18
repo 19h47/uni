@@ -111,6 +111,8 @@ class WooCommerce {
 
 		add_filter( 'woocommerce_product_options_advanced', array( $this, 'product_options_advanced' ), 10 );
 		add_action( 'woocommerce_process_product_meta', array( $this, 'update_meta_data' ), 10, 1 );
+
+		add_action( 'woocommerce_single_product_price', 'woocommerce_template_single_price', 10, 1 );
 	}
 
 

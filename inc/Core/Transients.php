@@ -51,9 +51,9 @@ class Transients {
 	public static function product_colors( int $id ) : array {
 		$transient = get_transient( 'uni_product_colors_' . $id );
 
-		// if ( $transient ) {
-		// 	return $transient;
-		// }
+		if ( $transient ) {
+			return $transient;
+		}
 
 		$product_colors = get_field( 'product_colors', $id );
 

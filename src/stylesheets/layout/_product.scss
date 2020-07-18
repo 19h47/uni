@@ -7,7 +7,7 @@
  */
 .Product {
 	@extend .d-md-flex;
-	@include margin(top 100px bottom 20px);
+	@include margin(top 80px bottom 20px);
 
 	@include media-breakpoint-up(md) {
 		@include margin(top 0 bottom 0);

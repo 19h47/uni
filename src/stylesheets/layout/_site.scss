@@ -40,7 +40,7 @@
 	 *
 	 */
 	&-content {
-		@include margin(top 100px right 20px bottom 20px left 20px);
+		@include margin(top 80px right 20px bottom 20px left 20px);
 		@extend %position-relative /*, %overflow-hidden */;
 
 		max-width: calc(100% - 40px);

@@ -28,7 +28,7 @@
 							{% endif %}
 
 							{% if item.acf_fc_layout == 'image' %}
-								<li class="column-10">
+								<li class="column-{{ item.columns }}">
 									{% include 'partials/image.html.twig' with { image: item.image } %}
 								</li>
 							{% endif %}

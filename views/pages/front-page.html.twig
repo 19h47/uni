@@ -7,7 +7,7 @@
 
 {% block content %}
 	<div class="Site-content">
-		<div class="Front-page__grid">
+		<div class="Front-page__grid js-grid">
 			<div class="Front-page__logo">
 				{% include 'svg/use.html.twig' with { classes: [ 'd-none', 'd-md-inline' ], icon: 'logo-baseline' } only %}
 				{% include 'svg/use.html.twig' with { classes: [ 'd-md-none' ], icon: 'logo-mobile' } only %}
@@ -21,12 +21,16 @@
 		</div>
 
 		<div class="Front-page__video">
-			<video class="js-player" preload="auto" muted>
+			<video class="d-none d-md-block js-player" preload="auto" muted>
 				<source src="{{ theme.link }}/{{ manifest['videos/front-page-forward.mp4'] }}" type="video/mp4">
 			</video>
 			<video class="js-player is-hidden" preload="auto" muted>
 				<source src="{{ theme.link }}/{{ manifest['videos/front-page-backward.mp4'] }}" type="video/mp4">
 			</video>
+
+			{% if post.thumbnail %}
+				{% include 'partials/image.html.twig' with { image: post.thumbnail, classes: [ 'd-md-none' ] } %}
+			{% endif %}
 		</div>
 	</div>
 {% endblock %}

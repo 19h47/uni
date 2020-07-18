@@ -47,7 +47,17 @@
 				</ul>
 			</div>
 
-			{% include 'components/heading.html.twig' with { classes: [ 'color-gray-very-light-02', 'background-color-white' ], link: post.meta( 'link' ).url, title: post.meta( 'link' ).title  } only %}
+			{% if post.meta( 'link' ).url %}
+				{%
+					include 'components/heading.html.twig'
+					with {
+						classes: [ 'color-gray-very-light-02', 'background-color-white' ],
+						link: post.meta( 'link' ).url,
+						title: post.meta( 'link' ).title
+					}
+					only
+				%}
+			{% endif %}
 
 			{% include 'components/footer-horizontal.html.twig' %}
 

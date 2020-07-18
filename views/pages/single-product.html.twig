@@ -98,6 +98,15 @@
 
 							<div>
 								{#
+								 # Hook: woocommerce_single_product_price
+								 #
+								 #
+								 #}
+								 {% do action( 'woocommerce_single_product_price' ) %}
+							</div>
+
+							<div>
+								{#
 								 # Hook: woocommerce_single_product_add_to_cart
 								 #
 								 # @hooked woocommerce_template_single_add_to_cart - 30

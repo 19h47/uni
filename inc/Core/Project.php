@@ -41,7 +41,7 @@ class Project {
 	 * @return void
 	 */
 	public function save( int $post_id, WP_Post $post, bool $update ) : void {
-		delete_transient( 'uni_projects' );
+		delete_transient( 'uni_projects_' . pll_current_language() );
 	}
 
 
