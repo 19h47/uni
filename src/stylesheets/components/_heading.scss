@@ -7,7 +7,7 @@
 .Heading {
 	@extend .d-md-flex, .align-items-md-center, .justify-content-center;
 	@extend %position-relative;
-	@include margin(top 20px bottom 20px);
+	@include margin(top 40px bottom 40px);
 
 	z-index: 2;
 
