@@ -32,6 +32,7 @@
 
 		// background-color: the_color(yellow, dark-grayish);
 		height: 100%;
+		max-height: 100%;
 		z-index: 2;
 
 		@include media-breakpoint-up(md) {
@@ -40,6 +41,7 @@
 		}
 
 		div:nth-child(1) {
+			align-self: center;
 			grid-area: 1 / 1 / 3 / 11;
 
 			@include media-breakpoint-up(md) {
@@ -55,7 +57,7 @@
 		}
 		div:nth-child(3) {
 			align-self: center;
-			grid-area: 8 / 1 / 10 / 6;
+			grid-area: 6 / 1 / 10 / 6;
 
 			@include media-breakpoint-up(sm) {
 				grid-area: 7 / 1 / 9 / 6;
@@ -69,7 +71,7 @@
 		}
 		div:nth-child(4) {
 			align-self: center;
-			grid-area: 8 / 6 / 10 / 11;
+			grid-area: 6 / 6 / 10 / 11;
 
 			@include media-breakpoint-up(sm) {
 				grid-area: 7 / 6 / 9 / 11;
@@ -82,7 +84,7 @@
 			}
 		}
 		div:nth-child(5) {
-			grid-area: 10 / 1 / 11 / 11;
+			grid-area: 9 / 1 / 11 / 11;
 
 			@include media-breakpoint-up(sm) {
 				grid-area: 9 / 1 / 11 / 11;
@@ -102,7 +104,8 @@
 	}
 
 	&__logo {
-		svg {
+		svg,
+		img {
 			@include size(100%);
 		}
 	}
