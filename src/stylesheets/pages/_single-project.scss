@@ -73,11 +73,8 @@
 	}
 
 	&__images {
-		@extend .d-flex;
 		@extend %list-style-type-none;
-
-		flex-direction: row;
-		flex-wrap: wrap;
+		@extend .d-flex;
 
 		@include media-breakpoint-up(md) {
 			@include padding(
@@ -103,7 +100,6 @@
 			@include margin(top 0 bottom 0 left #{(200 * 100) / $prototype-width-unitless}vw);
 
 			height: 100%;
-			min-width: 0;
 
 			&:last-child {
 				@include margin(right #{(200 * 100) / $prototype-width-unitless}vw);
@@ -119,6 +115,9 @@
 
 			@include media-breakpoint-up(md) {
 				@include size(auto, 100%);
+
+				min-width: 0;
+				max-width: 100%;
 			}
 		}
 	}
