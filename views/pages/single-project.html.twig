@@ -42,19 +42,19 @@
 				</div>
 
 				{% if post.images is iterable %}
-					<div class="Single-project__images">
+					<ul class="Single-project__images">
 
 						{% for image in post.images %}
-							<div class="Single-project__image">
+							<li class="Single-project__image">
 								{%-
 									include 'partials/image.html.twig'
-									with { image: image, loading: 'eager', attributes: { style: image.style } }
+									with { classes: [ 'js-single-project-image' ], image: image, loading: 'eager', attributes: { style: image.style } }
 									only
 								-%}
-							</div>
+							</li>
 						{% endfor %}
 
-					</div>
+					</ul>
 				{% endif %}
 
 			</div>

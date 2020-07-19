@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: uni\n"
-"POT-Creation-Date: 2020-06-15 09:50+0200\n"
-"PO-Revision-Date: 2020-06-15 09:51+0200\n"
+"POT-Creation-Date: 2020-07-17 23:52+0200\n"
+"PO-Revision-Date: 2020-07-17 23:53+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fr_FR\n"
@@ -774,14 +774,22 @@ msgctxt "front page"
 msgid "Explore our:"
 msgstr "Explorer nos :"
 
+#: views/pages/front-page.html.twig:16
+msgid "Habitat"
+msgstr "Habitat"
+
 #: views/pages/front-page.html.twig:17
 msgctxt "front page"
 msgid "Discover our:"
 msgstr "Découvrir nos :"
 
-#: views/pages/horizontal-page.html.twig:55
-msgid "Discover our online store"
-msgstr "Découvrir notre boutique en ligne"
+#: views/pages/front-page.html.twig:17
+msgid "Objects"
+msgstr "Objets"
+
+#: views/pages/horizontal-page.html.twig:57
+msgid "Discover<br>our online store"
+msgstr "Découvrir notre boutique<br>en ligne"
 
 #: views/pages/single-product.html.twig:13
 msgid "This item has been added to your basket:"

@@ -21,6 +21,8 @@ export default class MenuBlock extends AbstractBlock {
 		this.disableScroll = disableScroll;
 		this.enableScroll = enableScroll;
 
+		this.rect = {};
+
 		this.close = this.close.bind(this);
 	}
 

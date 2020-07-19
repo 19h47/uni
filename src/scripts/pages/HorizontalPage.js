@@ -3,6 +3,8 @@ import Smooth from 'utils/smooth-scrolling.custom';
 import { elements } from 'scripts/config';
 import mediaBreakpointUp from 'utils/mediaBreakpointUp';
 
+const imagesLoaded = require('imagesloaded');
+
 /**
  * Horizontal page
  *
@@ -31,6 +33,9 @@ export default class HorizontalPage extends AbstractPage {
 
 		this.$track = this.rootElement.querySelector('.js-track');
 		this.$section = this.rootElement.querySelector('.js-section');
+		this.singleProjectImages = [
+			...this.rootElement.querySelectorAll('.js-single-project-image'),
+		];
 
 		this.options = {
 			preload: true,
@@ -40,12 +45,29 @@ export default class HorizontalPage extends AbstractPage {
 			divs: this.$track,
 		};
 
-		return this.initPlugins();
+		return imagesLoaded(this.rootElement, () => {
+			console.log('all images are loaded');
+
+			this.onResize();
+			this.initPlugins();
+		});
 	}
 
 	initPlugins() {
-		// console.info('initPlugins');
+		console.info('HorizontalPage.initPlugins');
 
 		this.scroll = new Smooth(this.options).init();
+	}
+
+	onResize() {
+		super.onResize();
+
+		this.singleProjectImages.forEach($image => {
+			const { width } = $image.getBoundingClientRect();
+
+			console.log(`${width}px`);
+
+			$image.parentElement.style.setProperty('width', `${width}px`);
+		});
 	}
 }

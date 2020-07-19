@@ -118,6 +118,31 @@
                             "max_height": "",
                             "max_size": "",
                             "mime_types": ""
+                        },
+                        {
+                            "key": "field_5f1215973375b",
+                            "label": "Colonnes",
+                            "name": "columns",
+                            "type": "select",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "5": "5",
+                                "8": "8"
+                            },
+                            "default_value": 5,
+                            "allow_null": 0,
+                            "multiple": 0,
+                            "ui": 0,
+                            "return_format": "value",
+                            "ajax": 0,
+                            "placeholder": ""
                         }
                     ],
                     "min": "",
@@ -146,5 +171,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "Options du template About page",
-    "modified": 1591338892
+    "modified": 1595021442
 }

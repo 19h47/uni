@@ -21,6 +21,8 @@ export default class ProjectInformationsBlock extends AbstractBlock {
 		this.disableScroll = disableScroll;
 		this.enableScroll = enableScroll;
 
+		this.rect = {};
+
 		this.close = this.close.bind(this);
 	}
 
@@ -86,7 +88,6 @@ export default class ProjectInformationsBlock extends AbstractBlock {
 	 * ProjectInformations.open
 	 */
 	open() {
-		console.info('ProjectInformations.open');
 		if (this.isOpen) return false;
 
 		this.isOpen = true;
@@ -124,10 +125,11 @@ export default class ProjectInformationsBlock extends AbstractBlock {
 	}
 
 	onResize() {
-		// console.info('ProjectInformations.onResize');
+		console.info('ProjectInformations.onResize');
 		super.onResize();
 
 		this.rect = this.rootElement.getBoundingClientRect();
 		gsap.set(this.rootElement, { x: this.rect.width + 20 });
+		this.close();
 	}
 }
