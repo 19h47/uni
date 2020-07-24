@@ -94,9 +94,10 @@
 
 		ul {
 			@extend .d-md-flex, .flex-md-nowrap;
-			@extend %list-style-type-none;
+			@extend %list-style-type-none, %position-relative;
 
 			height: 100%;
+			z-index: 2;
 		}
 
 		li {
@@ -196,6 +197,10 @@
 	&__grid {
 		@include padding(top 80px bottom 20px);
 
+		position: sticky;
+		top: 0;
+		right: 0;
+		left: 0;
 		z-index: 1;
 
 		@include media-breakpoint-up(sm) {
@@ -203,7 +208,15 @@
 		}
 
 		@include media-breakpoint-up(md) {
-			@include padding(top 0 right 0 left 0);
+			@include padding(
+				top #{(60 * 100) / $prototype-height-unitless}vh bottom #{(60 * 100) /
+					$prototype-height-unitless}vh left 0
+			);
+
+			position: static;
+			top: auto;
+			right: auto;
+			left: auto;
 		}
 
 		&__inner {
@@ -221,7 +234,7 @@
 				@include size(#{(2000 * 100) / $prototype-width-unitless}vw, 100%);
 
 				grid-template-columns: repeat(10, 1fr);
-				grid-template-rows: repeat(11, percentage(1/11));
+				grid-template-rows: repeat(11, 1fr);
 			}
 
 			& > div:nth-child(1) {
@@ -260,13 +273,6 @@
 					grid-area: 11 / 4 / 12 / 10;
 				}
 			}
-
-			@include media-breakpoint-up(md) {
-				@include padding(
-					top #{(60 * 100) / $prototype-height-unitless}vh bottom #{(60 * 100) /
-						$prototype-height-unitless}vh
-				);
-			}
 		}
 	}
 
@@ -274,11 +280,13 @@
 		@extend .d-md-flex, .flex-md-nowrap;
 		@extend %position-relative, %overflow-hidden;
 
-		@include padding(top 20px bottom 20px);
+		@include padding(/* top 20px */ bottom 20px);
 
+		background-color: the_color(white);
 		z-index: 2;
 
 		@include media-breakpoint-up(md) {
+			@include margin(left #{(200 * 100) / $prototype-width-unitless}vw);
 			@include padding(
 				top #{(60 * 100) / $prototype-height-unitless}vh bottom #{(60 * 100) /
 					$prototype-height-unitless}vh
@@ -288,8 +296,7 @@
 
 	&__image {
 		@include margin(top 100px bottom 100px);
-
-		background-color: the_color(white);
+		@extend .d-flex;
 
 		&:first-child {
 			@include margin(top 0);
@@ -299,14 +306,20 @@
 
 		&:last-child {
 			@include margin(bottom 0);
-			@include padding(right #{(200 * 100) / $prototype-width-unitless}vw);
 		}
 
 		@include media-breakpoint-up(md) {
-			@include padding(left #{(200 * 100) / $prototype-width-unitless}vw);
-			@include margin(top 0 bottom 0);
+			@include margin(top 0 bottom 0 left #{(200 * 100) / $prototype-width-unitless}vw);
 
 			height: 100%;
+
+			&:first-child {
+				@include margin(left 0);
+			}
+
+			&:last-child {
+				@include margin(right #{(200 * 100) / $prototype-width-unitless}vw);
+			}
 		}
 
 		img {
@@ -314,6 +327,23 @@
 			@extend %vertical-align-middle;
 
 			// backface-visibility: hidden;
+		}
+
+		h5 {
+			@extend %font-weight-regular, %font-style-italic;
+			@include font-sizes(25);
+
+			line-height: (30/25);
+
+			@include media-breakpoint-up(md) {
+				@include margin(top 0 bottom 0);
+				@include padding(right #{(20 * 100) / $prototype-width-unitless}vw);
+
+				writing-mode: vertical-rl;
+				transform: rotate(180deg);
+				transform-origin: center;
+				min-height: 100%;
+			}
 		}
 	}
 }

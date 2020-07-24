@@ -71,6 +71,7 @@ module.exports = merge(common, {
 				// page
 				'About-page',
 				'Archive-page',
+				'Archive-project',
 				'Front-page',
 				'Horizontal-page',
 				'Page',

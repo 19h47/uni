@@ -103,7 +103,10 @@ export default class MenuBlock extends AbstractBlock {
 		const projectInformations = this.page.blocks.find(
 			block => 'project-informations' === block.id,
 		);
-		projectInformations.close();
+
+		if (projectInformations) {
+			projectInformations.close();
+		}
 
 		return true;
 	}

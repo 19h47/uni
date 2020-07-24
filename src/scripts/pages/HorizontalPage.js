@@ -33,9 +33,7 @@ export default class HorizontalPage extends AbstractPage {
 
 		this.$track = this.rootElement.querySelector('.js-track');
 		this.$section = this.rootElement.querySelector('.js-section');
-		this.singleProjectImages = [
-			...this.rootElement.querySelectorAll('.js-single-project-image'),
-		];
+		this.images = [...this.rootElement.querySelectorAll('.js-image')];
 
 		this.options = {
 			preload: true,
@@ -62,7 +60,7 @@ export default class HorizontalPage extends AbstractPage {
 	onResize() {
 		super.onResize();
 
-		this.singleProjectImages.forEach($image => {
+		this.images.forEach($image => {
 			const { width } = $image.getBoundingClientRect();
 
 			console.log(`${width}px`);

@@ -48,7 +48,7 @@
 							<li class="Single-project__image">
 								{%-
 									include 'partials/image.html.twig'
-									with { classes: [ 'js-single-project-image' ], image: image, loading: 'eager', attributes: { style: image.style } }
+									with { classes: [ 'js-image' ], image: image, loading: 'eager', attributes: { style: image.style } }
 									only
 								-%}
 							</li>
@@ -71,8 +71,8 @@
 				</div>
 			</div>
 
-			{% if post.next %}
-				{% include 'components/heading.html.twig' with { classes: [ 'color-gray-very-light-02' ], link: post.next.link, title: __( 'Next Project', 'uni' )  } only %}
+			{% if post.prev %}
+				{% include 'components/heading.html.twig' with { classes: [ 'color-gray-very-light-02' ], link: post.prev.link, title: __( 'Next Project', 'uni' )  } only %}
 			{% endif %}
 
 			{% include 'components/footer-horizontal.html.twig' %}

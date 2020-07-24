@@ -46,7 +46,7 @@
 		}
 
 		@at-root .page-template-archive-page & {
-			object-fit: cover;
+			object-fit: scale-down;
 		}
 
 		@include media-breakpoint-up(md) {

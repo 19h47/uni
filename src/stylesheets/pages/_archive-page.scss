@@ -6,6 +6,33 @@
  *
  */
 .Archive-page {
+	.Product-thumbnail {
+		img {
+			object-fit: contain;
+			object-position: center;
+
+			@include media-breakpoint-up(md) {
+				object-fit: cover;
+			}
+		}
+	}
+
+	&.woocommerce-page {
+		.Product-thumbnail .Product-thumbnail__image {
+			object-fit: contain;
+			object-position: center;
+
+			@include media-breakpoint-up(md) {
+				object-fit: contain;
+			}
+		}
+
+		.Product-thumbnail .Product-thumbnail__hover {
+			object-fit: cover;
+			object-position: center;
+		}
+	}
+
 	&__header {
 		@include size(100%, 100vh);
 		@include padding(top 80px bottom 20px);

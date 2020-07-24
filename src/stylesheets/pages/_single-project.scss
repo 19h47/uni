@@ -21,6 +21,9 @@
 		@include padding(top 80px bottom 20px);
 		@include size(100%, auto);
 
+		// position: relative;
+		// z-index: 1;
+
 		display: grid;
 		grid-template-columns: repeat(10, 1fr);
 		grid-template-rows: repeat(10, 1fr);
@@ -50,10 +53,10 @@
 			grid-template-rows: repeat(11, 1fr);
 		}
 
-		.Single-project__title {
-			color: the_color(white);
-			mix-blend-mode: difference;
-		}
+		// .Single-project__title {
+		// 	color: the_color(white);
+		// 	mix-blend-mode: difference;
+		// }
 	}
 
 	&__title {
@@ -74,7 +77,10 @@
 
 	&__images {
 		@extend %list-style-type-none;
-		@extend .d-flex;
+		@extend .d-flex, .flex-column, .flex-md-row;
+
+		// position: relative;
+		// z-index: 2;
 
 		@include media-breakpoint-up(md) {
 			@include padding(
