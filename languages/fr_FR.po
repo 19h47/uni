@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: uni\n"
-"POT-Creation-Date: 2020-07-17 23:52+0200\n"
-"PO-Revision-Date: 2020-07-17 23:53+0200\n"
+"POT-Creation-Date: 2020-08-02 01:03+0200\n"
+"PO-Revision-Date: 2020-08-02 01:04+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fr_FR\n"
@@ -53,7 +53,7 @@ msgstr "URL du compte Facebook"
 msgid "Phone number"
 msgstr "Numéro de téléphone"
 
-#: inc/Api/Customizer/Contact.php:113 inc/Plugins/WooCommerce.php:205
+#: inc/Api/Customizer/Contact.php:113 inc/Plugins/WooCommerce.php:207
 msgid "Address"
 msgstr "Adresse"
 
@@ -546,32 +546,32 @@ msgstr "Paramètres des projects"
 msgid "Subscribe to our newsletter"
 msgstr "Abonnez-vous à notre newsletter"
 
-#: inc/Plugins/WooCommerce.php:135
+#: inc/Plugins/WooCommerce.php:137
 msgid "Confirm your order"
 msgstr "Valider votre commande"
 
-#: inc/Plugins/WooCommerce.php:165
+#: inc/Plugins/WooCommerce.php:167
 msgid "Note"
 msgstr "Note"
 
-#: inc/Plugins/WooCommerce.php:169 views/pages/contact-page.html.twig:24
+#: inc/Plugins/WooCommerce.php:171 views/pages/contact-page.html.twig:24
 msgid "Email address"
 msgstr "Adresse e-mail"
 
-#: inc/Plugins/WooCommerce.php:173 inc/Plugins/WooCommerce.php:189
+#: inc/Plugins/WooCommerce.php:175 inc/Plugins/WooCommerce.php:191
 msgid "Company"
 msgstr "Entreprise"
 
-#: inc/Plugins/WooCommerce.php:174 inc/Plugins/WooCommerce.php:190
+#: inc/Plugins/WooCommerce.php:176 inc/Plugins/WooCommerce.php:192
 msgid "Country"
 msgstr "Pays"
 
-#: inc/Plugins/WooCommerce.php:220 views/pages/single-product.html.twig:139
+#: inc/Plugins/WooCommerce.php:222 views/pages/single-product.html.twig:148
 #: views/woocommerce/cart/cart-empty.html.twig:18
 msgid "Return to shop"
 msgstr "Retour à la boutique"
 
-#: inc/Plugins/WooCommerce.php:407
+#: inc/Plugins/WooCommerce.php:409
 msgid "Upcoming Product"
 msgstr "Produit à venir"
 
@@ -704,6 +704,10 @@ msgstr "Crédits :"
 msgid "Collection N°"
 msgstr "Collection N°"
 
+#: views/pages/archive-product.html.twig:89
+msgid "Discover<br>our habitat"
+msgstr "Découvrez<br>nos habitats"
+
 #: views/pages/contact-page.html.twig:28
 msgctxt "contact page"
 msgid "Are you interested in?"
@@ -803,7 +807,7 @@ msgstr "Continuer vos achats"
 msgid "Access your basket"
 msgstr "Accéder à votre panier"
 
-#: views/pages/single-product.html.twig:123
+#: views/pages/single-product.html.twig:132
 msgid "In the same collection"
 msgstr "Dans la même collection"
 

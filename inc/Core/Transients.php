@@ -31,8 +31,11 @@ class Transients {
 			array(
 				'post_type'      => 'product',
 				'posts_per_page' => -1,
+				'orderby'        => 'date',
+				'order'          => 'DESC',
 				'no_found_rows'  => true,
-			)
+			),
+			'UNI\Models\ProductPost'
 		);
 
 		set_transient( 'uni_products', $products );

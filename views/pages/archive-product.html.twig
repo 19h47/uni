@@ -81,6 +81,16 @@
 
 			</div>
 
+			{%
+				include 'components/heading.html.twig'
+				with {
+					classes: [ 'color-gray-very-light-02', 'background-color-white' ],
+					link: habitat_page,
+					title: __( 'Discover<br>our habitat', 'uni' )
+				}
+				only
+			%}
+
 			{% include 'components/footer-horizontal.html.twig' %}
 
 		</div>

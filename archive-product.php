@@ -8,10 +8,11 @@
 global $product;
 
 use Timber\{ Timber };
+use UNI\Core\{ Transients };
 
 $context = Timber::get_context();
 
-$context['products'] = Timber::get_posts( 'UNI\Models\ProductPost' );
+$context['products'] = Transients::products();
 
 $context['show_page_title'] = apply_filters( 'woocommerce_show_page_title', true );
 $context['page_title']      = woocommerce_page_title( false );

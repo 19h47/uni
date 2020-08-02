@@ -103,11 +103,7 @@
 		li {
 			@extend .d-md-flex;
 			@extend %position-relative;
-			// @include margin(top 1em bottom 1em);
-
-			&:last-child {
-				@include margin(bottom 0);
-			}
+			@include margin(top 1em bottom 1em);
 
 			.Wysiwyg {
 				@include media-breakpoint-up(md) {
@@ -119,7 +115,12 @@
 				}
 			}
 
+			&:last-child {
+				@include margin(bottom 0);
+			}
+
 			&:first-child {
+				@include margin(top 0);
 				.Wysiwyg {
 					@include media-breakpoint-up(md) {
 						@include margin(left #{((200 * 2) * 100) / $prototype-width-unitless}vw);
@@ -129,6 +130,8 @@
 
 			img {
 				@include size(100%, auto);
+				@extend %vertical-align-middle;
+				@extend .d-inline-block;
 
 				@include media-breakpoint-up(md) {
 					@include size(
@@ -147,6 +150,7 @@
 			}
 
 			@include media-breakpoint-up(md) {
+				@include margin(top 0 bottom 0);
 				width: #{((200 * 6) * 100) / $prototype-width-unitless}vw;
 
 				&.column-3 {
