@@ -26,4 +26,8 @@
 			@include size(#{(36/30)}em);
 		}
 	}
+
+	& + a.wc-forward {
+		@extend .d-none;
+	}
 }
