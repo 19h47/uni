@@ -88,21 +88,21 @@
 
 							<div>
 								{#
+								 # Hook: woocommerce_single_product_price
+								 #
+								 #
+								 #}
+								 {% do action( 'woocommerce_single_product_price' ) %}
+							</div>
+
+							<div>
+								{#
 								 # Hook: woocommerce_single_product_meta
 								 #
 								 # @hooked UNI\Plugins\WooCommerce::template_product_variations - 15
 								 # @hooked woocommerce_template_single_meta 40
 								 #}
 								{% do action( 'woocommerce_single_product_meta' ) %}
-							</div>
-
-							<div>
-								{#
-								 # Hook: woocommerce_single_product_price
-								 #
-								 #
-								 #}
-								 {% do action( 'woocommerce_single_product_price' ) %}
 							</div>
 
 							<div>

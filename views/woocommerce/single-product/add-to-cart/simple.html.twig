@@ -31,9 +31,9 @@
 		 #}
 		{% do action( 'woocommerce_after_add_to_cart_quantity' ) %}
 
-		<button type="submit" value="{{ id }}" class="Product__add-to-cart-button js-add-to-cart-button single_add_to_cart_button button alt test">
-			{% include 'svg/use.html.twig' with { icon: 'cart', classes: [ 'Pointer-events-none' ] } only %}
+		<button type="submit" value="{{ id }}" class="Product-add-to-cart-button js-add-to-cart-button single_add_to_cart_button button alt">
 			{{- text -}}
+			{% include 'svg/use.html.twig' with { icon: 'cart', classes: [ 'Pointer-events-none' ] } only %}
 		</button>
 
 		{#

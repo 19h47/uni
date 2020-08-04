@@ -1,0 +1,7 @@
+{#
+ # Price
+ #}
+<p class="Product-price {{ 'price' | apply_filters( 'woocommerce_product_price_class' ) }}">
+	<span class="Product-price__title woocommerce-Price-title title">{{ __( 'Price:', 'uni' ) -}}</span>
+	{{- price_html -}}
+</p>

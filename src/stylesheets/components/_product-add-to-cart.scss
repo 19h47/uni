@@ -1,0 +1,29 @@
+/**
+ * Product add to cart button
+ *
+ *
+ *
+ *
+ *
+ */
+.Product-add-to-cart-button {
+	@extend .d-flex, .flex-column, .align-items-center;
+	@extend %text-decoration-underline;
+
+	@include font-sizes(30);
+
+	line-height: (40/30);
+
+	@at-root .product-type-variable & {
+		@include margin(top #{(67 * 100) / $prototype-height-unitless}vh);
+	}
+
+	svg {
+		@include margin(top 0.5em);
+		@include size(#{(60 * 36) / 100}px);
+
+		@include media-breakpoint-up(hd) {
+			@include size(#{(36/30)}em);
+		}
+	}
+}
