@@ -223,8 +223,8 @@ class Theme {
 
 		$context['shop_url'] = get_term_link( 26, 'product_cat' );
 
-		$context['objects_page'] = get_permalink( get_option( 'objects_page_' . pll_current_language() ) );
-		$context['habitat_page'] = get_permalink( get_option( 'habitat_page_' . pll_current_language() ) );
+		$context['objects_page'] = Timber::get_post( get_option( 'objects_page_' . pll_current_language() ) );
+		$context['habitat_page'] = Timber::get_post( get_option( 'habitat_page_' . pll_current_language() ) );
 
 		$context['projects_settings'] = array(
 			'subtitle' => get_field( 'subtitle', 'projects_settings_' . pll_current_language() ),

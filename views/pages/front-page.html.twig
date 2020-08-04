@@ -13,8 +13,8 @@
 				<img src="{{ theme.link }}/{{ manifest['img/svg/logo-mobile.svg'] }}" alt="" class="d-md-none">
 			</div>
 			<div class="Wysiwyg Front-page__content js-content">{{- post.content -}}</div>
-			<div><a class="Front-page__link" href="{{ habitat_page }}">{{- _x( 'Explore our:', 'front page', 'uni' ) -}}<span>{{- __( 'Habitat', 'uni' ) -}}</span></a></div>
-			<div><a class="Front-page__link" href="{{ objects_page }}">{{- _x( 'Discover our:', 'front page', 'uni' ) -}}<span>{{- __( 'Objects', 'uni' ) -}}</span></a></div>
+			<div><a class="Front-page__link" href="{{ habitat_page.link }}">{{- _x( 'Explore our:', 'front page', 'uni' ) -}}<span>{{- __( 'Habitat', 'uni' ) -}}</span></a></div>
+			<div><a class="Front-page__link" href="{{ objects_page.link }}">{{- _x( 'Discover our:', 'front page', 'uni' ) -}}<span>{{- __( 'Objects', 'uni' ) -}}</span></a></div>
 			<div class="Front-page__footer Wysiwyg">
 				{{- post.meta( 'footer' ) ? post.meta( 'footer' ) -}}
 			</div>

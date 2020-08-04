@@ -82,11 +82,11 @@
 		@extend %font-family-title, %font-style-italic;
 		@include margin(top 2em);
 
-		&::first-line {
-			@include font-sizes(35);
+		// &::first-line {
+		// 	@include font-sizes(35);
 
-			line-height: (45/35);
-		}
+		// 	line-height: (45/35);
+		// }
 	}
 
 	&__title {

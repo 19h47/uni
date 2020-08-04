@@ -128,7 +128,6 @@
 
 
 				{% if post.related_products %}
-
 					{% include 'components/heading.html.twig' with { title: __( 'In the same collection', 'uni' ) | apply_filters( 'woocommerce_product_related_products_heading' )  } only %}
 
 					<ul class="Products related products">
@@ -136,8 +135,22 @@
 							{% include 'woocommerce/product-content.html.twig' %}
 						{% endfor %}
 					</ul>
-
 				{% endif %}
+
+				<div class="Single-project__content">
+					<div class="Single-project__title">
+						<h1>
+						{%- if post.terms( 'product_cat' )[0].meta( 'number' ) -%}
+							<span>{{- __( 'Collection N°', 'uni' ) -}}{{- post.terms( 'product_cat' )[0].meta( 'number' ) -}}</span>
+						{%- endif -%}
+						{{- post.terms( 'product_cat' )[0].name -}}
+						</h1>
+					</div>
+					<div class="Wysiwyg">
+						{{- post.terms( 'product_cat' )[0].long_description -}}
+					</div>
+				</div>
+
 			</div>
 
 			{#

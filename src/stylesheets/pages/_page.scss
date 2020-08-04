@@ -29,11 +29,11 @@
 		&__footer {
 			@extend %font-family-title, %font-style-italic;
 
-			&::first-line {
-				@include font-sizes(35);
+			// &::first-line {
+			// 	@include font-sizes(35);
 
-				line-height: (45/35);
-			}
+			// 	line-height: (45/35);
+			// }
 		}
 	}
 }
