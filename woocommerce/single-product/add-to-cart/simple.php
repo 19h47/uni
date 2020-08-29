@@ -14,6 +14,7 @@ $context = Timber::get_context();
 $context['id']             = $product->get_id();
 $context['stock_html']     = wc_get_stock_html( $product );
 $context['is_in_stock']    = $product->is_in_stock();
+$context['upcoming']       = get_post_meta( $product->get_id(), '_upcoming', true );
 $context['form_action']    = apply_filters( 'woocommerce_add_to_cart_form_action', $product->get_permalink() );
 $context['text']           = $product->single_add_to_cart_text();
 $context['quantity_input'] = woocommerce_quantity_input(

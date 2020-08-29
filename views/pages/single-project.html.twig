@@ -73,6 +73,8 @@
 
 			{% if post.prev %}
 				{% include 'components/heading.html.twig' with { classes: [ 'color-gray-very-light-02' ], link: post.prev.link, title: __( 'Next Project', 'uni' )  } only %}
+			{% else %}
+				{% include 'components/heading.html.twig' with { classes: [ 'color-gray-very-light-02' ], link: post.first_project.link, title: __( 'Next Project', 'uni' )  } only %}
 			{% endif %}
 
 			{% include 'components/footer-horizontal.html.twig' %}

@@ -87,7 +87,7 @@
 				top #{(60 * 100) / $prototype-height-unitless}vh bottom #{(60 * 100) /
 					$prototype-height-unitless}vh
 			);
-			@include margin(left #{((200 * -3) * 100) / $prototype-width-unitless}vw);
+			@include margin(left #{((200 * -1) * 100) / $prototype-width-unitless}vw);
 		}
 	}
 

@@ -9,7 +9,7 @@
 
 namespace UNI\Models;
 
-use Timber\{ Post };
+use Timber\{ Timber, Post };
 
 /**
  * Product post
@@ -71,5 +71,31 @@ class ProjectPost extends Post {
 		}
 
 		return $images;
+	}
+
+
+	/**
+	 * First project
+	 *
+	 * @return object
+	 */
+	public function first_project() : object {
+		return Timber::get_posts(
+			array(
+				'post_type'      => 'project',
+				'posts_per_page' => 1,
+				'order'          => 'DESC',
+				'no_found_rows'  => true,
+			),
+		)[0];
+	}
+
+
+	/**
+	 * Updcoming
+	 *
+	 */
+	public function upcoming() : boolean {
+		return get_post_meta( $this->id, '_upcoming', true );
 	}
 }

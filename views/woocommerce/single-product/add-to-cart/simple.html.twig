@@ -6,7 +6,7 @@
 
 {# {{ stock_html }} #}
 
-{% if is_in_stock %}
+{% if is_in_stock and not upcoming %}
 
 	{#
 	 # Hook: woocommerce_before_add_to_cart_form.
