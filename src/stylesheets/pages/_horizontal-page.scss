@@ -331,6 +331,11 @@
 			@extend %vertical-align-middle;
 
 			// backface-visibility: hidden;
+
+			@include media-breakpoint-up(md) {
+				min-width: 0;
+				max-width: 100%;
+			}
 		}
 
 		h5 {

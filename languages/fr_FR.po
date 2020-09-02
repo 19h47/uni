@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: uni\n"
-"POT-Creation-Date: 2020-08-04 12:34+0200\n"
-"PO-Revision-Date: 2020-08-04 22:22+0200\n"
+"POT-Creation-Date: 2020-08-29 13:31+0200\n"
+"PO-Revision-Date: 2020-08-29 16:17+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fr_FR\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 2.4\n"
+"X-Generator: Poedit 2.4.1\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-Flags-xgettext: --add-comments=translators:\n"
 "X-Poedit-WPHeader: style.css\n"
@@ -566,7 +566,7 @@ msgstr "Entreprise"
 msgid "Country"
 msgstr "Pays"
 
-#: inc/Plugins/WooCommerce.php:222 views/pages/single-product.html.twig:148
+#: inc/Plugins/WooCommerce.php:222 views/pages/single-product.html.twig:161
 #: views/woocommerce/cart/cart-empty.html.twig:18
 msgid "Return to shop"
 msgstr "Retour à la boutique"
@@ -701,6 +701,7 @@ msgid "Credits:"
 msgstr "Crédits :"
 
 #: views/pages/archive-product.html.twig:20
+#: views/pages/single-product.html.twig:144
 msgid "Collection N°"
 msgstr "Collection N°"
 
@@ -773,21 +774,21 @@ msgctxt "contact page"
 msgid "All fields marked with * are required"
 msgstr "Les champs suivis d’un astérisque* sont obligatoire"
 
-#: views/pages/front-page.html.twig:16
+#: views/pages/front-page.html.twig:17
 msgctxt "front page"
 msgid "Explore our:"
 msgstr "Explorer nos :"
 
-#: views/pages/front-page.html.twig:16
+#: views/pages/front-page.html.twig:17
 msgid "Habitat"
 msgstr "Habitat"
 
-#: views/pages/front-page.html.twig:17
+#: views/pages/front-page.html.twig:18
 msgctxt "front page"
 msgid "Discover our:"
 msgstr "Découvrir nos :"
 
-#: views/pages/front-page.html.twig:17
+#: views/pages/front-page.html.twig:18
 msgid "Objects"
 msgstr "Objets"
 
@@ -807,7 +808,7 @@ msgstr "Continuer vos achats"
 msgid "Access your basket"
 msgstr "Accéder à votre panier"
 
-#: views/pages/single-product.html.twig:132
+#: views/pages/single-product.html.twig:131
 msgid "In the same collection"
 msgstr "Dans la même collection"
 
