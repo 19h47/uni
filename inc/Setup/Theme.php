@@ -223,14 +223,16 @@ class Theme {
 
 		$context['shop_url'] = get_term_link( 26, 'product_cat' );
 
-		$context['objects_page'] = Timber::get_post( get_option( 'objects_page_' . pll_current_language() ) );
-		$context['habitat_page'] = Timber::get_post( get_option( 'habitat_page_' . pll_current_language() ) );
+		if ( function_exists( 'pll_current_language' ) ) {
+			$context['objects_page'] = Timber::get_post( get_option( 'objects_page_' . pll_current_language() ) );
+			$context['habitat_page'] = Timber::get_post( get_option( 'habitat_page_' . pll_current_language() ) );
 
-		$context['projects_settings'] = array(
-			'subtitle' => get_field( 'subtitle', 'projects_settings_' . pll_current_language() ),
-			'title'    => get_field( 'title', 'projects_settings_' . pll_current_language() ),
-			'content'  => get_field( 'content', 'projects_settings_' . pll_current_language() ),
-		);
+			$context['projects_settings'] = array(
+				'subtitle' => get_field( 'subtitle', 'projects_settings_' . pll_current_language() ),
+				'title'    => get_field( 'title', 'projects_settings_' . pll_current_language() ),
+				'content'  => get_field( 'content', 'projects_settings_' . pll_current_language() ),
+			);
+		}
 
 		return $context;
 	}

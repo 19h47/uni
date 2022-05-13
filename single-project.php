@@ -2,7 +2,7 @@
 /**
  * Single: project
  *
- * @package uni
+ * @package UNI
  */
 
 use Timber\{ Timber, Post };

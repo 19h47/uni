@@ -29,48 +29,50 @@ class Settings {
 	 */
 	public function register_settings() : void {
 
-		$languages = pll_languages_list( array( 'hide_empty' => false ) );
+		if ( function_exists( 'pll_languages_list' ) ) {
+			$languages = pll_languages_list( array( 'hide_empty' => false ) );
 
-		foreach ( $languages as $lang ) {
-			add_settings_field(
-				'terms_page_' . $lang,
-				__( 'Terms & Conditions Page', 'uni' ) . ' (' . ucfirst( $lang ) . ')',
-				array( $this, 'page_callback' ),
-				'reading',
-				'default',
-				array(
-					'lang' => $lang,
-					'type' => 'terms_page_',
-				)
-			);
+			foreach ( $languages as $lang ) {
+				add_settings_field(
+					'terms_page_' . $lang,
+					__( 'Terms & Conditions Page', 'uni' ) . ' (' . ucfirst( $lang ) . ')',
+					array( $this, 'page_callback' ),
+					'reading',
+					'default',
+					array(
+						'lang' => $lang,
+						'type' => 'terms_page_',
+					)
+				);
 
-			add_settings_field(
-				'habitat_page_' . $lang,
-				__( 'Habitat Page', 'uni' ) . ' (' . ucfirst( $lang ) . ')',
-				array( $this, 'page_callback' ),
-				'reading',
-				'default',
-				array(
-					'lang' => $lang,
-					'type' => 'habitat_page_',
-				)
-			);
+				add_settings_field(
+					'habitat_page_' . $lang,
+					__( 'Habitat Page', 'uni' ) . ' (' . ucfirst( $lang ) . ')',
+					array( $this, 'page_callback' ),
+					'reading',
+					'default',
+					array(
+						'lang' => $lang,
+						'type' => 'habitat_page_',
+					)
+				);
 
-			add_settings_field(
-				'objects_page_' . $lang,
-				__( 'Objects Page', 'uni' ) . ' (' . ucfirst( $lang ) . ')',
-				array( $this, 'page_callback' ),
-				'reading',
-				'default',
-				array(
-					'lang' => $lang,
-					'type' => 'objects_page_',
-				)
-			);
+				add_settings_field(
+					'objects_page_' . $lang,
+					__( 'Objects Page', 'uni' ) . ' (' . ucfirst( $lang ) . ')',
+					array( $this, 'page_callback' ),
+					'reading',
+					'default',
+					array(
+						'lang' => $lang,
+						'type' => 'objects_page_',
+					)
+				);
 
-			register_setting( 'reading', 'terms_page_' . $lang );
-			register_setting( 'reading', 'habitat_page_' . $lang );
-			register_setting( 'reading', 'objects_page_' . $lang );
+				register_setting( 'reading', 'terms_page_' . $lang );
+				register_setting( 'reading', 'habitat_page_' . $lang );
+				register_setting( 'reading', 'objects_page_' . $lang );
+			}
 		}
 	}
 

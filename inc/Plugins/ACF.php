@@ -25,7 +25,7 @@ class ACF {
 		add_filter( 'acf/fields/post_object/result/name=product_link', array( $this, 'product_colors_result' ), 10, 4 );
 		add_filter( 'acf/location/rule_match/page_type', array( $this, 'rule_match_page_type' ), 20, 3 );
 
-		add_action( 'init', array( $this, 'add_projects_options_page' ), 0 );
+		add_action( 'acf/init', array( $this, 'add_options_pages' ) );
 	}
 
 
@@ -133,26 +133,27 @@ class ACF {
 
 
 	/**
-	 * Add coupon options page
+	 * Add options pages
 	 *
 	 * @return void
 	 */
-	public function add_projects_options_page() {
+	public function add_options_pages() {
+		if ( function_exists( 'pll_languages_list' ) && function_exists( 'acf_add_options_page' ) ) {
+			$languages = pll_languages_list( array( 'hide_empty' => false ) );
 
-		$languages = pll_languages_list( array( 'hide_empty' => false ) );
+			foreach ( $languages as $lang ) {
 
-		foreach ( $languages as $lang ) {
-
-			acf_add_options_page(
-				array(
-					'menu_title'  => __( 'Projects Settings', 'uni' ) . ' (' . ucfirst( $lang ) . ')',
-					'page_title'  => __( 'Projects Settings', 'uni' ) . ' (' . ucfirst( $lang ) . ')',
-					'menu_slug'   => 'projects-settings-' . $lang,
-					'parent_slug' => 'edit.php?post_type=project',
-					'capability'  => 'edit_posts',
-					'post_id'     => 'projects_settings_' . $lang,
-				)
-			);
+				acf_add_options_page(
+					array(
+						'menu_title'  => __( 'Projects Settings', 'uni' ) . ' (' . ucfirst( $lang ) . ')',
+						'page_title'  => __( 'Projects Settings', 'uni' ) . ' (' . ucfirst( $lang ) . ')',
+						'menu_slug'   => 'projects-settings-' . $lang,
+						'parent_slug' => 'edit.php?post_type=project',
+						'capability'  => 'edit_posts',
+						'post_id'     => 'projects_settings_' . $lang,
+					)
+				);
+			}
 		}
 	}
 }

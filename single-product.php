@@ -2,7 +2,7 @@
 /**
  * Single: product
  *
- * @package uni
+ * @package UNI
  */
 
 global $product;

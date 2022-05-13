@@ -1,10 +1,12 @@
 {#
- # Single Product Image
+ # Product Image
  #
  # This template overridde woocommerce/single-product/product-image.php.
  #
- # @package UNI/Templates
+ # @package WordPress
+ # @subpackage UNI/Templates
  #}
+
 {% if image_ids is iterable and image_ids is not empty %}
 	<div id="product-image-{{ post_thumbnail_id }}" class="{{ wrapper_class }} page-block" data-columns="{{ columns }}" data-node-type="CarouselBlock" style="opacity: 0; transition: opacity .25s ease-in-out;">
 		<div class="Product__gallery__grid Carousel">

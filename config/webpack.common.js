@@ -1,4 +1,5 @@
 /**
+ * Common
  *
  * @file   webpack.common.js
  * @author Jérémy Levron <jeremylevron@19h47.fr> (https://19h47.fr)
@@ -29,15 +30,7 @@ const manifestPlugin = new ManifestPlugin({
 	publicPath: 'dist/',
 });
 
-const devServer = {
-	contentBase: resolve('views/index.html'),
-	watchContentBase: true,
-	port: 9001,
-	// hot: true,
-};
-
 module.exports = {
-	devServer,
 	output: {
 		publicPath: process.env.PUBLIC_PATH,
 	},

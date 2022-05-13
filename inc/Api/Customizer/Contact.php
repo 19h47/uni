@@ -2,8 +2,8 @@
 /**
  * Contact
  *
- * @category Customizer
- * @package  uni
+ * @package  UNI
+ * @subpackage UNI\Api
  * @author   Jérémy Levron <jeremylevron@19h47.fr> (https://19h47.fr)
  * @license  http://opensource.org/licenses/gpl-license.php GNU Public License
  */
@@ -22,7 +22,7 @@ class Contact {
 	 *
 	 * @return void
 	 */
-	public function run() {
+	public function run(){
 		add_action( 'customize_register', array( $this, 'register' ), 10, 1 );
 	}
 

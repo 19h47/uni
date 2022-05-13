@@ -1,7 +1,6 @@
 {
 	"require": {
-		"woocommerce/woocommerce": "^4.0",
-		"timber/timber": "^1.16",
+		"timber/timber": "^1.19",
 		"vlucas/phpdotenv": "^4.1"
 	},
 	"name": "19h47/uni",
@@ -20,17 +19,5 @@
 		"files": [
 			"./inc/helpers.php"
 		]
-	},
-	"require-dev": {
-		"dealerdirect/phpcodesniffer-composer-installer": "^0.6.2",
-		"squizlabs/php_codesniffer": "^3.5",
-		"wp-coding-standards/wpcs": "^2.2"
-	},
-	"extra": {
-		"installer-paths": {
-			"../../plugins/{$name}/": [
-				"type:wordpress-plugin"
-			]
-		}
 	}
 }

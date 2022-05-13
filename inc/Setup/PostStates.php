@@ -32,13 +32,16 @@ class PostStates {
 	 * @return array $states
 	 */
 	public function terms_post_state( array $states, WP_Post $post ) {
-		$languages = pll_languages_list( array( 'hide_empty' => false ) );
 
-		foreach ( $languages as $lang ) {
-			$terms_page = (int) get_option( 'terms_page_' . $lang );
+		if ( function_exists( 'pll_languages_list' ) ) {
+			$languages = pll_languages_list( array( 'hide_empty' => false ) );
 
-			if ( $post->ID === $terms_page ) {
-				$states[] = __( 'Terms & Conditions Page', 'uni' );
+			foreach ( $languages as $lang ) {
+				$terms_page = (int) get_option( 'terms_page_' . $lang );
+
+				if ( $post->ID === $terms_page ) {
+					$states[] = __( 'Terms & Conditions Page', 'uni' );
+				}
 			}
 		}
 

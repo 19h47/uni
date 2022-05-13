@@ -2,7 +2,8 @@
 /**
  * Archive: product
  *
- * @package uniUNI
+ * @package UNI
+ * @subpackage WordPress
  */
 
 global $product;

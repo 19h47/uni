@@ -2,7 +2,7 @@
 /**
  * UNI functions and definitions
  *
- * @package uni
+ * @package UNI
  */
 
 // Autoloader.
