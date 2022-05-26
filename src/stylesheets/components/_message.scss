@@ -6,12 +6,14 @@
  *
  *
  */
+@use "sass:math";
+
 .Message {
 	@extend %margin-y-2;
 	@include padding(
-		top #{(20 * 60) / 100}px right #{(20 * 60) / 100}px bottom #{(20 * 60) / 100}px left #{(
+		top #{(20 * 60) * 0.01}px right #{(20 * 60) * 0.01}px bottom #{(20 * 60) * 0.01}px left #{(
 				20 * 60
-			) / 100}px
+			) * 0.01}px
 	);
 	@include font-sizes(25);
 
@@ -31,6 +33,6 @@
 	}
 
 	@include media-breakpoint-up(hd) {
-		@include padding(top #{(20/30)}em right #{(20/30)}em bottom #{(20/30)}em left #{(20/30)}em);
+		@include padding(top #{math.div(20, 30)}em right #{math.div(20, 30)}em bottom #{math.div(20, 30)}em left #{math.div(20, 30)}em);
 	}
 }

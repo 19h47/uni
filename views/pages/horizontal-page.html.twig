@@ -15,7 +15,7 @@
 						<div class="Horizontal-page__navigation js-navigation">
 							{%- include 'svg/use.html.twig' with { icon: 'arrow-right' } only -%}
 						</div>
-						<div class="Page__content__title"><h1>{{- post.subtitle ? "<span>#{ post.subtitle }</span>" -}}{{- post.title -}}</h1></div>
+						<div class="Page__content__title text-uppercase"><h1>{{- post.subtitle ? "<span>#{ post.subtitle }</span>" -}}{{- post.title -}}</h1></div>
 						<div class="Wysiwyg">{{- post.content -}}</div>
 						<div class="Page__content__footer js-footer">
 							{{- post.footer | nl2br -}}
@@ -24,7 +24,7 @@
 				</div>
 
 				{% if post.meta( 'gallery' ) %}
-					<div class="Horizontal-page__gallery">
+					<div class="overflow-hidden Horizontal-page__gallery position-relative d-md-flex flex-md-nowrap z-index-2">
 						{% for image in post.meta( 'gallery' ) %}
 
 							{% set _product = TimberPost( image.id ).meta( 'product_link' ) %}

@@ -14,6 +14,7 @@
  * @param boolean $has_calculated_shipping
  *
  * @package UNI/Templates
+ * @version 3.6.0
  */
 
 use Timber\{ Timber };

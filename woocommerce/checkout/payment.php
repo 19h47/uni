@@ -8,15 +8,12 @@
  *
  * @see     https://github.com/woocommerce/woocommerce/blob/master/includes/wc-template-functions.php#L2227
  * @package UNI/Templates
+ * @version 3.5.3
  */
 
 use Timber\{ Timber };
 
 $context = Timber::get_context();
-
-$context['is_ajax']  = is_ajax();
-$context['cart']     = WC()->cart;
-$context['customer'] = WC()->customer;
 
 // @see https://github.com/woocommerce/woocommerce/blob/master/includes/wc-template-functions.php#L2240
 $context['checkout']           = (object) $checkout;

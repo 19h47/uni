@@ -8,7 +8,7 @@
 
 namespace UNI;
 
-use UNI\{ Core, Setup, Plugins, Custom, Api };
+use UNI\{ Core, Setup, Plugins, Custom, Api, Template };
 
 /**
  * Init
@@ -29,7 +29,6 @@ class Init {
 			Setup\Supports::class,
 			Setup\Textdomain::class,
 			Setup\Settings::class,
-			Setup\PostStates::class,
 			Api\Customizer\Mailchimp::class,
 			Api\Customizer\Contact::class,
 			Custom\Extras::class,
@@ -42,6 +41,7 @@ class Init {
 			Core\Project::class,
 			Core\ProjectCat::class,
 			Core\Message::class,
+			Template\PostStates::class,
 		);
 	}
 

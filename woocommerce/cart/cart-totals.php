@@ -3,15 +3,12 @@
  * Cart totals
  *
  * @package UNI/Templates
+ * @version 2.3.6
  */
 
 use Timber\{ Timber, Helper };
 
 $context = Timber::get_context();
-
-$context['cart']      = WC()->cart;
-$context['customer']  = WC()->customer;
-$context['countries'] = WC()->countries;
 
 $context['html'] = array(
 	'subtotal'    => Helper::ob_function( 'wc_cart_totals_subtotal_html' ),
@@ -29,10 +26,3 @@ $context['tax_enabled'] = wc_tax_enabled();
 
 
 Timber::render( 'woocommerce/cart/cart-totals.html.twig', $context );
-
-
-
-
-
-
-

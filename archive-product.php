@@ -1,9 +1,10 @@
 <?php
 /**
- * Archive: product
+ * Archive: Product
  *
  * @package UNI
  * @subpackage WordPress
+ * @version 3.4.0
  */
 
 global $product;

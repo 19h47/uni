@@ -70,21 +70,20 @@ class ACF {
 	/**
 	 * Page on front
 	 */
-    public function page_on_front( $match ) {
+	public function page_on_front( $match ) {
 
-        if ( ! $this->filtered ) {
-            add_filter( 'option_page_on_front', array( $this, 'translate_page_on_front' ) );
-            // Prevent second hooking
-            $this->filtered = true;
-        }
+		if ( ! $this->filtered ) {
+			add_filter( 'option_page_on_front', array( $this, 'translate_page_on_front' ) );
+			// Prevent second hooking
+			$this->filtered = true;
+		}
 
-        return $match;
-    }
+		return $match;
+	}
 
 
 	/**
 	 * Rule match page type
-	 *
 	 */
 	public function rule_match_page_type( $match, $rule, $options ) {
 		if ( empty( $options['post_id'] ) ) {
@@ -157,4 +156,3 @@ class ACF {
 		}
 	}
 }
-

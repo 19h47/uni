@@ -13,7 +13,7 @@
 			<div class="Horizontal-page__wrapper">
 				<header class="Archive-page__header woocommerce-products-header">
 					<div class="Page__content__title woocommerce-products-header__title page-title">
-						<h1>
+						<h1 class="text-uppercase">
 							{{- post.subtitle ? "<span>#{ post.subtitle }</span>" -}}
 							{{- post.title -}}
 						</h1>
@@ -29,9 +29,9 @@
 					{% for item in post.meta( 'gallery' ) %}
 						<li class="Loop">
 
-							<{{- item.project[0] ? "a href=\"#{item.project[0].link}\"" | raw : 'div' | raw }} class="Product-thumbnail">
-								{% include 'partials/image.html.twig' with { classes: [ 'Product-thumbnail__image', 'is-active' ], image: item.image } %}
-								{% include 'partials/image.html.twig' with { classes: [ 'Product-thumbnail__hover', 'is-active' ], image: item.image_hover } %}
+							<{{- item.project[0] ? "a href=\"#{item.project[0].link}\"" | raw : 'div' | raw }} class="Product-thumbnail position-relative d-block">
+								{% include 'partials/image.html.twig' with { classes: [ 'Product-thumbnail__image', 'z-index-1', 'is-active' ], image: item.image } %}
+								{% include 'partials/image.html.twig' with { classes: [ 'Product-thumbnail__hover', 'position-absolute', 'top-0', 'end-0', 'bottom-0', 'start-0', 'object-position-center', 'object-fit-cover', 'z-index-2', 'is-active' ], image: item.image_hover } %}
 							</{{-  item.project[0] ? 'a' : 'div' -}}>
 
 							<header class="Loop__header">

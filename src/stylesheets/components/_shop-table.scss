@@ -6,6 +6,8 @@
  *
  *
  */
+@use 'sass:math';
+
 .Shop-table {
 	$this: &;
 
@@ -17,7 +19,7 @@
 	overflow-wrap: break-word;
 	border-collapse: collapse;
 
-	line-height: (30/25);
+	line-height: math.div(30, 25);
 
 	th,
 	td {
@@ -25,11 +27,11 @@
 	}
 
 	th {
-		@extend %text-align-left, %vertical-align-top;
+		@extend .text-start, .align-top;
 	}
 
 	td {
-		@extend %text-align-right;
+		@extend .text-end;
 	}
 
 	tr.order-total {
@@ -48,7 +50,7 @@
 
 		tbody {
 			.product-name {
-				@extend %text-align-left;
+				@extend .text-start;
 			}
 
 			& > .cart_item {

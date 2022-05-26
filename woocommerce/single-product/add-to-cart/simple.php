@@ -3,7 +3,10 @@
  * Simple product add to cart
  *
  * @package UNI/Templates
+ * @version 3.4.0
  */
+
+defined( 'ABSPATH' ) || exit;
 
 use Timber\{ Timber };
 

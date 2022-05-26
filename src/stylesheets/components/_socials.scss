@@ -1,0 +1,26 @@
+/**
+ * Socials
+ *
+ * @package UNI
+ */
+@use 'sass:math';
+
+.Socials {
+	svg {
+		@include size(#{math.div(37 * 100, 750)}vw);
+
+		@include media-breakpoint-up(md) {
+			@include size(#{math.div(37 * 100, $prototype-width-unitless)}vw);
+		}
+	}
+	&__item {
+		@include margin(right 0.5em left 0.5em);
+
+		&:first-child {
+			@include margin(left 0);
+		}
+		&:last-child {
+			@include margin(right 0);
+		}
+	}
+}

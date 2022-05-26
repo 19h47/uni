@@ -72,9 +72,9 @@ class Mailchimp {
 		$wp_customize->add_control(
 			'mailchimp_user',
 			array(
-				'label'       => __( 'Mailchimp user', 'uni' ),
-				'section'     => 'mailchimp',
-				'settings'    => 'mailchimp_user',
+				'label'    => __( 'Mailchimp user', 'uni' ),
+				'section'  => 'mailchimp',
+				'settings' => 'mailchimp_user',
 			)
 		);
 
@@ -90,9 +90,9 @@ class Mailchimp {
 		$wp_customize->add_control(
 			'mailchimp_id',
 			array(
-				'label'       => __( 'Mailchimp id', 'uni' ),
-				'section'     => 'mailchimp',
-				'settings'    => 'mailchimp_id',
+				'label'    => __( 'Mailchimp id', 'uni' ),
+				'section'  => 'mailchimp',
+				'settings' => 'mailchimp_id',
 			)
 		);
 	}

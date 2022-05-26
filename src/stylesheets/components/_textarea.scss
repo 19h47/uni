@@ -4,10 +4,10 @@
  *
  */
 .Textarea {
-	@extend %vertical-align-middle;
+	@extend .align-middle;
 	@include reset-placeholder(the_color(white));
 	@include padding(
-		top $grid-gutter-width / 2 right $grid-gutter-width bottom $grid-gutter-width / 2 left
+		top $grid-gutter-width * 0.5 right $grid-gutter-width bottom $grid-gutter-width * 0.5 left
 			$grid-gutter-width
 	);
 	@include size(100%, $grid-gutter-width * 8);

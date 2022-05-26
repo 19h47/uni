@@ -1,5 +1,10 @@
-{#  #}
-<div class="Heading{{ classes ? ' ' ~ classes  | join( ' ' ) }}">
+{#
+ # Heading
+ #
+ # @package UNI
+ #}
+
+<div class="Heading position-relative d-md-flex align-items-md-center justify-content-center z-index-2 {{ classes ? ' ' ~ classes  | join( ' ' ) | trim : '' }}">
 	<h2>
 		{{- link ? "<a href=\"#{ link }\">" | raw -}}
 			{{- title -}}

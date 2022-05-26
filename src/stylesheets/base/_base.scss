@@ -2,6 +2,8 @@
  * Base
  */
 
+@use 'sass:math';
+
 html {
 	@include size(100%);
 
@@ -9,27 +11,27 @@ html {
 }
 
 body {
-	@extend %font-weight-regular, %font-family-body, %position-relative;
+	@extend .fw-normal, %font-family-body, .position-relative;
 
 	font-size: #{$base-font-size * 0.4}px; // 12
-	font-size: #{(($base-font-size) * 100) / $prototype-height-unitless}vh;
+	font-size: #{math.div(($base-font-size) * 100, $prototype-height-unitless)}vh;
 
 	@include media-breakpoint-up(sm) {
 		font-size: #{$base-font-size * 0.5}px; // 15
-		font-size: #{(($base-font-size) * 100) / $prototype-height-unitless}vh;
+		font-size: #{math.div(($base-font-size) * 100, $prototype-height-unitless)}vh;
 	}
 
 	@include media-breakpoint-up(md) {
 		font-size: #{$base-font-size * 0.6}px; // 18
-		font-size: #{(($base-font-size) * 100) / $prototype-height-unitless}vh;
+		font-size: #{math.div(($base-font-size) * 100, $prototype-height-unitless)}vh;
 	}
 
 	@include media-breakpoint-up(hd) {
 		font-size: #{$base-font-size}px; // 30
-		font-size: #{(($base-font-size) * 100) / $prototype-height-unitless}vh;
+		font-size: #{math.div(($base-font-size) * 100, $prototype-height-unitless)}vh;
 	}
 
-	line-height: $base-line-height / $base-font-size;
+	line-height: math.div($base-line-height, $base-font-size);
 
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-font-smoothing: antialiased;
@@ -37,7 +39,7 @@ body {
 	text-rendering: optimizeLegibility;
 
 	&.is-native-scroll.y-scroll {
-		@extend %overflow-y-scroll, %overflow-x-hidden;
+		@extend .overflow-y-scroll, .overflow-x-hidden;
 	}
 
 	&.is-native-scroll {
@@ -61,5 +63,5 @@ p {
 }
 
 strong {
-	@extend %font-weight-bold;
+	@extend .fw-bold;
 }

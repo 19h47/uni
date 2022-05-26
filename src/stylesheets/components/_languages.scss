@@ -6,13 +6,10 @@
  *
  */
 .Languages {
-	@extend %list-style-type-none, %font-weight-light, %position-relative;
-	@extend .d-flex, .flex-column;
 	@include margin(right 24px);
 	@include font-sizes(20);
 
-	line-height: (58/20);
-	z-index: 2;
+	line-height: (58 * 0.05);
 
 	@include media-breakpoint-up(md) {
 		@include margin(right 0);
@@ -29,7 +26,7 @@
 	}
 
 	&__item {
-		@extend %text-transform-uppercase, %text-align-center;
+		@extend .text-uppercase, .text-center;
 
 		border-bottom: 1px solid the_color(black);
 
@@ -39,7 +36,7 @@
 
 		a {
 			@extend .d-inline-block;
-			@extend %vertical-align-middle, %font-weight-extralight;
+			@extend .align-middle, %font-weight-extralight;
 			@include padding(right 5px left 5px);
 
 			@include media-breakpoint-up(md) {
@@ -48,7 +45,7 @@
 
 			&.current-lang {
 				@include letter-spacing(60);
-				@extend %font-weight-light;
+				@extend .fw-light;
 			}
 		}
 	}

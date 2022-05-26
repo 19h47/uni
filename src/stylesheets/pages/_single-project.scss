@@ -6,6 +6,8 @@
  *
  *
  */
+@use 'sass:math';
+
 .Single-project {
 	.Horizontal-page__wrapper {
 		background-color: the_color(white);
@@ -14,7 +16,7 @@
 	&__readmore {
 		@include font-sizes(35);
 
-		line-height: (60/35);
+		line-height: math.div(60, 35);
 	}
 
 	&__grid {
@@ -43,10 +45,12 @@
 		}
 
 		@include media-breakpoint-up(md) {
-			@include size(#{((5 * 200) * 100) / $prototype-width-unitless}vw, 100%);
+			@include size(#{math.div((5 * 200) * 100, $prototype-width-unitless)}vw, 100%);
 			@include padding(
-				top #{(60 * 100) / $prototype-height-unitless}vh bottom #{(60 * 100) /
-					$prototype-height-unitless}vh
+				top #{math.div(60 * 100, $prototype-height-unitless)}vh bottom #{math.div(
+						60 * 100,
+						$prototype-height-unitless
+					)}vh
 			);
 
 			grid-template-columns: repeat(5, 1fr);
@@ -64,19 +68,17 @@
 			@include margin(top 0 bottom 0);
 
 			span {
-				@extend %font-family-body, %text-transform-none;
-				@extend .d-block;
 				@include letter-spacing(0);
 
 				@include font-sizes(25, 30, 75);
 
-				line-height: (75/30);
+				line-height: math.div(75, 30);
 			}
 		}
 	}
 
 	&__images {
-		@extend %list-style-type-none, %Pointer-events-none;
+		@extend .list-style-type-none, .pe-none;
 		@extend .d-flex, .flex-column, .flex-md-row;
 
 		position: relative;
@@ -84,10 +86,12 @@
 
 		@include media-breakpoint-up(md) {
 			@include padding(
-				top #{(60 * 100) / $prototype-height-unitless}vh bottom #{(60 * 100) /
-					$prototype-height-unitless}vh
+				top #{math.div(60 * 100, $prototype-height-unitless)}vh bottom #{math.div(
+						60 * 100,
+						$prototype-height-unitless
+					)}vh
 			);
-			@include margin(left #{((200 * -1) * 100) / $prototype-width-unitless}vw);
+			@include margin(left #{math.div((200 * -1) * 100, $prototype-width-unitless)}vw);
 		}
 	}
 
@@ -103,12 +107,14 @@
 		}
 
 		@include media-breakpoint-up(md) {
-			@include margin(top 0 bottom 0 left #{(200 * 100) / $prototype-width-unitless}vw);
+			@include margin(
+				top 0 bottom 0 left #{math.div(200 * 100, $prototype-width-unitless)}vw
+			);
 
 			height: 100%;
 
 			&:last-child {
-				@include margin(right #{(200 * 100) / $prototype-width-unitless}vw);
+				@include margin(right #{math.div(200 * 100, $prototype-width-unitless)}vw);
 			}
 		}
 
@@ -155,10 +161,12 @@
 		}
 
 		@include media-breakpoint-up(md) {
-			@include size(#{((8 * 200) * 100) / $prototype-width-unitless}vw, 100%);
+			@include size(#{math.div((8 * 200) * 100, $prototype-width-unitless)}vw, 100%);
 			@include padding(
-				top #{(60 * 100) / $prototype-height-unitless}vh bottom #{(60 * 100) /
-					$prototype-height-unitless}vh
+				top #{math.div(60 * 100, $prototype-height-unitless)}vh bottom #{math.div(
+						60 * 100,
+						$prototype-height-unitless
+					)}vh
 			);
 			@include margin(top 0);
 
@@ -170,7 +178,7 @@
 	&__informations {
 		@include fixed(top 0 right 0 bottom 0 left 0);
 		@include margin(top 100px right 20px bottom 20px left 20px);
-		@include padding(right #{(42 * 100) / 750}vw left #{(42 * 100) / 750}vw);
+		@include padding(right #{math.div(42 * 100, 750)}vw left #{math.div(42 * 100, 750)}vw);
 
 		transform: translate3d(calc(100% + 20px), 0, 0);
 
@@ -197,12 +205,14 @@
 
 		@include media-breakpoint-up(md) {
 			@include margin(
-				top 20px right 20px left calc(#{(100 * 100) / $prototype-width-unitless}vw + 40px)
-					bottom 20px
+				top 20px right 20px left
+					calc(#{math.div(100 * 100, $prototype-width-unitless)}vw + 40px) bottom 20px
 			);
 			@include padding(
-				top #{(60 * 100) / $prototype-height-unitless}vh right 0 bottom #{(60 * 100) /
-					$prototype-height-unitless}vh left 0
+				top #{math.div(60 * 100, $prototype-height-unitless)}vh right 0 bottom #{math.div(
+						60 * 100,
+						$prototype-height-unitless
+					)}vh left 0
 			);
 		}
 	}

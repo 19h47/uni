@@ -4,27 +4,15 @@
  *
  * @package UNI
  */
+@use 'sass:math';
+
 .Logo {
-	svg {
-		@extend %vertical-align-middle;
-	}
+	@include size(#{math.div(195 * 100, 750)}vw, #{math.div(46 * 100, 750)}vw);
 
-	@at-root .Site-header & {
-		@include absolute(top 0 right 0 bottom 0 left 0);
-		@include margin(top auto right auto bottom auto left auto);
-		@include size(#{(195 * 100) / 750}vw, #{(46 * 100) / 750}vw);
-
-		z-index: 1;
-
-		svg {
-			@include size(100%);
-		}
-
-		@include media-breakpoint-up(md) {
-			@include size(
-				#{(36 * 100) / $prototype-width-unitless}vw,
-				#{(185 * 100) / $prototype-width-unitless}vw
-			);
-		}
+	@include media-breakpoint-up(md) {
+		@include size(
+			#{math.div(36 * 100, $prototype-width-unitless)}vw,
+			#{math.div(185 * 100, $prototype-width-unitless)}vw
+		);
 	}
 }

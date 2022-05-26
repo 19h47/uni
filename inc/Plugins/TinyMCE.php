@@ -33,5 +33,3 @@ class TinyMCE {
 		return $mceInit; // phpcs:ignore
 	}
 }
-
-

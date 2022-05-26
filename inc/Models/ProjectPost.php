@@ -55,22 +55,29 @@ class ProjectPost extends Post {
 
 	/**
 	 * Images
+	 *
+	 * @return array
 	 */
 	public function images() : array {
-		$images = get_field( 'images', $this->id );
-		$count  = count( $images );
+		$images = $this->get_field( 'images' );
 
-		for ( $i = 0; $i < $count; $i++ ) {
-			$rows = get_field( 'rows', $images[ $i ]['id'] );
+		if ( $images ) {
+			$count = count( $images );
 
-			if ( $rows ) {
-				$padding = ( ( ( ( 116.36 * ( 11 - $rows ) ) * 100 ) / 1440 ) / 2 ) . 'vh';
+			for ( $i = 0; $i < $count; $i++ ) {
+				$rows = get_field( 'rows', $images[ $i ]['id'] );
 
-				$images[ $i ]['style'] = "padding-top: $padding; padding-bottom: $padding;";
+				if ( $rows ) {
+					$padding = ( ( ( ( 116.36 * ( 11 - $rows ) ) * 100 ) / 1440 ) / 2 ) . 'vh';
+
+					$images[ $i ]['style'] = "padding-top: $padding; padding-bottom: $padding;";
+				}
 			}
+
+			return $images;
 		}
 
-		return $images;
+		return array();
 	}
 
 
@@ -93,7 +100,6 @@ class ProjectPost extends Post {
 
 	/**
 	 * Updcoming
-	 *
 	 */
 	public function upcoming() : boolean {
 		return get_post_meta( $this->id, '_upcoming', true );

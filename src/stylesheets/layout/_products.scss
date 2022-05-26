@@ -5,8 +5,10 @@
  *
  * @package UNI
  */
+@use 'sass:math';
+
 .Products {
-	@extend %list-style-type-none;
+	@extend .list-style-type-none;
 	@include margin(right -20px left -20px);
 	@extend .d-md-flex;
 
@@ -15,7 +17,7 @@
 
 		@at-root .page-template-archive-page &,
 			.Single-product & {
-			@include margin(right #{(200 * 100) / $prototype-width-unitless}vw);
+			@include margin(right #{math.div(200 * 100, $prototype-width-unitless)}vw);
 		}
 	}
 }

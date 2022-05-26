@@ -1,7 +1,8 @@
 /**
+ * Production
  *
  * @file   webpack.production.js
- * @author Jérémy Levron <jeremylevron@19h47.fr> (http://19h47.fr)
+ * @author Jérémy Levron <jeremylevron@19h47.fr> (https://19h47.fr)
  */
 
 const glob = require('glob');
@@ -14,6 +15,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
 const PurgecssPlugin = require('purgecss-webpack-plugin');
+const purgecssWordpress = require('purgecss-with-wordpress');
 
 module.exports = merge(common, {
 	output: {
@@ -49,10 +51,10 @@ module.exports = merge(common, {
 					{
 						loader: 'sass-loader',
 						options: {
-							sassOptions: Object.assign({
+							sassOptions: {
 								sourceMap: false,
 								precision: 10,
-							}),
+							},
 						},
 					},
 				],
@@ -60,80 +62,25 @@ module.exports = merge(common, {
 		],
 	},
 	plugins: [
-		new CleanWebpackPlugin(),
+		new CleanWebpackPlugin({
+			cleanOnceBeforeBuildPatterns: [path.join(__dirname, '..', 'dist')],
+		}),
 		new MiniCssExtractPlugin({
 			filename: 'css/main.[chunkhash:8].css',
 		}),
 		new CompressionPlugin(),
-		new PurgecssPlugin({
-			paths: glob.sync(path.join(__dirname, '..', 'views/**/*.html.twig')),
-			whitelist: [
-				// page
-				'About-page',
-				'Archive-page',
-				'Archive-project',
-				'Front-page',
-				'Horizontal-page',
-				'Page',
-				'Single-product',
-				'Single-project',
-				// template
-				'page-template-horizontal-page',
-				'page-template-archive-page',
-				// state
-				'is-disabled',
-				'is-off',
-				'is-focus',
-				'is-current',
-				'is-selected',
-				'is-loading',
-				'is-active',
-				'is-in-view',
-				'is-native-scroll',
-				'is-selected',
-				'is-hidden',
-				'has-background',
-				'menu--is-open',
-				'modal--is-open',
-				'Menu--footer',
-				'menu-mobile--is-open',
-				'product-type-variable',
-				'current-lang',
-				'error-message',
-				'success-message',
-				'screen-reader-text',
-				'column-3',
-				'column-4',
-				'column-10',
-				// tag
-				'select',
-				'iframe',
-				'input',
-				'button',
-				'textarea',
-				'blockquote',
-				'span',
-				'a',
-			],
-			whitelistPatternsChildren: [
-				/^woocommerce/,
-				/^Cart/,
-				/^Form/,
-				/^leaflet-/,
-				/^tippy-/,
-				/^wp-block-/,
-				/^flickity-/,
-				/^wpcf7-/,
-				/^Form__list/,
-				/^Share__link--/,
-				/^noUi/,
-				/^Calendar/,
-				/^grecaptcha/,
-				/^Product/,
-				/^jetpack/,
-				/^select2/,
-				/^column-/,
-			],
-		}),
+		// new PurgecssPlugin({
+		// 	paths: glob.sync(
+		// 		[
+		// 			path.join(__dirname, '..', '../*'),
+		// 			path.join(__dirname, '..', '../woocommerce/**/*'),
+		// 			path.join(__dirname, '..', '../templates/**/*'),
+		// 			path.join(__dirname, '..', '../template-parts/**/*'),
+		// 		],
+		// 		{ nodir: true },
+		// 	),
+		// 	safelist: purgecssWordpress.safelist,
+		// 	defaultExtractor: content => content.match(/[^<>"'`\s]*[^<>"'`\s:]/g) || [],
+		// }),
 	],
 });

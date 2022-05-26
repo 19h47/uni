@@ -5,13 +5,10 @@
  *
  *
  */
+@use 'sass:math';
+
 .Checkout {
 	&__form {
-		@extend %position-relative;
-		@extend .d-md-flex;
-
-		flex-wrap: wrap;
-
 		& > *:first-child {
 			@include margin(top 0);
 		}
@@ -23,11 +20,13 @@
 	&__details {
 		@include media-breakpoint-up(md) {
 			@include padding(
-				top #{(250 * 100) / $prototype-height-unitless}vh right percentage(0.5 / 12) bottom #{(
-						250 * 100
-					) / $prototype-height-unitless}vh left percentage(1 / 12)
+				top #{math.div(250 * 100, $prototype-height-unitless)}vh right
+					percentage(math.div(0.5, 12)) bottom #{math.div(
+						250 * 100,
+						$prototype-height-unitless
+					)}vh left percentage(math.div(1, 12))
 			);
-			width: percentage(6.5 / 12);
+			width: percentage(math.div(6.5, 12));
 			border-right: 1px solid rgba(the_color(black), 1);
 		}
 	}
@@ -35,11 +34,13 @@
 	&__order {
 		@include media-breakpoint-up(md) {
 			@include padding(
-				top #{(250 * 100) / $prototype-height-unitless}vh right percentage(1 / 12) bottom #{(
-						250 * 100
-					) / $prototype-height-unitless}vh left percentage(0.5 / 12)
+				top #{math.div(250 * 100, $prototype-height-unitless)}vh right
+					percentage(math.div(1, 12)) bottom #{math.div(
+						250 * 100,
+						$prototype-height-unitless
+					)}vh left percentage(math.div(0.5, 12))
 			);
-			width: percentage(5.5 / 12);
+			width: percentage(math.div(5.5, 12));
 		}
 	}
 }

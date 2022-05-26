@@ -5,25 +5,24 @@
  *
  *
  */
+@use 'sass:math';
+
 .Cart {
 	.Notices {
 		@include absolute(top 0 right 0 left 0);
 	}
 
-	&__wrapper {
-		@extend %position-relative;
-		@extend .d-md-flex;
-	}
-
 	&__form {
 		@include media-breakpoint-up(md) {
 			@include padding(
-				top #{(250 * 100) / $prototype-height-unitless}vh right percentage(0.5 / 12) bottom #{(
-						250 * 100
-					) / $prototype-height-unitless}vh left percentage(1 / 12)
+				top #{math.div(250 * 100, $prototype-height-unitless)}vh right
+					percentage(math.div(0.5, 12)) bottom #{math.div(
+						250 * 100,
+						$prototype-height-unitless
+					)}vh left percentage(math.div(1, 12))
 			);
 
-			width: percentage(6.5 / 12);
+			width: percentage(math.div(6.5, 12));
 			border-right: 1px solid rgba(the_color(black), 1);
 		}
 
@@ -41,42 +40,42 @@
 			.product-subtotal {
 				@include font-sizes(25);
 
-				line-height: (30/25);
+				line-height: math.div(30, 25);
 			}
 
 			thead tr th {
-				@extend %font-weight-bold;
-				@include padding(top #{(20 * 60) / 100}px bottom #{(20 * 60) / 100}px);
+				@extend .fw-bold;
+				@include padding(top #{(20 * 60) * 0.01}px bottom #{(20 * 60) * 0.01}px);
 
 				border-bottom: 1px solid the_color(gray, very-dark);
 
 				@include media-breakpoint-up(hd) {
-					@include padding(top #{(20/30)}em bottom #{(20/30)}em);
+					@include padding(top #{math.div(20, 30)}em bottom #{math.div(20, 30)}em);
 				}
 			}
 
 			tfoot {
 				.actions {
 					@include media-breakpoint-up(hd) {
-						@include padding(top #{(90/30)}em);
+						@include padding(top #{math.div(90, 30)}em);
 					}
 				}
 			}
 
 			.product-quantity {
-				@extend %text-align-right;
+				@extend .text-end;
 
 				input {
-					@extend %text-align-right;
+					@extend .text-end;
 				}
 			}
 
 			.product-subtotal {
-				@extend %text-align-right;
+				@extend .text-end;
 			}
 
 			.product-thumbnail {
-				@extend %text-align-left;
+				@extend .text-start;
 
 				width: 0;
 				font-size: 0;
@@ -85,11 +84,16 @@
 
 				@include media-breakpoint-up(md) {
 					@include font-sizes(25);
-					@include padding(top #{(20/30)}em right #{(10/30)}em bottom #{(20/30)}em);
+					@include padding(
+						top #{math.div(20, 30)}em right #{math.div(10, 30)}em bottom #{math.div(
+								20,
+								30
+							)}em
+					);
 
-					width: percentage(200 / 1000);
+					width: percentage(200 * 0.001);
 					border-bottom: 1px solid the_color(gray, very-dark);
-					line-height: (30/25);
+					line-height: math.div(30, 25);
 				}
 
 				a {
@@ -99,7 +103,7 @@
 
 				img {
 					@extend .d-block;
-					@include size(100%, #{(128 * 100) / $prototype-height-unitless}vh);
+					@include size(100%, #{math.div(128 * 100, $prototype-height-unitless)}vh);
 
 					border-radius: map-get($borders, radius);
 					object-fit: contain;
@@ -110,27 +114,27 @@
 			.product-name {
 				@extend %font-family-title, %font-style-italic;
 
-				line-height: (45/25);
-				width: percentage(200 / 1000);
+				line-height: math.div(45, 25);
+				width: percentage(200 * 0.001);
 			}
 			.product-price {
-				@extend %text-align-right;
-				width: percentage(200 / 1000);
+				@extend .text-end;
+				width: percentage(200 * 0.001);
 			}
 			.product-quantity {
-				width: percentage(200 / 1000);
+				width: percentage(200 * 0.001);
 			}
 			.product-subtotal {
-				width: percentage(200 / 1000);
+				width: percentage(200 * 0.001);
 			}
 
 			.actions {
 				width: 100%;
 
 				.Coupon {
-					@include padding(top #{(20 * 60) / 100}px bottom #{(20 * 60) / 100}px);
+					@include padding(top #{(20 * 60) * 0.01}px bottom #{(20 * 60) * 0.01}px);
 					@include media-breakpoint-up(hd) {
-						@include padding(top #{(20/30)}em bottom #{(20/30)}em);
+						@include padding(top #{math.div(20, 30)}em bottom #{math.div(20, 30)}em);
 					}
 				}
 			}
@@ -139,13 +143,16 @@
 		&__item {
 			td {
 				@include padding(
-					top #{(20 * 60) / 100}px right #{(10 * 60) / 100}px bottom #{(20 * 60) / 100}px left
-						#{(10 * 60) / 100}px
+					top #{(20 * 60) * 0.01}px right #{(10 * 60) * 0.01}px bottom #{(20 * 60) * 0.01}px
+						left #{(10 * 60) * 0.01}px
 				);
 
 				@include media-breakpoint-up(hd) {
 					@include padding(
-						top #{(20/30)}em right #{(10/30)}em bottom #{(20/30)}em left #{(10/30)}em
+						top #{math.div(20, 30)}em right #{math.div(10, 30)}em bottom #{math.div(
+								20,
+								30
+							)}em left #{math.div(10, 30)}em
 					);
 				}
 
@@ -166,11 +173,13 @@
 		@include media-breakpoint-up(md) {
 			@include margin(bottom 0);
 			@include padding(
-				top #{(250 * 100) / $prototype-height-unitless}vh right percentage(1 / 12) bottom #{(
-						250 * 100
-					) / $prototype-height-unitless}vh left percentage(0.5 / 12)
+				top #{math.div(250 * 100, $prototype-height-unitless)}vh right
+					percentage(math.div(1, 12)) bottom #{math.div(
+						250 * 100,
+						$prototype-height-unitless
+					)}vh left percentage(math.div(0.5, 12))
 			);
-			width: percentage(5.5 / 12);
+			width: percentage(math.div(5.5, 12));
 		}
 	}
 }

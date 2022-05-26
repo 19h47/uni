@@ -6,6 +6,8 @@
  *
  *
  */
+@use "sass:math";
+
 .Shipping-fields {
 	&__field-wrapper {
 		@extend .d-flex;
@@ -19,18 +21,18 @@
 		.form-row-first {
 			width: 50%;
 
-			@include padding(right #{(20 * 60) / 100}px);
+			@include padding(right #{(20 * 60) * 0.01}px);
 			@include media-breakpoint-up(hd) {
-				@include padding(right #{(20/30)}em);
+				@include padding(right #{math.div(20, 30)}em);
 			}
 		}
 
 		.form-row-last {
 			width: 50%;
 
-			@include padding(left #{(20 * 60) / 100}px);
+			@include padding(left #{(20 * 60) * 0.01}px);
 			@include media-breakpoint-up(hd) {
-				@include padding(left #{(20/30)}em);
+				@include padding(left #{math.div(20, 30)}em);
 			}
 		}
 	}

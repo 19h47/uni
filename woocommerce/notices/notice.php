@@ -3,7 +3,12 @@
  * Show messages
  *
  * @package UNI/Templates
+ * @version 3.9.0
  */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
 
 use Timber\{ Timber };
 

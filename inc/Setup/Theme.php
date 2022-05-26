@@ -212,16 +212,17 @@ class Theme {
 	 * @since  1.0.0
 	 */
 	public function add_to_context( array $context ) : array {
-		$context['cart']     = WC()->cart;
-		$context['cart_url'] = wc_get_cart_url();
+		$context['cart']      = WC()->cart;
+		$context['countries'] = WC()->countries;
+		$context['customer']  = WC()->customer;
+
+		$context['is_ajax'] = is_ajax();
 
 		$context['mailchimp'] = array(
 			'url'  => get_option( 'mailchimp_url' ),
 			'id'   => get_option( 'mailchimp_id' ),
 			'user' => get_option( 'mailchimp_user' ),
 		);
-
-		$context['shop_url'] = get_term_link( 26, 'product_cat' );
 
 		if ( function_exists( 'pll_current_language' ) ) {
 			$context['objects_page'] = Timber::get_post( get_option( 'objects_page_' . pll_current_language() ) );
@@ -233,6 +234,11 @@ class Theme {
 				'content'  => get_field( 'content', 'projects_settings_' . pll_current_language() ),
 			);
 		}
+
+		$context['shop_url']      = get_term_link( 26, 'product_cat' );
+		$context['checkout_url']  = wc_get_checkout_url();
+		$context['cart_url']      = wc_get_cart_url();
+		$context['myaccount_url'] = wc_get_page_permalink( 'myaccount' );
 
 		return $context;
 	}

@@ -58,10 +58,10 @@ export default class MenuBlock extends AbstractBlock {
 			button.addEventListener('click', () => this.toggle());
 		});
 
-		this.rootElement.addEventListener('click', event => {
-			const { tagName } = event.target;
+		this.rootElement.addEventListener('click', ({ target }) => {
+			const { tagName } = target;
 
-			if ('A' !== tagName) {
+			if ('A' !== tagName && 'INPUT' !== tagName) {
 				this.close();
 			}
 		});

@@ -5,6 +5,7 @@
  * @param object $gateway Object gateway.
  *
  * @package     WooCommerce/Templates
+ * @version     3.5.0
  */
 
 use Timber\{ Timber };

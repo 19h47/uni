@@ -147,6 +147,8 @@ class WooCommerce {
 	 * @param string $key key.
 	 * @param string $value (default: null).
 	 *
+	 * @see https://github.com/woocommerce/woocommerce/blob/trunk/plugins/woocommerce/includes/wc-template-functions.php#L2749
+	 *
 	 * @return array $args
 	 */
 	public function form_field_args( array $args, string $key, $value ) : array {
@@ -160,6 +162,8 @@ class WooCommerce {
 	 *
 	 * @param array $fields Array of fields.
 	 *
+	 * @see https://github.com/woocommerce/woocommerce/blob/trunk/plugins/woocommerce/includes/class-wc-checkout.php#L267
+	 *
 	 * @return array $fields
 	 */
 	public function checkout_fields( array $fields ) : array {
@@ -172,9 +176,9 @@ class WooCommerce {
 		$fields['billing']['billing_phone']['class'] = array( 'form-row-first' );
 		$fields['billing']['billing_email']['class'] = array( 'form-row-last' );
 
-		$fields['billing']['billing_company']['label'] = __( 'Company', 'uni' );
-		$fields['billing']['billing_country']['label'] = __( 'Country', 'uni' );
-		$fields['billing']['billing_country']['priority']    = 70;
+		$fields['billing']['billing_company']['label']    = __( 'Company', 'uni' );
+		$fields['billing']['billing_country']['label']    = __( 'Country', 'uni' );
+		$fields['billing']['billing_country']['priority'] = 70;
 
 		// shipping.
 		$fields['shipping']['shipping_last_name']['priority'] = 10;
@@ -183,10 +187,10 @@ class WooCommerce {
 		$fields['shipping']['shipping_first_name']['priority'] = 20;
 		$fields['shipping']['shipping_first_name']['class']    = array( 'form-row-last' );
 
-		$fields['shipping']['shipping_address_1']['priority']  = 40;
-		$fields['shipping']['shipping_postcode']['priority']   = 60;
-		$fields['shipping']['shipping_city']['priority']       = 65;
-		$fields['shipping']['shipping_country']['priority']    = 70;
+		$fields['shipping']['shipping_address_1']['priority'] = 40;
+		$fields['shipping']['shipping_postcode']['priority']  = 60;
+		$fields['shipping']['shipping_city']['priority']      = 65;
+		$fields['shipping']['shipping_country']['priority']   = 70;
 
 		$fields['shipping']['shipping_company']['label'] = __( 'Company', 'uni' );
 		$fields['shipping']['shipping_country']['label'] = __( 'Country', 'uni' );
@@ -216,6 +220,8 @@ class WooCommerce {
 	/**
 	 * Cart actions
 	 *
+	 * @see https://github.com/woocommerce/woocommerce/blob/trunk/plugins/woocommerce/templates/cart/cart.php#L150
+	 *
 	 * @return void
 	 */
 	public function cart_actions() : void {
@@ -240,7 +246,7 @@ class WooCommerce {
 	 * @return void
 	 */
 	public function output_before_cart_wrapper() : void {
-		echo '<div class="Cart__wrapper">';
+		echo '<div class="position-relative d-md-flex">';
 	}
 
 
@@ -269,10 +275,12 @@ class WooCommerce {
 	 *
 	 * @param array $fragments Array of fragments.
 	 *
+	 * @see https://github.com/woocommerce/woocommerce/blob/trunk/plugins/woocommerce/includes/class-wc-ajax.php#L189
+	 *
 	 * @return array $fragments
 	 */
 	public function add_to_cart_fragments( array $fragments ) : array {
-		$fragments['span.js-cart-contents-count'] = '<span class="js-cart-contents-count">(' . WC()->cart->get_cart_contents_count() . ')</span>';
+		$fragments['span.js-cart-contents-count'] = '<span class="js-cart-contents-count position-absolute bottom-100 start-100 d-block">(' . WC()->cart->get_cart_contents_count() . ')</span>';
 
 		return $fragments;
 	}
@@ -428,10 +436,9 @@ class WooCommerce {
 	 */
 	public function update_meta_data( int $post_id ) : void {
 
-		$upcoming = isset( $_POST[ '_upcoming' ] ) ? sanitize_text_field( wp_unslash( $_POST[ '_upcoming' ] ) ) : '';
+		$upcoming = isset( $_POST['_upcoming'] ) ? sanitize_text_field( wp_unslash( $_POST['_upcoming'] ) ) : '';
 
 		update_post_meta( $post_id, '_upcoming', $upcoming );
 	}
 
 }
-

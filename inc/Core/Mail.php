@@ -5,7 +5,7 @@
  * A simple class for creating and sending Emails using WordPress and Timber
  *
  * @author Jérémy Levron <jeremylevron@19h47.fr> (https://19h47.fr)
- * @package DLAP
+ * @package UNI
  */
 
 namespace UNI\Core;

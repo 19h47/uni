@@ -29,7 +29,7 @@ export default class Custom extends Smooth {
 	getCache() {
 		this.cache = [];
 
-		this.dom.divs.children.forEach(el => {
+		[...this.dom.divs.children].forEach(el => {
 			const { target } = this.vars;
 			const { left, right, width } = el.getBoundingClientRect();
 			const bounds = {
@@ -44,7 +44,7 @@ export default class Custom extends Smooth {
 	}
 
 	run() {
-		this.dom.divs.children.forEach((el, i) => this.inViewport(el, i));
+		[...this.dom.divs.children].forEach((el, i) => this.inViewport(el, i));
 		this.dom.section.style[this.prefix] = `translate3d(${this.vars.current * -1}px,0,0)`;
 		super.run();
 	}

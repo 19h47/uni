@@ -44,10 +44,10 @@ module.exports = merge(common, {
 					{
 						loader: 'sass-loader',
 						options: {
-							sassOptions: Object.assign({
+							sassOptions: {
 								sourceMap: true,
 								precision: 10,
-							}),
+							},
 						},
 					},
 				],
@@ -56,8 +56,8 @@ module.exports = merge(common, {
 	},
 	plugins: [
 		new MiniCssExtractPlugin({
-			filename: 'css/main.css',
-			publicPath: '../',
+			filename: 'css/[name].css',
 		}),
 	],
+
 });

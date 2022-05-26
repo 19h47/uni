@@ -106,3 +106,17 @@ function get_theme_version() : string {
 function get_theme_name() : string {
 	return wp_get_theme()->Name;
 }
+
+
+
+
+/**
+ * Retrieve the text domain.
+ *
+ * @since  1.0.0
+ * @return string The text domain.
+ * @see https://developer.wordpress.org/reference/functions/wp_get_theme/
+ */
+function get_theme_text_domain() : string {
+	return wp_get_theme()->get( 'TextDomain' );
+}

@@ -23,8 +23,8 @@
 						{{- _x( 'Pay', 'thankyou', 'uni' ) -}}
 					</a>
 
-					{% if is_user_logged_in %}
-						<a href="{{ myaccount_permalink }}" class="Button button pay">
+					{% if user %}
+						<a href="{{ myaccount_url | e( 'esc_url' ) }}" class="Button button pay">
 							{{- _x( 'My account', 'thankyou', 'uni' ) -}}
 						</a>
 					{% endif %}
@@ -52,7 +52,7 @@
 					</li>
 
 					{# email #}
-					{% if is_user_logged_in and order.get_user_id() is same as( current_user_id ) and order.get_billing_email() %}
+					{% if user and order.get_user_id() is same as( user.id ) and order.get_billing_email() %}
 						<li class="woocommerce-order-overview__email email">
 							{{- _x( 'Email:', 'thankyou', 'thankyou', 'uni' ) -}}
 							<strong>{{- order.get_billing_email() -}}</strong>

@@ -15,7 +15,7 @@
 	{% do action( 'woocommerce_before_checkout_form', checkout ) %}
 
 	{# If checkout registration is disabled and not logged in, the user cannot checkout. #}
-	{% if not checkout.is_registration_enabled() and checkout.is_registration_required() and not is_user_logged_in %}
+	{% if not checkout.is_registration_enabled() and checkout.is_registration_required() and not user %}
 
 		{% filter apply_filters( 'woocommerce_checkout_must_be_logged_in_message' ) %}
 			{{- __( 'You must be logged in to checkout.', 'uni' ) -}}
@@ -23,7 +23,13 @@
 
 	{% else %}
 
-		<form name="checkout" method="post" class="Checkout__form checkout woocommerce-checkout" action="{{ checkout_url }}" enctype="multipart/form-data">
+		<form
+			name="checkout"
+			method="post"
+			class="flex-wrap Checkout__form position-relative d-md-flex checkout woocommerce-checkout"
+			action="{{ checkout_url | e( 'esc_url' ) }}"
+			enctype="multipart/form-data"
+		>
 
 			{% if checkout.get_checkout_fields() %}
 

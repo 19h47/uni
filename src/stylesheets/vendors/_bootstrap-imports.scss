@@ -1,61 +1,109 @@
-// Core variables and mixins
+// bootstrap-custom.scss
+
+// 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
+@use 'sass:math';
+
 @import '~bootstrap/scss/functions';
-
 @import '~bootstrap/scss/variables';
-
-@import '~bootstrap/scss/mixins';
 
 @import 'bootstrap-variables';
 
-// @import '~bootstrap/scss/alert';
-// @import '~bootstrap/scss/badge';
-// @import '~bootstrap/scss/breadcrumb';
-// @import '~bootstrap/scss/button-group';
-// @import '~bootstrap/scss/buttons';
-// @import '~bootstrap/scss/card';
-// @import '~bootstrap/scss/carousel';
-// @import '~bootstrap/scss/close';
-// @import '~bootstrap/scss/code';
-// @import '~bootstrap/scss/custom-forms';
-// @import '~bootstrap/scss/dropdown';
-// @import '~bootstrap/scss/forms';
+@import '~bootstrap/scss/mixins';
+@import '~bootstrap/scss/root';
 @import '~bootstrap/scss/grid';
-// @import '~bootstrap/scss/images';
-// @import '~bootstrap/scss/input-group';
-// @import '~bootstrap/scss/jumbotron';
-// @import '~bootstrap/scss/list-group';
-// @import '~bootstrap/scss/media';
-// @import '~bootstrap/scss/modal';
-// @import '~bootstrap/scss/nav';
-// @import '~bootstrap/scss/navbar';
-// @import '~bootstrap/scss/pagination';
-// @import '~bootstrap/scss/popover';
-// @import '~bootstrap/scss/print';
-// @import '~bootstrap/scss/progress';
-// @import '~bootstrap/scss/reboot';
-// @import '~bootstrap/scss/root';
-// @import '~bootstrap/scss/spinners';
-// @import '~bootstrap/scss/tables';
-// @import '~bootstrap/scss/toasts';
-// @import '~bootstrap/scss/tooltip';
-// @import '~bootstrap/scss/transitions';
-// @import '~bootstrap/scss/type';
+@import '~bootstrap/scss/utilities';
 
-// Utilities
-// @import '~bootstrap/scss/utilities/align';
-// @import '~bootstrap/scss/utilities/background';
-// @import '~bootstrap/scss/utilities/borders';
-// @import '~bootstrap/scss/utilities/clearfix';
-@import '~bootstrap/scss/utilities/display';
-// @import '~bootstrap/scss/utilities/embed';
-@import '~bootstrap/scss/utilities/flex';
-// @import '~bootstrap/scss/utilities/float';
-// @import '~bootstrap/scss/utilities/overflow';
-// @import '~bootstrap/scss/utilities/position';
-// @import '~bootstrap/scss/utilities/screenreaders';
-// @import '~bootstrap/scss/utilities/shadows';
-// @import '~bootstrap/scss/utilities/sizing';
-// @import '~bootstrap/scss/utilities/spacing';
-// @import '~bootstrap/scss/utilities/stretched-link';
-// @import '~bootstrap/scss/utilities/text';
-// @import '~bootstrap/scss/utilities/visibility';
+$utilities: map-merge(
+	$utilities,
+	(
+		'width':
+			map-merge(
+				map-get($utilities, 'width'),
+				(
+					responsive: true,
+					values: map-merge(map-get(map-get($utilities, 'width'), 'values'), ($sizes)),
+				)
+			),
+		'height':
+			map-merge(
+				map-get($utilities, 'height'),
+				(
+					responsive: true,
+					values: map-merge(map-get(map-get($utilities, 'height'), 'values'), ($sizes)),
+				)
+			),
+		'object-position': (
+			property: object-position,
+			values: (
+				center: center,
+				left-center: left center,
+				right-bottom: right bottom,
+			),
+		),
+		'object-fit': (
+			property: object-fit,
+			values: (
+				cover: cover,
+				contain: contain,
+			),
+		),
+		'list-style-type': (
+			property: list-style-type,
+			values: none,
+		),
+		'z-index': (
+			property: z-index,
+			values: 1 2 3 4 5 10 15 20,
+		),
+		'overflow-y': (
+			property: overflow-y,
+			values: scroll,
+		),
+		'overflow-x': (
+			property: overflow-x,
+			values: hidden,
+		),
+		'top':
+			map-merge(
+				map-get($utilities, 'top'),
+				(
+					responsive: true,
+				)
+			),
+		'end':
+			map-merge(
+				map-get($utilities, 'end'),
+				(
+					responsive: true,
+				)
+			),
+		'bottom':
+			map-merge(
+				map-get($utilities, 'bottom'),
+				(
+					responsive: true,
+				)
+			),
+		'start':
+			map-merge(
+				map-get($utilities, 'start'),
+				(
+					responsive: true,
+				)
+			),
+		'text-transform':
+			map-merge(
+				map-get($utilities, 'text-transform'),
+				(
+					values: inherit none,
+				)
+			),
+		'white-space': (
+			property: white-space,
+			values: nowrap,
+			responsive: true,
+		),
+	)
+);
+
+@import '~bootstrap/scss/utilities/api';

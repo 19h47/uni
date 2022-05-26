@@ -6,8 +6,8 @@
 {% extends 'index.html.twig' %}
 
 {% block content %}
-	<div class="Site-content">
+	<div class="Site-content position-relative">
 		{{- post.content -}}
-		{% include 'components/footer-vertical.html.twig' %}
+		{{- include( 'components/footer-vertical.html.twig' ) -}}
 	</div>
 {% endblock %}

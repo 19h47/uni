@@ -4,11 +4,22 @@
  #
  #
  #}
-<form action="{{ mailchimp.url }}/subscribe/post?u={{ mailchimp.user }}&amp;id={{ mailchimp.id }}" method="post" id="mc-embedded-subscribe-form-{{ id }}" name="mc-embedded-subscribe-form" class="Signup-form validate{{ classes ? ' ' ~ classes | join( ' ' ) }}" target="_blank">
 
-	<label class="Signup-form__label" for="mce-EMAIL-{{ id }}">{{- __( 'Newsletter subscriptions', 'uni' ) -}}</label>
+<form
+	action="{{ mailchimp.url }}/subscribe/post?u={{ mailchimp.user }}&amp;id={{ mailchimp.id }}"
+	method="post" id="mc-embedded-subscribe-form-{{ id }}"
+	name="mc-embedded-subscribe-form"
+	class="{{ [ 'Signup-form', 'validate' ] | merge( classes ? classes : [] ) | join( ' ' ) | trim }}"
+	target="_blank"
+>
 
-    <div class="Signup-form__group">
+	{% if label %}
+		<label class="h5 Signup-form__label mt-0 d-block font-family-body" for="mce-EMAIL-{{ id }}">
+			{{- label -}}
+		</label>
+	{% endif %}
+
+    <div class="Signup-form__group position-relative d-flex">
 		<input type="text" name="FNAME" id="mce-FNAME-{{ id }}" value="test" class="d-none">
 		<input type="text" name="LNAME" id="mce-LNAME-{{ id }}" value="test" class="d-none">
 		<input type="text" name="MMERGE6" id="mce-MMERGE6-{{ id }}" value="test" class="d-none">

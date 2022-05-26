@@ -3,7 +3,12 @@
  * Product Loop Start
  *
  * @package UNI
+ * @version     3.3.0
  */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 use Timber\{ Timber };
 

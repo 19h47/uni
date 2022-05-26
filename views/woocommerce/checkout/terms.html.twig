@@ -19,7 +19,7 @@
 
 		{% if checkbox.enabled %}
 			<p class="form-row validate-required Checkbox">
-				<label class="woocommerce-form__label woocommerce-form__label-for-checkbox checkbox">
+				<label class="woocommerce-form__label woocommerce-form__label-for-checkbox checkbox d-flex align-items-center">
 					<input type="checkbox" class="woocommerce-form__input woocommerce-form__input-checkbox input-checkbox" name="terms" {{ fn( 'checked', terms | apply_filters( 'woocommerce_terms_is_checked_default' ), false ) }} id="terms" />
 					<span class="woocommerce-terms-and-conditions-checkbox-text">
 						{{- checkbox.text -}}

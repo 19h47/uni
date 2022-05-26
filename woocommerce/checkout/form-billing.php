@@ -15,6 +15,5 @@ $context['checkout'] = $checkout;
 $context['cart']     = WC()->cart;
 
 $context['ship_to_billing_address_only'] = (bool) wc_ship_to_billing_address_only();
-$context['is_user_logged_in']            = (bool) is_user_logged_in();
 
 Timber::render( 'woocommerce/checkout/form-billing.html.twig', $context );

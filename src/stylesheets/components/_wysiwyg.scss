@@ -6,6 +6,8 @@
  *
  *
  */
+@use "sass:math";
+
 .Wysiwyg {
 	& > *:first-child {
 		@include margin(top 0);
@@ -15,7 +17,7 @@
 	}
 
 	blockquote {
-		@include margin(bottom 1em left #{(200 * 100) / $prototype-width-unitless}vw);
+		@include margin(bottom 1em left #{math.div(200 * 100, $prototype-width-unitless)}vw);
 
 		& > *:first-child {
 			@include margin(top 0);

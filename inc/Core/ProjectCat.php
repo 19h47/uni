@@ -12,7 +12,6 @@ namespace UNI\Core;
 
 /**
  * ProjectCat class
- *
  */
 class ProjectCat {
 

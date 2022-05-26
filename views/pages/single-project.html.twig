@@ -1,5 +1,5 @@
 {#
- #
+ # Single: Project
  #}
 {% extends 'index.html.twig' %}
 
@@ -8,16 +8,18 @@
 	<div id="project-informations" class="Single-project__informations page-block" data-node-type="ProjectInformationsBlock">
 		<div class="Single-project__title">
 			<h1>
-				<span>{{- post.get_terms( 'project_cat' ) | map( cat => cat.name ) | join( ', ' ) -}}</span>
+				{{- post.get_terms( 'project_cat' ) ? '<span class="font-family-body text-transform-none d-block">' ~ post.get_terms( 'project_cat' ) | map( cat => cat.name ) | join( ', ' ) ~ '</span>' -}}
 				{{- post.title -}}
 			</h1>
 		</div>
-		<div class="Wysiwyg">
-			{{- post.get_field( 'project_content' ) -}}
-		</div>
-		<div>
-			{% include 'partials/attributes.html.twig' with { attributes: post.attributes } %}
-		</div>
+
+		{% if post.meta( 'project_content' ) %}
+			<div class="Wysiwyg">{{- post.meta( 'project_content' ) -}}</div>
+		{% endif %}
+
+		{% if post.attributes %}
+			<div>{{- include( 'partials/attributes.html.twig', { attributes: post.attributes } ) -}}</div>
+		{% endif %}
 	</div>
 
 	<div class="Horizontal-page__section js-section">
@@ -27,10 +29,18 @@
 				<div class="Single-project__grid">
 					<div class="Single-project__title js-title">
 						<h1>
-							<span>{{- post.get_terms( 'project_cat' ) | map( cat => cat.name ) | join( ', ' ) -}}</span>
+							{{- post.get_terms( 'project_cat' ) ? '<span class="font-family-body text-transform-none d-block">' ~ post.get_terms( 'project_cat' ) | map( cat => cat.name ) | join( ', ' ) ~ '</span>' -}}
 							{{- post.title -}}
 						</h1>
-						<button class="Single-project__readmore d-none d-md-inline-block js-project-informations-button" type="button">+ <span class="text-decoration-underline">Informations</span></button>
+
+						{% if post.attributes or post.meta( 'project_content' ) %}
+							<button class="Single-project__readmore d-none d-md-inline-block js-project-informations-button" type="button">
+								+&nbsp;
+								<span class="text-decoration-underline">
+									{{- __( 'Informations', '' ) -}}
+								</span>
+							</button>
+						{% endif %}
 					</div>
 					<div class="Wysiwyg d-md-none">
 						{{- post.get_field( 'project_content' ) -}}
@@ -62,7 +72,7 @@
 			<div class="Single-project__content">
 				<div class="Single-project__title">
 					<h1>
-						<span>{{- projects_settings.subtitle -}}</span>
+						<span class="font-family-body text-transform-none d-block">{{- projects_settings.subtitle -}}</span>
 						{{- projects_settings.title -}}
 					</h1>
 				</div>

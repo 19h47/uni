@@ -5,6 +5,8 @@
  *
  *
  */
+@use 'sass:math';
+
 .Archive-page {
 	.Product-thumbnail {
 		img {
@@ -64,15 +66,17 @@
 		}
 
 		@include media-breakpoint-up(md) {
-			@include size(#{((7 * 200) * 100) / $prototype-width-unitless}vw, 100%);
+			@include size(#{math.div((7 * 200) * 100, $prototype-width-unitless)}vw, 100%);
 
 			@include padding(
-				top #{(60 * 100) / $prototype-height-unitless}vh bottom #{(60 * 100) /
-					$prototype-height-unitless}vh
+				top #{math.div(60 * 100, $prototype-height-unitless)}vh bottom #{math.div(
+						60 * 100,
+						$prototype-height-unitless
+					)}vh
 			);
 
 			grid-template-columns: repeat(7, 1fr);
-			grid-template-rows: repeat(11, percentage(1/11));
+			grid-template-rows: repeat(11, percentage(math.div(1, 11)));
 		}
 	}
 }

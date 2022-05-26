@@ -11,25 +11,25 @@
 
 			<div class="Horizontal-page__wrapper js-wrapper">
 
-				<div class="Horizontal-page__content">
+				<div class="Horizontal-page__content d-md-flex flex-column position-relative">
 
 					<div class="Page__content__title js-title">
-						<h1>{{- post.subtitle ? "<span>#{ post.subtitle }</span>" -}}{{- post.title -}}</h1>
+						<h1 class="text-uppercase">{{- post.subtitle ? "<span>#{ post.subtitle }</span>" -}}{{- post.title -}}</h1>
 					</div>
 
-					<ul>
+					<ul class="position-relative d-md-flex flex-md-nowrap list-style-type-none h-100 z-index-2">
 						{% for item in post.meta( 'layouts' ) %}
-							{% if item.acf_fc_layout == 'text' %}
-								<li class="column-{{ item.columns }}">
+							{% if 'text' == item.acf_fc_layout %}
+								<li class="d-md-flex position-relative column-{{ item.columns }}">
 									<div class="Wysiwyg">
 										{{ item.text }}
 									</div>
 								</li>
 							{% endif %}
 
-							{% if item.acf_fc_layout == 'image' %}
-								<li class="column-{{ item.columns }}">
-									{% include 'partials/image.html.twig' with { image: item.image } %}
+							{% if 'image' == item.acf_fc_layout %}
+								<li class="position-relative column-{{ item.columns }}">
+									{{- include( 'partials/image.html.twig', { image: item.image, classes: [ 'align-middle', 'd-inline-block' ] } ) -}}
 								</li>
 							{% endif %}
 						{% endfor %}

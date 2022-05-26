@@ -12,7 +12,7 @@
 	 #}
 	{% do action( 'woocommerce_before_cart' ) %}
 
-	<form class="Cart__form woocommerce-cart-form" action="{{ cart_url }}" method="post">
+	<form class="Cart__form woocommerce-cart-form" action="{{ cart_url | e }}" method="post">
 
 		{#
 		 # Hook: woocommerce_before_cart_table
@@ -89,7 +89,7 @@
 				<tr>
 					<td colspan="5" class="actions">
 
-						<div class="text-align-md-right padding-top-2 padding-top-md-5">
+						<div class="text-md-right padding-top-2 padding-top-md-5">
 							{#
 							# Hook: woocommerce_cart_actions.
 							#

@@ -6,11 +6,12 @@
  *
  *
  */
+@use "sass:math";
+
 .Site-footer-vertical {
 	@extend .d-flex;
 	@include padding(
-		top 7em right #{(200 * 100) / $prototype-width-unitless}vw bottom 7em left #{(200 * 100) /
-			$prototype-width-unitless}vw
+		top 7em right #{math.div(200 * 100, $prototype-width-unitless)}vw bottom 7em left #{math.div(200 * 100, $prototype-width-unitless)}vw
 	);
 	@include margin(top 20px);
 
@@ -21,10 +22,10 @@
 
 	& > div {
 		flex-grow: 1;
-		width: percentage(1/2);
+		width: percentage(1*0.5);
 
 		@include media-breakpoint-up(md) {
-			width: percentage(1/8);
+			width: percentage(1*0.125);
 		}
 	}
 
@@ -32,7 +33,7 @@
 		width: 100%;
 
 		@include media-breakpoint-up(md) {
-			width: percentage(3/8);
+			width: percentage(3*0.125);
 		}
 	}
 
@@ -45,7 +46,7 @@
 		@include media-breakpoint-up(md) {
 			@include margin(top 0);
 
-			width: percentage(1/8);
+			width: percentage(1*0.125);
 		}
 	}
 
@@ -62,9 +63,9 @@
 		flex-flow: row nowrap;
 
 		@include padding(
-			top 150px right #{(200 * 100) / $prototype-width-unitless}vw bottom 130px left #{(
+			top 150px right #{math.div(200 * 100, $prototype-width-unitless)}vw bottom 130px left #{math.div(
 					200 * 100
-				) / $prototype-width-unitless}vw
+				, $prototype-width-unitless)}vw
 		);
 	}
 }

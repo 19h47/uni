@@ -13,6 +13,8 @@
  * @see http://www.colorhexa.com/ to pickup color name
  * @see https://brandcolors.net/
  */
+@use 'sass:math';
+
 $color-variations: (
 	black: #000,
 	white: #fff,
@@ -138,10 +140,11 @@ $font: (
 /**
  * Base
  */
+$base-unit: px;
 $base-font-size: 30;
 $base-font-size-px: $base-font-size * 1px;
 $base-line-height: 40;
-$scale-factor: $base-line-height / $base-font-size;
+$scale-factor: math.div($base-line-height, $base-font-size);
 
 /**
  * Outer gutter width

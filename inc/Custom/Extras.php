@@ -56,7 +56,7 @@ class Extras {
 		}
 
 		// if ( is_cart() ) {
-		// 	$classes[] = 'Cart';
+		// $classes[] = 'Cart';
 		// }
 
 		return $classes;

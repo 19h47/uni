@@ -3,7 +3,10 @@
  * Single Product Image
  *
  * @package uni
+ * @version 3.5.1
  */
+
+defined( 'ABSPATH' ) || exit;
 
 global $product;
 

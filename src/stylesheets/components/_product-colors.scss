@@ -7,6 +7,8 @@
  *
  *
  */
+@use 'sass:math';
+
 .Product-colors {
 	$this: &;
 
@@ -15,7 +17,7 @@
 		@include margin(bottom 0.5em);
 		@include font-sizes(30);
 
-		line-height: (36/30);
+		line-height: math.div(36, 30);
 
 		@at-root .Loop #{ $this } #{ $this }__title {
 			@extend .d-none;
@@ -23,15 +25,15 @@
 	}
 
 	&__items {
-		@extend %list-style-type-none;
+		@extend .list-style-type-none;
 		@extend .d-flex;
 	}
 
 	&__item {
-		@include margin(right #{(10 * 60) / 100}px left #{(10 * 60) / 100}px);
+		@include margin(right #{(10 * 60) * 0.01}px left #{(10 * 60) * 0.01}px);
 
 		@include media-breakpoint-up(hd) {
-			@include margin(right #{(10/30)}em left #{(10/30)}em);
+			@include margin(right #{math.div(10, 30)}em left #{math.div(10, 30)}em);
 		}
 
 		&:first-child {
@@ -51,12 +53,12 @@
 
 			@include media-breakpoint-up(md) {
 				@include margin(
-					top #{(10 * 60) / 100}px right 0 bottom #{(10 * 60) / 100}px left 0
+					top #{(10 * 60) * 0.01}px right 0 bottom #{(10 * 60) * 0.01}px left 0
 				);
 			}
 
 			@include media-breakpoint-up(hd) {
-				@include margin(top #{(10/30)}em bottom #{(10/30)}em);
+				@include margin(top #{math.div(10, 30)}em bottom #{math.div(10, 30)}em);
 			}
 		}
 
@@ -66,10 +68,10 @@
 			border-radius: map-get($borders, radius);
 			transition: box-shadow 0.7s map-get($easings, ease-out-expo);
 
-			@include size(#{(25 * 60) / 100}px);
+			@include size(#{(25 * 60) * 0.01}px);
 
 			@include media-breakpoint-up(hd) {
-				@include size(#{(25/30)}em);
+				@include size(#{math.div(25, 30)}em);
 			}
 
 			&.is-active {

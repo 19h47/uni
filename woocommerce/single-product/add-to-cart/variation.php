@@ -3,7 +3,10 @@
  * Single variation display
  *
  * @package UNI/Templates
+ * @version 2.5.0
  */
+
+defined( 'ABSPATH' ) || exit;
 
 use Timber\{ Timber };
 

@@ -3,7 +3,12 @@
  * Single Product Meta
  *
  * @package     UNI
+ * @version     3.0.0
  */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 use Timber\{ Timber };
 

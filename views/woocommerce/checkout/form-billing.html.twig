@@ -32,7 +32,7 @@
 
 </div>
 
-{% if not is_user_logged_in and checkout.is_registration_enabled() %}
+{% if not user and checkout.is_registration_enabled() %}
 	<div class="woocommerce-account-fields">
 
 		{% if not checkout.is_registration_required() %}

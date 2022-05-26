@@ -6,8 +6,10 @@
  *
  *
  */
+@use 'sass:math';
+
 .Attributes {
-	@extend %list-style-type-none;
+	@extend .list-style-type-none;
 
 	li {
 		@include margin(top 2em bottom 2em);
@@ -23,7 +25,7 @@
 	&__name {
 		@include font-sizes(30);
 
-		line-height: (40/30);
+		line-height: math.div(40, 30);
 	}
 
 	&__options {
@@ -32,7 +34,7 @@
 
 		@include font-sizes(65);
 
-		line-height: (78/65);
+		line-height: math.div(78, 65);
 
 		span {
 			@extend %font-family-body;

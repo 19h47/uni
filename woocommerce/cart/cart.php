@@ -3,6 +3,7 @@
  * Cart Page
  *
  * @package UNI
+ * @version 3.8.0
  */
 
 use Timber\{ Timber, Post };
@@ -11,7 +12,6 @@ $context = Timber::get_context();
 
 $context['coupons_enabled'] = wc_coupons_enabled();
 $context['nonce_field']     = wp_nonce_field( 'woocommerce-cart', 'woocommerce-cart-nonce', true, false );
-$context['cart_url']        = wc_get_cart_url();
 $context['products']        = array();
 
 foreach ( WC()->cart->get_cart() as $key => $value ) {

@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: uni\n"
-"POT-Creation-Date: 2020-08-29 13:31+0200\n"
-"PO-Revision-Date: 2020-08-29 16:17+0200\n"
+"POT-Creation-Date: 2022-05-19 17:07+0200\n"
+"PO-Revision-Date: 2022-05-19 17:08+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fr_FR\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 2.4.1\n"
+"X-Generator: Poedit 3.0.1\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-Flags-xgettext: --add-comments=translators:\n"
 "X-Poedit-WPHeader: style.css\n"
@@ -78,7 +78,7 @@ msgid "Mailchimp id"
 msgstr "Identifiant Mailchimp"
 
 #. translators: Publish box date format, see https://secure.php.net/date
-#: inc/Core/Message.php:42 inc/Core/Project.php:153
+#: inc/Core/Message.php:42 inc/Core/Project.php:155
 msgid "M j, Y @ H:i"
 msgstr "M j, Y @ H:i"
 
@@ -94,11 +94,11 @@ msgstr "Prévisualiser le message"
 msgid "Message updated."
 msgstr "Message mis à jour."
 
-#: inc/Core/Message.php:65 inc/Core/Project.php:176
+#: inc/Core/Message.php:65 inc/Core/Project.php:178
 msgid "Custom field updated."
 msgstr "Champ personnalisé mis à jour."
 
-#: inc/Core/Message.php:66 inc/Core/Project.php:177
+#: inc/Core/Message.php:66 inc/Core/Project.php:179
 msgid "Custom field deleted."
 msgstr "Champ personnalisé supprimé."
 
@@ -244,63 +244,63 @@ msgstr "Message planifié."
 msgid "Message"
 msgstr "Message"
 
-#: inc/Core/Project.php:99
+#: inc/Core/Project.php:101
 msgid "Thumbnail"
 msgstr "Miniature"
 
-#: inc/Core/Project.php:158 inc/Core/Project.php:236
+#: inc/Core/Project.php:160 inc/Core/Project.php:238
 msgid "View Project"
 msgstr "Voir le projet"
 
-#: inc/Core/Project.php:164 inc/Core/Project.php:170
+#: inc/Core/Project.php:166 inc/Core/Project.php:172
 msgid "Preview Project"
 msgstr "Prévisualiser le projet"
 
-#: inc/Core/Project.php:175 inc/Core/Project.php:178 inc/Core/Project.php:256
+#: inc/Core/Project.php:177 inc/Core/Project.php:180 inc/Core/Project.php:258
 msgid "Project updated."
 msgstr "Publication mise à jour."
 
 #. translators: %s: date and time of the revision
-#: inc/Core/Project.php:180
+#: inc/Core/Project.php:182
 #, php-format
 msgid "Project restored to revision from %s."
 msgstr "Projet rétabli à partir de la révision du %s."
 
-#: inc/Core/Project.php:181 inc/Core/Project.php:252
+#: inc/Core/Project.php:183 inc/Core/Project.php:254
 msgid "Project published."
 msgstr "Projet mis en ligne."
 
-#: inc/Core/Project.php:182
+#: inc/Core/Project.php:184
 msgid "Project saved."
 msgstr "Projet enregistré."
 
-#: inc/Core/Project.php:183
+#: inc/Core/Project.php:185
 msgid "Project submitted."
 msgstr "Projet envoyé."
 
-#: inc/Core/Project.php:184
+#: inc/Core/Project.php:186
 #, php-format
 msgid "Project scheduled for: %s."
 msgstr "Projet planifié pour le : %s."
 
-#: inc/Core/Project.php:185
+#: inc/Core/Project.php:187
 msgid "Project draft updated."
 msgstr "Le brouillon du projet a été mis à jour."
 
 #. translators: %s: Number of projects.
-#: inc/Core/Project.php:205
+#: inc/Core/Project.php:207
 #, php-format
 msgid "%s project updated."
 msgid_plural "%s projects updated."
 msgstr[0] "%s projet mis à jour."
 msgstr[1] "%s projets mis à jour."
 
-#: inc/Core/Project.php:206
+#: inc/Core/Project.php:208
 msgid "1 project not updated, somebody is editing it."
 msgstr "1 projet non mis à jour, quelqu’un l’édite."
 
 #. translators: %s: Number of partners.
-#: inc/Core/Project.php:208
+#: inc/Core/Project.php:210
 #, php-format
 msgid "%s project not updated, somebody is editing it."
 msgid_plural "%s projects not updated, somebody is editing them."
@@ -312,7 +312,7 @@ msgstr[1] ""
 "modifier."
 
 #. translators: %s: Number of partners.
-#: inc/Core/Project.php:210
+#: inc/Core/Project.php:212
 #, php-format
 msgid "%s project permanently deleted."
 msgid_plural "%s project permanently deleted."
@@ -320,7 +320,7 @@ msgstr[0] "%s projet définitivement supprimé."
 msgstr[1] "%s projets définitivement supprimés."
 
 #. translators: %s: Number of projects..
-#: inc/Core/Project.php:212
+#: inc/Core/Project.php:214
 #, php-format
 msgid "%s project moved to the Trash."
 msgid_plural "%s project moved to the Trash."
@@ -328,121 +328,121 @@ msgstr[0] "%s projet déplacé dans la corbeille."
 msgstr[1] "%s projets déplacés dans la corbeille."
 
 #. translators: %s: Number of partners.
-#: inc/Core/Project.php:214
+#: inc/Core/Project.php:216
 #, php-format
 msgid "%s project restored from the Trash."
 msgid_plural "%s project restored from the Trash."
 msgstr[0] "%s projet récupéré depuis la corbeille."
 msgstr[1] "%s projets récupérés depuis la corbeille."
 
-#: inc/Core/Project.php:229
+#: inc/Core/Project.php:231
 msgctxt "project type generale name"
 msgid "Projects"
 msgstr "Projets"
 
-#: inc/Core/Project.php:230
+#: inc/Core/Project.php:232
 msgctxt "project type singular name"
 msgid "Project"
 msgstr "Projet"
 
-#: inc/Core/Project.php:231
+#: inc/Core/Project.php:233
 msgctxt "project type"
 msgid "Add New"
 msgstr "Ajouter"
 
-#: inc/Core/Project.php:232
+#: inc/Core/Project.php:234
 msgid "Add New Project"
 msgstr "Ajouter un nouveau projet"
 
-#: inc/Core/Project.php:233
+#: inc/Core/Project.php:235
 msgid "Edit Project"
 msgstr "Éditer le projet"
 
-#: inc/Core/Project.php:234
+#: inc/Core/Project.php:236
 msgid "New Project"
 msgstr "Nouveau projet"
 
-#: inc/Core/Project.php:235
+#: inc/Core/Project.php:237
 msgid "View Projects"
 msgstr "Voir les projets"
 
-#: inc/Core/Project.php:237
+#: inc/Core/Project.php:239
 msgid "Search Projects"
 msgstr "Rechercher des projets"
 
-#: inc/Core/Project.php:238
+#: inc/Core/Project.php:240
 msgid "No projects found."
 msgstr "Aucun projet trouvé."
 
-#: inc/Core/Project.php:239
+#: inc/Core/Project.php:241
 msgid "No projects found in Trash."
 msgstr "Aucun projet trouvé dans la corbeille."
 
-#: inc/Core/Project.php:240
+#: inc/Core/Project.php:242
 msgid "Parent Projet:"
 msgstr "Projet parent :"
 
-#: inc/Core/Project.php:241
+#: inc/Core/Project.php:243
 msgid "All Projects"
 msgstr "Tous les projets"
 
-#: inc/Core/Project.php:242
+#: inc/Core/Project.php:244
 msgid "Project Archives"
 msgstr "Archives des projets"
 
-#: inc/Core/Project.php:243
+#: inc/Core/Project.php:245
 msgid "Project Attributes"
 msgstr "Attributs de projets"
 
-#: inc/Core/Project.php:244
+#: inc/Core/Project.php:246
 msgid "Insert into project"
 msgstr "Insérer dans le projet"
 
-#: inc/Core/Project.php:245
+#: inc/Core/Project.php:247
 msgid "Uploaded to this project"
 msgstr "Téléversés sur ce projet"
 
-#: inc/Core/Project.php:246
+#: inc/Core/Project.php:248
 msgctxt "project"
 msgid "Featured Image"
 msgstr "Image mise en avant"
 
-#: inc/Core/Project.php:247
+#: inc/Core/Project.php:249
 msgctxt "project"
 msgid "Set featured image"
 msgstr "Définir l’image mise en avant"
 
-#: inc/Core/Project.php:248
+#: inc/Core/Project.php:250
 msgctxt "project"
 msgid "Remove featured image"
 msgstr "Supprimer l’image mise en avant"
 
-#: inc/Core/Project.php:249
+#: inc/Core/Project.php:251
 msgctxt "project"
 msgid "Use as featured image"
 msgstr "Utiliser comme image mise en avant"
 
-#: inc/Core/Project.php:250
+#: inc/Core/Project.php:252
 msgid "Projects list navigation"
 msgstr "Navigation de la liste des projets"
 
-#: inc/Core/Project.php:251
+#: inc/Core/Project.php:253
 msgid "Projects list"
 msgstr "Liste des projets"
 
-#: inc/Core/Project.php:253
+#: inc/Core/Project.php:255
 msgid "Project published privately."
 msgstr "Projet mis en ligne en privé."
 
-#: inc/Core/Project.php:254
+#: inc/Core/Project.php:256
 msgid "Project reverted to draft."
 msgstr "Projet reconverti en brouillon."
 
-#: inc/Core/Project.php:255
+#: inc/Core/Project.php:257
 msgid "Project scheduled."
 msgstr "Projet planifié."
 
-#: inc/Core/Project.php:265
+#: inc/Core/Project.php:267
 msgid "Project"
 msgstr "Projet"
 
@@ -566,7 +566,7 @@ msgstr "Entreprise"
 msgid "Country"
 msgstr "Pays"
 
-#: inc/Plugins/WooCommerce.php:222 views/pages/single-product.html.twig:161
+#: inc/Plugins/WooCommerce.php:222 views/pages/single-product.html.twig:163
 #: views/woocommerce/cart/cart-empty.html.twig:18
 msgid "Return to shop"
 msgstr "Retour à la boutique"
@@ -575,22 +575,22 @@ msgstr "Retour à la boutique"
 msgid "Upcoming Product"
 msgstr "Produit à venir"
 
-#: inc/Setup/Enqueue.php:65
+#: inc/Setup/Enqueue.php:78
 msgctxt "messages"
 msgid "Please fill out this field."
 msgstr "Veuillez remplir ce champ."
 
-#: inc/Setup/Enqueue.php:68
+#: inc/Setup/Enqueue.php:81
 msgctxt "messages"
 msgid "Please enter an email address."
 msgstr "Veuillez entrer une adresse email."
 
-#: inc/Setup/Enqueue.php:69
+#: inc/Setup/Enqueue.php:82
 msgctxt "messages"
 msgid "Please enter a URL."
 msgstr "Veuillez entrer une URL."
 
-#: inc/Setup/Enqueue.php:70
+#: inc/Setup/Enqueue.php:83
 msgctxt "messages"
 msgid "Please match the expected format."
 msgstr "Veuillez correspondre au format attendu."
@@ -615,19 +615,19 @@ msgstr "Second menu pied de page"
 msgid "Footer Tertiary"
 msgstr "Troisième menu pied de page"
 
-#: inc/Setup/PostStates.php:41 inc/Setup/Settings.php:37
+#: inc/Setup/Settings.php:38 inc/Template/PostStates.php:45
 msgid "Terms & Conditions Page"
 msgstr "Page des mentions légales"
 
-#: inc/Setup/Settings.php:49
+#: inc/Setup/Settings.php:50
 msgid "Habitat Page"
 msgstr "Page Habitat"
 
-#: inc/Setup/Settings.php:61
+#: inc/Setup/Settings.php:62
 msgid "Objects Page"
 msgstr "Page Objets"
 
-#: inc/Setup/Settings.php:92
+#: inc/Setup/Settings.php:94
 msgctxt "settings"
 msgid "Please select a page"
 msgstr "Veuillez choisir une page"
@@ -644,7 +644,23 @@ msgstr "Partager sur Facebook"
 msgid "Share on LinkedIn"
 msgstr "Partager sur LinkedIn"
 
-#: woocommerce/cart/cart-totals.php:26
+#: inc/Template/PostStates.php:51
+msgid "About Page"
+msgstr "Page À propos"
+
+#: inc/Template/PostStates.php:55
+msgid "Archive Page"
+msgstr "Page Archive"
+
+#: inc/Template/PostStates.php:59
+msgid "Contact Page"
+msgstr "Page Contact"
+
+#: inc/Template/PostStates.php:63
+msgid "Horizontal Page"
+msgstr "Page Horizontale"
+
+#: woocommerce/cart/cart-totals.php:23
 msgid "Validate"
 msgstr "Valider"
 
@@ -657,24 +673,24 @@ msgid "Available on backorder"
 msgstr "Disponible sur commande"
 
 #. translators: %s: Quantity.
-#: woocommerce/global/quantity-input.php:39
+#: woocommerce/global/quantity-input.php:40
 #, php-format
 msgid "%s quantity"
 msgstr "quantité de %s"
 
-#: woocommerce/global/quantity-input.php:39
+#: woocommerce/global/quantity-input.php:40
 #: views/woocommerce/cart/cart.html.twig:32
 #: views/woocommerce/cart/cart.html.twig:55
 msgid "Quantity"
 msgstr "Quantité"
 
-#: woocommerce/single-product/meta.php:20
+#: woocommerce/single-product/meta.php:25
 msgid "Category:"
 msgid_plural "Categories:"
 msgstr[0] "Catégorie :"
 msgstr[1] "Catégories :"
 
-#: woocommerce/single-product/meta.php:21
+#: woocommerce/single-product/meta.php:26
 msgid "Tag:"
 msgid_plural "Tags:"
 msgstr[0] "Étiquette :"
@@ -695,13 +711,13 @@ msgstr "Informations"
 msgid "Downloads"
 msgstr "Téléchargements"
 
-#: views/components/footer-horizontal.html.twig:21
-#: views/components/footer-vertical.html.twig:20
+#: views/components/footer-horizontal.html.twig:22
+#: views/components/footer-vertical.html.twig:21
 msgid "Credits:"
 msgstr "Crédits :"
 
 #: views/pages/archive-product.html.twig:20
-#: views/pages/single-product.html.twig:144
+#: views/pages/single-product.html.twig:145
 msgid "Collection N°"
 msgstr "Collection N°"
 
@@ -774,21 +790,21 @@ msgctxt "contact page"
 msgid "All fields marked with * are required"
 msgstr "Les champs suivis d’un astérisque* sont obligatoire"
 
-#: views/pages/front-page.html.twig:17
+#: views/pages/front-page.html.twig:19
 msgctxt "front page"
 msgid "Explore our:"
 msgstr "Explorer nos :"
 
-#: views/pages/front-page.html.twig:17
+#: views/pages/front-page.html.twig:20
 msgid "Habitat"
 msgstr "Habitat"
 
-#: views/pages/front-page.html.twig:18
+#: views/pages/front-page.html.twig:25
 msgctxt "front page"
 msgid "Discover our:"
 msgstr "Découvrir nos :"
 
-#: views/pages/front-page.html.twig:18
+#: views/pages/front-page.html.twig:26
 msgid "Objects"
 msgstr "Objets"
 
@@ -812,7 +828,13 @@ msgstr "Accéder à votre panier"
 msgid "In the same collection"
 msgstr "Dans la même collection"
 
-#: views/pages/single-project.html.twig:75
+#: views/pages/single-project.html.twig:40
+#: views/woocommerce/checkout/form-billing.html.twig:5
+msgid "Informations"
+msgstr "Informations"
+
+#: views/pages/single-project.html.twig:85
+#: views/pages/single-project.html.twig:87
 msgid "Next Project"
 msgstr "Projet suivant"
 
@@ -843,7 +865,7 @@ msgstr ""
 msgid "Send"
 msgstr "Envoyer"
 
-#: views/partials/socials.html.twig:4
+#: views/partials/socials.html.twig:10
 msgid "Follow us"
 msgstr "Suivez-nous"
 
@@ -948,7 +970,7 @@ msgstr "Appliquer le code promo"
 msgid "Update cart"
 msgstr "Mettre à jour le panier"
 
-#: views/woocommerce/cart/proceed-to-checkout.html.twig:5
+#: views/woocommerce/cart/proceed-to-checkout.html.twig:13
 msgid "Proceed to checkout"
 msgstr "Valider la commande"
 
@@ -981,10 +1003,6 @@ msgstr "Code postal"
 #: views/woocommerce/cart/shipping-calculator.html.twig:68
 msgid "Update"
 msgstr "Mettre à jour le panier"
-
-#: views/woocommerce/checkout/form-billing.html.twig:5
-msgid "Informations"
-msgstr "Informations"
 
 #: views/woocommerce/checkout/form-billing.html.twig:9
 msgid "Billing &amp; Shipping"
@@ -1119,7 +1137,7 @@ msgstr "Qté"
 msgid "Coming soon"
 msgstr "Bientôt disponible"
 
-#: views/woocommerce/single-product/add-to-cart/variable.html.twig:70
+#: views/woocommerce/single-product/add-to-cart/variable.html.twig:72
 msgid "This product is currently out of stock and unavailable."
 msgstr "Ce produit est actuellement en rupture de stock et indisponible."
 
@@ -1130,15 +1148,15 @@ msgstr ""
 "Désolé, ce produit n&rsquo;est pas disponible. Veuillez choisir une "
 "combinaison différente."
 
-#: views/woocommerce/single-product/price.html.twig:5
+#: views/woocommerce/single-product/price.html.twig:6
 msgid "Price:"
 msgstr "Prix :"
 
-#: views/woocommerce/single-product/product-image.html.twig:21
+#: views/woocommerce/single-product/product-image.html.twig:23
 msgid "Previous"
 msgstr "Précédent"
 
-#: views/woocommerce/single-product/product-image.html.twig:23
+#: views/woocommerce/single-product/product-image.html.twig:25
 msgid "Next"
 msgstr "Suivant"
 

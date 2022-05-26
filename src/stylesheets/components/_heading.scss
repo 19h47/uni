@@ -4,29 +4,23 @@
  *
  *
  */
-.Heading {
-	@extend .d-md-flex, .align-items-md-center, .justify-content-center;
-	@extend %position-relative;
-	@include margin(top 40px bottom 40px);
+@use 'sass:math';
 
-	z-index: 2;
+.Heading {
+	@include margin(top 40px bottom 40px);
 
 	@include media-breakpoint-up(md) {
 		@include margin(top 0 bottom 0);
-		@include size(#{(200 * 100) / $prototype-width-unitless}vw, 100%);
+		@include size(#{math.div(200 * 100, $prototype-width-unitless)}vw, 100%);
 	}
 
 	h2 {
-		@extend %text-align-center,
-			%font-weight-regular,
-			%font-style-normal,
-			%text-transform-uppercase,
-			%font-family-title;
+		@extend .text-center, .fw-normal, %font-style-normal, .text-uppercase, %font-family-title;
 		@include margin(top 0 bottom 0);
 		@include letter-spacing(100);
 		@include font-sizes(65);
 
-		line-height: (105/65);
+		line-height: math.div(105, 65);
 
 		@include media-breakpoint-up(md) {
 			height: 100%;

@@ -4,49 +4,51 @@
 
 // @include reset-selection( get_color( black ), get_color( white ) );
 
+@use 'sass:math';
+
 h1,
 .h1 {
-	@extend %font-family-title, %font-weight-regular;
+	@extend %font-family-title, .fw-normal;
 	@include letter-spacing(100);
 	@include margin(top 1em bottom 2em);
 	@include font-sizes(50, 75);
 
-	line-height: (90 / 75);
+	line-height: math.div(90, 75);
 }
 
 h2,
 .h2 {
-	@extend %font-weight-regular, %font-family-body;
+	@extend .fw-normal, %font-family-body;
 	@include font-sizes(30);
 	@include margin(top 1em bottom 1em);
 
-	line-height: (40/30);
+	line-height: math.div(40, 30);
 }
 
 h3,
 .h3 {
-	@extend %font-weight-regular, %font-style-italic, %font-family-title;
+	@extend .fw-normal, %font-style-italic, %font-family-title;
 	@include font-sizes(35);
 	@include margin(top 1em bottom 0);
 
-	line-height: (45/30);
+	line-height: math.div(45, 30);
 }
 
 h4,
 .h4 {
-	@extend %font-weight-regular, %font-family-title;
+	@extend .fw-normal, %font-family-title;
 	@include font-sizes(35);
 	@include margin(top 1em bottom 0);
 
-	line-height: (45/30);
+	line-height: math.div(45, 30);
 }
 
 h5,
 .h5 {
-	@extend %font-weight-regular, %font-family-title;
+	@extend .fw-normal, %font-family-title;
 	@include font-sizes(18);
 
-	line-height: (30/30);
+	line-height: math.div(30, 30);
 
 	@include margin(top 1em bottom 0);
 }

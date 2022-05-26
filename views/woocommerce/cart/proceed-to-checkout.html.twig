@@ -1,6 +1,14 @@
 {#
- # Proceed to checkout
+ # Cart: Proceed to checkout
+ #
+ # Contains the markup for the proceed to checkout button on the cart.
+ #
+ # @package UNI
  #}
- <a href="{{ checkout_url }}" class="Button checkout-button button d-inline-block alt wc-forward w-100 w-md-auto">
+
+ <a
+ 	href="{{ checkout_url | e( 'esc_url' ) }}"
+	class="Button checkout-button button d-inline-block alt wc-forward w-100 w-md-auto"
+>
 	{{- __( 'Proceed to checkout', 'uni' ) -}}
 </a>

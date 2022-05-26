@@ -1,8 +1,9 @@
 <?php
 /**
- * Checkout coupon form
+ * Checkout: Coupon Form
  *
  * @package UNI/Templates
+ * @version 3.4.4
  */
 
 use Timber\{ Timber };

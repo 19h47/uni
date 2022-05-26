@@ -1,8 +1,9 @@
 <?php
 /**
- * Cart: empty
+ * Cart: Empty
  *
  * @package UNI
+ * @version 3.5.0
  */
 
 use Timber\{ Timber, Post };

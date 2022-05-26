@@ -5,11 +5,8 @@
 
 {% block content %}
 
-	<div id="modal-{{ post.id }}" class="Modal page-block" data-node-type="ModalBlock">
-		<div class="Modal__wrapper">
-			<button class="Modal__close js-modal-button" type="button">
-				{%- include 'svg/use.html.twig' with { icon: 'times', classes: [ 'Pointer-events-none' ] } only -%}
-			</button>
+	{% embed 'components/modal.html.twig' with { id: post.id } %}
+		{% block body %}
 			<p class="Modal__title">{{- __( 'This item has been added to your basket:', 'uni' ) -}}</p>
 			<div class="Modal__body">
 				<p class="Modal__product-title">{{- post.title -}}</p>
@@ -18,18 +15,18 @@
 					{{- fn( 'wc_price', post.product.get_price() ) -}}
 				</p>
 			</div>
-			<footer class="Modal__footer">
+			<footer class="Modal__footer d-flex align-items-center flex-row justify-content-between">
 				<button type="submit" class="Modal__footer__button js-modal-button">
-					{%- include 'svg/use.html.twig' with { icon: 'times', classes: [ 'Pointer-events-none' ] } only -%}
+					{%- include 'svg/use.html.twig' with { icon: 'times', classes: [ 'pe-none' ] } only -%}
 					{{- __( 'Continue your purchases', 'uni' ) -}}
 				</button>
-				<a class="Modal__footer__button" href="{{ cart_url }}">
-					{%- include 'svg/use.html.twig' with { icon: 'cart' } only -%}
+				<a class="Modal__footer__button" href="{{ cart_url | e( 'esc_url' ) }}">
+					{{- include( 'svg/use.html.twig', { icon: 'cart' }, with_context = false ) -}}
 					{{- __( 'Access your basket', 'uni' ) -}}
 				</a>
 			</footer>
-		</div>
-	</div>
+		{% endblock %}
+	{% endembed %}
 
 	<div class="Horizontal-page__section js-section">
 		<div class="Horizontal-page__track js-track">
@@ -141,7 +138,9 @@
 					<div class="Single-project__title">
 						<h1>
 						{%- if post.terms( 'product_cat' )[0].meta( 'number' ) -%}
-							<span>{{- __( 'Collection N°', 'uni' ) -}}{{- post.terms( 'product_cat' )[0].meta( 'number' ) -}}</span>
+							<span class="font-family-body text-transform-none d-block">
+								{{- __( 'Collection N°', 'uni' ) -}}{{- post.terms( 'product_cat' )[0].meta( 'number' ) -}}
+							</span>
 						{%- endif -%}
 						{{- post.terms( 'product_cat' )[0].name -}}
 						</h1>

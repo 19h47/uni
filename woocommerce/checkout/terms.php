@@ -3,6 +3,7 @@
  * Checkout terms and conditions area.
  *
  * @package UNI/Templates
+ * @version 3.4.0
  */
 
 use Timber\{ Timber, Helper };

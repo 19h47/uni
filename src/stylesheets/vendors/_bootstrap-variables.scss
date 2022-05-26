@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 /**
  * Grid columns number
  *
@@ -35,4 +37,22 @@ $grid-breakpoints: (
 	md: 992px,
 	lg: 1200px,
 	hd: 2560px,
+);
+
+$position-values: map-merge(
+	$position-values,
+	(
+		auto: auto,
+	)
+);
+
+$sizes: (
+	20px: #{math.div(20, 16)}rem,
+	40px: #{math.div(40, 16)}rem,
+	120px: #{math.div(120, 16)}rem,
+
+	20: 20%,
+	60: 60%,
+	80: 80%,
+	90: 90%,
 );

@@ -1,18 +1,44 @@
 {#
  # Product thumbnail
+ #
+ # @package UNI
  #}
-<a class="Product-thumbnail js-link" href="{{ product.link }}">
+
+<a class="Product-thumbnail position-relative d-block js-link" href="{{ product.link }}">
 
 	{% if is_product and product.product_colors is not empty %}
 		{%- for product_color in product.product_colors -%}
-			{% include 'partials/image.html.twig' with { classes: [ 'Product-thumbnail__image', product_color.current ? 'is-active' : null ], attributes: { 'data-color': product_color.color }, image: product_color.thumbnail } %}
-			{% include 'partials/image.html.twig' with { classes: [ 'Product-thumbnail__hover', product_color.current ? 'is-active' : null ], attributes: { 'data-color': product_color.color }, image: product_color.hover } %}
+			{% include 'partials/image.html.twig' with { classes: [ 'Product-thumbnail__image', 'z-index-1', product_color.current ? 'is-active' : null ], attributes: { 'data-color': product_color.color }, image: product_color.thumbnail } %}
+			{{-
+				include(
+					'partials/image.html.twig',
+					{
+						classes: [
+							'Product-thumbnail__hover',
+							'position-absolute',
+							'top-0',
+							'end-0',
+							'bottom-0',
+							'start-0',
+							'object-position-center',
+							'object-fit-cover',
+							'z-index-2',
+							product_color.current ? 'is-active' : null
+						],
+						attributes: {
+							'data-color': product_color.color
+						},
+						image: product_color.hover
+					}
+				)
+			-}}
 		{%- else -%}
-			{% include 'partials/image.html.twig' with { classes: [ 'Product-thumbnail__image' ], attributes: { 'data-color': product.color }, image: product.thumbnail } %}
-			{% include 'partials/image.html.twig' with { classes: [ 'Product-thumbnail__hover' ], attributes: { 'data-color': product.color }, image: product.meta( 'image_hover' ) } %}
+			{% include 'partials/image.html.twig' with { classes: [ 'Product-thumbnail__image', 'z-index-1' ], attributes: { 'data-color': product.color }, image: product.thumbnail } %}
+			{% include 'partials/image.html.twig' with { classes: [ 'Product-thumbnail__hover', 'position-absolute', 'top-0', 'end-0', 'bottom-0', 'start-0', 'object-position-center', 'object-fit-cover', 'z-index-2', ], attributes: { 'data-color': product.color }, image: product.meta( 'image_hover' ) } %}
 		{%- endfor -%}
 	{% else %}
-		{% include 'partials/image.html.twig' with { classes: [ 'Product-thumbnail__image', 'is-active' ], image: product.thumbnail } %}
-		{% include 'partials/image.html.twig' with { classes: [ 'Product-thumbnail__hover', 'is-active' ], image: product.meta( 'image_hover' ) } %}
+		{% include 'partials/image.html.twig' with { classes: [ 'Product-thumbnail__image', 'z-index-1', 'is-active' ], image: product.thumbnail } %}
+		{% include 'partials/image.html.twig' with { classes: [ 'Product-thumbnail__hover', 'position-absolute', 'top-0', 'end-0', 'bottom-0', 'start-0', 'object-position-center', 'object-fit-cover', 'z-index-2', 'is-active' ], image: product.meta( 'image_hover' ) } %}
 	{% endif %}
 </a>
+

@@ -5,11 +5,13 @@
  *
  *
  */
+@use "sass:math";
+
 .Terms-and-conditions {
 	.woocommerce-privacy-policy-text {
 		@include font-sizes(16);
 
-		line-height: (19.2/16);
+		line-height: math.div(19.2, 16);
 	}
 
 	a {

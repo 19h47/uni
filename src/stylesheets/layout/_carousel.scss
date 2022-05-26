@@ -2,7 +2,7 @@
  * Carousel
  *
  *
- * @package DLAP
+ * @package UNI
  */
 .Carousel {
 	.flickity-viewport {
@@ -11,21 +11,15 @@
 
 	// .Carousel__items
 	&__items {
-		@extend %overflow-hidden;
+		@extend .overflow-hidden;
 		@include size(100%);
 	}
 
 	&__navigation {
 		@include margin(top 1em);
-		@extend .d-flex, .justify-content-between, .align-items-center;
 
 		button {
-			@extend .d-flex, .align-items-center;
 			@include size(15px, 13px);
-
-			svg {
-				@include size(100%);
-			}
 		}
 	}
 
@@ -33,6 +27,6 @@
 		@include letter-spacing(50);
 		@include font-sizes(15, 20);
 
-		line-height: (24/20);
+		line-height: (24 * 0.05);
 	}
 }

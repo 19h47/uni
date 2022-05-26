@@ -20,8 +20,6 @@ export default class HorizontalPage extends AbstractPage {
 
 		elements.html.style.setProperty('width', '100%');
 		elements.html.style.setProperty('height', '100%');
-
-		return true;
 	}
 
 	init() {

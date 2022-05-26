@@ -15,7 +15,7 @@
 	{% if page.id > 0 %}
 		<p class="return-to-shop Info">
 			<a class="button wc-backward" href="{{ page.permalink | apply_filters( 'woocommerce_return_to_shop_redirect' ) }}">
-				{{- __( 'Return to shop', 'uni' ) -}}
+				{{- __( 'Return to shop', 'uni' ) | apply_filters( 'woocommerce_return_to_shop_text' ) -}}
 			</a>
 		</p>
 	{% endif %}

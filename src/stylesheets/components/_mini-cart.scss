@@ -4,24 +4,18 @@
  *
  *
  */
+@use 'sass:math';
+
 .Mini-cart {
-	@extend %position-relative;
-	@include margin(bottom 0);
-
-	z-index: 2;
-
 	svg {
-		@extend .d-block;
-		@include size(#{(37 * 100) / 750}vw);
+		@include size(#{math.div(37 * 100, 750)}vw);
 
 		@include media-breakpoint-up(md) {
-			@include size(#{(37 * 100) / $prototype-width-unitless}vw);
+			@include size(#{math.div(37 * 100, $prototype-width-unitless)}vw);
 		}
 	}
 
 	span {
-		@include absolute(bottom 100% left 100%);
-		@extend .d-block;
 		@include font-sizes(25);
 
 		line-height: 1.2;

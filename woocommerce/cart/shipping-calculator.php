@@ -3,25 +3,25 @@
  * Shipping Calculator
  *
  * @package UNI/Templates
+ * @version 4.0.0
  */
 
 use Timber\{ Timber };
 
 $context = Timber::get_context();
 
-$context['cart_url']    = wc_get_cart_url();
 $context['nonce_field'] = wp_nonce_field( 'woocommerce-shipping-calculator', 'woocommerce-shipping-calculator-nonce', true, false );
 $context['button_text'] = $button_text;
 
 // Shipping.
 $context['shipping'] = array(
-	'state'    => WC()->customer->get_shipping_state(),
-	'country'  => WC()->customer->get_shipping_country(),
-	'city'     => WC()->customer->get_shipping_city(),
-	'postcode' => WC()->customer->get_shipping_postcode(),
+	'state'    => $context['customer']->get_shipping_state(),
+	'country'  => $context['customer']->get_shipping_country(),
+	'city'     => $context['customer']->get_shipping_city(),
+	'postcode' => $context['customer']->get_shipping_postcode(),
 );
 
-$context['states']    = WC()->countries->get_states( $context['shipping']['country'] );
-$context['countries'] = WC()->countries->get_shipping_countries();
+$context['states']    = $context['countries']->get_states( $context['shipping']['country'] );
+$context['countries'] = $context['countries']->get_shipping_countries();
 
 Timber::render( 'woocommerce/cart/shipping-calculator.html.twig', $context );

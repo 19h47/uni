@@ -22,7 +22,7 @@ class Contact {
 	 *
 	 * @return void
 	 */
-	public function run(){
+	public function run() {
 		add_action( 'customize_register', array( $this, 'register' ), 10, 1 );
 	}
 

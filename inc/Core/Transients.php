@@ -15,6 +15,7 @@ use Timber\{ Timber };
  */
 class Transients {
 
+
 	/**
 	 * Products
 	 *

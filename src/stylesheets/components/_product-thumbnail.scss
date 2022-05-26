@@ -7,12 +7,12 @@
  *
  *
  */
+@use 'sass:math';
+
 .Product-thumbnail {
 	$this: &;
 
-	@extend %position-relative;
-	@extend .d-block;
-	@include size(100%, #{(360 * 100) / 1334}vh);
+	@include size(100%, #{math.div(360 * 100, 1334)}vh);
 
 	background-color: the_color(gray, very-light-01);
 
@@ -23,7 +23,7 @@
 	}
 
 	@include media-breakpoint-up(md) {
-		@include size(percentage(600/800), 100%);
+		@include size(percentage(math.div(600, 800)), 100%);
 	}
 
 	img {
@@ -36,7 +36,6 @@
 
 		object-position: center;
 		object-fit: contain;
-		z-index: 1;
 
 		transition: opacity 0.7s map-get($easings, ease-out-expo),
 			visibility 0.7s map-get($easings, ease-out-expo);
@@ -55,13 +54,9 @@
 	}
 
 	&__hover {
-		@include absolute(top 0 right 0 bottom 0 left 0);
 		@include autoAlpha(0);
 
-		object-position: center;
-		object-fit: cover;
 		transition: opacity 0.7s map-get($easings, ease-out-expo),
 			visibility 0.7s map-get($easings, ease-out-expo);
-		z-index: 2;
 	}
 }

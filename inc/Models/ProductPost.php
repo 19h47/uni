@@ -49,7 +49,7 @@ class ProductPost extends Post {
 				$options = array();
 
 				foreach ( $attribute->get_options() as $option ) {
-					$search  = array( 'd', 'mm', 'ø', '⌀', 'h');
+					$search  = array( 'd', 'mm', 'ø', '⌀', 'h' );
 					$replace = array( '<span>d</span>', '<span>mm</span>', '<span>⌀</span>', '<span>⌀</span>', '<span>h</span>' );
 
 					$options[] = str_replace( $search, $replace, $option );

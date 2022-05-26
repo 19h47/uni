@@ -1,4 +1,9 @@
-{#  #}
+{#
+ # Footer Horizontal
+ #
+ # @package UNI
+ #}
+
 {% import 'macros/footer.twig' as footer %}
 
 <footer class="Site-footer-horizontal background-color-white">
@@ -13,14 +18,17 @@
 			{{- footer.list( menus.footer_tertiary.items, __( 'Downloads', 'uni' ) ) -}}
 		</div>
 		<div>
-			{% include 'partials/socials.html.twig' %}
+			{{- include( 'partials/socials.html.twig', { label: __( 'Follow us', 'uni' ) } ) -}}
 		</div>
-		<div>{% include 'partials/signup-form.html.twig' with { id: post.id } only %}</div>
+		<div>{{- include( 'partials/signup-form.html.twig', { label: __( 'Newsletter subscriptions', 'uni' ), id: post.id }, with_context = false ) -}}</div>
 		<div>
-			<ul class="Site-footer__items">
-				<li class="Site-footer__item"><h5>{{- __( 'Credits:', 'uni' ) -}}</h5></li>
+			<ul class="list-style-type-none">
 				<li class="Site-footer__item">
-					<a href="http://www.atelierinconnu.com/" target="_blank" rel="noopener noreferer">Atelier Inconnu</a>  -  <a href="https://19h47.fr" target="_blank" rel="noopener noreferer">19h47</a>
+					<h5 class="font-family-body">{{- __( 'Credits:', 'uni' ) -}}</h5></li>
+				<li class="Site-footer__item">
+					<a class="d-inline-block font-family-title" href="http://www.atelierinconnu.com/" target="_blank" rel="noopener noreferer">
+						Atelier Inconnu
+						</a>&nbsp;&nbsp;&#x002D;&nbsp;&nbsp;<a href="https://19h47.fr" target="_blank" rel="noopener noreferer">19h47</a>
 				</li>
 			</ul>
 		</div>
