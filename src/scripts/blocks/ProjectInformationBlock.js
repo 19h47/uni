@@ -9,13 +9,13 @@ import { elements } from 'scripts/config';
  * @constructor
  * @param {object} container
  */
-export default class ProjectInformationsBlock extends AbstractBlock {
+export default class ProjectInformationBlock extends AbstractBlock {
 	constructor(container) {
-		// console.info('ProjectInformations.constructor');
+		// console.info('ProjectInformation.constructor');
 
-		super(container, 'ProjectInformationsBlock');
+		super(container, 'ProjectInformationBlock');
 
-		this.isOpen = elements.body.classList.contains('project-informations--is-open');
+		this.isOpen = elements.body.classList.contains('project-information--is-open');
 
 		// Scroll
 		this.disableScroll = disableScroll;
@@ -43,14 +43,14 @@ export default class ProjectInformationsBlock extends AbstractBlock {
 			{ x: 0 },
 		);
 
-		this.buttons = document.querySelectorAll('.js-project-informations-button') || [];
+		this.buttons = document.querySelectorAll('.js-project-information-button') || [];
 	}
 
 	/**
-	 * ProjectInformations.initEvents
+	 * ProjectInformation.initEvents
 	 */
 	initEvents() {
-		// console.info('ProjectInformations.setupEvents');
+		// console.info('ProjectInformation.setupEvents');
 		super.initEvents();
 
 		// On click
@@ -75,28 +75,28 @@ export default class ProjectInformationsBlock extends AbstractBlock {
 	}
 
 	/**
-	 * ProjectInformations.toggle
+	 * ProjectInformation.toggle
 	 */
 	toggle() {
-		// console.info('ProjectInformations.toggle');
+		// console.info('ProjectInformation.toggle');
 		if (this.isOpen) return this.close();
 
 		return this.open();
 	}
 
 	/**
-	 * ProjectInformations.open
+	 * ProjectInformation.open
 	 */
 	open() {
 		if (this.isOpen) return false;
 
 		this.isOpen = true;
 
-		elements.body.classList.add('project-informations--is-open');
+		elements.body.classList.add('project-information--is-open');
 
 		this.timeline.play();
 
-		// When ProjectInformations is open, disableScroll
+		// When ProjectInformation is open, disableScroll
 		this.disableScroll();
 
 		const menu = this.page.blocks.find(block => 'menu' === block.id);
@@ -106,26 +106,26 @@ export default class ProjectInformationsBlock extends AbstractBlock {
 	}
 
 	/**
-	 * ProjectInformations.close
+	 * ProjectInformation.close
 	 */
 	close() {
-		// console.info('ProjectInformations.close');
+		// console.info('ProjectInformation.close');
 		if (!this.isOpen) return false;
 
 		this.isOpen = false;
 
-		elements.body.classList.remove('ProjectInformations--is-open');
+		elements.body.classList.remove('ProjectInformation--is-open');
 
 		this.timeline.reverse();
 
-		// When ProjectInformations is closed, enableScroll
+		// When ProjectInformation is closed, enableScroll
 		this.enableScroll();
 
 		return true;
 	}
 
 	onResize() {
-		console.info('ProjectInformations.onResize');
+		console.info('ProjectInformation.onResize');
 		super.onResize();
 
 		this.rect = this.rootElement.getBoundingClientRect();

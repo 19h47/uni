@@ -5,7 +5,7 @@
  *
  *
  */
-@use "sass:math";
+@use 'sass:math';
 
 .Product {
 	@extend .d-md-flex;
@@ -13,70 +13,6 @@
 
 	@include media-breakpoint-up(md) {
 		@include margin(top 0 bottom 0);
-	}
-
-	// .Product__gallery
-	&__gallery {
-		@include margin(bottom 20px);
-
-		@include media-breakpoint-up(md) {
-			@include margin(bottom 0);
-		}
-
-		&__grid {
-			@include size(100%);
-
-			display: grid;
-			grid-template-columns: repeat(10, 1fr);
-			grid-template-rows: repeat(5, 1fr);
-			grid-column-gap: 0px;
-			grid-row-gap: 0px;
-
-			max-height: 100%;
-
-			& > div:nth-child(1) {
-				grid-area: 1 / 1 / 5 / 11;
-				height: #{math.div(475 * 100, 1334)}vh;
-
-				@include media-breakpoint-up(md) {
-					grid-area: 2 / 2 / 10 / 10;
-					height: auto;
-				}
-			}
-			& > div:nth-child(2) {
-				grid-area: 5 / 1 / 6 / 11;
-
-				@include media-breakpoint-up(md) {
-					grid-area: 10 / 4 / 11 / 8;
-				}
-			}
-
-			@include media-breakpoint-up(md) {
-				@include size(#{math.div(2000 * 100, $prototype-width-unitless)}vw, 100%);
-				@include padding(
-					top #{math.div(60 * 100, $prototype-height-unitless)}vh bottom #{math.div(60 * 100, $prototype-height-unitless)}vh
-				);
-
-				grid-template-columns: repeat(10, 1fr);
-				grid-template-rows: repeat(11, 1fr);
-			}
-		}
-
-		.woocommerce-product-gallery__image {
-			@include size(100%);
-
-			& > a {
-				@extend .d-block;
-				@include size(100%);
-			}
-
-			img {
-				@include size(100%);
-
-				object-fit: scale-down;
-				object-position: center;
-			}
-		}
 	}
 
 	&__category-description {

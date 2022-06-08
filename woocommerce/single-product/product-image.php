@@ -21,7 +21,7 @@ $context['post_thumbnail_id'] = $product->get_image_id();
 $wrapper_classes = apply_filters(
 	'woocommerce_single_product_image_gallery_classes',
 	array(
-		'Product__gallery',
+		'Product-gallery',
 		'woocommerce-product-gallery',
 		'woocommerce-product-gallery--' . ( $context['post_thumbnail_id'] ? 'with-images' : 'without-images' ),
 		'woocommerce-product-gallery--columns-' . absint( $context['columns'] ),
@@ -34,4 +34,4 @@ $context['wrapper_class'] = esc_attr( implode( ' ', array_map( 'sanitize_html_cl
 $context['image_ids'] = $product->get_gallery_image_ids();
 
 
-Timber::render( 'woocommerce/single-product/product-image.html.twig', $context );
+Timber::render( 'woocommerce/single-product/product-gallery.html.twig', $context );

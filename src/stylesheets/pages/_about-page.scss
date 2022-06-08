@@ -5,7 +5,7 @@
  *
  *
  */
-@use "sass:math";
+@use 'sass:math';
 
 .About-page {
 	.Page__content__title {
@@ -14,7 +14,10 @@
 
 			@include margin(top #{math.div(116.36 * 100, $prototype-height-unitless)}vh);
 			@include padding(
-				top #{math.div(60 * 100, $prototype-height-unitless)}vh left #{math.div(200 * 100, $prototype-width-unitless)}vw
+				top #{math.div(60 * 100, $prototype-height-unitless)}vh left #{math.div(
+						200 * 100,
+						$prototype-width-unitless
+					)}vw
 			);
 
 			width: #{math.div((200 * 6) * 100, $prototype-width-unitless)}vw;

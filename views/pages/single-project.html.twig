@@ -5,9 +5,9 @@
 
 {% block content %}
 
-	<div id="project-informations" class="Single-project__informations page-block" data-node-type="ProjectInformationsBlock">
+	<div id="project-information" class="Single-project__information position-fixed top-0 end-0 bottom-0 start-0 page-block" data-node-type="ProjectInformationBlock">
 		<div class="Single-project__title">
-			<h1>
+			<h1 class="mt-0 mb-0">
 				{{- post.get_terms( 'project_cat' ) ? '<span class="font-family-body text-transform-none d-block">' ~ post.get_terms( 'project_cat' ) | map( cat => cat.name ) | join( ', ' ) ~ '</span>' -}}
 				{{- post.title -}}
 			</h1>
@@ -22,19 +22,19 @@
 		{% endif %}
 	</div>
 
-	<div class="Horizontal-page__section js-section">
-		<div class="Horizontal-page__track js-track">
+	<div class="Horizontal-page__section position-md-fixed top-md-0 bottom-md-0 start-md-0 w-100 h-md-100 js-section">
+		<div class="Horizontal-page__track d-md-flex flex-md-nowrap top-md-0 bottom-md-0 start-md-0 position-md-absolute z-index-md-0 h-md-100 js-track">
 
-			<div class="Horizontal-page__wrapper js-wrapper">
-				<div class="Single-project__grid">
+			<div class="Horizontal-page__wrapper js-wrapper background-color-white">
+				<div class="Single-project__grid position-relative d-grid z-index-1 h-auto h-md-100">
 					<div class="Single-project__title js-title">
-						<h1>
+						<h1 class="mt-0 mb-0">
 							{{- post.get_terms( 'project_cat' ) ? '<span class="font-family-body text-transform-none d-block">' ~ post.get_terms( 'project_cat' ) | map( cat => cat.name ) | join( ', ' ) ~ '</span>' -}}
 							{{- post.title -}}
 						</h1>
 
 						{% if post.attributes or post.meta( 'project_content' ) %}
-							<button class="Single-project__readmore d-none d-md-inline-block js-project-informations-button" type="button">
+							<button class="Single-project__readmore d-none d-md-inline-block js-project-information-button" type="button">
 								+&nbsp;
 								<span class="text-decoration-underline">
 									{{- __( 'Informations', '' ) -}}
@@ -52,15 +52,21 @@
 				</div>
 
 				{% if post.images is iterable %}
-					<ul class="Single-project__images">
+					<ul class="Single-project__images list-style-type-none pe-none d-flex flex-column flex-md-row position-relative z-index-2">
 
 						{% for image in post.images %}
 							<li class="Single-project__image">
-								{%-
-									include 'partials/image.html.twig'
-									with { classes: [ 'js-image' ], image: image, loading: 'eager', attributes: { style: image.style } }
-									only
-								-%}
+								{{-
+									include(
+										'partials/image.html.twig',
+										{
+											classes: [ 'js-image', 'w-100', 'h-auto', 'w-md-auto', 'h-md-100', 'p-md-0' ],
+											image: image,
+											loading: 'eager',
+											attributes: { style: image.style }
+										}
+									)
+								-}}
 							</li>
 						{% endfor %}
 
@@ -69,9 +75,9 @@
 
 			</div>
 
-			<div class="Single-project__content">
+			<div class="Single-project__content h-auto h-md-100">
 				<div class="Single-project__title">
-					<h1>
+					<h1 class="mt-0 mb-0">
 						<span class="font-family-body text-transform-none d-block">{{- projects_settings.subtitle -}}</span>
 						{{- projects_settings.title -}}
 					</h1>

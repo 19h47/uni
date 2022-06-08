@@ -1,20 +1,17 @@
 {#
-
-Header
-
-@author     Jérémy Levron <jeremylevron@19h47.fr> (https://19h47.fr)
-@file       views/header.html.twig
-@package    PRH
-
-#}
-
+ # Header
+ #
+ # @author     Jérémy Levron <jeremylevron@19h47.fr> (https://19h47.fr)
+ # @file       views/header.html.twig
+ # @package    UNI
+ #}
 <!DOCTYPE html>
-<!--[if IE 9]>
-<html {{ html_class( 'ie9 no-js no-touch' ) }} {{ site.language_attributes }}>
-<![endif]-->
-<!--[if !(IE 9)]><!-->
-<html {{ site.language_attributes }} {{ html_class( 'no-js no-touch' ~ ( 'front-page' == namespace ? ' h-100 w-100' ) ) }}>
-<!--<![endif]-->
+<html
+	itemscope
+	itemtype="http://schema.org/WebPage"
+	{{ site.language_attributes }}
+	{{ html_class( 'no-js no-touch' ~ ( 'front-page' == namespace ? ' h-100 w-100' ) ) }}
+>
 
 	<head>
 

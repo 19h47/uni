@@ -10,15 +10,15 @@ require('flickity-imagesloaded');
  * @constructor
  * @param {object} container
  */
-export default class CarouselBlock extends AbstractBlock {
+class ProductGalleryBlock extends AbstractBlock {
 	constructor(container) {
-		super(container, 'CarouselBlock');
+		super(container, 'ProductGalleryBlock');
 	}
 
 	init() {
 		super.init();
 
-		this.$wrapper = this.rootElement.querySelector('.woocommerce-product-gallery__wrapper');
+		this.$wrapper = this.rootElement.querySelector('.js-wrapper');
 		this.$next = this.rootElement.querySelector('.js-next') || false;
 		this.$previous = this.rootElement.querySelector('.js-previous') || false;
 		this.$current = this.rootElement.querySelector('.js-current');
@@ -33,7 +33,7 @@ export default class CarouselBlock extends AbstractBlock {
 		this.options = {
 			pageDots: false,
 			prevNextButtons: false,
-			cellSelector: '.woocommerce-product-gallery__image',
+			cellSelector: '.js-cell',
 			wrapAround: true,
 			setGallerySize: false,
 			imagesLoaded: true,
@@ -68,3 +68,5 @@ export default class CarouselBlock extends AbstractBlock {
 		});
 	}
 }
+
+export default ProductGalleryBlock;

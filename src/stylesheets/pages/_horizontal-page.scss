@@ -13,11 +13,8 @@
 		@include margin(right 20px bottom 20px left 20px);
 
 		max-width: calc(100% - 40px);
-		width: 100%;
 
 		@include media-breakpoint-up(md) {
-			@include fixed(top 0 bottom 0 left 0);
-			@include size(100%);
 			@include margin(right 0 bottom 0 left 0);
 
 			max-width: none;
@@ -26,14 +23,8 @@
 	}
 
 	&__track {
-		@extend .d-md-flex, .flex-md-nowrap;
-
 		@include media-breakpoint-up(md) {
-			@include absolute(top 0 bottom 0 left 0);
 			@include padding(left calc(#{math.div(100 * 100, $prototype-width-unitless)}vw + 40px));
-
-			z-index: 0;
-			height: 100%;
 
 			& > * {
 				flex-shrink: 0;
@@ -42,8 +33,6 @@
 	}
 
 	&__navigation {
-		@extend .d-flex, .justify-content-end;
-
 		svg {
 			@extend .align-middle;
 			@include size(14px, 24px);

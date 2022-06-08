@@ -6,14 +6,14 @@
 
 {% block content %}
 
-	<div class="Horizontal-page__section js-section">
-		<div class="Horizontal-page__track js-track">
+	<div class="Horizontal-page__section position-md-fixed top-md-0 bottom-md-0 start-md-0 w-100 h-md-100 js-section">
+		<div class="Horizontal-page__track d-md-flex flex-md-nowrap top-md-0 bottom-md-0 start-md-0 position-md-absolute z-index-md-0 h-md-100 js-track">
 
 			<div class="Horizontal-page__wrapper js-wrapper">
 				<div class="Horizontal-page__grid js-grid">
 					<div class="Horizontal-page__grid__inner">
-						<div class="Horizontal-page__navigation js-navigation">
-							{%- include 'svg/use.html.twig' with { icon: 'arrow-right' } only -%}
+						<div class="Horizontal-page__navigation 		d-flex justify-content-end js-navigation">
+							{{- include( 'svg/use.html.twig', { icon: 'arrow-right' }, with_context = false ) -}}
 						</div>
 						<div class="Page__content__title text-uppercase"><h1>{{- post.subtitle ? "<span>#{ post.subtitle }</span>" -}}{{- post.title -}}</h1></div>
 						<div class="Wysiwyg">{{- post.content -}}</div>

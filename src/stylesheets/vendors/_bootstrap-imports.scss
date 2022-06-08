@@ -32,6 +32,13 @@ $utilities: map-merge(
 					values: map-merge(map-get(map-get($utilities, 'height'), 'values'), ($sizes)),
 				)
 			),
+		'position':
+			map-merge(
+				map-get($utilities, 'position'),
+				(
+					responsive: true,
+				)
+			),
 		'object-position': (
 			property: object-position,
 			values: (
@@ -45,6 +52,7 @@ $utilities: map-merge(
 			values: (
 				cover: cover,
 				contain: contain,
+				scale-down: scale-down,
 			),
 		),
 		'list-style-type': (
@@ -53,7 +61,8 @@ $utilities: map-merge(
 		),
 		'z-index': (
 			property: z-index,
-			values: 1 2 3 4 5 10 15 20,
+			responsive: true,
+			values: 0 1 2 3 4 5 10 15 20,
 		),
 		'overflow-y': (
 			property: overflow-y,

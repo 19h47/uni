@@ -1,5 +1,5 @@
 {#
- # Product Image
+ # Product Gallery
  #
  # This template overridde woocommerce/single-product/product-image.php.
  #
@@ -8,13 +8,23 @@
  #}
 
 {% if image_ids is iterable and image_ids is not empty %}
-	<div id="product-image-{{ post_thumbnail_id }}" class="{{ wrapper_class }} page-block" data-columns="{{ columns }}" data-node-type="CarouselBlock" style="opacity: 0; transition: opacity .25s ease-in-out;">
-		<div class="Product__gallery__grid Carousel">
+	<div
+		id="product-image-{{ post_thumbnail_id }}"
+		class="{{ wrapper_class }} page-block mb-md-0"
+		data-columns="{{ columns }}"
+		data-node-type="ProductGalleryBlock"
+		style="opacity: 0; transition: opacity .25s ease-in-out;"
+	>
+		<div class="Product-gallery__grid h-100 d-grid Carousel">
 			<div>
-				<figure class="Carousel__items woocommerce-product-gallery__wrapper">
+				<figure class="overflow-hidden w-100 h-100 woocommerce-product-gallery__wrapper js-wrapper">
 					{% for id in image_ids %}
-						<div data-thumb="{{ Image( id ).src }}" data-thumb-alt="{{ Image( id ).alt }}" class="woocommerce-product-gallery__image">
-							{% include 'partials/image.html.twig' with { image: id } only %}
+						<div
+							data-thumb="{{ Image( id ).src }}"
+							data-thumb-alt="{{ Image( id ).alt }}"
+							class="w-100 h-100 js-cell"
+						>
+							{{- include( 'partials/image.html.twig', { image: id, classes: [ 'w-100', 'h-100', 'object-fit-scale-down', 'object-position-center' ] }, with_context = false ) -}}
 						</div>
 					{% endfor %}
 				</figure>

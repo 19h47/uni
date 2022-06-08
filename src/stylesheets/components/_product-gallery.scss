@@ -1,0 +1,48 @@
+/**
+ * Product: Gallery
+ *
+ */
+@use 'sass:math';
+
+.Product-gallery {
+	@include margin(bottom 20px);
+
+	&__grid {
+		grid-template-columns: repeat(10, 1fr);
+		grid-template-rows: repeat(5, 1fr);
+		grid-column-gap: 0px;
+		grid-row-gap: 0px;
+		width: 100%;
+		max-height: 100%;
+
+		& > div:nth-child(1) {
+			grid-area: 1 / 1 / 5 / 11;
+			height: #{math.div(475 * 100, 1334)}vh;
+
+			@include media-breakpoint-up(md) {
+				grid-area: 2 / 2 / 10 / 10;
+				height: auto;
+			}
+		}
+		& > div:nth-child(2) {
+			grid-area: 5 / 1 / 6 / 11;
+
+			@include media-breakpoint-up(md) {
+				grid-area: 10 / 4 / 11 / 8;
+			}
+		}
+
+		@include media-breakpoint-up(md) {
+			@include padding(
+				top #{math.div(60 * 100, $prototype-height-unitless)}vh bottom #{math.div(
+						60 * 100,
+						$prototype-height-unitless
+					)}vh
+			);
+
+			grid-template-columns: repeat(10, 1fr);
+			grid-template-rows: repeat(11, 1fr);
+			width: #{math.div(2000 * 100, $prototype-width-unitless)}vw;
+		}
+	}
+}

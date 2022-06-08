@@ -9,12 +9,6 @@
 		height: 100%;
 	}
 
-	// .Carousel__items
-	&__items {
-		@extend .overflow-hidden;
-		@include size(100%);
-	}
-
 	&__navigation {
 		@include margin(top 1em);
 
