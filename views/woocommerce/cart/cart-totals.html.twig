@@ -23,7 +23,7 @@
 			</tr>
 
 			{% for code, coupon in cart.get_coupons() %}
-				<tr class="cart-discount coupon-{{ sanitize_title( code ) }}">
+				<tr class="cart-discount coupon-{{ code | sanitize }}">
 					<th>{{- fn( 'wc_cart_totals_coupon_label', coupon ) -}}</th>
 					<td data-title="{{ fn( 'wc_cart_totals_coupon_label', coupon, false ) }}">
 						{{- fn( 'wc_cart_totals_coupon_html', coupon ) -}}
@@ -68,7 +68,7 @@
 			{% if tax_enabled and not cart.display_prices_including_tax() %}
 				{% if 'itemized' == tax_total_display %}
 					{% for code, tax in cart.get_tax_totals() %}
-						<tr class="tax-rate tax-rate-{{ sanitize_title( code ) }}">
+						<tr class="tax-rate tax-rate-{{ code | sanitize }}">
 							<th>
 								{{- tax.label }}&nbsp;
 								{% if customer.is_customer_outside_base() and not customer.has_calculated_shipping() %}

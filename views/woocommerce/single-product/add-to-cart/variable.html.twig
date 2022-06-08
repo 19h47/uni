@@ -20,7 +20,7 @@
 			{% for attribute_name, options in attributes %}
 				<li class="Product-variations__item">
 					<div class="Product-variations__label label">
-						<label for="{{ sanitize_title( attribute_name ) }}">
+						<label for="{{ attribute_name | sanitize }}">
 							{{- fn ( 'wc_attribute_label', attribute_name ) -}}
 						</label>
 					</div>

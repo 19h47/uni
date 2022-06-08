@@ -119,18 +119,17 @@ class Project {
 	public function render_custom_columns( string $column_name, int $post_id ) : void {
 		switch ( $column_name ) {
 			case 'thumbnail':
-				$thumbnail = get_the_post_thumbnail( $post_id, 'thumbnail' );
-				$html      = '—';
+				$images = get_field( 'images', $post_id );
+				$html   = '—';
 
-				if ( $thumbnail ) {
+				if ( is_array( $images ) && isset( $images[0] ) ) {
 					$html  = '<a href="' . esc_attr( get_edit_post_link( $post_id ) ) . '">';
-					$html .= $thumbnail;
+					$html .= wp_get_attachment_image( $images[0]['ID'], 'thumbnail' );
 					$html .= '</a>';
 
-					echo wp_kses_post( $html );
-				} else {
-					echo wp_kses_post( $html );
 				}
+
+				echo wp_kses_post( $html );
 
 				break;
 		}

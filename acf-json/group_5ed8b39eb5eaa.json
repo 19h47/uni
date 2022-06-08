@@ -1,6 +1,6 @@
 {
     "key": "group_5ed8b39eb5eaa",
-    "title": "Options",
+    "title": "Options du Projet",
     "fields": [
         {
             "key": "field_5ed8b3a484292",
@@ -140,7 +140,8 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "active": 1,
+    "active": true,
     "description": "Options d'un Projet",
-    "modified": 1591272713
+    "show_in_rest": 0,
+    "modified": 1654676688
 }

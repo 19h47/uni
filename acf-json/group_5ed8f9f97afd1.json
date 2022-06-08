@@ -82,7 +82,8 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "active": 1,
+    "active": true,
     "description": "Options des Projets",
-    "modified": 1591279701
+    "show_in_rest": 0,
+    "modified": 1654676647
 }
