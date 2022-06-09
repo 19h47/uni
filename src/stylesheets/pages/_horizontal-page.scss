@@ -103,6 +103,7 @@
 
 			&:first-child {
 				@include margin(top 0);
+
 				.Wysiwyg {
 					@include media-breakpoint-up(md) {
 						@include margin(
@@ -113,22 +114,19 @@
 			}
 
 			img {
-				@include size(100%, auto);
+				height: auto;
 
 				@include media-breakpoint-up(md) {
-					@include size(
-						100%,
-						calc(#{math.div((146.36 * 2) * 100, $prototype-height-unitless)}vh + 100%)
+					height: calc(
+						#{math.div((146.36 * 2) * 100, $prototype-height-unitless)}vh + 100%
 					);
+
 					@include margin(
 						top #{math.div(-146.36 * 100, $prototype-height-unitless)}vh bottom #{math.div(
 								-146.36 * 100,
 								$prototype-height-unitless
 							)}vh
 					);
-
-					object-fit: cover;
-					object-position: center;
 				}
 			}
 

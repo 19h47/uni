@@ -115,6 +115,13 @@ class Enqueue {
 			$webfonts[] = "font-$name";
 		}
 
+		wp_register_style(
+			'flickity',
+			'//cdnjs.cloudflare.com/ajax/libs/flickity/3.0.0/flickity.min.css',
+			array(),
+			null
+		);
+
 		// Theme stylesheet.
 		wp_register_style( // phpcs:ignore
 			get_theme_text_domain() . '-main',
@@ -124,6 +131,7 @@ class Enqueue {
 		);
 
 		wp_enqueue_style( get_theme_text_domain() . '-main' );
+		wp_enqueue_style( 'flickity' );
 	}
 
 

@@ -9,7 +9,6 @@
 @import 'base/fonts';
 
 @import '~ress/ress';
-@import '~flickity/css/flickity';
 
 // Functions
 @import '~@19h47/architecture/src/stylesheets/abstracts/functions';
@@ -101,9 +100,9 @@
 
 // Utilities.
 @import '~@19h47/architecture/src/stylesheets/utilities/colors',
-	'~@19h47/architecture/src/stylesheets/utilities/cursors',
-	// 	'~@19h47/architecture/src/stylesheets/utilities/displays',
-	'~@19h47/architecture/src/stylesheets/utilities/floats';
+	'~@19h47/architecture/src/stylesheets/utilities/cursors';
+// 	'~@19h47/architecture/src/stylesheets/utilities/displays',
+// '~@19h47/architecture/src/stylesheets/utilities/floats';
 @import '~@19h47/architecture/src/stylesheets/utilities/fonts';
 @import '~@19h47/architecture/src/stylesheets/utilities/margins';
 // @import '~@19h47/architecture/src/stylesheets/utilities/overflows';

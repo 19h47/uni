@@ -2,6 +2,7 @@
  # About page
  #
  # @package UNI
+ # @purgeCSS About-page column-1 column-2 column-3 column-4 column-5 column-6 column-7 column-8 column-9 column-10 column-11 column-12
  #}
 {% extends 'index.html.twig' %}
 
@@ -30,7 +31,15 @@
 
 							{% if 'image' == item.acf_fc_layout %}
 								<li class="position-relative column-{{ item.columns }}">
-									{{- include( 'partials/image.html.twig', { image: item.image, classes: [ 'align-middle', 'd-inline-block' ] } ) -}}
+									{{-
+										include(
+											'partials/image.html.twig',
+											{
+												classes: [ 'w-100', 'object-fit-cover', 'object-position-center', 'd-block' ],
+												image: item.image,
+											}
+										)
+									-}}
 								</li>
 							{% endif %}
 						{% endfor %}

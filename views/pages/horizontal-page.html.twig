@@ -1,6 +1,7 @@
 {#
  # Horizontal page
  #
+ # @purgeCSS Horizontal-page
  #}
 {% extends 'index.html.twig' %}
 
@@ -31,11 +32,6 @@
 
 							<div id="image-{{ image.id }}" class="Horizontal-page__image d-md-flex" data-index="{{ loop.index }}">
 								<{{ _product ? "a href=\"#{ _product.link }\"" : 'div' }} class="h-md-100 w-md-100"{{ _product ? ' data-product-content="link"' : '' }}>
-
-									{# {% if _product %}
-										<a class="d-md-inline-block h-md-100 position-relative js-link" >
-									{% endif %} #}
-
 									{{-
 										include(
 											'partials/image.html.twig',
@@ -48,9 +44,6 @@
 											with_context = false
 										)
 									-}}
-
-									{# {{ _product.link ? '</a>' | raw }} #}
-
 								</{{ _product ? 'a' : 'div' }}>
 
 								{{- _product ? "<h5>#{ _product.title }</h5>" -}}

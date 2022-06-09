@@ -13,7 +13,10 @@
 					'partials/image.html.twig',
 					{
 						classes: [ 'Product-thumbnail__image', 'z-index-1', product_color.current ? 'is-active' : null ],
-						attributes: { 'data-color': product_color.color, 'data-product-content': 'image' },
+						attributes: {
+							'data-color': product_color.color,
+							'data-product-content': 'image'
+						},
 						image: product_color.thumbnail
 					}
 				)
