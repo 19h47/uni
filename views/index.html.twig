@@ -8,11 +8,21 @@
 
 {{- include( 'header.html.twig' ) -}}
 
-<main id="{{ post.id ? "page-#{post.id}" : 'page' }}" class="page-content Site-wrapper" data-node-type="{{ post.node_type | default( 'DefaultPage' ) }}">
+<main
+	id="{{ post.id ? "page-#{post.id}" : 'page' }}"
+	class="page-content Site-wrapper"
+	{{ post.modules ? post.modules | map( module => "data-module-#{ module }" ) | join( ' ' ) : '' }}
+>
 
 	<header class="top-0 end-0 end-md-auto flex-row-reverse z-index-5 bottom-md-0 start-md-auto Site-header d-flex flex-md-column align-items-center justify-content-between position-fixed start-0">
 		<div class="flex-row-reverse d-flex flex-md-column">
-			<button class="Menu__button position-relative z-index-2 js-menu-button" type="button">
+			<button
+				class="Menu__button position-relative z-index-2"
+				type="button"
+				data-module-menu-button
+				data-module-project-information-button
+				data-project-information-button-action="close"
+			>
 				{{- include( 'svg/use.html.twig', { icon: 'bars', classes: [ 'pe-none' ] }, with_context = false ) -}}
 			</button>
 			{{- include( 'components/languages.html.twig' ) -}}

@@ -4,34 +4,39 @@
  # @package UNI
  #}
 
-<div id="menu" class="z-index-4 top-0 bottom-0 position-fixed start-0 end-0 Menu page-block" data-node-type="MenuBlock">
-	<div class="Menu__primary">
-		<ul class="list-style-type-none" itemscope itemtype="http://schema.org/SiteNavigationElement">
-			{% for item in menus.main_primary.items %}
-				<li class="Menu__item">
-					<h1>
-						<a href="{{ item.url }}" class="Menu__link{{ item.current ? ' is-active' }}" itemprop="url"{{ item.target ? " target=\"#{item.target}\"" }}>
-							{{- item.title -}}
-						</a>
-					</h1>
-				</li>
-			{% endfor %}
-		</ul>
-	</div>
-	<div class="Menu__secondary">
-		<ul class="list-style-type-none" itemscope itemtype="http://schema.org/SiteNavigationElement">
-			{% for item in menus.main_secondary.items %}
-				<li class="Menu__item">
-					<a href="{{ item.url }}" class="Menu__link{{ item.current ? ' is-active' }}" itemprop="url"{{ item.target ? " target=\"#{item.target}\"" }}>{{- item.title -}}</a>
-				</li>
-			{% endfor %}
-		</ul>
-	</div>
+<div id="menu" class="z-index-4 top-0 bottom-0 position-fixed start-0 end-0 Menu page-block" data-module-menu>
 
-	<div class="Menu__signup-form align-self-md-end mt-3 mt-md-0">
-		<div class="d-md-flex w-100">
-			{{- include( 'partials/socials.html.twig', { classes: [ 'me-md-3' ], label: __( 'Follow us', 'uni' ) } ) -}}
-			{{- include( 'partials/signup-form.html.twig', { label: __( 'Newsletter subscriptions', 'uni' ), id: post.id, classes: [ 'mt-3', 'mt-md-0', 'flex-fill' ] } ) -}}
+	<div class="Menu__wrapper h-100">
+		<div class="Menu__grid d-grid h-100">
+			<div class="Menu__primary">
+				<ul class="list-style-type-none" itemscope itemtype="http://schema.org/SiteNavigationElement">
+					{% for item in menus.main_primary.items %}
+						<li class="Menu__item">
+							<h1>
+								<a href="{{ item.url }}" class="Menu__link{{ item.current ? ' is-active' }}" itemprop="url"{{ item.target ? " target=\"#{item.target}\"" }}>
+									{{- item.title -}}
+								</a>
+							</h1>
+						</li>
+					{% endfor %}
+				</ul>
+			</div>
+			<div class="Menu__secondary">
+				<ul class="list-style-type-none" itemscope itemtype="http://schema.org/SiteNavigationElement">
+					{% for item in menus.main_secondary.items %}
+						<li class="Menu__item">
+							<a href="{{ item.url }}" class="Menu__link{{ item.current ? ' is-active' }}" itemprop="url"{{ item.target ? " target=\"#{item.target}\"" }}>{{- item.title -}}</a>
+						</li>
+					{% endfor %}
+				</ul>
+			</div>
+
+			<div class="Menu__signup-form align-self-md-end mt-3 mt-md-0">
+				<div class="d-md-flex w-100">
+					{{- include( 'partials/socials.html.twig', { classes: [ 'me-md-3' ], label: __( 'Follow us', 'uni' ) } ) -}}
+					{{- include( 'partials/signup-form.html.twig', { label: __( 'Newsletter subscriptions', 'uni' ), id: post.id, classes: [ 'mt-3', 'mt-md-0', 'flex-fill' ] } ) -}}
+				</div>
+			</div>
 		</div>
 	</div>
 </div>

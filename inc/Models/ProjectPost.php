@@ -17,11 +17,11 @@ use Timber\{ Timber, Post };
 class ProjectPost extends Post {
 
 	/**
-	 * Node type
+	 * Modules
 	 *
-	 * @var string $node_type
+	 * @var array $modules
 	 */
-	public $node_type = 'HorizontalPage';
+	public $modules = array( 'horizontal-page' );
 
 
 	/**

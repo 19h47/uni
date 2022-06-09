@@ -17,7 +17,7 @@ $context = Timber::context();
 $context['post']      = new Post();
 $context['namespace'] = 'front-page';
 
-$context['post']->node_type    = 'FrontPage';
+$context['post']->modules      = array( 'front-page' );
 $context['post']->body_classes = array( 'modal--is-open' );
 
 $templates = array( 'pages/front-page.html.twig' );

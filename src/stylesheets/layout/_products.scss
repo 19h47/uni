@@ -16,7 +16,8 @@
 		@include margin(top -20px right 0 bottom -20px left 0);
 
 		@at-root .page-template-archive-page &,
-			.Single-product & {
+			.Single-product &,
+			.Archive & {
 			@include margin(right #{math.div(200 * 100, $prototype-width-unitless)}vw);
 		}
 	}

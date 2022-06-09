@@ -6,10 +6,10 @@
 
 {% block content %}
 
-	<div class="Horizontal-page__section position-md-fixed top-md-0 bottom-md-0 start-md-0 w-100 h-md-100 js-section">
-		<div class="Horizontal-page__track d-md-flex flex-md-nowrap top-md-0 bottom-md-0 start-md-0 position-md-absolute z-index-md-0 h-md-100 js-track">
+	<div class="Horizontal-page__section position-md-fixed top-md-0 bottom-md-0 start-md-0 w-100 h-md-100" data-horizontal-page="section">
+		<div class="Horizontal-page__track d-md-flex flex-md-nowrap top-md-0 bottom-md-0 start-md-0 position-md-absolute z-index-md-0 h-md-100" data-horizontal-page="track">
 
-			<div class="Horizontal-page__wrapper js-wrapper">
+			<div class="Horizontal-page__wrapper"  data-module-wrapper-page>
 				<div class="Horizontal-page__grid js-grid">
 					<div class="Horizontal-page__grid__inner">
 						<div class="Horizontal-page__navigation 		d-flex justify-content-end js-navigation">
@@ -29,18 +29,29 @@
 
 							{% set _product = TimberPost( image.id ).meta( 'product_link' ) %}
 
-							<div id="image-{{ image.id }}" class="Horizontal-page__image page-block" data-index="{{ loop.index }}" data-node-type="ImageBlock">
-								<div class="d-inline-block js-container h-100 w-100">
+							<div id="image-{{ image.id }}" class="Horizontal-page__image d-md-flex" data-index="{{ loop.index }}">
+								<{{ _product ? "a href=\"#{ _product.link }\"" : 'div' }} class="h-md-100 w-md-100"{{ _product ? ' data-product-content="link"' : '' }}>
 
-									{% if _product %}
-										<a class="d-inline-block h-100 position-relative js-link" href="{{ _product.link }}">
-									{% endif %}
+									{# {% if _product %}
+										<a class="d-md-inline-block h-md-100 position-relative js-link" >
+									{% endif %} #}
 
-									{%- include 'partials/image.html.twig' with { classes: [ 'js-image' ], image: image, loading: 'eager' } only -%}
+									{{-
+										include(
+											'partials/image.html.twig',
+											{
+												attributes: { 'data-horizontal-page' : 'image' },
+												classes: [ 'w-100', 'h-auto', 'w-md-auto', 'h-md-100', 'd-block' ],
+												image: image,
+												loading: 'eager'
+											},
+											with_context = false
+										)
+									-}}
 
-									{{ _product.link ? '</a>' | raw }}
+									{# {{ _product.link ? '</a>' | raw }} #}
 
-								</div>
+								</{{ _product ? 'a' : 'div' }}>
 
 								{{- _product ? "<h5>#{ _product.title }</h5>" -}}
 							</div>

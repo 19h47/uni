@@ -16,8 +16,8 @@
 
 <div
 	id="modal-{{ id | e }}"
-	class="Modal page-block z-index-3 position-fixed top-0 end-0 bottom-0 start-0 d-flex align-items-center justify-content-center"
-	data-node-type="ModalBlock"
+	class="Modal z-index-3 position-fixed top-0 end-0 bottom-0 start-0 d-flex align-items-center justify-content-center"
+	data-module-modal
 >
 	<div
 		class="{{ [
@@ -30,7 +30,12 @@
 			'overflow-auto',
 		] | merge( size ) | join( ' ' ) | trim }}"
 	>
-		<button class="Modal__close js-modal-button position-absolute top-0 end-0 d-flex" type="button" aria-label="{{ __( 'Close', 'uni' ) }}">
+		<button
+			class="Modal__close position-absolute top-0 end-0 d-flex"
+			type="button"
+			aria-label="{{ __( 'Close', 'uni' ) }}"
+			data-modal="close"
+		>
 			{{- include( 'svg/use.html.twig', { icon: 'times', classes: [ 'pe-none' ] }, with_context = false ) -}}
 		</button>
 		{% block body %}{% endblock %}

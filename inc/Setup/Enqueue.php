@@ -57,38 +57,43 @@ class Enqueue {
 		}
 
 		wp_register_script( // phpcs:ignore
-			get_theme_name() . '-main',
+			get_theme_text_domain() . '-main',
 			get_template_directory_uri() . '/' . get_theme_manifest()['main.js'],
 			$deps,
 			null,
 			true
 		);
 
-		wp_localize_script(
-			get_theme_name() . '-main',
-			'uni',
-			array(
-				'template_directory_uri' => get_template_directory_uri(),
-				'base_url'               => site_url(),
-				'home_url'               => home_url( '/' ),
-				'ajax_url'               => admin_url( 'admin-ajax.php' ),
-				'api_url'                => home_url( 'wp-json' ),
-				'current_url'            => get_permalink(),
-				'nonce'                  => wp_create_nonce( 'security' ),
-				'messages'               => array(
-					'value_missing' => array(
-						'default' => _x( 'Please fill out this field.', 'messages', 'uni' ),
-					),
-					'type_mismatch' => array(
-						'email'   => _x( 'Please enter an email address.', 'messages', 'uni' ),
-						'url'     => _x( 'Please enter a URL.', 'messages', 'uni' ),
-						'default' => _x( 'Please match the expected format.', 'messages', 'uni' ),
-					),
+		$data = array(
+			'template_directory_uri' => get_template_directory_uri(),
+			'base_url'               => site_url(),
+			'home_url'               => home_url( '/' ),
+			'ajax_url'               => admin_url( 'admin-ajax.php' ),
+			'api_url'                => home_url( 'wp-json' ),
+			'current_url'            => get_permalink(),
+			'nonce'                  => wp_create_nonce( 'security' ),
+			'messages'               => array(
+				'value_missing' => array(
+					'default' => _x( 'Please fill out this field.', 'messages', 'uni' ),
 				),
-			)
+				'type_mismatch' => array(
+					'email'   => _x( 'Please enter an email address.', 'messages', 'uni' ),
+					'url'     => _x( 'Please enter a URL.', 'messages', 'uni' ),
+					'default' => _x( 'Please match the expected format.', 'messages', 'uni' ),
+				),
+			),
+			'text_domain'            => get_theme_text_domain(),
 		);
 
-		wp_enqueue_script( get_theme_name() . '-main' );
+		wp_add_inline_script(
+			get_theme_text_domain() . '-main',
+			'var ' . get_theme_text_domain() . ' = ' . wp_json_encode(
+				$data
+			),
+			'before',
+		);
+
+		wp_enqueue_script( get_theme_text_domain() . '-main' );
 	}
 
 
@@ -112,13 +117,13 @@ class Enqueue {
 
 		// Theme stylesheet.
 		wp_register_style( // phpcs:ignore
-			get_theme_name() . '-main',
+			get_theme_text_domain() . '-main',
 			get_template_directory_uri() . '/' . get_theme_manifest()['main.css'],
 			$webfonts,
 			null
 		);
 
-		wp_enqueue_style( get_theme_name() . '-main' );
+		wp_enqueue_style( get_theme_text_domain() . '-main' );
 	}
 
 

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: uni\n"
 "POT-Creation-Date: 2022-06-08 10:13+0200\n"
-"PO-Revision-Date: 2022-06-08 10:14+0200\n"
+"PO-Revision-Date: 2022-06-09 09:39+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fr_FR\n"
@@ -730,7 +730,7 @@ msgstr "Crédits :"
 
 #: views/components/modal.html.twig:33
 msgid "Close"
-msgstr ""
+msgstr "Fermer"
 
 #: views/pages/archive-product.html.twig:20
 #: views/pages/single-product.html.twig:142
@@ -808,12 +808,12 @@ msgstr "Les champs suivis d’un astérisque* sont obligatoire"
 
 #: views/pages/front-page.html.twig:17
 msgid "Ulule"
-msgstr ""
+msgstr "Ulule"
 
 #: views/pages/front-page.html.twig:44
 msgctxt "front page"
 msgid "Explore our:"
-msgstr "Explorer nos :"
+msgstr "Explorer notre :"
 
 #: views/pages/front-page.html.twig:45
 msgid "Store"

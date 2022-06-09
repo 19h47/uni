@@ -13,7 +13,7 @@ export default class Custom extends Smooth {
 	}
 
 	resize() {
-		console.info('Custom.resize');
+		// console.info('Custom.resize');
 
 		super.resize();
 		this.getCache();

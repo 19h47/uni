@@ -10,14 +10,14 @@
 {% if image_ids is iterable and image_ids is not empty %}
 	<div
 		id="product-image-{{ post_thumbnail_id }}"
-		class="{{ wrapper_class }} page-block mb-md-0"
+		class="{{ wrapper_class }} mb-md-0"
 		data-columns="{{ columns }}"
-		data-node-type="ProductGalleryBlock"
+		data-module-product-gallery
 		style="opacity: 0; transition: opacity .25s ease-in-out;"
 	>
 		<div class="Product-gallery__grid h-100 d-grid Carousel">
 			<div>
-				<figure class="overflow-hidden w-100 h-100 woocommerce-product-gallery__wrapper js-wrapper">
+				<figure class="overflow-hidden w-100 h-100 woocommerce-product-gallery__wrapper" data-product-gallery="wrapper">
 					{% for id in image_ids %}
 						<div
 							data-thumb="{{ Image( id ).src }}"
@@ -30,13 +30,13 @@
 				</figure>
 			</div>
 			<div class="Carousel__navigation d-flex justify-content-between align-items-center">
-				<button class="js-previous d-flex align-items-center" type="button" aria-label="{{ __( 'Previous', 'uni' ) | e }}">
+				<button class="d-flex align-items-center" data-product-previous type="button" aria-label="{{ __( 'Previous', 'uni' ) | e }}">
 					{{- include( 'svg/use.html.twig', { icon: 'arrow-left', classes: [ 'w-100', 'h-100' ] } ) -}}
 				</button>
 				<div class="Carousel__current">
-					<span class="js-current">01</span>&nbsp;/&nbsp;{{ "%02d" | format( image_ids | length ) }}
+					<span data-product-gallery="current">01</span>&nbsp;/&nbsp;{{ "%02d" | format( image_ids | length ) }}
 				</div>
-				<button class="js-next d-flex align-items-center" type="button" aria-label="{{ __( 'Next', 'uni' ) | e }}">
+				<button data-product-gallery="next" class="d-flex align-items-center" type="button" aria-label="{{ __( 'Next', 'uni' ) | e }}">
 					{{- include( 'svg/use.html.twig', { icon: 'arrow-right', classes: [ 'w-100', 'h-100' ] } ) -}}
 				</button>
 			</div>

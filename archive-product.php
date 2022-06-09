@@ -27,6 +27,6 @@ if ( is_product_category() ) {
 }
 
 $context['post']->body_classes = array( 'Archive-page' );
-$context['post']->node_type    = 'HorizontalPage';
+$context['post']->modules      = array( 'horizontal-page' );
 
 Timber::render( 'pages/archive-product.html.twig', $context );

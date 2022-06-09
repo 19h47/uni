@@ -112,6 +112,26 @@ $utilities: map-merge(
 			values: nowrap,
 			responsive: true,
 		),
+		'letter-spacing': (
+			property: white-space,
+			values: (
+				50: 0.05em,
+				60: 0.06em,
+			),
+		),
+		'font-weight':
+			map-merge(
+				map-get($utilities, 'font-weight'),
+				(
+					values:
+						map-merge(
+							map-get(map-get($utilities, 'font-weight'), 'values'),
+							(
+								extralight: 200,
+							)
+						),
+				)
+			),
 	)
 );
 

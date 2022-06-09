@@ -13,7 +13,14 @@
 	 #}
 	{% do action( 'woocommerce_before_add_to_cart_form' ) %}
 
-	<form id="add-to-cart-{{ id }}" class="cart page-block" action="{{ form_action }}" method="post" enctype="multipart/form-data" data-node-type="AddToCartBlock">
+	<form
+		id="add-to-cart-{{ id }}"
+		class="cart"
+		action="{{ form_action }}"
+		method="post"
+		enctype="multipart/form-data"
+		data-module-add-to-cart
+	>
 		{#
 		 # Hook: woocommerce_before_add_to_cart_button.
 		 #}
@@ -31,7 +38,12 @@
 		 #}
 		{% do action( 'woocommerce_after_add_to_cart_quantity' ) %}
 
-		<button type="submit" value="{{ id }}" class="Product-add-to-cart-button js-add-to-cart-button single_add_to_cart_button button alt">
+		<button
+			type="submit"
+			value="{{ id }}"
+			class="Product-add-to-cart-button single_add_to_cart_button button alt"
+			data-add-to-cart="button"
+		>
 			{{- text -}}
 			{% include 'svg/use.html.twig' with { icon: 'cart', classes: [ 'pe-none' ] } only %}
 		</button>

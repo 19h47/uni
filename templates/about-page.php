@@ -15,6 +15,6 @@ $context = Timber::get_context();
 $context['post'] = Timber::get_post();
 
 $context['post']->body_classes = array( 'About-page' );
-$context['post']->node_type    = 'HorizontalPage';
+$context['post']->modules      = array( 'horizontal-page' );
 
 Timber::render( 'pages/about-page.html.twig', $context );

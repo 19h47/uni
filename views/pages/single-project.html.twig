@@ -5,27 +5,32 @@
 
 {% block content %}
 
-	<div id="project-information" class="Single-project__information position-fixed top-0 end-0 bottom-0 start-0 page-block" data-node-type="ProjectInformationBlock">
-		<div class="Single-project__title">
-			<h1 class="mt-0 mb-0">
-				{{- post.get_terms( 'project_cat' ) ? '<span class="font-family-body text-transform-none d-block">' ~ post.get_terms( 'project_cat' ) | map( cat => cat.name ) | join( ', ' ) ~ '</span>' -}}
-				{{- post.title -}}
-			</h1>
+	<div id="project-information" class="Single-project__information position-fixed top-0 end-0 bottom-0 start-0 z-index-4" data-module-project-information>
+
+		<div class="Single-project__information__wrapper h-100">
+			<div class="Single-project__information__grid d-grid h-100">
+				<div class="Single-project__title">
+					<h1 class="mt-0 mb-0">
+						{{- post.get_terms( 'project_cat' ) ? '<span class="font-family-body text-transform-none d-block">' ~ post.get_terms( 'project_cat' ) | map( cat => cat.name ) | join( ', ' ) ~ '</span>' -}}
+						{{- post.title -}}
+					</h1>
+				</div>
+
+				{% if post.meta( 'project_content' ) %}
+					<div class="Wysiwyg">{{- post.meta( 'project_content' ) -}}</div>
+				{% endif %}
+
+				{% if post.attributes %}
+					<div>{{- include( 'partials/attributes.html.twig', { attributes: post.attributes } ) -}}</div>
+				{% endif %}
+			</div>
 		</div>
-
-		{% if post.meta( 'project_content' ) %}
-			<div class="Wysiwyg">{{- post.meta( 'project_content' ) -}}</div>
-		{% endif %}
-
-		{% if post.attributes %}
-			<div>{{- include( 'partials/attributes.html.twig', { attributes: post.attributes } ) -}}</div>
-		{% endif %}
 	</div>
 
-	<div class="Horizontal-page__section position-md-fixed top-md-0 bottom-md-0 start-md-0 w-100 h-md-100 js-section">
-		<div class="Horizontal-page__track d-md-flex flex-md-nowrap top-md-0 bottom-md-0 start-md-0 position-md-absolute z-index-md-0 h-md-100 js-track">
+	<div class="Horizontal-page__section position-md-fixed top-md-0 bottom-md-0 start-md-0 w-100 h-md-100" data-horizontal-page="section">
+		<div class="Horizontal-page__track d-md-flex flex-md-nowrap top-md-0 bottom-md-0 start-md-0 position-md-absolute z-index-md-0 h-md-100" data-horizontal-page="track">
 
-			<div class="Horizontal-page__wrapper js-wrapper background-color-white">
+			<div class="Horizontal-page__wrapper background-color-white" data-module-wrapper-page>
 				<div class="Single-project__grid position-relative d-grid z-index-1 h-auto h-md-100">
 					<div class="Single-project__title js-title">
 						<h1 class="mt-0 mb-0">
@@ -34,7 +39,13 @@
 						</h1>
 
 						{% if post.attributes or post.meta( 'project_content' ) %}
-							<button class="Single-project__readmore d-none d-md-inline-block js-project-information-button" type="button">
+							<button
+								class="Single-project__readmore d-none d-md-inline-block"
+								type="button"
+								data-module-menu-button
+								data-menu-button-action="close"
+								data-module-project-information-button
+							>
 								+&nbsp;
 								<span class="text-decoration-underline">
 									{{- __( 'Informations', '' ) -}}
@@ -60,10 +71,10 @@
 									include(
 										'partials/image.html.twig',
 										{
-											classes: [ 'js-image', 'w-100', 'h-auto', 'w-md-auto', 'h-md-100', 'p-md-0' ],
+											classes: [ 'w-100', 'h-auto', 'w-md-auto', 'h-md-100', 'p-md-0' ],
 											image: image,
 											loading: 'eager',
-											attributes: { style: image.style }
+											attributes: { style: image.style, 'data-horizontal-page': 'image' }
 										}
 									)
 								-}}

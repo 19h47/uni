@@ -1,4 +1,5 @@
 // Add the novalidate attribute when the JS loads
+/* eslint-disable */
 var forms = document.querySelectorAll('.validate');
 
 for (var i = 0; i < forms.length; i++) {

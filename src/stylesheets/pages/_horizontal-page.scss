@@ -290,7 +290,6 @@
 
 	&__image {
 		@include margin(top 100px bottom 100px);
-		@extend .d-flex;
 
 		&:first-child {
 			@include margin(top 0);
@@ -319,11 +318,6 @@
 		}
 
 		img {
-			@include size(auto, 100%);
-			@extend .align-middle;
-
-			// backface-visibility: hidden;
-
 			@include media-breakpoint-up(md) {
 				min-width: 0;
 				max-width: 100%;

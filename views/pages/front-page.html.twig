@@ -14,12 +14,13 @@
 
 				{{- include( 'svg/use.html.twig', { icon: 'logo-horizontal', classes: [ 'w-120px', 'h-40px', 'd-block', 'mx-auto' ] }, with_context = false ) -}}
 				{{- include( 'svg/use.html.twig', { icon: 'times', classes: [ 'my-3', 'w-20px', 'h-20px', 'd-block', 'mx-auto' ] }, with_context = false ) -}}
+
 				<img class="w-20 h-auto d-block mx-auto" src="{{ theme.link }}/{{ manifest['img/svg/logo-ulule.svg'] }}" alt="{{ __( 'Ulule', 'uni' ) }}" width="" height="">
 
 				<div class="my-5 text-center">
 					<p>UNI x Ulule</p>
 					<p>Objectifs 2022, plein de nouveauté et d'opportunités, c'est ici !</p>
-					<p><a class="Button Button--black" href="">Voir notre campagne Ulule</a></p>
+					<p><a class="Button Button--black" href="https://fr.ulule.com/uni-design-d-espace-et-mobilier-contemporain/" target="_blank" rel="noopener noreferer">Voir notre campagne Ulule</a></p>
 				</div>
 
 				<p>Pour suivre toutes nos actualités,<br>inscrivez-vous à la newsletter UNI Habitat.</p>
@@ -32,15 +33,15 @@
 	{% endembed %}
 
 	<div class="overflow-hidden Site-content w-100 position-relative h-100 h-md-auto">
-		<div class="Front-page__grid js-grid position-relative">
+		<div class="Front-page__grid position-relative" data-front-page="grid">
 			<div class="Front-page__logo">
 				<img src="{{ theme.link }}/{{ manifest['img/svg/logo-baseline.svg'] }}" alt="{{ site.description }}" class="d-none d-md-block w-100 h-100">
 				<img src="{{ theme.link }}/{{ manifest['img/svg/logo-mobile.svg'] }}" alt="{{ site.description }}" class="d-md-none w-100 h-100">
 			</div>
 
-			<div class="Wysiwyg Front-page__content js-content">{{- post.content -}}</div>
+			<div class="Wysiwyg Front-page__content" data-front-page="content">{{- post.content -}}</div>
 			<div>
-				<a class="Front-page__link text-center d-block" href="{{ objects_page.link }}">
+				<a class="Front-page__link text-center d-block" href="{{ shop_url }}">
 					{{- _x( 'Explore our:', 'front page', 'uni' ) -}}
 					<span class="font-family-title text-uppercase d-block">{{- __( 'Store', 'uni' ) -}}</span>
 				</a>
@@ -59,18 +60,20 @@
 		<div class="overflow-hidden Front-page__video">
 
 			<video
-				class="top-0 bottom-0 object-fit-cover object-position-center position-absolute end-0 start-0 d-none d-md-block js-player h-100 w-100"
+				class="top-0 bottom-0 object-fit-cover object-position-center position-absolute end-0 start-0 d-none d-md-block h-100 w-100"
 				preload="auto"
 				muted
 				playsinline
+				data-front-page="player"
 			>
 				<source src="{{ theme.link }}/{{ manifest['videos/front-page-forward.mp4'] }}" type="video/mp4">
 			</video>
 			<video
-				class="top-0 bottom-0 object-fit-cover object-position-center position-absolute end-0 start-0 js-player is-hidden h-100 w-100"
+				class="top-0 bottom-0 object-fit-cover object-position-center position-absolute end-0 start-0 is-hidden h-100 w-100"
 				preload="auto"
 				muted
 				playsinline
+				data-front-page="player"
 			>
 				<source src="{{ theme.link }}/{{ manifest['videos/front-page-backward.mp4'] }}" type="video/mp4">
 			</video>

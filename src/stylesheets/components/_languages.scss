@@ -2,47 +2,41 @@
  * Languages
  *
  *
- *
- *
  */
-.Languages {
-	@include margin(right 24px);
-	@include font-sizes(20);
+@use 'sass:math';
 
-	line-height: (58 * 0.05);
+.Languages {
+	// @include font-sizes(20);
+
+	font-size: #{math.div(20, $base-font-size)}rem;
+	line-height: math.div(58, 20);
+	margin-right: #{math.div(24, $base-font-size)}rem;
 
 	@include media-breakpoint-up(md) {
-		@include margin(right 0);
+		margin-right: 0;
 	}
 
 	@at-root .Site-header & {
 		@include media-breakpoint-up(md) {
-			@include margin(top 24px left 0);
+			margin-top: #{math.div(24, $base-font-size)}rem;
+			margin-left: 0;
 		}
 
 		@include media-breakpoint-up(hd) {
-			@include margin(top 40px);
+			margin-top: #{math.div(40, $base-font-size)}rem;
 		}
 	}
 
 	&__item {
-		@extend .text-uppercase, .text-center;
-
 		border-bottom: 1px solid the_color(black);
+		padding-right: #{math.div(5, $base-font-size)}rem;
+		padding-left: #{math.div(5, $base-font-size)}rem;
 
 		&:last-child {
 			border-bottom: none;
 		}
 
 		a {
-			@extend .d-inline-block;
-			@extend .align-middle, %font-weight-extralight;
-			@include padding(right 5px left 5px);
-
-			@include media-breakpoint-up(md) {
-				@include padding(right 0 left 0);
-			}
-
 			&.current-lang {
 				@include letter-spacing(60);
 				@extend .fw-light;

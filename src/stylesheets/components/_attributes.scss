@@ -29,7 +29,6 @@
 	}
 
 	&__options {
-		@include letter-spacing(50);
 		@extend %font-family-title;
 
 		@include font-sizes(65);
