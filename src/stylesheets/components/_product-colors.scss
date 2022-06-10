@@ -13,7 +13,7 @@
 	$this: &;
 
 	&__title {
-		@extend %text-decoration-underline;
+		@extend .text-decoration-underline;
 		@include margin(bottom 0.5em);
 		@include font-sizes(30);
 

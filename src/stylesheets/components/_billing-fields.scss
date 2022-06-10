@@ -6,11 +6,11 @@
  *
  *
  */
-@use "sass:math";
+@use 'sass:math';
 
 .Billing-fields {
 	& > h3 {
-		@extend %font-style-normal, %font-family-body;
+		@extend .fst-normal, .ff-body;
 		@include margin(top 0 bottom 0.8em);
 		@include padding(bottom 0.8em);
 		@include font-sizes(25);
@@ -21,7 +21,8 @@
 
 		@include media-breakpoint-up(hd) {
 			@include padding(
-				top #{math.div(20, 30)}em right #{math.div(20, 30)}em bottom #{math.div(20, 30)}em left #{math.div(20, 30)}em
+				top #{math.div(20, 30)}em right #{math.div(20, 30)}em bottom #{math.div(20, 30)}em
+					left #{math.div(20, 30)}em
 			);
 			font-size: #{math.div(25, 30)}em;
 		}

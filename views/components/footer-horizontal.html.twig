@@ -7,7 +7,7 @@
 {% import 'macros/footer.twig' as footer %}
 
 <footer class="Site-footer-horizontal background-color-white">
-	<div class="Site-footer-horizontal__grid">
+	<div class="Site-footer-horizontal__grid py-md-60vh d-grid ps-md-0 h-md-100 mh-md-100">
 		<div>
 			{{- footer.list( menus.footer_primary.items, __( 'Navigation', 'uni' ) ) -}}
 		</div>
@@ -24,10 +24,10 @@
 		<div>
 			<ul class="list-style-type-none">
 				<li class="Site-footer__item">
-					<h5 class="font-family-body my-0">{{- __( 'Credits:', 'uni' ) -}}</h5>
+					<h5 class="ff-body my-0">{{- __( 'Credits:', 'uni' ) -}}</h5>
 				</li>
 				<li class="Site-footer__item">
-					<a class="d-inline-block font-family-title" href="http://www.atelierinconnu.com/" target="_blank" rel="noopener noreferer">
+					<a class="d-inline-block ff-title" href="http://www.atelierinconnu.com/" target="_blank" rel="noopener noreferer">
 						Atelier Inconnu
 						</a>&nbsp;&nbsp;&#x002D;&nbsp;&nbsp;<a href="https://19h47.fr" target="_blank" rel="noopener noreferer">19h47</a>
 				</li>

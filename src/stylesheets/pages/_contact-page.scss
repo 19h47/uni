@@ -8,29 +8,11 @@
 @use 'sass:math';
 
 .Contact-page {
-	.Wysiwyg {
-		@include margin(top 1em bottom 1em);
-
-		@include media-breakpoint-up(md) {
-			@include margin(top 0 bottom 0);
-		}
+	&__mandatory {
+		@include font-sizes(15);
 	}
 
-	&__content {
-		@include padding(top 80px bottom 20px);
-
-		@include media-breakpoint-up(md) {
-			@include padding(top 0 bottom 0);
-
-			display: grid;
-			grid-template-columns: repeat(12, 1fr);
-			grid-template-rows: repeat(11, 1fr);
-			grid-column-gap: 0px;
-			grid-row-gap: 0px;
-
-			grid-auto-rows: 1fr;
-		}
-
+	form {
 		transition: 0.7s opacity map-get($easings, ease-out-expo);
 
 		&.is-loading {
@@ -39,83 +21,10 @@
 			opacity: 0.6;
 		}
 
-		& > div:nth-child(1) {
-			grid-area: 2 / 2 / 3 / 9;
-		}
-
-		& > div:nth-child(2) {
-			grid-area: 4 / 3 / 5 / 7;
-		}
-
-		& > div:nth-child(3) {
-			align-self: flex-end;
-			justify-self: center;
-			grid-area: 5 / 2 / 6 / 5;
-		}
-
-		& > div:nth-child(4) {
-			align-self: flex-end;
-			justify-self: center;
-			grid-area: 5 / 5 / 6 / 9;
-		}
-
-		& > div:nth-child(5) {
-			grid-area: 7 / 2 / 11 / 5;
-		}
-
-		& > div:nth-child(6) {
-			@include media-breakpoint-up(md) {
-				@include margin(right auto left auto);
-
-				width: #{math.div((200 * 3) * 100, $prototype-width-unitless)}vw;
-				grid-area: 7 / 5 / 11 / 9;
-			}
-		}
-
-		& > div:nth-child(7) {
-			@include media-breakpoint-up(md) {
-				grid-area: 4 / 9 / 9 / 13;
-			}
-
-			p {
-				@extend .d-md-flex, .flex-md-column, .h-md-100;
-				@extend %margin-md-0;
-
-				textarea {
-					@extend .h-md-100;
-				}
-			}
-		}
-
-		& > div:nth-child(8) {
-			align-self: flex-end;
-			grid-area: 10 / 9 / 10 / 11;
-		}
-
-		& > div:nth-child(9) {
-			align-self: flex-end;
-			grid-area: 11 / 2 / 12 / 9;
-
-			p {
-				@extend %margin-md-0;
-				@include font-sizes(15);
-			}
-		}
-
 		.error-message {
 			@include padding(top 0.5em);
 
 			color: the_color(red, bright);
-		}
-
-		@include media-breakpoint-up(md) {
-			@include size(#{math.div((12 * 200) * 100, $prototype-width-unitless)}vw, 100%);
-			@include padding(
-				top #{math.div(60 * 100, $prototype-height-unitless)}vh bottom #{math.div(
-						60 * 100,
-						$prototype-height-unitless
-					)}vh
-			);
 		}
 	}
 }

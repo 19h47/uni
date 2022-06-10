@@ -12,15 +12,25 @@
 
 			<div class="Horizontal-page__wrapper" data-module-wrapper-page>
 
-				<form id="contact-block" class="Contact-page__content" data-contact-page="form">
+				<form
+					id="contact-block"
+					class="Contact-page__content w-md-2400vw grid-template-rows-md-repeat-11-1fr grid-template-columns-md-repeat-12-1fr grid-auto-rows-md-1fr py-md-60vh h-md-100 pt-80px pb-20px d-md-grid grid-column-gap-md-0 grid-row-gap-md-0"
+					data-contact-page="form"
+				>
 
-					<div class="Page__content__title">
-						<h1 class="text-transform-inherit"><span>|&nbsp;U&nbsp;|&nbsp;N&nbsp;|&nbsp;I&nbsp;|</span>{{- post.title -}}</h1>
+					<div class="Page__content__title grid-area-2/2/3/9">
+						<h1 class="text-inherit"><span>|&nbsp;U&nbsp;|&nbsp;N&nbsp;|&nbsp;I&nbsp;|</span>{{- post.title -}}</h1>
 					</div>
-					<div class="Wysiwyg">{{- post.content -}}</div>
-					<div><p><a href="mailto:contact@uni-habitat.fr">contact@uni-habitat.fr</a></p></div>
-					<div>{# <p><a href="mailto:contact@uni-objets.fr">contact@uni-objets.fr</a></p> #}</div>
-					<div>
+
+					<div class="Wysiwyg my-1em my-md-0 grid-area-4/3/5/7">{{- post.content -}}</div>
+
+					<div class="align-self-end justify-self-center grid-area-5/2/6/5">
+						<p><a href="mailto:contact@uni-habitat.fr">contact@uni-habitat.fr</a></p>
+					</div>
+
+					{# <div class=""><p><a href="mailto:contact@uni-objets.fr">contact@uni-objets.fr</a></p></div> #}
+
+					<div class="grid-area-7/2/11/5">
 						<p class="Input">
 							<label for="email" class="">{{- __( 'Email address', 'uni' ) -}}&nbsp;<abbr class="required" title="obligatoire">*</abbr></label>
 							<input id="email" name="email" type="email" value="" autocomplete="email" required>
@@ -37,7 +47,8 @@
 							<input id="subject" name="subject" type="text" value="" required>
 						</p>
 					</div>
-					<div>
+
+					<div class="mx-md-auto w-md-600vw grid-area-md-7/5/11/9">
 						<p class="Input">
 							<label for="you" class="">{{- _x( 'You are?', 'contact page', 'uni' ) -}}&nbsp;<abbr class="required" title="obligatoire">*</abbr></label>
 							<select id="you" name="you" required>
@@ -52,16 +63,23 @@
 							<textarea id="about-us" name="about-us"></textarea>
 						</p>
 					</div>
-					<div>
-						<p class="Input">
+
+					<div class="grid-area-md-4/9/9/13">
+						<p class="Input d-md-flex flex-md-column h-md-100 m-md-0">
 							<label for="message" class="">{{- _x( 'Your message', 'contact page', 'uni' ) -}}&nbsp;<abbr class="required" title="obligatoire">*</abbr></label>
-							<textarea id="message" class="" name="message" required></textarea>
+							<textarea id="message" class="h-md-100" name="message" required></textarea>
 						</p>
 					</div>
-					<div>
+
+					<div class="align-self-end grid-area-10/9/10/11">
 						<p><button type="submit" class="Button w-100" id="">{{- _x( 'Send', 'contact page', 'uni' ) -}}</button></p>
 					</div>
-					<div><p class="Contact-page__mandatory">{{- _x( 'All fields marked with * are required', 'contact page', 'uni' ) -}}</p></div>
+
+					<div class="align-self-end grid-area-11/2/12/9">
+						<p class="Contact-page__mandatory m-md-0">
+							{{- _x( 'All fields marked with * are required', 'contact page', 'uni' ) -}}
+						</p>
+					</div>
 
 				</form>
 

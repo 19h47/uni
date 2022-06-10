@@ -27,7 +27,7 @@
 		opacity 0.3s map-get($easings, ease-out-expo);
 
 	&:disabled {
-		@extend %cursor-not-allowed;
+		@extend .cursor-not-allowed;
 		opacity: 0.6;
 	}
 

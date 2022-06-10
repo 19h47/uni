@@ -9,6 +9,6 @@
 	&__title {
 		@include margin(bottom 0.5em);
 		@extend .d-block;
-		@extend %text-decoration-underline;
+		@extend .text-decoration-underline;
 	}
 }

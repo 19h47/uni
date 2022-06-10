@@ -11,21 +11,27 @@
 		<div class="Horizontal-page__track d-md-flex flex-md-nowrap top-md-0 bottom-md-0 start-md-0 position-md-absolute z-index-md-0 h-md-100" data-horizontal-page="track">
 
 			<div class="Horizontal-page__wrapper"  data-module-wrapper-page>
-				<div class="Horizontal-page__grid js-grid">
-					<div class="Horizontal-page__grid__inner">
-						<div class="Horizontal-page__navigation 		d-flex justify-content-end js-navigation">
+				<div class="Horizontal-page__grid py-md-60vh ps-md-0 position-sticky position-md-static top-0 end-0 start-0 z-index-1 js-grid top-md-auto end-md-auto start-md-auto">
+					<div class="grid-template-columns-md-repeat-9-1fr w-md-1900vw h-md-100 min-h-100 grid-template-rows-md-repeat-11-1fr d-grid grid-auto-rows-1fr grid-column-gap-0 grid-row-gap-0	grid-template-columns-repeat-10-1fr grid-template-rows-repeat-10-1fr">
+
+						<div class="Horizontal-page__navigation grid-area-1/10/2/11 grid-area-md-1/1/2/10 d-flex justify-content-end js-navigation">
 							{{- include( 'svg/use.html.twig', { icon: 'arrow-right' }, with_context = false ) -}}
 						</div>
-						<div class="Page__content__title text-uppercase"><h1>{{- post.subtitle ? "<span>#{ post.subtitle }</span>" -}}{{- post.title -}}</h1></div>
-						<div class="Wysiwyg">{{- post.content -}}</div>
-						<div class="Page__content__footer js-footer">
+
+						<div class="Page__content__title text-uppercase grid-area-1/1/3/10 grid-area-md-2/3/4/10">
+							<h1>{{- post.subtitle ? "<span>#{ post.subtitle }</span>" -}}{{- post.title -}}</h1>
+						</div>
+
+						<div class="Wysiwyg grid-area-3/1/9/11 grid-area-md-4/4/10/9">{{- post.content -}}</div>
+
+						<div class="Page__content__footer js-footer align-self-end grid-area-10/1/11/11 grid-area-sm-9/1/10/11 grid-area-md-11/3/12/9">
 							{{- post.footer | nl2br -}}
 						</div>
 					</div>
 				</div>
 
 				{% if post.meta( 'gallery' ) %}
-					<div class="overflow-hidden Horizontal-page__gallery position-relative d-md-flex flex-md-nowrap z-index-2">
+					<div class="overflow-hidden Horizontal-page__gallery py-md-60vh background-color-white position-relative d-md-flex flex-md-nowrap z-index-2">
 						{% for image in post.meta( 'gallery' ) %}
 
 							{% set _product = TimberPost( image.id ).meta( 'product_link' ) %}

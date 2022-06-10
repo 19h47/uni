@@ -50,7 +50,7 @@
 					 #}
 					{% do action( 'woocommerce_before_single_product_summary' ) %}
 
-					<div class="Product-summary summary entry-summary d-grid h-md-100">
+					<div class="Product-summary py-md-60vh summary entry-summary d-grid h-md-100">
 						{#
 						 # Hook: woocommerce_single_product_summary.
 						 #
@@ -132,7 +132,7 @@
 					<div class="Single-project__title">
 						<h1>
 						{%- if post.terms( 'product_cat' )[0].meta( 'number' ) -%}
-							<span class="font-family-body text-transform-none d-block">
+							<span class="ff-body text-none d-block">
 								{{- __( 'Collection N°', 'uni' ) -}}{{- post.terms( 'product_cat' )[0].meta( 'number' ) -}}
 							</span>
 						{%- endif -%}

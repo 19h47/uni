@@ -12,98 +12,14 @@
 	height: 100%;
 
 	.Site-content {
-		color: the_color(white);
 		border-radius: map-get($borders, radius);
 	}
 
 	&__grid {
 		@include padding(right #{math.div(42 * 100, 750)}vw left #{math.div(42 * 100, 750)}vw);
-
-		display: grid;
-
-		grid-template-columns: repeat(10, 1fr);
-		grid-template-rows: repeat(10, 1fr);
-
-		grid-column-gap: 0px;
-		grid-row-gap: 0px;
-
-		// background-color: the_color(yellow, dark-grayish);
-		height: 100%;
-		max-height: 100%;
-		z-index: 2;
-
-		@include media-breakpoint-up(md) {
-			grid-template-columns: repeat(12, 1fr);
-			grid-template-rows: repeat(11, 1fr);
-		}
-
-		div:nth-child(1) {
-			align-self: center;
-			grid-area: 1 / 1 / 3 / 11;
-
-			@include media-breakpoint-up(md) {
-				grid-area: 1 / 2 / 3 / 12;
-			}
-		}
-		div:nth-child(2) {
-			grid-area: 3 / 1 / 7 / 11;
-
-			@include media-breakpoint-up(md) {
-				grid-area: 4 / 5 / 8 / 9;
-			}
-		}
-		div:nth-child(3) {
-			align-self: center;
-			grid-area: 6 / 1 / 10 / 6;
-
-			@include media-breakpoint-up(sm) {
-				grid-area: 7 / 1 / 9 / 6;
-			}
-
-			@include media-breakpoint-up(md) {
-				grid-area: 9 / 2 / 10 / 5;
-
-				align-self: auto;
-			}
-		}
-		div:nth-child(4) {
-			align-self: center;
-			grid-area: 6 / 6 / 10 / 11;
-
-			@include media-breakpoint-up(sm) {
-				grid-area: 7 / 6 / 9 / 11;
-			}
-
-			@include media-breakpoint-up(md) {
-				grid-area: 9 / 9 / 10 / 12;
-
-				align-self: auto;
-			}
-		}
-		div:nth-child(5) {
-			grid-area: 9 / 1 / 11 / 11;
-
-			@include media-breakpoint-up(sm) {
-				grid-area: 9 / 1 / 11 / 11;
-			}
-
-			@include media-breakpoint-up(md) {
-				grid-area: 11 / 2 / 12 / 12;
-			}
-		}
-
-		@include media-breakpoint-up(md) {
-			@include padding(
-				top #{math.div(60 * 100, $prototype-height-unitless)}vh right 0 bottom #{math.div(
-						60 * 100,
-						$prototype-height-unitless
-					)}vh left 0
-			);
-		}
 	}
 
 	&__content {
-		@include letter-spacing(50);
 		@include font-sizes(25, 30);
 
 		line-height: math.div(40, 30);
@@ -115,7 +31,6 @@
 		line-height: (30 * 0.05);
 
 		span {
-			@include letter-spacing(250);
 			@include font-sizes(40, 75, 30);
 
 			line-height: math.div(90, 70);
@@ -129,17 +44,11 @@
 	}
 
 	&__video {
-		@include absolute(top 0 right 0 bottom 0 left 0);
-
-		z-index: 1;
-
 		// Safari workaround
 		border-radius: map-get($borders, radius);
 
 		img,
 		video {
-			z-index: 2;
-
 			&.is-hidden {
 				@include autoAlpha(0);
 

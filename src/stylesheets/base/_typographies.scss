@@ -8,7 +8,7 @@
 
 h1,
 .h1 {
-	@extend %font-family-title, .fw-normal;
+	@extend .ff-title, .fw-normal;
 	@include letter-spacing(100);
 	@include margin(top 1em bottom 2em);
 	@include font-sizes(50, 75);
@@ -18,7 +18,7 @@ h1,
 
 h2,
 .h2 {
-	@extend .fw-normal, %font-family-body;
+	@extend .fw-normal, .ff-body;
 	@include font-sizes(30);
 	@include margin(top 1em bottom 1em);
 
@@ -27,7 +27,7 @@ h2,
 
 h3,
 .h3 {
-	@extend .fw-normal, %font-style-italic, %font-family-title;
+	@extend .fw-normal, .fst-italic, .ff-title;
 	@include font-sizes(35);
 	@include margin(top 1em bottom 0);
 
@@ -36,7 +36,7 @@ h3,
 
 h4,
 .h4 {
-	@extend .fw-normal, %font-family-title;
+	@extend .fw-normal, .ff-title;
 	@include font-sizes(35);
 	@include margin(top 1em bottom 0);
 
@@ -45,7 +45,7 @@ h4,
 
 h5,
 .h5 {
-	@extend .fw-normal, %font-family-title;
+	@extend .fw-normal, .ff-title;
 	@include font-sizes(18);
 
 	line-height: math.div(30, 30);

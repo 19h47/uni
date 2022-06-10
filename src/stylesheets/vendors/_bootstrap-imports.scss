@@ -32,6 +32,20 @@ $utilities: map-merge(
 					values: map-merge(map-get(map-get($utilities, 'height'), 'values'), ($sizes)),
 				)
 			),
+		'min-height': (
+			property: min-height,
+			class: min-h,
+			values: (
+				100: 100%,
+			),
+		),
+		'max-height':
+			map-merge(
+				map-get($utilities, 'max-height'),
+				(
+					responsive: true,
+				)
+			),
 		'position':
 			map-merge(
 				map-get($utilities, 'position'),
@@ -62,7 +76,7 @@ $utilities: map-merge(
 		'z-index': (
 			property: z-index,
 			responsive: true,
-			values: 0 1 2 3 4 5 10 15 20,
+			values: 0 1 2 3 4 5 10 15 20 100,
 		),
 		'overflow-y': (
 			property: overflow-y,
@@ -100,13 +114,11 @@ $utilities: map-merge(
 					responsive: true,
 				)
 			),
-		'text-transform':
-			map-merge(
-				map-get($utilities, 'text-transform'),
-				(
-					values: inherit none,
-				)
-			),
+		'text-transform': (
+			property: text-transform,
+			class: text,
+			values: lowercase uppercase capitalize none inherit,
+		),
 		'white-space': (
 			property: white-space,
 			values: nowrap,
@@ -117,21 +129,66 @@ $utilities: map-merge(
 			values: (
 				50: 0.05em,
 				60: 0.06em,
+				250: 0.25em,
 			),
 		),
-		'font-weight':
-			map-merge(
-				map-get($utilities, 'font-weight'),
-				(
-					values:
-						map-merge(
-							map-get(map-get($utilities, 'font-weight'), 'values'),
-							(
-								extralight: 200,
-							)
-						),
-				)
+		'font-family': (
+			property: font-family,
+			values: $font-families,
+			class: ff,
+		),
+		'font-weight': (
+			property: font-weight,
+			values: $font-weights,
+			class: fw,
+		),
+		'cursor': (
+			property: cursor,
+			values: $cursors,
+		),
+		'grid-area': (
+			property: grid-area,
+			responsive: true,
+			values: $grid-areas,
+		),
+		'grid-row-gap': (
+			property: grid-row-gap,
+			responsive: true,
+			values: (
+				0: 0px,
 			),
+		),
+		'grid-column-gap': (
+			property: grid-column-gap,
+			responsive: true,
+			values: (
+				0: 0px,
+			),
+		),
+		'grid-auto-rows': (
+			property: grid-auto-rows,
+			responsive: true,
+			values: (
+				1fr: 1fr,
+			),
+		),
+		'grid-template-columns': (
+			property: grid-template-columns,
+			responsive: true,
+			values: $grid-templates,
+		),
+		'grid-template-rows': (
+			property: grid-template-rows,
+			responsive: true,
+			values: $grid-templates,
+		),
+		'justify-self': (
+			responsive: true,
+			property: justify-self,
+			values: (
+				center: center,
+			),
+		),
 	)
 );
 

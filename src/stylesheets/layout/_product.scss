@@ -16,7 +16,7 @@
 	}
 
 	&__category-description {
-		@extend %font-family-title, %font-style-italic;
+		@extend .ff-title, .fst-italic;
 		@include margin(top 2em);
 
 		// &::first-line {

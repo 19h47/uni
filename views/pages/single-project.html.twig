@@ -7,11 +7,11 @@
 
 	<div id="project-information" class="Single-project__information position-fixed top-0 end-0 bottom-0 start-0 z-index-4" data-module-project-information>
 
-		<div class="Single-project__information__wrapper h-100">
+		<div class="Single-project__information__wrapper h-100 py-md-60vh ps-md-0">
 			<div class="Single-project__information__grid d-grid h-100">
 				<div class="Single-project__title">
 					<h1 class="mt-0 mb-0">
-						{{- post.get_terms( 'project_cat' ) ? '<span class="font-family-body text-transform-none d-block">' ~ post.get_terms( 'project_cat' ) | map( cat => cat.name ) | join( ', ' ) ~ '</span>' -}}
+						{{- post.get_terms( 'project_cat' ) ? '<span class="ff-body text-none d-block">' ~ post.get_terms( 'project_cat' ) | map( cat => cat.name ) | join( ', ' ) ~ '</span>' -}}
 						{{- post.title -}}
 					</h1>
 				</div>
@@ -31,10 +31,10 @@
 		<div class="Horizontal-page__track d-md-flex flex-md-nowrap top-md-0 bottom-md-0 start-md-0 position-md-absolute z-index-md-0 h-md-100" data-horizontal-page="track">
 
 			<div class="Horizontal-page__wrapper background-color-white" data-module-wrapper-page>
-				<div class="Single-project__grid position-relative d-grid z-index-1 h-auto h-md-100">
+				<div class="Single-project__grid py-md-60 position-relative d-grid z-index-1 h-auto h-md-100">
 					<div class="Single-project__title js-title">
 						<h1 class="mt-0 mb-0">
-							{{- post.get_terms( 'project_cat' ) ? '<span class="font-family-body text-transform-none d-block">' ~ post.get_terms( 'project_cat' ) | map( cat => cat.name ) | join( ', ' ) ~ '</span>' -}}
+							{{- post.get_terms( 'project_cat' ) ? '<span class="ff-body text-none d-block">' ~ post.get_terms( 'project_cat' ) | map( cat => cat.name ) | join( ', ' ) ~ '</span>' -}}
 							{{- post.title -}}
 						</h1>
 
@@ -63,7 +63,7 @@
 				</div>
 
 				{% if post.images is iterable %}
-					<ul class="Single-project__images list-style-type-none pe-none d-flex flex-column flex-md-row position-relative z-index-2">
+					<ul class="Single-project__images py-md-60vh list-style-type-none pe-none d-flex flex-column flex-md-row position-relative z-index-2">
 
 						{% for image in post.images %}
 							<li class="Single-project__image">
@@ -86,10 +86,10 @@
 
 			</div>
 
-			<div class="Single-project__content h-auto h-md-100">
+			<div class="Single-project__content py-md-60vh mt-md-0 h-auto h-md-100">
 				<div class="Single-project__title">
 					<h1 class="mt-0 mb-0">
-						<span class="font-family-body text-transform-none d-block">{{- projects_settings.subtitle -}}</span>
+						<span class="ff-body text-none d-block">{{- projects_settings.subtitle -}}</span>
 						{{- projects_settings.title -}}
 					</h1>
 				</div>

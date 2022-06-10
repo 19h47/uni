@@ -14,13 +14,6 @@
 	grid-auto-rows: 1fr;
 
 	@include media-breakpoint-up(md) {
-		@include padding(
-			top #{math.div(60 * 100, $prototype-height-unitless)}vh bottom #{math.div(
-					60 * 100,
-					$prototype-height-unitless
-				)}vh
-		);
-
 		min-height: 100%;
 		grid-template-columns: repeat(8, 1fr);
 		grid-template-rows: repeat(11, 1fr);

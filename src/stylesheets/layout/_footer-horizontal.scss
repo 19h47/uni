@@ -15,7 +15,7 @@
 	color: the_color(gray, very-dark);
 
 	a:hover {
-		@extend %text-decoration-underline;
+		@extend .text-decoration-underline;
 	}
 
 	@include media-breakpoint-up(md) {
@@ -33,22 +33,12 @@
 		border-radius: map-get($borders, radius);
 		box-shadow: 1px 1px 3px rgba(the_color(black), 0.2);
 
-		display: grid;
 		grid-template-columns: repeat(10, 1fr);
 		grid-template-rows: repeat(8, 1fr);
 		grid-column-gap: 0px;
 		grid-row-gap: 0px;
 
 		@include media-breakpoint-up(md) {
-			@include padding(
-				top #{math.div(60 * 100, $prototype-height-unitless)}vh right 0 bottom #{math.div(
-						60 * 100,
-						$prototype-height-unitless
-					)}vh left 0
-			);
-			max-height: 100%;
-			height: 100%;
-
 			grid-template-columns: repeat(5, 1fr);
 			grid-template-rows: repeat(11, 1fr);
 		}

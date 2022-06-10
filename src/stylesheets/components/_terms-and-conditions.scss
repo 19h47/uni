@@ -5,7 +5,7 @@
  *
  *
  */
-@use "sass:math";
+@use 'sass:math';
 
 .Terms-and-conditions {
 	.woocommerce-privacy-policy-text {
@@ -15,6 +15,6 @@
 	}
 
 	a {
-		@extend %text-decoration-underline;
+		@extend .text-decoration-underline;
 	}
 }

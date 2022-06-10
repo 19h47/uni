@@ -6,7 +6,7 @@
  *
  *
  */
-@use "sass:math";
+@use 'sass:math';
 
 .Message {
 	@extend %margin-y-2;
@@ -27,12 +27,15 @@
 	border-color: the_color(green, light-grayish-lime-02);
 
 	a {
-		@extend %text-decoration-underline;
+		@extend .text-decoration-underline;
 
 		color: the_color(green, very-dark-lime-02);
 	}
 
 	@include media-breakpoint-up(hd) {
-		@include padding(top #{math.div(20, 30)}em right #{math.div(20, 30)}em bottom #{math.div(20, 30)}em left #{math.div(20, 30)}em);
+		@include padding(
+			top #{math.div(20, 30)}em right #{math.div(20, 30)}em bottom #{math.div(20, 30)}em left
+				#{math.div(20, 30)}em
+		);
 	}
 }

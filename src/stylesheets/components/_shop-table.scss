@@ -35,7 +35,7 @@
 	}
 
 	tr.order-total {
-		@extend %font-weight-semibold;
+		@extend .fw-semibold;
 	}
 
 	@at-root .Checkout #{ $this } {

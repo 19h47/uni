@@ -24,7 +24,7 @@
 	line-height: 1.2;
 
 	a {
-		@extend %text-decoration-underline;
+		@extend .text-decoration-underline;
 
 		color: the_color(red, very-dark-02);
 	}

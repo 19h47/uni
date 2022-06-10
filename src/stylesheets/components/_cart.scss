@@ -112,7 +112,7 @@
 				}
 			}
 			.product-name {
-				@extend %font-family-title, %font-style-italic;
+				@extend .ff-title, .fst-italic;
 
 				line-height: math.div(45, 25);
 				width: percentage(200 * 0.001);

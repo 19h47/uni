@@ -33,13 +33,6 @@
 		}
 
 		@include media-breakpoint-up(md) {
-			@include padding(
-				top #{math.div(60 * 100, $prototype-height-unitless)}vh bottom #{math.div(
-						60 * 100,
-						$prototype-height-unitless
-					)}vh
-			);
-
 			grid-template-columns: repeat(10, 1fr);
 			grid-template-rows: repeat(11, 1fr);
 			width: #{math.div(2000 * 100, $prototype-width-unitless)}vw;

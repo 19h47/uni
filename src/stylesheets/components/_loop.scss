@@ -43,7 +43,7 @@
 	}
 
 	&__product-title {
-		@extend .fw-normal, %font-style-italic;
+		@extend .fw-normal, .fst-italic;
 		@include font-sizes(25);
 		@include margin(top 0 bottom 0);
 

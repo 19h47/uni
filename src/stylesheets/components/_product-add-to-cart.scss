@@ -6,11 +6,11 @@
  *
  *
  */
-@use "sass:math";
+@use 'sass:math';
 
 .Product-add-to-cart-button {
 	@extend .d-flex, .flex-column, .align-items-center;
-	@extend %text-decoration-underline;
+	@extend .text-decoration-underline;
 
 	@include font-sizes(30);
 

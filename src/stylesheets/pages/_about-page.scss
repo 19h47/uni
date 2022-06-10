@@ -10,18 +10,10 @@
 .About-page {
 	.Page__content__title {
 		@include media-breakpoint-up(md) {
-			@include absolute(top 0 left 0);
-
 			@include margin(top #{math.div(116.36 * 100, $prototype-height-unitless)}vh);
-			@include padding(
-				top #{math.div(60 * 100, $prototype-height-unitless)}vh left #{math.div(
-						200 * 100,
-						$prototype-width-unitless
-					)}vw
-			);
+			@include padding(left #{math.div(200 * 100, $prototype-width-unitless)}vw);
 
 			width: #{math.div((200 * 6) * 100, $prototype-width-unitless)}vw;
-			z-index: 1;
 		}
 	}
 }

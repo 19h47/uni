@@ -64,7 +64,7 @@
 	}
 
 	&__product-title {
-		@extend %font-family-title, %font-style-italic;
+		@extend .ff-title, .fst-italic;
 
 		@include margin(bottom 0.5em);
 		@include font-sizes(25);
@@ -101,7 +101,7 @@
 	&__footer {
 		&__button {
 			@extend .d-flex, .align-items-center;
-			@extend %text-decoration-underline;
+			@extend .text-decoration-underline;
 			@include letter-spacing(50);
 			@include font-sizes(30);
 			@include margin(

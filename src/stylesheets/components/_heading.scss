@@ -15,7 +15,7 @@
 	}
 
 	h2 {
-		@extend .text-center, .fw-normal, %font-style-normal, .text-uppercase, %font-family-title;
+		@extend .text-center, .fw-normal, .fst-normal, .text-uppercase, .ff-title;
 		@include margin(top 0 bottom 0);
 		@include letter-spacing(100);
 		@include font-sizes(65);

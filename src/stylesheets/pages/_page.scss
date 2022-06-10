@@ -15,7 +15,7 @@
 				@include margin(top 0 bottom 0);
 
 				span {
-					@extend %font-family-body, .text-transform-none;
+					@extend .ff-body, .text-none;
 					@extend .d-block;
 					@include letter-spacing(0);
 
@@ -28,7 +28,7 @@
 
 		// .Page__content__footer
 		&__footer {
-			@extend %font-family-title, %font-style-italic;
+			@extend .ff-title, .fst-italic;
 
 			// &::first-line {
 			// 	@include font-sizes(35);

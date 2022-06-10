@@ -37,13 +37,6 @@
 		}
 
 		@include media-breakpoint-up(md) {
-			@include padding(
-				top #{math.div(60 * 100, $prototype-height-unitless)}vh bottom #{math.div(
-						60 * 100,
-						$prototype-height-unitless
-					)}vh
-			);
-
 			grid-template-columns: repeat(5, 1fr);
 			grid-template-rows: repeat(11, 1fr);
 			width: #{math.div((5 * 200) * 100, $prototype-width-unitless)}vw;
@@ -63,12 +56,6 @@
 
 	&__images {
 		@include media-breakpoint-up(md) {
-			@include padding(
-				top #{math.div(60 * 100, $prototype-height-unitless)}vh bottom #{math.div(
-						60 * 100,
-						$prototype-height-unitless
-					)}vh
-			);
 			@include margin(left #{math.div((200 * -1) * 100, $prototype-width-unitless)}vw);
 		}
 	}
@@ -142,14 +129,6 @@
 		@include media-breakpoint-up(md) {
 			width: #{math.div((8 * 200) * 100, $prototype-width-unitless)}vw;
 
-			@include padding(
-				top #{math.div(60 * 100, $prototype-height-unitless)}vh bottom #{math.div(
-						60 * 100,
-						$prototype-height-unitless
-					)}vh
-			);
-			@include margin(top 0);
-
 			grid-template-columns: repeat(8, 1fr);
 			grid-template-rows: repeat(11, 1fr);
 		}
@@ -179,15 +158,6 @@
 			border-radius: map-get($borders, radius);
 			background-color: rgba(the_color(white), 0.97);
 			box-shadow: 2px 2px 3px rgba(the_color(black), 0.2);
-
-			@include media-breakpoint-up(md) {
-				@include padding(
-					top #{math.div(60 * 100, $prototype-height-unitless)}vh right 0 bottom #{math.div(
-							60 * 100,
-							$prototype-height-unitless
-						)}vh left 0
-				);
-			}
 		}
 
 		&__grid {

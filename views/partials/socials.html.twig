@@ -9,7 +9,7 @@
 
 		{% if label %}
 			<li class="Site-footer__item">
-				<h5 class="font-family-body my-0">
+				<h5 class="ff-body my-0">
 					{{- label -}}
 				</h5>
 			</li>
@@ -18,7 +18,7 @@
 		<ul class="d-flex align-items-center list-style-type-none">
 			{%- for social in socials -%}
 				<li class="Socials__item">
-					<a class="d-inline-block align-middle font-family-title" href="{{ social.url }}" target="_blank" rel="noopener noreferer">
+					<a class="d-inline-block align-middle ff-title" href="{{ social.url }}" target="_blank" rel="noopener noreferer">
 						{{- include( 'svg/use.html.twig', { classes: [ 'd-block' ], icon: social.slug } ) -}}
 					</a>
 				</li>

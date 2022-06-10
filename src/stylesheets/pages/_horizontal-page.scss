@@ -72,17 +72,6 @@
 	}
 
 	&__content {
-		@include padding(top 80px bottom 20px);
-
-		@include media-breakpoint-up(md) {
-			@include padding(
-				top #{math.div(60 * 100, $prototype-height-unitless)}vh bottom #{math.div(
-						60 * 100,
-						$prototype-height-unitless
-					)}vh
-			);
-		}
-
 		li {
 			@include margin(top 1em bottom 1em);
 
@@ -189,100 +178,20 @@
 	&__grid {
 		@include padding(top 80px bottom 20px);
 
-		position: sticky;
-		top: 0;
-		right: 0;
-		left: 0;
-		z-index: 1;
-
 		@include media-breakpoint-up(sm) {
 			@include padding(bottom 0 left #{math.div(42 * 100, 750)}vw);
 		}
 
-		@include media-breakpoint-up(md) {
-			@include padding(
-				top #{math.div(60 * 100, $prototype-height-unitless)}vh bottom #{math.div(
-						60 * 100,
-						$prototype-height-unitless
-					)}vh left 0
-			);
-
-			position: static;
-			top: auto;
-			right: auto;
-			left: auto;
-		}
-
-		&__inner {
-			display: grid;
-			grid-template-columns: repeat(10, 1fr);
-			grid-template-rows: repeat(10, 1fr);
-			grid-column-gap: 0px;
-			grid-row-gap: 0px;
-			min-height: 100%;
-			grid-auto-rows: 1fr;
-
+		& > div {
 			height: calc(100vh - 100px);
-
-			@include media-breakpoint-up(md) {
-				@include size(#{math.div(1900 * 100, $prototype-width-unitless)}vw, 100%);
-
-				grid-template-columns: repeat(9, 1fr);
-				grid-template-rows: repeat(11, 1fr);
-			}
-
-			& > div:nth-child(1) {
-				grid-area: 1 / 10 / 2 / 11;
-
-				@include media-breakpoint-up(md) {
-					grid-area: 1 / 1 / 2 / 10;
-				}
-			}
-
-			& > div:nth-child(2) {
-				grid-area: 1 / 1 / 3 / 10;
-
-				@include media-breakpoint-up(md) {
-					grid-area: 2 / 3 / 4 / 10;
-				}
-			}
-
-			& > div:nth-child(3) {
-				grid-area: 3 / 1 / 9 / 11;
-
-				@include media-breakpoint-up(md) {
-					grid-area: 4 / 4 / 10 / 9;
-				}
-			}
-
-			& > div:nth-child(4) {
-				grid-area: 10 / 1 / 11 / 11;
-				align-self: flex-end;
-
-				@include media-breakpoint-up(sm) {
-					grid-area: 9 / 1 / 10 / 11;
-				}
-
-				@include media-breakpoint-up(md) {
-					grid-area: 11 / 3 / 12 / 9;
-				}
-			}
 		}
 	}
 
 	&__gallery {
 		@include padding(/* top 20px */ bottom 20px);
 
-		background-color: the_color(white);
-
 		@include media-breakpoint-up(md) {
 			@include margin(left #{math.div(200 * 100, $prototype-width-unitless)}vw);
-			@include padding(
-				top #{math.div(60 * 100, $prototype-height-unitless)}vh bottom #{math.div(
-						60 * 100,
-						$prototype-height-unitless
-					)}vh
-			);
 		}
 	}
 
@@ -323,7 +232,7 @@
 		}
 
 		h5 {
-			@extend .fw-normal, %font-style-italic;
+			@extend .fw-normal, .fst-italic;
 			@include font-sizes(25);
 
 			line-height: math.div(30, 25);

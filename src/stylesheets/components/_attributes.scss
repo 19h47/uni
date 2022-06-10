@@ -29,14 +29,14 @@
 	}
 
 	&__options {
-		@extend %font-family-title;
+		@extend .ff-title;
 
 		@include font-sizes(65);
 
 		line-height: math.div(78, 65);
 
 		span {
-			@extend %font-family-body;
+			@extend .ff-body;
 			@include font-sizes(30, 30, 65);
 		}
 	}

@@ -3,7 +3,7 @@
  *
  *
  */
-@use "sass:math";
+@use 'sass:math';
 
 .Input {
 	$this: &;
@@ -17,7 +17,7 @@
 		@include margin(bottom 1em);
 
 		.required {
-			@extend %text-decoration-none;
+			@extend .text-decoration-none;
 		}
 	}
 
@@ -28,7 +28,10 @@
 	select,
 	input {
 		@include reset-placeholder(the_color(gray, dark));
-		@include padding(top #{math.div(20, 30)}em right #{math.div(20, 30)}em bottom #{math.div(20, 30)}em left #{math.div(20, 30)}em);
+		@include padding(
+			top #{math.div(20, 30)}em right #{math.div(20, 30)}em bottom #{math.div(20, 30)}em left
+				#{math.div(20, 30)}em
+		);
 
 		transition: box-shadow 0.3s map-get($easings, ease-out-expo);
 
@@ -56,7 +59,10 @@
 	textarea {
 		@extend .d-block;
 		@include size(100%, 80px);
-		@include padding(top #{math.div(20, 30)}em right #{math.div(20, 30)}em bottom #{math.div(20, 30)}em left #{math.div(20, 30)}em);
+		@include padding(
+			top #{math.div(20, 30)}em right #{math.div(20, 30)}em bottom #{math.div(20, 30)}em left
+				#{math.div(20, 30)}em
+		);
 
 		border-radius: map-get($borders, radius);
 		border: 1px solid the_color(gray, very-dark);

@@ -14,7 +14,7 @@
 >
 
 	{% if label %}
-		<label class="h5 Signup-form__label mt-0 d-block font-family-body" for="mce-EMAIL-{{ id }}">
+		<label class="h5 Signup-form__label mt-0 d-block ff-body" for="mce-EMAIL-{{ id }}">
 			{{- label -}}
 		</label>
 	{% endif %}
@@ -25,7 +25,16 @@
 		<input type="text" name="MMERGE6" id="mce-MMERGE6-{{ id }}" value="test" class="d-none">
 		<input type="text" name="MMERGE4" id="mce-MMERGE4-{{ id }}" value="test" class="d-none">
 
-		<input type="email" name="EMAIL" id="mce-EMAIL-{{ id }}" value="" placeholder="{{ placeholder | default( __( 'Your email', 'uni' ) ) }}" title="{{ __( 'The domain portion of the email address is invalid (the portion after the @).', 'uni' ) }}" pattern="^([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22))*\x40([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d))*(\.\w{2,})+$" required>
+		<input
+			type="email"
+			name="EMAIL"
+			id="mce-EMAIL-{{ id }}"
+			value=""
+			placeholder="{{ placeholder | default( __( 'Your email', 'uni' ) ) }}"
+			title="{{ __( 'The domain portion of the email address is invalid (the portion after the @).', 'uni' ) }}"
+			pattern="^([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22))*\x40([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d))*(\.\w{2,})+$"
+			required
+		>
 		<input type="submit" value="{{ __( 'Send', 'uni' ) }}" name="subscribe" id="mc-embedded-subscribe" class="button">
 		<div class="mc-status"></div>
 	</div>

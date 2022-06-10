@@ -15,7 +15,7 @@
 
 	label {
 		.required {
-			@extend %text-decoration-none;
+			@extend .text-decoration-none;
 		}
 	}
 }

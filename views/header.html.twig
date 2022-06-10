@@ -27,6 +27,6 @@
     </head>
 
 
-    <body class="{{ body_class }}{{ post.body_classes ? ( ' ' ~ post.body_classes | join( ' ' ) ) }}">
+    <body class="{{ body_class }} position-relative fw-normal ff-body {{ post.body_classes ? ( ' ' ~ post.body_classes | join( ' ' ) ) }}">
 		<div id="svg-sprite" class="d-none">{% include 'icons.svg' %}</div>
 
