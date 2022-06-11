@@ -53,7 +53,7 @@
 			 #}
 			{% do action( 'woocommerce_before_checkout_shipping_form', checkout ) %}
 
-			<div class="Shipping-fields__field-wrapper woocommerce-shipping-fields__field-wrapper">
+			<div class="Shipping-fields__field-wrapper @extend d-flex flex-wrap woocommerce-shipping-fields__field-wrapper">
 				{% for key, field in checkout.get_checkout_fields( 'shipping' ) %}
 					{{- fn( 'woocommerce_form_field', key, field, checkout.get_value( key ) ) -}}
 				{% endfor %}

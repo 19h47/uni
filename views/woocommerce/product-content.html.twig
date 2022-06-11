@@ -1,10 +1,12 @@
 {#
  # The template for displaying product content within loops
+ #
+ # @package UNI
  #}
 
 <li
 	id="product-content-{{ product.id }}"
-	{{ fn( 'wc_product_class', 'Loop page-block', product ) }}
+	{{ fn( 'wc_product_class', 'Loop d-md-flex page-block', product ) }}
 	data-module-product-content
 >
 	{{ fn( 'set_product_global', product ) }}
@@ -22,7 +24,7 @@
 	{% do action( 'woocommerce_before_shop_loop_item_title' ) %}
 
 
-	<header class="Loop__header align-items-end">
+	<header class="Loop__header d-flex flex-md-row justify-content-between m-md-0 m-20px align-items-end h-60px h-md-100">
 		{#
 		 # Hook: woocommerce_shop_loop_item_title.
 		 #

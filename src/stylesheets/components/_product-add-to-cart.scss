@@ -9,9 +9,6 @@
 @use 'sass:math';
 
 .Product-add-to-cart-button {
-	@extend .d-flex, .flex-column, .align-items-center;
-	@extend .text-decoration-underline;
-
 	@include font-sizes(30);
 
 	line-height: math.div(40, 30);

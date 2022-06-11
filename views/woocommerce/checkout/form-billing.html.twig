@@ -4,7 +4,7 @@
 <div class="Billing-fields woocommerce-billing-fields">
 	<h2 class="h1 margin-top-md-0 fst-normal">{{- __( 'Informations', 'uni' ) -}}</h2>
 
-	<h3>
+	<h3 class="fst-normal ff-body">
 		{%- if ship_to_billing_address_only and cart.needs_shipping() -%}
 			{{- __( 'Billing &amp; Shipping', 'uni' ) -}}
 		{%- else -%}
@@ -13,7 +13,7 @@
 	</h3>
 
 
-	<div class="Billing-fields__field-wrapper woocommerce-billing-fields__field-wrapper">
+	<div class="Billing-fields__field-wrapper d-flex flex-wrap woocommerce-billing-fields__field-wrapper">
 		{#
 		 # Hook: woocommerce_before_checkout_billing_form.
 		 #}

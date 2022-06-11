@@ -10,7 +10,6 @@
 
 .Billing-fields {
 	& > h3 {
-		@extend .fst-normal, .ff-body;
 		@include margin(top 0 bottom 0.8em);
 		@include padding(bottom 0.8em);
 		@include font-sizes(25);
@@ -29,10 +28,6 @@
 	}
 
 	&__field-wrapper {
-		@extend .d-flex;
-
-		flex-flow: wrap;
-
 		& > * {
 			width: 100%;
 		}

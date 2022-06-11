@@ -27,7 +27,7 @@
 
 				<ul class="Products">
 					{% for item in post.meta( 'gallery' ) %}
-						<li class="Loop">
+						<li class="Loop d-md-flex">
 
 							<{{- item.project[0] ? "a href=\"#{item.project[0].link}\"" | raw : 'div' | raw }} class="Product-thumbnail position-relative d-block" data-product-content="link">
 								{{-
@@ -54,9 +54,9 @@
 								-}}
 							</{{-  item.project[0] ? 'a' : 'div' -}}>
 
-							<header class="Loop__header">
+							<header class="Loop__header d-flex flex-md-row justify-content-between m-md-0 m-20px h-60px h-md-100">
 								{% if item.project[0] %}
-									<h3 class="{{ fn( 'apply_filters', 'woocommerce_product_loop_title_classes', 'Loop__product-title', 'woocommerce-loop-product__title' ) }}">
+									<h3 class="{{ fn( 'apply_filters', 'woocommerce_product_loop_title_classes', 'Loop__product-title', 'fw-normal', 'fst-italic', 'woocommerce-loop-product__title' ) }}">
 										{{- item.project[0].title -}}
 									</h3>
 								{% endif %}

@@ -9,14 +9,12 @@
 @use 'sass:math';
 
 .Product-variations {
-	@extend .list-style-type-none;
 	@include letter-spacing(50);
 	@include font-sizes(25);
 
 	line-height: math.div(30, 25);
 
 	&__item {
-		@extend .d-flex, .align-items-center;
 		@include margin(top 1em bottom 1em);
 
 		&:first-child {
@@ -26,12 +24,5 @@
 		&:last-child {
 			@include margin(bottom 0);
 		}
-	}
-
-	&__label {
-		@include margin(right 20px);
-	}
-
-	&__value {
 	}
 }

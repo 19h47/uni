@@ -11,21 +11,13 @@
 .Loop {
 	$this: &;
 
-	@extend .d-md-flex;
-
 	@include media-breakpoint-up(md) {
 		@include size(#{math.div(800 * 100, $prototype-width-unitless)}vw, 100%);
 	}
 
 	&__header {
-		@extend .d-flex, .flex-md-row, .justify-content-between;
-		@extend %margin-md-0;
-		@include margin(top 20px right 20px bottom 20px left 20px);
-
-		height: 60px;
-
 		@include media-breakpoint-up(md) {
-			@include size(percentage(math.div(200, 800)), 100%);
+			width: percentage(math.div(200, 800));
 
 			writing-mode: vertical-rl;
 			transform: rotate(180deg);
@@ -43,7 +35,6 @@
 	}
 
 	&__product-title {
-		@extend .fw-normal, .fst-italic;
 		@include font-sizes(25);
 		@include margin(top 0 bottom 0);
 

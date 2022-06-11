@@ -1,6 +1,6 @@
 {% import 'macros/footer.twig' as footer %}
 
-<footer class="Site-footer-vertical">
+<footer class="Site-footer-vertical d-flex">
 	<div>
 		{% if menus.footer_primary.items %}
 			{{- footer.list( menus.footer_primary.items, __( 'Navigation', 'uni' ) ) -}}

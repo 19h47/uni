@@ -12,7 +12,7 @@
 
 <main
 	id="{{ post.id ? "page-#{post.id}" : 'page' }}"
-	class="page-content Site-wrapper"
+	class="page-content d-flex flex-column flex-md-row flex-nowrap h-100"
 	{{ post.modules ? post.modules | map( module => "data-module-#{ module }" ) | join( ' ' ) : '' }}
 >
 

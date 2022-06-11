@@ -13,7 +13,6 @@
 	$this: &;
 
 	&__title {
-		@extend .text-decoration-underline;
 		@include margin(bottom 0.5em);
 		@include font-sizes(30);
 
@@ -22,11 +21,6 @@
 		@at-root .Loop #{ $this } #{ $this }__title {
 			@extend .d-none;
 		}
-	}
-
-	&__items {
-		@extend .list-style-type-none;
-		@extend .d-flex;
 	}
 
 	&__item {
@@ -63,8 +57,6 @@
 		}
 
 		a {
-			@extend .d-block;
-
 			border-radius: map-get($borders, radius);
 			transition: box-shadow 0.7s map-get($easings, ease-out-expo);
 

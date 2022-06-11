@@ -6,14 +6,10 @@
  *
  *
  */
-@use "sass:math";
+@use 'sass:math';
 
 .Shipping-fields {
 	&__field-wrapper {
-		@extend .d-flex;
-
-		flex-flow: wrap;
-
 		& > * {
 			width: 100%;
 		}
