@@ -31,7 +31,7 @@
 				</div>
 
 				{% if post.meta( 'gallery' ) %}
-					<div class="overflow-hidden Horizontal-page__gallery py-md-60vh background-color-white position-relative d-md-flex flex-md-nowrap z-index-2">
+					<div class="overflow-hidden Horizontal-page__gallery py-md-60vh background-color-white position-relative d-md-flex flex-md-nowrap z-index-2" style="transform: translate3d(0,0,0);">
 						{% for image in post.meta( 'gallery' ) %}
 
 							{% set _product = TimberPost( image.id ).meta( 'product_link' ) %}
@@ -45,7 +45,8 @@
 												attributes: { 'data-horizontal-page' : 'image' },
 												classes: [ 'w-100', 'h-auto', 'w-md-auto', 'h-md-100', 'd-block' ],
 												image: image,
-												loading: 'eager'
+												loading: 'eager',
+												size: 'size-1720'
 											},
 											with_context = false
 										)
@@ -59,17 +60,19 @@
 				{% endif %}
 			</div>
 
-			{%
-				include 'components/heading.html.twig'
-				with {
-					classes: [ 'color-gray-very-light-02', 'background-color-white' ],
-					link: post.meta( 'link' ).url | default( site.link ),
-					title: post.meta( 'link' ).title | default( __( 'Discover<br>our online store', 'uni' ) )
-				}
-				only
-			%}
+			{{-
+				include(
+					'components/heading.html.twig',
+					{
+						classes: [ 'color-gray-very-light-02', 'background-color-white' ],
+						link: post.meta( 'link' ).url | default( site.link ),
+						title: post.meta( 'link' ).title | default( __( 'Discover<br>our online store', 'uni' ) )
+					},
+					with_context = false
+				)
+			-}}
 
-			{% include 'components/footer-horizontal.html.twig' %}
+			{{- include( 'components/footer-horizontal.html.twig' ) -}}
 
 		</div>
 	</div>

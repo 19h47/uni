@@ -119,11 +119,11 @@
 
 
 				{% if post.related_products %}
-					{% include 'components/heading.html.twig' with { title: __( 'In the same collection', 'uni' ) | apply_filters( 'woocommerce_product_related_products_heading' )  } only %}
+					{{- include( 'components/heading.html.twig', { title: __( 'In the same collection', 'uni' ) | apply_filters( 'woocommerce_product_related_products_heading' )  }, with_context = false ) -}}
 
 					<ul class="Products related products">
 						{% for product in post.related_products %}
-							{% include 'woocommerce/product-content.html.twig' %}
+							{{- include( 'woocommerce/product-content.html.twig' ) -}}
 						{% endfor %}
 					</ul>
 				{% endif %}
@@ -151,9 +151,9 @@
 			 #}
 			{% do action( 'woocommerce_after_single_product' ) %}
 
-			{% include 'components/heading.html.twig' with { classes: [ 'color-gray-very-light-02' ], link: shop_url, title: __( 'Return to shop', 'uni' )  } only %}
+			{{- include( 'components/heading.html.twig', { classes: [ 'color-gray-very-light-02' ], link: shop_url, title: __( 'Return to shop', 'uni' )  }, with_context = fase ) -}}
 
-			{% include 'components/footer-horizontal.html.twig' %}
+			{{- include( 'components/footer-horizontal.html.twig' ) -}}
 
 		</div>
 	</div>

@@ -10,7 +10,7 @@
 	itemscope
 	itemtype="http://schema.org/WebPage"
 	{{ site.language_attributes }}
-	{{ html_class( 'no-js no-touch' ~ ( 'front-page' == namespace ? ' h-100 w-100' ) ) }}
+	{{ html_class( 'no-js no-touch' ~ ( 'front-page' == namespace ? ' h-100 w-100' ) ~ ( 'horizontal-page' in post.modules ? ' cursor-wait' ) ) }}
 >
 
 	<head>

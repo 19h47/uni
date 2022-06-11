@@ -24,7 +24,17 @@
 							data-thumb-alt="{{ Image( id ).alt }}"
 							class="w-100 h-100 js-cell"
 						>
-							{{- include( 'partials/image.html.twig', { image: id, classes: [ 'w-100', 'h-100', 'object-fit-scale-down', 'object-position-center' ] }, with_context = false ) -}}
+							{{-
+								include(
+									'partials/image.html.twig',
+									{
+										image: id,
+										classes: [ 'd-block', 'w-100', 'h-100', 'object-fit-scale-down', 'object-position-center' ],
+										size: 'size-1600'
+									},
+									with_context = false
+								)
+							-}}
 						</div>
 					{% endfor %}
 				</figure>

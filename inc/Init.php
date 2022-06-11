@@ -42,6 +42,7 @@ class Init {
 			Core\ProjectCat::class,
 			Core\Message::class,
 			Template\PostStates::class,
+			Media::class,
 		);
 	}
 

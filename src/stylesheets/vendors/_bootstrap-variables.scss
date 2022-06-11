@@ -103,7 +103,7 @@ $font-weights: (
 	extrablack: 900,
 );
 
-$cursors: pointer text auto not-allowed none;
+$cursors: pointer text auto not-allowed none wait;
 
 $spacers: map-merge(
 	$spacers,

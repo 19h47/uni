@@ -35,8 +35,14 @@
 										include(
 											'partials/image.html.twig',
 											{
-												classes: [ 'w-100', 'object-fit-cover', 'object-position-center', 'd-block' ],
+												classes: [
+													'w-100',
+													'object-fit-cover',
+													'object-position-center',
+													'd-block'
+												],
 												image: item.image,
+												size: 8 == item.columns ? 'size-1400' : ( 5 == item.columns ? 'size-800' : 'size-1720' )
 											}
 										)
 									-}}

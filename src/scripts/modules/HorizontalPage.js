@@ -1,7 +1,6 @@
 import { module as M } from '@19h47/modular';
 import Smooth from 'utils/smooth-scrolling.custom';
-import { elements } from 'scripts/config';
-import { breakpoints } from 'utils/environment';
+import { breakpoints, html } from 'utils/environment';
 
 const imagesLoaded = require('imagesloaded');
 
@@ -11,12 +10,14 @@ class HorizontalPage extends M {
 
 		this.scroll = null;
 
-		elements.html.style.setProperty('width', '100%');
-		elements.html.style.setProperty('height', '100%');
+		html.style.setProperty('width', '100%');
+		html.style.setProperty('height', '100%');
 	}
 
 	init() {
 		if (!breakpoints.md.matches) {
+			html.classList.remove('cursor-wait');
+
 			return false;
 		}
 
@@ -30,6 +31,8 @@ class HorizontalPage extends M {
 
 		return imagesLoaded(this.el, () => {
 			console.log('all images are loaded');
+
+			html.classList.remove('cursor-wait');
 
 			this.resize()
 			window.addEventListener('resize', this.resize.bind(this))
