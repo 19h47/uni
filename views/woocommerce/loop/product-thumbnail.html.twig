@@ -83,12 +83,18 @@
 			include(
 				'partials/image.html.twig',
 				{
-					classes: [ 'd-block', 'Product-thumbnail__image', 'z-index-1', 'is-active' ],
-					image: product.thumbnail,
+					classes: [
+						'd-block',
+						'Product-thumbnail__image',
+						'z-index-1',
+						'is-active',
+						product.meta( 'image_mood' ) ? 'object-fit-cover object-position-center' : ''
+					],
+					image: product.meta( 'image_mood' ) ? product.meta( 'image_mood' ) : product.thumbnail,
 					attributes: {
 						'data-product-content': 'image'
 					},
-					size: 'size-600'
+					size: product.meta( 'image_mood' ) ? 'size-1600' : 'size-600'
 				}
 			)
 		-}}

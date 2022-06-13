@@ -83,6 +83,7 @@ class Transients {
 			'current'   => true,
 			'thumbnail' => get_post_thumbnail_id( $id ),
 			'hover'     => get_field( 'image_hover', $id ),
+			'mood'      => get_field( 'image_mood', $id ),
 			'title'     => get_the_title( $id ),
 		);
 

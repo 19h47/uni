@@ -58,7 +58,7 @@
 						 #}
 						{% do action( 'woocommerce_shop_loop' ) %}
 
-						{% include 'woocommerce/product-content.html.twig' %}
+						{{- include( 'woocommerce/product-content.html.twig' ) -}}
 					{% endfor %}
 
 					{{- fn( 'woocommerce_product_loop_end', false ) -}}
