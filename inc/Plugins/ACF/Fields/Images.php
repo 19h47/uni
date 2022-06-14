@@ -54,21 +54,6 @@ class Images {
 							'return_format' => 'id',
 							'preview_size'  => 'medium',
 							'library'       => 'all',
-							'wrapper'       => array(
-								'width' => 50,
-							),
-						),
-						array(
-							'key'           => 'field_images_mood',
-							'label'         => __( 'Mood', 'uni' ),
-							'name'          => 'image_mood',
-							'type'          => 'image',
-							'return_format' => 'id',
-							'preview_size'  => 'medium',
-							'library'       => 'all',
-							'wrapper'       => array(
-								'width' => 50,
-							),
 						),
 					),
 					'location' => $location,

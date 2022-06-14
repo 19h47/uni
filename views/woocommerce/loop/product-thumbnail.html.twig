@@ -87,14 +87,13 @@
 						'd-block',
 						'Product-thumbnail__image',
 						'z-index-1',
-						'is-active',
-						product.meta( 'image_mood' ) ? 'object-fit-cover object-position-center' : ''
+						'is-active'
 					],
-					image: product.meta( 'image_mood' ) ? product.meta( 'image_mood' ) : product.thumbnail,
+					image: product.thumbnail,
 					attributes: {
 						'data-product-content': 'image'
 					},
-					size: product.meta( 'image_mood' ) ? 'size-1600' : 'size-600'
+					size: 'size-600'
 				}
 			)
 		-}}

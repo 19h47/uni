@@ -119,13 +119,21 @@
 
 
 				{% if post.related_products %}
-					{{- include( 'components/heading.html.twig', { title: __( 'In the same collection', 'uni' ) | apply_filters( 'woocommerce_product_related_products_heading' )  }, with_context = false ) -}}
+					{{-
+						include(
+							'components/heading.html.twig',
+							{
+								title: __( 'In the same collection', 'uni' ) | apply_filters( 'woocommerce_product_related_products_heading' )
+							},
+							with_context = false
+						)
+					-}}
 
-					<ul class="Products related products">
+					{{- include( 'woocommerce/loop/loop-start.html.twig', { classes: [ 'related' ], columns: loop_columns } ) -}}
 						{% for product in post.related_products %}
 							{{- include( 'woocommerce/product-content.html.twig' ) -}}
 						{% endfor %}
-					</ul>
+					{{- include( 'woocommerce/loop/loop-end.html.twig' ) -}}
 				{% endif %}
 
 				<div class="Single-project__content">

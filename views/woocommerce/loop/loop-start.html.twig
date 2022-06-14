@@ -1,4 +1,19 @@
 {#
+ # Loop start
  #
+ # @package UNI
  #}
-<ul class="Products products columns-{{ columns }}">
+<ul
+	class="{{
+		[
+			'mx-n20px',
+			'ms-md-0',
+			'me-md-200vw',
+			'my-md-n20px',
+			'list-style-type-none',
+			'd-md-flex',
+			'products',
+			"columns-#{ columns | default( 3 ) }"
+		] | merge( classes | default( [] ) ) | join( ' ' ) | trim
+	}}"
+>

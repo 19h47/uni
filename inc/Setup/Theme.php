@@ -229,6 +229,8 @@ class Theme {
 		$context['cart_url']      = wc_get_cart_url();
 		$context['myaccount_url'] = wc_get_page_permalink( 'myaccount' );
 
+		$context['loop_columns'] = wc_get_loop_prop( 'columns' );
+
 		return $context;
 	}
 }
