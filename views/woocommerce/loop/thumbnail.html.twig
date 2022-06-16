@@ -1,10 +1,10 @@
 {#
- # Product thumbnail
+ # Thumbnail
  #
  # @package UNI
  #}
 
-<a class="Product-thumbnail position-relative d-block" href="{{ product.link }}" data-product-content="link">
+<a class="Thumbnail position-relative d-block" href="{{ product.link }}" data-product-content="link">
 
 	{% if is_product and product.product_colors is not empty %}
 		{%- for product_color in product.product_colors -%}
@@ -12,7 +12,7 @@
 				include(
 					'partials/image.html.twig',
 					{
-						classes: [ 'Product-thumbnail__image', 'd-block', 'z-index-1', product_color.current ? 'is-active' : null ],
+						classes: [ 'Thumbnail__image', 'd-block', 'z-index-1', product_color.current ? 'is-active' : null ],
 						attributes: {
 							'data-color': product_color.color,
 							'data-product-content': 'image'
@@ -27,12 +27,11 @@
 					'partials/image.html.twig',
 					{
 						classes: [
-							'Product-thumbnail__hover',
+							'Thumbnail__overview',
 							'position-absolute',
-							'top-0',
-							'end-0',
-							'bottom-0',
-							'start-0',
+							'inset-0',
+							'w-100',
+							'h-100',
 							'object-position-center',
 							'object-fit-cover',
 							'z-index-2',
@@ -53,7 +52,7 @@
 				include(
 					'partials/image.html.twig',
 					{
-						classes: [ 'd-block', 'Product-thumbnail__image', 'z-index-1' ],
+						classes: [ 'd-block', 'Thumbnail__image', 'z-index-1', 'w-100', 'h-100' ],
 						attributes: {
 							'data-color': product.color,
 							'data-product-content': 'image'
@@ -67,7 +66,7 @@
 				include(
 					'partials/image.html.twig',
 					{
-						classes: [ 'd-block', 'Product-thumbnail__hover', 'position-absolute', 'top-0', 'end-0', 'bottom-0', 'start-0', 'object-position-center', 'object-fit-cover', 'z-index-2', ],
+						classes: [ 'd-block', 'Thumbnail__overview', 'position-absolute', 'inset-0', 'w-100', 'h-100', 'object-position-center', 'object-fit-cover', 'z-index-2', ],
 						attributes: {
 							'data-color': product.color,
 							'data-product-content': 'image'
@@ -85,9 +84,11 @@
 				{
 					classes: [
 						'd-block',
-						'Product-thumbnail__image',
+						'Thumbnail__image',
 						'z-index-1',
-						'is-active'
+						'is-active',
+						'w-100',
+						'h-100'
 					],
 					image: product.thumbnail,
 					attributes: {
@@ -101,7 +102,7 @@
 			include(
 				'partials/image.html.twig',
 				{
-					classes: [ 'd-block', 'Product-thumbnail__hover', 'position-absolute', 'top-0', 'end-0', 'bottom-0', 'start-0', 'object-position-center', 'object-fit-cover', 'z-index-2', 'is-active' ],
+					classes: [ 'd-block', 'Thumbnail__overview', 'position-absolute', 'inset-0', 'w-100', 'h-100', 'object-position-center', 'object-fit-cover', 'z-index-2', 'is-active' ],
 					image: product.meta( 'image_hover' ),
 					attributes: {
 						'data-product-content': 'image'

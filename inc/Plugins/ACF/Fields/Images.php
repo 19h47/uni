@@ -2,10 +2,8 @@
 /**
  * Images
  *
- * Add ACF fields for Leaf post type.
- *
  * @package WordPress
- * @subpackage Glenhaven
+ * @subpackage UNI
  */
 
 namespace UNI\Plugins\ACF\Fields;
@@ -44,7 +42,7 @@ class Images {
 			acf_add_local_field_group(
 				array(
 					'key'      => 'group_5ea74ea87de55',
-					'title'    => __( 'Images', 'uni' ),
+					'title'    => __( 'Images Fields', 'uni' ),
 					'fields'   => array(
 						array(
 							'key'           => 'field_5eb24d1ca8cbc',

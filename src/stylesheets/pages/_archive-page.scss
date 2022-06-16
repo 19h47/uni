@@ -8,7 +8,7 @@
 @use 'sass:math';
 
 .Archive-page {
-	.Product-thumbnail {
+	.Thumbnail {
 		img {
 			object-fit: contain;
 			object-position: center;
@@ -20,7 +20,7 @@
 	}
 
 	&.woocommerce-page {
-		.Product-thumbnail .Product-thumbnail__image {
+		.Thumbnail .Thumbnail__image {
 			object-fit: contain;
 			object-position: center;
 
@@ -29,7 +29,7 @@
 			}
 		}
 
-		.Product-thumbnail .Product-thumbnail__hover {
+		.Thumbnail .Thumbnail__overview {
 			object-fit: cover;
 			object-position: center;
 		}

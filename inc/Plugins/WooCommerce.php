@@ -368,7 +368,7 @@ class WooCommerce {
 		global $product;
 
 		Timber::render(
-			'woocommerce/loop/product-thumbnail.html.twig',
+			'woocommerce/loop/thumbnail.html.twig',
 			array(
 				'product'    => Timber::get_post( $product->get_id(), 'UNI\Models\ProductPost' ),
 				'is_product' => is_product(),

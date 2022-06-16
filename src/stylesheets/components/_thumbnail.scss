@@ -9,26 +9,19 @@
  */
 @use 'sass:math';
 
-.Product-thumbnail {
-	$this: &;
-
+.Thumbnail {
 	@include size(100%, #{math.div(360 * 100, 1334)}vh);
 
 	background-color: the_color(gray, very-light-01);
 
 	&:hover {
-		#{ $this }__hover.is-active {
+		.Thumbnail__overview.is-active {
 			@include autoAlpha(1);
 		}
 	}
 
 	@include media-breakpoint-up(md) {
 		@include size(percentage(math.div(600, 800)), 100%);
-	}
-
-	img {
-		@extend .d-block;
-		@include size(100%);
 	}
 
 	&__image {
@@ -57,7 +50,7 @@
 		}
 	}
 
-	&__hover {
+	&__overview {
 		@include autoAlpha(0);
 
 		transition: opacity 0.7s map-get($easings, ease-out-expo),

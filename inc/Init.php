@@ -39,6 +39,7 @@ class Init {
 			Plugins\ACF\Result::class,
 			Plugins\ACF\RuleMatch::class,
 			Plugins\ACF\Fields\Images::class,
+			Plugins\ACF\Fields\ArchivePage::class,
 			Plugins\TinyMCE::class,
 			Core\ProductTag::class,
 			Core\Product::class,
