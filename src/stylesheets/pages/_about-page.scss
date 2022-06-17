@@ -8,7 +8,7 @@
 @use 'sass:math';
 
 .About-page {
-	.Page__content__title {
+	.Page-title {
 		@include media-breakpoint-up(md) {
 			@include margin(top #{math.div(116.36 * 100, $prototype-height-unitless)}vh);
 			@include padding(left #{math.div(200 * 100, $prototype-width-unitless)}vw);

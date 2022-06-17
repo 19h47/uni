@@ -66,6 +66,7 @@ $sizes: (
 	200vw: math.div(200 * 100vw, $prototype-width-unitless),
 	600vw: math.div((200 * 3) * 100vw, $prototype-width-unitless),
 	1000vw: math.div(1000 * 100vw, $prototype-width-unitless),
+	1400vw: math.div((7 * 200) * 100vw, $prototype-width-unitless),
 	1600vw: math.div((8 * 200) * 100vw, $prototype-width-unitless),
 	1900vw: math.div(1900 * 100vw, $prototype-width-unitless),
 	2400vw: math.div((12 * 200) * 100vw, $prototype-width-unitless),

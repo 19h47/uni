@@ -1,0 +1,30 @@
+{#
+ # Page Content
+ #}
+
+{% set classes = [
+	'py-md-60vh',
+	'grid-template-columns-md-repeat-7-1fr',
+	'grid-template-rows-md-repeat-11-1/11',
+	'grid-column-gap-0',
+	'grid-auto-rows-md-1fr',
+	'grid-row-gap-md-0',
+	'd-md-grid',
+	'z-index-100',
+	'woocommerce-products-header'
+] | merge( classes | default( [] ) ) | join( ' ' ) | trim %}
+
+<div class="{{ classes }}">
+	<div class="Page-title woocommerce-products-header__title page-title grid-area-md-2/2/4/7">
+		<h1 class="text-uppercase text-center text-md-start">
+			{{- subtitle ? "<span>#{ subtitle }</span>" -}}
+			{{- title -}}
+		</h1>
+	</div>
+
+	{% block content %}
+		<div class="Wysiwyg d-none d-md-block mt-20px mt-md-0 grid-area-md-4/3/9/7">
+			{{- content -}}
+		</div>
+	{% endblock %}
+</div>

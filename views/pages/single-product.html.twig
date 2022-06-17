@@ -142,21 +142,18 @@
 					{{- include( 'woocommerce/loop/loop-end.html.twig' ) -}}
 				{% endif %}
 
-				<div class="Single-project__content mx-md-200vw">
-					<div class="Page__content__title">
-						<h1>
-						{%- if post.terms( 'product_cat' )[0].meta( 'number' ) -%}
-							<span class="ff-body text-none d-block">
-								{{- __( 'Collection N°', 'uni' ) -}}{{- post.terms( 'product_cat' )[0].meta( 'number' ) -}}
-							</span>
-						{%- endif -%}
-						{{- post.terms( 'product_cat' )[0].name -}}
-						</h1>
-					</div>
-					<div class="Wysiwyg">
-						{{- post.terms( 'product_cat' )[0].long_description -}}
-					</div>
-				</div>
+				{%- embed 'partials/page-content.html.twig' with {
+						title: post.terms( 'product_cat' )[0].name,
+						subtitle: post.terms( 'product_cat' )[0].meta( 'number' ) ? __( 'Collection N°%s', 'uni' ) | format( post.terms( 'product_cat' )[0].meta( 'number' ) ) : '',
+						classes: [ 'mt-20px', 'mt-md-0' ]
+					}
+				-%}
+					{% block content %}
+						<div class="Wysiwyg mt-20px mt-md-0 grid-area-md-4/3/9/7">
+							{{- post.terms( 'product_cat' )[0].long_description -}}
+						</div>
+					{% endblock %}
+				{%- endembed -%}
 
 			</div>
 
