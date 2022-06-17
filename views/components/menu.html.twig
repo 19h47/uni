@@ -4,24 +4,22 @@
  # @package UNI
  #}
 
-<div id="menu" class="z-index-4 top-0 bottom-0 position-fixed start-0 end-0 Menu page-block" data-module-menu>
+<div id="menu" class="z-index-4 top-0 bottom-0 position-fixed start-0 end-0 Menu pt-100px pt-md-20px page-block" data-module-menu>
 
-	<div class="Menu__wrapper py-md-60vh h-100">
-		<div class="Menu__grid d-grid h-100">
-			<div class="Menu__primary">
+	<div class="Menu__wrapper p-20px px-md-42vw py-md-60vh h-100">
+		<div class="d-flex flex-column grid-column-gap-md-0 grid-row-gap-md-0 d-md-grid h-100 grid-template-columns-md-repeat-12-1fr grid-template-rows-md-repeat-11-1fr">
+			<div class="mb-40px mb-md-0 grid-area-md-2/3/8/6">
 				<ul class="list-style-type-none" itemscope itemtype="http://schema.org/SiteNavigationElement">
 					{% for item in menus.main_primary.items %}
-						<li class="Menu__item">
-							<h1>
-								<a href="{{ item.url }}" class="Menu__link{{ item.current ? ' is-active' }}" itemprop="url"{{ item.target ? " target=\"#{item.target}\"" }}>
-									{{- item.title -}}
-								</a>
-							</h1>
+						<li class="{{ loop.first ? 'mb-20px mb-md-40px' : loop.last ? 'mt-20px mt-md-40px' : 'my-20px my-md-40px' }}">
+							<a href="{{ item.url }}" class="h1 Menu__link{{ item.current ? ' is-active' }}" itemprop="url"{{ item.target ? " target=\"#{item.target}\"" }}>
+								{{- item.title -}}
+							</a>
 						</li>
 					{% endfor %}
 				</ul>
 			</div>
-			<div class="Menu__secondary">
+			<div class="Menu__secondary mb-20px mb-md-0 grid-area-md-2/10/8/12">
 				<ul class="list-style-type-none" itemscope itemtype="http://schema.org/SiteNavigationElement">
 					{% for item in menus.main_secondary.items %}
 						<li class="Menu__item">
@@ -31,10 +29,10 @@
 				</ul>
 			</div>
 
-			<div class="Menu__signup-form align-self-md-end mt-3 mt-md-0">
+			<div class="grid-area-md-10/3/12/7 align-self-md-end mt-auto mt-md-0">
 				<div class="d-md-flex w-100">
 					{{- include( 'partials/socials.html.twig', { classes: [ 'me-md-3' ], label: __( 'Follow us', 'uni' ) } ) -}}
-					{{- include( 'partials/signup-form.html.twig', { label: __( 'Newsletter subscriptions', 'uni' ), id: post.id, classes: [ 'mt-3', 'mt-md-0', 'flex-fill' ] } ) -}}
+					{{- include( 'partials/signup-form.html.twig', { label: __( 'Newsletter subscriptions', 'uni' ), id: post.id, classes: [ 'mt-20px', 'mt-md-0', 'flex-fill' ] } ) -}}
 				</div>
 			</div>
 		</div>

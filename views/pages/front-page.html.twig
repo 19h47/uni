@@ -32,15 +32,20 @@
 		{% endblock %}
 	{% endembed %}
 
-	<div class="overflow-hidden Site-content color-white w-100 position-relative h-100 h-md-auto">
-		<div class="Front-page__grid grid-template-columns-md-repeat-12-1fr grid-template-rows-md-repeat-11-1fr grid-template-columns-repeat-10-1fr grid-template-rows-repeat-10-1fr grid-column-gap-0 grid-row-gap-0 z-index-2 mh-100 h-100 d-grid py-md-0 position-relative" data-front-page="grid">
+	<div class="overflow-md-hidden Site-content-md color-white w-100 position-relative h-100 h-md-auto">
+		<div class="Front-page__grid pt-100px pb-20px grid-template-columns-md-repeat-12-1fr grid-template-rows-md-repeat-11-1fr grid-template-columns-repeat-10-1fr grid-template-rows-repeat-10-1fr grid-column-gap-0 grid-row-gap-0 z-index-2 mh-100 h-100 d-grid py-md-0 position-relative" data-front-page="grid">
 
 			<div class="align-self-center grid-area-1/1/3/11 grid-area-md-1/2/3/12 h-100">
 				<img src="{{ theme.link }}/{{ manifest['img/svg/logo-baseline.svg'] }}" alt="{{ site.description }}" class="d-none d-md-block w-100 h-100">
 				<img src="{{ theme.link }}/{{ manifest['img/svg/logo-mobile.svg'] }}" alt="{{ site.description }}" class="d-md-none w-100 h-100">
 			</div>
 
-			<div class="Wysiwyg Front-page__content letter-spacing-50 grid-area-3/1/7/11 grid-area-md-4/5/8/9" data-front-page="content">{{- post.content -}}</div>
+			<div
+				class="Wysiwyg d-none d-md-block Front-page__content letter-spacing-50 grid-area-md-4/5/8/9"
+				data-front-page="content"
+			>
+				{{- post.content -}}
+			</div>
 
 			<div class="grid-area-6/1/10/6 grid-area-sm-7/1/9/6 grid-area-md-9/2/10/5 align-self-center align-self-md-auto">
 				<a class="Front-page__link text-center d-block" href="{{ shop_url }}">
@@ -61,7 +66,7 @@
 			</div>
 		</div>
 
-		<div class="overflow-hidden Front-page__video position-absolute inset-0 z-index-1">
+		<div class="overflow-md-hidden Front-page__video position-absolute inset-0 z-index-1">
 
 			<video
 				class="z-index-2 top-0 bottom-0 object-fit-cover object-position-center position-absolute end-0 start-0 d-none d-md-block h-100 w-100"

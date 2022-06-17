@@ -16,10 +16,38 @@
 	{{ post.modules ? post.modules | map( module => "data-module-#{ module }" ) | join( ' ' ) : '' }}
 >
 
-	<header class="top-0 end-0 end-md-auto flex-row-reverse z-index-5 bottom-md-0 start-md-auto Site-header d-flex flex-md-column align-items-center justify-content-between position-fixed start-0">
+	<header
+		class="{{ [
+			'position-fixed',
+			'd-flex',
+			'flex-md-column',
+			'align-items-center',
+			'flex-row-reverse',
+			'justify-content-between',
+			'top-0',
+			'end-0',
+			'end-md-auto',
+			'start-0',
+			'bottom-md-0',
+			'mt-20px',
+			'mt-md-0',
+			'mb-20px',
+			'mb-md-0',
+			'ms-md-20px',
+			'z-index-5',
+			'start-md-auto',
+			'p-20px',
+			'py-md-40px',
+			'px-md-20px',
+			'background-color-white',
+			'h-60px',
+			'h-md-100',
+			'Site-header',
+		] | join( ' ' ) | trim }}"
+	>
 		<div class="flex-row-reverse d-flex flex-md-column">
 			<button
-				class="Menu__button position-relative z-index-2"
+				class="Menu__button align-middle position-relative z-index-2"
 				type="button"
 				data-module-menu-button
 				data-module-project-information-button
@@ -53,7 +81,7 @@
 	{% block content %}
 		<div class="Site-content position-relative">
 			<div class="Site-content__inner">
-				<h1 class="margin-top-0">{{- post.title -}}</h1>
+				<h1 class="mt-0 text-center text-md-start">{{- post.title -}}</h1>
 				<div class="Wysiwyg">{{- post.content -}}</div>
 			</div>
 

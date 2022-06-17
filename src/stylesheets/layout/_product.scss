@@ -8,13 +8,6 @@
 @use 'sass:math';
 
 .Product {
-	@extend .d-md-flex;
-	@include margin(top 80px bottom 20px);
-
-	@include media-breakpoint-up(md) {
-		@include margin(top 0 bottom 0);
-	}
-
 	&__category-description {
 		@extend .ff-title, .fst-italic;
 		@include margin(top 2em);

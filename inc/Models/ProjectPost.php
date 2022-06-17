@@ -70,7 +70,8 @@ class ProjectPost extends Post {
 				if ( $rows ) {
 					$padding = ( ( ( ( 116.36 * ( 11 - $rows ) ) * 100 ) / 1440 ) / 2 ) . 'vh';
 
-					$images[ $i ]['style'] = "padding-top: $padding; padding-bottom: $padding;";
+					$images[ $i ]['id']    = $images[ $i ]['name'];
+					$images[ $i ]['style'] = '<style>@media (min-width: 992px) { #' . $images[ $i ]['name'] . "{ padding-top: $padding; padding-bottom: $padding; } }</style>";
 				}
 			}
 

@@ -236,7 +236,7 @@ class WooCommerce {
 	 * @return void
 	 */
 	public function before_cart_table() : void {
-		the_title( '<h1 class="margin-top-0">', '</h1>' );
+		the_title( '<h1 class="mt-0">', '</h1>' );
 	}
 
 

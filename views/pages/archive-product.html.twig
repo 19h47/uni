@@ -7,14 +7,31 @@
 
 {% block content %}
 
-	<div class="Horizontal-page__section position-md-fixed top-md-0 bottom-md-0 start-md-0 w-100 h-md-100" data-horizontal-page="section">
+	<div class="Horizontal-page__section mx-20px mx-md-0 mb-20px mb-md-0 position-md-fixed top-md-0 bottom-md-0 start-md-0 w-100 h-md-100" data-horizontal-page="section">
 		<div class="Horizontal-page__track d-md-flex flex-md-nowrap top-md-0 bottom-md-0 start-md-0 position-md-absolute z-index-md-0 h-md-100" data-horizontal-page="track">
 
-			<div class="Horizontal-page__wrapper">
-				<header class="vh-100 h-md-100 mt-80px mb-20px min-h-100 Archive-page__header grid-template-columns-md-repeat-7-1fr grid-template-rows-md-repeat-11-1/11 grid-template-columns-repeat-10-1fr grid-auto-rows-1fr grid-template-rows-repeat-10-1fr grid-column-gap-0 grid-row-gap-0 z-index-100 py-md-60vh d-grid woocommerce-products-header">
-					<div class="Page__content__title woocommerce-products-header__title page-title grid-area-1/1/3/11 grid-area-md-2/2/4/7">
+			<div class="d-md-flex flex-md-nowrap mt-md-20px mb-md-20px">
+				<header
+					class="{{ [
+						'h-md-100',
+						'min-h-100',
+						'mt-100px',
+						'mb-20px',
+						'Archive-page__header',
+						'grid-template-columns-md-repeat-7-1fr',
+						'grid-template-rows-md-repeat-11-1/11',
+						'grid-auto-rows-md-1fr',
+						'grid-column-gap-md-0',
+						'grid-row-gap-md-0',
+						'z-index-100',
+						'py-md-60vh',
+						'd-md-grid',
+						'woocommerce-products-header'
+					] | join( ' ' ) | trim }}"
+				>
+					<div class="Page__content__title woocommerce-products-header__title page-title grid-area-md-2/2/4/7">
 						{% if show_page_title %}
-							<h1 class="text-uppercase">
+							<h1 class="text-uppercase text-center text-md-start">
 								{%- if post.meta( 'number' ) -%}
 									<span>{{- __( 'Collection N°', 'uni' ) -}}{{- post.meta( 'number' ) -}}</span>
 								{%- endif -%}
@@ -23,11 +40,11 @@
 						{% endif %}
 					</div>
 
-					<div class="Wysiwyg grid-area-3/1/9/11 grid-area-md-4/3/9/7">
+					<div class="Wysiwyg grid-area-md-4/3/9/7 mt-20px mt-md-0">
 						{{- post.meta( 'long_description' ) ? post.meta( 'long_description' ) : post.content -}}
 
 						{% if post.description %}
-							<div class="Page__content__footer">
+							<div class="ff-title fst-italic">
 								{#
 								# Hook: woocommerce_archive_description.
 								#
@@ -83,7 +100,7 @@
 			{%
 				include 'components/heading.html.twig'
 				with {
-					classes: [ 'color-gray-very-light-02', 'background-color-white' ],
+					classes: [ 'color-gray-dark', 'background-color-white' ],
 					link: habitat_page.link,
 					title: __( 'Discover<br>our habitat', 'uni' )
 				}

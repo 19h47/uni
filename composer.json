@@ -1,7 +1,6 @@
 {
 	"require": {
-		"timber/timber": "^1.19",
-		"vlucas/phpdotenv": "^4.1"
+		"timber/timber": "^1.19"
 	},
 	"name": "19h47/uni",
 	"description": "UNI's WordPress theme",
@@ -19,5 +18,10 @@
 		"files": [
 			"./inc/helpers.php"
 		]
+	},
+	"config": {
+		"allow-plugins": {
+			"composer/installers": true
+		}
 	}
 }

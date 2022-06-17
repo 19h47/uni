@@ -12,8 +12,6 @@
 .Thumbnail {
 	@include size(100%, #{math.div(360 * 100, 1334)}vh);
 
-	background-color: the_color(gray, very-light-01);
-
 	&:hover {
 		.Thumbnail__overview.is-active {
 			@include autoAlpha(1);

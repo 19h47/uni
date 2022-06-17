@@ -9,7 +9,7 @@
 
 		<div class="Single-project__information__wrapper h-100 py-md-60vh ps-md-0">
 			<div class="Single-project__information__grid d-grid h-100">
-				<div class="Single-project__title">
+				<div class="Page__content__title">
 					<h1 class="mt-0 mb-0">
 						{{- post.get_terms( 'project_cat' ) ? '<span class="ff-body text-none d-block">' ~ post.get_terms( 'project_cat' ) | map( cat => cat.name ) | join( ', ' ) ~ '</span>' -}}
 						{{- post.title -}}
@@ -27,13 +27,29 @@
 		</div>
 	</div>
 
-	<div class="Horizontal-page__section position-md-fixed top-md-0 bottom-md-0 start-md-0 w-100 h-md-100" data-horizontal-page="section">
+	<div class="Horizontal-page__section mx-20px mx-md-0 mb-20px mb-md-0 position-md-fixed top-md-0 bottom-md-0 start-md-0 w-100 h-md-100" data-horizontal-page="section">
 		<div class="Horizontal-page__track d-md-flex flex-md-nowrap top-md-0 bottom-md-0 start-md-0 position-md-absolute z-index-md-0 h-md-100" data-horizontal-page="track">
 
-			<div class="Horizontal-page__wrapper background-color-white" data-module-wrapper-page>
-				<div class="Single-project__grid py-md-60 position-relative d-grid z-index-1 h-auto h-md-100">
-					<div class="Single-project__title js-title">
-						<h1 class="mt-0 mb-0">
+			<div class="d-md-flex flex-md-nowrap mt-md-20px mb-md-20px background-color-white" data-module-wrapper-page>
+				<div
+					class="{{ [
+						'grid-template-columns-md-repeat-5-1fr',
+						'w-md-1000vw',
+						'grid-column-gap-md-0',
+						'grid-row-gap-md-0',
+						'grid-template-rows-md-repeat-11-1fr',
+						'pt-100px',
+						'pb-20px',
+						'py-md-60vh',
+						'position-relative',
+						'd-md-grid',
+						'z-index-1',
+						'h-md-100',
+						'w-md-1000vw'
+					] | join( ' ' ) | trim }}"
+				>
+					<div class="js-title grid-area-md-2/2/4/6 Page__content__title">
+						<h1 class="my-0 text-center text-md-start">
 							{{- post.get_terms( 'project_cat' ) ? '<span class="ff-body text-none d-block">' ~ post.get_terms( 'project_cat' ) | map( cat => cat.name ) | join( ', ' ) ~ '</span>' -}}
 							{{- post.title -}}
 						</h1>
@@ -53,28 +69,25 @@
 							</button>
 						{% endif %}
 					</div>
-					<div class="Wysiwyg d-md-none">
-						{{- post.get_field( 'project_content' ) -}}
-					</div>
-				</div>
-
-				<div class="d-md-none margin-y-2">
-					{% include 'partials/attributes.html.twig' with { attributes: post.attributes } %}
 				</div>
 
 				{% if post.images is iterable %}
-					<ul class="Single-project__images py-md-60vh list-style-type-none pe-none d-flex flex-column flex-md-row position-relative z-index-2">
+					<ul class="Single-project__images mx-n20px mx-md-0 py-md-60vh list-style-type-none pe-none d-flex flex-column flex-md-row position-relative z-index-2">
 
 						{% for image in post.images %}
 							<li class="Single-project__image">
+								{{ image.style }}
 								{{-
 									include(
 										'partials/image.html.twig',
 										{
-											classes: [ 'w-100', 'h-auto', 'w-md-auto', 'h-md-100', 'p-md-0' ],
+											classes: [ 'd-block', 'w-100', 'h-auto', 'w-md-auto', 'h-md-100' ],
 											image: image,
 											loading: 'eager',
-											attributes: { style: image.style, 'data-horizontal-page': 'image' },
+											attributes: {
+												'data-horizontal-page': 'image'
+											},
+											id: image.id,
 											size: 'size-1720'
 										}
 									)
@@ -87,22 +100,34 @@
 
 			</div>
 
-			<div class="Single-project__content py-md-60vh mt-md-0 h-auto h-md-100">
-				<div class="Single-project__title">
+			{% if post.meta( 'project_content' ) %}
+				<div class="Wysiwyg d-md-none mt-20px">
+					{{- post.meta( 'project_content' ) -}}
+				</div>
+			{% endif %}
+
+			{% if post.attributes %}
+				<div class="d-md-none mt-20px">
+					{{- include( 'partials/attributes.html.twig', { attributes: post.attributes } ) -}}
+				</div>
+			{% endif %}
+
+			<div class="mt-20px d-md-grid w-md-1600vw grid-template-columns-md-repeat-8-1fr grid-template-rows-md-repeat-11-1fr grid-column-gap-md-0 grid-row-gap-md-0 py-md-60vh mt-md-0 h-auto h-md-100">
+				<div class="Page__content__title mb-20px mb-md-0 grid-area-md-2/2/3/9">
 					<h1 class="mt-0 mb-0">
 						<span class="ff-body text-none d-block">{{- projects_settings.subtitle -}}</span>
 						{{- projects_settings.title -}}
 					</h1>
 				</div>
-				<div class="Wysiwyg">
+				<div class="Wysiwyg grid-area-md-4/3/8/8">
 					{{- projects_settings.content -}}
 				</div>
 			</div>
 
 			{% if post.prev %}
-				{% include 'components/heading.html.twig' with { classes: [ 'color-gray-very-light-02' ], link: post.prev.link, title: __( 'Next Project', 'uni' )  } only %}
+				{% include 'components/heading.html.twig' with { classes: [ 'color-gray-dark' ], link: post.prev.link, title: __( 'Next Project', 'uni' )  } only %}
 			{% else %}
-				{% include 'components/heading.html.twig' with { classes: [ 'color-gray-very-light-02' ], link: post.first_project.link, title: __( 'Next Project', 'uni' )  } only %}
+				{% include 'components/heading.html.twig' with { classes: [ 'color-gray-dark' ], link: post.first_project.link, title: __( 'Next Project', 'uni' )  } only %}
 			{% endif %}
 
 			{% include 'components/footer-horizontal.html.twig' %}

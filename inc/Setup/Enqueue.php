@@ -7,11 +7,6 @@
 
 namespace UNI\Setup;
 
-use Dotenv\{ Dotenv };
-
-$dotenv = Dotenv::createImmutable( get_template_directory() );
-$dotenv->load();
-
 /**
  * Enqueue
  */

@@ -19,12 +19,12 @@
 			@include margin(bottom 0);
 		}
 
-		@include font-sizes(15);
+		@include font-sizes(16);
 
-		line-height: math.div(18, 15);
+		line-height: math.div(19, 16);
 
 		h5 {
-			@include font-sizes(18, 18, 15);
+			@include font-sizes(19, 19, 16);
 		}
 	}
 }

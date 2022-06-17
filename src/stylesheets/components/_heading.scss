@@ -7,23 +7,12 @@
 @use 'sass:math';
 
 .Heading {
-	@include margin(top 40px bottom 40px);
-
-	@include media-breakpoint-up(md) {
-		@include margin(top 0 bottom 0);
-		@include size(#{math.div(200 * 100, $prototype-width-unitless)}vw, 100%);
-	}
-
 	h2 {
-		@extend .text-center, .fw-normal, .fst-normal, .text-uppercase, .ff-title;
-		@include margin(top 0 bottom 0);
-		@include letter-spacing(100);
 		@include font-sizes(65);
 
 		line-height: math.div(105, 65);
 
 		@include media-breakpoint-up(md) {
-			height: 100%;
 			writing-mode: vertical-rl;
 			transform: rotate(180deg);
 			transform-origin: center;

@@ -8,18 +8,11 @@
 @use 'sass:math';
 
 .Site-footer-horizontal {
-	$this: &;
-
-	@include margin(top 20px);
-
-	color: the_color(gray, very-dark);
-
 	a:hover {
 		@extend .text-decoration-underline;
 	}
 
 	@include media-breakpoint-up(md) {
-		@include margin(bottom 20px);
 		@include padding(right 20px left #{math.div(200 * 100, $prototype-width-unitless)}vw);
 
 		width: #{math.div((5 * 200) * 100, $prototype-width-unitless)}vw;

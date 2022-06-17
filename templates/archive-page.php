@@ -8,13 +8,10 @@
 global $product;
 
 use Timber\{ Timber };
+use UNI\Models\{ ArchivePage };
 
-$context = Timber::get_context();
+$data = Timber::get_context();
 
+$data['post'] = new ArchivePage();
 
-$context['post'] = Timber::get_post();
-
-$context['post']->body_classes = array( 'Archive-page' );
-$context['post']->modules      = array( 'horizontal-page' );
-
-Timber::render( 'pages/archive-page.html.twig', $context );
+Timber::render( 'pages/archive-page.html.twig', $data );

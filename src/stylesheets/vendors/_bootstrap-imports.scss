@@ -114,6 +114,13 @@ $utilities: map-merge(
 					responsive: true,
 				)
 			),
+		'overflow':
+			map-merge(
+				map-get($utilities, 'overflow'),
+				(
+					responsive: true,
+				)
+			),
 		'text-transform': (
 			property: text-transform,
 			class: text,
@@ -125,10 +132,11 @@ $utilities: map-merge(
 			responsive: true,
 		),
 		'letter-spacing': (
-			property: white-space,
+			property: letter-spacing,
 			values: (
 				50: 0.05em,
 				60: 0.06em,
+				100: 0.1em,
 				250: 0.25em,
 			),
 		),

@@ -27,14 +27,14 @@
 
 	[type='email'] {
 		@include padding(top 10px right 10px bottom 10px left 10px);
-		@include reset-placeholder(the_color(gray, very-light-03));
+		@include reset-placeholder(the_color(gray, very-light-02));
 
 		width: percentage(math.div(400, 600));
 		border-radius: map-get($borders, radius) 0 0 5px;
 
 		&:focus {
 			outline: none;
-			box-shadow: 0 0 0 0.2rem rgba(the_color(gray, very-light-03), 0.5);
+			box-shadow: 0 0 0 0.2rem rgba(the_color(gray, very-light-02), 0.5);
 		}
 	}
 
@@ -47,7 +47,7 @@
 
 		&:focus {
 			outline: none;
-			box-shadow: 0 0 0 0.2rem rgba(the_color(gray, very-light-03), 0.5);
+			box-shadow: 0 0 0 0.2rem rgba(the_color(gray, very-light-02), 0.5);
 		}
 	}
 

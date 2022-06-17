@@ -11,23 +11,23 @@
 {% endif %}
 
 {% if 'small' == size %}
-	{% set size = [ 'w-80', 'h-90' ] %}
+	{% set size = [ 'w-md-80', 'h-100', 'h-md-90' ] %}
 {% endif %}
 
 <div
 	id="modal-{{ id | e }}"
-	class="Modal z-index-3 position-fixed inset-0 d-flex align-items-center justify-content-center"
+	class="Modal mt-100px mt-md-20px z-index-3 position-fixed inset-0 d-flex align-items-center justify-content-center"
 	data-module-modal
 >
 	<div
 		class="{{ [
 			'Modal__wrapper',
 			'w-100',
-			'h-100',
 			'd-flex',
 			'flex-column',
 			'position-relative',
 			'overflow-auto',
+			'background-color-white',
 		] | merge( size ) | join( ' ' ) | trim }}"
 	>
 		<button

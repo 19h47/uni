@@ -24,6 +24,7 @@
 		{% endif %}
 
 		<img
+			{{ id ? "id=\"#{id}\""}}
 			class="{{ classes ? classes | join( ' ' ) : '' }}"
 			loading="{{ loading | default( 'lazy' ) }}"
 			src="{{ image.src( size | default( 'full' ) ) }}"

@@ -10,13 +10,9 @@
 
 .Horizontal-page {
 	&__section {
-		@include margin(right 20px bottom 20px left 20px);
-
 		max-width: calc(100% - 40px);
 
 		@include media-breakpoint-up(md) {
-			@include margin(right 0 bottom 0 left 0);
-
 			max-width: none;
 			will-change: transform;
 		}
@@ -34,23 +30,12 @@
 
 	&__navigation {
 		svg {
-			@extend .align-middle;
-			@include size(14px, 24px);
-
 			transform: rotate(90deg);
 			transform-origin: center;
 
 			@include media-breakpoint-up(md) {
 				transform: rotate(0);
 			}
-		}
-	}
-
-	&__wrapper {
-		@extend .d-md-flex, .flex-md-nowrap;
-
-		@include media-breakpoint-up(md) {
-			@include margin(top 20px bottom 20px);
 		}
 	}
 
@@ -176,14 +161,14 @@
 	}
 
 	&__grid {
-		@include padding(top 80px bottom 20px);
-
 		@include media-breakpoint-up(sm) {
-			@include padding(bottom 0 left #{math.div(42 * 100, 750)}vw);
+			@include padding(left #{math.div(42 * 100, 750)}vw);
 		}
 
-		& > div {
-			height: calc(100vh - 100px);
+		@include media-breakpoint-up(md) {
+			& > div {
+				height: calc(100vh - 100px);
+			}
 		}
 	}
 
@@ -196,24 +181,8 @@
 	}
 
 	&__image {
-		@include margin(top 100px bottom 100px);
-
-		&:first-child {
-			@include margin(top 0);
-
-			background-color: transparent;
-		}
-
-		&:last-child {
-			@include margin(bottom 0);
-		}
-
 		@include media-breakpoint-up(md) {
-			@include margin(
-				top 0 bottom 0 left #{math.div(200 * 100, $prototype-width-unitless)}vw
-			);
-
-			height: 100%;
+			@include margin(left #{math.div(200 * 100, $prototype-width-unitless)}vw);
 
 			&:first-child {
 				@include margin(left 0);

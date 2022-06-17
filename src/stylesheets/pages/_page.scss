@@ -19,22 +19,12 @@
 					@extend .d-block;
 					@include letter-spacing(0);
 
-					@include font-sizes(25, 30, 75);
+					// @include font-sizes(25, 30, 75);
+					font-size: #{math.div(12, 16)}rem;
 
 					line-height: math.div(75, 30);
 				}
 			}
-		}
-
-		// .Page__content__footer
-		&__footer {
-			@extend .ff-title, .fst-italic;
-
-			// &::first-line {
-			// 	@include font-sizes(35);
-
-			// 	line-height: (45/35);
-			// }
 		}
 	}
 }

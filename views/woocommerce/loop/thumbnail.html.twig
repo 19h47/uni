@@ -4,7 +4,7 @@
  # @package UNI
  #}
 
-<a class="Thumbnail position-relative d-block" href="{{ product.link }}" data-product-content="link">
+<a class="Thumbnail background-color-gray-very-light-01 position-relative d-block" href="{{ product.link }}" data-product-content="link">
 
 	{% if is_product and product.product_colors is not empty %}
 		{%- for product_color in product.product_colors -%}
@@ -12,7 +12,7 @@
 				include(
 					'partials/image.html.twig',
 					{
-						classes: [ 'Thumbnail__image', 'd-block', 'z-index-1', product_color.current ? 'is-active' : null ],
+						classes: [ 'w-100', 'h-100', 'position-absolute', 'inset-0', 'Thumbnail__image', 'd-block', 'z-index-1', product_color.current ? 'is-active' : null ],
 						attributes: {
 							'data-color': product_color.color,
 							'data-product-content': 'image'
@@ -52,7 +52,7 @@
 				include(
 					'partials/image.html.twig',
 					{
-						classes: [ 'd-block', 'Thumbnail__image', 'z-index-1', 'w-100', 'h-100' ],
+						classes: [ 'd-block', 'Thumbnail__image', 'w-100', 'h-100' ],
 						attributes: {
 							'data-color': product.color,
 							'data-product-content': 'image'

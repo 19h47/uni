@@ -30,7 +30,7 @@
 	 *
 	 */
 	&-content {
-		@include margin(top 80px right 20px bottom 20px left 20px);
+		@include margin(top 100px right 20px bottom 20px left 20px);
 
 		max-width: calc(100% - 40px);
 		width: 100%;
@@ -57,6 +57,18 @@
 				max-width: #{math.div((200 * 4) * 100, $prototype-width-unitless)}vw;
 				width: 100%;
 			}
+		}
+	}
+
+	&-content-md {
+		@include media-breakpoint-up(md) {
+			@include margin(top 80px right 20px bottom 20px left 20px);
+			@include margin(
+				top 20px left calc(#{math.div(100 * 100, $prototype-width-unitless)}vw + 40px)
+			);
+
+			max-width: 100%;
+			width: 100%;
 		}
 	}
 }

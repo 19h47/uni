@@ -40,6 +40,7 @@ class Init {
 			Plugins\ACF\RuleMatch::class,
 			Plugins\ACF\Fields\Images::class,
 			Plugins\ACF\Fields\ArchivePage::class,
+			Plugins\ACF\Fields\Project::class,
 			Plugins\TinyMCE::class,
 			Core\ProductTag::class,
 			Core\Product::class,

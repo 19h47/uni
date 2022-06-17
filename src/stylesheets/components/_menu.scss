@@ -8,7 +8,7 @@
 @use 'sass:math';
 
 .Menu {
-	@include padding(top 80px right 20px bottom 20px left 20px);
+	@include padding(right 20px bottom 20px left 20px);
 
 	transform: translate3d(100%, 0, 0);
 	transition: transform 0.3s map-get($easings, ease-out-expo);
@@ -18,9 +18,7 @@
 	}
 
 	@include media-breakpoint-up(md) {
-		@include padding(
-			top 20px left calc(#{math.div(100 * 100, $prototype-width-unitless)}vw + 40px)
-		);
+		@include padding(left calc(#{math.div(100 * 100, $prototype-width-unitless)}vw + 40px));
 	}
 
 	@include media-breakpoint-up(hd) {
@@ -28,68 +26,13 @@
 	}
 
 	&__wrapper {
-		@include padding(right #{math.div(42 * 100, 750)}vw left #{math.div(42 * 100, 750)}vw);
-
 		border-radius: map-get($borders, radius);
 		background-color: rgba(the_color(white), 0.97);
 		box-shadow: 2px 2px 3px rgba(the_color(black), 0.2);
 	}
 
-	&__grid {
-		// Grid.
-		grid-template-columns: repeat(10, 1fr);
-		grid-template-rows: repeat(10, 1fr);
-		grid-column-gap: 0px;
-		grid-row-gap: 0px;
-
-		@include media-breakpoint-up(md) {
-			grid-template-columns: repeat(12, 1fr);
-			grid-template-rows: repeat(11, 1fr);
-		}
-	}
-
-	&__signup-form {
-		grid-area: 8 / 2 / 12 / 10;
-
-		@include media-breakpoint-up(md) {
-			grid-area: 10 / 1 / 12 / 6;
-		}
-	}
-
-	// .Menu__primary
-	&__primary {
-		grid-area: 2 / 2 / 7 / 11;
-
-		@include media-breakpoint-up(md) {
-			grid-area: 2 / 3 / 8 / 6;
-		}
-
-		.Menu__item {
-			h1 {
-				@include margin(top 2em bottom 2em);
-			}
-
-			&:first-child {
-				h1 {
-					@include margin(top 0);
-				}
-			}
-			&:last-child {
-				h1 {
-					@include margin(bottom 0);
-				}
-			}
-		}
-	}
-
 	// .Menu__secondary
 	&__secondary {
-		grid-area: 7 / 2 / 8 / 11;
-
-		@include media-breakpoint-up(md) {
-			grid-area: 2 / 10 / 8 / 12;
-		}
-
 		ul {
 			columns: 2;
 			column-gap: 40px;
@@ -115,7 +58,6 @@
 	// .Menu__button
 	&__button {
 		svg {
-			@extend .align-middle;
 			@include size(#{math.div(37 * 100, 750)}vw, #{math.div(32 * 100, 750)}vw);
 
 			@include media-breakpoint-up(md) {

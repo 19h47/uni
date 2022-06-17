@@ -12,11 +12,11 @@ namespace UNI\Plugins\ACF\Fields;
  * Archive Page
  */
 class ArchivePage {
-		/**
-		 * Key
-		 *
-		 * @var string
-		 */
+	/**
+	 * Key
+	 *
+	 * @var string
+	 */
 	private $key = 'archive_page';
 
 	/**
@@ -48,7 +48,7 @@ class ArchivePage {
 			acf_add_local_field_group(
 				array(
 					'key'                   => 'group_5ebba135dd8e8',
-					'title'                 => __( 'Options de l\'archive', 'uni' ),
+					'title'                 => __( 'Archive Fields', 'uni' ),
 					'fields'                => array(
 						array(
 							'key'   => 'field_5ebba20b21b77',
@@ -113,14 +113,14 @@ class ArchivePage {
 								),
 								array(
 									'key'           => 'field_5eda869f739de',
-									'label'         => 'Projet',
+									'label'         => __( 'Project', 'uni' ),
 									'name'          => 'project',
 									'type'          => 'post_object',
 									'post_type'     => array( 'project' ),
 									'taxonomy'      => '',
 									'allow_null'    => 0,
 									'multiple'      => 1,
-									'return_format' => 'object',
+									'return_format' => 'id',
 									'ui'            => 1,
 								),
 							),
