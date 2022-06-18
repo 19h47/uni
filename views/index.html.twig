@@ -59,7 +59,7 @@
 			{{- include( 'components/languages.html.twig' ) -}}
 		</div>
 
-		<a class="top-0 bottom-0 m-auto Logo position-absolute end-0 start-0 z-index-1" href="{{ site.link }}" aria-label="{{ site.description }}">
+		<a class="inset-0 m-auto Logo position-absolute z-index-1" href="{{ site.link }}" aria-label="{{ site.description }}">
 			{{- include( 'svg/use.html.twig', { icon: 'logo-vertical', classes: [ 'w-100', 'h-100', 'align-middle', 'd-none', 'd-md-block' ] }, with_context = false ) -}}
 			{{- include( 'svg/use.html.twig', { icon: 'logo-horizontal', classes: [ 'w-100', 'h-100', 'align-middle', 'd-md-none' ] }, with_context = false ) -}}
 		</a>

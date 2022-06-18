@@ -13,7 +13,7 @@ class FrontPage extends M {
 	}
 
 	init() {
-		this.$('player')[0].load();
+
 
 		if (breakpoints.md.matches) {
 			this.$('grid')[0].addEventListener('wheel', () => {
@@ -24,11 +24,13 @@ class FrontPage extends M {
 				}
 			});
 
-			this.$('grid')[0].addEventListener('click', () => {
+			this.$('grid')[0].addEventListener('click', async () => {
+				console.log('click');
+
 				if (!this.playing) {
+					await this.$('player')[this.current].play();
 					this.playing = true;
 
-					this.$('player')[this.current].play();
 				}
 			});
 
@@ -44,18 +46,20 @@ class FrontPage extends M {
 				});
 
 				$player.addEventListener('ended', () => {
-					this.playing = false;
+					console.log('ended', $player);
 
-					$player.classList.add('is-hidden');
+					this.playing = false;
+					this.current = 0 === index ? 1 : 0;
+
+					$player.style.setProperty('visibility', 'hidden');
+					$player.style.setProperty('opacity', '0');
+					$player.style.setProperty('z-index', '1');
+
 					$player.currentTime = 0;
 
-					if (0 === index) {
-						this.current = 1;
-						this.$('player')[1].classList.remove('is-hidden');
-					} else {
-						this.current = 0;
-						this.$('player')[0].classList.remove('is-hidden');
-					}
+					this.$('player')[this.current].style.setProperty('visibility', 'visible');
+					this.$('player')[this.current].style.setProperty('opacity', '1');
+					this.$('player')[this.current].style.setProperty('z-index', '2');
 				});
 			});
 		}

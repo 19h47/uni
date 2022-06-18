@@ -69,20 +69,24 @@
 		<div class="overflow-md-hidden Front-page__video position-absolute inset-0 z-index-1">
 
 			<video
-				class="z-index-2 top-0 bottom-0 object-fit-cover object-position-center position-absolute end-0 start-0 d-none d-md-block h-100 w-100"
-				preload="auto"
+				class="inset-0 object-fit-cover object-position-center position-absolute d-none d-md-block h-100 w-100"
+				preload
 				muted
 				playsinline
 				data-front-page="player"
+				poster="{{ theme.link }}/{{ manifest['img/jpg/poster-forward.jpg'] }}"
+				style="opacity: 1; visibility: visible; z-index: 2"
 			>
 				<source src="{{ theme.link }}/{{ manifest['videos/front-page-forward.mp4'] }}" type="video/mp4">
 			</video>
 			<video
-				class="z-index-2 top-0 bottom-0 object-fit-cover object-position-center position-absolute end-0 start-0 is-hidden h-100 w-100"
-				preload="auto"
+				class="inset-0 object-fit-cover object-position-center position-absolute is-hidden h-100 w-100"
+				preload
 				muted
 				playsinline
 				data-front-page="player"
+				poster="{{ theme.link }}/{{ manifest['img/jpg/poster-backward.jpg'] }}"
+				style="opacity: 0; visibility: hidden; z-index: 1"
 			>
 				<source src="{{ theme.link }}/{{ manifest['videos/front-page-backward.mp4'] }}" type="video/mp4">
 			</video>
