@@ -9,13 +9,7 @@
 
 .Page-title {
 	h1 {
-		@include margin(top 0 bottom 0);
-
 		span {
-			@extend .ff-body, .text-none;
-			@extend .d-block;
-			@include letter-spacing(0);
-
 			// @include font-sizes(25, 30, 75);
 			font-size: #{math.div(12, 16)}rem;
 

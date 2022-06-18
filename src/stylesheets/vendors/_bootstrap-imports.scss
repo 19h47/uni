@@ -134,6 +134,7 @@ $utilities: map-merge(
 		'letter-spacing': (
 			property: letter-spacing,
 			values: (
+				0: 0,
 				50: 0.05em,
 				60: 0.06em,
 				100: 0.1em,

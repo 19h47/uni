@@ -50,7 +50,9 @@
 						</div>
 
 						<div class="Page-title text-uppercase grid-area-md-2/3/4/10">
-							<h1 class="uppercase text-center text-md-start">{{- post.subtitle ? "<span>#{ post.subtitle }</span>" -}}{{- post.title -}}</h1>
+							<h1 class="uppercase text-center text-md-start my-0">
+								{{- post.subtitle ? "<span class=\"letter-spacing-0 ff-body text-none d-block\">#{ post.subtitle }</span>" -}}
+							{{- post.title -}}</h1>
 						</div>
 
 						<div class="Wysiwyg mt-20px mt-md-0 grid-area-md-4/4/10/9">{{- post.content -}}</div>

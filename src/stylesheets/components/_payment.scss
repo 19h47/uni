@@ -16,6 +16,7 @@
 	& > *:last-child {
 		@include margin(bottom 0);
 	}
+
 	&__methods {
 		@include margin(top 1em bottom 1em);
 		@extend .list-style-type-none;
