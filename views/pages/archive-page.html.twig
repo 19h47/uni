@@ -33,7 +33,7 @@
 				{% if post.items %}
 					{{- include( 'woocommerce/loop/loop-start.html.twig', { columns: loop_columns } ) -}}
 						{% for item in post.items %}
-							<li class="Loop d-md-flex">
+							<li class="Loop w-md-800vw h-md-100 d-md-flex">
 
 								<{{- item.project ? "a href=\"#{item.project.link}\"" | raw : 'div' | raw }}
 									class="Thumbnail position-relative d-block {{ item.project.color ? '' : 'background-color-gray-very-light-01' }}"

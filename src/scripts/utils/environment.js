@@ -9,13 +9,10 @@ const scroll = {
 
 const breakpoints = {
 	xs: window.matchMedia('(min-width: 0)'),
-	sm: window.matchMedia('(min-width: 576px)'),
-	md: window.matchMedia('(min-width: 768px)'),
-	lg: window.matchMedia('(min-width: 992px)'),
-	xl: window.matchMedia('(min-width: 1200px)'),
-	xxl: window.matchMedia('(min-width: 1400px)'),
-	'2xl': window.matchMedia('(min-width: 1600px)'),
-	'3xl': window.matchMedia('(min-width: 1800px)'),
+	sm: window.matchMedia('(min-width: 754px)'),
+	md: window.matchMedia('(min-width: 992px)'),
+	lg: window.matchMedia('(min-width: 1200px)'),
+	hd: window.matchMedia('(min-width: 2560px)'),
 }
 
 const production = 'production' === process.env.NODE_ENV;

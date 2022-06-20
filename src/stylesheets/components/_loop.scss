@@ -9,12 +9,6 @@
 @use 'sass:math';
 
 .Loop {
-	$this: &;
-
-	@include media-breakpoint-up(md) {
-		@include size(#{math.div(800 * 100, $prototype-width-unitless)}vw, 100%);
-	}
-
 	&__header {
 		@include media-breakpoint-up(md) {
 			width: percentage(math.div(200, 800));

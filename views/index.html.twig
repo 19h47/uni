@@ -29,45 +29,27 @@
 			'end-md-auto',
 			'start-0',
 			'bottom-md-0',
-			'mt-20px',
-			'mt-md-0',
-			'mb-20px',
-			'mb-md-0',
-			'ms-md-20px',
+			'my-20px',
+			'my-md-0',
+			'mx-md-20px',
 			'z-index-5',
 			'start-md-auto',
-			'p-20px',
+			'px-20px',
+			'px-md-0',
 			'py-md-40px',
-			'px-md-20px',
 			'background-color-white',
 			'h-60px',
 			'h-md-100',
 			'Site-header',
 		] | join( ' ' ) | trim }}"
 	>
-		<div class="flex-row-reverse d-flex flex-md-column">
-			<button
-				class="Menu__button align-middle position-relative z-index-2"
-				type="button"
-				data-module-menu-button
-				data-module-project-information-button
-				data-project-information-button-action="close"
-				aria-label="{{ __('Menu', 'uni' ) }}"
-			>
-				{{- include( 'svg/use.html.twig', { icon: 'bars', classes: [ 'pe-none' ] }, with_context = false ) -}}
-			</button>
-			{{- include( 'components/languages.html.twig' ) -}}
+		<div class="flex-row-reverse d-flex flex-md-column align-items-center">
+			{{- include( 'components/button-menu.html.twig' ) -}}
+			{{- include( 'components/languages.html.twig', { classes: [ 'mt-md-20px', 'me-20px', 'me-md-0' ] } ) -}}
 		</div>
 
-		<a class="inset-0 m-auto Logo position-absolute z-index-1" href="{{ site.link }}" aria-label="{{ site.description }}">
-			{{- include( 'svg/use.html.twig', { icon: 'logo-vertical', classes: [ 'w-100', 'h-100', 'align-middle', 'd-none', 'd-md-block' ] }, with_context = false ) -}}
-			{{- include( 'svg/use.html.twig', { icon: 'logo-horizontal', classes: [ 'w-100', 'h-100', 'align-middle', 'd-md-none' ] }, with_context = false ) -}}
-		</a>
-
-		<{{ ( cart.is_empty ? 'p' : "a href=\"#{cart_url}\"" ) | raw }} class="mb-0 Mini-cart position-relative z-index-2 js-total">
-			<span class="js-cart-contents-count position-absolute bottom-100 start-100 d-block">({{- cart.get_cart_contents_count() -}})</span>
-			{{- include( 'svg/use.html.twig', { classes: [ 'd-block' ], icon: 'cart' }, with_context = false ) -}}
-		</{{ ( cart.is_empty ? 'p' : 'a' ) | raw }}>
+		{{- include( 'components/logo.html.twig' ) -}}
+		{{- include( 'components/mini-cart.html.twig', { classes: [ 'z-index-2' ] } ) -}}
 
 	</header>
 

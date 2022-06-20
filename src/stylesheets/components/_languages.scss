@@ -6,27 +6,6 @@
 @use 'sass:math';
 
 .Languages {
-	// @include font-sizes(20);
-
-	font-size: #{math.div(20, $base-font-size)}rem;
-	line-height: math.div(58, 20);
-	margin-right: #{math.div(24, $base-font-size)}rem;
-
-	@include media-breakpoint-up(md) {
-		margin-right: 0;
-	}
-
-	@at-root .Site-header & {
-		@include media-breakpoint-up(md) {
-			margin-top: #{math.div(24, $base-font-size)}rem;
-			margin-left: 0;
-		}
-
-		@include media-breakpoint-up(hd) {
-			margin-top: #{math.div(40, $base-font-size)}rem;
-		}
-	}
-
 	&__item {
 		border-bottom: 1px solid the_color(black);
 		padding-right: #{math.div(5, $base-font-size)}rem;

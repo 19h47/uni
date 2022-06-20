@@ -6,7 +6,7 @@
  # @purgeCSS current-lang
  #}
 
-<ul class="Languages list-style-type-none position-relative d-flex flex-column z-index-2">
+<ul class="Languages fs-2xs list-style-type-none position-relative d-flex flex-column z-index-2 {{ classes ? classes | join( ' ' ) | trim }}">
 	{% for lang in pll_the_languages() %}
 		<li class="Languages__item px-md-0 text-uppercase text-center">
 			<a id="lang-{{ lang.id }}" href="{{ lang.url }}" class="d-inline-block align-middle fw-extralight {{ lang.classes | join( ' ' ) }}" aria-label="{{ lang.name }}">

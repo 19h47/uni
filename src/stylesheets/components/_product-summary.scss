@@ -14,21 +14,27 @@
 			}
 		}
 	}
-	& > div:nth-child(4) {
-		@include media-breakpoint-up(md) {
-			@include margin(top #{math.div(209.6 * 100, $prototype-height-unitless)}vh);
-		}
-	}
+	// & > div:nth-child(4) {
+	// 	margin-top: 0;
 
-	& > div:nth-child(5) {
-		@include media-breakpoint-up(md) {
-			@include margin(top #{math.div(209.6 * 100, $prototype-height-unitless)}vh);
-		}
-	}
+	// 	@include media-breakpoint-up(md) {
+	// 		@include margin(top #{math.div(209.6 * 100, $prototype-height-unitless)}vh);
+	// 	}
+	// }
+
+	// & > div:nth-child(5) {
+	// 	margin-top: 0;
+
+	// 	@include media-breakpoint-up(md) {
+	// 		@include margin(top #{math.div(209.6 * 100, $prototype-height-unitless)}vh);
+	// 	}
+	// }
 
 	& > div:nth-child(6) {
+		// margin-top: 0;
+
 		@include media-breakpoint-up(md) {
-			@include margin(top #{math.div(204.66 * 100, $prototype-height-unitless)}vh);
+			// @include margin(top #{math.div(204.66 * 100, $prototype-height-unitless)}vh);
 
 			@at-root .product-type-variable & {
 				@include margin(top #{math.div(89.91 * 100, $prototype-height-unitless)}vh);

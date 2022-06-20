@@ -71,7 +71,7 @@
 							</h1>
 						</div>
 
-						<div class="Wysiwyg grid-area-md-4/2/8/5 mt-20px mt-md-0 woocommerce-product-details__short-description">
+						<div class="Wysiwyg grid-area-md-4/2/8/5 mt-20px mt-md-0 align-self-md-end woocommerce-product-details__short-description">
 							{#
 							 # Hook: woocommerce_single_product_content
 							 #
@@ -82,9 +82,11 @@
 							{{- post.terms( 'product_cat' ) | map( c => "<p class=\"Product__category-description\">#{c.description}</p>" ) | join( ', ' ) -}}
 						</div>
 
-						<div class="grid-area-md-4/6/12/9 mt-20px mt-md-0">{{- include( 'partials/attributes.html.twig', { attributes: post.attributes } ) -}}</div>
+						<div class="grid-area-md-4/6/12/9 mt-20px mt-md-0">
+							{{- include( 'partials/attributes.html.twig', { attributes: post.attributes } ) -}}
+						</div>
 
-						<div class="mt-20px mt-md-0 grid-area-md-8/1/12/2">
+						<div class="mt-20px mt-md-0 grid-area-md-8/1/10/2 align-self-md-end">
 							{#
 							 # Hook: woocommerce_single_product_price
 							 #
@@ -93,7 +95,7 @@
 							{% do action( 'woocommerce_single_product_price' ) %}
 						</div>
 
-						<div class="mt-20px mt-md-0 grid-area-md-8/2/12/3">
+						<div class="mt-20px mt-md-0 grid-area-md-8/2/10/3 align-self-md-end">
 							{#
 							 # Hook: woocommerce_single_product_meta
 							 #
@@ -103,7 +105,7 @@
 							{% do action( 'woocommerce_single_product_meta' ) %}
 						</div>
 
-						<div class="mt-20px mt-md-0 grid-area-md-8/3/12/6">
+						<div class="mt-20px mt-md-0 grid-area-md-8/3/10/6 align-self-md-end">
 							{#
 							 # Hook: woocommerce_single_product_add_to_cart
 							 #

@@ -51,6 +51,10 @@ body {
 	&.is-native-scroll {
 		overscroll-behavior: none;
 	}
+
+	@include media-breakpoint-up(md) {
+		font-size: math.div($base-font-size * 100vw, $prototype-width-unitless);
+	}
 }
 
 a,

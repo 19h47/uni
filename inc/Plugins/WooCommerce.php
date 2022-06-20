@@ -280,7 +280,7 @@ class WooCommerce {
 	 * @return array $fragments
 	 */
 	public function add_to_cart_fragments( array $fragments ) : array {
-		$fragments['span.js-cart-contents-count'] = '<span class="js-cart-contents-count position-absolute bottom-100 start-100 d-block">(' . WC()->cart->get_cart_contents_count() . ')</span>';
+		$fragments['span.js-cart-contents-count'] = '<span class="js-cart-contents-count leading-none ms-auto">(' . WC()->cart->get_cart_contents_count() . ')</span>';
 
 		return $fragments;
 	}

@@ -50,7 +50,7 @@
 				>
 					<div class="js-title grid-area-md-2/2/4/6 Page-title">
 						<h1 class="my-0 text-center text-md-start">
-							{{- post.get_terms( 'project_cat' ) ? '<span class="ff-body text-none d-block">' ~ post.get_terms( 'project_cat' ) | map( cat => cat.name ) | join( ', ' ) ~ '</span>' -}}
+							{{- post.get_terms( 'project_cat' ) ? '<span class="ff-body text-none d-block letter-spacing-0">' ~ post.get_terms( 'project_cat' ) | map( cat => cat.name ) | join( ', ' ) ~ '</span>' -}}
 							{{- post.title -}}
 						</h1>
 

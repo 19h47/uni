@@ -10,7 +10,7 @@
 
 	{% embed 'components/modal.html.twig' with { id: post.id, size: 'small' } %}
 		{% block body %}
-			<div class="my-3 my-md-5">
+			<div class="my-3 my-md-5 text-center text-md-left">
 
 				{{- include( 'svg/use.html.twig', { icon: 'logo-horizontal', classes: [ 'w-120px', 'h-40px', 'd-block', 'mx-auto' ] }, with_context = false ) -}}
 				{{- include( 'svg/use.html.twig', { icon: 'times', classes: [ 'my-3', 'w-20px', 'h-20px', 'd-block', 'mx-auto' ] }, with_context = false ) -}}
@@ -20,7 +20,7 @@
 				<div class="my-5 text-center">
 					<p>UNI x Ulule</p>
 					<p>Objectifs 2022, plein de nouveauté et d'opportunités, c'est ici !</p>
-					<p><a class="Button Button--black" href="https://fr.ulule.com/uni-design-d-espace-et-mobilier-contemporain/" target="_blank" rel="noopener noreferer">Voir notre campagne Ulule</a></p>
+					<p><a class="d-inline-block Button Button--black" href="https://fr.ulule.com/uni-design-d-espace-et-mobilier-contemporain/" target="_blank" rel="noopener noreferer">Voir notre campagne Ulule</a></p>
 				</div>
 
 				<p>Pour suivre toutes nos actualités,<br>inscrivez-vous à la newsletter UNI Habitat.</p>
@@ -47,17 +47,17 @@
 				{{- post.content -}}
 			</div>
 
-			<div class="grid-area-6/1/10/6 grid-area-sm-7/1/9/6 grid-area-md-9/2/10/5 align-self-center align-self-md-auto">
-				<a class="Front-page__link text-center d-block" href="{{ shop_url }}">
+			<div class="grid-area-6/1/10/6 grid-area-sm-/1/9/6 grid-area-md-9/1/10/7 align-self-center align-self-md-auto">
+				<a class="fx-fs-3xl text-center d-block" href="{{ shop_url }}">
 					{{- _x( 'Explore our:', 'front page', 'uni' ) -}}
-					<span class="ff-title text-uppercase d-block letter-spacing-250">{{- __( 'Store', 'uni' ) -}}</span>
+					<span class="fs-xl fs-md-7xl ff-title text-uppercase d-block letter-spacing-250">{{- __( 'Store', 'uni' ) -}}</span>
 				</a>
 			</div>
 
-			<div class="align-self-center align-self-md-auto grid-area-6/6/10/11 grid-area-sm-7/6/9/11 grid-area-md-9/9/10/12">
-				<a class="Front-page__link text-center d-block" href="{{ habitat_page.link }}">
+			<div class="grid-area-6/6/10/11 grid-area-sm-7/6/9/11 grid-area-md-9/7/10/13 align-self-center align-self-md-auto">
+				<a class="fx-fs-3xl text-center d-block" href="{{ habitat_page.link }}">
 					{{- _x( 'Discover our:', 'front page', 'uni' ) -}}
-					<span class="d-block ff-title text-uppercase">{{- __( 'Spaces', 'uni' ) -}}</span>
+					<span class="fs-xl fs-md-7xl ff-title text-uppercase d-block letter-spacing-250">{{- __( 'Spaces', 'uni' ) -}}</span>
 				</a>
 			</div>
 
@@ -80,7 +80,7 @@
 				<source src="{{ theme.link }}/{{ manifest['videos/front-page-forward.mp4'] }}" type="video/mp4">
 			</video>
 			<video
-				class="inset-0 object-fit-cover object-position-center position-absolute is-hidden h-100 w-100"
+				class="inset-0 object-fit-cover object-position-center position-absolute h-100 w-100"
 				preload
 				muted
 				playsinline

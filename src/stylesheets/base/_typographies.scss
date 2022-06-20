@@ -56,3 +56,37 @@ h5,
 h6,
 .h6 {
 }
+
+.fs-2xs {
+	font-size: #{math.div(20, $base-font-size)}rem;
+	line-height: math.div(58, 20);
+}
+
+.fs-xl {
+	font-size: #{math.div(30, $base-font-size)}rem;
+	line-height: math.div(68, 30);
+}
+
+.fs-3xl {
+	font-size: #{math.div(40, $base-font-size)}rem;
+	line-height: math.div(55, 40);
+}
+
+.fs-4xl {
+}
+
+.fs-7xl {
+	font-size: #{math.div(85, $base-font-size)}rem;
+	line-height: math.div(100, 85);
+}
+
+@include media-breakpoint-up(md) {
+	.fs-md-7xl {
+		font-size: #{math.div(85, $base-font-size)}rem;
+		line-height: math.div(100, 85);
+	}
+}
+
+.leading-none {
+	line-height: 1;
+}

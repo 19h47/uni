@@ -1,0 +1,8 @@
+{#
+ # Logo
+ #}
+
+<a class="inset-0 m-auto position-absolute z-index-1 w-60px w-md-20px h-20px h-md-60px" href="{{ site.link }}" aria-label="{{ site.description }}">
+	{{- include( 'svg/use.html.twig', { icon: 'logo-vertical', classes: [ 'w-100', 'h-100', 'd-none', 'd-md-block' ] }, with_context = false ) -}}
+	{{- include( 'svg/use.html.twig', { icon: 'logo-horizontal', classes: [ 'w-100', 'h-100', 'd-block', 'd-md-none' ] }, with_context = false ) -}}
+</a>

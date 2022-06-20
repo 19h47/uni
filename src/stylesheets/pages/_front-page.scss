@@ -25,18 +25,6 @@
 		line-height: math.div(40, 30);
 	}
 
-	&__link {
-		@include font-sizes(20, 30);
-
-		line-height: (30 * 0.05);
-
-		span {
-			@include font-sizes(40, 75, 30);
-
-			line-height: math.div(90, 70);
-		}
-	}
-
 	&__footer {
 		@include font-sizes(25, 35);
 
@@ -46,14 +34,5 @@
 	&__video {
 		// Safari workaround
 		border-radius: map-get($borders, radius);
-
-		img,
-		video {
-			&.is-hidden {
-				@include autoAlpha(0);
-
-				z-index: 1;
-			}
-		}
 	}
 }

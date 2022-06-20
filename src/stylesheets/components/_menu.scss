@@ -54,18 +54,4 @@
 			}
 		}
 	}
-
-	// .Menu__button
-	&__button {
-		svg {
-			@include size(#{math.div(37 * 100, 750)}vw, #{math.div(32 * 100, 750)}vw);
-
-			@include media-breakpoint-up(md) {
-				@include size(
-					#{math.div(37 * 100, $prototype-width-unitless)}vw,
-					#{math.div(32 * 100, $prototype-width-unitless)}vw
-				);
-			}
-		}
-	}
 }

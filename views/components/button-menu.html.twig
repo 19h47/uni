@@ -1,0 +1,38 @@
+{#
+ # Button: Menu
+ #
+ # @package UNI
+ #}
+
+ {% set id = random() %}
+
+<style>
+#button-menu-{{ id }} svg.bars {
+	display: block;
+}
+
+#button-menu-{{ id }} svg.times {
+	display: none;
+}
+
+.menu--is-open #button-menu-{{ id }} svg.bars {
+	display: none;
+}
+
+.menu--is-open #button-menu-{{ id }} svg.times {
+	display: block;
+}
+</style>
+
+<button
+	id="button-menu-{{ id }}"
+	class="w-20px h-20px align-middle position-relative z-index-2"
+	type="button"
+	data-module-menu-button
+	data-module-project-information-button
+	data-project-information-button-action="close"
+	aria-label="{{ __('Menu', 'uni' ) }}"
+>
+	{{- include( 'svg/use.html.twig', { icon: 'bars', classes: [ 'position-absolute', 'inset-0', 'w-100', 'h-100', 'pe-none' ] }, with_context = false ) -}}
+	{{- include( 'svg/use.html.twig', { icon: 'times', classes: [ 'position-absolute', 'inset-0', 'w-100', 'h-100', 'pe-none' ] }, with_context = false ) -}}
+</button>
