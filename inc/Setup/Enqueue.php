@@ -7,6 +7,8 @@
 
 namespace UNI\Setup;
 
+use WP_Scripts;
+
 /**
  * Enqueue
  */
@@ -22,7 +24,29 @@ class Enqueue {
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 		add_filter( 'style_loader_tag', array( $this, 'style_loader_tag' ), 10, 4 );
 		add_action( 'wp_head', array( $this, 'preload' ) );
+		add_action( 'wp_default_scripts', array( $this, 'default_scripts' ), 10, 1 );
 	}
+
+
+	/**
+	 * Default scripts
+	 *
+	 * @param WP_Scripts $scripts (Required) WP_Scripts object.
+	 *
+	 * @see https://developer.wordpress.org/reference/functions/wp_default_scripts/
+	 */
+	function default_scripts( WP_Scripts $scripts ) {
+
+		if ( ! is_admin() && isset( $scripts->registered['jquery'] ) ) {
+
+			$script = $scripts->registered['jquery'];
+
+			if ( $script->deps ) {
+				$script->deps = array_diff( $script->deps, array( 'jquery-migrate' ) );
+			}
+		}
+	}
+
 
 	/**
 	 * Enqueue scripts
@@ -33,12 +57,9 @@ class Enqueue {
 	 */
 	public function enqueue_scripts() : void {
 		wp_deregister_script( 'wp-embed' );
+		wp_deregister_script( 'wp-mediaelement' );
 
 		$deps = array( 'jquery', 'jquery-blockui' );
-
-		// if ( 'production' === getenv( 'WP_ENV' ) ) {
-		// wp_deregister_script( 'jquery' );
-		// }
 
 		if ( isset( get_theme_manifest()['vendors.js'] ) ) {
             wp_register_script( // phpcs:ignore
@@ -102,6 +123,9 @@ class Enqueue {
 	public function enqueue_style() : void {
 
 		wp_dequeue_style( 'wp-block-library' );
+		wp_deregister_style( 'wp-mediaelement' );
+		wp_deregister_style( 'wc-block-style' );
+		wp_deregister_style( 'wc-block-editor' );
 
 		// Add custom fonts, used in the main stylesheet.
 		$webfonts = array();

@@ -19,7 +19,10 @@
 	<picture{{ size ? " data-size=\"#{ size }\"" : '' }} mime-type="{{ image.post_mime_type }}">
 
 		{% if 'image/svg+xml' != image.post_mime_type and 'image/gif' != image.post_mime_type %}
-			<source type="image/webp" srcset="{{ image.src( size | default( 'full' ) ) | towebp( 100 ) }}">
+			<source
+				type="image/webp"
+				srcset="{{ image.src( size | default( 'full' ) ) | towebp( 100 ) }}"
+			>
 			<source type="{{ image.post_mime_type }}" srcset="{{ image.src( size | default( 'full' ) ) }}">
 		{% endif %}
 
@@ -31,7 +34,7 @@
 			alt="{{ image.alt }}"
 			width="{{ image.sizes[ size ].width | default( image.width ) }}"
 			height="{{ image.sizes[ size ].height | default( image.height ) }}"
-			{{ image.srcset ? "srcset=\"#{ image.srcset( size | default( 'full' ) ) }\"" : '' }}
+			{{ image.srcset ? "srcset=\"#{ ( image.srcset( size | default( 'full' ) ) ) }\"" : '' }}
 			{{ image.img_sizes ? "sizes=\"#{ image.img_sizes( size | default( 'full' ) ) }\"" : '' }}
 			{{ attributes ? attributes | map( ( value, key ) => "#{key}=\"#{value}\"" ) | join( ' ' ) | raw }}
 		>

@@ -2,8 +2,6 @@ import { module as M } from '@19h47/modular';
 import Smooth from 'utils/smooth-scrolling.custom';
 import { breakpoints, html } from 'utils/environment';
 
-const imagesLoaded = require('imagesloaded');
-
 class HorizontalPage extends M {
 	constructor(container) {
 		super(container, 'HorizontalPage');
@@ -22,23 +20,19 @@ class HorizontalPage extends M {
 		}
 
 		this.options = {
-			preload: true,
+			preload: false,
 			native: true,
 			direction: 'vertical',
 			section: this.$('section')[0],
 			divs: this.$('track')[0],
 		};
 
-		return imagesLoaded(this.el, () => {
-			console.log('all images are loaded');
+		html.classList.remove('cursor-wait');
 
-			html.classList.remove('cursor-wait');
+		this.resize()
+		window.addEventListener('resize', this.resize.bind(this))
 
-			this.resize()
-			window.addEventListener('resize', this.resize.bind(this))
-
-			this.initPlugins();
-		});
+		return this.initPlugins();
 	}
 
 	initPlugins() {

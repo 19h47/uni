@@ -26,6 +26,9 @@ class WordPress {
 
 		add_filter( 'wpcf7_load_js', '__return_false' );
 		add_filter( 'wpcf7_load_css', '__return_false' );
+
+		// Disable Jetpack CSS
+		add_filter( 'jetpack_implode_frontend_css', '__return_false', 99 );
 	}
 
 	/**

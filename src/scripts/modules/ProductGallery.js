@@ -3,8 +3,6 @@ import { next, previous } from 'utils/flickity.utilities';
 
 const Flickity = require('flickity');
 
-require('flickity-imagesloaded');
-
 class ProductGallery extends M {
 	constructor(m) {
 		super(m);
@@ -24,7 +22,6 @@ class ProductGallery extends M {
 			cellSelector: '.js-cell',
 			wrapAround: true,
 			setGallerySize: false,
-			imagesLoaded: true,
 			contain: true,
 			cellAlign: 'center',
 		};
