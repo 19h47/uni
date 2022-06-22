@@ -12,17 +12,7 @@
 		@extend .text-decoration-underline;
 	}
 
-	@include media-breakpoint-up(md) {
-		@include padding(right 20px left #{math.div(200 * 100, $prototype-width-unitless)}vw);
-
-		width: #{math.div((5 * 200) * 100, $prototype-width-unitless)}vw;
-	}
-
 	&__grid {
-		@include padding(
-			top 100px right #{math.div(42 * 100, 750)}vw bottom 100px left #{math.div(42 * 100, 750)}vw
-		);
-
 		border-radius: map-get($borders, radius);
 		box-shadow: 1px 1px 3px rgba(the_color(black), 0.2);
 

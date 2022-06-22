@@ -64,14 +64,14 @@
 				</div>
 
 				{% if post.meta( 'gallery' ) %}
-					<div class="overflow-md-hidden Horizontal-page__gallery py-md-60vh background-color-white position-relative d-md-flex flex-md-nowrap z-index-2" style="transform: translate3d(0,0,0);">
+					<div class="overflow-md-hidden mb-20px ms-md-200vw py-md-60vh background-color-white position-relative d-md-flex flex-md-nowrap z-index-2" style="transform: translate3d(0,0,0);">
 						{% for image in post.meta( 'gallery' ) %}
 
 							{% set _product = TimberPost( image.id ).meta( 'product_link' ) %}
 
 							<div
 								id="image-{{ image.id }}"
-								class="Horizontal-page__image h-md-100 d-md-flex my-md-0 {{ loop.first ? 'mb-20px' : ( loop.last ? 'mt-20px' : 'my-20px' ) }}"
+								class="Horizontal-page__image h-md-100 d-md-flex my-md-0 {{ loop.first ? 'mb-20px' : ( loop.last ? 'mt-20px mx-md-200vw' : 'my-20px ms-md-200vw' ) }}"
 								data-index="{{ loop.index }}"
 								style="{{ loop.first ? 'background-color: transparent;' : '' }}"
 							>
@@ -91,7 +91,9 @@
 									-}}
 								</{{ _product ? 'a' : 'div' }}>
 
-								{{- _product ? "<h5>#{ _product.title }</h5>" -}}
+								{%- if _product %}
+									<h5 class="fw-normal fst-italic my-md-0 pe-md-20vw">{{- _product.title -}}</h5>
+								{%- endif -%}
 							</div>
 						{% endfor %}
 					</div>

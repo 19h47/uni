@@ -4,6 +4,7 @@
  # @package UNI
  # @purgeCSS About-page column-1 column-2 column-3 column-4 column-5 column-6 column-7 column-8 column-9 column-10 column-11 column-12
  #}
+
 {% extends 'index.html.twig' %}
 
 {% block content %}
@@ -13,9 +14,9 @@
 
 			<div class="d-md-flex flex-md-nowrap mt-md-20px mb-md-20px" data-module-wrapper-page>
 
-				<div class="Horizontal-page__content py-md-60vh pt-100px pb-20px d-md-flex flex-column position-relative">
+				<div class="py-md-0 pt-100px pb-20px d-md-flex flex-column position-relative">
 
-					<div class="Page-title mb-20px mb-md-0 py-md-60vh z-index-md-1 position-md-absolute top-md-0 start-md-0 js-title">
+					<div class="Page-title mb-20px mb-md-0 pt-md-0 pb-md-60vh z-index-md-1 position-md-absolute top-md-0 start-md-0 js-title">
 						<h1 class="text-uppercase text-center text-md-start my-0">
 							{{- post.subtitle ? "<span class=\"letter-spacing-0 ff-body text-none d-block\">#{ post.subtitle }</span>" -}}{{- post.title -}}
 						</h1>
@@ -23,26 +24,36 @@
 
 					<ul class="position-relative d-md-flex flex-md-nowrap list-style-type-none h-100 z-index-2">
 						{% for item in post.meta( 'layouts' ) %}
+							{% set classes = [
+								'text' == item.acf_fc_layout ? 'd-md-flex' : '',
+								'position-relative',
+								'my-md-0',
+								loop.first ? 'mb-20px' : ( loop.last ? 'mt-20px': 'my-20px' ),
+								'mx-md-0',
+								'column-' ~ item.columns,
+								item.columns in [ 3, 5, 8, 10 ] ? '' : 'w-md-1200vw',
+								3 == item.columns ? 'w-md-1000vw' : '',
+								5 == item.columns ? 'ms-md-200vw w-md-800vw' : '',
+								8 == item.columns ? 'ms-md-200vw w-md-1400vw' : '',
+								10 == item.columns ? 'ms-md-200vw w-md-1800vw' : '',
+								'image' == item.acf_fc_layout ? 'mx-n20px mx-md-0 my-md-n20px' : '',
+							] | join( ' ' ) | trim %}
+
 							{% if 'text' == item.acf_fc_layout %}
-								<li class="d-md-flex position-relative column-{{ item.columns }}">
-									<div class="Wysiwyg">
+								<li class="{{ classes }}">
+									<div class="Wysiwyg mt-md-350vw {{ loop.first ? 'ms-md-400vw' : 'ms-md-200vw' }}">
 										{{ item.text }}
 									</div>
 								</li>
 							{% endif %}
 
 							{% if 'image' == item.acf_fc_layout %}
-								<li class="position-relative mx-n20px mx-md-0 column-{{ item.columns }}">
+								<li class="{{ classes }}">
 									{{-
 										include(
 											'partials/image.html.twig',
 											{
-												classes: [
-													'w-100',
-													'object-fit-cover',
-													'object-position-center',
-													'd-block'
-												],
+												classes: [ 'h-auto', 'h-md-100', 'w-100', 'object-fit-cover', 'object-position-center', 'd-block' ],
 												image: item.image,
 												size: 8 == item.columns ? 'size-1400' : ( 5 == item.columns ? 'size-800' : 'size-1720' )
 											}

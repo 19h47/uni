@@ -63,14 +63,18 @@ $sizes: (
 	60: 60%,
 	80: 80%,
 	90: 90%,
-	200vw: math.div(200 * 100vw, $prototype-width-unitless),
-	600vw: math.div((200 * 3) * 100vw, $prototype-width-unitless),
-	800vw: math.div(800 * 100vw, $prototype-width-unitless),
-	1000vw: math.div(1000 * 100vw, $prototype-width-unitless),
-	1400vw: math.div((7 * 200) * 100vw, $prototype-width-unitless),
-	1600vw: math.div((8 * 200) * 100vw, $prototype-width-unitless),
-	1900vw: math.div(1900 * 100vw, $prototype-width-unitless),
-	2400vw: math.div((12 * 200) * 100vw, $prototype-width-unitless),
+	200vw: math.div((200 * 1) * 100vw, $prototype-width-unitless),
+	350vw: math.div((200 * 1.75) * 100vw, $prototype-width-unitless),
+	400vw: math.div((200 * 2) * 100vw, $prototype-width-unitless),
+	600vw: math.div(200 * 3 * 100vw, $prototype-width-unitless),
+	800vw: math.div(200 * 4 * 100vw, $prototype-width-unitless),
+	1000vw: math.div(200 * 5 * 100vw, $prototype-width-unitless),
+	1200vw: math.div((200 * 6) * 100vw, $prototype-width-unitless),
+	1400vw: math.div((200 * 7) * 100vw, $prototype-width-unitless),
+	1600vw: math.div((200 * 8) * 100vw, $prototype-width-unitless),
+	1800vw: math.div((200 * 9) * 100vw, $prototype-width-unitless),
+	1900vw: math.div((200 * 9.5) * 100vw, $prototype-width-unitless),
+	2400vw: math.div((200 * 12) * 100vw, $prototype-width-unitless),
 );
 
 /**
@@ -121,7 +125,10 @@ $spacers: map-merge(
 		80px: #{math.div(80, 16)}rem,
 		100px: #{math.div(100, 16)}rem,
 		60vh: math.div(60 * 100vh, $prototype-height-unitless),
-		200vw: math.div(200 * 100vw, $prototype-width-unitless),
+		20vw: math.div(20 * 100vw, $prototype-height-unitless),
+		200vw: math.div((200 * 1) * 100vw, $prototype-width-unitless),
+		350vw: math.div((200 * 1.75) * 100vw, $prototype-width-unitless),
+		400vw: math.div((200 * 2) * 100vw, $prototype-width-unitless),
 		1000vw: math.div((5 * 200) * 100vw, $prototype-width-unitless),
 	)
 );
