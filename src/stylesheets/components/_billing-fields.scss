@@ -12,9 +12,6 @@
 	& > h3 {
 		@include margin(top 0 bottom 0.8em);
 		@include padding(bottom 0.8em);
-		@include font-sizes(25);
-
-		line-height: math.div(30, 25);
 
 		border-bottom: 1px solid the_color(gray, very-dark);
 

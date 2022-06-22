@@ -5,21 +5,21 @@
  #}
 
 {% if socials is iterable %}
-	<ul class="{{ [ 'Socials', 'list-style-type-none' ] | merge( classes ? classes : [] ) | join( ' ' ) | trim }}">
+	<ul class="{{ [ 'list-style-type-none' ] | merge( classes ? classes : [] ) | join( ' ' ) | trim }}">
 
 		{% if label %}
-			<li class="Site-footer__item">
-				<h5 class="ff-body my-0">
+			<li class="mb-12px">
+				<h5 class="ff-body my-0 fs-2xs">
 					{{- label -}}
 				</h5>
 			</li>
 		{% endif %}
 
-		<ul class="d-flex align-items-center list-style-type-none">
+		<ul class="Socials d-flex align-items-center list-style-type-none">
 			{%- for social in socials -%}
-				<li class="Socials__item">
-					<a class="d-inline-block align-middle ff-title" href="{{ social.url }}" target="_blank" rel="noopener noreferer">
-						{{- include( 'svg/use.html.twig', { classes: [ 'd-block' ], icon: social.slug } ) -}}
+				<li>
+					<a class="d-inline-block align-middle ff-title color-gray-very-dark" href="{{ social.url }}" target="_blank" rel="noopener noreferer">
+						{{- include( 'svg/use.html.twig', { classes: [ 'fill-current', 'fill-black-hover', 'd-block' ], icon: social.slug } ) -}}
 					</a>
 				</li>
 			{%- endfor -%}

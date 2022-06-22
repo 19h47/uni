@@ -13,7 +13,8 @@
 			@include size(#{math.div(37 * 100, $prototype-width-unitless)}vw);
 		}
 	}
-	&__item {
+
+	li {
 		@include margin(right 0.5em left 0.5em);
 
 		&:first-child {

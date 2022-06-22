@@ -8,10 +8,6 @@
 
 .Heading {
 	h2 {
-		@include font-sizes(65);
-
-		line-height: math.div(105, 65);
-
 		@include media-breakpoint-up(md) {
 			writing-mode: vertical-rl;
 			transform: rotate(180deg);

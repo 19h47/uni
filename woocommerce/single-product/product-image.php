@@ -21,7 +21,6 @@ $context['post_thumbnail_id'] = $product->get_image_id();
 $wrapper_classes = apply_filters(
 	'woocommerce_single_product_image_gallery_classes',
 	array(
-		'Product-gallery',
 		'woocommerce-product-gallery',
 		'woocommerce-product-gallery--' . ( $context['post_thumbnail_id'] ? 'with-images' : 'without-images' ),
 		'woocommerce-product-gallery--columns-' . absint( $context['columns'] ),

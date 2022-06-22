@@ -8,10 +8,6 @@
 .Input {
 	$this: &;
 
-	@include font-sizes(25);
-
-	line-height: math.div(30, 25);
-
 	label {
 		@extend .d-block;
 		@include margin(bottom 1em);

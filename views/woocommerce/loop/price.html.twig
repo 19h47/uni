@@ -5,8 +5,9 @@
  # @param boolean render
  # @param boolean upcoming
  #}
+
 {% if price_html and render and not upcoming %}
-	<span class="Loop__price price">{{- price_html -}}</span>
+	<span class="price fs-xs">{{- price_html -}}</span>
 {% elseif upcoming and render %}
-	<span class="Loop__price price">{{- __( 'Coming soon', 'uni' ) -}}</span>
+	<span class="price fs-xs">{{- __( 'Coming soon', 'uni' ) -}}</span>
 {% endif %}

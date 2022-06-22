@@ -18,27 +18,6 @@
 		}
 	}
 
-	&__track {
-		@include media-breakpoint-up(md) {
-			@include padding(left calc(#{math.div(100 * 100, $prototype-width-unitless)}vw + 40px));
-
-			& > * {
-				flex-shrink: 0;
-			}
-		}
-	}
-
-	&__navigation {
-		svg {
-			transform: rotate(90deg);
-			transform-origin: center;
-
-			@include media-breakpoint-up(md) {
-				transform: rotate(0);
-			}
-		}
-	}
-
 	&__grid {
 		@include media-breakpoint-up(sm) {
 			@include padding(left #{math.div(42 * 100, 750)}vw);
@@ -60,10 +39,6 @@
 		}
 
 		h5 {
-			@include font-sizes(25);
-
-			line-height: math.div(30, 25);
-
 			@include media-breakpoint-up(md) {
 				writing-mode: vertical-rl;
 				transform: rotate(180deg);

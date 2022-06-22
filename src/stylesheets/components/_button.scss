@@ -8,9 +8,8 @@
 @use 'sass:math';
 
 .Button {
-	@extend .white-space-md-nowrap, .text-center;
-	@include letter-spacing(50);
-	@include font-sizes(25);
+	@extend .white-space-md-nowrap, .text-center, .letter-spacing-50;
+
 	@include padding(
 		top #{math.div(20, 30)}em right #{math.div(20, 30)}em bottom #{math.div(20, 30)}em left #{math.div(
 				20,

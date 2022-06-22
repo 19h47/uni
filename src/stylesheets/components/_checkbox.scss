@@ -7,12 +7,6 @@
 @use 'sass:math';
 
 .Checkbox {
-	$this: &;
-
-	@include font-sizes(25);
-
-	line-height: math.div(30, 25);
-
 	label {
 		.required {
 			@extend .text-decoration-none;

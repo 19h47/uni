@@ -27,7 +27,7 @@
 				<tr>
 					{# <th class="product-remove">&nbsp;</th> #}
 					<th class="product-thumbnail">{{- __( 'Products', 'uni' ) -}}</th>
-					<th class="product-name">&nbsp;</th>
+					<th class="product-name w-20 ff-title fst-italic">&nbsp;</th>
 					<th class="product-price">{{- __( 'Price', 'uni' ) -}}</th>
 					<th class="product-quantity">{{- __( 'Quantity', 'uni' ) -}}</th>
 					<th class="product-subtotal">{{- __( 'Total', 'uni' ) -}}</th>
@@ -46,7 +46,7 @@
 					<tr class="Cart__form__item woocommerce-cart-form__cart-item {{ product.item_class }}">
 						{# <td class="product-remove">{{- product.remove -}}</td> #}
 						<td class="product-thumbnail">{{- product.thumbnail -}}</td>
-						<td class="product-name" data-title="{{ __( 'Product', 'uni' ) }}">
+						<td class="product-name w-20 ff-title fst-italic" data-title="{{ __( 'Product', 'uni' ) }}">
 							{{- product.name -}}
 							{{- formatted_cart_item_data -}}
 							{{- product.backorder -}}
@@ -66,10 +66,10 @@
 				{% if coupons_enabled %}
 					<tr>
 						<td colspan="5" class="actions">
-							<div class="Coupon coupon Input d-flex justify-content-end">
+							<div class="Coupon py-md-20px coupon Input d-flex justify-content-end">
 								{# <label for="coupon_code">{{- __( 'Coupon:', 'uni' ) -}}</label> #}
-								<input type="text" name="coupon_code" class="input-text margin-right-2" id="coupon_code" value="" placeholder="{{ __( 'Coupon code', 'uni' ) }}" />
-								<button type="submit" class="Button button" name="apply_coupon" value="{{ __( 'Apply coupon', 'uni' ) }}">
+								<input type="text" name="coupon_code" class="input-text me-md-12px" id="coupon_code" value="" placeholder="{{ __( 'Coupon code', 'uni' ) }}" />
+								<button type="submit" class="Button white-space-md-nowrap text-center letter-spacing-50 shadow-uni button" name="apply_coupon" value="{{ __( 'Apply coupon', 'uni' ) }}">
 									{{- __( 'Apply coupon', 'uni' ) -}}
 								</button>
 
@@ -97,7 +97,7 @@
 							#}
 							{% do action( 'woocommerce_cart_actions' ) %}
 
-							<button type="submit" class="Button button" name="update_cart" value="{{ __( 'Update cart', 'uni' ) }}">
+							<button type="submit" class="Button white-space-md-nowrap text-center letter-spacing-50 shadow-uni button" name="update_cart" value="{{ __( 'Update cart', 'uni' ) }}">
 								{{- __( 'Update cart', 'uni' ) -}}
 							</button>
 

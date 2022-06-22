@@ -9,18 +9,25 @@
 
 {% block content %}
 
-	<div class="Horizontal-page__section mx-20px mx-md-0 mb-20px mb-md-0 position-md-fixed top-md-0 bottom-md-0 start-md-0 w-100 h-md-100" data-horizontal-page="section">
-		<div class="Horizontal-page__track d-md-flex flex-md-nowrap top-md-0 bottom-md-0 start-md-0 position-md-absolute z-index-md-0 h-md-100" data-horizontal-page="track">
+	<div class="Horizontal-page__section mt-100px m-md-0 mx-20px mb-20px position-md-fixed top-md-0 bottom-md-0 start-md-0 w-100 h-md-100" data-horizontal-page="section">
+		<div class="ps-md-100px d-md-flex flex-md-nowrap top-md-0 bottom-md-0 start-md-0 position-md-absolute z-index-md-0 h-md-100" data-horizontal-page="track">
 
-			<div class="d-md-flex flex-md-nowrap mt-md-20px mb-md-20px" data-module-wrapper-page>
+			<div class="d-md-flex flex-md-nowrap flex-md-shrink-0 mb-20px my-md-20px" data-module-wrapper-page>
 
-				<div class="py-md-0 pt-100px pb-20px d-md-flex flex-column position-relative">
+				<div class="d-md-flex flex-md-column position-relative">
 
-					<div class="Page-title mb-20px mb-md-0 pt-md-0 pb-md-60vh z-index-md-1 position-md-absolute top-md-0 start-md-0 js-title">
-						<h1 class="text-uppercase text-center text-md-start my-0">
-							{{- post.subtitle ? "<span class=\"letter-spacing-0 ff-body text-none d-block\">#{ post.subtitle }</span>" -}}{{- post.title -}}
-						</h1>
-					</div>
+					{{-
+						include(
+							'partials/page-title.html.twig',
+							{
+								classes: [
+									'text-center', 'text-md-start', 'mb-20px', 'mb-md-0', 'pt-md-0', 'pb-md-60vh', 'z-index-md-1', 'position-md-absolute', 'top-md-0', 'start-md-0', 'js-title'
+								],
+								subtitle: post.subtitle,
+								title: post.title
+							}
+						)
+					-}}
 
 					<ul class="position-relative d-md-flex flex-md-nowrap list-style-type-none h-100 z-index-2">
 						{% for item in post.meta( 'layouts' ) %}
@@ -41,7 +48,7 @@
 
 							{% if 'text' == item.acf_fc_layout %}
 								<li class="{{ classes }}">
-									<div class="Wysiwyg mt-md-350vw {{ loop.first ? 'ms-md-400vw' : 'ms-md-200vw' }}">
+									<div class="Wysiwyg mt-md-350vw {{ loop.last ? 'me-md-200vw' : '' }} {{ loop.first ? 'ms-md-400vw' : 'ms-md-200vw' }}">
 										{{ item.text }}
 									</div>
 								</li>
@@ -53,7 +60,7 @@
 										include(
 											'partials/image.html.twig',
 											{
-												classes: [ 'h-auto', 'h-md-100', 'w-100', 'object-fit-cover', 'object-position-center', 'd-block' ],
+												classes: [ loop.last ? 'me-md-200vw' : '', 'h-auto', 'h-md-100', 'w-100', 'object-fit-cover', 'object-position-center', 'd-block' ],
 												image: item.image,
 												size: 8 == item.columns ? 'size-1400' : ( 5 == item.columns ? 'size-800' : 'size-1720' )
 											}
@@ -67,7 +74,7 @@
 
 			</div>
 
-			{{- include( 'components/footer-horizontal.html.twig' ) -}}
+			{{- include( 'components/footer-horizontal.html.twig', { classes: [ 'flex-md-shrink-0' ] } ) -}}
 
 		</div>
 	</div>

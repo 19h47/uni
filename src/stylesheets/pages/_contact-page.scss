@@ -8,10 +8,6 @@
 @use 'sass:math';
 
 .Contact-page {
-	&__mandatory {
-		@include font-sizes(15);
-	}
-
 	form {
 		transition: 0.7s opacity map-get($easings, ease-out-expo);
 
@@ -22,6 +18,7 @@
 		}
 
 		.error-message {
+			@extend .fs-2xs;
 			@include padding(top 0.5em);
 
 			color: the_color(red, bright);

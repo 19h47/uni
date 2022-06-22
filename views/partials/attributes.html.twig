@@ -5,15 +5,19 @@
  # @param array attributes
  #
  #}
-<ul class="Attributes">
+
+<ul class="list-style-type-none">
 	{% for attribute in post.attributes %}
-		<li>
-			<div class="Attributes__name">
-				{{- attribute.name -}}
-			</div>
-			<div class="Attributes__options letter-spacing-50">
-				{{- attribute.options | join( ' ' ) -}}
-			</div>
+		<li class="{{ loop.first ? 'mb-20px' : loop.last ? 'mt-20px' : 'my-20px' }}">
+			{{-
+				include(
+					'partials/page-title.html.twig',
+					{
+						subtitle: attribute.name,
+						title: attribute.options | join( ' ' )
+					}
+				)
+			-}}
 		</li>
 	{% endfor %}
 </ul>

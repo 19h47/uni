@@ -29,23 +29,19 @@ class HorizontalPage extends M {
 
 		html.classList.remove('cursor-wait');
 
-		this.resize()
-		window.addEventListener('resize', this.resize.bind(this))
-
-		return this.initPlugins();
-	}
-
-	initPlugins() {
-		console.info('HorizontalPage.initPlugins');
+		this.resize();
+		window.addEventListener('resize', this.resize.bind(this));
 
 		this.scroll = new Smooth(this.options).init();
+
+		return true;
 	}
 
 	resize() {
 		this.$('image').forEach($image => {
 			const { width } = $image.getBoundingClientRect();
 
-			console.log(`${width}px`);
+			// console.log(`${width}px`);
 
 			$image.parentElement.style.setProperty('width', `${width}px`);
 		});

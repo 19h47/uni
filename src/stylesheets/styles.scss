@@ -24,7 +24,6 @@
 @import '~@19h47/architecture/src/stylesheets/abstracts/mixins/power';
 @import '~@19h47/architecture/src/stylesheets/abstracts/mixins/reset-placeholder';
 @import '~@19h47/architecture/src/stylesheets/abstracts/mixins/size';
-@import 'abstracts/mixins';
 
 @import '~@19h47/architecture/src/stylesheets/abstracts/placeholders';
 
@@ -38,13 +37,7 @@
 @import 'base/typographies';
 
 // Layout
-@import 'layout/site';
-@import 'layout/header';
-@import 'layout/footer';
-@import 'layout/footer-horizontal';
-@import 'layout/footer-vertical';
 @import 'layout/carousel';
-@import 'layout/product';
 
 // Components
 @import 'components/menu';
@@ -61,32 +54,25 @@
 @import 'components/loop';
 @import 'components/product-add-to-cart';
 @import 'components/product-colors';
-@import 'components/product-gallery';
 @import 'components/product-price';
 @import 'components/product-summary';
 @import 'components/thumbnail';
-@import 'components/product-variations';
 @import 'components/select';
 @import 'components/cart';
 @import 'components/notices';
 @import 'components/shop-table';
-@import 'components/coupon';
 @import 'components/checkout';
 @import 'components/billing-fields';
 @import 'components/shipping-fields';
 @import 'components/shipping-methods';
 @import 'components/payment';
-@import 'components/terms-and-conditions';
 @import 'components/info';
 @import 'components/error';
 @import 'components/message';
-@import 'components/attributes';
 @import 'components/socials';
-@import 'components/page-title';
 
 // Pages
 @import 'pages/front-page';
-@import 'pages/single-product';
 @import 'pages/horizontal-page';
 @import 'pages/about-page';
 @import 'pages/single-project';

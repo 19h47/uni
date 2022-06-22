@@ -4,8 +4,21 @@
  # @package UNI
  #}
 
-<div class="Heading my-40px my-md-0 w-md-200vw h-md-100 position-relative d-md-flex align-items-md-center justify-content-center z-index-2 {{ classes ? ' ' ~ classes  | join( ' ' ) | trim : '' }}">
-	<h2 class="text-center fw-normal fst-normal text-uppercase ff-title my-0 letter-spacing-100 h-md-100">
+<div
+	class="{{ [
+		'Heading',
+		'my-40px',
+		'my-md-20px',
+		'position-relative',
+		'd-md-flex',
+		'align-items-md-center',
+		'justify-content-md-center',
+		'z-index-2',
+		'fs-xl',
+		'fs-md-2xl'
+	] | merge( classes | default( [] ) ) | join( ' ' ) | trim }}"
+>
+	<h2 class="mx-md-200vw text-center fw-normal fst-normal text-uppercase ff-title my-0 letter-spacing-100">
 		{{- link ? "<a href=\"#{ link }\">" | raw -}}
 			{{- title -}}
 		{{- link ? '</a>' | raw -}}

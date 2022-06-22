@@ -9,10 +9,6 @@
 @use 'sass:math';
 
 .Product-add-to-cart-button {
-	@include font-sizes(30);
-
-	line-height: math.div(40, 30);
-
 	@at-root .product-type-variable & {
 		@include margin(top #{math.div(67 * 100, $prototype-height-unitless)}vh);
 	}

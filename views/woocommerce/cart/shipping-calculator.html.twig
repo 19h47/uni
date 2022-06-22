@@ -11,7 +11,7 @@
 <form class="woocommerce-shipping-calculator" action="{{ cart_url | e }}" method="post">
 
 	<p>
-		<a href="#" class="Button w-100 d-block shipping-calculator-button">
+		<a href="#" class="Button white-space-md-nowrap text-center letter-spacing-50 shadow-uni w-100 d-block shipping-calculator-button">
 			{{- button_text | default( __( 'Calculate shipping', 'uni' ) ) -}}
 		</a>
 	</p>
@@ -64,7 +64,7 @@
 		{% endif %}
 
 		<p>
-			<button type="submit" name="calc_shipping" value="1" class="Button button w-100">
+			<button type="submit" name="calc_shipping" value="1" class="Button white-space-md-nowrap text-center letter-spacing-50 shadow-uni button w-100">
 				{{- __( 'Update', 'uni' ) -}}
 			</button>
 		</p>

@@ -11,5 +11,6 @@ use Timber\{ Timber };
 $context = Timber::get_context();
 
 $context['coupons_enabled'] = wc_coupons_enabled();
+$context['classes']         = array( 'mb-12px' );
 
 Timber::render( 'woocommerce/checkout/form-coupon.html.twig', $context );

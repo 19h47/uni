@@ -11,33 +11,11 @@
 .Loop {
 	&__header {
 		@include media-breakpoint-up(md) {
-			width: percentage(math.div(200, 800));
+			// width: percentage(math.div(200, 800));
 
 			writing-mode: vertical-rl;
 			transform: rotate(180deg);
 			transform-origin: center;
-			min-height: 100%;
-
-			@include padding(
-				top calc(#{math.div(80 * 100, $prototype-width-unitless)}vh + 20px) right #{math.div(
-						20 * 100,
-						$prototype-width-unitless
-					)}vw bottom calc(#{math.div(80 * 100, $prototype-width-unitless)}vh + 20px) left
-					#{math.div(20 * 100, $prototype-width-unitless)}vw
-			);
 		}
-	}
-
-	&__product-title {
-		@include font-sizes(25);
-		@include margin(top 0 bottom 0);
-
-		line-height: math.div(30, 25);
-	}
-
-	&__price {
-		@include font-sizes(25);
-
-		line-height: math.div(30, 25);
 	}
 }

@@ -3,19 +3,20 @@
  #}
 {% if coupons_enabled %}
 
-	<div class="woocommerce-form-coupon-toggle margin-bottom-2">
-		{{- fn( 'wc_print_notice', fn( 'apply_filters', 'woocommerce_checkout_coupon_message', __( 'Have a coupon?', 'woocommerce' ) ~ ' <a href="#" class="showcoupon">' ~ __( 'Click here to enter your code', 'woocommerce' ) ~ '</a>' ), 'notice' ) -}}
-	</div>
-
-	<form class="checkout_coupon woocommerce-form-coupon margin-y-2" method="post" style="display:none">
-
-		<div class="Coupon Input d-md-flex justify-content-md-end">
-			<input type="text" name="coupon_code" class="input-text margin-right-md-2" placeholder="{{ __( 'Coupon code', 'uni' ) }}" id="coupon_code" value="" />
-
-			<button type="submit" class="Button button margin-top-1 w-100 w-md-auto mt-md-0" name="apply_coupon" value="{{ __( 'Apply coupon', 'uni' ) }}">
-				{{- __( 'Apply coupon', 'uni' ) -}}
-			</button>
+	<div class="{{ classes ? classes | join( ' ' ) : '' }}">
+		<div class="woocommerce-form-coupon-toggle mb-12px">
+			{{- fn( 'wc_print_notice', fn( 'apply_filters', 'woocommerce_checkout_coupon_message', __( 'Have a coupon?', 'woocommerce' ) ~ ' <a href="#" class="showcoupon">' ~ __( 'Click here to enter your code', 'woocommerce' ) ~ '</a>' ), 'notice' ) -}}
 		</div>
-	</form>
+
+		<form class="checkout_coupon woocommerce-form-coupon" method="post" style="display:none">
+			<div class="Coupon Input d-md-flex justify-content-md-end">
+				<input type="text" name="coupon_code" class="input-text me-md-12px" placeholder="{{ __( 'Coupon code', 'uni' ) }}" id="coupon_code" value="" />
+
+				<button type="submit" class="Button white-space-md-nowrap text-center letter-spacing-50 button shadow-uni margin-top-1 w-100 w-md-auto mt-md-0" name="apply_coupon" value="{{ __( 'Apply coupon', 'uni' ) }}">
+					{{- __( 'Apply coupon', 'uni' ) -}}
+				</button>
+			</div>
+		</form>
+	</div>
 
 {% endif %}

@@ -40,12 +40,13 @@
 			'background-color-white',
 			'h-60px',
 			'h-md-100',
-			'Site-header',
+			'shadow-uni',
+			'w-md-60px'
 		] | join( ' ' ) | trim }}"
 	>
 		<div class="flex-row-reverse d-flex flex-md-column align-items-center">
 			{{- include( 'components/button-menu.html.twig' ) -}}
-			{{- include( 'components/languages.html.twig', { classes: [ 'mt-md-20px', 'me-20px', 'me-md-0' ] } ) -}}
+			{{- include( 'components/languages.html.twig', { classes: [ 'mt-md-24px', 'me-20px', 'me-md-0' ] } ) -}}
 		</div>
 
 		{{- include( 'components/logo.html.twig' ) -}}
@@ -61,13 +62,14 @@
 	{% do action( 'woocommerce_before_main_content' ) %}
 
 	{% block content %}
-		<div class="Site-content position-relative">
-			<div class="Site-content__inner">
+		<div class="w-100 mt-100px mx-20px mb-20px mt-md-200vh ms-md-100px position-relative">
+
+			<div class="mx-md-200vw mb-md-200vh mw-md-1200vw">
 				<h1 class="mt-0 text-center text-md-start">{{- post.title -}}</h1>
 				<div class="Wysiwyg">{{- post.content -}}</div>
 			</div>
 
-			{% include 'components/footer-vertical.html.twig' %}
+			{{- include( 'components/footer-vertical.html.twig' ) -}}
 		</div>
 	{% endblock %}
 

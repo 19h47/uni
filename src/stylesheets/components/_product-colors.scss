@@ -14,9 +14,6 @@
 
 	&__title {
 		@include margin(bottom 0.5em);
-		@include font-sizes(30);
-
-		line-height: math.div(36, 30);
 
 		@at-root .Loop #{ $this } #{ $this }__title {
 			@extend .d-none;
@@ -57,14 +54,7 @@
 		}
 
 		a {
-			border-radius: map-get($borders, radius);
 			transition: box-shadow 0.7s map-get($easings, ease-out-expo);
-
-			@include size(#{(25 * 60) * 0.01}px);
-
-			@include media-breakpoint-up(hd) {
-				@include size(#{math.div(25, 30)}em);
-			}
 
 			&.is-active {
 				box-shadow: 2px 2px 1px rgba(the_color(black), 0.2);

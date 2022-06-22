@@ -24,10 +24,8 @@
 
 	&__method {
 		@include padding(top 20px);
-		@include font-sizes(16);
 
 		border-bottom: 1px solid the_color(gray, very-dark);
-		line-height: math.div(19.2, 16);
 
 		&__header {
 			@include margin(bottom 20px);

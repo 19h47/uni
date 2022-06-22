@@ -1,0 +1,14 @@
+{#
+ # Page Title
+ #}
+
+<div class="Page-title {{ classes ? classes | join( ' ' ) }}">
+	<h1 class="my-0 fs-4xl leading-none">
+		{% if subtitle %}
+			<span class="mb-12px d-block ff-body letter-spacing-0 text-none fs-xs d-block">
+				{{- subtitle -}}
+			</span>
+		{% endif %}
+		{{- title -}}
+	</h1>
+</div>

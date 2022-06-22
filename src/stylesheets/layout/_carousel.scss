@@ -8,19 +8,4 @@
 	.flickity-viewport {
 		height: 100%;
 	}
-
-	&__navigation {
-		@include margin(top 1em);
-
-		button {
-			@include size(15px, 13px);
-		}
-	}
-
-	&__current {
-		@include letter-spacing(50);
-		@include font-sizes(15, 20);
-
-		line-height: (24 * 0.05);
-	}
 }

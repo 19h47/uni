@@ -8,8 +8,6 @@
 .Languages {
 	&__item {
 		border-bottom: 1px solid the_color(black);
-		padding-right: #{math.div(5, $base-font-size)}rem;
-		padding-left: #{math.div(5, $base-font-size)}rem;
 
 		&:last-child {
 			border-bottom: none;

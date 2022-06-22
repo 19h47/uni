@@ -1,5 +1,7 @@
 {#
  # Page Content
+ #
+ # @package UNI
  #}
 
 {% set classes = [
@@ -15,12 +17,16 @@
 ] | merge( classes | default( [] ) ) | join( ' ' ) | trim %}
 
 <div class="{{ classes }}">
-	<div class="Page-title woocommerce-products-header__title page-title grid-area-md-2/2/4/7">
-		<h1 class="text-uppercase text-center text-md-start my-0">
-			{{- subtitle ? "<span class=\"ff-body letter-spacing-0 text-none d-block\">#{ subtitle }</span>" -}}
-			{{- title -}}
-		</h1>
-	</div>
+	{{-
+		include(
+			'partials/page-title.html.twig',
+			{
+				classes: [ 'text-center', 'text-md-start', 'woocommerce-products-header__title', 'page-title', 'grid-area-md-2/2/4/7' ],
+				subtitle: subtitle,
+				title: title
+			}
+		)
+	-}}
 
 	{% block content %}
 		<div class="Wysiwyg d-none d-md-block mt-20px mt-md-0 grid-area-md-4/3/9/7">

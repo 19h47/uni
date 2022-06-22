@@ -11,26 +11,15 @@
 .Signup-form {
 	color: the_color(gray, very-dark);
 
-	// .Signup__label
-	&__label {
-		@include margin(bottom 2em);
-	}
-
 	// .Signup__group
 	&__group {
-		@include font-sizes(20);
-
-		line-height: (24 * 0.05);
 		border: 1px solid the_color(gray, very-dark);
-		border-radius: map-get($borders, radius);
 	}
 
 	[type='email'] {
-		@include padding(top 10px right 10px bottom 10px left 10px);
 		@include reset-placeholder(the_color(gray, very-light-02));
 
 		width: percentage(math.div(400, 600));
-		border-radius: map-get($borders, radius) 0 0 5px;
 
 		&:focus {
 			outline: none;
@@ -39,10 +28,8 @@
 	}
 
 	[type='submit'] {
-		@include padding(top 10px right 10px bottom 10px left 10px);
-
 		border-left: 1px solid the_color(gray, very-dark);
-		border-radius: 0 map-get($borders, radius) map-get($borders, radius) 0;
+
 		width: percentage(math.div(200, 600));
 
 		&:focus {
@@ -52,6 +39,7 @@
 	}
 
 	.error-message {
+		@extend .fs-2xs;
 		@include padding(top 10px bottom 10px);
 		@include absolute(top 100% right 0 left 0);
 
@@ -59,6 +47,7 @@
 	}
 
 	.success-message {
+		@extend .fs-2xs;
 		@include padding(top 10px bottom 10px);
 		@include absolute(top 100% right 0 left 0);
 

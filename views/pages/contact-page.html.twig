@@ -9,9 +9,9 @@
 {% block content %}
 
 	<div class="Horizontal-page__section mx-20px mx-md-0 mb-20px mb-md-0 position-md-fixed top-md-0 bottom-md-0 start-md-0 w-100 h-md-100" data-horizontal-page="section">
-		<div class="Horizontal-page__track d-md-flex flex-md-nowrap top-md-0 bottom-md-0 start-md-0 position-md-absolute z-index-md-0 h-md-100" data-horizontal-page="track">
+		<div class="ps-md-100px d-md-flex flex-md-nowrap top-md-0 bottom-md-0 start-md-0 position-md-absolute z-index-md-0 h-md-100" data-horizontal-page="track">
 
-			<div class="d-md-flex flex-md-nowrap mt-md-20px mb-md-20px" data-module-wrapper-page>
+			<div class="d-md-flex flex-md-nowrap my-md-20px flex-md-shrink-0" data-module-wrapper-page>
 
 				<form
 					id="contact-block"
@@ -19,12 +19,16 @@
 					data-contact-page="form"
 				>
 
-					<div class="Page-title mb-20px mb-md-0 grid-area-md-2/2/3/9">
-						<h1 class="text-center text-md-start my-0">
-							<span class="letter-spacing-0 ff-body text-none d-block">|&nbsp;U&nbsp;|&nbsp;N&nbsp;|&nbsp;I&nbsp;|</span>
-							{{- post.title -}}
-						</h1>
-					</div>
+					{{-
+						include(
+							'partials/page-title.html.twig',
+							{
+								classes: [ 'text-center', 'text-md-start', 'mb-20px', 'mb-md-0', 'grid-area-md-2/2/3/9' ],
+								subtitle: '|&nbsp;U&nbsp;|&nbsp;N&nbsp;|&nbsp;I&nbsp;|',
+								title: post.title
+							}
+						)
+					-}}
 
 					<div class="Wysiwyg my-1em my-md-0 grid-area-md-4/3/5/7">{{- post.content -}}</div>
 
@@ -76,11 +80,11 @@
 					</div>
 
 					<div class="align-self-end grid-area-10/9/10/11">
-						<p><button type="submit" class="Button w-100" id="">{{- _x( 'Send', 'contact page', 'uni' ) -}}</button></p>
+						<p><button type="submit" class="Button white-space-md-nowrap text-center letter-spacing-50 shadow-uni w-100" id="">{{- _x( 'Send', 'contact page', 'uni' ) -}}</button></p>
 					</div>
 
 					<div class="align-self-end grid-area-11/2/12/9">
-						<p class="Contact-page__mandatory m-md-0">
+						<p class="fs-xs m-md-0">
 							{{- _x( 'All fields marked with * are required', 'contact page', 'uni' ) -}}
 						</p>
 					</div>
@@ -89,7 +93,7 @@
 
 			</div>
 
-			{% include 'components/footer-horizontal.html.twig' %}
+			{{- include( 'components/footer-horizontal.html.twig', { classes: [ 'flex-md-shrink-0' ] } ) -}}
 
 		</div>
 	</div>

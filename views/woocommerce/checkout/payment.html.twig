@@ -39,7 +39,7 @@
 			{# translators: $1 and $2 opening and closing emphasis tags respectively #}
 			{{- fn( 'printf', __( 'Since your browser does not support JavaScript, or it is disabled, please ensure you click the %1$sUpdate Totals%2$s button before placing your order. You may be charged more than the amount stated above if you fail to do so.', 'uni' ), '<em>', '</em>' ) -}}
 			<br/>
-			<button type="submit" class="Button button alt" name="woocommerce_checkout_update_totals" value="{{ __( 'Update totals', 'uni' ) }}">
+			<button type="submit" class="Button white-space-md-nowrap text-center letter-spacing-50 button shadow-uni alt" name="woocommerce_checkout_update_totals" value="{{ __( 'Update totals', 'uni' ) }}">
 				{{- __( 'Update totals', 'uni' ) -}}
 			</button>
 		</noscript>
@@ -48,7 +48,7 @@
 
 	</div>
 
-	<div class="form-row text-md-center margin-y-2 margin-top-md-5 mb-md-0">
+	<div class="form-row text-md-center my-12px margin-top-md-5 mb-md-0">
 		{#
 		 # Hook: woocommerce_review_order_before_submit.
 		 #}
@@ -56,7 +56,7 @@
 
 
 		{% filter apply_filters( 'woocommerce_order_button_html' ) %}
-			<button type="submit" class="Button button alt w-100 w-md-auto" name="woocommerce_checkout_place_order" id="place_order" value="{{ order_button_text }}" data-value="{{ order_button_text }}">
+			<button type="submit" class="Button white-space-md-nowrap text-center letter-spacing-50 shadow-uni button alt w-100 w-md-auto" name="woocommerce_checkout_place_order" id="place_order" value="{{ order_button_text }}" data-value="{{ order_button_text }}">
 				{{- order_button_text -}}
 			</button>
 		{% endfilter %}

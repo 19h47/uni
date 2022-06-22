@@ -38,9 +38,7 @@
 			.product-price,
 			.product-quantity,
 			.product-subtotal {
-				@include font-sizes(25);
-
-				line-height: math.div(30, 25);
+				font-size: #{math.div(12, 16)}rem;
 			}
 
 			thead tr th {
@@ -83,7 +81,6 @@
 				padding: 0;
 
 				@include media-breakpoint-up(md) {
-					@include font-sizes(25);
 					@include padding(
 						top #{math.div(20, 30)}em right #{math.div(10, 30)}em bottom #{math.div(
 								20,
@@ -93,7 +90,6 @@
 
 					width: percentage(200 * 0.001);
 					border-bottom: 1px solid the_color(gray, very-dark);
-					line-height: math.div(30, 25);
 				}
 
 				a {
@@ -111,12 +107,7 @@
 					background-color: the_color(gray, very-light-01);
 				}
 			}
-			.product-name {
-				@extend .ff-title, .fst-italic;
 
-				line-height: math.div(45, 25);
-				width: percentage(200 * 0.001);
-			}
 			.product-price {
 				@extend .text-end;
 				width: percentage(200 * 0.001);
@@ -133,9 +124,6 @@
 
 				.Coupon {
 					@include padding(top #{(20 * 60) * 0.01}px bottom #{(20 * 60) * 0.01}px);
-					@include media-breakpoint-up(hd) {
-						@include padding(top #{math.div(20, 30)}em bottom #{math.div(20, 30)}em);
-					}
 				}
 			}
 		}

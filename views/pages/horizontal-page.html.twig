@@ -8,17 +8,14 @@
 {% block content %}
 
 	<div class="Horizontal-page__section mx-20px mx-md-0 mb-20px mb-md-0 position-md-fixed top-md-0 bottom-md-0 start-md-0 w-100 h-md-100" data-horizontal-page="section">
-		<div class="Horizontal-page__track d-md-flex flex-md-nowrap top-md-0 bottom-md-0 start-md-0 position-md-absolute z-index-md-0 h-md-100" data-horizontal-page="track">
+		<div class="ps-md-100px d-md-flex flex-md-nowrap top-md-0 bottom-md-0 start-md-0 position-md-absolute z-index-md-0 h-md-100" data-horizontal-page="track">
 
-			<div class="d-md-flex flex-md-nowrap mt-md-20px mb-md-20px"  data-module-wrapper-page>
+			<div class="d-md-flex flex-md-nowrap my-md-20px flex-md-shrink-0" data-module-wrapper-page>
 				<div
 					class="{{ [
-						'pb-20px',
-						'pb-md-0',
 						'pt-100px',
-						'pt-80px',
 						'Horizontal-page__grid',
-						'py-md-60vh',
+						'py-md-0',
 						'ps-md-0',
 						'position-md-static',
 						'top-0',
@@ -45,19 +42,40 @@
 						] | join( ' ' ) | trim }}"
 					>
 
-						<div class="Horizontal-page__navigation d-none grid-area-md-1/1/2/10 d-md-flex justify-content-end js-navigation">
-							{{- include( 'svg/use.html.twig', { classes: [ 'align-middle', 'w-14px', 'h-24px' ], icon: 'arrow-right' }, with_context = false ) -}}
+						<div class="align-items-center d-none grid-area-2/9/2/10 d-md-flex justify-content-end js-navigation">
+							{{- include( 'svg/use.html.twig', { classes: [ 'w-16px', 'h-24px' ], icon: 'arrow-right' }, with_context = false ) -}}
 						</div>
 
-						<div class="Page-title text-uppercase grid-area-md-2/3/4/10">
-							<h1 class="uppercase text-center text-md-start my-0">
-								{{- post.subtitle ? "<span class=\"letter-spacing-0 ff-body text-none d-block\">#{ post.subtitle }</span>" -}}
-							{{- post.title -}}</h1>
+						{{-
+							include(
+								'partials/page-title.html.twig',
+								{
+									classes: [ 'text-center', 'text-md-start', 'text-uppercase', 'grid-area-md-2/3/4/10' ],
+									subtitle: post.subtitle,
+									title: post.title
+								}
+							)
+						-}}
+
+						<div class="text-center my-20px d-md-none">
+							<button type="button" class="Button" data-module-disclosure-button aria-expanded="false" aria-controls="content, footer">
+								{{- __( 'Find out more &plus;', 'uni' ) -}}
+							</button>
 						</div>
 
-						<div class="Wysiwyg mt-20px mt-md-0 grid-area-md-4/4/10/9">{{- post.content -}}</div>
+						<div class="Wysiwyg my-20px" style="display: none;" id="content">
+							{{- post.content -}}
+						</div>
 
-						<div class="ff-title fst-italic mt-20px mt-md-0 js-footer align-self-end grid-area-10/1/11/11 grid-area-sm-9/1/10/11 grid-area-md-11/3/12/9">
+						<div class="ff-title fst-italic my-20px" style="display: none;" id="footer">
+							{{- post.footer | nl2br -}}
+						</div>
+
+						<div class="Wysiwyg d-none d-md-block grid-area-md-4/4/10/9">
+							{{- post.content -}}
+						</div>
+
+						<div class="ff-title fst-italic d-none d-md-block js-footer align-self-md-end grid-area-md-11/3/12/9">
 							{{- post.footer | nl2br -}}
 						</div>
 					</div>
@@ -71,7 +89,7 @@
 
 							<div
 								id="image-{{ image.id }}"
-								class="Horizontal-page__image h-md-100 d-md-flex my-md-0 {{ loop.first ? 'mb-20px' : ( loop.last ? 'mt-20px mx-md-200vw' : 'my-20px ms-md-200vw' ) }}"
+								class="Horizontal-page__image h-md-100 d-md-flex my-md-0 {{ loop.first ? 'mb-20px' : ( loop.last ? 'mt-20px ms-md-200vw' : 'my-20px ms-md-200vw' ) }}"
 								data-index="{{ loop.index }}"
 								style="{{ loop.first ? 'background-color: transparent;' : '' }}"
 							>
@@ -92,7 +110,7 @@
 								</{{ _product ? 'a' : 'div' }}>
 
 								{%- if _product %}
-									<h5 class="fw-normal fst-italic my-md-0 pe-md-20vw">{{- _product.title -}}</h5>
+									<h5 class="fw-normal mt-20px fs-xs fst-italic my-md-0 pe-md-20vw">{{- _product.title -}}</h5>
 								{%- endif -%}
 							</div>
 						{% endfor %}
@@ -104,7 +122,7 @@
 				include(
 					'components/heading.html.twig',
 					{
-						classes: [ 'color-gray-dark', 'background-color-white' ],
+						classes: [ 'flex-md-shrink-0', 'color-gray-dark', 'background-color-white' ],
 						link: post.meta( 'link' ).url | default( site.link ),
 						title: post.meta( 'link' ).title | default( __( 'Discover<br>our online store', 'uni' ) )
 					},
@@ -112,7 +130,7 @@
 				)
 			-}}
 
-			{{- include( 'components/footer-horizontal.html.twig' ) -}}
+			{{- include( 'components/footer-horizontal.html.twig', { classes: [ 'flex-md-shrink-0' ] } ) -}}
 
 		</div>
 	</div>

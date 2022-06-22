@@ -9,60 +9,7 @@
 @use 'sass:math';
 
 .Single-project {
-	&__readmore {
-		@include font-sizes(35);
-
-		line-height: math.div(60, 35);
-	}
-
-	&__images {
-		@include media-breakpoint-up(md) {
-			@include margin(left #{math.div((200 * -1) * 100, $prototype-width-unitless)}vw);
-		}
-	}
-
-	&__image {
-		@include margin(top 20px bottom 20px);
-
-		&:first-child {
-			@include margin(top 0);
-		}
-
-		&:last-child {
-			@include margin(bottom 0);
-		}
-
-		@include media-breakpoint-up(md) {
-			@include margin(
-				top 0 bottom 0 left #{math.div(200 * 100, $prototype-width-unitless)}vw
-			);
-
-			height: 100%;
-
-			&:last-child {
-				@include margin(right #{math.div(200 * 100, $prototype-width-unitless)}vw);
-			}
-		}
-
-		picture {
-			display: block;
-
-			@include media-breakpoint-up(md) {
-				height: 100%;
-			}
-		}
-
-		img {
-			@include media-breakpoint-up(md) {
-				min-width: 0;
-				max-width: 100%;
-			}
-		}
-	}
-
 	&__information {
-		@include padding(top 80px right 20px bottom 20px left 20px);
-
 		transform: translate3d(100%, 0, 0);
 		transition: transform 0.3s map-get($easings, ease-out-expo);
 
@@ -71,9 +18,7 @@
 		}
 
 		@include media-breakpoint-up(md) {
-			@include padding(
-				top 20px left calc(#{math.div(100 * 100, $prototype-width-unitless)}vw + 40px)
-			);
+			@include padding(left calc(#{math.div(100 * 100, $prototype-width-unitless)}vw + 40px));
 		}
 
 		@include media-breakpoint-up(hd) {
@@ -81,26 +26,7 @@
 		}
 
 		&__wrapper {
-			border-radius: map-get($borders, radius);
 			background-color: rgba(the_color(white), 0.97);
-			box-shadow: 2px 2px 3px rgba(the_color(black), 0.2);
-		}
-
-		&__grid {
-			grid-template-columns: repeat(12, 1fr);
-			grid-template-rows: repeat(11, 1fr);
-			grid-column-gap: 0px;
-			grid-row-gap: 0px;
-
-			& > div:nth-child(1) {
-				grid-area: 2 / 2 / 3 / 7;
-			}
-			& > div:nth-child(2) {
-				grid-area: 4 / 3 / 10 / 7;
-			}
-			& > div:nth-child(3) {
-				grid-area: 3 / 8 / 11 / 12;
-			}
 		}
 	}
 }

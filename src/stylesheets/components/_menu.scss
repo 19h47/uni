@@ -26,9 +26,7 @@
 	}
 
 	&__wrapper {
-		border-radius: map-get($borders, radius);
 		background-color: rgba(the_color(white), 0.97);
-		box-shadow: 2px 2px 3px rgba(the_color(black), 0.2);
 	}
 
 	// .Menu__secondary

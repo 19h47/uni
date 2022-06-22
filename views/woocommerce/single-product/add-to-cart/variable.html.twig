@@ -15,10 +15,10 @@
 	{% do action( 'woocommerce_before_variations_form' ) %}
 
 	{% if available_variations %}
-		<ul class="Product-variations list-style-type-none variations" cellspacing="0">
+		<ul class="letter-spacing-50 list-style-type-none variations" cellspacing="0">
 
 			{% for attribute_name, options in attributes %}
-				<li class="Product-variations__item d-flex align-items-center">
+				<li class="{{ loop.first ? 'mb-12px' : loop.last ? 'mt-12px' : 'my-12px' }} d-flex align-items-center">
 					<div class="me-20px label">
 						<label for="{{ attribute_name | sanitize }}">
 							{{- fn ( 'wc_attribute_label', attribute_name ) -}}

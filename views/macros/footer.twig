@@ -4,12 +4,17 @@
 {% macro list( items, title ) %}
 	{% if items is iterable %}
 		<ul class="list-style-type-none" itemscope itemtype="http://schema.org/SiteNavigationElement">
-			<li class="Site-footer__item">
-				<h5 class="ff-body my-0">{{- title -}}</h5>
+			<li class="mb-12px">
+				<h5 class="ff-body my-0 fs-2xs">{{- title -}}</h5>
 			</li>
 			{% for item in items %}
-				<li class="Site-footer__item {{ item.current ? ' is-active' }}">
-					<a class="d-inline-block ff-title" href="{{ item.url }}" itemprop="url"{{ item.target ? " target=\"#{item.target}\"" }}>
+				<li class="fs-3xs {{ loop.last ? 'mt-8px' : 'my-8px' }}">
+					<a
+						class="d-inline-block text-decoration-underline-hover {{ item.current ? 'text-decoration-underline' : '' }} text-decoration-underline-focus ff-title"
+						href="{{ item.url }}"
+						itemprop="url"
+						{{ item.target ? " target=\"#{item.target}\" rel=\"noopener noreferer\"" }}
+					>
 						{{- item.title -}}
 					</a>
 				</li>

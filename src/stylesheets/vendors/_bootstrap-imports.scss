@@ -39,6 +39,16 @@ $utilities: map-merge(
 				100: 100%,
 			),
 		),
+		'max-width': (
+			property: max-width,
+			class: mw,
+			responsive: true,
+			values: (
+				100: 100%,
+				800vw: math.div((200 * 4) * 100vw, $prototype-width-unitless),
+				1200vw: math.div((200 * 6) * 100vw, $prototype-width-unitless),
+			),
+		),
 		'max-height':
 			map-merge(
 				map-get($utilities, 'max-height'),
@@ -86,6 +96,31 @@ $utilities: map-merge(
 			property: overflow-x,
 			values: hidden,
 		),
+		'border-radius': (
+			property: border-radius,
+			class: border-radius,
+			values: (
+				5px: #{math.div(5, 16)}rem,
+				'5px-0-0-5px': #{math.div(5, 16)}rem 0 0 #{math.div(5, 16)}rem,
+				'0-5px-5px-0': 0 #{math.div(5, 16)}rem #{math.div(5, 16)}rem 0,
+			),
+		),
+		'text-decoration':
+			map-merge(
+				map-get($utilities, 'text-decoration'),
+				(
+					state: hover focus,
+				)
+			),
+		'shadow':
+			map-merge(
+				map-get($utilities, 'shadow'),
+				(
+					values: (
+						uni: 2px 2px 3px rgba(0, 0, 0, 0.2),
+					),
+				)
+			),
 		'top':
 			map-merge(
 				map-get($utilities, 'top'),
@@ -196,6 +231,23 @@ $utilities: map-merge(
 			property: justify-self,
 			values: (
 				center: center,
+			),
+		),
+		'fill': (
+			property: fill,
+			state: hover,
+			values: (
+				current: currentColor,
+				'black': black,
+			),
+		),
+		'rotate': (
+			property: transform,
+			class: rotate,
+			responsive: true,
+			values: (
+				90: rotate(90deg),
+				0: rotate(0),
 			),
 		),
 	)

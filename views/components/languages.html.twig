@@ -8,7 +8,7 @@
 
 <ul class="Languages fs-2xs list-style-type-none position-relative d-flex flex-column z-index-2 {{ classes ? classes | join( ' ' ) | trim }}">
 	{% for lang in pll_the_languages() %}
-		<li class="Languages__item px-md-0 text-uppercase text-center">
+		<li class="Languages__item text-uppercase text-center px-2px {{ loop.first ? 'pb-12px' : loop.last ? 'pt-12px' : 'py-12px' }}">
 			<a id="lang-{{ lang.id }}" href="{{ lang.url }}" class="d-inline-block align-middle fw-extralight {{ lang.classes | join( ' ' ) }}" aria-label="{{ lang.name }}">
 				{{- lang.slug -}}
 			</a>

@@ -8,20 +8,14 @@
 
 .Error {
 	@extend %margin-y-2;
-	@extend .list-style-type-none;
-	@include font-sizes(25);
+
 	@include padding(
 		top #{(20 * 60) * 0.01}px right #{(20 * 60) * 0.01}px bottom #{(20 * 60) * 0.01}px left #{(
 				20 * 60
 			) * 0.01}px
 	);
 
-	border-radius: map-get($borders, radius);
-	box-shadow: 1px 1px 2px rgba(the_color(black), 0.2);
-	background-color: the_color(red, light-grayish-01);
 	border: 1px solid the_color(red, light-grayish-02);
-	color: the_color(red, very-dark-01);
-	line-height: 1.2;
 
 	a {
 		@extend .text-decoration-underline;
