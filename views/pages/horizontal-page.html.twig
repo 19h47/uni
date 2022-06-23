@@ -58,9 +58,19 @@
 						-}}
 
 						<div class="text-center my-20px d-md-none">
-							<button type="button" class="Button" data-module-disclosure-button aria-expanded="false" aria-controls="content, footer">
-								{{- __( 'Find out more &plus;', 'uni' ) -}}
-							</button>
+							{{-
+								include(
+									'components/button.html.twig',
+									{
+										label: __( 'Find out more &plus;', 'uni' ),
+										attributes: {
+											'data-module-disclosure-button': '',
+											'aria-expanded': 'false',
+											'aria-controls': 'content,footer'
+										}
+									}
+								)
+							-}}
 						</div>
 
 						<div class="Wysiwyg my-20px" style="display: none;" id="content">
@@ -89,7 +99,7 @@
 
 							<div
 								id="image-{{ image.id }}"
-								class="Horizontal-page__image h-md-100 d-md-flex my-md-0 {{ loop.first ? 'mb-20px' : ( loop.last ? 'mt-20px ms-md-200vw' : 'my-20px ms-md-200vw' ) }}"
+								class="h-md-100 d-md-flex my-md-0 {{ loop.first ? 'mb-20px' : ( loop.last ? 'mt-20px ms-md-200vw' : 'my-20px ms-md-200vw' ) }}"
 								data-index="{{ loop.index }}"
 								style="{{ loop.first ? 'background-color: transparent;' : '' }}"
 							>
@@ -110,7 +120,9 @@
 								</{{ _product ? 'a' : 'div' }}>
 
 								{%- if _product %}
-									<h5 class="fw-normal mt-20px fs-xs fst-italic my-md-0 pe-md-20vw">{{- _product.title -}}</h5>
+									<h5 class="fw-normal mt-20px fs-xs fst-italic my-md-0 pe-md-20vw writing-mode-md-vertical-rl rotate-md-180 origin-md-center">
+										{{- _product.title -}}
+									</h5>
 								{%- endif -%}
 							</div>
 						{% endfor %}

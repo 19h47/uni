@@ -29,22 +29,4 @@
 			}
 		}
 	}
-
-	&__image {
-		img {
-			@include media-breakpoint-up(md) {
-				min-width: 0;
-				max-width: 100%;
-			}
-		}
-
-		h5 {
-			@include media-breakpoint-up(md) {
-				writing-mode: vertical-rl;
-				transform: rotate(180deg);
-				transform-origin: center;
-				min-height: 100%;
-			}
-		}
-	}
 }

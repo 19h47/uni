@@ -11,16 +11,26 @@
 <form class="woocommerce-shipping-calculator" action="{{ cart_url | e }}" method="post">
 
 	<p>
-		<a href="#" class="Button white-space-md-nowrap text-center letter-spacing-50 shadow-uni w-100 d-block shipping-calculator-button">
-			{{- button_text | default( __( 'Calculate shipping', 'uni' ) ) -}}
-		</a>
+		{{-
+			include(
+				'components/button.html.twig',
+				{
+					tag: 'a',
+					label: button_text | default( __( 'Calculate shipping', 'uni' ) ),
+					classes: [ 'w-100', 'd-block', 'shipping-calculator-button' ],
+					attributes: {
+						href: '#'
+					}
+				}
+			)
+		-}}
 	</p>
 
 	<section class="shipping-calculator-form" style="display:none;">
 
 		{% if true | apply_filters( 'woocommerce_shipping_calculator_enable_country' ) %}
 			<p class="form-row form-row-wide" id="calc_shipping_country_field">
-				<select name="calc_shipping_country" id="calc_shipping_country" class="country_to_state country_select" rel="calc_shipping_state">
+				<select name="calc_shipping_country" id="calc_shipping_country" class="transition-box-shadow country_to_state country_select" rel="calc_shipping_state">
 					<option value="">
 						{{- __( 'Select a country / region&hellip;', 'uni' ) -}}
 					</option>
@@ -35,10 +45,16 @@
 			<p class="form-row form-row-wide Input" id="calc_shipping_state_field">
 
 				{% if states is iterable and states is empty %}
-					<input type="hidden" name="calc_shipping_state" id="calc_shipping_state" placeholder="{{ __( 'State / County', 'uni' ) }}" />
+					<input
+						type="hidden"
+						name="calc_shipping_state"
+						id="calc_shipping_state"
+						class="outline-none-focus shadow-focus-focus w-100 border-radius-5px transition-box-shadow"
+						placeholder="{{ __( 'State / County', 'uni' ) }}"
+					/>
 				{% elseif states is iterable %}
 					<span>
-						<select name="calc_shipping_state" class="state_select" id="calc_shipping_state" data-placeholder="{{ __( 'State / County', 'uni' ) }}">
+						<select name="calc_shipping_state" class="transition-box-shadow state_select" id="calc_shipping_state" data-placeholder="{{ __( 'State / County', 'uni' ) }}">
 							<option value="">{{- __( 'Select an option&hellip;', 'woocommerce' ) -}}</option>
 							{% for key, value in states %}
 								<option value="{{ key }}" {{ fn( 'selected', shipping.state, key, false ) }}>{{- value -}}</option>
@@ -46,27 +62,45 @@
 						</select>
 					</span>
 				{% else %}
-					<input type="text" class="input-text" value="{{ shipping.state }}" placeholder="{{ __( 'State / County', 'uni' ) }}" name="calc_shipping_state" id="calc_shipping_state" />
+					<input
+						type="text"
+						class="transition-box-shadow input-text"
+						value="{{ shipping.state }}"
+						placeholder="{{ __( 'State / County', 'uni' ) }}"
+						name="calc_shipping_state"
+						id="calc_shipping_state"
+					/>
 				{% endif %}
 			</p>
 		{% endif %}
 
 		{% if true | apply_filters( 'woocommerce_shipping_calculator_enable_city' ) %}
 			<p class="form-row form-row-wide Input" id="calc_shipping_city_field">
-				<input type="text" class="input-text" value="{{ shipping.city }}" placeholder="{{ __( 'City', 'uni' ) }}" name="calc_shipping_city" id="calc_shipping_city" />
+				<input type="text" class="outline-none-focus shadow-focus-focus w-100 border-radius-5px transition-box-shadow input-text" value="{{ shipping.city }}" placeholder="{{ __( 'City', 'uni' ) }}" name="calc_shipping_city" id="calc_shipping_city" />
 			</p>
 		{% endif %}
 
 		{% if true | apply_filters( 'woocommerce_shipping_calculator_enable_postcode' ) %}
 			<p class="form-row form-row-wide Input" id="calc_shipping_postcode_field">
-				<input type="text" class="input-text" value="{{ shipping.postcode }}" placeholder="{{ __( 'Postcode / ZIP', 'uni' ) }}" name="calc_shipping_postcode" id="calc_shipping_postcode" />
+				<input type="text" class="outline-none-focus shadow-focus-focus w-100 border-radius-5px transition-box-shadow input-text" value="{{ shipping.postcode }}" placeholder="{{ __( 'Postcode / ZIP', 'uni' ) }}" name="calc_shipping_postcode" id="calc_shipping_postcode" />
 			</p>
 		{% endif %}
 
 		<p>
-			<button type="submit" name="calc_shipping" value="1" class="Button white-space-md-nowrap text-center letter-spacing-50 shadow-uni button w-100">
-				{{- __( 'Update', 'uni' ) -}}
-			</button>
+			{{-
+				include(
+					'components/button.html.twig',
+					{
+						button: 'submit',
+						label: __( 'Update', 'uni' ),
+						classes: [ 'w-100', 'button' ],
+						attributes: {
+							name: 'calc_shipping',
+							value: '1'
+						}
+					}
+				)
+			-}}
 		</p>
 
 		{{- nonce_field -}}

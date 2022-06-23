@@ -34,12 +34,12 @@
 		] | merge( size ) | join( ' ' ) | trim }}"
 	>
 		<button
-			class="Modal__close position-absolute top-0 end-0 d-flex"
+			class="w-16px h-16px mt-20px me-20px position-absolute top-0 end-0 d-flex"
 			type="button"
 			aria-label="{{ __( 'Close', 'uni' ) }}"
 			data-modal="close"
 		>
-			{{- include( 'svg/use.html.twig', { icon: 'times', classes: [ 'pe-none' ] }, with_context = false ) -}}
+			{{- include( 'svg/use.html.twig', { icon: 'times', classes: [ 'w-100', 'h-100', 'pe-none' ] }, with_context = false ) -}}
 		</button>
 		{% block body %}{% endblock %}
 	</div>

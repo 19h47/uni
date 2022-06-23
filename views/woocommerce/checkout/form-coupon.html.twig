@@ -9,12 +9,23 @@
 		</div>
 
 		<form class="checkout_coupon woocommerce-form-coupon" method="post" style="display:none">
-			<div class="Coupon Input d-md-flex justify-content-md-end">
-				<input type="text" name="coupon_code" class="input-text me-md-12px" placeholder="{{ __( 'Coupon code', 'uni' ) }}" id="coupon_code" value="" />
+			<div class="Coupon Input transition-box-shadow d-md-flex justify-content-md-end">
+				<input type="text" name="coupon_code" class="outline-none-focus shadow-focus-focus w-100 border-radius-5px input-text me-md-12px" placeholder="{{ __( 'Coupon code', 'uni' ) }}" id="coupon_code" value="" />
 
-				<button type="submit" class="Button white-space-md-nowrap text-center letter-spacing-50 button shadow-uni margin-top-1 w-100 w-md-auto mt-md-0" name="apply_coupon" value="{{ __( 'Apply coupon', 'uni' ) }}">
-					{{- __( 'Apply coupon', 'uni' ) -}}
-				</button>
+				{{-
+					include(
+						'components/button.html.twig',
+						{
+							button: 'submit',
+							label: __( 'Apply coupon', 'uni' ),
+							classes: [ 'mt-12px', 'w-100', 'w-md-auto', 'mt-md-0' ],
+							attributes: {
+								name: 'apply_coupon',
+								value: __( 'Apply coupon', 'uni' )
+							}
+						}
+					)
+				-}}
 			</div>
 		</form>
 	</div>

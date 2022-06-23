@@ -125,7 +125,7 @@
 								</{{-  item.project ? 'a' : 'div' -}}>
 
 								{% if item.project %}
-									<header class="Loop__header p-md-20px d-md-flex flex-md-row justify-content-md-between m-md-0 m-20px h-md-100">
+									<header class="writing-mode-md-vertical-rl origin-md-center rotate-md-180 p-md-20px d-md-flex flex-md-row justify-content-md-between m-md-0 m-20px h-md-100">
 										<h3 class="{{ fn(
 											'apply_filters',
 											'woocommerce_product_loop_title_classes',
@@ -143,9 +143,19 @@
 			</div>
 
 			<div class="text-center my-20px d-md-none">
-				<button type="button" class="Button" data-module-disclosure-button aria-expanded="false" aria-controls="content">
-					{{- __( 'Find out more &plus;', 'uni' ) -}}
-				</button>
+				{{-
+					include(
+						'components/button.html.twig',
+						{
+							label: __( 'Find out more &plus;', 'uni' ),
+							attributes: {
+								'data-module-disclosure-button': '',
+								'aria-expanded': 'false',
+								'aria-controls': 'content'
+							}
+						}
+					)
+				-}}
 			</div>
 
 			<div class="Wysiwyg my-20px" id="content" style="display: none;">

@@ -7,9 +7,13 @@
 
 	{% embed 'components/modal.html.twig' with { id: post.id } %}
 		{% block body %}
-			<p class="Modal__title">{{- __( 'This item has been added to your basket:', 'uni' ) -}}</p>
+			<p class="mb-0">
+				{{- __( 'This item has been added to your basket:', 'uni' ) -}}
+			</p>
 			<div class="Modal__body">
-				<p class="Modal__product-title">{{- post.title -}}</p>
+				<p class="ff-title fst-italic mb-8px">
+					{{- post.title -}}
+				</p>
 				<img class="Modal__thumbnail d-block object-fit-cover object-position-center border-radius-5px" src="{{ Image( post.thumbnail ).src }}" alt="{{ Image( post.thumbnail ).alt }}" width="{{ Image( post.thumbnail ).width }}" height="{{ Image( post.thumbnail ).height }}">
 				<p class="Modal__product-price d-flex" data-modal="price">
 					{{- fn( 'wc_price', post.product.get_price() ) -}}

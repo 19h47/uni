@@ -6,7 +6,6 @@
 
 <div
 	class="{{ [
-		'Heading',
 		'my-40px',
 		'my-md-20px',
 		'position-relative',
@@ -18,7 +17,21 @@
 		'fs-md-2xl'
 	] | merge( classes | default( [] ) ) | join( ' ' ) | trim }}"
 >
-	<h2 class="mx-md-200vw text-center fw-normal fst-normal text-uppercase ff-title my-0 letter-spacing-100">
+	<h2 class="{{
+		[
+			'writing-mode-md-vertical-rl',
+			'origin-md-center',
+			'rotate-md-180',
+			'mx-md-200vw',
+			'my-0',
+			'text-center',
+			'fw-normal',
+			'fst-normal',
+			'text-uppercase',
+			'ff-title',
+			'letter-spacing-100'
+		] | join( ' ' )
+	}}">
 		{{- link ? "<a href=\"#{ link }\">" | raw -}}
 			{{- title -}}
 		{{- link ? '</a>' | raw -}}

@@ -225,7 +225,18 @@ class WooCommerce {
 	 * @return void
 	 */
 	public function cart_actions() : void {
-		echo '<a class="Button button wc-backward d-inline-block me-12px" href="' . esc_url( apply_filters( 'woocommerce_return_to_shop_redirect', wc_get_page_permalink( 'shop' ) ) ) . '">' . esc_html__( 'Return to shop', 'uni' ) . '</a>';
+
+		Timber::render(
+			'components/button.html.twig',
+			array(
+				'label'      => esc_html__( 'Return to shop', 'uni' ),
+				'tag'        => 'a',
+				'classes'    => array( 'me-12px', 'button', 'wc-backward' ),
+				'attributes' => array(
+					'href' => esc_url( apply_filters( 'woocommerce_return_to_shop_redirect', wc_get_page_permalink( 'shop' ) ) ),
+				),
+			)
+		);
 	}
 
 

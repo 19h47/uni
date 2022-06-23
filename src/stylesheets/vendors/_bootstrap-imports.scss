@@ -116,7 +116,10 @@ $utilities: map-merge(
 			map-merge(
 				map-get($utilities, 'shadow'),
 				(
+					state: active focus,
 					values: (
+						focus: 0 0 0 0.2rem rgba(228, 228, 228, 0.5),
+						active: inset 1px 1px 2px rgba(0, 0, 0, 0.2),
 						uni: 2px 2px 3px rgba(0, 0, 0, 0.2),
 					),
 				)
@@ -156,6 +159,20 @@ $utilities: map-merge(
 					responsive: true,
 				)
 			),
+		'opacity':
+			map-merge(
+				map-get($utilities, 'opacity'),
+				(
+					state: disabled,
+					values:
+						map-merge(
+							map-get(map-get($utilities, 'opacity'), 'values'),
+							(
+								60: 0.6,
+							)
+						),
+				)
+			),
 		'text-transform': (
 			property: text-transform,
 			class: text,
@@ -187,6 +204,7 @@ $utilities: map-merge(
 			class: fw,
 		),
 		'cursor': (
+			state: disabled,
 			property: cursor,
 			values: $cursors,
 		),
@@ -246,8 +264,35 @@ $utilities: map-merge(
 			class: rotate,
 			responsive: true,
 			values: (
+				180: rotate(180deg),
 				90: rotate(90deg),
 				0: rotate(0),
+			),
+		),
+		'origin': (
+			property: transform-origin,
+			class: origin,
+			responsive: true,
+			values: center,
+		),
+		'writing-mode': (
+			property: writing-mode,
+			responsive: true,
+			values: vertical-rl,
+		),
+		'outline': (
+			property: outline,
+			state: focus,
+			values: none,
+		),
+		'transition': (
+			property: transition,
+			values: (
+				box-shadow-opacity:
+					unquote(
+						'box-shadow .3s cubic-bezier(0.19, 1, 0.22, 1), opacity .3s cubic-bezier(0.19, 1, 0.22, 1)'
+					),
+				box-shadow: unquote('box-shadow 0.3s cubic-bezier(0.19, 1, 0.22, 1)'),
 			),
 		),
 	)

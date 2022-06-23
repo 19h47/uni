@@ -19,14 +19,34 @@
 				</p>
 
 				<p class="woocommerce-notice woocommerce-notice--error woocommerce-thankyou-order-failed-actions">
-					<a href="{{ order.get_checkout_payment_url() -}}" class="Button white-space-md-nowrap text-center letter-spacing-50 shadow-uni button pay">
-						{{- _x( 'Pay', 'thankyou', 'uni' ) -}}
-					</a>
+					{{-
+						include(
+							'components/button.html.twig',
+							{
+								tag: 'a',
+								label: _x( 'Pay', 'thankyou', 'uni' ),
+								classes: [ 'button', 'pay' ],
+								attributes: {
+									href: order.get_checkout_payment_url()
+								}
+							}
+						)
+					-}}
 
 					{% if user %}
-						<a href="{{ myaccount_url | e( 'esc_url' ) }}" class="Button white-space-md-nowrap text-center letter-spacing-50 shadow-uni button pay">
-							{{- _x( 'My account', 'thankyou', 'uni' ) -}}
-						</a>
+						{{-
+							include(
+								'components/button.html.twig',
+								{
+									tag: 'a',
+									label: _x( 'My account', 'thankyou', 'uni' ),
+									classes: [ 'button', 'pay' ],
+									attributes: {
+										href: myaccount_url | e( 'esc_url' )
+									}
+								}
+							)
+						-}}
 					{% endif %}
 
 				</p>

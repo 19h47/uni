@@ -24,28 +24,6 @@
 		width: fit-content;
 	}
 
-	&__close {
-		@include margin(top 20px right 20px);
-
-		@include size(14px);
-
-		svg {
-			@include size(100%);
-		}
-	}
-
-	&__title {
-		@include margin(bottom 0);
-
-		line-height: math.div(36, 30);
-	}
-
-	&__product-title {
-		@extend .ff-title, .fst-italic;
-
-		@include margin(bottom 0.5em);
-	}
-
 	&__product-price {
 		@include margin(top 0.5em bottom 0);
 

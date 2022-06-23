@@ -21,12 +21,22 @@
 					<p>UNI x Ulule</p>
 					<p>Objectifs 2022, plein de nouveauté et d'opportunités, c'est ici !</p>
 					<p>
-						<a
-							class="d-inline-block shadow-uni Button white-space-md-nowrap text-center letter-spacing-50 Button--black"
-							href="https://fr.ulule.com/uni-design-d-espace-et-mobilier-contemporain/"
-							target="_blank"
-							rel="noopener noreferer"
-						>Voir notre campagne Ulule</a></p>
+						{{-
+							include(
+								'components/button.html.twig',
+								{
+									tag: 'a',
+									label: 'Voir notre campagne Ulule',
+									classes: [ 'd-inline-block', 'color-white', 'background-color-black' ],
+									attributes: {
+										href: 'https://fr.ulule.com/uni-design-d-espace-et-mobilier-contemporain/',
+										target: '_blank',
+										rel: 'noopener noreferer',
+									}
+								}
+							)
+						-}}
+					</p>
 				</div>
 
 				<p>Pour suivre toutes nos actualités,<br>inscrivez-vous à la newsletter UNI Habitat.</p>

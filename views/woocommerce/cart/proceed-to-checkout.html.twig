@@ -6,9 +6,16 @@
  # @package UNI
  #}
 
- <a
- 	href="{{ checkout_url | e( 'esc_url' ) }}"
-	class="Button white-space-md-nowrap text-center letter-spacing-50 shadow-uni checkout-button button d-inline-block alt wc-forward w-100 w-md-auto"
->
-	{{- __( 'Proceed to checkout', 'uni' ) -}}
-</a>
+{{-
+	include(
+		'components/button.html.twig',
+		{
+			tag: 'a',
+			label: __( 'Proceed to checkout', 'uni' ),
+			classes: [ 'alt', 'wc-forward', 'w-100', 'w-md-auto' ],
+			attributes: {
+				href: checkout_url | e( 'esc_url' )
+			}
+		}
+	)
+-}}

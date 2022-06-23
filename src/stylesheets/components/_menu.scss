@@ -8,21 +8,11 @@
 @use 'sass:math';
 
 .Menu {
-	@include padding(right 20px bottom 20px left 20px);
-
 	transform: translate3d(100%, 0, 0);
 	transition: transform 0.3s map-get($easings, ease-out-expo);
 
 	@at-root .menu--is-open & {
 		transform: translate3d(0, 0, 0);
-	}
-
-	@include media-breakpoint-up(md) {
-		@include padding(left calc(#{math.div(100 * 100, $prototype-width-unitless)}vw + 40px));
-	}
-
-	@include media-breakpoint-up(hd) {
-		@include padding(left 140px);
 	}
 
 	&__wrapper {
@@ -38,17 +28,6 @@
 			@include media-breakpoint-up(md) {
 				columns: auto;
 				column-gap: normal;
-			}
-		}
-
-		.Menu__item {
-			@include margin(top 1em bottom 1em);
-
-			&:first-child {
-				@include margin(top 0);
-			}
-			&:last-child {
-				@include margin(bottom 0);
 			}
 		}
 	}

@@ -67,11 +67,27 @@
 					<tr>
 						<td colspan="5" class="actions">
 							<div class="Coupon py-md-20px coupon Input d-flex justify-content-end">
-								{# <label for="coupon_code">{{- __( 'Coupon:', 'uni' ) -}}</label> #}
-								<input type="text" name="coupon_code" class="input-text me-md-12px" id="coupon_code" value="" placeholder="{{ __( 'Coupon code', 'uni' ) }}" />
-								<button type="submit" class="Button white-space-md-nowrap text-center letter-spacing-50 shadow-uni button" name="apply_coupon" value="{{ __( 'Apply coupon', 'uni' ) }}">
-									{{- __( 'Apply coupon', 'uni' ) -}}
-								</button>
+								<input
+									type="text"
+									name="coupon_code"
+									class="outline-none-focus shadow-focus-focus w-100 border-radius-5px transition-box-shadow input-text me-md-12px"
+									id="coupon_code"
+									value=""
+									placeholder="{{ __( 'Coupon code', 'uni' ) }}"
+								/>
+								{{-
+									include(
+										'components/button.html.twig',
+										{
+											label: __( 'Apply coupon', 'uni' ),
+											type: 'submit',
+											attributes: {
+												name: 'apply_coupon',
+												value: __( 'Apply coupon', 'uni' )
+											}
+										}
+									)
+								-}}
 
 								{#
 								 # Hook: woocommerce_cart_coupon.
@@ -97,9 +113,19 @@
 							#}
 							{% do action( 'woocommerce_cart_actions' ) %}
 
-							<button type="submit" class="Button white-space-md-nowrap text-center letter-spacing-50 shadow-uni button" name="update_cart" value="{{ __( 'Update cart', 'uni' ) }}">
-								{{- __( 'Update cart', 'uni' ) -}}
-							</button>
+							{{-
+								include(
+									'components/button.html.twig',
+									{
+										label: __( 'Update cart', 'uni' ),
+										type: 'submit',
+										attributes: {
+											name: 'update_cart',
+											value: __( 'Update cart', 'uni' )
+										}
+									}
+								)
+							-}}
 
 							{{- nonce_field -}}
 						</div>

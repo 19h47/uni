@@ -10,7 +10,7 @@
 @use 'sass:math';
 
 .Thumbnail {
-	@include size(100%, #{math.div(360 * 100, 1334)}vh);
+	@include size(100%, #{math.div(360 * 100, $prototype-height-unitless)}vh);
 
 	&:hover {
 		.Thumbnail__overview.is-active {

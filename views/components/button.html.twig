@@ -1,0 +1,28 @@
+{#
+ # Button
+ #
+ # @package UNI
+ #}
+
+{% set tag = tag | default( 'button' ) %}
+
+<{{ tag }}
+	{{ 'button' == tag ? "type=\"#{ type | default( 'button' ) }\"" : '' }}
+	class="{{ [
+		'cursor-not-allowed-disabled',
+		'p-12px',
+		'white-space-md-nowrap',
+		'text-center',
+		'letter-spacing-50',
+		'shadow-uni',
+		'border-radius-5px',
+		'opacity-60-disabled',
+		'shadow-active-active',
+		'shadow-focus-focus',
+		'outline-none-focus',
+		'transition-box-shadow-opacity'
+	] | merge( classes | default( [] ) ) | join( ' ' ) | trim }}"
+	{{ attributes ? attributes | map( ( value, key ) => "#{key}=\"#{value}\"" ) | join( ' ' ) | raw }}
+>
+	{{- label -}}
+</{{ tag }}>

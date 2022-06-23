@@ -6,7 +6,7 @@
 
 <li
 	id="product-content-{{ product.id }}"
-	{{ fn( 'wc_product_class', 'Loop  w-md-800vw h-md-100 d-flex flex-column-reverse flex-md-row page-block', product ) }}
+	{{ fn( 'wc_product_class', 'Loop  w-md-800vw h-md-100 d-flex flex-column-reverse flex-md-row', product ) }}
 	data-module-product-content
 >
 	{{ fn( 'set_product_global', product ) }}
@@ -24,7 +24,7 @@
 	{% do action( 'woocommerce_before_shop_loop_item_title' ) %}
 
 
-	<header class="Loop__header p-md-20px d-flex flex-md-row justify-content-between m-md-0 mx-20px my-20px align-items-end h-md-100">
+	<header class="writing-mode-md-vertical-rl origin-md-center rotate-md-180 p-md-20px d-flex flex-md-row justify-content-between m-md-0 mx-20px my-20px align-items-end h-md-100">
 		{#
 		 # Hook: woocommerce_shop_loop_item_title.
 		 #

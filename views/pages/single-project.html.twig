@@ -114,9 +114,19 @@
 
 			{% if post.meta( 'project_content' ) %}
 				<div class="text-center my-20px d-md-none">
-					<button type="button" class="Button" data-module-disclosure-button aria-expanded="false" aria-controls="content,attributtes">
-						{{- __( 'Find out more &plus;', 'uni' ) -}}
-					</button>
+					{{-
+						include(
+							'components/button.html.twig',
+							{
+								label: __( 'Find out more &plus;', 'uni' ),
+								attributes: {
+									'data-module-disclosure-button': '',
+									'aria-expanded': 'false',
+									'aria-controls': 'content,attributtes'
+								}
+							}
+						)
+					-}}
 				</div>
 				<div class="Wysiwyg mt-20px" id="content" style="display: none;">
 					{{- post.meta( 'project_content' ) -}}

@@ -15,11 +15,11 @@
 			</li>
 		{% endif %}
 
-		<ul class="Socials d-flex align-items-center list-style-type-none">
+		<ul class="d-flex align-items-center list-style-type-none">
 			{%- for social in socials -%}
-				<li>
+				<li class="{{ loop.first ? 'me-8px' : loop.last ? 'ms-8px' : 'my-8px' }}">
 					<a class="d-inline-block align-middle ff-title color-gray-very-dark" href="{{ social.url }}" target="_blank" rel="noopener noreferer">
-						{{- include( 'svg/use.html.twig', { classes: [ 'fill-current', 'fill-black-hover', 'd-block' ], icon: social.slug } ) -}}
+						{{- include( 'svg/use.html.twig', { classes: [ 'w-24px', 'h-24px', 'fill-current', 'fill-black-hover', 'd-block' ], icon: social.slug } ) -}}
 					</a>
 				</li>
 			{%- endfor -%}

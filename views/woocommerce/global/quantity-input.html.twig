@@ -20,7 +20,7 @@
 		<input
 			type="number"
 			id="{{ input.id }}"
-			class="{{ input.classes | join( ' ' ) }}"
+			class="outline-none-focus shadow-focus-focus w-100 border-radius-5px transition-box-shadow {{ input.classes | join( ' ' ) }}"
 			step="{{ input.step }}"
 			min="{{ input.min_value }}"
 			{{ input.max_value ? "max=\"#{input.max_value}\"" | raw }}
