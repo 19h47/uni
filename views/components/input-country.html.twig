@@ -1,0 +1,60 @@
+{#
+ # Input: Country
+ #}
+
+
+{% set countries = 'shipping_country' == key ? shipping_countries : allowed_countries %}
+
+<div
+	class="{{
+		[
+			'form-row',
+			'form-row-first' in args.class ? 'col-md-7' : '',
+			'form-row-last' in args.class ? 'col-md-7' : '',
+			args.required ? 'validate-required' : '',
+		] | merge( args.class | default( [] ) )	| join( ' ' ) | trim
+	}}"
+	data-priority="{{ args.priority | default( '' ) | e }}"
+>
+	<label
+		for="{{ key | e }}"
+		class="{{
+			[
+				'mb-12px d-block'
+			] | merge( args.label_class | default( [] ) ) | join( ' ' ) | trim
+		}}">
+		{{- args.label | e( 'wp_kses_post' ) -}}
+		{% if args.required %}
+			&nbsp;<abbr class="required text-decoration-none" title="{{ __( 'required', 'woocommerce' ) | e }}">*</abbr>
+		{% endif %}
+	</label>
+
+	<p class="d-block mb-0 woocommerce-input-wrapper">
+		<select
+			name="{{ key | e }}"
+			id="{{ key | e }}"
+			class="country_to_state country_select {{ args.input_class | join( ' ' ) | e }}"
+			data-placeholder="{{ args.placeholder ? args.placeholder | e : __( 'Select a country / region&hellip;', 'woocommerce' ) | e }}"
+			{{ args.label ? 'data-label="' ~ args.label | e ~ '"' : '' }}
+			{{ custom_attributes | join( ' ' ) }}
+		>
+			<option value="">{{ __( 'Select a country / region&hellip;', 'woocommerce' ) | e( 'esc_html' ) }}</option>
+
+			{% for ckey, cvalue in countries %}
+				<option
+					value="{{ ckey | e }}"
+					{{ fn( 'selected', value, ckey, false ) }}
+				>
+					{{- cvalue | e( 'esc_html' ) -}}
+				</option>';
+			{% endfor %}
+
+		</select>
+
+		<noscript>
+			<button type="submit" name="woocommerce_checkout_update_totals" value="{{ __( 'Update country / region', 'woocommerce' ) | e }}">
+			 	{{ __( 'Update country / region', 'woocommerce' ) | e( 'esc_html' ) }}
+			</button>
+		</noscript>
+	</p>
+</div>

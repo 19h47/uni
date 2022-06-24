@@ -3,10 +3,25 @@
  #}
 {% if notices is iterable and notices is not empty %}
 
-	{% for notice in notices %}
-		<div class="Message woocommerce-message"{{ fn( 'wc_get_notice_data_attr', notice ) }} role="alert">
-			{{- notice.notice -}}
-		</div>
-	{% endfor %}
+	<div class="d-flex gap-y-12px">
+		{% for notice in notices %}
+			<div class="{{ [
+				'woocommerce-message',
+				'shadow-uni',
+				'p-20px',
+				'border',
+				'border-1',
+				'border-radius-5px',
+				'color-green, very-dark-lime-01',
+				'background-color-green-light-grayish-lime-01',
+				'border-color-green-light-grayish-lime-02'
+			] | join( ' ' ) | trim }}"
+			{{ fn( 'wc_get_notice_data_attr', notice ) }}
+			role="alert"
+		>
+				{{- notice.notice -}}
+			</div>
+		{% endfor %}
+	</div>
 
 {% endif %}

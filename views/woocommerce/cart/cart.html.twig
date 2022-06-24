@@ -12,7 +12,7 @@
 	 #}
 	{% do action( 'woocommerce_before_cart' ) %}
 
-	<form class="Cart__form woocommerce-cart-form" action="{{ cart_url | e }}" method="post">
+	<form class="Cart__form w-md-60 py-md-250vh ps-md-200vw pe-md-100vw woocommerce-cart-form" action="{{ cart_url | e }}" method="post">
 
 		{#
 		 # Hook: woocommerce_before_cart_table
@@ -21,16 +21,17 @@
 		 #}
 		{% do action( 'woocommerce_before_cart_table' ) %}
 
-		<table class="Cart__form__contents shop_table shop_table_responsive cart woocommerce-cart-form__contents">
+		<table class="Cart__form__contents w-100 shop_table shop_table_responsive cart woocommerce-cart-form__contents">
 
 			<thead>
 				<tr>
-					{# <th class="product-remove">&nbsp;</th> #}
-					<th class="product-thumbnail">{{- __( 'Products', 'uni' ) -}}</th>
-					<th class="product-name w-20 ff-title fst-italic">&nbsp;</th>
-					<th class="product-price">{{- __( 'Price', 'uni' ) -}}</th>
-					<th class="product-quantity">{{- __( 'Quantity', 'uni' ) -}}</th>
-					<th class="product-subtotal">{{- __( 'Total', 'uni' ) -}}</th>
+					<th class="fw-bold pb-12px product-thumbnail d-none d-md-table-cell w-20 text-start">&nbsp;</th>
+					<th class="fw-bold pb-12px product-name w-40 w-md-20 text-start">
+						<span class="d-md-none">{{- __( 'Name', 'uni' ) -}}</span>&nbsp;
+					</th>
+					<th class="fw-bold pb-12px product-price text-start w-20">{{- __( 'Price', 'uni' ) -}}</th>
+					<th class="fw-bold pb-12px product-quantity w-20 text-end">{{- __( 'Quantity', 'uni' ) -}}</th>
+					<th class="fw-bold pb-12px product-subtotal text-end w-20">{{- __( 'Total', 'uni' ) -}}</th>
 				</tr>
 			</thead>
 
@@ -44,16 +45,17 @@
 				{% for product in products %}
 
 					<tr class="Cart__form__item woocommerce-cart-form__cart-item {{ product.item_class }}">
-						{# <td class="product-remove">{{- product.remove -}}</td> #}
-						<td class="product-thumbnail">{{- product.thumbnail -}}</td>
-						<td class="product-name w-20 ff-title fst-italic" data-title="{{ __( 'Product', 'uni' ) }}">
+						<td class="py-12px fs-xs product-thumbnail d-none d-md-table-cell">{{- product.thumbnail -}}</td>
+						<td class="py-12px product-name fs-xs w-40 w-md-20 ff-title fst-italic" data-title="{{ __( 'Product', 'uni' ) }}">
 							{{- product.name -}}
 							{{- formatted_cart_item_data -}}
 							{{- product.backorder -}}
 						</td>
-						<td class="product-price" data-title="{{ __( 'Price', 'uni' ) }}">{{- product.price -}}</td>
-						<td class="product-quantity" data-title="{{ __( 'Quantity', 'uni' ) }}">{{- product.quantity -}}</td>
-						<td class="product-subtotal" data-title="{{ __( 'Total', 'uni' ) }}">{{- product.subtotal -}}</td>
+						<td class="py-12px product-price fs-xs text-start w-20" data-title="{{ __( 'Price', 'uni' ) }}">{{- product.price -}}</td>
+						<td class="py-12px product-quantity fs-xs w-20" data-title="{{ __( 'Quantity', 'uni' ) }}">
+							{{- product.quantity -}}
+						</td>
+						<td class="py-12px product-subtotal fs-xs text-end w-20" data-title="{{ __( 'Total', 'uni' ) }}">{{- product.subtotal -}}</td>
 					</tr>
 
 				{% endfor %}
@@ -66,11 +68,24 @@
 				{% if coupons_enabled %}
 					<tr>
 						<td colspan="5" class="actions">
-							<div class="Coupon py-md-20px coupon Input d-flex justify-content-end">
+							<div class="mt-20px pb-md-20px coupon Input d-md-flex justify-content-md-end">
 								<input
 									type="text"
 									name="coupon_code"
-									class="outline-none-focus shadow-focus-focus w-100 border-radius-5px transition-box-shadow input-text me-md-12px"
+									class="{{
+										[
+											'border',
+											'border-1',
+											'border-gray-very-dark',
+											'shadow-focus-focus',
+											'transition-box-shadow',
+											'outline-none-focus',
+											'p-12px',
+											'w-100',
+											'border-radius-5px',
+											'me-md-12px'
+										] | join( ' ' ) | e
+									}}"
 									id="coupon_code"
 									value=""
 									placeholder="{{ __( 'Coupon code', 'uni' ) }}"
@@ -81,6 +96,7 @@
 										{
 											label: __( 'Apply coupon', 'uni' ),
 											type: 'submit',
+											classes: [ 'w-100', 'w-md-auto', 'mt-12px', 'mt-md-0' ],
 											attributes: {
 												name: 'apply_coupon',
 												value: __( 'Apply coupon', 'uni' )
@@ -105,27 +121,13 @@
 				<tr>
 					<td colspan="5" class="actions">
 
-						<div class="text-md-right padding-top-2 padding-top-md-5">
+						<div class="mt-20px mt-md-0 text-md-right">
 							{#
 							# Hook: woocommerce_cart_actions.
 							#
 							# @hooked UNI\Plugins\WooCommerce::cart_actions - 10
 							#}
 							{% do action( 'woocommerce_cart_actions' ) %}
-
-							{{-
-								include(
-									'components/button.html.twig',
-									{
-										label: __( 'Update cart', 'uni' ),
-										type: 'submit',
-										attributes: {
-											name: 'update_cart',
-											value: __( 'Update cart', 'uni' )
-										}
-									}
-								)
-							-}}
 
 							{{- nonce_field -}}
 						</div>
@@ -157,7 +159,7 @@
 	 #}
 	{% do action( 'woocommerce_before_cart_collaterals' ) %}
 
-    <div class="Cart__collaterals cart-collaterals">
+    <div class="my-20px my-md-0 pe-md-200vw ps-md-100vw py-md-250vh w-md-40 cart-collaterals">
 		{#
 		 # Hook: woocommerce_cart_collaterals.
 		 #

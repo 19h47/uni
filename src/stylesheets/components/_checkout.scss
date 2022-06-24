@@ -19,28 +19,7 @@
 
 	&__details {
 		@include media-breakpoint-up(md) {
-			@include padding(
-				top #{math.div(250 * 100, $prototype-height-unitless)}vh right
-					percentage(math.div(0.5, 12)) bottom #{math.div(
-						250 * 100,
-						$prototype-height-unitless
-					)}vh left percentage(math.div(1, 12))
-			);
-			width: percentage(math.div(6.5, 12));
 			border-right: 1px solid rgba(the_color(black), 1);
-		}
-	}
-
-	&__order {
-		@include media-breakpoint-up(md) {
-			@include padding(
-				top #{math.div(250 * 100, $prototype-height-unitless)}vh right
-					percentage(math.div(1, 12)) bottom #{math.div(
-						250 * 100,
-						$prototype-height-unitless
-					)}vh left percentage(math.div(0.5, 12))
-			);
-			width: percentage(math.div(5.5, 12));
 		}
 	}
 }

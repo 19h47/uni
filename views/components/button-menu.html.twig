@@ -28,9 +28,8 @@
 	id="button-menu-{{ id }}"
 	class="w-20px h-20px align-middle position-relative z-index-2"
 	type="button"
-	data-module-menu-button
-	data-module-project-information-button
-	data-project-information-button-action="close"
+	data-module-panel-button
+	data-panel-button-id="menu"
 	aria-label="{{ __('Menu', 'uni' ) }}"
 >
 	{{- include( 'svg/use.html.twig', { icon: 'bars', classes: [ 'position-absolute', 'inset-0', 'w-100', 'h-100', 'pe-none' ] }, with_context = false ) -}}

@@ -231,6 +231,9 @@ class Theme {
 
 		$context['loop_columns'] = wc_get_loop_prop( 'columns' );
 
+		$context['shipping_countries'] = WC()->countries->get_shipping_countries();
+		$context['allowed_countries']  = WC()->countries->get_allowed_countries();
+
 		return $context;
 	}
 }

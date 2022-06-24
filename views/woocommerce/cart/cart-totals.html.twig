@@ -2,89 +2,80 @@
  # Cart totals
  #
  #}
-<div class="cart_totals{{ customer.has_calculated_shipping() ? ' calculated_shipping' }}">
+<div class="cart_totals {{ customer.has_calculated_shipping() ? 'calculated_shipping' }}">
 	{#
 	 # Hook: woocommerce_before_cart_totals.
 	 #}
 	{% do action( 'woocommerce_before_cart_totals' ) %}
 
-	<h2 class="h1 mt-md-0 fst-normal">
+	<h2 class="fs-4xl my-0 leading-none text-center text-md-start ff-title">
 		{{- __( 'Cart totals', 'uni' ) -}}
 	</h2>
 
-	<table class="Shop-table shop_table shop_table_responsive">
+	<div class="my-20px shop_table shop_table_responsive">
 
-		<tbody>
-			<tr class="cart-subtotal">
-				<th>{{- __( 'Subtotal', 'uni' ) -}}</th>
-				<td data-title="{{ __( 'Subtotal', 'uni' ) }}">
-					{{- html.subtotal -}}
+		<div class="row cart-subtotal">
+			<div class="col-7 fw-bold">
+				{{- __( 'Subtotal', 'uni' ) -}}
+			</div>
+			<div class="col-7 d-flex justify-content-end" data-title="{{ __( 'Subtotal', 'uni' ) }}">
+				{{- html.subtotal -}}
+			</div>
+			<div class="mt-12px"><hr></div>
+		</div>
+
+
+
+		{% for code, coupon in cart.get_coupons() %}
+			<div class="cart-discount coupon-{{ code | sanitize }}">
+				<th>{{- fn( 'wc_cart_totals_coupon_label', coupon ) -}}</th>
+				<td data-title="{{ fn( 'wc_cart_totals_coupon_label', coupon, false ) }}">
+					{{- fn( 'wc_cart_totals_coupon_html', coupon ) -}}
+				</td>
+			</div>
+		{% endfor %}
+
+
+		{% if cart.needs_shipping() and cart.show_shipping() %}
+			{#
+			 # Hook: woocommerce_cart_totals_before_shipping.
+			 #}
+			{% do action( 'woocommerce_cart_totals_before_shipping' ) %}
+
+
+			{{- html.shipping -}}
+
+			{#
+			 # Hook: woocommerce_cart_totals_after_shipping.
+			 #}
+			{% do action( 'woocommerce_cart_totals_after_shipping' ) %}
+
+		{% elseif needs_shipping and 'yes' == enable_shipping_calc %}
+
+			<div class="shipping">
+				<div>{{- __( 'Shipping', 'uni' ) -}}</div>
+				<div data-title="{{ __( 'Shipping', 'uni' ) }}">
+					{{- shipping_calculator -}}
+				</div>
+			</div>
+
+		{% endif %}
+
+		{% for fee in cart.get_fees() %}
+			<tr class="fee">
+				<th>{{- fee.name -}}</th>
+				<td data-title="{{ fee.name }}">
+					{{- fn( 'wc_cart_totals_fee_html', fee ) -}}
 				</td>
 			</tr>
+		{% endfor %}
 
-			{% for code, coupon in cart.get_coupons() %}
-				<tr class="cart-discount coupon-{{ code | sanitize }}">
-					<th>{{- fn( 'wc_cart_totals_coupon_label', coupon ) -}}</th>
-					<td data-title="{{ fn( 'wc_cart_totals_coupon_label', coupon, false ) }}">
-						{{- fn( 'wc_cart_totals_coupon_html', coupon ) -}}
-					</td>
-				</tr>
-			{% endfor %}
-
-
-			{% if cart.needs_shipping() and cart.show_shipping() %}
-				{#
-				# Hook: woocommerce_cart_totals_before_shipping.
-				#}
-				{% do action( 'woocommerce_cart_totals_before_shipping' ) %}
-
-				{{- html.shipping -}}
-
-				{#
-				# Hook: woocommerce_cart_totals_after_shipping.
-				#}
-				{% do action( 'woocommerce_cart_totals_after_shipping' ) %}
-
-			{% elseif needs_shipping and 'yes' == enable_shipping_calc %}
-
-				<tr class="shipping">
-					<th>{{- __( 'Shipping', 'uni' ) -}}</th>
-					<td data-title="{{ __( 'Shipping', 'uni' ) }}">
-						{{- shipping_calculator -}}
-					</td>
-				</tr>
-
-			{% endif %}
-
-			{% for fee in cart.get_fees() %}
-				<tr class="fee">
-					<th>{{- fee.name -}}</th>
-					<td data-title="{{ fee.name }}">
-						{{- fn( 'wc_cart_totals_fee_html', fee ) -}}
-					</td>
-				</tr>
-			{% endfor %}
-
-			{% if tax_enabled and not cart.display_prices_including_tax() %}
-				{% if 'itemized' == tax_total_display %}
-					{% for code, tax in cart.get_tax_totals() %}
-						<tr class="tax-rate tax-rate-{{ code | sanitize }}">
-							<th>
-								{{- tax.label }}&nbsp;
-								{% if customer.is_customer_outside_base() and not customer.has_calculated_shipping() %}
-									{# translators: %s location. #}
-									{% apply format( countries.estimated_for_prefix( customer.get_taxable_address()[0] ) ~ countries.countries[ customer.get_taxable_address()[0] ] ) %}
-										<small>{{- __( '(estimated for %s)', 'uni' ) -}}</small>
-									{% endapply %}
-								{% endif %}
-							</th>
-							<td data-title="{{ tax.label }}">{{- tax.formatted_amount -}}</td>
-						</tr>
-					{% endfor %}
-				{% else %}
-					<tr class="tax-total">
+		{% if tax_enabled and not cart.display_prices_including_tax() %}
+			{% if 'itemized' == tax_total_display %}
+				{% for code, tax in cart.get_tax_totals() %}
+					<tr class="tax-rate tax-rate-{{ code | sanitize }}">
 						<th>
-							{{- countries.tax_or_vat() }}&nbsp;
+							{{- tax.label }}&nbsp;
 							{% if customer.is_customer_outside_base() and not customer.has_calculated_shipping() %}
 								{# translators: %s location. #}
 								{% apply format( countries.estimated_for_prefix( customer.get_taxable_address()[0] ) ~ countries.countries[ customer.get_taxable_address()[0] ] ) %}
@@ -92,29 +83,44 @@
 								{% endapply %}
 							{% endif %}
 						</th>
-						<td data-title="{{ countries.tax_or_vat() }}">{{- html.taxes_total -}}</td>
+						<td data-title="{{ tax.label }}">{{- tax.formatted_amount -}}</td>
 					</tr>
-				{% endif %}
+				{% endfor %}
+			{% else %}
+				<div class="row tax-total mt-20px">
+					<div class="col-7 fw-bold">
+						{{- countries.tax_or_vat() }}
+						{%- if customer.is_customer_outside_base() and not customer.has_calculated_shipping() -%}
+							&nbsp;
+							{# translators: %s location. #}
+							{%- apply format( countries.estimated_for_prefix( customer.get_taxable_address()[0] ) ~ countries.countries[ customer.get_taxable_address()[0] ] ) -%}
+								<small>{{- __( '(estimated for %s)', 'uni' ) -}}</small>
+							{%- endapply -%}
+						{%- endif -%}
+					</div>
+					<div class="col-7 d-flex justify-content-end" data-title="{{ countries.tax_or_vat() }}">
+						{{- html.taxes_total -}}
+					</div>
+					<div class="mt-12px"><hr></div>
+				</div>
 			{% endif %}
-		</tbody>
+		{% endif %}
 
-		<tfoot>
-			<tr class="order-total">
-				<th>{{- __( 'Total', 'uni' ) -}}</th>
-				<td data-title="{{ __( 'Total', 'uni' ) }}">
-					{{- html.order_total -}}
-				</td>
-			</tr>
+		<div class="order-total row mt-20px">
+			<div class="col-7 fw-bold">{{- __( 'Total', 'uni' ) -}}</div>
+			<div class="col-7 d-flex justify-content-end" data-title="{{ __( 'Total', 'uni' ) }}">
+				{{- html.order_total -}}
+			</div>
+		</div>
 
-			{#
-			# Hook: woocommerce_cart_totals_after_order_total.
-			#}
-			{% do action( 'woocommerce_cart_totals_after_order_total' ) %}
-		</tfoot>
+		{#
+		 # Hook: woocommerce_cart_totals_after_order_total.
+		 #}
+		{% do action( 'woocommerce_cart_totals_after_order_total' ) %}
 
-	</table>
+	</div>
 
-	<div class="wc-proceed-to-checkout text-md-end margin-top-2 margin-top-md-5">
+	<div class="wc-proceed-to-checkout text-md-end">
 		{#
 		 # Hook: woocommerce_proceed_to_checkout
 		 #

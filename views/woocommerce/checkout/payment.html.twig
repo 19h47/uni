@@ -9,26 +9,26 @@
 	{% do action( 'woocommerce_review_order_before_payment' ) %}
 {% endif %}
 
-<div id="payment" class="Payment woocommerce-checkout-payment">
+<div id="payment" class="woocommerce-checkout-payment">
 
 	{% if cart.needs_payment() %}
-		<ul class="Payment__methods wc_payment_methods payment_methods methods">
+		<ul class="list-style-type-none my-12px wc_payment_methods payment_methods methods">
 
 			{% if available_gateways is not empty %}
 				{% for gateway in available_gateways %}
 					{{- fn( 'wc_get_template', 'checkout/payment-method.php',  { 'gateway': gateway } ) -}}
 				{% endfor %}
 			{% else %}
-				<li class="Payment__method woocommerce-notice woocommerce-notice--info woocommerce-info">
-					<div class="Payment__method__header">
-						{% filter apply_filters( 'woocommerce_no_available_payment_methods_message' ) %}
-							{% if customer.get_billing_country() %}
-								{{- __( 'Sorry, it seems that there are no available payment methods for your state. Please contact us if you require assistance or wish to make alternate arrangements.', 'uni' ) -}}
-							{% else %}
-									{{- __( 'Please fill in your details above to see available payment methods.', 'uni' ) -}}
-							{% endif %}
-						{% endfilter %}
-					</div>
+				<li class="py-12px border-bottom border-1 border-gray-very-dark woocommerce-notice woocommerce-notice--info woocommerce-info">
+
+					{% filter apply_filters( 'woocommerce_no_available_payment_methods_message' ) %}
+						{% if customer.get_billing_country() %}
+							{{- __( 'Sorry, it seems that there are no available payment methods for your state. Please contact us if you require assistance or wish to make alternate arrangements.', 'uni' ) -}}
+						{% else %}
+								{{- __( 'Please fill in your details above to see available payment methods.', 'uni' ) -}}
+						{% endif %}
+					{% endfilter %}
+
 				</li>
 			{% endif %}
 		</ul>
@@ -73,6 +73,7 @@
 					{
 						button: 'submit',
 						label: order_button_text,
+						type: 'submit',
 						classes: [ 'button', 'alt', 'w-100', 'w-md-auto' ],
 						attributes: {
 							name: 'woocommerce_checkout_place_order',

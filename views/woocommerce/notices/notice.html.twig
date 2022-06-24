@@ -1,9 +1,25 @@
 {#
  # Notice
  #}
+
 {% if notices is iterable and notices is not empty %}
 	{% for notice in notices %}
-		<div class="Info shadow-uni my-12px woocommerce-info border-radius-5px background-color-cyan-light-grayish-01 color-cyan-very-dark-01"{{ fn( 'wc_get_notice_data_attr', notice ) }}>
+		<div
+			class="{{
+				[
+					'woocommerce-info',
+					'shadow-uni',
+					'p-20px',
+					'border',
+					'border-1',
+					'border-cyan-light-grayish-02',
+					'border-radius-5px',
+					'background-color-cyan-light-grayish-01',
+					'color-cyan-very-dark-01',
+				] | merge( notice.classes | default( [] ) ) | join( ' ' ) | trim
+			}}"
+			{{ fn( 'wc_get_notice_data_attr', notice ) }}
+		>
 			{{-  notice.notice }}
 		</div>
 	{% endfor %}

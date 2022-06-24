@@ -3,10 +3,13 @@
  #
  # @package UNI
  #}
-<tr class="woocommerce-shipping-totals shipping">
-	<th>{{- package_name -}}</th>
 
-	<td data-title="{{ package_name }}">
+{# TODO add classes from function #}
+<div class="woocommerce-shipping-totals shipping mt-20px">
+
+	<div class="fw-bold mb-12px">{{- package_name -}}</div>
+
+	<div data-title="{{ package_name }}">
 		{% if available_methods is not empty %}
 			<ul id="shipping_method" class="Shipping-methods woocommerce-shipping-methods">
 				{% for method in available_methods %}
@@ -35,7 +38,7 @@
 			</ul>
 
 			{% if is_cart %}
-				<p class="woocommerce-shipping-destination">
+				<p class="woocommerce-shipping-destination mb-20px">
 					{%- if formatted_destination -%}
 						{# Translators: $s shipping destination. #}
 						{{- __( 'Shipping to %s.', 'uni' ) | format( "&nbsp;<strong>#{ formatted_destination }</strong>" ) -}}
@@ -71,11 +74,15 @@
 		{% endif %}
 
 		{% if show_package_details %}
-			<p class="woocommerce-shipping-contents"><small>{{- package_details -}}</small></p>
+			<p class="woocommerce-shipping-contents mb-20px">
+				<small>{{- package_details -}}</small>
+			</p>
 		{% endif %}
 
 		{% if show_shipping_calculator %}
-			{{- fn( 'woocommerce_shipping_calculator', calculator_text ) -}}
+			<div class="mt-20px">
+				{{- fn( 'woocommerce_shipping_calculator', calculator_text ) -}}
+			</div>
 		{% endif %}
-	</td>
-</tr>
+	</div>
+</div>

@@ -6,8 +6,14 @@
 {% extends 'index.html.twig' %}
 
 {% block content %}
-	<div class="mt-100px mx-20px mb-20px mt-md-20px ms-md-100px position-relative">
+
+
+	<div class="mt-100px mx-20px mb-20px mt-md-20px ms-md-100px position-relative w-md-100">
+		{% do action( 'uni_before_cart_content' ) %}
+
 		{{- post.content -}}
+
+
 		{{- include( 'components/footer-vertical.html.twig' ) -}}
 	</div>
 {% endblock %}

@@ -14,81 +14,21 @@
 
 	&__form {
 		@include media-breakpoint-up(md) {
-			@include padding(
-				top #{math.div(250 * 100, $prototype-height-unitless)}vh right
-					percentage(math.div(0.5, 12)) bottom #{math.div(
-						250 * 100,
-						$prototype-height-unitless
-					)}vh left percentage(math.div(1, 12))
-			);
-
-			width: percentage(math.div(6.5, 12));
 			border-right: 1px solid rgba(the_color(black), 1);
 		}
 
 		&__contents {
-			width: 100%;
 			table-layout: fixed;
 			overflow-wrap: break-word;
 			border-spacing: 0;
 			border-collapse: collapse;
 
-			.product-thumbnail,
-			.product-name,
-			.product-price,
-			.product-quantity,
-			.product-subtotal {
-				font-size: #{math.div(12, 16)}rem;
-			}
-
 			thead tr th {
-				@extend .fw-bold;
-				@include padding(top #{(20 * 60) * 0.01}px bottom #{(20 * 60) * 0.01}px);
-
 				border-bottom: 1px solid the_color(gray, very-dark);
-
-				@include media-breakpoint-up(hd) {
-					@include padding(top #{math.div(20, 30)}em bottom #{math.div(20, 30)}em);
-				}
-			}
-
-			tfoot {
-				.actions {
-					@include media-breakpoint-up(hd) {
-						@include padding(top #{math.div(90, 30)}em);
-					}
-				}
-			}
-
-			.product-quantity {
-				@extend .text-end;
-
-				input {
-					@extend .text-end;
-				}
-			}
-
-			.product-subtotal {
-				@extend .text-end;
 			}
 
 			.product-thumbnail {
-				@extend .text-start;
-
-				width: 0;
-				font-size: 0;
-				border: 0;
-				padding: 0;
-
 				@include media-breakpoint-up(md) {
-					@include padding(
-						top #{math.div(20, 30)}em right #{math.div(10, 30)}em bottom #{math.div(
-								20,
-								30
-							)}em
-					);
-
-					width: percentage(200 * 0.001);
 					border-bottom: 1px solid the_color(gray, very-dark);
 				}
 
@@ -107,67 +47,12 @@
 					background-color: the_color(gray, very-light-01);
 				}
 			}
-
-			.product-price {
-				@extend .text-end;
-				width: percentage(200 * 0.001);
-			}
-			.product-quantity {
-				width: percentage(200 * 0.001);
-			}
-			.product-subtotal {
-				width: percentage(200 * 0.001);
-			}
-
-			.actions {
-				width: 100%;
-
-				.Coupon {
-					@include padding(top #{(20 * 60) * 0.01}px bottom #{(20 * 60) * 0.01}px);
-				}
-			}
 		}
 
 		&__item {
 			td {
-				@include padding(
-					top #{(20 * 60) * 0.01}px right #{(10 * 60) * 0.01}px bottom #{(20 * 60) * 0.01}px
-						left #{(10 * 60) * 0.01}px
-				);
-
-				@include media-breakpoint-up(hd) {
-					@include padding(
-						top #{math.div(20, 30)}em right #{math.div(10, 30)}em bottom #{math.div(
-								20,
-								30
-							)}em left #{math.div(10, 30)}em
-					);
-				}
-
-				&:first-child {
-					@include padding(left 0);
-				}
-				&:last-child {
-					@include padding(right 0);
-				}
-
 				border-bottom: 1px solid the_color(gray, very-dark);
 			}
-		}
-	}
-	&__collaterals {
-		@include margin(bottom 20px);
-
-		@include media-breakpoint-up(md) {
-			@include margin(bottom 0);
-			@include padding(
-				top #{math.div(250 * 100, $prototype-height-unitless)}vh right
-					percentage(math.div(1, 12)) bottom #{math.div(
-						250 * 100,
-						$prototype-height-unitless
-					)}vh left percentage(math.div(0.5, 12))
-			);
-			width: percentage(math.div(5.5, 12));
 		}
 	}
 }

@@ -10,7 +10,25 @@
 
 		<form class="checkout_coupon woocommerce-form-coupon" method="post" style="display:none">
 			<div class="Coupon Input transition-box-shadow d-md-flex justify-content-md-end">
-				<input type="text" name="coupon_code" class="outline-none-focus shadow-focus-focus w-100 border-radius-5px input-text me-md-12px" placeholder="{{ __( 'Coupon code', 'uni' ) }}" id="coupon_code" value="" />
+				<input
+					type="text"
+					name="coupon_code"
+					class="{{ [
+						'border',
+						'border-1',
+						'border-gray-very-dark',
+						'shadow-focus-focus',
+						'transition-box-shadow',
+						'outline-none-focus',
+						'p-12px',
+						'w-100',
+						'border-radius-5px',
+					 	'me-md-12px'
+					] | join( ' ' ) }}"
+					placeholder="{{ __( 'Coupon code', 'uni' ) }}"
+					id="coupon_code"
+					value=""
+				/>
 
 				{{-
 					include(

@@ -113,6 +113,9 @@ class WooCommerce {
 		add_action( 'woocommerce_process_product_meta', array( $this, 'update_meta_data' ), 10, 1 );
 
 		add_action( 'woocommerce_single_product_price', 'woocommerce_template_single_price', 10, 1 );
+
+		remove_action( 'woocommerce_before_cart', 'woocommerce_output_all_notices', 10 );
+		add_action( 'uni_before_cart_content', 'woocommerce_output_all_notices', 10 );
 	}
 
 
@@ -231,9 +234,22 @@ class WooCommerce {
 			array(
 				'label'      => esc_html__( 'Return to shop', 'uni' ),
 				'tag'        => 'a',
-				'classes'    => array( 'me-12px', 'button', 'wc-backward' ),
+				'classes'    => array( 'me-12px', 'd-inline-block', 'w-100', 'w-md-auto', 'button', 'wc-backward' ),
 				'attributes' => array(
 					'href' => esc_url( apply_filters( 'woocommerce_return_to_shop_redirect', wc_get_page_permalink( 'shop' ) ) ),
+				),
+			)
+		);
+
+		Timber::render(
+			'components/button.html.twig',
+			array(
+				'type'       => 'submit',
+				'label'      => esc_html__( 'Update cart', 'uni' ),
+				'classes'    => array( 'w-100', 'w-md-auto', 'mt-12px', 'mt-md-0' ),
+				'attributes' => array(
+					'name'  => 'update_cart',
+					'value' => __( 'Update cart', 'uni' ),
 				),
 			)
 		);
@@ -247,7 +263,7 @@ class WooCommerce {
 	 * @return void
 	 */
 	public function before_cart_table() : void {
-		the_title( '<h1 class="mt-0">', '</h1>' );
+		the_title( '<h1 class="mt-0 fs-4xl leading-none text-center text-md-start mb-20px">', '</h1>' );
 	}
 
 

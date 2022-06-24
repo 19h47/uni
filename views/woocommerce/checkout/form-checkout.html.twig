@@ -34,72 +34,72 @@
 			{% if checkout.get_checkout_fields() %}
 
 				{#
-				# Hook: woocommerce_checkout_before_customer_details
-				#
-				# @hooked wc_get_pay_buttons - 30
-				#}
+				 # Hook: woocommerce_checkout_before_customer_details
+				 #
+				 # @hooked wc_get_pay_buttons - 30
+				 #}
 				{% do action( 'woocommerce_checkout_before_customer_details' ) %}
 
-				<div class="d-md-flex">
-					<div class="Checkout__details" id="customer_details">
-						<div class="Checkout__billing">
-							{#
-							# Hook: woocommerce_checkout_billing
-							#
-							# @hooked WC_Checkout::checkout_form_billing
-							#}
-							{% do action( 'woocommerce_checkout_billing' ) %}
-						</div>
 
-						<div class="Checkout__shipping">
-							{#
-							# Hook: woocommerce_checkout_shipping
-							#
-							# @hooked WC_Checkout::checkout_form_shipping
-							#}
-							{% do action( 'woocommerce_checkout_shipping' ) %}
-						</div>
-					</div>
-
-					{#
-					# Hook: woocommerce_checkout_after_customer_details.
-					#}
-					{% do action( 'woocommerce_checkout_after_customer_details' ) %}
-
-				{% endif %}
-
-				<div class="Checkout__order">
-					{#
-					# Hook: woocommerce_checkout_before_order_review_heading
-					#}
-					{% do action( 'woocommerce_checkout_before_order_review_heading' ) %}
-
-					<h3 id="order_review_heading" class="h1 mt-md-0 fst-normal">
-						{{- __( 'Your order', 'uni' ) -}}
-					</h3>
-
-					{#
-					# Hook: woocommerce_checkout_before_order_review
-					#}
-					{% do action( 'woocommerce_checkout_before_order_review' ) %}
-
-					<div id="order_review" class="woocommerce-checkout-review-order">
+				<div class="Checkout__details w-md-60 py-md-250vh ps-md-200vw pe-md-100vw" id="customer_details">
+					<div class="Checkout__billing">
 						{#
-						# Hook: woocommerce_checkout_order_review
-						#
-						# @hooked woocommerce_order_review - 10
-						# @hooked woocommerce_checkout_payment - 20
-						#}
-						{% do action( 'woocommerce_checkout_order_review' ) %}
+						 # Hook: woocommerce_checkout_billing
+						 #
+						 # @hooked WC_Checkout::checkout_form_billing
+						 #}
+						{% do action( 'woocommerce_checkout_billing' ) %}
 					</div>
 
-					{#
-					# Hook: woocommerce_checkout_after_order_review
-					#}
-					{% do action( 'woocommerce_checkout_after_order_review' ) %}
-
+					<div class="Checkout__shipping">
+						{#
+						 # Hook: woocommerce_checkout_shipping
+						 #
+						 # @hooked WC_Checkout::checkout_form_shipping
+						 #}
+						{% do action( 'woocommerce_checkout_shipping' ) %}
+					</div>
 				</div>
+
+				{#
+				 # Hook: woocommerce_checkout_after_customer_details.
+				 #}
+				{% do action( 'woocommerce_checkout_after_customer_details' ) %}
+
+			{% endif %}
+
+			<div class="pe-md-200vw ps-md-100vw py-md-250vh w-md-40 my-20px my-md-0">
+				{#
+				 # Hook: woocommerce_checkout_before_order_review_heading
+				 #}
+				{% do action( 'woocommerce_checkout_before_order_review_heading' ) %}
+
+				<h3 id="order_review_heading" class="fs-4xl mt-0 mb-20px fst-normal leading-none text-center text-md-start ff-title">
+					{{- __( 'Your order', 'uni' ) -}}
+				</h3>
+
+				{#
+				 # Hook: woocommerce_checkout_before_order_review
+				 #}
+				{% do action( 'woocommerce_checkout_before_order_review' ) %}
+
+				<div id="order_review" class="woocommerce-checkout-review-order">
+					{#
+					 # Hook: woocommerce_checkout_order_review
+					 #
+					 # @hooked woocommerce_order_review - 10
+					 # @hooked woocommerce_checkout_payment - 20
+					 #}
+					{% do action( 'woocommerce_checkout_order_review' ) %}
+				</div>
+
+				{#
+				 # Hook: woocommerce_checkout_after_order_review
+				 #}
+				{% do action( 'woocommerce_checkout_after_order_review' ) %}
+
 			</div>
+
 		</form>
 
 	{% endif %}

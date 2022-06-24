@@ -22,7 +22,7 @@ class FrontPage extends M {
 
 					this.$('player')[this.current].play();
 				}
-			});
+			}, false);
 
 			this.$('grid')[0].addEventListener('click', async () => {
 				console.log('click');
@@ -32,7 +32,7 @@ class FrontPage extends M {
 					this.playing = true;
 
 				}
-			});
+			}, false);
 
 			this.$('player').forEach(($player, index) => {
 				$player.addEventListener('timeupdate', () => {

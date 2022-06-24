@@ -1,9 +1,25 @@
 {#
- #
+ # Error
  #}
 {% if notices is iterable and notices is not empty %}
 
-	<ul class="Error shadow-uni woocommerce-error list-style-type-none border-radius-5px background-color-red-light-grayish-01 color-red-very-dark-01" role="alert">
+	<ul class="{{
+		[
+			'd-flex',
+			'flex-column',
+			'gap-y-12px',
+			'list-style-type-none',
+			'woocommerce-error',
+			'shadow-uni',
+			'p-20px',
+			'border',
+			'border-1',
+			'border-red-light-grayish-02',
+			'border-radius-5px',
+			'background-color-red-light-grayish-01',
+			'color-red-very-dark-01'
+		] | merge( notice.classes | default( [] ) ) | join( ' ' ) | trim
+	}}" role="alert">
 		{% for notice in notices %}
 			<li{{ fn( 'wc_get_notice_data_attr', notice ) }}>
 				{{- notice.notice -}}

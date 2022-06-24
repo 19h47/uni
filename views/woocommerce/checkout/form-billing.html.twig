@@ -1,10 +1,12 @@
 {#
  # Checkout billing information form
  #}
-<div class="Billing-fields woocommerce-billing-fields">
-	<h2 class="h1 mt-md-0 fst-normal">{{- __( 'Informations', 'uni' ) -}}</h2>
+<div class="woocommerce-billing-fields">
+	<h2 class="fs-4xl mt-0 mb-20px leading-none text-center text-md-start ff-title">
+		{{- __( 'Informations', 'uni' ) -}}
+	</h2>
 
-	<h3 class="fst-normal ff-body">
+	<h3 class="fst-normal fw-bold fs-base ff-body mb-12px mt-0">
 		{%- if ship_to_billing_address_only and cart.needs_shipping() -%}
 			{{- __( 'Billing &amp; Shipping', 'uni' ) -}}
 		{%- else -%}
@@ -12,15 +14,25 @@
 		{%- endif -%}
 	</h3>
 
+	<hr class="mb-12px">
 
-	<div class="Billing-fields__field-wrapper d-flex flex-wrap woocommerce-billing-fields__field-wrapper">
+
+	<div class="row gap-y-20px woocommerce-billing-fields__field-wrapper">
 		{#
 		 # Hook: woocommerce_before_checkout_billing_form.
 		 #}
 		{% do action( 'woocommerce_before_checkout_billing_form', checkout ) %}
 
 		{% for key, field in checkout.get_checkout_fields( 'billing' ) %}
-			{{- fn( 'woocommerce_form_field', key, field, checkout.get_value( key ) ) -}}
+			{% if  field.type in [ 'text', 'password', 'datetime', 'datetime-local', 'date', 'month', 'time', 'week', 'number', 'email', 'url', 'tel', null ] %}
+				{{- include( 'components/input-text.html.twig', { key: key, args: field, value: checkout.get_value( key ) } ) -}}
+			{% elseif 'country' == field.type  %}
+				{{- include( 'components/input-country.html.twig', { key: key, args: field, value: checkout.get_value( key ) } ) -}}
+			{% elseif 'textarea' == field.type  %}
+				{{- include( 'components/input-textarea.html.twig', { key: key, args: field, value: checkout.get_value( key ) } ) -}}
+			{% else %}
+				{{- fn( 'woocommerce_form_field', key, field, checkout.get_value( key ) ) -}}
+			{% endif %}
 		{% endfor %}
 
 

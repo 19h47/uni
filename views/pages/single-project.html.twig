@@ -5,15 +5,15 @@
 
 {% block content %}
 
-	<div id="project-information" class="Single-project__information py-20px pe-20px position-fixed inset-0 z-index-4" data-module-project-information>
-		<div class="Single-project__information__wrapper shadow-uni border-radius-5px h-100 py-md-60vh ps-md-0">
+	{% embed 'components/panel.html.twig' with { id: 'project-information' } %}
+		{% block content %}
 			<div class="grid-template-columns-repeat-12-1fr grid-template-rows-repeat-11-1fr grid-column-gap-0 grid-row-gap-0 d-grid h-100">
 
 				{{-
 					include(
 						'partials/page-title.html.twig',
 						{
-							classes: [ 'text-center', 'text-md-start', 'grid-area-2/2/3/7' ],
+							classes: [ 'text-start', 'grid-area-2/2/3/7' ],
 							subtitle: post.get_terms( 'project_cat' ) ? post.get_terms( 'project_cat' ) | map( cat => cat.name ) | join( ', ' ),
 							title: post.title
 						}
@@ -30,8 +30,8 @@
 					</div>
 				{% endif %}
 			</div>
-		</div>
-	</div>
+		{% endblock %}
+	{% endembed %}
 
 	<div class="Horizontal-page__section mx-20px mx-md-0 mb-20px mb-md-0 position-md-fixed top-md-0 bottom-md-0 start-md-0 w-100 h-md-100" data-horizontal-page="section">
 		<div class="ps-md-100px d-md-flex flex-md-nowrap top-md-0 bottom-md-0 start-md-0 position-md-absolute z-index-md-0 h-md-100" data-horizontal-page="track">
@@ -70,9 +70,8 @@
 							<button
 								class="d-none d-md-inline-block mt-8px"
 								type="button"
-								data-module-menu-button
-								data-menu-button-action="close"
-								data-module-project-information-button
+								data-module-panel-button
+								data-panel-button-id="project-information"
 							>
 								&plus;&nbsp;
 								<span class="text-decoration-underline">

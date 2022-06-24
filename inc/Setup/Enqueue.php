@@ -59,6 +59,8 @@ class Enqueue {
 		wp_deregister_script( 'wp-embed' );
 		wp_deregister_script( 'wp-mediaelement' );
 
+		wp_deregister_script( 'mailchimp-woocommerce' );
+
 		$deps = array( 'jquery', 'jquery-blockui' );
 
 		if ( isset( get_theme_manifest()['vendors.js'] ) ) {
@@ -123,9 +125,8 @@ class Enqueue {
 	public function enqueue_style() : void {
 
 		wp_dequeue_style( 'wp-block-library' );
-		wp_deregister_style( 'wp-mediaelement' );
-		wp_deregister_style( 'wc-block-style' );
-		wp_deregister_style( 'wc-block-editor' );
+		wp_dequeue_style( 'wc-blocks-style' );
+		wp_dequeue_style( 'wp-mediaelement' );
 
 		// Add custom fonts, used in the main stylesheet.
 		$webfonts = array();

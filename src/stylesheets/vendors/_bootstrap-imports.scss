@@ -99,6 +99,7 @@ $utilities: map-merge(
 		'border-radius': (
 			property: border-radius,
 			class: border-radius,
+			responsive: true,
 			values: (
 				5px: #{math.div(5, 16)}rem,
 				'5px-0-0-5px': #{math.div(5, 16)}rem 0 0 #{math.div(5, 16)}rem,
@@ -285,6 +286,22 @@ $utilities: map-merge(
 			state: focus,
 			values: none,
 		),
+		'columns': (
+			property: columns,
+			responsive: true,
+			values: (
+				2,
+				auto,
+			),
+		),
+		'column-gap': (
+			property: column-gap,
+			responsive: true,
+			values: (
+				2\.5: 2.5rem,
+				normal: normal,
+			),
+		),
 		'transition': (
 			property: transition,
 			values: (
@@ -293,6 +310,20 @@ $utilities: map-merge(
 						'box-shadow .3s cubic-bezier(0.19, 1, 0.22, 1), opacity .3s cubic-bezier(0.19, 1, 0.22, 1)'
 					),
 				box-shadow: unquote('box-shadow 0.3s cubic-bezier(0.19, 1, 0.22, 1)'),
+				transform: unquote('transform 0.3s cubic-bezier(0.19, 1, 0.22, 1)'),
+			),
+		),
+		'gap-y': (
+			property: row-gap,
+			class: gap-y,
+			values: $spacers,
+		),
+		'border-color': (
+			property: border-color,
+			class: border,
+			values: (
+				gray-very-dark: #666666,
+				cyan-light-grayish-02: #bee5eb,
 			),
 		),
 	)
@@ -303,6 +334,10 @@ $utilities: map-merge(
 	right: 0;
 	bottom: 0;
 	left: 0;
+}
+
+.background-color-white-0\.97 {
+	background-color: rgba(255, 255, 255, 0.97);
 }
 
 @import '~bootstrap/scss/utilities/api';

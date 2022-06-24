@@ -8,39 +8,9 @@
 .Input {
 	$this: &;
 
-	label {
-		@extend .d-block;
-		@include margin(bottom 1em);
-
-		.required {
-			@extend .text-decoration-none;
-		}
-	}
-
-	& > span {
-		@extend .d-block;
-	}
-
 	select,
 	input {
 		@include reset-placeholder(the_color(gray, dark));
-		@include padding(
-			top #{math.div(20, 30)}em right #{math.div(20, 30)}em bottom #{math.div(20, 30)}em left
-				#{math.div(20, 30)}em
-		);
-
-		transition: box-shadow 0.3s map-get($easings, ease-out-expo);
-
-		border-radius: map-get($borders, radius);
-		max-width: 100%;
-		width: 100%;
-
-		border: 1px solid the_color(gray, very-dark);
-
-		&:focus {
-			outline: none;
-			box-shadow: 0 0 0 0.2rem rgba(the_color(gray, very-light-02), 0.5);
-		}
 
 		&[type='checkbox'] {
 			width: auto;

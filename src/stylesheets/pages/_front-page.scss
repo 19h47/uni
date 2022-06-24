@@ -10,8 +10,4 @@
 .Front-page {
 	overflow: hidden;
 	height: 100%;
-
-	&__grid {
-		@include padding(right #{math.div(42 * 100, 750)}vw left #{math.div(42 * 100, 750)}vw);
-	}
 }

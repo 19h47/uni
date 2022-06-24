@@ -36,7 +36,6 @@
 @import 'base/typographies';
 
 // Components
-@import 'components/menu';
 @import 'components/input';
 @import 'components/checkbox';
 @import 'components/languages';
@@ -49,21 +48,13 @@
 @import 'components/thumbnail';
 @import 'components/select';
 @import 'components/cart';
-@import 'components/shop-table';
 @import 'components/checkout';
-@import 'components/billing-fields';
-@import 'components/shipping-fields';
 @import 'components/shipping-methods';
-@import 'components/payment';
-@import 'components/info';
-@import 'components/error';
-@import 'components/message';
 
 // Pages
 @import 'pages/front-page';
 @import 'pages/horizontal-page';
 @import 'pages/about-page';
-@import 'pages/single-project';
 @import 'pages/contact-page';
 
 // Utilities.

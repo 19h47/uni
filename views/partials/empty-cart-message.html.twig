@@ -1,9 +1,14 @@
 {#
  # Empty Cart Message
  #}
-
-<p class="cart-empty woocommerce-info Info my-12px">
-	{% filter apply_filters( 'wc_empty_cart_message' ) %}
-		{{- __( 'Your cart is currently empty.', 'uni' ) -}}
-	{% endfilter %}
-</p>
+{{-
+	include(
+		'woocommerce/notices/notice.html.twig',
+		{
+			notices: [{
+				classes: [ 'cart-empty' ],
+				notice: __( 'Your cart is currently empty.', 'uni' ) | apply_filters( 'wc_empty_cart_message' )
+			}]
+		}
+	)
+-}}

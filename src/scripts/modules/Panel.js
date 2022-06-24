@@ -3,18 +3,9 @@ import { module as M } from '@19h47/modular';
 import { disableScroll, enableScroll } from 'utils/scroll';
 import { body } from 'utils/environment';
 
-class Menu extends M {
-	constructor(m) {
-		// console.info('Menu.constructor');
-
-		super(m);
-
-		this.isOpen = body.classList.contains('menu--is-open');
-
-		this.close = this.close.bind(this);
-	}
-
+class Panel extends M {
 	init() {
+		this.isOpen = body.classList.contains(`${this.el.id}--is-open`);
 
 		this.el.addEventListener('click', ({ target }) => {
 			const { tagName } = target;
@@ -33,10 +24,10 @@ class Menu extends M {
 	}
 
 	/**
-	 * Menu.toggle
+	 * Panel.toggle
 	 */
 	toggle() {
-		console.info('Menu.toggle()');
+		console.info('Panel.toggle()', this.el.id, this.isOpen);
 
 		if (this.isOpen) {
 			return this.close();
@@ -46,10 +37,10 @@ class Menu extends M {
 	}
 
 	/**
-	 * Menu.open
+	 * Panel.open
 	 */
 	open() {
-		console.info('Menu.open()');
+		console.info('Panel.open()', this.el.id);
 
 		if (this.isOpen) {
 			return false;
@@ -57,27 +48,20 @@ class Menu extends M {
 
 		this.isOpen = true;
 
-		body.classList.add('menu--is-open');
+		body.classList.add(`${this.el.id}--is-open`);
+		this.el.style.removeProperty('transform')
 
-		// When menu is open, disableScroll
+		// When Panel is open, disableScroll
 		disableScroll();
-
-		// const projectInformation = this.page.blocks.find(
-		// 	block => 'project-information' === block.id,
-		// );
-
-		// if (projectInformation) {
-		// 	projectInformation.close();
-		// }
 
 		return true;
 	}
 
 	/**
-	 * Menu.close
+	 * Panel.close
 	 */
 	close() {
-		console.info('Menu.close()');
+		console.info('Panel.close()', this.el.id);
 
 		if (!this.isOpen) {
 			return false;
@@ -85,7 +69,8 @@ class Menu extends M {
 
 		this.isOpen = false;
 
-		body.classList.remove('menu--is-open');
+		body.classList.remove(`${this.el.id}--is-open`);
+		this.el.style.setProperty('transform', 'translate3d(100%, 0, 0)')
 
 		// When menu is closed, enableScroll
 		enableScroll();
@@ -94,4 +79,4 @@ class Menu extends M {
 	}
 }
 
-export default Menu;
+export default Panel;

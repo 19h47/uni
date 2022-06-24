@@ -15,9 +15,17 @@
 			<h3>{{- __( 'Additional information', 'uni' ) -}}</h3>
 		{% endif %}
 
-		<div class="woocommerce-additional-fields__field-wrapper">
+		<div class="row gap-y-20px woocommerce-additional-fields__field-wrapper">
 			{% for key, field in checkout.get_checkout_fields( 'order' ) %}
-				{{- fn( 'woocommerce_form_field', key, field, checkout.get_value( key ) ) -}}
+				{% if  field.type in [ 'text', 'password', 'datetime', 'datetime-local', 'date', 'month', 'time', 'week', 'number', 'email', 'url', 'tel', null ] %}
+					{{- include( 'components/input-text.html.twig', { key: key, args: field, value: checkout.get_value( key ) } ) -}}
+				{% elseif 'country' == field.type  %}
+					{{- include( 'components/input-country.html.twig', { key: key, args: field, value: checkout.get_value( key ) } ) -}}
+				{% elseif 'textarea' == field.type  %}
+					{{- include( 'components/input-textarea.html.twig', { key: key, args: field, value: checkout.get_value( key ) } ) -}}
+				{% else %}
+					{{- fn( 'woocommerce_form_field', key, field, checkout.get_value( key ) ) -}}
+				{% endif %}
 			{% endfor %}
 		</div>
 
@@ -29,7 +37,7 @@
 	{% do action( 'woocommerce_after_order_notes', checkout ) %}
 </div>
 
-<div class="woocommerce-shipping-fields">
+<div class="woocommerce-shipping-fields mt-20px">
 
 	{% if cart.needs_shipping_address() %}
 
@@ -53,9 +61,17 @@
 			 #}
 			{% do action( 'woocommerce_before_checkout_shipping_form', checkout ) %}
 
-			<div class="Shipping-fields__field-wrapper @extend d-flex flex-wrap woocommerce-shipping-fields__field-wrapper">
+			<div class="row gap-y-20px woocommerce-shipping-fields__field-wrapper">
 				{% for key, field in checkout.get_checkout_fields( 'shipping' ) %}
-					{{- fn( 'woocommerce_form_field', key, field, checkout.get_value( key ) ) -}}
+					{% if  field.type in [ 'text', 'password', 'datetime', 'datetime-local', 'date', 'month', 'time', 'week', 'number', 'email', 'url', 'tel', null ] %}
+						{{- include( 'components/input-text.html.twig', { key: key, args: field, value: checkout.get_value( key ) } ) -}}
+					{% elseif 'country' == field.type  %}
+						{{- include( 'components/input-country.html.twig', { key: key, args: field, value: checkout.get_value( key ) } ) -}}
+					{% elseif 'textarea' == field.type  %}
+						{{- include( 'components/input-textarea.html.twig', { key: key, args: field, value: checkout.get_value( key ) } ) -}}
+					{% else %}
+						{{- fn( 'woocommerce_form_field', key, field, checkout.get_value( key ) ) -}}
+					{% endif %}
 				{% endfor %}
 			</div>
 			{#

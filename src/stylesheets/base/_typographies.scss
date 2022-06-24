@@ -9,13 +9,13 @@
 h1,
 .h1 {
 	@extend .ff-title, .fw-normal;
-	@include letter-spacing(100);
+	// @include letter-spacing(100);
 	@include margin(top 1rem bottom 2rem);
 }
 
 h2,
 .h2 {
-	@extend .fw-normal, .ff-body;
+	@extend .fw-normal;
 	@include margin(top 1rem bottom 1rem);
 }
 
@@ -53,14 +53,19 @@ h6,
 	line-height: math.div(12, $base-font-size);
 }
 
+.fs-xs {
+	font-size: #{math.div(12, $base-font-size)}rem;
+	line-height: math.div(16, $base-font-size);
+}
+
 .fs-sm {
 	font-size: #{math.div(14, $base-font-size)}rem;
 	line-height: math.div(20, $base-font-size);
 }
 
-.fs-xs {
-	font-size: #{math.div(12, $base-font-size)}rem;
-	line-height: math.div(16, $base-font-size);
+.fs-base {
+	font-size: #{math.div(16, $base-font-size)}rem;
+	line-height: math.div(24, $base-font-size);
 }
 
 .fs-lg {

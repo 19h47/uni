@@ -1,0 +1,14 @@
+{#
+ # Panel
+ #}
+
+<div
+	id="{{ id | default( '' ) }}"
+	class="transition-transform z-index-4 inset-0 position-fixed Menu pt-100px pt-md-20px pb-20px px-20px ps-md-100px"
+	style="transform: translate3d(100%, 0, 0);"
+	data-module-panel="{{ id | default( '' ) }}"
+>
+	<div class="background-color-white-0.97 shadow-uni border-radius-5px h-100">
+		{% block content %}{% endblock %}
+	</div>
+</div>

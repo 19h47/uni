@@ -8,9 +8,10 @@
  #}
 {% do action( 'woocommerce_before_shipping_calculator' ) %}
 
-<form class="woocommerce-shipping-calculator" action="{{ cart_url | e }}" method="post">
+{# TODO add class from function #}
+<form class="woocommerce-shipping-calculator mt-20px" action="{{ cart_url | e }}" method="post">
 
-	<p>
+	<p class="mb-20px">
 		{{-
 			include(
 				'components/button.html.twig',
