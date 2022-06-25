@@ -131,23 +131,23 @@
 							{% endfor %}
 						</div>
 					{% endif %}
+
+					{{-
+						include(
+							'components/heading.html.twig',
+							{
+								classes: [ 'flex-md-shrink-0', 'text-gray-dark', 'bg-white' ],
+								link: post.meta( 'link' ).url | default( site.link ),
+								title: post.meta( 'link' ).title | default( __( 'Discover<br>our online store', 'uni' ) )
+							},
+							with_context = false
+						)
+					-}}
+
 				</div>
 			{% endblock %}
 
 			{% block footer %}
-
-				{{-
-					include(
-						'components/heading.html.twig',
-						{
-							classes: [ 'flex-md-shrink-0', 'text-gray-dark', 'bg-white' ],
-							link: post.meta( 'link' ).url | default( site.link ),
-							title: post.meta( 'link' ).title | default( __( 'Discover<br>our online store', 'uni' ) )
-						},
-						with_context = false
-					)
-				-}}
-
 				{{- include( 'components/footer-horizontal.html.twig', { classes: [ 'flex-md-shrink-0' ] } ) -}}
 			{% endblock %}
 

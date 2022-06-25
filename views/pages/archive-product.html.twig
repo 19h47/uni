@@ -71,21 +71,17 @@
 			{% do action( 'woocommerce_no_products_found' ) %}
 		{% endif %}
 
+		{{-
+			include(
+				'components/heading.html.twig',
+				{
+					classes: [ 'text-gray-dark', 'bg-white' ],
+					link: habitat_page.link,
+					title: __( 'Discover<br>our habitat', 'uni' )
+				},
+				with_context = false
+			)
+		-}}
+
 	</div>
 {% endblock  %}
-
-{% block footer %}
-	{{-
-		include(
-			'components/heading.html.twig',
-			{
-				classes: [ 'text-gray-dark', 'bg-white' ],
-				link: habitat_page.link,
-				title: __( 'Discover<br>our habitat', 'uni' )
-			},
-			with_context = false
-		)
-	-}}
-
-	{{- include( 'components/footer-horizontal.html.twig' ) -}}
-{% endblock %}

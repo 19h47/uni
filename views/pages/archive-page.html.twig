@@ -31,7 +31,7 @@
 					<li class="Loop w-md-800vw h-md-100 d-flex flex-column flex-md-row">
 
 						<{{- item.project ? "a href=\"#{item.project.link}\"" | raw : 'div' | raw }}
-							class="Thumbnail h-360vh w-100 w-md-75 h-md-100 position-relative d-block {{ item.project.color ? '' : 'bg-gray-very-light-01' }}"
+							class="Thumbnail h-360vh w-100 h-md-100 position-relative d-block {{ item.project.color ? '' : 'bg-gray-very-light-01' }}"
 							style="{{ item.project.color ? 'background-color: ' ~ item.project.color | raw : '' }}"
 							data-product-content="link"
 						>
@@ -137,43 +137,43 @@
 				{% endfor %}
 			{{- include( 'woocommerce/loop/loop-end.html.twig' ) -}}
 		{% endif %}
-	</div>
 
-	<div class="text-center my-20px d-md-none">
-		{{-
-			include(
-				'components/button.html.twig',
-				{
-					label: __( 'Find out more &plus;', 'uni' ),
-					attributes: {
-						'data-module-disclosure-button': '',
-						'aria-expanded': 'false',
-						'aria-controls': 'content'
+		<div class="text-center my-20px d-md-none">
+			{{-
+				include(
+					'components/button.html.twig',
+					{
+						label: __( 'Find out more &plus;', 'uni' ),
+						attributes: {
+							'data-module-disclosure-button': '',
+							'aria-expanded': 'false',
+							'aria-controls': 'content'
+						}
 					}
-				}
-			)
-		-}}
+				)
+			-}}
+
+
+		</div>
+
+		<div class="Wysiwyg my-20px" id="content" style="display: none;">
+			{{- post.content -}}
+		</div>
+
+		{% if post.meta( 'link' ).url %}
+			{{-
+				include(
+					'components/heading.html.twig',
+					{
+						classes: [ 'flex-md-shrink-0', 'text-gray-dark', 'bg-white' ],
+						link: post.meta( 'link' ).url,
+						title: post.meta( 'link' ).title
+					},
+					with_context = false
+				)
+			-}}
+		{% endif %}
 	</div>
 
-	<div class="Wysiwyg my-20px" id="content" style="display: none;">
-		{{- post.content -}}
-	</div>
-{% endblock %}
 
-{% block footer %}
-	{% if post.meta( 'link' ).url %}
-		{{-
-			include(
-				'components/heading.html.twig',
-				{
-					classes: [ 'flex-md-shrink-0', 'text-gray-dark', 'bg-white' ],
-					link: post.meta( 'link' ).url,
-					title: post.meta( 'link' ).title
-				},
-				with_context = false
-			)
-		-}}
-	{% endif %}
-
-	{{- include( 'components/footer-horizontal.html.twig', { classes: [ 'flex-md-shrink-0' ] } ) -}}
 {% endblock %}
