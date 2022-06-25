@@ -1,0 +1,50 @@
+$utilities: map-merge(
+	$utilities,
+	(
+		'border':
+			map-merge(
+				map-get($utilities, 'border'),
+				(
+					responsive: true,
+				)
+			),
+		'border-color': (
+			property: border-color,
+			responsive: true,
+			class: border,
+			values: $colors,
+		),
+		'border-bottom':
+			map-merge(
+				map-get($utilities, 'border-bottom'),
+				(
+					responsive: true,
+					values:
+						map-merge(
+							map-get(map-get($utilities, 'border-bottom'), 'values'),
+							(
+								none: none,
+							)
+						),
+					state: last-child,
+				)
+			),
+		'border-end':
+			map-merge(
+				map-get($utilities, 'border-end'),
+				(
+					responsive: true,
+				)
+			),
+		'rounded': (
+			property: border-radius,
+			class: rounded,
+			responsive: true,
+			values: (
+				'5px': #{math.div(5, 16)}rem,
+				'5px-0-0-5px': #{math.div(5, 16)}rem 0 0 #{math.div(5, 16)}rem,
+				'0-5px-5px-0': 0 #{math.div(5, 16)}rem #{math.div(5, 16)}rem 0,
+			),
+		),
+	)
+);

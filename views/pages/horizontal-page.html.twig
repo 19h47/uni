@@ -1,148 +1,155 @@
 {#
  # Horizontal page
  #
- # @purgeCSS Horizontal-page select2
+ # @purgeCSS Horizontal-page select2 select2-container select2-container select2-selection--single select2-selection__rendered select2-container select2-selection--single select2-selection__arrow
  #}
 {% extends 'index.html.twig' %}
 
 {% block content %}
 
-	<div class="Horizontal-page__section mx-20px mx-md-0 mb-20px mb-md-0 position-md-fixed top-md-0 bottom-md-0 start-md-0 w-100 h-md-100" data-horizontal-page="section">
-		<div class="ps-md-100px d-md-flex flex-md-nowrap top-md-0 bottom-md-0 start-md-0 position-md-absolute z-index-md-0 h-md-100" data-horizontal-page="track">
-
-			<div class="d-md-flex flex-md-nowrap my-md-20px flex-md-shrink-0" data-module-wrapper-page>
-				<div
-					class="{{ [
-						'pt-100px',
-						'Horizontal-page__grid',
-						'py-md-0',
-						'ps-md-0',
-						'position-md-static',
-						'top-0',
-						'end-0',
-						'start-0',
-						'z-index-1',
-						'js-grid',
-						'top-md-auto',
-						'end-md-auto',
-						'start-md-auto'
-					] | join( ' ' ) | trim }}"
-				>
+	<div
+		class="Horizontal-page__section mx-20px mx-md-0 mb-20px mt-md-0 mt-100px mb-md-0 position-md-fixed top-md-0 bottom-md-0 start-md-0 w-100 h-md-100"
+		data-horizontal-page="section"
+	>
+		<div
+			class="ps-md-100px d-md-flex flex-md-nowrap top-md-0 bottom-md-0 start-md-0 position-md-absolute z-index-md-0 h-md-100"
+			data-horizontal-page="track"
+		>
+			{% block track %}
+				<div class="d-md-flex flex-md-nowrap my-md-20px flex-md-shrink-0" data-module-wrapper-page>
 					<div
 						class="{{ [
-							'grid-template-columns-md-repeat-9-1fr',
-							'w-md-1900vw',
-							'h-md-100',
-							'min-h-100',
-							'grid-template-rows-md-repeat-11-1fr',
-							'd-md-grid',
-							'grid-auto-rows-md-1fr',
-							'grid-column-gap-md-0',
-							'grid-row-gap-md-0'
+							'py-md-0',
+							'ps-md-0',
+							'top-0',
+							'end-0',
+							'start-0',
+							'z-index-1',
+							'js-grid',
+							'top-md-auto',
+							'end-md-auto',
+							'start-md-auto'
 						] | join( ' ' ) | trim }}"
 					>
+						<div
+							class="{{ [
+								'grid-template-columns-md-repeat-9-1fr',
+								'w-md-1900vw',
+								'h-md-100',
+								'min-h-100',
+								'grid-template-rows-md-repeat-11-1fr',
+								'd-md-grid',
+								'grid-auto-rows-md-1fr',
+								'grid-column-gap-md-0',
+								'grid-row-gap-md-0'
+							] | join( ' ' ) | trim }}"
+						>
 
-						<div class="align-items-center d-none grid-area-2/9/2/10 d-md-flex justify-content-end js-navigation">
-							{{- include( 'svg/use.html.twig', { classes: [ 'w-16px', 'h-24px' ], icon: 'arrow-right' }, with_context = false ) -}}
-						</div>
+							<div class="align-items-center d-none grid-area-2/9/2/10 d-md-flex justify-content-end js-navigation">
+								{{- include( 'svg/use.html.twig', { classes: [ 'w-16px', 'h-24px' ], icon: 'arrow-right' }, with_context = false ) -}}
+							</div>
 
-						{{-
-							include(
-								'partials/page-title.html.twig',
-								{
-									classes: [ 'text-center', 'text-md-start', 'text-uppercase', 'grid-area-md-2/3/4/10' ],
-									subtitle: post.subtitle,
-									title: post.title
-								}
-							)
-						-}}
-
-						<div class="text-center my-20px d-md-none">
 							{{-
 								include(
-									'components/button.html.twig',
+									'partials/page-title.html.twig',
 									{
-										label: __( 'Find out more &plus;', 'uni' ),
-										attributes: {
-											'data-module-disclosure-button': '',
-											'aria-expanded': 'false',
-											'aria-controls': 'content,footer'
-										}
+										classes: [ 'text-center', 'text-md-start', 'text-uppercase', 'grid-area-md-2/3/4/10' ],
+										subtitle: post.subtitle,
+										title: post.title
 									}
 								)
 							-}}
-						</div>
 
-						<div class="Wysiwyg my-20px" style="display: none;" id="content">
-							{{- post.content -}}
-						</div>
-
-						<div class="ff-title fst-italic my-20px" style="display: none;" id="footer">
-							{{- post.footer | nl2br -}}
-						</div>
-
-						<div class="Wysiwyg d-none d-md-block grid-area-md-4/4/10/9">
-							{{- post.content -}}
-						</div>
-
-						<div class="ff-title fst-italic d-none d-md-block js-footer align-self-md-end grid-area-md-11/3/12/9">
-							{{- post.footer | nl2br -}}
-						</div>
-					</div>
-				</div>
-
-				{% if post.meta( 'gallery' ) %}
-					<div class="overflow-md-hidden mb-20px ms-md-200vw py-md-60vh background-color-white position-relative d-md-flex flex-md-nowrap z-index-2" style="transform: translate3d(0,0,0);">
-						{% for image in post.meta( 'gallery' ) %}
-
-							{% set _product = TimberPost( image.id ).meta( 'product_link' ) %}
-
-							<div
-								id="image-{{ image.id }}"
-								class="h-md-100 d-md-flex my-md-0 {{ loop.first ? 'mb-20px' : ( loop.last ? 'mt-20px ms-md-200vw' : 'my-20px ms-md-200vw' ) }}"
-								data-index="{{ loop.index }}"
-								style="{{ loop.first ? 'background-color: transparent;' : '' }}"
-							>
-								<{{ _product ? "a href=\"#{ _product.link }\"" : 'div' }} class="h-md-100 mx-n20px mx-md-0 d-block w-md-100"{{ _product ? ' data-product-content="link"' : '' }}>
-									{{-
-										include(
-											'partials/image.html.twig',
-											{
-												attributes: { 'data-horizontal-page' : 'image' },
-												classes: [ 'w-100', 'h-auto', 'w-md-auto', 'h-md-100', 'd-block' ],
-												image: image,
-												loading: 'eager',
-												size: 'size-1720'
-											},
-											with_context = false
-										)
-									-}}
-								</{{ _product ? 'a' : 'div' }}>
-
-								{%- if _product %}
-									<h5 class="fw-normal mt-20px fs-xs fst-italic my-md-0 pe-md-20vw writing-mode-md-vertical-rl rotate-md-180 origin-md-center">
-										{{- _product.title -}}
-									</h5>
-								{%- endif -%}
+							<div class="text-center my-20px d-md-none">
+								{{-
+									include(
+										'components/button.html.twig',
+										{
+											label: __( 'Find out more &plus;', 'uni' ),
+											attributes: {
+												'data-module-disclosure-button': '',
+												'aria-expanded': 'false',
+												'aria-controls': 'content,footer'
+											}
+										}
+									)
+								-}}
 							</div>
-						{% endfor %}
+
+							<div class="Wysiwyg my-20px" style="display: none;" id="content">
+								{{- post.content -}}
+							</div>
+
+							<div class="ff-title fst-italic my-20px" style="display: none;" id="footer">
+								{{- post.footer | nl2br -}}
+							</div>
+
+							<div class="Wysiwyg d-none d-md-block grid-area-md-4/4/10/9">
+								{{- post.content -}}
+							</div>
+
+							<div class="ff-title fst-italic d-none d-md-block js-footer align-self-md-end grid-area-md-11/3/12/9">
+								{{- post.footer | nl2br -}}
+							</div>
+						</div>
 					</div>
-				{% endif %}
-			</div>
 
-			{{-
-				include(
-					'components/heading.html.twig',
-					{
-						classes: [ 'flex-md-shrink-0', 'color-gray-dark', 'background-color-white' ],
-						link: post.meta( 'link' ).url | default( site.link ),
-						title: post.meta( 'link' ).title | default( __( 'Discover<br>our online store', 'uni' ) )
-					},
-					with_context = false
-				)
-			-}}
+					{% if post.meta( 'gallery' ) %}
+						<div class="overflow-md-hidden mb-20px ms-md-200vw py-md-60vh bg-white position-relative d-md-flex flex-md-nowrap z-index-2" style="transform: translate3d(0,0,0);">
+							{% for image in post.meta( 'gallery' ) %}
 
-			{{- include( 'components/footer-horizontal.html.twig', { classes: [ 'flex-md-shrink-0' ] } ) -}}
+								{% set _product = TimberPost( image.id ).meta( 'product_link' ) %}
+
+								<div
+									id="image-{{ image.id }}"
+									class="h-md-100 d-md-flex my-md-0 {{ loop.first ? 'mb-20px' : ( loop.last ? 'mt-20px ms-md-200vw' : 'my-20px ms-md-200vw' ) }}"
+									data-index="{{ loop.index }}"
+									style="{{ loop.first ? 'background-color: transparent;' : '' }}"
+								>
+									<{{ _product ? "a href=\"#{ _product.link }\"" : 'div' }} class="h-md-100 mx-n20px mx-md-0 d-block w-md-100"{{ _product ? ' data-product-content="link"' : '' }}>
+										{{-
+											include(
+												'partials/image.html.twig',
+												{
+													attributes: { 'data-horizontal-page' : 'image' },
+													classes: [ 'w-100', 'h-auto', 'w-md-auto', 'h-md-100', 'd-block' ],
+													image: image,
+													loading: 'eager',
+													size: 'size-1720'
+												},
+												with_context = false
+											)
+										-}}
+									</{{ _product ? 'a' : 'div' }}>
+
+									{%- if _product %}
+										<h5 class="fw-normal mt-20px fs-xs fst-italic my-md-0 pe-md-20vw writing-mode-md-vertical-rl rotate-md-180 origin-md-center">
+											{{- _product.title -}}
+										</h5>
+									{%- endif -%}
+								</div>
+							{% endfor %}
+						</div>
+					{% endif %}
+				</div>
+			{% endblock %}
+
+			{% block footer %}
+
+				{{-
+					include(
+						'components/heading.html.twig',
+						{
+							classes: [ 'flex-md-shrink-0', 'text-gray-dark', 'bg-white' ],
+							link: post.meta( 'link' ).url | default( site.link ),
+							title: post.meta( 'link' ).title | default( __( 'Discover<br>our online store', 'uni' ) )
+						},
+						with_context = false
+					)
+				-}}
+
+				{{- include( 'components/footer-horizontal.html.twig', { classes: [ 'flex-md-shrink-0' ] } ) -}}
+			{% endblock %}
 
 		</div>
 	</div>

@@ -15,9 +15,9 @@
 			'border',
 			'border-1',
 			'border-red-light-grayish-02',
-			'border-radius-5px',
-			'background-color-red-light-grayish-01',
-			'color-red-very-dark-01'
+			'rounded-5px',
+			'bg-red-light-grayish-01',
+			'text-red-very-dark-01'
 		] | merge( notice.classes | default( [] ) ) | join( ' ' ) | trim
 	}}" role="alert">
 		{% for notice in notices %}
@@ -28,3 +28,4 @@
 	</ul>
 
 {% endif %}
+Candidatures spontanées : remonter le bouton « candidatures spontanées » dans le bandeau haut

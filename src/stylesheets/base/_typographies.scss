@@ -9,7 +9,6 @@
 h1,
 .h1 {
 	@extend .ff-title, .fw-normal;
-	// @include letter-spacing(100);
 	@include margin(top 1rem bottom 2rem);
 }
 

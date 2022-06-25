@@ -57,7 +57,7 @@
 			transition: box-shadow 0.7s map-get($easings, ease-out-expo);
 
 			&.is-active {
-				box-shadow: 2px 2px 1px rgba(the_color(black), 0.2);
+				box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.2);
 			}
 
 			@at-root .Loop #{ $this } #{ $this }__item a {

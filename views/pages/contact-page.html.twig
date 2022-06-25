@@ -2,122 +2,160 @@
  # Contact page
  #
  # @package UNI
- # @purgeCSS form error-message
+ # @purgeCSS Contact-page error-message form
  #}
-{% extends 'index.html.twig' %}
 
-{% block content %}
+{% extends 'pages/horizontal-page.html.twig' %}
 
-	<div class="Horizontal-page__section mx-20px mx-md-0 mb-20px mb-md-0 position-md-fixed top-md-0 bottom-md-0 start-md-0 w-100 h-md-100" data-horizontal-page="section">
-		<div class="ps-md-100px d-md-flex flex-md-nowrap top-md-0 bottom-md-0 start-md-0 position-md-absolute z-index-md-0 h-md-100" data-horizontal-page="track">
+{% block track %}
 
-			<div class="d-md-flex flex-md-nowrap my-md-20px flex-md-shrink-0" data-module-wrapper-page>
+	<div class="d-md-flex flex-md-nowrap mb-20px my-md-20px flex-md-shrink-0" data-module-wrapper-page>
 
-				<form
-					id="contact-block"
-					class="Contact-page__content w-md-2400vw grid-template-rows-md-repeat-11-1fr grid-template-columns-md-repeat-12-1fr grid-auto-rows-md-1fr py-md-60vh h-md-100 pt-100px pt-md-80px pb-20px d-md-grid grid-column-gap-md-0 grid-row-gap-md-0"
-					data-contact-page="form"
-				>
+		<form
+			id="contact-block"
+			class="Contact-page__content w-md-2400vw grid-template-rows-md-repeat-11-1fr grid-template-columns-md-repeat-12-1fr grid-auto-rows-md-1fr py-md-60vh h-md-100 pt-md-80px d-md-grid grid-column-gap-md-0 grid-row-gap-md-0"
+			data-contact-page="form"
+		>
 
-					{{-
-						include(
-							'partials/page-title.html.twig',
-							{
-								classes: [ 'text-center', 'text-md-start', 'mb-20px', 'mb-md-0', 'grid-area-md-2/2/3/9' ],
-								subtitle: '|&nbsp;U&nbsp;|&nbsp;N&nbsp;|&nbsp;I&nbsp;|',
-								title: post.title
+			{{-
+				include(
+					'partials/page-title.html.twig',
+					{
+						classes: [ 'text-center', 'text-md-start', 'mb-20px', 'mb-md-0', 'grid-area-md-2/2/3/9' ],
+						subtitle: '|&nbsp;U&nbsp;|&nbsp;N&nbsp;|&nbsp;I&nbsp;|',
+						title: post.title
+					}
+				)
+			-}}
+
+			<div class="Wysiwyg my-1em my-md-0 grid-area-md-4/3/5/7">{{- post.content -}}</div>
+
+			<div class="align-self-end justify-self-center grid-area-md-5/2/6/5">
+				<p><a href="mailto:contact@uni-habitat.fr">contact@uni-habitat.fr</a></p>
+			</div>
+
+			{# <div class=""><p><a href="mailto:contact@uni-objets.fr">contact@uni-objets.fr</a></p></div> #}
+
+			<div class="grid-area-7/2/11/5">
+
+				{{-
+					include(
+						'components/input-text.html.twig',
+						{
+							key: 'email',
+							args: {
+								label: __( 'Email address', 'uni' ),
+								type: 'email',
+								required: true,
+								custom_attributes: {
+									autocomplete: 'email'
+								}
 							}
-						)
-					-}}
+						}
+					)
+				-}}
 
-					<div class="Wysiwyg my-1em my-md-0 grid-area-md-4/3/5/7">{{- post.content -}}</div>
+				<div class="form-row mt-20px mt-md-0">
+					<label for="interest" class="mb-12px d-block">
+						{{- _x( 'Are you interested in?', 'contact page', 'uni' ) -}}
+						&nbsp;<abbr class="required text-decoration-none" title="{{ __( 'required', 'woocommerce' ) | e }}">*</abbr>
+					</label>
 
-					<div class="align-self-end justify-self-center grid-area-md-5/2/6/5">
-						<p><a href="mailto:contact@uni-habitat.fr">contact@uni-habitat.fr</a></p>
-					</div>
+					<p class="d-block mb-0 woocommerce-input-wrapper">
+						<select class="p-12px outline-none-focus shadow-focus-focus w-100 border border-1 border-gray-very-dark rounded-5px transition-box-shadow" id="interest" name="interest" required>
+							<option value="habitat">{{- _x( 'Habitat', 'contact page', 'uni' ) -}}</option>
+							<option value="object">{{- _x( 'Object', 'contact page', 'uni' ) -}}</option>
+						</select>
+					</p>
+				</div>
 
-					{# <div class=""><p><a href="mailto:contact@uni-objets.fr">contact@uni-objets.fr</a></p></div> #}
-
-					<div class="grid-area-7/2/11/5">
-						<p class="Input">
-							<label for="email" class="">{{- __( 'Email address', 'uni' ) -}}&nbsp;<abbr class="required" title="obligatoire">*</abbr></label>
-							<input
-								class="outline-none-focus shadow-focus-focus w-100 border-radius-5px transition-box-shadow"
-								id="email"
-								name="email"
-								type="email"
-								value=""
-								autocomplete="email"
-								required
-							>
-						</p>
-						<p class="Input">
-							<label for="interest" class="">{{- _x( 'Are you interested in?', 'contact page', 'uni' ) -}}&nbsp;<abbr class="required" title="obligatoire">*</abbr></label>
-							<select class="outline-none-focus shadow-focus-focus w-100 border-radius-5px transition-box-shadow" id="interest" name="interest" required>
-								<option value="habitat">{{- _x( 'Habitat', 'contact page', 'uni' ) -}}</option>
-								<option value="object">{{- _x( 'Object', 'contact page', 'uni' ) -}}</option>
-							</select>
-						</p>
-						<p class="Input">
-							<label for="subject" class="">{{- _x( 'The subject of your message', 'contact page', 'uni' ) -}}&nbsp;<abbr class="required" title="obligatoire">*</abbr></label>
-							<input
-								class="outline-none-focus shadow-focus-focus w-100 border-radius-5px transition-box-shadow"
-								id="subject"
-								name="subject"
-								type="text"
-								value=""
-								required
-							>
-						</p>
-					</div>
-
-					<div class="mx-md-auto w-md-600vw grid-area-md-7/5/11/9">
-						<p class="Input">
-							<label for="you" class="">{{- _x( 'You are?', 'contact page', 'uni' ) -}}&nbsp;<abbr class="required" title="obligatoire">*</abbr></label>
-							<select class="outline-none-focus shadow-focus-focus w-100 border-radius-5px transition-box-shadow" id="you" name="you" required>
-								<option value="a-particular">{{- _x( 'A particular', 'contact page', 'uni' ) -}}</option>
-								<option value="a-professional">{{- _x( 'A professional', 'contact page', 'uni' ) -}}</option>
-								<option value="a-shop">{{- _x( 'A shop', 'contact page', 'uni' ) -}}</option>
-								<option value="other">{{- _x( 'Other', 'contact page', 'uni' ) -}}</option>
-							</select>
-						</p>
-						<p class="Input">
-							<label for="about-us" class="">{{- _x( 'How did you hear about us?', 'contact page', 'uni' ) -}}</label>
-							<textarea class="border-radius-5px d-block transition-box-shadow box-shadow-focus-focus outline-none-focus" id="about-us" name="about-us"></textarea>
-						</p>
-					</div>
-
-					<div class="grid-area-md-4/9/9/13">
-						<p class="Input d-md-flex flex-md-column h-md-100 m-md-0">
-							<label for="message" class="">{{- _x( 'Your message', 'contact page', 'uni' ) -}}&nbsp;<abbr class="required" title="obligatoire">*</abbr></label>
-							<textarea id="message" class="border-radius-5px d-block transition-box-shadow box-shadow-focus-focus outline-none-focus h-md-100" name="message" required></textarea>
-						</p>
-					</div>
-
-					<div class="align-self-end grid-area-10/9/10/11">
-						<p>
-							{{-
-								include(
-									'components/button.html.twig',
-									{ classes: [ 'w-100' ], type: 'submit', label: _x( 'Send', 'contact page', 'uni' ) }
-								)
-							-}}
-						</p>
-					</div>
-
-					<div class="align-self-end grid-area-11/2/12/9">
-						<p class="fs-xs m-md-0">
-							{{- _x( 'All fields marked with * are required', 'contact page', 'uni' ) -}}
-						</p>
-					</div>
-
-				</form>
+				{{-
+					include(
+						'components/input-text.html.twig',
+						{
+							key: 'subject',
+							args: {
+								class: [ 'mt-20px', 'mt-md-0' ],
+								label: _x( 'The subject of your message', 'contact page', 'uni' ),
+								required: true,
+							}
+						}
+					)
+				-}}
 
 			</div>
 
-			{{- include( 'components/footer-horizontal.html.twig', { classes: [ 'flex-md-shrink-0' ] } ) -}}
+			<div class="mx-md-auto mt-20px mt-md-0 w-md-600vw grid-area-md-7/5/11/9">
 
-		</div>
+				<div class="form-row">
+					<label for="you" class="mb-12px d-block">
+						{{- _x( 'You are?', 'contact page', 'uni' ) -}}
+						&nbsp;<abbr class="required text-decoration-none" title="{{ __( 'required', 'woocommerce' ) | e }}">*</abbr>
+					</label>
+
+					<p class="d-block mb-0 woocommerce-input-wrapper">
+						<select class="p-12px outline-none-focus shadow-focus-focus w-100 border border-1 border-gray-very-dark rounded-5px transition-box-shadow" id="you" name="you" required>
+							<option value="a-particular">{{- _x( 'A particular', 'contact page', 'uni' ) -}}</option>
+							<option value="a-professional">{{- _x( 'A professional', 'contact page', 'uni' ) -}}</option>
+							<option value="a-shop">{{- _x( 'A shop', 'contact page', 'uni' ) -}}</option>
+							<option value="other">{{- _x( 'Other', 'contact page', 'uni' ) -}}</option>
+						</select>
+					</p>
+				</div>
+
+				{{-
+					include(
+						'components/input-textarea.html.twig',
+						{
+							key: 'about-us',
+							args: {
+								class: [ 'mt-20px', 'mt-md-0' ],
+								label: _x( 'How did you hear about us?', 'contact page', 'uni' ),
+							}
+						}
+					)
+				-}}
+
+			</div>
+
+			<div class="grid-area-md-4/9/9/13 mt-20px mt-md-0">
+				{{-
+					include(
+						'components/input-textarea.html.twig',
+						{
+							key: 'message',
+							args: {
+								label: _x( 'Your message', 'contact page', 'uni' ),
+								required: true
+							}
+						}
+					)
+				-}}
+			</div>
+
+			<div class="mt-20px mt-md-0 align-self-end grid-area-10/9/10/11">
+				<p>
+					{{-
+						include(
+							'components/button.html.twig',
+							{ classes: [ 'w-100' ], type: 'submit', label: _x( 'Send', 'contact page', 'uni' ) }
+						)
+					-}}
+				</p>
+			</div>
+
+			<div class="mt-20px mt-md-0 align-self-end grid-area-11/2/12/9">
+				<p class="fs-xs m-md-0">
+					{{- _x( 'All fields marked with * are required', 'contact page', 'uni' ) -}}
+				</p>
+			</div>
+
+		</form>
+
 	</div>
 
 {% endblock  %}
+
+{% block footer %}
+	{{- include( 'components/footer-horizontal.html.twig', { classes: [ 'flex-md-shrink-0' ] } ) -}}
+{% endblock %}

@@ -1,19 +1,21 @@
 {#
  # Single: Project
+ #
+ # @package UNI
  #}
-{% extends 'index.html.twig' %}
+
+{% extends 'pages/horizontal-page.html.twig' %}
 
 {% block content %}
-
 	{% embed 'components/panel.html.twig' with { id: 'project-information' } %}
 		{% block content %}
-			<div class="grid-template-columns-repeat-12-1fr grid-template-rows-repeat-11-1fr grid-column-gap-0 grid-row-gap-0 d-grid h-100">
+			<div class="grid-template-columns-md-repeat-12-1fr grid-template-rows-md-repeat-11-1fr grid-column-gap-md-0 grid-row-gap-md-0 d-md-grid h-100">
 
 				{{-
 					include(
 						'partials/page-title.html.twig',
 						{
-							classes: [ 'text-start', 'grid-area-2/2/3/7' ],
+							classes: [ 'text-start', 'grid-area-md-2/2/3/7' ],
 							subtitle: post.get_terms( 'project_cat' ) ? post.get_terms( 'project_cat' ) | map( cat => cat.name ) | join( ', ' ),
 							title: post.title
 						}
@@ -33,162 +35,161 @@
 		{% endblock %}
 	{% endembed %}
 
-	<div class="Horizontal-page__section mx-20px mx-md-0 mb-20px mb-md-0 position-md-fixed top-md-0 bottom-md-0 start-md-0 w-100 h-md-100" data-horizontal-page="section">
-		<div class="ps-md-100px d-md-flex flex-md-nowrap top-md-0 bottom-md-0 start-md-0 position-md-absolute z-index-md-0 h-md-100" data-horizontal-page="track">
+	{{ parent() }}
+{% endblock %}
 
-			<div class="d-md-flex flex-md-nowrap my-md-20px background-color-white flex-md-shrink-0" data-module-wrapper-page>
-				<div
-					class="{{ [
-						'grid-template-columns-md-repeat-5-1fr',
-						'w-md-1000vw',
-						'grid-column-gap-md-0',
-						'grid-row-gap-md-0',
-						'grid-template-rows-md-repeat-11-1fr',
-						'pt-100px',
-						'pb-20px',
-						'py-md-60vh',
-						'position-relative',
-						'd-md-grid',
-						'z-index-1',
-						'h-md-100',
-						'w-md-1000vw'
-					] | join( ' ' ) | trim }}"
-				>
-					<div class="js-title grid-area-md-2/2/4/6 Page-title">
-						{{-
-							include(
-								'partials/page-title.html.twig',
-								{
-									classes: [ 'text-center', 'text-md-start', 'grid-area-2/2/3/7' ],
-									subtitle: post.get_terms( 'project_cat' ) ? post.get_terms( 'project_cat' ) | map( cat => cat.name ) | join( ', ' ),
-									title: post.title
-								},
-							)
-						-}}
-
-						{% if post.attributes or post.meta( 'project_content' ) %}
-							<button
-								class="d-none d-md-inline-block mt-8px"
-								type="button"
-								data-module-panel-button
-								data-panel-button-id="project-information"
-							>
-								&plus;&nbsp;
-								<span class="text-decoration-underline">
-									{{- __( 'Informations', '' ) -}}
-								</span>
-							</button>
-						{% endif %}
-					</div>
-				</div>
-
-				{% if post.images is iterable %}
-					<ul class="ms-md-n200vw mx-n20px mx-md-0 py-md-60vh list-style-type-none pe-none d-flex flex-column flex-md-row position-relative z-index-2">
-
-						{% for image in post.images %}
-							<li class="my-md-0 h-md-100 ms-md-200vw {{ loop.first ? 'mb-20px' : ( loop.last ? 'mt-20px' : 'my-20px' ) }}">
-								{{ image.style }}
-								{{-
-									include(
-										'partials/image.html.twig',
-										{
-											classes: [ 'd-block', 'w-100', 'h-auto', 'w-md-auto', 'h-md-100' ],
-											image: image,
-											loading: 'eager',
-											attributes: {
-												'data-horizontal-page': 'image'
-											},
-											id: image.id,
-											size: 'size-1720'
-										}
-									)
-								-}}
-							</li>
-						{% endfor %}
-
-					</ul>
-				{% endif %}
-
-			</div>
-
-			{% if post.meta( 'project_content' ) %}
-				<div class="text-center my-20px d-md-none">
-					{{-
-						include(
-							'components/button.html.twig',
-							{
-								label: __( 'Find out more &plus;', 'uni' ),
-								attributes: {
-									'data-module-disclosure-button': '',
-									'aria-expanded': 'false',
-									'aria-controls': 'content,attributtes'
-								}
-							}
-						)
-					-}}
-				</div>
-				<div class="Wysiwyg mt-20px" id="content" style="display: none;">
-					{{- post.meta( 'project_content' ) -}}
-				</div>
-			{% endif %}
-
-			{% if post.attributes %}
-				<div class="mt-20px" id="attributtes" style="display: none;">
-					{{- include( 'partials/attributes.html.twig', { attributes: post.attributes } ) -}}
-				</div>
-			{% endif %}
-
-			{% if post.prev %}
-				{{- include(
-					'components/heading.html.twig',
-					{
-						classes: [ 'color-gray-dark', 'd-md-none' ],
-						link: post.prev.link, title: __( 'Next Project', 'uni' )
-					},
-					with_context = false
-				) -}}
-			{% else %}
-				{{- include(
-					'components/heading.html.twig',
-					{
-						classes: [ 'flex-md-shrink-0', 'color-gray-dark', 'd-md-none' ],
-						link: post.first_project.link, title: __( 'Next Project', 'uni' )
-					},
-					with_context = false
-				) -}}
-			{% endif %}
-
-			<div class="my-20px flex-md-shrink-0 d-md-grid w-md-1600vw grid-template-columns-md-repeat-8-1fr grid-template-rows-md-repeat-11-1fr grid-column-gap-md-0 grid-row-gap-md-0 py-md-60vh mt-md-0 h-auto h-md-100">
+{% block track %}
+	<div class="d-md-flex flex-md-nowrap my-md-20px bg-white flex-md-shrink-0" data-module-wrapper-page>
+		<div
+			class="{{ [
+				'grid-template-columns-md-repeat-5-1fr',
+				'w-md-1000vw',
+				'grid-column-gap-md-0',
+				'grid-row-gap-md-0',
+				'grid-template-rows-md-repeat-11-1fr',
+				'mb-20px',
+				'mb-md-0',
+				'position-relative',
+				'd-md-grid',
+				'z-index-1',
+				'h-md-100',
+				'w-md-1000vw'
+			] | join( ' ' ) | trim }}"
+		>
+			<div class="js-title grid-area-md-2/2/4/6 Page-title">
 				{{-
 					include(
 						'partials/page-title.html.twig',
 						{
-							classes: [ 'text-center', 'text-md-start', 'mb-20px', 'mb-md-0', 'grid-area-md-2/2/3/9' ],
-							subtitle: projects_settings.subtitle,
-							title: projects_settings.title
-						}
+							classes: [ 'text-center', 'text-md-start', 'grid-area-2/2/3/7' ],
+							subtitle: post.get_terms( 'project_cat' ) ? post.get_terms( 'project_cat' ) | map( cat => cat.name ) | join( ', ' ),
+							title: post.title
+						},
 					)
 				-}}
-				<div class="Wysiwyg grid-area-md-4/3/8/8">
-					{{- projects_settings.content -}}
-				</div>
+
+				{% if post.attributes or post.meta( 'project_content' ) %}
+					<button
+						class="d-none d-md-inline-block mt-8px"
+						type="button"
+						data-module-panel-button
+						data-panel-button-id="project-information"
+					>
+						&plus;&nbsp;
+						<span class="text-decoration-underline">
+							{{- __( 'Informations', '' ) -}}
+						</span>
+					</button>
+				{% endif %}
 			</div>
-
-			{% if post.prev %}
-				{{- include(
-					'components/heading.html.twig',
-					{ classes: [ 'flex-md-shrink-0', 'color-gray-dark', 'd-none', 'd-md-block' ], link: post.prev.link, title: __( 'Next Project', 'uni' )  }, with_context = false
-				) -}}
-			{% else %}
-				{{- include(
-					'components/heading.html.twig',
-					{ classes: [ 'flex-md-shrink-0', 'color-gray-dark', 'd-none', 'd-md-block' ], link: post.first_project.link, title: __( 'Next Project', 'uni' )  }, with_context = false
-				) -}}
-			{% endif %}
-
-			{{- include( 'components/footer-horizontal.html.twig', { classes: [ 'flex-md-shrink-0' ] } ) -}}
-
 		</div>
+
+		{% if post.images is iterable %}
+			<ul class="ms-md-n200vw mx-n20px mx-md-0 py-md-60vh list-style-type-none pe-none d-flex flex-column flex-md-row position-relative z-index-2">
+
+				{% for image in post.images %}
+					<li class="my-md-0 h-md-100 ms-md-200vw {{ loop.first ? 'mb-20px' : ( loop.last ? 'mt-20px' : 'my-20px' ) }}">
+						{{ image.style }}
+						{{-
+							include(
+								'partials/image.html.twig',
+								{
+									classes: [ 'd-block', 'w-100', 'h-auto', 'w-md-auto', 'h-md-100' ],
+									image: image,
+									loading: 'eager',
+									attributes: {
+										'data-horizontal-page': 'image'
+									},
+									id: image.id,
+									size: 'size-1720'
+								}
+							)
+						-}}
+					</li>
+				{% endfor %}
+
+			</ul>
+		{% endif %}
+
 	</div>
 
 {% endblock  %}
+
+{% block footer %}
+	{% if post.meta( 'project_content' ) %}
+		<div class="text-center my-20px d-md-none">
+			{{-
+				include(
+					'components/button.html.twig',
+					{
+						label: __( 'Find out more &plus;', 'uni' ),
+						attributes: {
+							'data-module-disclosure-button': '',
+							'aria-expanded': 'false',
+							'aria-controls': 'content,attributtes'
+						}
+					}
+				)
+			-}}
+		</div>
+		<div class="Wysiwyg mt-20px" id="content" style="display: none;">
+			{{- post.meta( 'project_content' ) -}}
+		</div>
+	{% endif %}
+
+	{% if post.attributes %}
+		<div class="mt-20px" id="attributtes" style="display: none;">
+			{{- include( 'partials/attributes.html.twig', { attributes: post.attributes } ) -}}
+		</div>
+	{% endif %}
+
+	{% if post.prev %}
+		{{- include(
+			'components/heading.html.twig',
+			{
+				classes: [ 'text-gray-dark', 'd-md-none' ],
+				link: post.prev.link, title: __( 'Next Project', 'uni' )
+			},
+			with_context = false
+		) -}}
+	{% else %}
+		{{- include(
+			'components/heading.html.twig',
+			{
+				classes: [ 'flex-md-shrink-0', 'text-gray-dark', 'd-md-none' ],
+				link: post.first_project.link, title: __( 'Next Project', 'uni' )
+			},
+			with_context = false
+		) -}}
+	{% endif %}
+
+	<div class="my-20px flex-md-shrink-0 d-md-grid w-md-1600vw grid-template-columns-md-repeat-8-1fr grid-template-rows-md-repeat-11-1fr grid-column-gap-md-0 grid-row-gap-md-0 py-md-60vh mt-md-0 h-auto h-md-100">
+		{{-
+			include(
+				'partials/page-title.html.twig',
+				{
+					classes: [ 'text-center', 'text-md-start', 'mb-20px', 'mb-md-0', 'grid-area-md-2/2/3/9' ],
+					subtitle: projects_settings.subtitle,
+					title: projects_settings.title
+				}
+			)
+		-}}
+		<div class="Wysiwyg grid-area-md-4/3/8/8">
+			{{- projects_settings.content -}}
+		</div>
+	</div>
+
+	{% if post.prev %}
+		{{- include(
+			'components/heading.html.twig',
+			{ classes: [ 'flex-md-shrink-0', 'text-gray-dark', 'd-none', 'd-md-block' ], link: post.prev.link, title: __( 'Next Project', 'uni' )  }, with_context = false
+		) -}}
+	{% else %}
+		{{- include(
+			'components/heading.html.twig',
+			{ classes: [ 'flex-md-shrink-0', 'text-gray-dark', 'd-none', 'd-md-block' ], link: post.first_project.link, title: __( 'Next Project', 'uni' )  }, with_context = false
+		) -}}
+	{% endif %}
+
+	{{- include( 'components/footer-horizontal.html.twig', { classes: [ 'flex-md-shrink-0' ] } ) -}}
+{% endblock %}

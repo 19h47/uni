@@ -113,9 +113,6 @@ class WooCommerce {
 		add_action( 'woocommerce_process_product_meta', array( $this, 'update_meta_data' ), 10, 1 );
 
 		add_action( 'woocommerce_single_product_price', 'woocommerce_template_single_price', 10, 1 );
-
-		remove_action( 'woocommerce_before_cart', 'woocommerce_output_all_notices', 10 );
-		add_action( 'uni_before_cart_content', 'woocommerce_output_all_notices', 10 );
 	}
 
 

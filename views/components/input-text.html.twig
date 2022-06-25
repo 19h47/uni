@@ -39,7 +39,7 @@
 					'outline-none-focus',
 					'p-12px',
 					'w-100',
-					'border-radius-5px',
+					'rounded-5px',
 					'd-block'
 				] | merge( args.input_class | default( [] ) ) | join( ' ' ) | e
 			}}"
@@ -47,6 +47,8 @@
 			id="{{ key }}"
 			placeholder="{{ args.placeholder | e }}"
 			value="{{ value | e }}"
+			{{ args.required ? 'required' }}
+			{{ args.custom_attributes ? args.custom_attributes | map( ( value, key ) => "#{key}=\"#{value}\"" ) | join( ' ' ) | raw }}
 		/>
 	</p>
 </div>

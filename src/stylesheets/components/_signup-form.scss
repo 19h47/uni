@@ -9,13 +9,6 @@
 @use 'sass:math';
 
 .Signup-form {
-	color: the_color(gray, very-dark);
-
-	// .Signup__group
-	&__group {
-		border: 1px solid the_color(gray, very-dark);
-	}
-
 	[type='email'] {
 		@include reset-placeholder(the_color(gray, very-light-02));
 

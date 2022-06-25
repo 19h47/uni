@@ -10,16 +10,10 @@
 @use 'sass:math';
 
 .Thumbnail {
-	@include size(100%, #{math.div(360 * 100, $prototype-height-unitless)}vh);
-
 	&:hover {
 		.Thumbnail__overview.is-active {
 			@include autoAlpha(1);
 		}
-	}
-
-	@include media-breakpoint-up(md) {
-		@include size(percentage(math.div(600, 800)), 100%);
 	}
 
 	&__image {
@@ -41,10 +35,6 @@
 			@include media-breakpoint-up(md) {
 				object-fit: cover;
 			}
-		}
-
-		@include media-breakpoint-up(md) {
-			@include absolute(top 0 right 0 bottom 0 left 0);
 		}
 	}
 

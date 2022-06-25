@@ -3,181 +3,177 @@
  #
  #
  #}
-{% extends 'index.html.twig' %}
+{% extends 'pages/horizontal-page.html.twig' %}
 
-{% block content %}
+{% block track %}
+	<div class="d-md-flex flex-md-nowrap my-md-20px flex-md-shrink-0">
+		{{-
+			include(
+				'partials/page-content.html.twig',
+				{
+					title: post.title,
+					subtitle: post.subtitle,
+					content: post.content,
+					classes: [
+						'w-md-1400vw',
+						'h-md-100',
+						'mb-20px',
+						'mb-md-0',
+						'min-h-100',
+					]
+				}
+			)
+		-}}
 
-	<div class="Horizontal-page__section mx-20px mx-md-0 mb-20px mb-md-0 position-md-fixed top-md-0 bottom-md-0 start-md-0 w-100 h-md-100" data-horizontal-page="section">
-		<div class="ps-md-100px d-md-flex flex-md-nowrap top-md-0 bottom-md-0 start-md-0 position-md-absolute z-index-md-0 h-md-100" data-horizontal-page="track">
+		{% if post.items %}
+			{{- include( 'woocommerce/loop/loop-start.html.twig', { columns: loop_columns } ) -}}
+				{% for item in post.items %}
+					<li class="Loop w-md-800vw h-md-100 d-flex flex-column flex-md-row">
 
-			<div class="d-md-flex flex-md-nowrap my-md-20px flex-md-shrink-0">
-				{{-
-					include(
-						'partials/page-content.html.twig',
-						{
-							title: post.title,
-							subtitle: post.subtitle,
-							content: post.content,
-							classes: [
-								'w-md-1400vw',
-								'h-md-100',
-								'mt-100px',
-								'mb-20px',
-								'my-md-0',
-								'min-h-100',
-							]
-						}
-					)
-				-}}
+						<{{- item.project ? "a href=\"#{item.project.link}\"" | raw : 'div' | raw }}
+							class="Thumbnail h-360vh w-100 w-md-75 h-md-100 position-relative d-block {{ item.project.color ? '' : 'bg-gray-very-light-01' }}"
+							style="{{ item.project.color ? 'background-color: ' ~ item.project.color | raw : '' }}"
+							data-product-content="link"
+						>
+							{{-
+								include(
+									'partials/image.html.twig',
+									{
+										classes: [
+											'Thumbnail__image',
+											'inset-md-0',
+											'position-md-absolute',
+											'z-index-1',
+											'is-active',
+											'object-fit-cover',
+											'w-100',
+											'h-100',
+											item.mobile.image ? 'd-none d-md-block' : 'd-block'
+										],
+										image: item.image,
+										attributes: { 'data-product-content': 'image' },
+										size: 'size-600'
+									}
+								)
+							-}}
+							{{-
+								include(
+									'partials/image.html.twig',
+									{
+										classes: [
+											'Thumbnail__image',
+											'z-index-1',
+											'is-active',
+											'object-fit-cover',
+											'd-md-none',
+											'w-100',
+											'h-100',
+										],
+										image: item.mobile.image,
+										attributes: { 'data-product-content': 'image' },
+										size: 'size-600'
+									}
+								)
+							-}}
+							{{-
+								include(
+									'partials/image.html.twig',
+									{
+										classes: [
+											'Thumbnail__overview',
+											'position-absolute',
+											'inset-0',
+											'object-position-center',
+											'object-fit-cover',
+											'z-index-2',
+											'is-active',
+											'w-100',
+											'h-100',
+											item.mobile.overview ? 'd-none d-md-block' : 'd-block'
+										],
+										image: item.image_hover,
+										attributes: { 'data-product-content': 'image' },
+										size: 'size-600'
+									}
+								)
+							-}}
+							{{-
+								include(
+									'partials/image.html.twig',
+									{
+										classes: [
+											'Thumbnail__overview',
+											'd-md-none',
+											'position-absolute',
+											'inset-0',
+											'object-position-center',
+											'object-fit-cover',
+											'z-index-2',
+											'is-active',
+											'w-100',
+											'h-100',
+										],
+										image: item.mobile.overview,
+										attributes: { 'data-product-content': 'image' },
+										size: 'size-600'
+									}
+								)
+							-}}
+						</{{-  item.project ? 'a' : 'div' -}}>
 
-				{% if post.items %}
-					{{- include( 'woocommerce/loop/loop-start.html.twig', { columns: loop_columns } ) -}}
-						{% for item in post.items %}
-							<li class="Loop w-md-800vw h-md-100 d-flex flex-column flex-md-row">
+						{% if item.project %}
+							<header class="writing-mode-md-vertical-rl origin-md-center rotate-md-180 p-md-20px d-md-flex flex-md-row justify-content-md-between m-md-0 m-20px h-md-100">
+								<h3 class="{{ fn(
+									'apply_filters',
+									'woocommerce_product_loop_title_classes',
+									'my-0 fs-xs fw-normal fst-italic woocommerce-loop-product__title'
+								) }}">
+									{{- item.project.title -}}
+								</h3>
+							</header>
+						{% endif %}
 
-								<{{- item.project ? "a href=\"#{item.project.link}\"" | raw : 'div' | raw }}
-									class="Thumbnail position-relative d-block {{ item.project.color ? '' : 'background-color-gray-very-light-01' }}"
-									style="{{ item.project.color ? 'background-color: ' ~ item.project.color | raw : '' }}"
-									data-product-content="link"
-								>
-									{{-
-										include(
-											'partials/image.html.twig',
-											{
-												classes: [
-													'Thumbnail__image',
-													'z-index-1',
-													'is-active',
-													'object-fit-cover',
-													'w-100',
-													'h-100',
-													item.mobile.image ? 'd-none d-md-block' : 'd-block'
-												],
-												image: item.image,
-												attributes: { 'data-product-content': 'image' },
-												size: 'size-600'
-											}
-										)
-									-}}
-									{{-
-										include(
-											'partials/image.html.twig',
-											{
-												classes: [
-													'Thumbnail__image',
-													'z-index-1',
-													'is-active',
-													'object-fit-cover',
-													'd-md-none',
-													'w-100',
-													'h-100',
-												],
-												image: item.mobile.image,
-												attributes: { 'data-product-content': 'image' },
-												size: 'size-600'
-											}
-										)
-									-}}
-									{{-
-										include(
-											'partials/image.html.twig',
-											{
-												classes: [
-													'Thumbnail__overview',
-													'position-absolute',
-													'inset-0',
-													'object-position-center',
-													'object-fit-cover',
-													'z-index-2',
-													'is-active',
-													'w-100',
-													'h-100',
-													item.mobile.overview ? 'd-none d-md-block' : 'd-block'
-												],
-												image: item.image_hover,
-												attributes: { 'data-product-content': 'image' },
-												size: 'size-600'
-											}
-										)
-									-}}
-									{{-
-										include(
-											'partials/image.html.twig',
-											{
-												classes: [
-													'Thumbnail__overview',
-													'd-md-none',
-													'position-absolute',
-													'inset-0',
-													'object-position-center',
-													'object-fit-cover',
-													'z-index-2',
-													'is-active',
-													'w-100',
-													'h-100',
-												],
-												image: item.mobile.overview,
-												attributes: { 'data-product-content': 'image' },
-												size: 'size-600'
-											}
-										)
-									-}}
-								</{{-  item.project ? 'a' : 'div' -}}>
-
-								{% if item.project %}
-									<header class="writing-mode-md-vertical-rl origin-md-center rotate-md-180 p-md-20px d-md-flex flex-md-row justify-content-md-between m-md-0 m-20px h-md-100">
-										<h3 class="{{ fn(
-											'apply_filters',
-											'woocommerce_product_loop_title_classes',
-											'my-0 fs-xs fw-normal fst-italic woocommerce-loop-product__title'
-										) }}">
-											{{- item.project.title -}}
-										</h3>
-									</header>
-								{% endif %}
-
-							</li>
-						{% endfor %}
-					{{- include( 'woocommerce/loop/loop-end.html.twig' ) -}}
-				{% endif %}
-			</div>
-
-			<div class="text-center my-20px d-md-none">
-				{{-
-					include(
-						'components/button.html.twig',
-						{
-							label: __( 'Find out more &plus;', 'uni' ),
-							attributes: {
-								'data-module-disclosure-button': '',
-								'aria-expanded': 'false',
-								'aria-controls': 'content'
-							}
-						}
-					)
-				-}}
-			</div>
-
-			<div class="Wysiwyg my-20px" id="content" style="display: none;">
-				{{- post.content -}}
-			</div>
-
-			{% if post.meta( 'link' ).url %}
-				{{-
-					include(
-						'components/heading.html.twig',
-						{
-							classes: [ 'flex-md-shrink-0', 'color-gray-dark', 'background-color-white' ],
-							link: post.meta( 'link' ).url,
-							title: post.meta( 'link' ).title
-						},
-						with_context = false
-					)
-				-}}
-			{% endif %}
-
-			{{- include( 'components/footer-horizontal.html.twig', { classes: [ 'flex-md-shrink-0' ] } ) -}}
-
-		</div>
+					</li>
+				{% endfor %}
+			{{- include( 'woocommerce/loop/loop-end.html.twig' ) -}}
+		{% endif %}
 	</div>
+
+	<div class="text-center my-20px d-md-none">
+		{{-
+			include(
+				'components/button.html.twig',
+				{
+					label: __( 'Find out more &plus;', 'uni' ),
+					attributes: {
+						'data-module-disclosure-button': '',
+						'aria-expanded': 'false',
+						'aria-controls': 'content'
+					}
+				}
+			)
+		-}}
+	</div>
+
+	<div class="Wysiwyg my-20px" id="content" style="display: none;">
+		{{- post.content -}}
+	</div>
+{% endblock %}
+
+{% block footer %}
+	{% if post.meta( 'link' ).url %}
+		{{-
+			include(
+				'components/heading.html.twig',
+				{
+					classes: [ 'flex-md-shrink-0', 'text-gray-dark', 'bg-white' ],
+					link: post.meta( 'link' ).url,
+					title: post.meta( 'link' ).title
+				},
+				with_context = false
+			)
+		-}}
+	{% endif %}
+
+	{{- include( 'components/footer-horizontal.html.twig', { classes: [ 'flex-md-shrink-0' ] } ) -}}
 {% endblock %}

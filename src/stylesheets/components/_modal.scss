@@ -28,7 +28,7 @@
 		@include margin(top 0.5em bottom 0);
 
 		& > span {
-			@include margin(left auto);
+			margin-left: auto;
 		}
 	}
 

@@ -50,7 +50,7 @@
 						type="hidden"
 						name="calc_shipping_state"
 						id="calc_shipping_state"
-						class="outline-none-focus shadow-focus-focus w-100 border-radius-5px transition-box-shadow"
+						class="outline-none-focus shadow-focus-focus w-100 rounded-5px transition-box-shadow"
 						placeholder="{{ __( 'State / County', 'uni' ) }}"
 					/>
 				{% elseif states is iterable %}
@@ -76,18 +76,32 @@
 		{% endif %}
 
 		{% if true | apply_filters( 'woocommerce_shipping_calculator_enable_city' ) %}
-			<p class="form-row form-row-wide Input" id="calc_shipping_city_field">
-				<input type="text" class="outline-none-focus shadow-focus-focus w-100 border-radius-5px transition-box-shadow input-text" value="{{ shipping.city }}" placeholder="{{ __( 'City', 'uni' ) }}" name="calc_shipping_city" id="calc_shipping_city" />
+			<p class="form-row form-row-wide" id="calc_shipping_city_field">
+				<input
+					type="text"
+					class="input-text border border-1 border-gray-very-dark shadow-focus-focus transition-box-shadow outline-none-focus p-12px w-100 rounded-5px d-block"
+					value="{{ shipping.city }}"
+					placeholder="{{ __( 'City', 'uni' ) }}"
+					name="calc_shipping_city"
+					id="calc_shipping_city"
+				/>
 			</p>
 		{% endif %}
 
 		{% if true | apply_filters( 'woocommerce_shipping_calculator_enable_postcode' ) %}
-			<p class="form-row form-row-wide Input" id="calc_shipping_postcode_field">
-				<input type="text" class="outline-none-focus shadow-focus-focus w-100 border-radius-5px transition-box-shadow input-text" value="{{ shipping.postcode }}" placeholder="{{ __( 'Postcode / ZIP', 'uni' ) }}" name="calc_shipping_postcode" id="calc_shipping_postcode" />
+			<p class="form-row form-row-wide" id="calc_shipping_postcode_field">
+				<input
+					type="text"
+					class="input-text border border-1 border-gray-very-dark shadow-focus-focus transition-box-shadow outline-none-focus p-12px w-100 rounded-5px d-block"
+					value="{{ shipping.postcode }}"
+					placeholder="{{ __( 'Postcode / ZIP', 'uni' ) }}"
+					name="calc_shipping_postcode"
+					id="calc_shipping_postcode"
+				/>
 			</p>
 		{% endif %}
 
-		<p>
+		<p class="mb-0">
 			{{-
 				include(
 					'components/button.html.twig',

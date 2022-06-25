@@ -1,0 +1,10 @@
+$utilities: map-merge(
+	$utilities,
+	(
+		'background-color': (
+			class: bg,
+			property: background-color,
+			values: $colors,
+		),
+	)
+);

@@ -41,24 +41,22 @@
 				{% do action( 'woocommerce_checkout_before_customer_details' ) %}
 
 
-				<div class="Checkout__details w-md-60 py-md-250vh ps-md-200vw pe-md-100vw" id="customer_details">
-					<div class="Checkout__billing">
-						{#
-						 # Hook: woocommerce_checkout_billing
-						 #
-						 # @hooked WC_Checkout::checkout_form_billing
-						 #}
-						{% do action( 'woocommerce_checkout_billing' ) %}
-					</div>
+				<div class="Checkout__details border-end-md border-md-1 border-md-gray-very-dark w-md-60 py-md-250vh ps-md-200vw pe-md-100vw" id="customer_details">
 
-					<div class="Checkout__shipping">
-						{#
-						 # Hook: woocommerce_checkout_shipping
-						 #
-						 # @hooked WC_Checkout::checkout_form_shipping
-						 #}
-						{% do action( 'woocommerce_checkout_shipping' ) %}
-					</div>
+					{#
+					 # Hook: woocommerce_checkout_billing
+					 #
+					 # @hooked WC_Checkout::checkout_form_billing
+					 #}
+					{% do action( 'woocommerce_checkout_billing' ) %}
+
+					{#
+					 # Hook: woocommerce_checkout_shipping
+					 #
+					 # @hooked WC_Checkout::checkout_form_shipping
+					 #}
+					{% do action( 'woocommerce_checkout_shipping' ) %}
+
 				</div>
 
 				{#

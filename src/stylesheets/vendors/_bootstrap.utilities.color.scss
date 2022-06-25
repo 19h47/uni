@@ -1,0 +1,10 @@
+$utilities: map-merge(
+	$utilities,
+	(
+		'color': (
+			class: text,
+			property: color,
+			values: $colors,
+		),
+	)
+);

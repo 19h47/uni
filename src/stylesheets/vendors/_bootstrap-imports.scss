@@ -96,16 +96,6 @@ $utilities: map-merge(
 			property: overflow-x,
 			values: hidden,
 		),
-		'border-radius': (
-			property: border-radius,
-			class: border-radius,
-			responsive: true,
-			values: (
-				5px: #{math.div(5, 16)}rem,
-				'5px-0-0-5px': #{math.div(5, 16)}rem 0 0 #{math.div(5, 16)}rem,
-				'0-5px-5px-0': 0 #{math.div(5, 16)}rem #{math.div(5, 16)}rem 0,
-			),
-		),
 		'text-decoration':
 			map-merge(
 				map-get($utilities, 'text-decoration'),
@@ -318,16 +308,12 @@ $utilities: map-merge(
 			class: gap-y,
 			values: $spacers,
 		),
-		'border-color': (
-			property: border-color,
-			class: border,
-			values: (
-				gray-very-dark: #666666,
-				cyan-light-grayish-02: #bee5eb,
-			),
-		),
 	)
 );
+
+.children\:span\:fs-xs span {
+	@extend .fs-xs;
+}
 
 .inset-0 {
 	top: 0;
@@ -336,8 +322,8 @@ $utilities: map-merge(
 	left: 0;
 }
 
-.background-color-white-0\.97 {
-	background-color: rgba(255, 255, 255, 0.97);
-}
+@import 'bootstrap.utilities.background-color';
+@import 'bootstrap.utilities.borders';
+@import 'bootstrap.utilities.color';
 
 @import '~bootstrap/scss/utilities/api';

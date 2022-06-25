@@ -14,19 +14,16 @@
 
 // Mixins.
 @import '~@19h47/architecture/src/stylesheets/abstracts/mixins/auto-alpha';
-@import '~@19h47/architecture/src/stylesheets/abstracts/mixins/create-class-color';
 @import '~@19h47/architecture/src/stylesheets/abstracts/mixins/font';
-@import '~@19h47/architecture/src/stylesheets/abstracts/mixins/letter-spacing';
+@import '~@19h47/architecture/src/stylesheets/abstracts/mixins/position';
 @import '~@19h47/architecture/src/stylesheets/abstracts/mixins/margin';
 @import '~@19h47/architecture/src/stylesheets/abstracts/mixins/padding';
-@import '~@19h47/architecture/src/stylesheets/abstracts/mixins/position';
 @import '~@19h47/architecture/src/stylesheets/abstracts/mixins/power';
 @import '~@19h47/architecture/src/stylesheets/abstracts/mixins/reset-placeholder';
 @import '~@19h47/architecture/src/stylesheets/abstracts/mixins/size';
 
 @import '~@19h47/architecture/src/stylesheets/abstracts/placeholders';
 
-@import 'vendors/jetpack';
 @import 'vendors/wordpress';
 @import 'vendors/woocommerce';
 @import 'vendors/select2';
@@ -38,7 +35,6 @@
 // Components
 @import 'components/input';
 @import 'components/checkbox';
-@import 'components/languages';
 @import 'components/modal';
 @import 'components/signup-form';
 @import 'components/wysiwyg';
@@ -49,15 +45,9 @@
 @import 'components/select';
 @import 'components/cart';
 @import 'components/checkout';
-@import 'components/shipping-methods';
 
 // Pages
 @import 'pages/front-page';
 @import 'pages/horizontal-page';
 @import 'pages/about-page';
 @import 'pages/contact-page';
-
-// Utilities.
-@import '~@19h47/architecture/src/stylesheets/utilities/colors';
-@import '~@19h47/architecture/src/stylesheets/utilities/margins';
-@import '~@19h47/architecture/src/stylesheets/utilities/paddings';

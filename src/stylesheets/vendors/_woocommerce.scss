@@ -7,32 +7,32 @@
  */
 .woocommerce {
 	&-NoticeGroup {
-		@extend %margin-y-2;
+		@extend .my-20px;
 
 		width: 100%;
 
 		& > *:first-child {
-			@include margin(top 0);
+			margin-top: 0;
 		}
 		& > *:last-child {
-			@include margin(bottom 0);
+			margin-bottom: 0;
 		}
 	}
 	&-notices-wrapper {
 		& > *:first-child {
-			@include margin(top 0);
+			margin-top: 0;
 		}
 		& > *:last-child {
-			@include margin(bottom 0);
+			margin-bottom: 0;
 		}
 	}
 
 	&-form-coupon-toggle {
 		& > *:first-child {
-			@include margin(top 0);
+			margin-top: 0;
 		}
 		& > *:last-child {
-			@include margin(bottom 0);
+			margin-bottom: 0;
 		}
 	}
 }

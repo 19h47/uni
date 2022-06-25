@@ -16,12 +16,9 @@
 @use 'sass:math';
 
 $color-variations: (
-	black: #000,
-	white: #fff,
 	red: (
 		pure: #ff0000,
 		bright: #dc3545,
-		very-dark-01: #491217,
 		very-dark-02: #721c24,
 		light-grayish-01: #f8d7da,
 		light-grayish-02: #f5c6cb,
@@ -31,25 +28,12 @@ $color-variations: (
 	),
 	green: (
 		dark-lime: #28a745,
-		very-dark-lime-01: #155724,
-		very-dark-lime-02: #0b2e13,
-		light-grayish-lime-01: #d4edda,
-		light-grayish-lime-02: #c3e6cb,
-	),
-	yellow: (
-		dark-grayish: #9d9d9c,
 	),
 	gray: (
-		dark: #999999,
-		very-dark: #666666,
-		very-light-01: #f8f8f8,
 		very-light-02: #e4e4e4,
 	),
 	cyan: (
-		very-dark-01: #0c5460,
 		very-dark-02: #062c33,
-		light-grayish-01: #d1ecf1,
-		light-grayish-02: #bee5eb,
 	),
 	socials: (
 		facebook: #3b5998,

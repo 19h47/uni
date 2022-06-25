@@ -10,7 +10,7 @@
 			{%- for product_color in product.product_colors -%}
 				<li class="Product-colors__item">
 					<a
-						class="d-block w-16px h-16px border-radius-5px {{ 1 < loop.length ? 'js-color' }}{{ product_color.current ? ' is-active' }}"
+						class="d-block w-16px h-16px rounded-5px {{ 1 < loop.length ? 'js-color' }}{{ product_color.current ? ' is-active' }}"
 						href="{{ product_color.link }}"
 						data-link="{{ product_color.link }}"
 						data-color="{{ product_color.color }}"

@@ -11,7 +11,7 @@
 
 	<div data-title="{{ package_name }}">
 		{% if available_methods is not empty %}
-			<ul id="shipping_method" class="Shipping-methods woocommerce-shipping-methods">
+			<ul id="shipping_method" class="list-style-type-none woocommerce-shipping-methods">
 				{% for method in available_methods %}
 					<li>
 						{% if 1 < fn( 'count', available_methods ) %}

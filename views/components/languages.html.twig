@@ -2,14 +2,16 @@
  # Languages
  #
  # @package UNI
- #
- # @purgeCSS current-lang
  #}
 
-<ul class="Languages fs-2xs list-style-type-none position-relative d-flex flex-column z-index-2 {{ classes ? classes | join( ' ' ) | trim }}">
+<ul class="fs-2xs list-style-type-none d-flex flex-column {{ classes ? classes | join( ' ' ) | trim }}">
 	{% for lang in pll_the_languages() %}
-		<li class="Languages__item text-uppercase text-center px-2px {{ loop.first ? 'pb-12px' : loop.last ? 'pt-12px' : 'py-12px' }}">
-			<a id="lang-{{ lang.id }}" href="{{ lang.url }}" class="d-inline-block align-middle fw-extralight {{ lang.classes | join( ' ' ) }}" aria-label="{{ lang.name }}">
+		<li class="border-bottom border-1 border-black border-bottom-none-last-child text-uppercase text-center px-2px {{ loop.first ? 'pb-12px' : loop.last ? 'pt-12px' : 'py-12px' }}">
+			<a
+				id="lang-{{ lang.id }}"
+				href="{{ lang.url }}"
+				class="d-block {{ lang.classes | join( ' ' ) }} {{ 'current-lang' in lang.classes ? 'fw-light letter-spacing-60' : 'fw-extralight' }}"
+				aria-label="{{ lang.name }}">
 				{{- lang.slug -}}
 			</a>
 		</li>

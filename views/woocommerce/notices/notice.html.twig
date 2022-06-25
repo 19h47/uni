@@ -13,9 +13,9 @@
 					'border',
 					'border-1',
 					'border-cyan-light-grayish-02',
-					'border-radius-5px',
-					'background-color-cyan-light-grayish-01',
-					'color-cyan-very-dark-01',
+					'rounded-5px',
+					'bg-cyan-light-grayish-01',
+					'text-cyan-very-dark-01',
 				] | merge( notice.classes | default( [] ) ) | join( ' ' ) | trim
 			}}"
 			{{ fn( 'wc_get_notice_data_attr', notice ) }}

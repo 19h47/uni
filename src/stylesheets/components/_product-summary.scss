@@ -16,8 +16,6 @@
 	}
 
 	& > div:nth-child(6) {
-		// margin-top: 0;
-
 		@include media-breakpoint-up(md) {
 			@at-root .product-type-variable & {
 				@include margin(top #{math.div(89.91 * 100, $prototype-height-unitless)}vh);

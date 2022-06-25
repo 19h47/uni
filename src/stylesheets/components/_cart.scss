@@ -8,30 +8,14 @@
 @use 'sass:math';
 
 .Cart {
-	.Notices {
-		@include absolute(top 0 right 0 left 0);
-	}
-
 	&__form {
-		@include media-breakpoint-up(md) {
-			border-right: 1px solid rgba(the_color(black), 1);
-		}
-
 		&__contents {
 			table-layout: fixed;
 			overflow-wrap: break-word;
 			border-spacing: 0;
 			border-collapse: collapse;
 
-			thead tr th {
-				border-bottom: 1px solid the_color(gray, very-dark);
-			}
-
 			.product-thumbnail {
-				@include media-breakpoint-up(md) {
-					border-bottom: 1px solid the_color(gray, very-dark);
-				}
-
 				a {
 					@extend .d-block;
 					@include margin(right 20px);
@@ -46,12 +30,6 @@
 					object-position: center;
 					background-color: the_color(gray, very-light-01);
 				}
-			}
-		}
-
-		&__item {
-			td {
-				border-bottom: 1px solid the_color(gray, very-dark);
 			}
 		}
 	}

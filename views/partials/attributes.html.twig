@@ -14,7 +14,8 @@
 					'partials/page-title.html.twig',
 					{
 						subtitle: attribute.name,
-						title: attribute.options | join( ' ' )
+						title: attribute.options | join( ' ' ),
+						classes: [ 'children:span:fs-xs' ]
 					}
 				)
 			-}}

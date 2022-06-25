@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 24.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!-- Generator: Adobe Illustrator 25.4.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <svg version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 14 14" style="enable-background:new 0 0 14 14;" xml:space="preserve">
+	 viewBox="0 0 40 40" style="enable-background:new 0 0 40 40;" xml:space="preserve">
 <style type="text/css">
 	.st0{fill:#0E0C11;}
 </style>
-<g>
-	<path class="st0" d="M12.09,14L6.91,8.86l-4.97,4.93L0,11.89l5-4.96L0,1.9L1.94,0l4.97,4.96l5-4.94l1.94,1.9l-5,4.99L14,12.07
-		L12.09,14z"/>
-</g>
+<polygon class="st0" points="40,2.8 37.2,0 20,17.2 2.8,0 0,2.8 17.2,20 0,37.2 2.8,40 20,22.8 37.2,40 40,37.2 22.8,20 "/>
 </svg>

@@ -17,16 +17,4 @@
 			will-change: transform;
 		}
 	}
-
-	&__grid {
-		@include media-breakpoint-up(sm) {
-			@include padding(left #{math.div(42 * 100, 750)}vw);
-		}
-
-		@include media-breakpoint-up(md) {
-			& > div {
-				height: calc(100vh - 100px);
-			}
-		}
-	}
 }
