@@ -9,7 +9,7 @@
 {% block content %}
 	{% embed 'components/panel.html.twig' with { id: 'project-information' } %}
 		{% block content %}
-			<div class="grid-template-columns-md-repeat-12-1fr grid-template-rows-md-repeat-11-1fr grid-column-gap-md-0 grid-row-gap-md-0 d-md-grid h-100">
+			<div class="px-md-200vw min-h-100 pt-md-200vh pb-md-60vh h-md-100">
 
 				{{-
 					include(
@@ -22,15 +22,19 @@
 					)
 				-}}
 
-				{% if post.meta( 'project_content' ) %}
-					<div class="Wysiwyg grid-area-4/3/10/7">{{- post.meta( 'project_content' ) -}}</div>
-				{% endif %}
-
-				{% if post.attributes %}
-					<div class="grid-area-3/8/11/12">
-						{{- include( 'partials/attributes.html.twig', { attributes: post.attributes } ) -}}
+				<div class="ps-md-200vw d-md-flex">
+					<div class="w-md-800vw mt-20px">
+						{% if post.meta( 'project_content' ) %}
+							<div class="Wysiwyg">{{- post.meta( 'project_content' ) -}}</div>
+						{% endif %}
 					</div>
-				{% endif %}
+
+					{% if post.attributes %}
+						<div class="ms-md-200vw mt-20px mt-md-0 w-md-800vw">
+							{{- include( 'partials/attributes.html.twig', { attributes: post.attributes } ) -}}
+						</div>
+					{% endif %}
+				</div>
 			</div>
 		{% endblock %}
 	{% endembed %}
@@ -157,19 +161,18 @@
 		) -}}
 	{% endif %}
 
-	{{-
-		include(
-			'partials/page-content.html.twig',
-			{
-				title: projects_settings.title,
-				subtitle: projects_settings.subtitle,
-				content: projects_settings.content,
-				classes: [
-					'w-md-1600vw', 'my-md-20px',
-				]
-			}
-		)
-	-}}
+	{%- embed 'partials/page-content.html.twig' with {
+			title: projects_settings.title,
+			subtitle: projects_settings.subtitle,
+			classes: [ 'my-20px', 'w-md-1400vw' ]
+		}
+	-%}
+		{% block content %}
+			<div class="Wysiwyg mt-20px ms-md-200vw">
+				{{- projects_settings.content -}}
+			</div>
+		{% endblock %}
+	{%- endembed -%}
 
 	{% if post.prev %}
 		{{- include(

@@ -119,8 +119,8 @@ $utilities: map-merge(
 					state: active focus,
 					values: (
 						focus: 0 0 0 0.2rem rgba(228, 228, 228, 0.5),
-						active: inset 1px 1px 2px rgba(0, 0, 0, 0.2),
-						uni: 2px 2px 3px rgba(0, 0, 0, 0.2),
+						active: inset 0.0625rem 0.0625rem 0.125rem rgba(0, 0, 0, 0.2),
+						uni: 0.125rem 0.125rem 0.1875rem rgba(0, 0, 0, 0.2),
 					),
 				)
 			),
@@ -326,6 +326,21 @@ $utilities: map-merge(
 							map-get(map-get($utilities, 'bg-opacity'), 'values'),
 							(
 								97: 0.97,
+							)
+						),
+				)
+			),
+		'line-height':
+			map-merge(
+				map-get($utilities, 'line-height'),
+				(
+					responsive: true,
+					values:
+						map-merge(
+							map-get(map-get($utilities, 'line-height'), 'values'),
+							(
+								none: 1,
+								5: #{math.div(20, $base-font-size)}rem,
 							)
 						),
 				)

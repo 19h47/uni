@@ -81,9 +81,9 @@
 					)
 				-}}
 
-				<div class="mt-20px ps-md-200vw d-md-flex">
+				<div class="ps-md-200vw d-md-flex">
 
-					<div class="w-md-600vw">
+					<div class="w-md-600vw mt-20px">
 						<div class="Wysiwyg">
 							{#
 								# Hook: woocommerce_single_product_content
@@ -157,16 +157,18 @@
 			{{- include( 'woocommerce/loop/loop-end.html.twig' ) -}}
 		{% endif %}
 
-		{{- include(
-				'partials/page-content.html.twig',
-				{
-					title: post.terms( 'product_cat' )[0].name,
-					subtitle: post.terms( 'product_cat' )[0].meta( 'number' ) ? __( 'Collection N°%s', 'uni' ) | format( post.terms( 'product_cat' )[0].meta( 'number' ) ) : '',
-					classes: [ 'w-md-1400vw', 'mt-20px', 'mt-md-0' ],
-					content: post.terms( 'product_cat' )[0].long_description,
-				}
-			)
-		-}}
+		{%- embed 'partials/page-content.html.twig' with {
+				title: post.terms( 'product_cat' )[0].name,
+				subtitle: post.terms( 'product_cat' )[0].meta( 'number' ) ? __( 'Collection N°%s', 'uni' ) | format( post.terms( 'product_cat' )[0].meta( 'number' ) ) : '',
+				classes: [ 'mt-20px', 'my-md-0', 'w-md-1400vw' ]
+			}
+		-%}
+			{% block content %}
+				<div class="Wysiwyg mt-20px ms-md-200vw">
+					{{- post.terms( 'product_cat' )[0].long_description -}}
+				</div>
+			{% endblock %}
+		{%- endembed -%}
 
 		{{-
 			include(

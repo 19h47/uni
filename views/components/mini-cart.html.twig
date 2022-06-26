@@ -3,6 +3,6 @@
  #}
 
 <{{ ( cart.is_empty ? 'p' : "a href=\"#{cart_url}\"" ) | raw }} class="d-flex flex-column fs-xs js-total mb-0 {{ classes ? classes | join( ' ' ) | trim }}">
-	<span class="js-cart-contents-count leading-none ms-auto">({{- cart.get_cart_contents_count() -}})</span>
+	<span class="js-cart-contents-count lh-none ms-auto">({{- cart.get_cart_contents_count() -}})</span>
 	{{- include( 'svg/use.html.twig', { classes: [ 'w-20px', 'h-20px', 'mx-12px', 'd-block' ], icon: 'cart' }, with_context = false ) -}}
 </{{ ( cart.is_empty ? 'p' : 'a' ) | raw }}>

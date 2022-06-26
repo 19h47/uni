@@ -260,7 +260,7 @@ class WooCommerce {
 	 * @return void
 	 */
 	public function before_cart_table() : void {
-		the_title( '<h1 class="mt-0 fs-4xl leading-none text-center text-md-start mb-20px">', '</h1>' );
+		the_title( '<h1 class="mt-0 text-uppercase fs-4xl lh-none text-center text-md-start mb-20px">', '</h1>' );
 	}
 
 
@@ -304,7 +304,7 @@ class WooCommerce {
 	 * @return array $fragments
 	 */
 	public function add_to_cart_fragments( array $fragments ) : array {
-		$fragments['span.js-cart-contents-count'] = '<span class="js-cart-contents-count leading-none ms-auto">(' . WC()->cart->get_cart_contents_count() . ')</span>';
+		$fragments['span.js-cart-contents-count'] = '<span class="js-cart-contents-count lh-none ms-auto">(' . WC()->cart->get_cart_contents_count() . ')</span>';
 
 		return $fragments;
 	}
