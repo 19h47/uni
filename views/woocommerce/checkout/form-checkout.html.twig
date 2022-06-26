@@ -26,7 +26,7 @@
 		<form
 			name="checkout"
 			method="post"
-			class="flex-wrap Checkout__form position-relative d-md-flex checkout woocommerce-checkout"
+			class="flex-wrap position-relative d-md-flex checkout woocommerce-checkout"
 			action="{{ checkout_url | e( 'esc_url' ) }}"
 			enctype="multipart/form-data"
 		>
@@ -41,7 +41,7 @@
 				{% do action( 'woocommerce_checkout_before_customer_details' ) %}
 
 
-				<div class="Checkout__details border-end-md border-md-1 border-md-gray-very-dark w-md-60 py-md-250vh ps-md-200vw pe-md-100vw" id="customer_details">
+				<div class="border-end-md border-md-1 border-md-gray-very-dark w-md-60 py-md-250vh ps-md-200vw pe-md-100vw" id="customer_details">
 
 					{#
 					 # Hook: woocommerce_checkout_billing

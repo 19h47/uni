@@ -38,157 +38,152 @@
 
 {% block track %}
 
+	<div class="d-md-flex flex-md-nowrap my-md-20px flex-md-shrink-0" data-module-wrapper-page>
+		{#
+			# Hook: woocommerce_before_single_product.
+			#
+			# @hooked wc_print_notices - 10
+			#}
+		{% do action( 'woocommerce_before_single_product' ) %}
 
+		<article
+			id="product-{{ post.id }}"
+			itemscope
+			itemtype="http://schema.org/Product"
+			class="Product d-md-flex mb-20px mb-md-0 {{ post.class }}"
+		>
+			<meta itemprop="url" content="{{ post.link }}" />
 
-			<div class="d-md-flex flex-md-nowrap my-md-20px flex-md-shrink-0" data-module-wrapper-page>
+			{#
+				# Hook: woocommerce_before_single_product_summary.
+				#
+				# @hooked woocommerce_show_product_sale_flash - 10
+				# @hooked woocommerce_show_product_images - 20
+				#}
+			{% do action( 'woocommerce_before_single_product_summary' ) %}
+
+			<div class="Product-summary min-h-100 mt-20px mt-md-0 pt-md-200vh pb-md-60vh summary entry-summary h-md-100 w-md-1600vw">
 				{#
-				 # Hook: woocommerce_before_single_product.
-				 #
-				 # @hooked wc_print_notices - 10
-				 #}
-				{% do action( 'woocommerce_before_single_product' ) %}
+					# Hook: woocommerce_single_product_summary.
+					#
+					# @hooked WC_Structured_Data::generate_product_data() - 60
+					#}
+				{% do action( 'woocommerce_single_product_summary' ) %}
 
-				<article
-					id="product-{{ post.id }}"
-					itemscope
-					itemtype="http://schema.org/Product"
-					class="Product d-md-flex mb-20px mb-md-0 {{ post.class }}"
-				>
-					<meta itemprop="url" content="{{ post.link }}" />
+				{{-
+					include(
+						'partials/page-title.html.twig',
+						{
+							classes: [ 'text-center', 'text-md-start' ],
+							subtitle: post.terms( 'product_cat' ) | map( c => "<a href=\"#{c.link}\">#{c.name}</a>" ) | join( ', ' ),
+							title: post.title
+						}
+					)
+				-}}
 
-					{#
-					 # Hook: woocommerce_before_single_product_summary.
-					 #
-					 # @hooked woocommerce_show_product_sale_flash - 10
-					 # @hooked woocommerce_show_product_images - 20
-					 #}
-					{% do action( 'woocommerce_before_single_product_summary' ) %}
+				<div class="mt-20px ps-md-200vw d-md-flex">
 
-					<div class="Product-summary min-h-100 mt-20px mt-md-0 py-md-60vh summary entry-summary d-md-grid h-md-100 grid-template-columns-md-repeat-8-1fr grid-template-rows-md-repeat-11-1fr w-md-1600vw grid-column-gap-md-0 grid-row-gap-md-0 grid-auto-rows-md-1fr">
-						{#
-						 # Hook: woocommerce_single_product_summary.
-						 #
-						 # @hooked WC_Structured_Data::generate_product_data() - 60
-						 #}
-						{% do action( 'woocommerce_single_product_summary' ) %}
-
-						{{-
-							include(
-								'partials/page-title.html.twig',
-								{
-									classes: [ 'text-center', 'text-md-start', 'grid-area-md-1/1/3/6', 'align-self-md-end' ],
-									subtitle: post.terms( 'product_cat' ) | map( c => "<a href=\"#{c.link}\">#{c.name}</a>" ) | join( ', ' ),
-									title: post.title
-								}
-							)
-						-}}
-
-						<div class="Wysiwyg grid-area-md-4/2/8/5 mt-20px mt-md-0 align-self-md-end woocommerce-product-details__short-description">
+					<div class="w-md-600vw">
+						<div class="Wysiwyg">
 							{#
-							 # Hook: woocommerce_single_product_content
-							 #
-							 # @hooked UNI\Plugins\WooCommerce::template_single_product_content - 20
-							 #}
+								# Hook: woocommerce_single_product_content
+								#
+								# @hooked UNI\Plugins\WooCommerce::template_single_product_content - 20
+								#}
 							{% do action( 'woocommerce_single_product_content' ) %}
 
 							{{- post.terms( 'product_cat' ) | map( c => "<p class=\"ff-title mt-20px fst-italic\">#{c.description}</p>" ) | join( ', ' ) -}}
 						</div>
 
-						{% if post.attributes %}
-							<div class="grid-area-md-4/6/12/9 mt-20px mt-md-0">
-								{{- include( 'partials/attributes.html.twig', { attributes: post.attributes } ) -}}
-							</div>
-						{% endif %}
-
-						<div class="mt-20px mt-md-0 grid-area-md-8/1/10/2 align-self-md-end">
+						<div class="mt-20px d-md-flex gap-md-20px flex-md-wrap">
 							{#
-							 # Hook: woocommerce_single_product_price
-							 #
-							 #
-							 #}
+							# Hook: woocommerce_single_product_price
+							#
+							#
+							#}
 							{% do action( 'woocommerce_single_product_price' ) %}
-						</div>
 
-						<div class="mt-20px mt-md-0 grid-area-md-8/2/10/3 align-self-md-end">
 							{#
-							 # Hook: woocommerce_single_product_meta
-							 #
-							 # @hooked UNI\Plugins\WooCommerce::template_product_variations - 15
-							 # @hooked woocommerce_template_single_meta 40
-							 #}
+							# Hook: woocommerce_single_product_meta
+							#
+							# @hooked UNI\Plugins\WooCommerce::template_product_variations - 15
+							# @hooked woocommerce_template_single_meta 40
+							#}
 							{% do action( 'woocommerce_single_product_meta' ) %}
-						</div>
 
-						<div class="mt-20px mt-md-0 grid-area-md-8/3/10/6 align-self-md-end">
 							{#
-							 # Hook: woocommerce_single_product_add_to_cart
-							 #
-							 # @hooked woocommerce_template_single_add_to_cart - 30
-							 #}
+							# Hook: woocommerce_single_product_add_to_cart
+							#
+							# @hooked woocommerce_template_single_add_to_cart - 30
+							#}
 							{% do action( 'woocommerce_single_product_add_to_cart' ) %}
 						</div>
-
 					</div>
 
-					{#
-					 # Hook: woocommerce_after_single_product_summary.
-					 #
-					 # @hooked woocommerce_upsell_display - 15
-					#}
-					{% do action( 'woocommerce_after_single_product_summary' ) %}
-
-				</article>
-
-
-				{% if post.related_products %}
-					{{-
-						include(
-							'components/heading.html.twig',
-							{
-								title: __( 'In the same collection', 'uni' ) | apply_filters( 'woocommerce_product_related_products_heading' )
-							},
-							with_context = false
-						)
-					-}}
-
-					{{- include( 'woocommerce/loop/loop-start.html.twig', { classes: [ 'related' ], columns: loop_columns } ) -}}
-						{% for product in post.related_products %}
-							{{- include( 'woocommerce/product-content.html.twig' ) -}}
-						{% endfor %}
-					{{- include( 'woocommerce/loop/loop-end.html.twig' ) -}}
-				{% endif %}
-
-				{%- embed 'partials/page-content.html.twig' with {
-						title: post.terms( 'product_cat' )[0].name,
-						subtitle: post.terms( 'product_cat' )[0].meta( 'number' ) ? __( 'Collection N°%s', 'uni' ) | format( post.terms( 'product_cat' )[0].meta( 'number' ) ) : '',
-						classes: [ 'mt-20px', 'mt-md-0' ]
-					}
-				-%}
-					{% block content %}
-						<div class="Wysiwyg mt-20px mt-md-0 grid-area-md-4/3/9/7">
-							{{- post.terms( 'product_cat' )[0].long_description -}}
+					{% if post.attributes %}
+						<div class="ms-md-200vw mt-20px mt-md-0 w-md-600vw">
+							{{- include( 'partials/attributes.html.twig', { attributes: post.attributes } ) -}}
 						</div>
-					{% endblock %}
-				{%- endembed -%}
+					{% endif %}
+				</div>
 
-				{{-
-					include(
-						'components/heading.html.twig',
-						{
-							classes: [ 'flex-md-shrink-0', 'text-gray-dark' ],
-							link: shop_url,
-							title: __( 'Return to shop', 'uni' )
-						},
-						with_context = fase
-					)
-				-}}
 			</div>
 
 			{#
-			 # Hook: woocommerce_after_single_product
-			 #}
-			{% do action( 'woocommerce_after_single_product' ) %}
+				# Hook: woocommerce_after_single_product_summary.
+				#
+				# @hooked woocommerce_upsell_display - 15
+			#}
+			{% do action( 'woocommerce_after_single_product_summary' ) %}
+
+		</article>
 
 
+		{% if post.related_products %}
+			{{-
+				include(
+					'components/heading.html.twig',
+					{
+						title: __( 'In the same collection', 'uni' ) | apply_filters( 'woocommerce_product_related_products_heading' )
+					},
+					with_context = false
+				)
+			-}}
+
+			{{- include( 'woocommerce/loop/loop-start.html.twig', { classes: [ 'related' ], columns: loop_columns } ) -}}
+				{% for product in post.related_products %}
+					{{- include( 'woocommerce/product-content.html.twig' ) -}}
+				{% endfor %}
+			{{- include( 'woocommerce/loop/loop-end.html.twig' ) -}}
+		{% endif %}
+
+		{{- include(
+				'partials/page-content.html.twig',
+				{
+					title: post.terms( 'product_cat' )[0].name,
+					subtitle: post.terms( 'product_cat' )[0].meta( 'number' ) ? __( 'Collection N°%s', 'uni' ) | format( post.terms( 'product_cat' )[0].meta( 'number' ) ) : '',
+					classes: [ 'w-md-1400vw', 'mt-20px', 'mt-md-0' ],
+					content: post.terms( 'product_cat' )[0].long_description,
+				}
+			)
+		-}}
+
+		{{-
+			include(
+				'components/heading.html.twig',
+				{
+					classes: [ 'flex-md-shrink-0', 'text-gray-dark' ],
+					link: shop_url,
+					title: __( 'Return to shop', 'uni' )
+				},
+				with_context = fase
+			)
+		-}}
+	</div>
+
+	{#
+	 # Hook: woocommerce_after_single_product
+	 #}
+	{% do action( 'woocommerce_after_single_product' ) %}
 
 {% endblock  %}

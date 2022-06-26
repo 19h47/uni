@@ -1,12 +1,21 @@
-// bootstrap-custom.scss
+// bootstrap-imports.scss
 
-// 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
 @use 'sass:math';
 
+// Functions come first (so you can manipulate colors, SVGs, calc, etc)
 @import '~bootstrap/scss/functions';
+
+// Optional variable overrides here
 @import '~bootstrap/scss/variables';
 
+// Variables come next
 @import 'bootstrap-variables';
+
+// Optional Sass map overrides here
+$theme-colors: map-merge($theme-colors, $custom-theme-colors);
+
+// Followed by our default maps
+@import '~bootstrap/scss/maps';
 
 @import '~bootstrap/scss/mixins';
 @import '~bootstrap/scss/root';
@@ -308,6 +317,19 @@ $utilities: map-merge(
 			class: gap-y,
 			values: $spacers,
 		),
+		'bg-opacity':
+			map-merge(
+				map-get($utilities, 'bg-opacity'),
+				(
+					values:
+						map-merge(
+							map-get(map-get($utilities, 'bg-opacity'), 'values'),
+							(
+								97: 0.97,
+							)
+						),
+				)
+			),
 	)
 );
 
@@ -322,7 +344,18 @@ $utilities: map-merge(
 	left: 0;
 }
 
-@import 'bootstrap.utilities.background-color';
+.border-collapse {
+	border-collapse: collapse;
+}
+
+.border-spacing-0 {
+	border-spacing: 0;
+}
+
+.table-fixed {
+	table-layout: fixed;
+}
+
 @import 'bootstrap.utilities.borders';
 @import 'bootstrap.utilities.color';
 

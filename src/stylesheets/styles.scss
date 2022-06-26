@@ -14,11 +14,9 @@
 
 // Mixins.
 @import '~@19h47/architecture/src/stylesheets/abstracts/mixins/auto-alpha';
-@import '~@19h47/architecture/src/stylesheets/abstracts/mixins/font';
 @import '~@19h47/architecture/src/stylesheets/abstracts/mixins/position';
 @import '~@19h47/architecture/src/stylesheets/abstracts/mixins/margin';
 @import '~@19h47/architecture/src/stylesheets/abstracts/mixins/padding';
-@import '~@19h47/architecture/src/stylesheets/abstracts/mixins/power';
 @import '~@19h47/architecture/src/stylesheets/abstracts/mixins/reset-placeholder';
 @import '~@19h47/architecture/src/stylesheets/abstracts/mixins/size';
 
@@ -43,11 +41,8 @@
 @import 'components/product-summary';
 @import 'components/thumbnail';
 @import 'components/select';
-@import 'components/cart';
-@import 'components/checkout';
 
 // Pages
 @import 'pages/front-page';
-@import 'pages/horizontal-page';
 @import 'pages/about-page';
 @import 'pages/contact-page';

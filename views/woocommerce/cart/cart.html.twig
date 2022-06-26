@@ -2,6 +2,7 @@
  # Cart Page
  #
  #}
+
 {% block content %}
 
 	{#
@@ -12,7 +13,7 @@
 	 #}
 	{% do action( 'woocommerce_before_cart' ) %}
 
-	<form class="Cart__form w-md-60 border-end-md border-md-1 border-md-gray-very-dark py-md-250vh ps-md-200vw pe-md-100vw woocommerce-cart-form" action="{{ cart_url | e }}" method="post">
+	<form class="border-collapse table-fixed border-spacing-0 text-break w-md-60 border-end-md border-md-1 border-md-gray-very-dark py-md-250vh ps-md-200vw pe-md-100vw woocommerce-cart-form" action="{{ cart_url | e }}" method="post">
 
 		{#
 		 # Hook: woocommerce_before_cart_table
@@ -21,7 +22,7 @@
 		 #}
 		{% do action( 'woocommerce_before_cart_table' ) %}
 
-		<table class="Cart__form__contents w-100 shop_table shop_table_responsive cart woocommerce-cart-form__contents">
+		<table class="border-collapse table-fixed border-spacing-0 text-break w-100 shop_table shop_table_responsive cart woocommerce-cart-form__contents">
 
 			<thead>
 				<tr>
@@ -45,8 +46,10 @@
 				{% for product in products %}
 
 					<tr class="woocommerce-cart-form__cart-item {{ product.item_class }}">
-						<td class="py-12px fs-xs product-thumbnail d-none d-md-table-cell border-bottom border-1 border-gray-very-dark">
-							{{- product.thumbnail -}}
+						<td class="py-12px fs-xs pe-20px product-thumbnail d-none d-md-table-cell border-bottom border-1 border-gray-very-dark">
+							{{- product.url ? '<a class="d-block" href="%s">' | format( product.url ) -}}
+							{{- include( 'partials/image.html.twig', { classes: [ 'bg-gray-very-light-01', 'h-128vh', 'w-100', 'object-fit-contain', 'object-position-center', 'rounded-5px', 'd-block' ], size: 'size-300', image: product.image_id } ) -}}
+							{{- product.url ? '</a>' -}}
 						</td>
 						<td class="border-bottom border-1 border-gray-very-dark py-12px product-name fs-xs w-40 w-md-20 ff-title fst-italic" data-title="{{ __( 'Product', 'uni' ) }}">
 							{{- product.name -}}
@@ -70,48 +73,11 @@
 				{% if coupons_enabled %}
 					<tr>
 						<td colspan="5" class="actions">
-							<div class="mt-20px pb-md-20px coupon Input d-md-flex justify-content-md-end">
-								<input
-									type="text"
-									name="coupon_code"
-									class="{{
-										[
-											'border',
-											'border-1',
-											'border-gray-very-dark',
-											'shadow-focus-focus',
-											'transition-box-shadow',
-											'outline-none-focus',
-											'p-12px',
-											'w-100',
-											'rounded-5px',
-											'me-md-12px'
-										] | join( ' ' ) | e
-									}}"
-									id="coupon_code"
-									value=""
-									placeholder="{{ __( 'Coupon code', 'uni' ) }}"
-								/>
-								{{-
-									include(
-										'components/button.html.twig',
-										{
-											label: __( 'Apply coupon', 'uni' ),
-											type: 'submit',
-											classes: [ 'w-100', 'w-md-auto', 'mt-12px', 'mt-md-0' ],
-											attributes: {
-												name: 'apply_coupon',
-												value: __( 'Apply coupon', 'uni' )
-											}
-										}
-									)
-								-}}
-
-								{#
-								 # Hook: woocommerce_cart_coupon.
-								 #}
-								{% do action( 'woocommerce_cart_coupon' ) %}
-							</div>
+							{{- include( 'components/input-coupon.html.twig', { classes: [ 'mt-20px', 'pb-md-20px' ] } ) -}}
+							{#
+							 # Hook: woocommerce_cart_coupon.
+							 #}
+							{% do action( 'woocommerce_cart_coupon' ) %}
 						</td>
 					</tr>
 				{% endif %}

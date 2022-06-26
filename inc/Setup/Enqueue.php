@@ -25,6 +25,8 @@ class Enqueue {
 		add_filter( 'style_loader_tag', array( $this, 'style_loader_tag' ), 10, 4 );
 		add_action( 'wp_head', array( $this, 'preload' ) );
 		add_action( 'wp_default_scripts', array( $this, 'default_scripts' ), 10, 1 );
+
+		add_filter( 'woocommerce_enqueue_styles', '__return_empty_array' );
 	}
 
 

@@ -5,15 +5,10 @@
  #}
 
 {% set classes = [
-	'py-md-60vh',
-	'grid-template-columns-md-repeat-7-1fr',
-	'grid-template-rows-md-repeat-11-1/11',
-	'grid-column-gap-0',
-	'grid-auto-rows-md-1fr',
-	'grid-row-gap-md-0',
-	'd-md-grid',
+	'pt-md-200vh',
+	'pb-md-60vh',
+	'px-md-200vw',
 	'z-index-100',
-	'woocommerce-products-header'
 ] | merge( classes | default( [] ) ) | join( ' ' ) | trim %}
 
 <div class="{{ classes }}">
@@ -21,7 +16,7 @@
 		include(
 			'partials/page-title.html.twig',
 			{
-				classes: [ 'text-center', 'text-md-start', 'woocommerce-products-header__title', 'page-title', 'grid-area-md-2/2/4/7' ],
+				classes: [ 'text-center', 'text-md-start' ],
 				subtitle: subtitle,
 				title: title
 			}
@@ -29,7 +24,7 @@
 	-}}
 
 	{% block content %}
-		<div class="Wysiwyg d-none d-md-block mt-20px mt-md-0 grid-area-md-4/3/9/7">
+		<div class="Wysiwyg d-none d-md-block mt-20px ps-md-200vw">
 			{{- content -}}
 		</div>
 	{% endblock %}

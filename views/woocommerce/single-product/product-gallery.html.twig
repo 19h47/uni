@@ -10,12 +10,12 @@
 {% if image_ids is iterable and image_ids is not empty %}
 	<div
 		id="product-image-{{ post_thumbnail_id }}"
-		class="{{ wrapper_class }} mb-md-0 mb-20px"
+		class="{{ wrapper_class }} w-100 w-md-2000vw mb-md-0 mb-20px"
 		data-columns="{{ columns }}"
 		data-module-product-gallery
 		style="opacity: 0; transition: opacity .25s ease-in-out;"
 	>
-		<div class="py-md-60vh h-100 d-md-grid Carousel  grid-column-gap-md-0 w-md-2000vw grid-row-gap-md-0 w-100 mh-md-100 grid-template-columns-md-repeat-10-1fr grid-template-rows-md-repeat-11-1fr">
+		<div class="py-md-60vh h-100 d-md-grid Carousel grid-column-gap-md-0 grid-row-gap-md-0 mh-md-100 grid-template-columns-md-repeat-10-1fr grid-template-rows-md-repeat-11-1fr">
 			<div class="h-475vh h-md-auto grid-area-md-2/2/10/10">
 				<figure class="overflow-hidden w-100 h-100 woocommerce-product-gallery__wrapper" data-product-gallery="wrapper">
 					{% for id in image_ids %}

@@ -19,6 +19,7 @@ class Media {
 	 * @return void
 	 */
 	public function run() : void {
+		add_image_size( 'size-300', 300 );
 		add_image_size( 'size-600', 600 );
 		add_image_size( 'size-800', 800 );
 		add_image_size( 'size-1400', 1400 );

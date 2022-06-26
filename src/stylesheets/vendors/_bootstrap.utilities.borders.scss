@@ -8,12 +8,20 @@ $utilities: map-merge(
 					responsive: true,
 				)
 			),
-		'border-color': (
-			property: border-color,
-			responsive: true,
-			class: border,
-			values: $colors,
-		),
+		'border-color':
+			map-merge(
+				map-get($utilities, 'border-color'),
+				(
+					responsive: true,
+				)
+			),
+		'border-width':
+			map-merge(
+				map-get($utilities, 'border-width'),
+				(
+					responsive: true,
+				)
+			),
 		'border-bottom':
 			map-merge(
 				map-get($utilities, 'border-bottom'),

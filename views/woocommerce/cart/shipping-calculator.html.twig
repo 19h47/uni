@@ -43,7 +43,7 @@
 		{% endif %}
 
 		{% if true | apply_filters( 'woocommerce_shipping_calculator_enable_state' ) %}
-			<p class="form-row form-row-wide Input" id="calc_shipping_state_field">
+			<p class="form-row form-row-wide" id="calc_shipping_state_field">
 
 				{% if states is iterable and states is empty %}
 					<input

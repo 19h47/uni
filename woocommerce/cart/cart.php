@@ -30,26 +30,28 @@ foreach ( WC()->cart->get_cart() as $key => $value ) {
 		$products_array['url'] = get_permalink( $product_id );
 
 		// Remove.
-		$products_array['remove'] = apply_filters( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-			'woocommerce_cart_item_remove_link',
-			sprintf(
-				'<a href="%s" class="remove" aria-label="%s" data-product_id="%s" data-product_sku="%s">&times;</a>',
-				esc_url( wc_get_cart_remove_url( $key ) ),
-				esc_html__( 'Remove this item', 'woocommerce' ),
-				esc_attr( $product_id ),
-				esc_attr( $_product->get_sku() )
-			),
-			$key
-		);
+		// $products_array['remove'] = apply_filters( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		// 'woocommerce_cart_item_remove_link',
+		// sprintf(
+		// '<a href="%s" class="remove" aria-label="%s" data-product_id="%s" data-product_sku="%s">&times;</a>',
+		// esc_url( wc_get_cart_remove_url( $key ) ),
+		// esc_html__( 'Remove this item', 'woocommerce' ),
+		// esc_attr( $product_id ),
+		// esc_attr( $_product->get_sku() )
+		// ),
+		// $key
+		// );
 
 		// Thumbnail.
 		$thumbnail = apply_filters( 'woocommerce_cart_item_thumbnail', $_product->get_image(), $value, $key );
 
-		$products_array['thumbnail'] = sprintf( '<a href="%s">%s</a>', esc_url( $product_permalink ), $thumbnail );
+		$products_array['image_id'] = $_product->get_image_id();
 
-		if ( ! $product_permalink ) {
-			$products_array['thumbnail'] = $thumbnail;
-		}
+		// $products_array['thumbnail'] = sprintf( '<a href="%s">%s</a>', esc_url( $product_permalink ), $thumbnail );
+
+		// if ( ! $product_permalink ) {
+		// $products_array['thumbnail'] = $thumbnail;
+		// }
 
 		// Name.
 		$products_array['name'] = wp_kses_post( apply_filters( 'woocommerce_cart_item_name', sprintf( '<a href="%s">%s</a>', esc_url( $product_permalink ), $_product->get_name() ), $value, $key ) );

@@ -1,5 +1,6 @@
 {#
  # Form coupon
+ #
  #}
 {% if coupons_enabled %}
 
@@ -9,42 +10,7 @@
 		</div>
 
 		<form class="checkout_coupon woocommerce-form-coupon" method="post" style="display:none">
-			<div class="Coupon Input transition-box-shadow d-md-flex justify-content-md-end">
-				<input
-					type="text"
-					name="coupon_code"
-					class="{{ [
-						'border',
-						'border-1',
-						'border-gray-very-dark',
-						'shadow-focus-focus',
-						'transition-box-shadow',
-						'outline-none-focus',
-						'p-12px',
-						'w-100',
-						'rounded-5px',
-					 	'me-md-12px'
-					] | join( ' ' ) }}"
-					placeholder="{{ __( 'Coupon code', 'uni' ) }}"
-					id="coupon_code"
-					value=""
-				/>
-
-				{{-
-					include(
-						'components/button.html.twig',
-						{
-							button: 'submit',
-							label: __( 'Apply coupon', 'uni' ),
-							classes: [ 'mt-12px', 'w-100', 'w-md-auto', 'mt-md-0' ],
-							attributes: {
-								name: 'apply_coupon',
-								value: __( 'Apply coupon', 'uni' )
-							}
-						}
-					)
-				-}}
-			</div>
+			{{- include( 'components/input-coupon.html.twig' ) -}}
 		</form>
 	</div>
 

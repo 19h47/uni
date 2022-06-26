@@ -81,7 +81,8 @@ $sizes: (
 	1900vw: math.div((200 * 9.5) * 100vw, $prototype-width-unitless),
 	2000vw: math.div((200 * 10) * 100vw, $prototype-width-unitless),
 	2400vw: math.div((200 * 12) * 100vw, $prototype-width-unitless),
-	200vh: math.div(200 * 100vw, $prototype-height-unitless),
+	128vh: math.div(128 * 100vh, $prototype-height-unitless),
+	200vh: math.div(200 * 100vh, $prototype-height-unitless),
 	360vh: math.div(360 * 100vh, $prototype-height-unitless),
 	475vh: math.div(475 * 100vw, $prototype-height-unitless),
 );
@@ -140,7 +141,7 @@ $spacers: map-merge(
 		100px: #{math.div(100, $base-font-size)}rem,
 		60vh: math.div(60 * 100vh, $prototype-height-unitless),
 		120vh: math.div(120 * 100vh, $prototype-height-unitless),
-		200vh: math.div(200 * 100vw, $prototype-height-unitless),
+		200vh: math.div(200 * 100vh, $prototype-height-unitless),
 		250vh: math.div(250 * 100vh, $prototype-height-unitless),
 		20vw: math.div(20 * 100vw, $prototype-height-unitless),
 		100vw: math.div((200 * 0.5) * 100vw, $prototype-width-unitless),
@@ -156,23 +157,17 @@ $negative-spacers: if($enable-negative-margins, negativify-map($spacers), null);
 
 $grid-areas: (
 	1\/1\/3\/6: unquote('1 / 1 / 3 / 6'),
-	1\/1\/3\/10: unquote('1 / 1 / 3 / 10'),
 	1\/1\/3\/11: unquote('1 / 1 / 3 / 11'),
 	1\/2\/3\/12: unquote('1 / 2 / 3 / 12'),
 	2\/2\/3\/7: unquote('2 / 2 / 3 / 7'),
 	2\/2\/3\/9: unquote('2 / 2 / 3 / 9'),
-	2\/2\/4\/6: unquote('2 / 2 / 4 / 6'),
-	2\/2\/4\/7: unquote('2 / 2 / 4 / 7'),
 	2\/2\/10\/10: unquote('2 / 2 / 10 / 10'),
 	2\/3\/4\/10: unquote('2 / 3 / 4 / 10'),
 	2\/9\/2\/10: unquote('2 / 9 / 2 / 10'),
 	3\/8\/11\/12: unquote('3 / 8 / 11 / 12'),
 	4\/2\/8\/5: unquote('4 / 2 / 8 / 5'),
 	4\/3\/5\/7: unquote('4 / 3 / 5 / 7'),
-	4\/3\/8\/8: unquote('4 / 3 / 8 / 8'),
-	4\/3\/9\/7: unquote('4 / 3 / 9 / 7'),
 	4\/3\/10\/7: unquote('4 / 3 / 10 / 7'),
-	4\/4\/10\/7: unquote('4 / 4 / 10 / 7'),
 	4\/4\/10\/9: unquote('4 / 4 / 10 / 9'),
 	4\/5\/8\/9: unquote('4 / 5 / 8 / 9'),
 	4\/6\/12\/9: unquote('4 / 6 / 12 / 9'),
@@ -223,9 +218,8 @@ $grid-templates: (
 	repeat-11-1\11fr: repeat(11, percentage(math.div(1, 11))),
 );
 
-$colors: (
+$custom-theme-colors: (
 	white: #ffffff,
-	white-0\.97: rgba(255, 255, 255, 0.97),
 	black: #000000,
 	red-light-grayish-01: #f8d7da,
 	red-light-grayish-02: #f5c6cb,

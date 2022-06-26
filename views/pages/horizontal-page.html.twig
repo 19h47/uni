@@ -1,14 +1,29 @@
 {#
  # Horizontal page
  #
- # @purgeCSS Horizontal-page select2 select2-container select2-container select2-selection--single select2-selection__rendered select2-container select2-selection--single select2-selection__arrow
+ # @purgeCSS select2 select2-container select2-container select2-selection--single select2-selection__rendered select2-container select2-selection--single select2-selection__arrow
  #}
 {% extends 'index.html.twig' %}
 
 {% block content %}
 
 	<div
-		class="Horizontal-page__section mx-20px mx-md-0 mb-20px mt-md-0 mt-100px mb-md-0 position-md-fixed top-md-0 bottom-md-0 start-md-0 w-100 h-md-100"
+		class="{{
+			[
+				'position-md-fixed',
+				'top-md-0',
+				'start-md-0',
+				'bottom-md-0',
+				'mx-md-0',
+				'my-md-0',
+				'mt-100px',
+				'mb-20px',
+				'px-20px',
+				'px-md-0',
+				'w-100',
+				'h-md-100'
+			] | join( ' ' ) | trim
+		}}"
 		data-horizontal-page="section"
 	>
 		<div
@@ -33,19 +48,18 @@
 					>
 						<div
 							class="{{ [
-								'grid-template-columns-md-repeat-9-1fr',
+
 								'w-md-1900vw',
 								'h-md-100',
 								'min-h-100',
-								'grid-template-rows-md-repeat-11-1fr',
-								'd-md-grid',
-								'grid-auto-rows-md-1fr',
-								'grid-column-gap-md-0',
-								'grid-row-gap-md-0'
+								'pt-md-200vh',
+								'ps-md-400vw',
+								'pe-md-200vw',
+								'position-relative'
 							] | join( ' ' ) | trim }}"
 						>
 
-							<div class="align-items-center d-none grid-area-2/9/2/10 d-md-flex justify-content-end js-navigation">
+							<div class="d-none d-md-block js-navigation position-md-absolute top-md-0 end-md-0 mt-md-200vh me-md-200vw">
 								{{- include( 'svg/use.html.twig', { classes: [ 'w-16px', 'h-24px' ], icon: 'arrow-right' }, with_context = false ) -}}
 							</div>
 
@@ -84,11 +98,11 @@
 								{{- post.footer | nl2br -}}
 							</div>
 
-							<div class="Wysiwyg d-none d-md-block grid-area-md-4/4/10/9">
+							<div class="Wysiwyg d-none d-md-block mt-md-20px ps-md-200vw">
 								{{- post.content -}}
 							</div>
 
-							<div class="ff-title fst-italic d-none d-md-block js-footer align-self-md-end grid-area-md-11/3/12/9">
+							<div class="ff-title fst-italic d-none d-md-block js-footer position-md-absolute bottom-md-0 start-md-0 ms-md-400vw">
 								{{- post.footer | nl2br -}}
 							</div>
 						</div>

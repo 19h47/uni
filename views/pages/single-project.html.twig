@@ -42,21 +42,17 @@
 	<div class="d-md-flex flex-md-nowrap my-md-20px bg-white flex-md-shrink-0" data-module-wrapper-page>
 		<div
 			class="{{ [
-				'grid-template-columns-md-repeat-5-1fr',
-				'w-md-1000vw',
-				'grid-column-gap-md-0',
-				'grid-row-gap-md-0',
-				'grid-template-rows-md-repeat-11-1fr',
+				'pt-md-200vh',
+				'ps-md-200vw',
 				'mb-20px',
 				'mb-md-0',
 				'position-relative',
-				'd-md-grid',
 				'z-index-1',
 				'h-md-100',
 				'w-md-1000vw'
 			] | join( ' ' ) | trim }}"
 		>
-			<div class="js-title grid-area-md-2/2/4/6 Page-title">
+			<div class="js-title">
 				{{-
 					include(
 						'partials/page-title.html.twig',
@@ -111,11 +107,9 @@
 			</ul>
 		{% endif %}
 
+
 	</div>
 
-{% endblock  %}
-
-{% block footer %}
 	{% if post.meta( 'project_content' ) %}
 		<div class="text-center my-20px d-md-none">
 			{{-
@@ -163,21 +157,19 @@
 		) -}}
 	{% endif %}
 
-	<div class="my-20px flex-md-shrink-0 d-md-grid w-md-1600vw grid-template-columns-md-repeat-8-1fr grid-template-rows-md-repeat-11-1fr grid-column-gap-md-0 grid-row-gap-md-0 py-md-60vh mt-md-0 h-auto h-md-100">
-		{{-
-			include(
-				'partials/page-title.html.twig',
-				{
-					classes: [ 'text-center', 'text-md-start', 'mb-20px', 'mb-md-0', 'grid-area-md-2/2/3/9' ],
-					subtitle: projects_settings.subtitle,
-					title: projects_settings.title
-				}
-			)
-		-}}
-		<div class="Wysiwyg grid-area-md-4/3/8/8">
-			{{- projects_settings.content -}}
-		</div>
-	</div>
+	{{-
+		include(
+			'partials/page-content.html.twig',
+			{
+				title: projects_settings.title,
+				subtitle: projects_settings.subtitle,
+				content: projects_settings.content,
+				classes: [
+					'w-md-1600vw', 'my-md-20px',
+				]
+			}
+		)
+	-}}
 
 	{% if post.prev %}
 		{{- include(
@@ -191,5 +183,4 @@
 		) -}}
 	{% endif %}
 
-	{{- include( 'components/footer-horizontal.html.twig', { classes: [ 'flex-md-shrink-0' ] } ) -}}
-{% endblock %}
+{% endblock  %}
