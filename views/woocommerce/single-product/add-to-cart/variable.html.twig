@@ -25,7 +25,7 @@
 						</label>
 					</div>
 					<div class="Product-variations__value value">
-						<div class="Select position-relative rounded-5px shadow-uni">
+						<div class="Select  position-relative rounded-5px shadow-uni">
 							{{-
 								fn( 'wc_dropdown_variation_attribute_options',
 									{
@@ -33,10 +33,11 @@
 										attribute: attribute_name,
 										product: product,
 										show_option_none: false,
+										class: 'py-12px ps-12px pe-28px outline-none-focus shadow-uni-focus'
 									}
 								)
 							-}}
-							{{- include( 'svg/use.html.twig', { classes: [ 'my-auto', 'd-block', 'position-absolute', 'top-0', 'end-0', 'bottom-0' ], icon: 'arrows' }, with_context = false ) -}}
+							{{- include( 'svg/use.html.twig', { classes: [ 'w-6px', 'h-16px', 'me-4px', 'my-auto', 'd-block', 'position-absolute', 'top-0', 'end-0', 'bottom-0' ], icon: 'arrows' }, with_context = false ) -}}
 						</div>
 						{# {{- ( attribute_keys | last ) == attribute_name ? "<a class=\"reset_variations\" href=\"#\">#{ __( 'Clear', 'uni' ) }</a>" | apply_filters( 'woocommerce_reset_variations_link' )  }} #}
 					</div>

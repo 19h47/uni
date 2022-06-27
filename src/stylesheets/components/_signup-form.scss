@@ -6,44 +6,19 @@
  *
  *
  */
-@use 'sass:math';
 
 .Signup-form {
 	[type='email'] {
 		@include reset-placeholder(the_color(gray, very-light-02));
-
-		width: percentage(math.div(400, 600));
-
-		&:focus {
-			outline: none;
-			box-shadow: 0 0 0 0.2rem rgba(the_color(gray, very-light-02), 0.5);
-		}
-	}
-
-	[type='submit'] {
-		border-left: 1px solid the_color(gray, very-dark);
-
-		width: percentage(math.div(200, 600));
-
-		&:focus {
-			outline: none;
-			box-shadow: 0 0 0 0.2rem rgba(the_color(gray, very-light-02), 0.5);
-		}
 	}
 
 	.error-message {
-		@extend .fs-2xs;
-		@include padding(top 10px bottom 10px);
+		@extend .fs-2xs, .text-red-bright, .py-12px;
 		@include absolute(top 100% right 0 left 0);
-
-		color: the_color(red, bright);
 	}
 
 	.success-message {
-		@extend .fs-2xs;
-		@include padding(top 10px bottom 10px);
+		@extend .fs-2xs, .text-green-dark-lime, .py-12px;
 		@include absolute(top 100% right 0 left 0);
-
-		color: the_color(green, dark-lime);
 	}
 }

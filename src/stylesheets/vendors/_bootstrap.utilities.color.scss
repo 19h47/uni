@@ -4,7 +4,7 @@ $utilities: map-merge(
 		'color': (
 			class: text,
 			property: color,
-			values: $colors,
+			values: $custom-theme-colors,
 		),
 	)
 );

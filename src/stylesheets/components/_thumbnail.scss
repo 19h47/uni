@@ -22,9 +22,6 @@
 		object-position: center;
 		object-fit: contain;
 
-		transition: opacity 0.7s map-get($easings, ease-out-expo),
-			visibility 0.7s map-get($easings, ease-out-expo);
-
 		&.is-active {
 			@include autoAlpha(1);
 		}
@@ -40,8 +37,5 @@
 
 	&__overview {
 		@include autoAlpha(0);
-
-		transition: opacity 0.7s map-get($easings, ease-out-expo),
-			visibility 0.7s map-get($easings, ease-out-expo);
 	}
 }
