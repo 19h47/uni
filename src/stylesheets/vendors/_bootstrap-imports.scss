@@ -82,6 +82,7 @@ $utilities: map-merge(
 		),
 		'object-fit': (
 			property: object-fit,
+			responsive: true,
 			values: (
 				cover: cover,
 				contain: contain,

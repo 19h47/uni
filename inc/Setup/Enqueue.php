@@ -152,6 +152,10 @@ class Enqueue {
 			null
 		);
 
+		wp_register_script( get_theme_text_domain() . '-feature', false ); // phpcs:ignore
+		wp_add_inline_script( get_theme_text_domain() . '-feature', '!function(e,n,o){("ontouchstart"in e||e.DocumentTouch&&n instanceof DocumentTouch||o.MaxTouchPoints>0||o.msMaxTouchPoints>0)&&(n.documentElement.className=n.documentElement.className.replace(/\bno-touch\b/,"touch")),n.documentElement.className=n.documentElement.className.replace(/\bno-js\b/,"js")}(window,document,navigator);' );
+
+		wp_enqueue_script( get_theme_text_domain() . '-feature' );
 		wp_enqueue_style( get_theme_text_domain() . '-main' );
 		wp_enqueue_style( 'flickity' );
 	}

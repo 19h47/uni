@@ -19,19 +19,8 @@
 	&__image {
 		@include autoAlpha(0);
 
-		object-position: center;
-		object-fit: contain;
-
 		&.is-active {
 			@include autoAlpha(1);
-		}
-
-		@at-root .page-template-archive-page & {
-			object-fit: scale-down;
-
-			@include media-breakpoint-up(md) {
-				object-fit: cover;
-			}
 		}
 	}
 

@@ -12,7 +12,9 @@
 				include(
 					'partials/image.html.twig',
 					{
-						classes: [ 'w-100', 'h-100', 'position-absolute', 'inset-0', 'transition-opacity-visibility', 'Thumbnail__image', 'd-block', 'z-index-1', product_color.current ? 'is-active' : null ],
+						classes: [
+							'object-position-center',
+							'object-fit-contain', 'w-100', 'h-100', 'position-absolute', 'inset-0', 'transition-opacity-visibility', 'Thumbnail__image', 'd-block', 'z-index-1', product_color.current ? 'is-active' : null ],
 						attributes: {
 							'data-color': product_color.color,
 							'data-product-content': 'image'
@@ -53,7 +55,7 @@
 				include(
 					'partials/image.html.twig',
 					{
-						classes: [ 'd-block', 'Thumbnail__image', 'transition-opacity-visibility', 'inset-md-0', 'position-md-absolute', 'w-100', 'h-100', 'object-fit-contain' ],
+						classes: [ 'd-block', 'Thumbnail__image', 'transition-opacity-visibility', 'inset-md-0', 'position-md-absolute', 'w-100', 'h-100', 'object-position-center', 'object-fit-contain' ],
 						attributes: {
 							'data-color': product.color,
 							'data-product-content': 'image'
@@ -95,7 +97,9 @@
 						'z-index-1',
 						'is-active',
 						'w-100',
-						'h-100'
+						'h-100',
+						'object-position-center',
+						'object-fit-contain',
 					],
 					image: product.thumbnail,
 					attributes: {
