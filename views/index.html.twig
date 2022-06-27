@@ -65,8 +65,16 @@
 		<div class="mt-100px mx-20px mb-20px mt-md-200vh ms-md-100px position-relative w-md-100">
 
 			<div class="mx-md-200vw mb-md-200vh mw-md-1200vw">
-				<h1 class="mt-0 text-center text-md-start">{{- post.title -}}</h1>
-				<div class="Wysiwyg">{{- post.content -}}</div>
+				{{-
+					include(
+						'partials/page-title.html.twig',
+						{
+							classes: [ 'text-center', 'text-md-start' ],
+							title: post.title
+						}
+					)
+				-}}
+				<div class="Wysiwyg mt-20px">{{- post.content -}}</div>
 			</div>
 
 			{{- include( 'components/footer-vertical.html.twig' ) -}}

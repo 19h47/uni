@@ -9,8 +9,6 @@
 
 .Contact-page {
 	form {
-		transition: 0.7s opacity map-get($easings, ease-out-expo);
-
 		&.is-loading {
 			@extend .pe-none;
 

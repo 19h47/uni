@@ -304,6 +304,7 @@ $utilities: map-merge(
 		'transition': (
 			property: transition,
 			values: (
+				opacity: unquote('0.7s opacity cubic-bezier(0.19, 1, 0.22, 1)'),
 				opacity-visibility:
 					unquote(
 						'opacity 0.7s cubic-bezier(0.19, 1, 0.22, 1), visibility 0.7s cubic-bezier(0.19, 1, 0.22, 1)'
