@@ -8,9 +8,7 @@
 	 #}
 	{% do action( 'woocommerce_before_cart_totals' ) %}
 
-	<h2 class="fs-4xl text-uppercase my-0 lh-none text-center text-md-start ff-title">
-		{{- __( 'Cart totals', 'uni' ) -}}
-	</h2>
+	{{- include( 'partials/page-title.html.twig', { title: __( 'Cart totals', 'uni' ), classes: [ 'text-center', 'text-md-start' ] } ) -}}
 
 	<div class="my-20px shop_table shop_table_responsive">
 

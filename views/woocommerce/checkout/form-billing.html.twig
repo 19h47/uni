@@ -2,11 +2,10 @@
  # Checkout billing information form
  #}
 <div class="woocommerce-billing-fields">
-	<h2 class="fs-4xl mt-0 mb-20px lh-none text-center text-md-start ff-title text-uppercase">
-		{{- __( 'Informations', 'uni' ) -}}
-	</h2>
 
-	<h3 class="fst-normal fw-bold fs-base ff-body mb-12px mt-0">
+	{{- include( 'partials/page-title.html.twig', { title: __( 'Informations', 'uni' ), classes: [ 'text-center', 'text-md-start', 'mb-20px' ] } ) -}}
+
+	<h3 class="fw-bold fs-base ff-body mb-12px mt-0">
 		{%- if ship_to_billing_address_only and cart.needs_shipping() -%}
 			{{- __( 'Billing &amp; Shipping', 'uni' ) -}}
 		{%- else -%}

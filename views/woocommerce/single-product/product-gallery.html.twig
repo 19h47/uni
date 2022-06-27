@@ -10,48 +10,48 @@
 {% if image_ids is iterable and image_ids is not empty %}
 	<div
 		id="product-image-{{ post_thumbnail_id }}"
-		class="{{ wrapper_class }} w-100 w-md-2000vw mb-md-0 mb-20px"
+		class="{{ wrapper_class }} Carousel w-100 w-md-2000vw mb-md-0 mb-20px px-md-400vw py-md-200vh"
 		data-columns="{{ columns }}"
 		data-module-product-gallery
 		style="opacity: 0; transition: opacity .25s ease-in-out;"
 	>
-		<div class="py-md-60vh h-100 d-md-grid Carousel grid-column-gap-md-0 grid-row-gap-md-0 mh-md-100 grid-template-columns-md-repeat-10-1fr grid-template-rows-md-repeat-11-1fr">
-			<div class="h-475vh h-md-auto grid-area-md-2/2/10/10">
-				<figure class="overflow-hidden w-100 h-100 woocommerce-product-gallery__wrapper" data-product-gallery="wrapper">
-					{% for id in image_ids %}
-						<div
-							data-thumb="{{ Image( id ).src }}"
-							data-thumb-alt="{{ Image( id ).alt }}"
-							class="w-100 h-100 js-cell"
-						>
-							{{-
-								include(
-									'partials/image.html.twig',
-									{
-										image: id,
-										classes: [ 'd-block', 'w-100', 'h-100', 'object-fit-scale-down', 'object-position-center' ],
-										size: 'size-1600'
-									},
-									with_context = false
-								)
-							-}}
-						</div>
-					{% endfor %}
-				</figure>
-			</div>
 
-			<div class="grid-area-md-10/4/11/8 mt-20px d-flex justify-content-between align-items-center">
-				<button class="w-16px h-16px d-flex align-items-center" data-product-gallery="previous" type="button" aria-label="{{ __( 'Previous', 'uni' ) | e }}">
-					{{- include( 'svg/use.html.twig', { icon: 'arrow-left', classes: [ 'w-100', 'h-100' ] } ) -}}
-				</button>
-				<div class="letter-spacing-50 fs-xs">
-					<span data-product-gallery="current">01</span>&nbsp;/&nbsp;{{ "%02d" | format( image_ids | length ) }}
-				</div>
-				<button data-product-gallery="next" class="w-16px h-16px d-flex align-items-center" type="button" aria-label="{{ __( 'Next', 'uni' ) | e }}">
-					{{- include( 'svg/use.html.twig', { icon: 'arrow-right', classes: [ 'w-100', 'h-100' ] } ) -}}
-				</button>
-			</div>
-
+		<div class="h-475vh h-md-100">
+			<figure class="overflow-hidden w-100 h-100 woocommerce-product-gallery__wrapper" data-product-gallery="wrapper">
+				{% for id in image_ids %}
+					<div
+						data-thumb="{{ Image( id ).src }}"
+						data-thumb-alt="{{ Image( id ).alt }}"
+						class="w-100 h-100 js-cell"
+					>
+						{{-
+							include(
+								'partials/image.html.twig',
+								{
+									image: id,
+									classes: [ 'd-block', 'w-100', 'h-100', 'object-fit-scale-down', 'object-position-center' ],
+									size: 'size-1600'
+								},
+								with_context = false
+							)
+						-}}
+					</div>
+				{% endfor %}
+			</figure>
 		</div>
+
+		<div class="mt-20px d-flex justify-content-between align-items-center">
+			<button type="button" class="w-16px h-16px d-flex align-items-center" data-product-gallery="previous" aria-label="{{ __( 'Previous', 'uni' ) | e }}">
+				{{- include( 'svg/use.html.twig', { icon: 'arrow-left', classes: [ 'w-100', 'h-100' ] } ) -}}
+			</button>
+			<div class="letter-spacing-50 fs-xs">
+				<span data-product-gallery="current">01</span>&nbsp;/&nbsp;{{ "%02d" | format( image_ids | length ) }}
+			</div>
+			<button type="button" class="w-16px h-16px d-flex align-items-center" data-product-gallery="next"  aria-label="{{ __( 'Next', 'uni' ) | e }}">
+				{{- include( 'svg/use.html.twig', { icon: 'arrow-right', classes: [ 'w-100', 'h-100' ] } ) -}}
+			</button>
+		</div>
+
+
 	</div>
 {% endif %}

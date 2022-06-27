@@ -64,22 +64,23 @@
 			</div>
 
 			<div class="grid-area-6/1/10/6 grid-area-sm-/1/9/6 grid-area-md-9/1/10/7 align-self-center align-self-md-auto">
-				<a class="fx-fs-3xl text-center d-block" href="{{ shop_url }}">
-					{{- _x( 'Explore our:', 'front page', 'uni' ) -}}
-					<span class="fs-xl fs-md-5xl ff-title text-uppercase d-block letter-spacing-250">{{- __( 'Store', 'uni' ) -}}</span>
+				<a class="text-center d-block" href="{{ shop_url }}">
+					{{- include( 'partials/page-title.html.twig', { classes: [ 'text-uppercase' ], subtitle: _x( 'Explore our:', 'front page', 'uni' ), title: __( 'Store', 'uni' ) } ) -}}
 				</a>
+
 			</div>
 
 			<div class="grid-area-6/6/10/11 grid-area-sm-7/6/9/11 grid-area-md-9/7/10/13 align-self-center align-self-md-auto">
-				<a class="fx-fs-3xl text-center d-block" href="{{ habitat_page.link }}">
-					{{- _x( 'Discover our:', 'front page', 'uni' ) -}}
-					<span class="fs-xl fs-md-5xl ff-title text-uppercase d-block letter-spacing-250">{{- __( 'Spaces', 'uni' ) -}}</span>
+				<a class="text-center d-block" href="{{ habitat_page.link }}">
+					{{- include( 'partials/page-title.html.twig', { classes: [ 'text-uppercase' ], subtitle: _x( 'Discover our:', 'front page', 'uni' ), title: __( 'Spaces', 'uni' ) } ) -}}
 				</a>
 			</div>
 
-			<div class="grid-area-9/1/11/11 grid-area-md-11/2/12/12 Front-page__footer Wysiwyg ff-title fst-italic text-center">
-				{{- post.meta( 'footer' ) ? post.meta( 'footer' ) -}}
-			</div>
+			{% if post.meta( 'footer' ) %}
+				<div class="grid-area-9/1/11/11 grid-area-md-11/2/12/12 Front-page__footer Wysiwyg ff-title fst-italic text-center">
+					{{- post.meta( 'footer' ) -}}
+				</div>
+			{% endif %}
 		</div>
 
 		<div class="position-absolute inset-0 z-index-1">

@@ -43,7 +43,7 @@
 				include(
 					'components/button.html.twig',
 					{
-						button: 'submit',
+						type: 'submit',
 						label: __( 'Update totals', 'uni' ),
 						classes: [ 'mt-12px', 'w-100', 'w-md-auto', 'mt-md-0' ],
 						attributes: {
@@ -71,10 +71,10 @@
 				include(
 					'components/button.html.twig',
 					{
-						button: 'submit',
+						type: 'submit',
 						label: order_button_text,
 						type: 'submit',
-						classes: [ 'button', 'alt', 'w-100', 'w-md-auto' ],
+						classes: [ 'button', 'alt', 'w-100' ],
 						attributes: {
 							name: 'woocommerce_checkout_place_order',
 							id: 'place_order',

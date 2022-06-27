@@ -26,4 +26,8 @@
 			margin-bottom: 0;
 		}
 	}
+
+	h3 {
+		@extend .fst-italic;
+	}
 }

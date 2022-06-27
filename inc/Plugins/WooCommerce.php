@@ -260,7 +260,13 @@ class WooCommerce {
 	 * @return void
 	 */
 	public function before_cart_table() : void {
-		the_title( '<h1 class="mt-0 text-uppercase fs-4xl lh-none text-center text-md-start mb-20px">', '</h1>' );
+		Timber::render(
+			'partials/page-title.html.twig',
+			array(
+				'classes' => array( 'text-center', 'mb-20px', 'text-md-start' ),
+				'title'   => get_the_title(),
+			)
+		);
 	}
 
 

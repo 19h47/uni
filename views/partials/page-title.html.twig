@@ -2,13 +2,13 @@
  # Page Title
  #}
 
-<div class="{{ classes ? classes | join( ' ' ) }}">
-	<h1 class="my-0 fs-4xl lh-none">
+<div {{ id ? "id=\"#{ id }\"" }} class="{{ classes ? classes | join( ' ' ) }}">
+	<{{ tag | default( 'h1' ) }} class="my-0 fs-4xl lh-none">
 		{% if subtitle %}
 			<span class="mb-12px d-block ff-body letter-spacing-0 text-none fs-xs d-block">
 				{{- subtitle -}}
 			</span>
 		{% endif %}
 		{{- title -}}
-	</h1>
+	</{{ tag | default( 'h1' ) }}>
 </div>

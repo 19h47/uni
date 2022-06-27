@@ -72,9 +72,17 @@
 				 #}
 				{% do action( 'woocommerce_checkout_before_order_review_heading' ) %}
 
-				<h3 id="order_review_heading" class="text-uppercase fs-4xl mt-0 mb-20px fst-normal lh-none text-center text-md-start ff-title">
-					{{- __( 'Your order', 'uni' ) -}}
-				</h3>
+				{{-
+					include(
+						'partials/page-title.html.twig',
+						{
+							tag: 'h3',
+							id: "order_review_heading",
+							title: __( 'Your order', 'uni' ),
+							classes: [ 'mb-20px', 'text-center', 'text-md-start' ]
+						}
+					)
+				-}}
 
 				{#
 				 # Hook: woocommerce_checkout_before_order_review
