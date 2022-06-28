@@ -4,31 +4,29 @@
  #}
 
 {% block content %}
-	<div class="d-flex flex-column gap-y-12px">
-		{#
-		 # Hook: woocommerce_cart_is_empty.
-		 #
-		 # @hooked UNI\Plugins\WooCommerce::empty_cart_message - 10
-		 #
-		 # @unhooked wc_empty_cart_message - 10
-		 #}
-		{% do action( 'woocommerce_cart_is_empty' ) %}
+	{#
+	 # Hook: woocommerce_cart_is_empty.
+	 #
+	 # @hooked UNI\Plugins\WooCommerce::empty_cart_message - 10
+	 #
+	 # @unhooked wc_empty_cart_message - 10
+	 #}
+	{% do action( 'woocommerce_cart_is_empty' ) %}
 
-		{% if page.id > 0 %}
-			<div class="return-to-shop">
-				{{-
-					include(
-						'components/button.html.twig',
-						{
-							tag: 'a',
-							label: __( 'Return to shop', 'uni' ) | apply_filters( 'woocommerce_return_to_shop_text' ),
-							classes: [ 'd-inline-block', 'button', 'wc-backward' ],
-							attributes: { htef: page.permalink | apply_filters( 'woocommerce_return_to_shop_redirect' ) }
-						}
-					)
-				-}}
-			</div>
-		{% endif %}
-	</div>
+	{% if page.id > 0 %}
+		<div class="return-to-shop mt-12px">
+			{{-
+				include(
+					'components/button.html.twig',
+					{
+						tag: 'a',
+						label: __( 'Return to shop', 'uni' ) | apply_filters( 'woocommerce_return_to_shop_text' ),
+						classes: [ 'd-inline-block', 'w-100', 'w-md-auto', 'button', 'wc-backward' ],
+						attributes: { href: page.permalink }
+					}
+				)
+			-}}
+		</div>
+	{% endif %}
 
 {% endblock %}

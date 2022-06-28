@@ -15,7 +15,7 @@
 					include(
 						'partials/page-title.html.twig',
 						{
-							classes: [ 'text-start', 'grid-area-md-2/2/3/7' ],
+							classes: [ 'text-start' ],
 							subtitle: post.get_terms( 'project_cat' ) ? post.get_terms( 'project_cat' ) | map( cat => cat.name ) | join( ', ' ),
 							title: post.title
 						}
@@ -61,7 +61,7 @@
 					include(
 						'partials/page-title.html.twig',
 						{
-							classes: [ 'text-center', 'text-md-start', 'grid-area-2/2/3/7' ],
+							classes: [ 'text-center', 'text-md-start' ],
 							subtitle: post.get_terms( 'project_cat' ) ? post.get_terms( 'project_cat' ) | map( cat => cat.name ) | join( ', ' ),
 							title: post.title
 						},

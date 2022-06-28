@@ -36,7 +36,7 @@
 
 				{# <div class=""><p><a href="mailto:contact@uni-objets.fr">contact@uni-objets.fr</a></p></div> #}
 
-				<div class="row gap-y-20px">
+				<div class="d-flex flex-column gap-y-20px">
 					{{-
 						include(
 							'components/input-text.html.twig',
@@ -49,13 +49,13 @@
 									custom_attributes: {
 										autocomplete: 'email'
 									},
-									class: [ 'col-14' ]
+									class: [ 'w-100' ]
 								}
 							}
 						)
 					-}}
 
-					<div class="form-row col-14">
+					<div class="form-row w-100">
 						<label for="interest" class="mb-12px d-block">
 							{{- _x( 'Are you interested in?', 'contact page', 'uni' ) -}}
 							&nbsp;<abbr class="required text-decoration-none" title="{{ __( 'required', 'woocommerce' ) | e }}">*</abbr>
@@ -78,13 +78,13 @@
 									class: [ 'mt-20px', 'mt-md-0' ],
 									label: _x( 'The subject of your message', 'contact page', 'uni' ),
 									required: true,
-									class: [ 'col-14' ]
+									class: [ 'w-100' ]
 								}
 							}
 						)
 					-}}
 
-					<div class="form-row col-14">
+					<div class="form-row w-100">
 						<label for="you" class="mb-12px d-block">
 							{{- _x( 'You are?', 'contact page', 'uni' ) -}}
 							&nbsp;<abbr class="required text-decoration-none" title="{{ __( 'required', 'woocommerce' ) | e }}">*</abbr>
@@ -106,7 +106,7 @@
 							{
 								key: 'about-us',
 								args: {
-									class: [ 'col-14' ],
+									class: [ 'w-100' ],
 									label: _x( 'How did you hear about us?', 'contact page', 'uni' ),
 								}
 							}
@@ -123,13 +123,13 @@
 									label: _x( 'Your message', 'contact page', 'uni' ),
 									required: true
 								},
-								class: [ 'col-14' ]
+								class: [ 'w-100' ]
 							}
 						)
 					-}}
 
 
-					<div class="col-14">
+					<div class="w-100">
 						{{-
 							include(
 								'components/button.html.twig',
@@ -139,7 +139,7 @@
 					</div>
 
 
-					<div class="col-14 fs-xs m-md-0">
+					<div class="w-100 fs-xs m-md-0">
 						{{- _x( 'All fields marked with * are required', 'contact page', 'uni' ) -}}
 					</div>
 				</div>

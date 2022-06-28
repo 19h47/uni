@@ -19,52 +19,12 @@ $theme-colors: map-merge($theme-colors, $custom-theme-colors);
 
 @import '~bootstrap/scss/mixins';
 @import '~bootstrap/scss/root';
-@import '~bootstrap/scss/grid';
+// @import '~bootstrap/scss/grid';
 @import '~bootstrap/scss/utilities';
 
 $utilities: map-merge(
 	$utilities,
 	(
-		'width':
-			map-merge(
-				map-get($utilities, 'width'),
-				(
-					responsive: true,
-					values: map-merge(map-get(map-get($utilities, 'width'), 'values'), ($sizes)),
-				)
-			),
-		'height':
-			map-merge(
-				map-get($utilities, 'height'),
-				(
-					responsive: true,
-					values: map-merge(map-get(map-get($utilities, 'height'), 'values'), ($sizes)),
-				)
-			),
-		'min-height': (
-			property: min-height,
-			class: min-h,
-			values: (
-				100: 100%,
-			),
-		),
-		'max-width': (
-			property: max-width,
-			class: mw,
-			responsive: true,
-			values: (
-				100: 100%,
-				800vw: math.div((200 * 4) * 100vw, $prototype-width-unitless),
-				1200vw: math.div((200 * 6) * 100vw, $prototype-width-unitless),
-			),
-		),
-		'max-height':
-			map-merge(
-				map-get($utilities, 'max-height'),
-				(
-					responsive: true,
-				)
-			),
 		'position':
 			map-merge(
 				map-get($utilities, 'position'),
@@ -209,49 +169,6 @@ $utilities: map-merge(
 			property: cursor,
 			values: $cursors,
 		),
-		'grid-area': (
-			property: grid-area,
-			responsive: true,
-			values: $grid-areas,
-		),
-		'grid-row-gap': (
-			property: grid-row-gap,
-			responsive: true,
-			values: (
-				0: 0px,
-			),
-		),
-		'grid-column-gap': (
-			property: grid-column-gap,
-			responsive: true,
-			values: (
-				0: 0px,
-			),
-		),
-		'grid-auto-rows': (
-			property: grid-auto-rows,
-			responsive: true,
-			values: (
-				1fr: 1fr,
-			),
-		),
-		'grid-template-columns': (
-			property: grid-template-columns,
-			responsive: true,
-			values: $grid-templates,
-		),
-		'grid-template-rows': (
-			property: grid-template-rows,
-			responsive: true,
-			values: $grid-templates,
-		),
-		'justify-self': (
-			responsive: true,
-			property: justify-self,
-			values: (
-				center: center,
-			),
-		),
 		'fill': (
 			property: fill,
 			state: hover,
@@ -378,6 +295,7 @@ $utilities: map-merge(
 }
 
 @import 'bootstrap.utilities.borders';
-@import 'bootstrap.utilities.color';
+@import 'bootstrap.utilities.colors';
+@import 'bootstrap.utilities.sizing';
 
 @import '~bootstrap/scss/utilities/api';

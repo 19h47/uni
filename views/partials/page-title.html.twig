@@ -3,7 +3,7 @@
  #}
 
 <div {{ id ? "id=\"#{ id }\"" }} class="{{ classes ? classes | join( ' ' ) }}">
-	<{{ tag | default( 'h1' ) }} class="my-0 fs-4xl lh-none">
+	<{{ tag | default( 'h1' ) }} class="my-0 lh-none {{ classes_title ? classes_title | join( ' ' ) }} {{ 'h1' ==  tag | default( 'h1' ) ? 'fs-4xl' : '' }}">
 		{% if subtitle %}
 			<span class="mb-12px d-block ff-body letter-spacing-0 text-none fs-xs d-block">
 				{{- subtitle -}}

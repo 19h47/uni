@@ -3,43 +3,43 @@
  #
  #}
 
-<div class="woocommerce-additional-fields">
-	{#
-	 # Hook: woocommerce_before_order_notes.
-	 #}
-	{% do action( 'woocommerce_before_order_notes', checkout ) %}
 
-	{% if 'yes' is same as( enable_order_comments | apply_filters( 'woocommerce_enable_order_notes_field' ) ) %}
+{#
+ # Hook: woocommerce_before_order_notes.
+ #}
+{% do action( 'woocommerce_before_order_notes', checkout ) %}
 
-		{% if not cart.needs_shipping() or ship_to_billing_address_only %}
-			<h3 class="fst-italic">{{- __( 'Additional information', 'uni' ) -}}</h3>
-		{% endif %}
+{% if 'yes' is same as( enable_order_comments | apply_filters( 'woocommerce_enable_order_notes_field' ) ) %}
 
-		<div class="row gap-y-20px woocommerce-additional-fields__field-wrapper">
-			{% for key, field in checkout.get_checkout_fields( 'order' ) %}
-				{% if  field.type in [ 'text', 'password', 'datetime', 'datetime-local', 'date', 'month', 'time', 'week', 'number', 'email', 'url', 'tel', null ] %}
-					{{- include( 'components/input-text.html.twig', { key: key, args: field, value: checkout.get_value( key ) } ) -}}
-				{% elseif 'country' == field.type  %}
-					{{- include( 'components/input-country.html.twig', { key: key, args: field, value: checkout.get_value( key ) } ) -}}
-				{% elseif 'textarea' == field.type  %}
-					{{- include( 'components/input-textarea.html.twig', { key: key, args: field, value: checkout.get_value( key ) } ) -}}
-				{% else %}
-					{{- fn( 'woocommerce_form_field', key, field, checkout.get_value( key ) ) -}}
-				{% endif %}
-			{% endfor %}
-		</div>
-
+	{% if not cart.needs_shipping() or ship_to_billing_address_only %}
+		<h3 class="fst-italic">{{- __( 'Additional information', 'uni' ) -}}</h3>
 	{% endif %}
 
-	{#
-	 # Hook: woocommerce_after_order_notes.
-	 #}
-	{% do action( 'woocommerce_after_order_notes', checkout ) %}
-</div>
+	<div class="d-flex gap-y-20px">
+		{% for key, field in checkout.get_checkout_fields( 'order' ) %}
+			{% if  field.type in [ 'text', 'password', 'datetime', 'datetime-local', 'date', 'month', 'time', 'week', 'number', 'email', 'url', 'tel', null ] %}
+				{{- include( 'components/input-text.html.twig', { key: key, args: field, value: checkout.get_value( key ) } ) -}}
+			{% elseif 'country' == field.type  %}
+				{{- include( 'components/input-country.html.twig', { key: key, args: field, value: checkout.get_value( key ) } ) -}}
+			{% elseif 'textarea' == field.type  %}
+				{{- include( 'components/input-textarea.html.twig', { key: key, args: field, value: checkout.get_value( key ) } ) -}}
+			{% else %}
+				{{- fn( 'woocommerce_form_field', key, field, checkout.get_value( key ) ) -}}
+			{% endif %}
+		{% endfor %}
+	</div>
 
-<div class="woocommerce-shipping-fields mt-20px">
+{% endif %}
 
-	{% if cart.needs_shipping_address() %}
+{#
+ # Hook: woocommerce_after_order_notes.
+ #}
+{% do action( 'woocommerce_after_order_notes', checkout ) %}
+
+
+
+{% if cart.needs_shipping_address() %}
+	<div{{ 'yes' is same as( enable_order_comments | apply_filters( 'woocommerce_enable_order_notes_field' ) ) ? ' class="mt-20px"' : '' }}>
 
 		<p class="Checkbox" id="ship-to-different-address">
 			<label class="d-flex align-items-center woocommerce-form__label woocommerce-form__label-for-checkbox checkbox">
@@ -61,7 +61,7 @@
 			 #}
 			{% do action( 'woocommerce_before_checkout_shipping_form', checkout ) %}
 
-			<div class="row gap-y-20px woocommerce-shipping-fields__field-wrapper">
+			<div class="d-flex flex-wrap gap-y-20px woocommerce-shipping-fields__field-wrapper">
 				{% for key, field in checkout.get_checkout_fields( 'shipping' ) %}
 					{% if  field.type in [ 'text', 'password', 'datetime', 'datetime-local', 'date', 'month', 'time', 'week', 'number', 'email', 'url', 'tel', null ] %}
 						{{- include( 'components/input-text.html.twig', { key: key, args: field, value: checkout.get_value( key ) } ) -}}
@@ -81,5 +81,5 @@
 			{% do action( 'woocommerce_after_checkout_shipping_form', checkout ) %}
 
 		</div>
-	{% endif %}
-</div>
+	</div>
+{% endif %}

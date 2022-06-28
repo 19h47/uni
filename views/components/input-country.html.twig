@@ -9,8 +9,9 @@
 	class="{{
 		[
 			'form-row',
-			'form-row-first' in args.class ? 'col-md-7' : '',
-			'form-row-last' in args.class ? 'col-md-7' : '',
+			'form-row-first' in args.class ? 'w-100 w-md-50 pe-md-10px' : '',
+			'form-row-last' in args.class ? 'w-100 w-md-50 ps-md-10px' : '',
+			'form-row-wide' in args.class ? 'w-100' : '',
 			args.required ? 'validate-required' : '',
 		] | merge( args.class | default( [] ) )	| join( ' ' ) | trim
 	}}"

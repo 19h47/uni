@@ -12,14 +12,14 @@
 
 	<div class="my-20px shop_table shop_table_responsive">
 
-		<div class="row cart-subtotal">
-			<div class="col-7 fw-bold">
+		<div class="d-flex cart-subtotal flex-wrap">
+			<div class="w-50 fw-bold">
 				{{- __( 'Subtotal', 'uni' ) -}}
 			</div>
-			<div class="col-7 d-flex justify-content-end" data-title="{{ __( 'Subtotal', 'uni' ) }}">
+			<div class="w-50 text-end" data-title="{{ __( 'Subtotal', 'uni' ) }}">
 				{{- html.subtotal -}}
 			</div>
-			<div class="mt-12px"><hr class="bg-gray-very-dark"></div>
+			<div class="w-100 mt-12px"><hr class="bg-gray-very-dark"></div>
 		</div>
 
 
@@ -85,8 +85,8 @@
 					</tr>
 				{% endfor %}
 			{% else %}
-				<div class="row tax-total mt-20px">
-					<div class="col-7 fw-bold">
+				<div class="d-flex flex-wrap tax-total mt-20px">
+					<div class="w-50 fw-bold">
 						{{- countries.tax_or_vat() }}
 						{%- if customer.is_customer_outside_base() and not customer.has_calculated_shipping() -%}
 							&nbsp;
@@ -96,17 +96,17 @@
 							{%- endapply -%}
 						{%- endif -%}
 					</div>
-					<div class="col-7 d-flex justify-content-end" data-title="{{ countries.tax_or_vat() }}">
+					<div class="w-50 d-flex justify-content-end" data-title="{{ countries.tax_or_vat() }}">
 						{{- html.taxes_total -}}
 					</div>
-					<div class="mt-12px"><hr class="bg-gray-very-dark"></div>
+					<div class="w-100 mt-12px"><hr class="bg-gray-very-dark"></div>
 				</div>
 			{% endif %}
 		{% endif %}
 
-		<div class="order-total row mt-20px">
-			<div class="col-7 fw-bold">{{- __( 'Total', 'uni' ) -}}</div>
-			<div class="col-7 d-flex justify-content-end" data-title="{{ __( 'Total', 'uni' ) }}">
+		<div class="order-total d-flex mt-20px">
+			<div class="w-50 fw-bold">{{- __( 'Total', 'uni' ) -}}</div>
+			<div class="w-50 d-flex justify-content-end" data-title="{{ __( 'Total', 'uni' ) }}">
 				{{- html.order_total -}}
 			</div>
 		</div>

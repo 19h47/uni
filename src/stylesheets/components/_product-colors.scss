@@ -23,7 +23,7 @@
 	&__item {
 		@include margin(right #{(10 * 60) * 0.01}px left #{(10 * 60) * 0.01}px);
 
-		@include media-breakpoint-up(hd) {
+		@include media-breakpoint-up(md) {
 			@include margin(right #{math.div(10, 30)}em left #{math.div(10, 30)}em);
 		}
 
@@ -48,7 +48,7 @@
 				);
 			}
 
-			@include media-breakpoint-up(hd) {
+			@include media-breakpoint-up(md) {
 				@include margin(top #{math.div(10, 30)}em bottom #{math.div(10, 30)}em);
 			}
 		}

@@ -94,8 +94,8 @@ $scale-factor: math.div($base-line-height, $base-font-size);
  * (Most of the time it's the size of a gutter divide by 2.)
  * Useful for the container.
  */
-$grid-outer-gutter-width-unitless: $grid-gutter-width-unitless;
-$grid-outer-gutter-width: $grid-outer-gutter-width-unitless * 1px;
+// $grid-outer-gutter-width-unitless: $grid-gutter-width-unitless;
+// $grid-outer-gutter-width: $grid-outer-gutter-width-unitless * 1px;
 
 /**
  * Prototype width
@@ -118,9 +118,8 @@ $container-width: $container-width-without-outer-gutter-unitless * 1px;
  *
  * Sizes keep from prototype (grid + outer gutter * 2 )
  */
-$container-width-unitless: $container-width-without-outer-gutter-unitless +
-	($grid-outer-gutter-width-unitless * 2);
-$container-width: $container-width-unitless * 1px;
+// $container-width-unitless: $container-width-without-outer-gutter-unitless + ($grid-outer-gutter-width-unitless * 2);
+// $container-width: $container-width-unitless * 1px;
 
 /**
  * Prototype height

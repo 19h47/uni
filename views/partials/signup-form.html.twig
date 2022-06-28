@@ -9,7 +9,7 @@
 	action="{{ mailchimp.url }}/subscribe/post?u={{ mailchimp.user }}&amp;id={{ mailchimp.id }}"
 	method="post" id="mc-embedded-subscribe-form-{{ id }}"
 	name="mc-embedded-subscribe-form"
-	class="{{ [ 'Signup-form', 'validate', 'text-gray-very-dark' ] | merge( classes ? classes : [] ) | join( ' ' ) | trim }}"
+	class="{{ [ 'Signup-form', 'validate' ] | merge( classes ? classes : [] ) | join( ' ' ) | trim }}"
 	target="_blank"
 >
 

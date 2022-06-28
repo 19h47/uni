@@ -41,7 +41,7 @@
 
 				<p>Pour suivre toutes nos actualités,<br>inscrivez-vous à la newsletter UNI Habitat.</p>
 				<div class="d-md-flex align-items-md-center w-100">
-					{{- include( 'partials/signup-form.html.twig', { id: post.id, classes: [ 'me-md-3', 'flex-fill' ] } ) -}}
+					{{- include( 'partials/signup-form.html.twig', { id: post.id, classes: [ 'me-md-20px', 'flex-fill' ] } ) -}}
 					{{- include( 'partials/socials.html.twig', { classes: [ 'mt-3', 'mt-md-0' ] } ) -}}
 				</div>
 			</div>
@@ -49,38 +49,37 @@
 	{% endembed %}
 
 	<div class="rounded-md-5px overflow-md-hidden my-md-20px ms-md-100px me-md-20px text-white w-100 position-relative h-100 h-md-auto">
-		<div class="px-20px pt-100px pb-20px grid-template-columns-md-repeat-12-1fr grid-template-rows-md-repeat-11-1fr grid-template-columns-repeat-10-1fr grid-template-rows-repeat-10-1fr grid-column-gap-0 grid-row-gap-0 z-index-2 mh-100 h-100 d-grid py-md-0 position-relative" data-front-page="grid">
+		<div class="px-20px pt-140px pb-60px z-index-2 mh-100 h-100 d-flex flex-column py-md-60vh position-relative" data-front-page="grid">
 
-			<div class="align-self-center grid-area-1/1/3/11 grid-area-md-1/2/3/12 h-100">
-				<img width="2001" height="186" src="{{ theme.link }}/{{ manifest['img/svg/logo-baseline.svg'] }}" alt="{{ site.description }}" class="d-none d-md-block w-100 h-100">
-				<img width="590" height="48" src="{{ theme.link }}/{{ manifest['img/svg/logo-mobile.svg'] }}" alt="{{ site.description }}" class="d-md-none w-100 h-100">
-			</div>
+
+			<img width="2001" height="186" src="{{ theme.link }}/{{ manifest['img/svg/logo-baseline.svg'] }}" alt="{{ site.description }}" class="d-none d-md-block w-10/12 mx-auto h-auto">
+			<img width="590" height="48" src="{{ theme.link }}/{{ manifest['img/svg/logo-mobile.svg'] }}" alt="{{ site.description }}" class="d-block d-md-none w-100 h-auto">
+
 
 			<div
-				class="Wysiwyg d-none fs-sm d-md-block Front-page__content letter-spacing-50 grid-area-md-4/5/8/9"
+				class="Wysiwyg mt-40px w-1/3 mx-auto d-none fs-sm d-md-block letter-spacing-50"
 				data-front-page="content"
 			>
 				{{- post.content -}}
 			</div>
 
-			<div class="grid-area-6/1/10/6 grid-area-sm-/1/9/6 grid-area-md-9/1/10/7 align-self-center align-self-md-auto">
-				<a class="text-center d-block" href="{{ shop_url }}">
-					{{- include( 'partials/page-title.html.twig', { classes: [ 'text-uppercase' ], subtitle: _x( 'Explore our:', 'front page', 'uni' ), title: __( 'Store', 'uni' ) } ) -}}
-				</a>
+			<footer class="mt-auto">
+				<div class="d-flex">
+					<a class="text-center d-block w-50" href="{{ shop_url }}">
+						{{- include( 'partials/page-title.html.twig', { tag: 'p', classes: [ 'fs-md-4xl', 'fs-2xl', 'ff-title', 'fw-normal', 'text-uppercase' ], subtitle: _x( 'Explore our:', 'front page', 'uni' ), title: __( 'Store', 'uni' ) } ) -}}
+					</a>
 
-			</div>
-
-			<div class="grid-area-6/6/10/11 grid-area-sm-7/6/9/11 grid-area-md-9/7/10/13 align-self-center align-self-md-auto">
-				<a class="text-center d-block" href="{{ habitat_page.link }}">
-					{{- include( 'partials/page-title.html.twig', { classes: [ 'text-uppercase' ], subtitle: _x( 'Discover our:', 'front page', 'uni' ), title: __( 'Spaces', 'uni' ) } ) -}}
-				</a>
-			</div>
-
-			{% if post.meta( 'footer' ) %}
-				<div class="grid-area-9/1/11/11 grid-area-md-11/2/12/12 Front-page__footer Wysiwyg ff-title fst-italic text-center">
-					{{- post.meta( 'footer' ) -}}
+					<a class="text-center d-block w-50" href="{{ habitat_page.link }}">
+						{{- include( 'partials/page-title.html.twig', { tag: 'p', classes: [ 'fs-md-4xl', 'fs-2xl', 'ff-title', 'fw-normal', 'text-uppercase' ], subtitle: _x( 'Discover our:', 'front page', 'uni' ), title: __( 'Spaces', 'uni' ) } ) -}}
+					</a>
 				</div>
-			{% endif %}
+
+				{% if post.meta( 'footer' ) %}
+					<div class="mt-40px Wysiwyg ff-title fst-italic text-center">
+						{{- post.meta( 'footer' ) -}}
+					</div>
+				{% endif %}
+			</footer>
 		</div>
 
 		<div class="position-absolute inset-0 z-index-1">

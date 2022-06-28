@@ -3,14 +3,14 @@
  #}
 <div class="shop_table woocommerce-checkout-review-order-table">
 
-	<div class="row">
-		<div class="product-name col-7 fw-bold">
+	<div class="d-flex flex-wrap">
+		<div class="product-name w-50 fw-bold">
 			{{- __( 'Product', 'uni' ) -}}
 		</div>
-		<div class="product-total col-7 d-flex justify-content-end">
+		<div class="product-total w-50 d-flex justify-content-end">
 			{{- __( 'Subtotal', 'uni' ) -}}
 		</div>
-		<div class="mt-12px"><hr class="bg-gray-very-dark"></div>
+		<hr class="mt-12px w-100 bg-gray-very-dark">
 	</div>
 
 
@@ -25,8 +25,8 @@
 			{% set _product = item.data | apply_filters( 'woocommerce_cart_item_product', item, key ) %}
 
 			{% if _product and _product.exists() and item.quantity > 0 and true | apply_filters( 'woocommerce_checkout_cart_item_visible', item, key ) %}
-				<div class="row mt-12px {{ 'cart_item' | apply_filters( 'woocommerce_cart_item_class', item, key ) }}">
-					<div class="col-7 product-name">
+				<div class="d-flex flex-wrap mt-12px {{ 'cart_item' | apply_filters( 'woocommerce_cart_item_class', item, key ) }}">
+					<div class="w-50 product-name">
 
 						{% filter apply_filters( 'woocommerce_cart_item_name', item, key ) %}
 							{{- _product.get_name() }}&nbsp;
@@ -38,7 +38,7 @@
 
 						{{- fn( 'wc_get_formatted_cart_item_data', item ) -}}
 					</div>
-					<div class="col-7 product-total d-flex justify-content-end">
+					<div class="w-50 product-total d-flex justify-content-end">
 						{% filter apply_filters( 'woocommerce_cart_item_subtotal', item, key ) %}
 							{{- cart.get_product_subtotal( _product, item.quantity )  -}}
 						{% endfilter %}
@@ -46,7 +46,8 @@
 				</div>
 			{% endif %}
 		{% endfor %}
-		<div class="row"><div class="mt-12px"><hr class="bg-gray-very-dark"></div></div>
+
+		<hr class="mt-12px bg-gray-very-dark">
 	{% endif %}
 
 	{#
@@ -54,12 +55,12 @@
 	 #}
 	{% do action( 'woocommerce_review_order_after_cart_contents' ) %}
 
-	<div class="cart-subtotal row mt-20px">
-		<div class="col-7 fw-bold">{{- __( 'Subtotal', 'uni' ) -}}</div>
-		<div class="col-7 d-flex justify-content-end">
+	<div class="cart-subtotal d-flex flex-wrap mt-20px">
+		<div class="w-50 fw-bold">{{- __( 'Subtotal', 'uni' ) -}}</div>
+		<div class="w-50 d-flex justify-content-end">
 			{{- html.subtotal -}}
 		</div>
-		<div class="mt-12px"><hr class="bg-gray-very-dark"></div>
+		<div class="w-100 mt-12px"><hr class="bg-gray-very-dark"></div>
 	</div>
 
 	{% for code, coupon in cart.get_coupons() %}
@@ -112,12 +113,12 @@
 	 #}
 	{% do action( 'woocommerce_review_order_before_order_total' ) %}
 
-	<div class="order-total row mt-20px">
-		<div class="col-7 fw-bold">{{- __( 'Total', 'uni' ) -}}</div>
-		<div class="col-7 d-flex justify-content-end">
+	<div class="order-total d-flex flex-wrap mt-20px">
+		<div class="w-50 fw-bold">{{- __( 'Total', 'uni' ) -}}</div>
+		<div class="w-50 d-flex justify-content-end">
 			{{- html.order_total -}}
 		</div>
-		<div class="mt-12px"><hr class="bg-gray-very-dark"></div>
+		<hr class="bg-gray-very-dark mt-12px w-100">
 	</div>
 
 	{#

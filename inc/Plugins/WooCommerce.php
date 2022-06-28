@@ -276,7 +276,7 @@ class WooCommerce {
 	 * @return void
 	 */
 	public function output_before_cart_wrapper() : void {
-		echo '<div class="position-relative d-md-flex">';
+		echo '<div class="d-md-flex">';
 	}
 
 

@@ -17,7 +17,7 @@
 		@include margin(top 0.5em);
 		@include size(#{(60 * 36) * 0.01}px);
 
-		@include media-breakpoint-up(hd) {
+		@include media-breakpoint-up(md) {
 			@include size(#{math.div(36, 30)}em);
 		}
 	}

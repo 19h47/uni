@@ -35,7 +35,7 @@
 	&__thumbnail {
 		@include size(#{(60 * 400) * 0.01}px, #{(60 * 268) * 0.01}px);
 
-		@include media-breakpoint-up(hd) {
+		@include media-breakpoint-up(md) {
 			@include size(400px, 268px);
 		}
 	}
