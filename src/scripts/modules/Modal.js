@@ -62,6 +62,9 @@ class Modal extends M {
 
 		body.classList.add('modal--is-open');
 
+		this.el.style.setProperty('visibility', 'visible');
+		this.el.style.setProperty('opacity', '1');
+
 		// When menu is open, disableScroll
 		disableScroll();
 
@@ -81,6 +84,9 @@ class Modal extends M {
 		this.isOpen = false;
 
 		body.classList.remove('modal--is-open');
+
+		this.el.style.setProperty('visibility', 'hidden');
+		this.el.style.setProperty('opacity', '0');
 
 		// When menu is closed, enableScroll
 		enableScroll();

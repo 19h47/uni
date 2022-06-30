@@ -26,85 +26,89 @@
 		<form
 			name="checkout"
 			method="post"
-			class="flex-wrap position-relative d-md-flex checkout woocommerce-checkout"
+			class="checkout woocommerce-checkout"
 			action="{{ checkout_url | e( 'esc_url' ) }}"
 			enctype="multipart/form-data"
 		>
 
-			{% if checkout.get_checkout_fields() %}
+			{# Needed because of woocommerce-notices-wrapper #}
+			<div class="flex-wrap position-relative d-md-flex ">
 
-				{#
-				 # Hook: woocommerce_checkout_before_customer_details
-				 #
-				 # @hooked wc_get_pay_buttons - 30
-				 #}
-				{% do action( 'woocommerce_checkout_before_customer_details' ) %}
-
-
-				<div class="border-end-md border-md-1 border-md-gray-very-dark w-md-60 py-md-250vh ps-md-200vw pe-md-100vw" id="customer_details">
+				{% if checkout.get_checkout_fields() %}
 
 					{#
-					 # Hook: woocommerce_checkout_billing
+					 # Hook: woocommerce_checkout_before_customer_details
 					 #
-					 # @hooked WC_Checkout::checkout_form_billing
+					 # @hooked wc_get_pay_buttons - 30
 					 #}
-					{% do action( 'woocommerce_checkout_billing' ) %}
+					{% do action( 'woocommerce_checkout_before_customer_details' ) %}
+
+
+					<div class="border-end-md border-md-1 border-md-gray-very-dark w-md-60 py-md-250vh ps-md-200vw pe-md-100vw" id="customer_details">
+
+						{#
+						# Hook: woocommerce_checkout_billing
+						#
+						# @hooked WC_Checkout::checkout_form_billing
+						#}
+						{% do action( 'woocommerce_checkout_billing' ) %}
+
+						{#
+						# Hook: woocommerce_checkout_shipping
+						#
+						# @hooked WC_Checkout::checkout_form_shipping
+						#}
+						{% do action( 'woocommerce_checkout_shipping' ) %}
+
+					</div>
 
 					{#
-					 # Hook: woocommerce_checkout_shipping
-					 #
-					 # @hooked WC_Checkout::checkout_form_shipping
+					 # Hook: woocommerce_checkout_after_customer_details.
 					 #}
-					{% do action( 'woocommerce_checkout_shipping' ) %}
+					{% do action( 'woocommerce_checkout_after_customer_details' ) %}
+
+				{% endif %}
+
+				<div class="pe-md-200vw ps-md-100vw py-md-250vh w-md-40 my-20px my-md-0">
+					{#
+					 # Hook: woocommerce_checkout_before_order_review_heading
+					 #}
+					{% do action( 'woocommerce_checkout_before_order_review_heading' ) %}
+
+					{{-
+						include(
+							'partials/page-title.html.twig',
+							{
+								tag: 'h3',
+								id: "order_review_heading",
+								title: __( 'Your order', 'uni' ),
+								classes: [ 'mb-20px', 'text-center', 'text-md-start' ],
+								classes_title: [ 'fs-4xl' ]
+							}
+						)
+					-}}
+
+					{#
+					 # Hook: woocommerce_checkout_before_order_review
+					 #}
+					{% do action( 'woocommerce_checkout_before_order_review' ) %}
+
+					<div id="order_review" class="woocommerce-checkout-review-order">
+						{#
+						 # Hook: woocommerce_checkout_order_review
+						 #
+						 # @hooked woocommerce_order_review - 10
+						 # @hooked woocommerce_checkout_payment - 20
+						 #}
+						{% do action( 'woocommerce_checkout_order_review' ) %}
+					</div>
+
+					{#
+					 # Hook: woocommerce_checkout_after_order_review
+					 #}
+					{% do action( 'woocommerce_checkout_after_order_review' ) %}
 
 				</div>
-
-				{#
-				 # Hook: woocommerce_checkout_after_customer_details.
-				 #}
-				{% do action( 'woocommerce_checkout_after_customer_details' ) %}
-
-			{% endif %}
-
-			<div class="pe-md-200vw ps-md-100vw py-md-250vh w-md-40 my-20px my-md-0">
-				{#
-				 # Hook: woocommerce_checkout_before_order_review_heading
-				 #}
-				{% do action( 'woocommerce_checkout_before_order_review_heading' ) %}
-
-				{{-
-					include(
-						'partials/page-title.html.twig',
-						{
-							tag: 'h3',
-							id: "order_review_heading",
-							title: __( 'Your order', 'uni' ),
-							classes: [ 'mb-20px', 'text-center', 'text-md-start' ],
-							classes_title: [ 'fs-4xl' ]
-						}
-					)
-				-}}
-
-				{#
-				 # Hook: woocommerce_checkout_before_order_review
-				 #}
-				{% do action( 'woocommerce_checkout_before_order_review' ) %}
-
-				<div id="order_review" class="woocommerce-checkout-review-order">
-					{#
-					 # Hook: woocommerce_checkout_order_review
-					 #
-					 # @hooked woocommerce_order_review - 10
-					 # @hooked woocommerce_checkout_payment - 20
-					 #}
-					{% do action( 'woocommerce_checkout_order_review' ) %}
-				</div>
-
-				{#
-				 # Hook: woocommerce_checkout_after_order_review
-				 #}
-				{% do action( 'woocommerce_checkout_after_order_review' ) %}
-
 			</div>
 
 		</form>

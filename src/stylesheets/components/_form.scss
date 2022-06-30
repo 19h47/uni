@@ -1,0 +1,14 @@
+form {
+	&.is-loading {
+		@extend .pe-none, .opacity-60;
+	}
+
+	[type='email'] {
+		@include reset-placeholder(the_color(gray, very-light-02));
+	}
+
+	.error-message,
+	.success-message {
+		@extend .fs-2xs, .text-start, .text-red-bright, .mt-12px;
+	}
+}

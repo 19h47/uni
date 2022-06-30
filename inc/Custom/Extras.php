@@ -32,7 +32,7 @@ class Extras {
 	 */
 	public function body_class( $classes ) : array {
 		if ( is_front_page() ) {
-			$classes[] = 'Front-page';
+			$classes[] = 'overflow-hidden h-100';
 		}
 
 		if ( ! is_front_page() && ! is_single() ) {

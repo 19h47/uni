@@ -29,7 +29,7 @@ window.onload = () => {
 	const $style = document.getElementById(`${uni.text_domain}-main-css`);
 
 	if ($style) {
-		console.log(`✅ "${uni.text_domain}-main-css" stylesheet found`);
+		// console.log(`✅ "${uni.text_domain}-main-css" stylesheet found`);
 
 		if ($style.isLoaded) {
 			init();

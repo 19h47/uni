@@ -15,9 +15,9 @@ class ContactPage extends M {
 	}
 
 	init() {
-		console.log('ContactPage.init()');
+		// console.log('ContactPage.init()');
 
-		this.bouncer = new Bouncer('form', {
+		this.bouncer = new Bouncer('form.js-contact-page-form', {
 			fieldClass: 'has-error',
 			errorClass: 'error-message',
 			messages: {

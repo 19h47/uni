@@ -5,27 +5,38 @@
 
 {% block content %}
 
-	{% embed 'components/modal.html.twig' with { id: post.id } %}
+	{% embed 'components/modal.html.twig' with { attributes: { style: 'opacity: 0; visibility: hidden;' }, id: post.id } %}
 		{% block body %}
 			<p class="mb-0">
 				{{- __( 'This item has been added to your basket:', 'uni' ) -}}
 			</p>
-			<div class="Modal__body">
+			<div class="my-40px mx-auto d-block">
 				<p class="ff-title fst-italic mb-8px">
 					{{- post.title -}}
 				</p>
-				<img class="Modal__thumbnail d-block object-fit-cover object-position-center rounded-5px" src="{{ Image( post.thumbnail ).src }}" alt="{{ Image( post.thumbnail ).alt }}" width="{{ Image( post.thumbnail ).width }}" height="{{ Image( post.thumbnail ).height }}">
-				<p class="Modal__product-price d-flex" data-modal="price">
+
+				{{-
+					include(
+						'partials/image.html.twig',
+						{
+							classes: [ 'w-400px', 'mw-100', 'h-auto', 'd-block', 'object-fit-cover', 'object-position-center', 'rounded-5px' ],
+							image: post.thumbnail
+						},
+						with_context = false
+					)
+				-}}
+
+				<p class="mt-8px d-flex" data-modal="price">
 					{{- fn( 'wc_price', post.product.get_price() ) -}}
 				</p>
 			</div>
-			<footer class="Modal__footer d-flex align-items-center flex-row justify-content-between">
-				<button type="submit" class="Modal__footer__button letter-spacing-50 d-flex align-items-center text-decoration-underline js-modal-button">
-					{%- include 'svg/use.html.twig' with { icon: 'times', classes: [ 'pe-none' ] } only -%}
+			<footer class="d-flex align-items-center flex-row justify-content-between">
+				<button type="submit" class="me-20px me-md-0 letter-spacing-50 d-flex align-items-center text-decoration-underline js-modal-button">
+					{{- include( 'svg/use.html.twig', { icon: 'times', classes: [ 'me-20px', 'w-20px', 'h-20px', 'pe-none' ] }, with_context = false ) -}}
 					{{- __( 'Continue your purchases', 'uni' ) -}}
 				</button>
-				<a class="Modal__footer__button @extend d-flex align-items-center text-decoration-underline" href="{{ cart_url | e( 'esc_url' ) }}">
-					{{- include( 'svg/use.html.twig', { icon: 'cart' }, with_context = false ) -}}
+				<a class="ms-20px ms-md-0 d-flex align-items-center text-decoration-underline" href="{{ cart_url | e( 'esc_url' ) }}">
+					{{- include( 'svg/use.html.twig', { icon: 'cart', classes: [ 'me-20px', 'w-20px', 'h-20px', ] }, with_context = false ) -}}
 					{{- __( 'Access your basket', 'uni' ) -}}
 				</a>
 			</footer>

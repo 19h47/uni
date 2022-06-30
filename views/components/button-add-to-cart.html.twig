@@ -1,0 +1,15 @@
+{#
+ # Button Add To Cart
+ #
+ # @package UNI
+ #}
+
+<button
+	type="submit"
+	value="{{ id }}"
+	class="d-flex flex-column align-items-center text-decoration-underline single_add_to_cart_button button alt"
+	data-add-to-cart="button"
+>
+	{{- text -}}
+	{{- include( 'svg/use.html.twig', { icon: 'cart', classes: [ 'mt-8px', 'w-20px', 'h-20px', 'pe-none' ] }, with_context = false ) -}}
+</button>

@@ -57,7 +57,7 @@ class AddToCart extends M {
 
 				this.call('unblock', null, 'WrapperPage');
 			})
-			.catch(error => console.log(error.message));
+		// .catch(error => console.log(error.message));
 	}
 }
 

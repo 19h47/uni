@@ -17,7 +17,7 @@
 					'partials/page-title.html.twig',
 					{
 						classes: [ 'text-center', 'text-md-start' ],
-						subtitle: '&vert;&nbsp;U&nbsp;&vert;&nbsp;N&nbsp;&vert;&nbsp;I&nbsp;&vert;',
+						subtitle: include( 'svg/use.html.twig', { icon: 'logo-horizontal', classes: [ 'w-60px', 'h-20px', 'd-inline-block', 'align-middle' ] }, with_context = false ),
 						title: post.title
 					}
 				)
@@ -27,11 +27,7 @@
 
 			<p class="mt-20px mb-0"><a class="text-decoration-underline-hover" href="mailto:contact@uni-habitat.fr">contact@uni-habitat.fr</a></p>
 
-			<form
-				id="contact-block"
-				class="Contact-page__content transition-opacity mt-20px"
-				data-contact-page="form"
-			>
+			<form class="js-contact-page-form transition-opacity mt-20px" data-contact-page="form">
 
 
 				{# <div class=""><p><a href="mailto:contact@uni-objets.fr">contact@uni-objets.fr</a></p></div> #}
@@ -61,7 +57,7 @@
 							&nbsp;<abbr class="required text-decoration-none" title="{{ __( 'required', 'woocommerce' ) | e }}">*</abbr>
 						</label>
 
-						<p class="d-block mb-0 woocommerce-input-wrapper">
+						<p class="d-block mb-0 position-relative">
 							<select class="p-12px outline-none-focus shadow-focus-focus w-100 border border-1 border-gray-very-dark rounded-5px transition-box-shadow" id="interest" name="interest" required>
 								<option value="habitat">{{- _x( 'Habitat', 'contact page', 'uni' ) -}}</option>
 								<option value="object">{{- _x( 'Object', 'contact page', 'uni' ) -}}</option>
@@ -90,7 +86,7 @@
 							&nbsp;<abbr class="required text-decoration-none" title="{{ __( 'required', 'woocommerce' ) | e }}">*</abbr>
 						</label>
 
-						<p class="d-block mb-0 woocommerce-input-wrapper">
+						<p class="d-block mb-0 position-relative">
 							<select class="p-12px outline-none-focus shadow-focus-focus w-100 border border-1 border-gray-very-dark rounded-5px transition-box-shadow" id="you" name="you" required>
 								<option value="a-particular">{{- _x( 'A particular', 'contact page', 'uni' ) -}}</option>
 								<option value="a-professional">{{- _x( 'A professional', 'contact page', 'uni' ) -}}</option>

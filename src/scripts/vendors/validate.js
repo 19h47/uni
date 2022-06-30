@@ -233,7 +233,7 @@ var submitMailChimpForm = function (form) {
 	var script = window.document.createElement('script');
 	script.src = url;
 
-	console.log(script);
+	// console.log(script);
 
 	// Create a global variable for the status container
 	window.mcStatus = form.querySelector('.mc-status');

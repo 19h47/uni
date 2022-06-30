@@ -36,11 +36,7 @@
 			{{- include( 'partials/socials.html.twig', { label: __( 'Follow us', 'uni' ) } ) -}}
 		</div>
 		<div class="mt-20px mt-md-40px">
-			{{- include(
-				'partials/signup-form.html.twig',
-				{ label: __( 'Newsletter subscriptions', 'uni' ), id: post.id },
-				with_context = false
-			) -}}
+			{{- include( 'partials/signup-form.html.twig', { label: __( 'Newsletter subscriptions', 'uni' ), id: post.id } ) -}}
 		</div>
 		<div class="mt-20px mt-md-40px">
 			<ul class="list-style-type-none">

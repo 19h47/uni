@@ -4,7 +4,11 @@
  # @package UNI
  #}
 
-<a class="Thumbnail h-360vh w-100 h-md-100 bg-gray-very-light-01 position-relative d-block" href="{{ product.link }}" data-product-content="link">
+<a
+	class="Thumbnail h-360vh w-100 h-md-100 bg-gray-very-light-01 position-relative d-block"
+	href="{{ product.link }}"
+	data-product-content="link"
+>
 
 	{% if is_product and product.product_colors is not empty %}
 		{%- for product_color in product.product_colors -%}
@@ -14,7 +18,17 @@
 					{
 						classes: [
 							'object-position-center',
-							'object-fit-contain', 'w-100', 'h-100', 'position-absolute', 'inset-0', 'transition-opacity-visibility', 'Thumbnail__image', 'd-block', 'z-index-1', product_color.current ? 'is-active' : null ],
+							'object-fit-contain',
+							'w-100',
+							'h-100',
+							'position-absolute',
+							'inset-0',
+							'transition-opacity-visibility',
+							'Thumbnail__image',
+							'd-block',
+							'z-index-1',
+							product_color.current ? 'is-active'
+						],
 						attributes: {
 							'data-color': product_color.color,
 							'data-product-content': 'image'
@@ -55,7 +69,17 @@
 				include(
 					'partials/image.html.twig',
 					{
-						classes: [ 'd-block', 'Thumbnail__image', 'transition-opacity-visibility', 'inset-md-0', 'position-md-absolute', 'w-100', 'h-100', 'object-position-center', 'object-fit-contain' ],
+						classes: [
+							'd-block',
+							'Thumbnail__image',
+							'transition-opacity-visibility',
+							'inset-md-0',
+							'position-md-absolute',
+							'w-100',
+							'h-100',
+							'object-position-center',
+							'object-fit-contain'
+						],
 						attributes: {
 							'data-color': product.color,
 							'data-product-content': 'image'
@@ -73,7 +97,13 @@
 							'd-block',
 							'Thumbnail__overview',
 							'transition-opacity-visibility',
-							'position-absolute', 'inset-0', 'w-100', 'h-100', 'object-position-center', 'object-fit-cover', 'z-index-2'
+							'position-absolute',
+							'inset-0',
+							'w-100',
+							'h-100',
+							'object-position-center',
+							'object-fit-cover',
+							'z-index-2'
 						],
 						attributes: {
 							'data-color': product.color,
@@ -116,7 +146,15 @@
 					classes: [
 						'd-block',
 						'Thumbnail__overview',
-						'transition-opacity-visibility', 'position-absolute', 'inset-0', 'w-100', 'h-100', 'object-position-center', 'object-fit-cover', 'z-index-2', 'is-active'
+						'transition-opacity-visibility',
+						'position-absolute',
+						'inset-0',
+						'w-100',
+						'h-100',
+						'object-position-center',
+						'object-fit-cover',
+						'z-index-2',
+						'is-active'
 					],
 					image: product.meta( 'image_hover' ),
 					attributes: {

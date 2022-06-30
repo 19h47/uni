@@ -10,7 +10,7 @@ class PanelButton extends M {
 	}
 
 	toggle() {
-		console.log('PanelButton.toggle()');
+		// console.log('PanelButton.toggle()');
 
 		const action = this.getData('action') || 'toggle';
 		const id = this.getData('id');

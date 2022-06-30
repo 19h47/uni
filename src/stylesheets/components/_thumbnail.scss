@@ -10,7 +10,8 @@
 @use 'sass:math';
 
 .Thumbnail {
-	&:hover {
+	&:hover,
+	&:focus {
 		.Thumbnail__overview.is-active {
 			@include autoAlpha(1);
 		}

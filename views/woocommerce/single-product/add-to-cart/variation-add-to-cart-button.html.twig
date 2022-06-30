@@ -2,6 +2,7 @@
  # Single variation cart button
  #
  #}
+
 {% if not upcoming %}
 	<div
 		id="add-to-cart-{{ id }}"
@@ -25,15 +26,7 @@
 		 #}
 		{% do action( 'woocommerce_after_add_to_cart_quantity' ) %}
 
-		<button
-			type="submit"
-			value="{{ id }}"
-			class="Product-add-to-cart-button d-flex flex-column align-items-center text-decoration-underline single_add_to_cart_button button alt"
-			data-add-to-cart="button"
-		>
-			{{- add_to_cart_text -}}
-			{% include 'svg/use.html.twig' with { icon: 'cart', classes: [ 'pe-none' ] } only %}
-		</button>
+		{{- include( 'components/button-add-to-cart.html.twig', { label: add_to_cart_text } ) -}}
 
 		{#
 		 # Hook: woocommerce_after_add_to_cart_button.

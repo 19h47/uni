@@ -25,7 +25,7 @@ class FrontPage extends M {
 			}, false);
 
 			this.$('grid')[0].addEventListener('click', async () => {
-				console.log('click');
+				// console.log('click');
 
 				if (!this.playing) {
 					await this.$('player')[this.current].play();
@@ -46,7 +46,7 @@ class FrontPage extends M {
 				});
 
 				$player.addEventListener('ended', () => {
-					console.log('ended', $player);
+					// console.log('ended', $player);
 
 					this.playing = false;
 					this.current = 0 === index ? 1 : 0;

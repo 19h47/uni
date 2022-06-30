@@ -12,7 +12,8 @@
 @import 'bootstrap-variables';
 
 // Optional Sass map overrides here
-$theme-colors: map-merge($theme-colors, $custom-theme-colors);
+$colors: ();
+$theme-colors: $custom-theme-colors;
 
 // Followed by our default maps
 @import '~bootstrap/scss/maps';
@@ -21,6 +22,93 @@ $theme-colors: map-merge($theme-colors, $custom-theme-colors);
 @import '~bootstrap/scss/root';
 // @import '~bootstrap/scss/grid';
 @import '~bootstrap/scss/utilities';
+
+.fs-3xs {
+	font-size: #{math.div(8, $base-font-size)}rem;
+	line-height: math.div(8, $base-font-size);
+}
+
+.fs-2xs {
+	font-size: #{math.div(10, $base-font-size)}rem;
+	line-height: math.div(12, $base-font-size);
+}
+
+.fs-xs {
+	font-size: #{math.div(12, $base-font-size)}rem;
+	line-height: math.div(16, $base-font-size);
+}
+
+.fs-sm {
+	font-size: #{math.div(14, $base-font-size)}rem;
+	line-height: math.div(20, $base-font-size);
+}
+
+.fs-base {
+	font-size: #{math.div(16, $base-font-size)}rem;
+	line-height: math.div(24, $base-font-size);
+}
+
+.fs-lg {
+	font-size: #{math.div(18, $base-font-size)}rem;
+	line-height: math.div(28, $base-font-size);
+}
+
+.fs-xl {
+	font-size: #{math.div(20, $base-font-size)}rem;
+	line-height: math.div(28, $base-font-size);
+}
+
+.fs-2xl {
+	font-size: #{math.div(24, $base-font-size)}rem;
+	line-height: math.div(32, $base-font-size);
+}
+
+.fs-3xl {
+	font-size: #{math.div(30, $base-font-size)}rem;
+	line-height: math.div(36, $base-font-size);
+}
+
+.fs-4xl {
+	font-size: #{math.div(36, $base-font-size)}rem;
+	line-height: math.div(40, $base-font-size);
+}
+
+.fs-5xl {
+	font-size: #{math.div(48, $base-font-size)}rem;
+	line-height: 1;
+}
+
+.fs-7xl {
+	font-size: #{math.div(72, $base-font-size)}rem;
+	line-height: 1;
+}
+
+@include media-breakpoint-up(md) {
+	.fs-md-xl {
+		font-size: #{math.div(20, $base-font-size)}rem;
+		line-height: math.div(28, $base-font-size);
+	}
+
+	.fs-md-3xl {
+		font-size: #{math.div(30, $base-font-size)}rem;
+		line-height: math.div(36, $base-font-size);
+	}
+
+	.fs-md-4xl {
+		font-size: #{math.div(36, $base-font-size)}rem;
+		line-height: math.div(40, $base-font-size);
+	}
+
+	.fs-md-5xl {
+		font-size: #{math.div(48, $base-font-size)}rem;
+		line-height: 1;
+	}
+
+	.fs-md-7xl {
+		font-size: #{math.div(72, $base-font-size)}rem;
+		line-height: 1;
+	}
+}
 
 $utilities: map-merge(
 	$utilities,

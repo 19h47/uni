@@ -12,7 +12,7 @@ class ProductContent extends M {
 	}
 
 	onMouseover({ target }) {
-		console.log('ProductContent.mouseover()', target);
+		// console.log('ProductContent.mouseover()', target);
 
 		if (target.matches('.js-color')) {
 			const color = target.getAttribute('data-color');

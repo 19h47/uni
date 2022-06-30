@@ -61,7 +61,7 @@ class WooCommerce {
 		remove_action( 'woocommerce_shop_loop_item_title', 'woocommerce_template_loop_product_title', 10 );
 		add_action( 'woocommerce_shop_loop_item_title', array( $this, 'template_loop_product_title' ), 10 );
 		add_action( 'woocommerce_shop_loop_item_title', array( $this, 'template_loop_price' ), 15 );
-		add_action( 'woocommerce_shop_loop_item_title', array( $this, 'template_product_colors' ), 20 );
+		add_action( 'woocommerce_shop_loop_item_title', array( $this, 'template_loop_product_colors' ), 20 );
 
 		// After shop loop title.
 		remove_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_price', 10 );
@@ -101,8 +101,6 @@ class WooCommerce {
 		add_filter( 'woocommerce_checkout_fields', array( $this, 'checkout_fields' ) );
 		add_filter( 'woocommerce_default_address_fields', array( $this, 'address_fields' ) );
 
-		add_filter( 'woocommerce_form_field_args', array( $this, 'form_field_args' ), 10, 3 );
-
 		add_filter( 'woocommerce_order_button_text', array( $this, 'order_button_text' ), 10, 1 );
 
 		// cart_is empty.
@@ -137,24 +135,6 @@ class WooCommerce {
 		$text = __( 'Confirm your order', 'uni' );
 
 		return $text;
-	}
-
-
-	/**
-	 * Form fields args
-	 *
-	 * @param array  $args Arguments.
-	 * @param string $key key.
-	 * @param string $value (default: null).
-	 *
-	 * @see https://github.com/woocommerce/woocommerce/blob/trunk/plugins/woocommerce/includes/wc-template-functions.php#L2749
-	 *
-	 * @return array $args
-	 */
-	public function form_field_args( array $args, string $key, $value ) : array {
-		$args['class'][] = 'Input';
-
-		return $args;
 	}
 
 	/**
@@ -422,6 +402,25 @@ class WooCommerce {
 	 *
 	 * @return void
 	 */
+	public function template_loop_product_colors() : void {
+		global $product;
+
+		Timber::render(
+			'partials/product-colors.html.twig',
+			array(
+				'render'  => is_product(),
+				'product' => Timber::get_post( $product->get_id(), 'UNI\Models\ProductPost' ),
+				'label'   => false,
+				'shadow'  => false,
+			)
+		);
+	}
+
+	/**
+	 * Product colors
+	 *
+	 * @return void
+	 */
 	public function template_product_colors() : void {
 		global $product;
 
@@ -430,6 +429,8 @@ class WooCommerce {
 			array(
 				'render'  => is_product(),
 				'product' => Timber::get_post( $product->get_id(), 'UNI\Models\ProductPost' ),
+				'label'   => true,
+				'shadow'  => true,
 			)
 		);
 	}

@@ -1,16 +1,21 @@
 {#
  # Product: colors
  #
+ # @package UNI
  #}
-{% if render and product.product_colors is not empty and ( product.product_colors | length ) > 1 %}
-	<div class="Product-colors">
-		<p class="Product-colors__title text-decoration-underline">{{- __( 'Exists in:', 'uni' ) -}}</p>
 
-		<ul class="list-style-type-none d-flex">
+{% if render and product.product_colors is not empty and ( product.product_colors | length ) > 1 %}
+	<div>
+
+		{% if label %}
+			<p class="mb-8px text-decoration-underline">{{- __( 'Exists in:', 'uni' ) -}}</p>
+		{% endif %}
+
+		<ul class="list-style-type-none d-flex m-n6px">
 			{%- for product_color in product.product_colors -%}
-				<li class="Product-colors__item">
+				<li class="Product-colors__item m-6px">
 					<a
-						class="d-block w-16px h-16px rounded-5px {{ 1 < loop.length ? 'js-color' }}{{ product_color.current ? ' is-active' }}"
+						class="d-block w-16px h-16px rounded-5px transition-box-shadow {{ 1 < loop.length ? 'js-color' }} {{ product_color.current and shadow ? 'shadow-uni' : '' }}"
 						href="{{ product_color.link }}"
 						data-link="{{ product_color.link }}"
 						data-color="{{ product_color.color }}"
