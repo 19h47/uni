@@ -15,7 +15,7 @@
 			{%- for product_color in product.product_colors -%}
 				<li class="Product-colors__item m-6px">
 					<a
-						class="d-block w-16px h-16px rounded-5px transition-box-shadow {{ 1 < loop.length ? 'js-color' }} {{ product_color.current and shadow ? 'shadow-uni' : '' }}"
+						class="d-block size-16px rounded-5px transition-box-shadow {{ 1 < loop.length ? 'js-color' }} {{ product_color.current and shadow ? 'shadow-uni' : '' }}"
 						href="{{ product_color.link }}"
 						data-link="{{ product_color.link }}"
 						data-color="{{ product_color.color }}"

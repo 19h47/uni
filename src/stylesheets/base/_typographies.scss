@@ -18,8 +18,7 @@ h2,
 	@include margin(top 1rem bottom 1rem);
 }
 
-h3,
-.h3 {
+h3 {
 	@extend .fw-normal, .ff-title;
 	@include margin(top 1rem bottom 0);
 }

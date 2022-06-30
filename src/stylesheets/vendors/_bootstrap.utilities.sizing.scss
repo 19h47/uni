@@ -1,6 +1,12 @@
 $utilities: map-merge(
 	$utilities,
 	(
+		'size': (
+			property: width height,
+			responsive: true,
+			class: size,
+			values: map-merge(map-get(map-get($utilities, 'width'), 'values'), ($sizes)),
+		),
 		'width':
 			map-merge(
 				map-get($utilities, 'width'),

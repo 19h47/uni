@@ -7,7 +7,7 @@
 {% set size = size | default( 'full' ) %}
 
 {% if 'full' == size %}
-	{% set size = [ 'w-100', 'h-100', 'justify-content-center' ] %}
+	{% set size = [ 'size-100', 'justify-content-center' ] %}
 {% endif %}
 
 {% if 'small' == size %}
@@ -35,12 +35,12 @@
 		] | merge( size ) | join( ' ' ) | trim }}"
 	>
 		<button
-			class="w-16px h-16px mt-20px me-20px position-absolute top-0 end-0 d-flex"
+			class="size-16px mt-20px me-20px position-absolute top-0 end-0 d-flex"
 			type="button"
 			aria-label="{{ __( 'Close', 'uni' ) }}"
 			data-modal="close"
 		>
-			{{- include( 'svg/use.html.twig', { icon: 'times', classes: [ 'w-100', 'h-100', 'pe-none' ] }, with_context = false ) -}}
+			{{- include( 'svg/use.html.twig', { icon: 'times', classes: [ 'size-100', 'pe-none' ] }, with_context = false ) -}}
 		</button>
 		{% block body %}{% endblock %}
 	</div>

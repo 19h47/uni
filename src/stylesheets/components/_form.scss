@@ -1,9 +1,7 @@
 form {
-	&.is-loading {
-		@extend .pe-none, .opacity-60;
-	}
-
-	[type='email'] {
+	[type='email'],
+	[type='text'],
+	textarea {
 		@include reset-placeholder(the_color(gray, very-light-02));
 	}
 

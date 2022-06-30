@@ -111,6 +111,27 @@ class WooCommerce {
 		add_action( 'woocommerce_process_product_meta', array( $this, 'update_meta_data' ), 10, 1 );
 
 		add_action( 'woocommerce_single_product_price', 'woocommerce_template_single_price', 10, 1 );
+
+		add_action( 'woocommerce_before_main_content', array( $this, 'template_header' ), 10, 1 );
+		add_action( 'woocommerce_after_main_content', array( $this, 'template_menu' ), 10, 1 );
+	}
+
+
+	/**
+	 *
+	 */
+	public function template_header() {
+		$data = Timber::context();
+
+		Timber::render( 'components/header.html.twig', $data );
+	}
+
+	/**
+	 *
+	 */
+	public function template_menu() {
+		$data = Timber::context();
+		Timber::render( 'components/menu.html.twig', $data );
 	}
 
 

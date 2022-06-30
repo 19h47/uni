@@ -370,16 +370,32 @@ $utilities: map-merge(
 	left: 0;
 }
 
-.border-collapse {
-	border-collapse: collapse;
+.inset-x-0 {
+	right: 0;
+	left: 0;
+}
+
+@include media-breakpoint-up(md) {
+	.inset-x-md-auto {
+		right: auto;
+		left: auto;
+	}
+}
+
+.inset-y-0 {
+	top: 0;
+	bottom: 0;
+}
+
+@include media-breakpoint-up(md) {
+	.inset-y-md-auto {
+		top: 0;
+		bottom: 0;
+	}
 }
 
 .border-spacing-0 {
 	border-spacing: 0;
-}
-
-.table-fixed {
-	table-layout: fixed;
 }
 
 @import 'bootstrap.utilities.borders';

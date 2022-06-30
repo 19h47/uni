@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: uni\n"
-"POT-Creation-Date: 2022-06-22 18:34+0200\n"
-"PO-Revision-Date: 2022-06-22 18:36+0200\n"
+"POT-Creation-Date: 2022-06-30 11:38+0200\n"
+"PO-Revision-Date: 2022-06-30 11:38+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fr_FR\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Poedit 3.1\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-Flags-xgettext: --add-comments=translators:\n"
 "X-Poedit-WPHeader: style.css\n"
@@ -53,7 +53,7 @@ msgstr "URL du compte Facebook"
 msgid "Phone number"
 msgstr "Numéro de téléphone"
 
-#: inc/Api/Customizer/Contact.php:113 inc/Plugins/WooCommerce.php:211
+#: inc/Api/Customizer/Contact.php:113 inc/Plugins/WooCommerce.php:212
 msgid "Address"
 msgstr "Adresse"
 
@@ -602,6 +602,7 @@ msgid "Attribute"
 msgstr "Attribut"
 
 #: inc/Plugins/ACF/Fields/Project.php:79
+#: views/woocommerce/cart/cart.html.twig:31
 msgid "Name"
 msgstr "Nom"
 
@@ -626,51 +627,55 @@ msgstr "Paramètres des projects"
 msgid "Subscribe to our newsletter"
 msgstr "Abonnez-vous à notre newsletter"
 
-#: inc/Plugins/WooCommerce.php:137
+#: inc/Plugins/WooCommerce.php:156
 msgid "Confirm your order"
 msgstr "Valider votre commande"
 
-#: inc/Plugins/WooCommerce.php:171
+#: inc/Plugins/WooCommerce.php:172
 msgid "Note"
 msgstr "Note"
 
-#: inc/Plugins/WooCommerce.php:175 views/pages/contact-page.html.twig:43
+#: inc/Plugins/WooCommerce.php:176 views/pages/contact-page.html.twig:42
 msgid "Email address"
 msgstr "Adresse e-mail"
 
-#: inc/Plugins/WooCommerce.php:179 inc/Plugins/WooCommerce.php:195
+#: inc/Plugins/WooCommerce.php:180 inc/Plugins/WooCommerce.php:196
 msgid "Company"
 msgstr "Entreprise"
 
-#: inc/Plugins/WooCommerce.php:180 inc/Plugins/WooCommerce.php:196
+#: inc/Plugins/WooCommerce.php:181 inc/Plugins/WooCommerce.php:197
 msgid "Country"
 msgstr "Pays"
 
-#: inc/Plugins/WooCommerce.php:228 views/pages/single-product.html.twig:170
-#: views/woocommerce/cart/cart-empty.html.twig:18
+#: inc/Plugins/WooCommerce.php:233 views/pages/single-product.html.twig:190
+#: views/woocommerce/cart/cart-empty.html.twig:23
 msgid "Return to shop"
 msgstr "Retour à la boutique"
 
-#: inc/Plugins/WooCommerce.php:417
+#: inc/Plugins/WooCommerce.php:246 inc/Plugins/WooCommerce.php:250
+msgid "Update cart"
+msgstr "Mettre à jour le panier"
+
+#: inc/Plugins/WooCommerce.php:469
 msgid "Upcoming Product"
 msgstr "Produit à venir"
 
-#: inc/Setup/Enqueue.php:93
+#: inc/Setup/Enqueue.php:97
 msgctxt "messages"
 msgid "Please fill out this field."
 msgstr "Veuillez remplir ce champ."
 
-#: inc/Setup/Enqueue.php:96
+#: inc/Setup/Enqueue.php:100
 msgctxt "messages"
 msgid "Please enter an email address."
 msgstr "Veuillez entrer une adresse email."
 
-#: inc/Setup/Enqueue.php:97
+#: inc/Setup/Enqueue.php:101
 msgctxt "messages"
 msgid "Please enter a URL."
 msgstr "Veuillez entrer une URL."
 
-#: inc/Setup/Enqueue.php:98
+#: inc/Setup/Enqueue.php:102
 msgctxt "messages"
 msgid "Please match the expected format."
 msgstr "Veuillez correspondre au format attendu."
@@ -744,11 +749,7 @@ msgstr "Page Horizontale"
 msgid "Validate"
 msgstr "Valider"
 
-#: woocommerce/cart/cart.php:38
-msgid "Remove this item"
-msgstr "Enlever cet élément"
-
-#: woocommerce/cart/cart.php:68
+#: woocommerce/cart/cart.php:70
 msgid "Available on backorder"
 msgstr "Disponible sur commande"
 
@@ -759,8 +760,8 @@ msgid "%s quantity"
 msgstr "quantité de %s"
 
 #: woocommerce/global/quantity-input.php:40
-#: views/woocommerce/cart/cart.html.twig:32
-#: views/woocommerce/cart/cart.html.twig:55
+#: views/woocommerce/cart/cart.html.twig:34
+#: views/woocommerce/cart/cart.html.twig:60
 msgid "Quantity"
 msgstr "Quantité"
 
@@ -776,117 +777,160 @@ msgid_plural "Tags:"
 msgstr[0] "Étiquette :"
 msgstr[1] "Étiquettes :"
 
-#: views/components/button-menu.html.twig:34
+#: views/components/button-menu.html.twig:33
 msgid "Menu"
 msgstr "Menu"
 
-#: views/components/footer-horizontal.html.twig:29
+#: views/components/footer-horizontal.html.twig:26
 #: views/components/footer-vertical.html.twig:6
 msgid "Navigation"
 msgstr "Navigation"
 
-#: views/components/footer-horizontal.html.twig:32
+#: views/components/footer-horizontal.html.twig:29
 #: views/components/footer-vertical.html.twig:10
 msgid "Information"
 msgstr "Informations"
 
-#: views/components/footer-horizontal.html.twig:35
+#: views/components/footer-horizontal.html.twig:33
 #: views/components/footer-vertical.html.twig:16
 msgid "Downloads"
 msgstr "Téléchargements"
 
-#: views/components/footer-horizontal.html.twig:38
+#: views/components/footer-horizontal.html.twig:36
 #: views/components/footer-vertical.html.twig:13
-#: views/components/menu.html.twig:34
+#: views/components/menu.html.twig:46
 msgid "Follow us"
 msgstr "Suivez-nous"
 
-#: views/components/footer-horizontal.html.twig:43
+#: views/components/footer-horizontal.html.twig:39
 #: views/components/footer-vertical.html.twig:32
-#: views/components/menu.html.twig:35
+#: views/components/menu.html.twig:47
 msgid "Newsletter subscriptions"
 msgstr "Inscription à la newsletter"
 
-#: views/components/footer-horizontal.html.twig:50
+#: views/components/footer-horizontal.html.twig:44
 #: views/components/footer-vertical.html.twig:21
 msgid "Credits:"
 msgstr "Crédits :"
 
-#: views/components/modal.html.twig:39
+#: views/components/input-country.html.twig:29
+#: views/components/input-text.html.twig:25
+#: views/components/input-textarea.html.twig:26
+#: views/pages/contact-page.html.twig:58 views/pages/contact-page.html.twig:88
+msgid "required"
+msgstr ""
+
+#: views/components/input-country.html.twig:38
+#: views/components/input-country.html.twig:42
+#: views/woocommerce/cart/shipping-calculator.html.twig:36
+msgid "Select a country / region&hellip;"
+msgstr "Sélectionner un pays/région&hellip;"
+
+#: views/components/input-country.html.twig:56
+#: views/components/input-country.html.twig:57
+msgid "Update country / region"
+msgstr ""
+
+#: views/components/input-coupon.html.twig:21
+msgid "Coupon code"
+msgstr "Code promo"
+
+#: views/components/input-coupon.html.twig:31
+#: views/components/input-coupon.html.twig:35
+msgid "Apply coupon"
+msgstr "Appliquer le code promo"
+
+#: views/components/modal.html.twig:40
 msgid "Close"
 msgstr "Fermer"
 
-#: views/pages/archive-page.html.twig:147
-#: views/pages/horizontal-page.html.twig:63
-#: views/pages/single-project.html.twig:118
+#: views/pages/archive-page.html.twig:148
+#: views/pages/horizontal-page.html.twig:79
+#: views/pages/single-project.html.twig:123
 msgid "Find out more &plus;"
 msgstr "En savoir plus &plus;"
 
-#: views/pages/archive-product.html.twig:86
+#: views/pages/archive-product.html.twig:80
 msgid "Discover<br>our habitat"
 msgstr "Découvrez<br>nos habitats"
 
-#: views/pages/contact-page.html.twig:47
+#: views/pages/contact-page.html.twig:48
+msgid "Enter your email address"
+msgstr "Entrer une adresse email"
+
+#: views/pages/contact-page.html.twig:57
 msgctxt "contact page"
 msgid "Are you interested in?"
 msgstr "Vous êtes intéressé(e) par ?"
 
-#: views/pages/contact-page.html.twig:49
+#: views/pages/contact-page.html.twig:63
 msgctxt "contact page"
 msgid "Habitat"
 msgstr "L’habitat"
 
-#: views/pages/contact-page.html.twig:50
+#: views/pages/contact-page.html.twig:64
 msgctxt "contact page"
 msgid "Object"
 msgstr "L’objet"
 
-#: views/pages/contact-page.html.twig:54
+#: views/pages/contact-page.html.twig:76
 msgctxt "contact page"
 msgid "The subject of your message"
 msgstr "L’objet de votre message"
 
-#: views/pages/contact-page.html.twig:61
+#: views/pages/contact-page.html.twig:79
+msgid "Enter your subject"
+msgstr ""
+
+#: views/pages/contact-page.html.twig:87
 msgctxt "contact page"
 msgid "You are?"
 msgstr "Vous êtes ?"
 
-#: views/pages/contact-page.html.twig:63
+#: views/pages/contact-page.html.twig:93
 msgctxt "contact page"
 msgid "A particular"
 msgstr "Un particulier"
 
-#: views/pages/contact-page.html.twig:64
+#: views/pages/contact-page.html.twig:94
 msgctxt "contact page"
 msgid "A professional"
 msgstr "Un professionnel"
 
-#: views/pages/contact-page.html.twig:65
+#: views/pages/contact-page.html.twig:95
 msgctxt "contact page"
 msgid "A shop"
 msgstr "Une boutique"
 
-#: views/pages/contact-page.html.twig:66
+#: views/pages/contact-page.html.twig:96
 msgctxt "contact page"
 msgid "Other"
 msgstr "Autre"
 
-#: views/pages/contact-page.html.twig:70
+#: views/pages/contact-page.html.twig:108
 msgctxt "contact page"
 msgid "How did you hear about us?"
 msgstr "Comment nous avez-vous connus ?"
 
-#: views/pages/contact-page.html.twig:77
+#: views/pages/contact-page.html.twig:109
+msgid "How did you hear about us"
+msgstr "Comment nous avez-vous connus ?"
+
+#: views/pages/contact-page.html.twig:122
 msgctxt "contact page"
 msgid "Your message"
 msgstr "Votre message"
 
-#: views/pages/contact-page.html.twig:83
+#: views/pages/contact-page.html.twig:124
+msgid "Enter your message"
+msgstr "Entrez votre message"
+
+#: views/pages/contact-page.html.twig:136
 msgctxt "contact page"
 msgid "Send"
 msgstr "Envoyez"
 
-#: views/pages/contact-page.html.twig:88
+#: views/pages/contact-page.html.twig:143
 msgctxt "contact page"
 msgid "All fields marked with * are required"
 msgstr "Les champs suivis d’un astérisque* sont obligatoire"
@@ -895,107 +939,107 @@ msgstr "Les champs suivis d’un astérisque* sont obligatoire"
 msgid "Ulule"
 msgstr "Ulule"
 
-#: views/pages/front-page.html.twig:58
+#: views/pages/front-page.html.twig:69
 msgctxt "front page"
 msgid "Explore our:"
 msgstr "Explorer notre :"
 
-#: views/pages/front-page.html.twig:59
+#: views/pages/front-page.html.twig:69
 msgid "Store"
 msgstr "Boutique"
 
-#: views/pages/front-page.html.twig:65
+#: views/pages/front-page.html.twig:73
 msgctxt "front page"
 msgid "Discover our:"
 msgstr "Découvrir nos :"
 
-#: views/pages/front-page.html.twig:66
+#: views/pages/front-page.html.twig:73
 msgid "Spaces"
 msgstr "Espaces"
 
-#: views/pages/horizontal-page.html.twig:128
+#: views/pages/horizontal-page.html.twig:152
 msgid "Discover<br>our online store"
 msgstr "Découvrir notre boutique<br>en ligne"
 
-#: views/pages/single-product.html.twig:10
+#: views/pages/single-product.html.twig:11
 msgid "This item has been added to your basket:"
 msgstr "Cet objet a été ajouté à votre panier :"
 
-#: views/pages/single-product.html.twig:21
+#: views/pages/single-product.html.twig:36
 msgid "Continue your purchases"
 msgstr "Continuer vos achats"
 
-#: views/pages/single-product.html.twig:25
+#: views/pages/single-product.html.twig:40
 msgid "Access your basket"
 msgstr "Accéder à votre panier"
 
-#: views/pages/single-product.html.twig:137
+#: views/pages/single-product.html.twig:158
 msgid "In the same collection"
 msgstr "Dans la même collection"
 
-#: views/pages/single-product.html.twig:152
+#: views/pages/single-product.html.twig:173
 #, php-format
 msgid "Collection N°%s"
 msgstr "Collection N°%s"
 
-#: views/pages/single-project.html.twig:79
+#: views/pages/single-project.html.twig:80
 #: views/woocommerce/checkout/form-billing.html.twig:5
 msgid "Informations"
 msgstr "Informations"
 
-#: views/pages/single-project.html.twig:137
-#: views/pages/single-project.html.twig:146
-#: views/pages/single-project.html.twig:171
-#: views/pages/single-project.html.twig:176
+#: views/pages/single-project.html.twig:149
+#: views/pages/single-project.html.twig:158
+#: views/pages/single-project.html.twig:180
+#: views/pages/single-project.html.twig:185
 msgid "Next Project"
 msgstr "Projet suivant"
 
-#: views/partials/empty-cart-message.html.twig:7
+#: views/partials/empty-cart-message.html.twig:10
 msgid "Your cart is currently empty."
 msgstr "Votre panier est actuellement vide."
 
-#: views/partials/product-colors.html.twig:7
+#: views/partials/product-colors.html.twig:11
 msgid "Exists in:"
 msgstr "Existe en :"
 
-#: views/partials/signup-form.html.twig:33
+#: views/partials/signup-form.html.twig:35
 msgid "Your email"
 msgstr "Votre email"
 
-#: views/partials/signup-form.html.twig:34
+#: views/partials/signup-form.html.twig:36
 msgid ""
 "The domain portion of the email address is invalid (the portion after the @)."
 msgstr ""
 "La partie domaine de l’adresse e-mail n’est pas valide (la partie après le "
 "@)."
 
-#: views/partials/signup-form.html.twig:41
+#: views/partials/signup-form.html.twig:48
 msgid "Send"
 msgstr "Envoyer"
 
 #. $s shipping destination.
-#: views/woocommerce/cart/cart-shipping.html.twig:41
+#: views/woocommerce/cart/cart-shipping.html.twig:44
 #, php-format
 msgid "Shipping to %s."
 msgstr "Livraison vers %s."
 
-#: views/woocommerce/cart/cart-shipping.html.twig:42
+#: views/woocommerce/cart/cart-shipping.html.twig:45
 msgid "Change address"
 msgstr "Modifier l’adresse"
 
-#: views/woocommerce/cart/cart-shipping.html.twig:45
+#: views/woocommerce/cart/cart-shipping.html.twig:48
 msgid "Shipping options will be updated during checkout."
 msgstr "Les options de livraison seront mises à jour lors de la commande."
 
-#: views/woocommerce/cart/cart-shipping.html.twig:54
+#: views/woocommerce/cart/cart-shipping.html.twig:57
 msgid "Shipping costs are calculated during checkout."
 msgstr "Les frais de livraison sont calculés lors du paiement."
 
-#: views/woocommerce/cart/cart-shipping.html.twig:58
+#: views/woocommerce/cart/cart-shipping.html.twig:61
 msgid "Enter your address to view shipping options."
 msgstr "Saisissez votre adresse pour voir les options de livraison."
 
-#: views/woocommerce/cart/cart-shipping.html.twig:63
+#: views/woocommerce/cart/cart-shipping.html.twig:66
 msgid ""
 "There are no shipping options available. Please ensure that your address has "
 "been entered correctly, or contact us if you need any help."
@@ -1004,107 +1048,82 @@ msgstr ""
 "avez saisi est correcte ou contactez-nous si vous avez besoin d’aide."
 
 #. $s shipping destination.
-#: views/woocommerce/cart/cart-shipping.html.twig:68
+#: views/woocommerce/cart/cart-shipping.html.twig:71
 #, php-format
 msgid "No shipping options were found for %s."
 msgstr "Options de livraison introuvables pour %s."
 
-#: views/woocommerce/cart/cart-shipping.html.twig:70
+#: views/woocommerce/cart/cart-shipping.html.twig:73
 msgid "Enter a different address"
 msgstr "Saisissez une autre adresse"
 
-#: views/woocommerce/cart/cart-totals.html.twig:12
+#: views/woocommerce/cart/cart-totals.html.twig:11
 msgid "Cart totals"
 msgstr "Total panier"
 
+#: views/woocommerce/cart/cart-totals.html.twig:17
 #: views/woocommerce/cart/cart-totals.html.twig:19
-#: views/woocommerce/cart/cart-totals.html.twig:20
-#: views/woocommerce/checkout/review-order.html.twig:8
-#: views/woocommerce/checkout/review-order.html.twig:54
+#: views/woocommerce/checkout/review-order.html.twig:11
+#: views/woocommerce/checkout/review-order.html.twig:59
 msgid "Subtotal"
 msgstr "Sous-total"
 
-#: views/woocommerce/cart/cart-totals.html.twig:51
-#: views/woocommerce/cart/cart-totals.html.twig:52
+#: views/woocommerce/cart/cart-totals.html.twig:54
+#: views/woocommerce/cart/cart-totals.html.twig:55
 msgid "Shipping"
 msgstr "Expédition"
 
-#: views/woocommerce/cart/cart-totals.html.twig:77
-#: views/woocommerce/cart/cart-totals.html.twig:91
+#: views/woocommerce/cart/cart-totals.html.twig:80
+#: views/woocommerce/cart/cart-totals.html.twig:95
 #, php-format
 msgid "(estimated for %s)"
 msgstr "(estimé pour %s)"
 
-#: views/woocommerce/cart/cart-totals.html.twig:103
-#: views/woocommerce/cart/cart-totals.html.twig:104
-#: views/woocommerce/cart/cart.html.twig:33
-#: views/woocommerce/cart/cart.html.twig:56
-#: views/woocommerce/checkout/review-order.html.twig:109
+#: views/woocommerce/cart/cart-totals.html.twig:108
+#: views/woocommerce/cart/cart-totals.html.twig:109
+#: views/woocommerce/cart/cart.html.twig:35
+#: views/woocommerce/cart/cart.html.twig:63
+#: views/woocommerce/checkout/review-order.html.twig:117
 msgid "Total"
 msgstr "Total"
 
-#: views/woocommerce/cart/cart.html.twig:29
-msgid "Products"
-msgstr "Produits"
-
-#: views/woocommerce/cart/cart.html.twig:31
-#: views/woocommerce/cart/cart.html.twig:54
+#: views/woocommerce/cart/cart.html.twig:33
+#: views/woocommerce/cart/cart.html.twig:59
 msgid "Price"
 msgstr "Prix"
 
-#: views/woocommerce/cart/cart.html.twig:49
-#: views/woocommerce/checkout/review-order.html.twig:7
+#: views/woocommerce/cart/cart.html.twig:54
+#: views/woocommerce/checkout/review-order.html.twig:8
 msgid "Product"
 msgstr "Produit"
 
-#: views/woocommerce/cart/cart.html.twig:71
-#: views/woocommerce/checkout/form-coupon.html.twig:13
-msgid "Coupon code"
-msgstr "Code promo"
-
-#: views/woocommerce/cart/cart.html.twig:72
-#: views/woocommerce/cart/cart.html.twig:73
-#: views/woocommerce/checkout/form-coupon.html.twig:15
-#: views/woocommerce/checkout/form-coupon.html.twig:16
-msgid "Apply coupon"
-msgstr "Appliquer le code promo"
-
-#: views/woocommerce/cart/cart.html.twig:100
-#: views/woocommerce/cart/cart.html.twig:101
-msgid "Update cart"
-msgstr "Mettre à jour le panier"
-
-#: views/woocommerce/cart/proceed-to-checkout.html.twig:13
+#: views/woocommerce/cart/proceed-to-checkout.html.twig:14
 msgid "Proceed to checkout"
 msgstr "Valider la commande"
 
-#: views/woocommerce/cart/shipping-calculator.html.twig:15
+#: views/woocommerce/cart/shipping-calculator.html.twig:20
 msgid "Calculate shipping"
 msgstr "Calculer les frais d&rsquo;expédition"
 
-#: views/woocommerce/cart/shipping-calculator.html.twig:25
-msgid "Select a country / region&hellip;"
-msgstr "Sélectionner un pays/région&hellip;"
-
-#: views/woocommerce/cart/shipping-calculator.html.twig:38
-#: views/woocommerce/cart/shipping-calculator.html.twig:41
-#: views/woocommerce/cart/shipping-calculator.html.twig:49
+#: views/woocommerce/cart/shipping-calculator.html.twig:54
+#: views/woocommerce/cart/shipping-calculator.html.twig:58
+#: views/woocommerce/cart/shipping-calculator.html.twig:70
 msgid "State / County"
 msgstr "Région / Département"
 
-#: views/woocommerce/cart/shipping-calculator.html.twig:42
+#: views/woocommerce/cart/shipping-calculator.html.twig:59
 msgid "Select an option&hellip;"
 msgstr "Sélectionner une option&hellip;"
 
-#: views/woocommerce/cart/shipping-calculator.html.twig:56
+#: views/woocommerce/cart/shipping-calculator.html.twig:84
 msgid "City"
 msgstr "Ville"
 
-#: views/woocommerce/cart/shipping-calculator.html.twig:62
+#: views/woocommerce/cart/shipping-calculator.html.twig:97
 msgid "Postcode / ZIP"
 msgstr "Code postal"
 
-#: views/woocommerce/cart/shipping-calculator.html.twig:68
+#: views/woocommerce/cart/shipping-calculator.html.twig:110
 msgid "Update"
 msgstr "Mettre à jour le panier"
 
@@ -1116,7 +1135,7 @@ msgstr "Facturation &amp; Expédition"
 msgid "Billing"
 msgstr "Facturation"
 
-#: views/woocommerce/checkout/form-billing.html.twig:50
+#: views/woocommerce/checkout/form-billing.html.twig:59
 msgid "Create an account?"
 msgstr "Créer un compte ?"
 
@@ -1124,15 +1143,15 @@ msgstr "Créer un compte ?"
 msgid "You must be logged in to checkout."
 msgstr "Vous devez être identifié pour commander."
 
-#: views/woocommerce/checkout/form-checkout.html.twig:78
+#: views/woocommerce/checkout/form-checkout.html.twig:84
 msgid "Your order"
 msgstr "Votre commande"
 
-#: views/woocommerce/checkout/form-coupon.html.twig:8
+#: views/woocommerce/checkout/form-coupon.html.twig:9
 msgid "Have a coupon?"
 msgstr "Avez-vous un code promo ?"
 
-#: views/woocommerce/checkout/form-coupon.html.twig:8
+#: views/woocommerce/checkout/form-coupon.html.twig:9
 msgid "Click here to enter your code"
 msgstr "Cliquez ici pour saisir votre code"
 
@@ -1140,7 +1159,7 @@ msgstr "Cliquez ici pour saisir votre code"
 msgid "Additional information"
 msgstr "Informations complémentaires"
 
-#: views/woocommerce/checkout/form-shipping.html.twig:45
+#: views/woocommerce/checkout/form-shipping.html.twig:51
 msgid "Ship to a different address?"
 msgstr "Expédier à une adresse différente ?"
 
@@ -1173,8 +1192,8 @@ msgstr ""
 "passer votre commande. Vous pouvez être facturé plus que le montant indiqué "
 "ci-dessus si vous omettez de le faire."
 
-#: views/woocommerce/checkout/payment.html.twig:42
-#: views/woocommerce/checkout/payment.html.twig:43
+#: views/woocommerce/checkout/payment.html.twig:47
+#: views/woocommerce/checkout/payment.html.twig:51
 msgid "Update totals"
 msgstr "Mise à jour des totaux"
 
@@ -1188,51 +1207,51 @@ msgstr ""
 "commerçant d&rsquo;origine a refusé votre transaction. Veuillez effectuer "
 "une nouvelle tentative d&rsquo;achat."
 
-#: views/woocommerce/checkout/thankyou.html.twig:23
+#: views/woocommerce/checkout/thankyou.html.twig:27
 msgctxt "thankyou"
 msgid "Pay"
 msgstr "Payer"
 
-#: views/woocommerce/checkout/thankyou.html.twig:28
+#: views/woocommerce/checkout/thankyou.html.twig:42
 msgctxt "thankyou"
 msgid "My account"
 msgstr "Mon compte"
 
-#: views/woocommerce/checkout/thankyou.html.twig:36
+#: views/woocommerce/checkout/thankyou.html.twig:56
 msgctxt "thankyou"
 msgid "Thank you. Your order has been received."
 msgstr "Merci. Votre commande a été reçue."
 
-#: views/woocommerce/checkout/thankyou.html.twig:44
+#: views/woocommerce/checkout/thankyou.html.twig:64
 msgctxt "thankyou"
 msgid "Order number:"
 msgstr "Numéro de commande :"
 
-#: views/woocommerce/checkout/thankyou.html.twig:50
+#: views/woocommerce/checkout/thankyou.html.twig:70
 msgctxt "thankyou"
 msgid "Date:"
 msgstr "Date :"
 
-#: views/woocommerce/checkout/thankyou.html.twig:57
+#: views/woocommerce/checkout/thankyou.html.twig:77
 msgctxt "thankyou"
 msgid "Email:"
 msgstr "Email :"
 
-#: views/woocommerce/checkout/thankyou.html.twig:64
+#: views/woocommerce/checkout/thankyou.html.twig:84
 msgctxt "thankyou"
 msgid "Total:"
 msgstr "Total :"
 
-#: views/woocommerce/checkout/thankyou.html.twig:71
+#: views/woocommerce/checkout/thankyou.html.twig:91
 msgctxt "thankyou"
 msgid "Payment method:"
 msgstr "Méthode paiement :"
 
-#: views/woocommerce/checkout/thankyou.html.twig:94
+#: views/woocommerce/checkout/thankyou.html.twig:114
 msgid "Thank you. Your order has been received."
 msgstr "Merci. Votre commande a été reçue."
 
-#: views/woocommerce/global/quantity-input.html.twig:29
+#: views/woocommerce/global/quantity-input.html.twig:42
 msgctxt "quantity input title"
 msgid "Qty"
 msgstr "Qté"
@@ -1241,7 +1260,7 @@ msgstr "Qté"
 msgid "Coming soon"
 msgstr "Bientôt disponible"
 
-#: views/woocommerce/single-product/add-to-cart/variable.html.twig:72
+#: views/woocommerce/single-product/add-to-cart/variable.html.twig:73
 msgid "This product is currently out of stock and unavailable."
 msgstr "Ce produit est actuellement en rupture de stock et indisponible."
 
@@ -1252,15 +1271,15 @@ msgstr ""
 "Désolé, ce produit n&rsquo;est pas disponible. Veuillez choisir une "
 "combinaison différente."
 
-#: views/woocommerce/single-product/price.html.twig:6
+#: views/woocommerce/single-product/price.html.twig:9
 msgid "Price:"
 msgstr "Prix :"
 
-#: views/woocommerce/single-product/product-gallery.html.twig:43
+#: views/woocommerce/single-product/product-gallery.html.twig:44
 msgid "Previous"
 msgstr "Précédent"
 
-#: views/woocommerce/single-product/product-gallery.html.twig:49
+#: views/woocommerce/single-product/product-gallery.html.twig:50
 msgid "Next"
 msgstr "Suivant"
 
@@ -1283,6 +1302,12 @@ msgstr "19h47"
 #. Author URI of the plugin/theme
 msgid "https://19h47.fr/"
 msgstr "https://19h47.fr/"
+
+#~ msgid "Remove this item"
+#~ msgstr "Enlever cet élément"
+
+#~ msgid "Products"
+#~ msgstr "Produits"
 
 #~ msgid "Habitat"
 #~ msgstr "Habitat"

@@ -9,7 +9,7 @@
 
 		{% if label %}
 			<li class="mb-12px">
-				<h5 class="ff-body my-0 fs-2xs">
+				<h5 class="ff-body m-0 fs-2xs">
 					{{- label -}}
 				</h5>
 			</li>
@@ -18,8 +18,8 @@
 		<ul class="d-flex align-items-center list-style-type-none">
 			{%- for social in socials -%}
 				<li class="{{ loop.first ? 'me-8px' : loop.last ? 'ms-8px' : 'my-8px' }}">
-					<a class="d-inline-block align-middle ff-title text-gray-very-dark" href="{{ social.url }}" target="_blank" rel="noopener noreferer">
-						{{- include( 'svg/use.html.twig', { classes: [ 'w-24px', 'h-24px', 'fill-current', 'fill-black-hover', 'd-block' ], icon: social.slug } ) -}}
+					<a class="ff-title text-gray-very-dark" href="{{ social.url }}" target="_blank" rel="noopener noreferer">
+						{{- include( 'svg/use.html.twig', { classes: [ 'size-24px', 'fill-current', 'fill-black-hover', 'd-block' ], icon: social.slug } ) -}}
 					</a>
 				</li>
 			{%- endfor -%}

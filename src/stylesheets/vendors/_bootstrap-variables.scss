@@ -40,10 +40,7 @@ $enable-important-utilities: false;
  */
 $grid-breakpoints: (
 	xs: 0,
-	// sm: 754px,
-		md: 992px,
-	// lg: 1200px,
-		// hd: 2560px,,,,,,,,,,
+	md: 992px,
 );
 
 $position-values: map-merge(
@@ -183,4 +180,13 @@ $custom-theme-colors: (
 	green-very-dark-lime-01: #155724,
 	green-light-grayish-lime-01: #d4edda,
 	green-light-grayish-lime-02: #c3e6cb,
+);
+
+$border-width: #{math.div(1, $base-font-size)}rem;
+$border-widths: (
+	1: #{math.div(1, $base-font-size)}rem,
+	2: #{math.div(2, $base-font-size)}rem,
+	3: #{math.div(3, $base-font-size)}rem,
+	4: #{math.div(4, $base-font-size)}rem,
+	5: #{math.div(5, $base-font-size)}rem,
 );

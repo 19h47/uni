@@ -16,46 +16,6 @@
 	{{ post.modules ? post.modules | map( module => "data-module-#{ module }" ) | join( ' ' ) : '' }}
 >
 
-	<header
-		class="{{ [
-			'position-fixed',
-			'd-flex',
-			'flex-md-column',
-			'align-items-center',
-			'flex-row-reverse',
-			'justify-content-between',
-			'top-0',
-			'end-0',
-			'end-md-auto',
-			'start-0',
-			'bottom-md-0',
-			'my-20px',
-			'my-md-0',
-			'mx-md-20px',
-			'z-index-5',
-			'start-md-auto',
-			'px-20px',
-			'px-md-0',
-			'py-md-40px',
-			'bg-white',
-			'h-60px',
-			'h-md-100',
-			'shadow-uni',
-			'w-md-60px'
-		] | join( ' ' ) | trim }}"
-	>
-		<div class="flex-row-reverse d-flex flex-md-column align-items-center">
-			{{- include( 'components/button-menu.html.twig' ) -}}
-			{{- include( 'components/languages.html.twig', { classes: [ 'position-relative', 'z-index-2', 'mt-md-24px', 'me-20px', 'me-md-0' ] } ) -}}
-		</div>
-
-		{{- include( 'components/logo.html.twig' ) -}}
-		{{- include( 'components/mini-cart.html.twig', { classes: [ 'z-index-2' ] } ) -}}
-
-	</header>
-
-	{{- include( 'components/menu.html.twig' ) -}}
-
 	{#
 	 # woocommerce_before_main_content hook.
 	 #}

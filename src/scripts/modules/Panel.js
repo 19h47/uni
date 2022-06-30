@@ -10,7 +10,7 @@ class Panel extends M {
 		this.el.addEventListener('click', ({ target }) => {
 			const { tagName } = target;
 
-			if ('A' !== tagName && 'INPUT' !== tagName) {
+			if ('A' !== tagName && 'INPUT' !== tagName && 'BUTTON' !== tagName) {
 				this.close();
 			}
 		});

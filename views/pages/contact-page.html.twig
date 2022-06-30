@@ -25,7 +25,7 @@
 
 			<div class="Wysiwyg mt-20px">{{- post.content -}}</div>
 
-			<p class="mt-20px mb-0"><a class="text-decoration-underline-hover" href="mailto:contact@uni-habitat.fr">contact@uni-habitat.fr</a></p>
+			<a class="mt-20px text-decoration-underline-hover" href="mailto:contact@uni-habitat.fr">contact@uni-habitat.fr</a>
 
 			<form class="js-contact-page-form transition-opacity mt-20px" data-contact-page="form">
 
@@ -45,6 +45,7 @@
 									custom_attributes: {
 										autocomplete: 'email'
 									},
+									placeholder: __( 'Enter your email address', 'uni' ),
 									class: [ 'w-100' ]
 								}
 							}
@@ -57,7 +58,7 @@
 							&nbsp;<abbr class="required text-decoration-none" title="{{ __( 'required', 'woocommerce' ) | e }}">*</abbr>
 						</label>
 
-						<p class="d-block mb-0 position-relative">
+						<p class="d-block m-0 position-relative">
 							<select class="p-12px outline-none-focus shadow-focus-focus w-100 border border-1 border-gray-very-dark rounded-5px transition-box-shadow" id="interest" name="interest" required>
 								<option value="habitat">{{- _x( 'Habitat', 'contact page', 'uni' ) -}}</option>
 								<option value="object">{{- _x( 'Object', 'contact page', 'uni' ) -}}</option>
@@ -74,7 +75,8 @@
 									class: [ 'mt-20px', 'mt-md-0' ],
 									label: _x( 'The subject of your message', 'contact page', 'uni' ),
 									required: true,
-									class: [ 'w-100' ]
+									class: [ 'w-100' ],
+									placeholder: __( 'Enter your subject', 'contact page', 'uni' )
 								}
 							}
 						)
@@ -86,7 +88,7 @@
 							&nbsp;<abbr class="required text-decoration-none" title="{{ __( 'required', 'woocommerce' ) | e }}">*</abbr>
 						</label>
 
-						<p class="d-block mb-0 position-relative">
+						<p class="d-block m-0 position-relative">
 							<select class="p-12px outline-none-focus shadow-focus-focus w-100 border border-1 border-gray-very-dark rounded-5px transition-box-shadow" id="you" name="you" required>
 								<option value="a-particular">{{- _x( 'A particular', 'contact page', 'uni' ) -}}</option>
 								<option value="a-professional">{{- _x( 'A professional', 'contact page', 'uni' ) -}}</option>
@@ -104,6 +106,7 @@
 								args: {
 									class: [ 'w-100' ],
 									label: _x( 'How did you hear about us?', 'contact page', 'uni' ),
+									placeholder: __( 'How did you hear about us', 'uni' )
 								}
 							}
 						)
@@ -117,7 +120,8 @@
 								key: 'message',
 								args: {
 									label: _x( 'Your message', 'contact page', 'uni' ),
-									required: true
+									required: true,
+									placeholder: __( 'Enter your message', 'uni' ),
 								},
 								class: [ 'w-100' ]
 							}

@@ -2,7 +2,7 @@
  # Mailchimp signup form
  #
  #
- # @purgeCSS form error-message is-loading [type='email'] success-message
+ # @purgeCSS form error-message is-loading [type='email'] success-message textarea [type='text'] [type='submit']
  #}
 
 <form
@@ -14,7 +14,7 @@
 >
 
 	{% if label %}
-		<label class="fs-2xs mb-12px mt-0 d-block ff-body" for="mce-EMAIL-{{ id }}">
+		<label class="fs-2xs mb-12px d-block ff-body" for="mce-EMAIL-{{ id }}">
 			{{- label -}}
 		</label>
 	{% endif %}

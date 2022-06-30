@@ -10,7 +10,7 @@
 	itemscope
 	itemtype="http://schema.org/WebPage"
 	{{ site.language_attributes }}
-	{{ html_class( 'no-js no-touch' ~ ( 'front-page' == namespace ? ' h-100 w-100' ) ~ ( 'horizontal-page' in post.modules ? ' cursor-wait' ) ) }}
+	{{ html_class( 'no-js no-touch' ~ ( 'front-page' == namespace ? ' size-100' ) ~ ( 'horizontal-page' in post.modules ? ' cursor-wait' ) ) }}
 >
 
 	<head>
@@ -22,11 +22,7 @@
 
 		{{ wp_head }}
 
-		{# {% include 'components/gtag.html.twig' with { id: 'UA-153672608-1' } %} #}
-
     </head>
 
-
     <body class="{{ body_class }} position-relative fw-normal ff-body {{ post.body_classes ? ( ' ' ~ post.body_classes | join( ' ' ) ) }}">
-		<div id="svg-sprite" class="d-none">{% include 'icons.svg' %}</div>
 

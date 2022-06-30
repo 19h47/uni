@@ -1,24 +1,29 @@
+{#
+ # Footer: Vertical
+ #
+ # @package UNI
+ #}
 {% import 'macros/footer.twig' as footer %}
 
 <footer class="shadow-uni py-20px py-md-100px px-20px px-md-200vw mt-20px flex-md-row flex-md-nowrap d-flex flex-wrap rounded-5px">
-	<div class="w-50 w-md-12.5 flew-grow-1">
+	<div class="w-50 w-md-12.5">
 		{% if menus.footer_primary.items %}
 			{{- footer.list( menus.footer_primary.items, __( 'Navigation', 'uni' ) ) -}}
 		{% endif %}
 	</div>
-	<div class="w-50 w-md-12.5 flew-grow-1">
+	<div class="w-50 w-md-12.5">
 		{{- footer.list( menus.footer_secondary.items, __( 'Information', 'uni' ) ) -}}
 	</div>
-	<div class="my-20px my-md-0 w-50 w-md-12.5 flew-grow-1">
+	<div class="my-20px my-md-0 w-50 w-md-12.5">
 		{{- include( 'partials/socials.html.twig', { label: __( 'Follow us', 'uni' ) } ) -}}
 	</div>
-	<div class="my-20px my-md-0 w-50 w-md-12.5 flew-grow-1">
+	<div class="my-20px my-md-0 w-50 w-md-12.5">
 		{{- footer.list( menus.footer_tertiary.items, __( 'Downloads', 'uni' ) ) -}}
 	</div>
-	<div class="order-1 order-md-0 mt-20px w-100 mt-md-0 w-md-12.5 flew-grow-1">
+	<div class="order-1 order-md-0 mt-20px mt-md-0 w-100 w-md-12.5">
 		<ul class="list-style-type-none">
 			<li class="mb-12px">
-				<h5 class="ff-body my-0 fs-2xs">{{- __( 'Credits:', 'uni' ) -}}</h5>
+				<h5 class="ff-body m-0 fs-2xs">{{- __( 'Credits:', 'uni' ) -}}</h5>
 			</li>
 			<li class="fs-3xs my-8px">
 				<a class="d-inline-block ff-title text-decoration-underline-hover" href="http://www.atelierinconnu.com/" target="_blank" rel="noopener noreferer">Atelier Inconu</a>
@@ -28,7 +33,7 @@
 			</li>
 		</ul>
 	</div>
-	<div class="w-md-37.5 w-100 flew-grow-1">
+	<div class="w-100 w-md-37.5">
 		{{- include( 'partials/signup-form.html.twig', { label: __( 'Newsletter subscriptions', 'uni' ), id: post.id } ) -}}
 	</div>
 </footer>

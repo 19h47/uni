@@ -48,8 +48,7 @@
 											'z-index-1',
 											'is-active',
 											'object-fit-cover',
-											'w-100',
-											'h-100',
+											'size-100',
 											item.mobile.image ? 'd-none d-md-block' : 'd-block'
 										],
 										image: item.image,
@@ -70,8 +69,7 @@
 											'object-position-center',
 											'object-fit-cover',
 											'd-md-none',
-											'w-100',
-											'h-100',
+											'size-100',
 										],
 										image: item.mobile.image,
 										attributes: { 'data-product-content': 'image' },
@@ -92,8 +90,7 @@
 											'object-fit-cover',
 											'z-index-2',
 											'is-active',
-											'w-100',
-											'h-100',
+											'size-100',
 											item.mobile.overview ? 'd-none d-md-block' : 'd-block'
 										],
 										image: item.image_hover,
@@ -116,8 +113,7 @@
 											'object-fit-cover',
 											'z-index-2',
 											'is-active',
-											'w-100',
-											'h-100',
+											'size-100',
 										],
 										image: item.mobile.overview,
 										attributes: { 'data-product-content': 'image' },
@@ -132,7 +128,7 @@
 								<h3 class="{{ fn(
 									'apply_filters',
 									'woocommerce_product_loop_title_classes',
-									'my-0 fs-xs fst-italic woocommerce-loop-product__title'
+									'm-0 fs-xs fst-italic woocommerce-loop-product__title'
 								) }}">
 									{{- item.project.title -}}
 								</h3>

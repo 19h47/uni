@@ -11,9 +11,8 @@
 		class="{{
 			[
 				'position-md-fixed',
-				'top-md-0',
 				'start-md-0',
-				'bottom-md-0',
+				'inset-y-md-0',
 				'mx-md-0',
 				'my-md-0',
 				'mt-100px',
@@ -32,23 +31,9 @@
 		>
 			{% block track %}
 				<div class="d-md-flex flex-md-nowrap my-md-20px flex-md-shrink-0" data-module-wrapper-page>
-					<div
-						class="{{ [
-							'py-md-0',
-							'ps-md-0',
-							'top-0',
-							'end-0',
-							'start-0',
-							'z-index-1',
-							'js-grid',
-							'top-md-auto',
-							'end-md-auto',
-							'start-md-auto'
-						] | join( ' ' ) | trim }}"
-					>
+					<div class="{{ [ 'py-md-0', 'ps-md-0', 'js-grid' ] | join( ' ' ) | trim }}">
 						<div
 							class="{{ [
-
 								'w-md-1900vw',
 								'h-md-100',
 								'min-h-100',

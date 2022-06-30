@@ -34,7 +34,11 @@ class ContactPage extends M {
 
 		this.el.addEventListener('bouncerFormValid', () => {
 			const form = new FormData(this.$('form')[0]);
+
 			this.$('form')[0].classList.add('is-loading');
+
+			this.$('form')[0].style.setProperty('pointer-events', 'none');
+			this.$('form')[0].style.setProperty('opacity', '0.6');
 
 			fetch(this.url, {
 				method: 'POST',
@@ -44,6 +48,10 @@ class ContactPage extends M {
 					remove(this.el);
 					this.$('form')[0].classList.remove('is-loading');
 					this.$('form')[0].classList.add('is-success');
+
+					this.$('form')[0].style.removeProperty('pointer-events');
+					this.$('form')[0].style.removeProperty('opacity');
+
 				})
 				.catch(error => {
 					console.log(error.message);

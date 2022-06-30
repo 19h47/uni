@@ -15,8 +15,9 @@ var hasError = function (field) {
 		field.type === 'reset' ||
 		field.type === 'submit' ||
 		field.type === 'button'
-	)
+	) {
 		return;
+	}
 
 	// Get validity
 	var validity = field.validity;
@@ -25,19 +26,25 @@ var hasError = function (field) {
 	if (validity.valid) return;
 
 	// If field is required and empty
-	if (validity.valueMissing) return uni.messages.value_missing.default;
+	if (validity.valueMissing) {
+		return uni.messages.value_missing.default;
+	}
 
 	// If not the right type
 	if (validity.typeMismatch) {
 		// Email
-		if (field.type === 'email') return uni.messages.type_mismatch.email;
+		if (field.type === 'email') {
+			return uni.messages.type_mismatch.email;
+		}
 
 		// URL
-		if (field.type === 'url') return uni.messages.type_mismatch.url;
+		if (field.type === 'url') {
+			return uni.messages.type_mismatch.url;
+		}
 	}
 
 	// If too short
-	if (validity.tooShort)
+	if (validity.tooShort) {
 		return (
 			'Please lengthen this text to ' +
 			field.getAttribute('minLength') +
@@ -45,9 +52,10 @@ var hasError = function (field) {
 			field.value.length +
 			' characters.'
 		);
+	}
 
 	// If too long
-	if (validity.tooLong)
+	if (validity.tooLong) {
 		return (
 			'Please shorten this text to no more than ' +
 			field.getAttribute('maxLength') +
@@ -55,11 +63,14 @@ var hasError = function (field) {
 			field.value.length +
 			' characters.'
 		);
+	}
 
 	// If pattern doesn't match
 	if (validity.patternMismatch) {
 		// If pattern info is included, return custom error
-		if (field.hasAttribute('title')) return field.getAttribute('title');
+		if (field.hasAttribute('title')) {
+			return field.getAttribute('title');
+		}
 
 		// Otherwise, generic error
 		return 'Please match the requested format.';
