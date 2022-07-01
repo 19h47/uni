@@ -8,31 +8,31 @@
 
 h1,
 .h1 {
-	@extend .ff-title, .fw-normal;
+	@extend .ff-title, .font-normal;
 	@include margin(top 1rem bottom 2rem);
 }
 
 h2,
 .h2 {
-	@extend .fw-normal, .ff-title;
+	@extend .font-normal, .ff-title;
 	@include margin(top 1rem bottom 1rem);
 }
 
 h3 {
-	@extend .fw-normal, .ff-title;
+	@extend .font-normal, .ff-title;
 	@include margin(top 1rem bottom 0);
 }
 
 h4,
 .h4 {
-	@extend .fw-normal, .ff-title;
+	@extend .font-normal, .ff-title;
 
 	@include margin(top 1rem bottom 0);
 }
 
 h5,
 .h5 {
-	@extend .fw-normal, .ff-title;
+	@extend .font-normal, .ff-title;
 
 	@include margin(top 1rem bottom 0);
 }

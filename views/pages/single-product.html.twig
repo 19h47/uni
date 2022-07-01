@@ -13,7 +13,7 @@
 				{{- __( 'This item has been added to your basket:', 'uni' ) -}}
 			</p>
 			<div class="my-40px mx-auto block">
-				<p class="ff-title fst-italic mb-8px">
+				<p class="ff-title italic mb-8px">
 					{{- post.title -}}
 				</p>
 
@@ -103,7 +103,7 @@
 								#}
 							{% do action( 'woocommerce_single_product_content' ) %}
 
-							{{- post.terms( 'product_cat' ) | map( c => "<p class=\"ff-title mt-20px fst-italic\">#{c.description}</p>" ) | join( ', ' ) -}}
+							{{- post.terms( 'product_cat' ) | map( c => "<p class=\"ff-title mt-20px italic\">#{c.description}</p>" ) | join( ', ' ) -}}
 						</div>
 
 						<div class="mt-20px flex gap-20px flex-wrap">

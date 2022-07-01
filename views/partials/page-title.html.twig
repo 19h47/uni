@@ -7,7 +7,7 @@
 <div {{ id ? "id=\"#{ id }\"" }} class="{{ classes ? classes | join( ' ' ) }}">
 	<{{ tag | default( 'h1' ) }} class="m-0 lh-none {{ classes_title ? classes_title | join( ' ' ) }} {{ 'h1' ==  tag | default( 'h1' ) ? 'text-4xl' : '' }}">
 		{% if subtitle %}
-			<span class="mb-12px block ff-body tracking-normal text-none text-xs block">
+			<span class="mb-12px block ff-body tracking-normal normal-case text-xs block">
 				{{- subtitle -}}
 			</span>
 		{% endif %}

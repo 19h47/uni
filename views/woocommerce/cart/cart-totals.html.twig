@@ -13,7 +13,7 @@
 	<div class="my-20px shop_table shop_table_responsive">
 
 		<div class="flex cart-subtotal flex-wrap">
-			<div class="w-50 fw-bold">
+			<div class="w-50 font-bold">
 				{{- __( 'Subtotal', 'uni' ) -}}
 			</div>
 			<div class="w-50 text-end" data-title="{{ __( 'Subtotal', 'uni' ) }}">
@@ -86,7 +86,7 @@
 				{% endfor %}
 			{% else %}
 				<div class="flex flex-wrap tax-total mt-20px">
-					<div class="w-50 fw-bold">
+					<div class="w-50 font-bold">
 						{{- countries.tax_or_vat() }}
 						{%- if customer.is_customer_outside_base() and not customer.has_calculated_shipping() -%}
 							&nbsp;
@@ -105,7 +105,7 @@
 		{% endif %}
 
 		<div class="order-total flex mt-20px">
-			<div class="w-50 fw-bold">{{- __( 'Total', 'uni' ) -}}</div>
+			<div class="w-50 font-bold">{{- __( 'Total', 'uni' ) -}}</div>
 			<div class="w-50 flex justify-content-end" data-title="{{ __( 'Total', 'uni' ) }}">
 				{{- html.order_total -}}
 			</div>

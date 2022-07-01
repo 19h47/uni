@@ -2,7 +2,7 @@
  # Input: Coupon
  #}
 
-<div class="coupon md-flex justify-content-md-end {{ classes ? classes | join( ' ' ) | trim }}">
+<div class="coupon md-flex {{ classes ? classes | join( ' ' ) | trim }}">
 	<input
 		type="text"
 		name="coupon_code"
@@ -27,7 +27,7 @@
 			{
 				type: 'submit',
 				label: __( 'Apply coupon', 'uni' ),
-				classes: [ 'w-100', 'w-md-auto', 'mt-12px', 'mt-md-0' ],
+				classes: [ 'w-100', 'w-md-auto', 'mt-12px', 'mt-md-0', 'flex-shrink-0' ],
 				attributes: {
 					name: 'apply_coupon',
 					value: __( 'Apply coupon', 'uni' )

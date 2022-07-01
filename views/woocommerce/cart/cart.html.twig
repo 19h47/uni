@@ -26,13 +26,13 @@
 
 			<thead>
 				<tr>
-					<th class="fw-bold pb-12px product-thumbnail hidden md-table-cell w-20 text-start border-bottom">&nbsp;</th>
-					<th class="fw-bold pb-12px product-name w-40 w-md-20 text-start border-bottom">
+					<th class="font-bold pb-12px product-thumbnail hidden md-table-cell w-20 text-start border-bottom">&nbsp;</th>
+					<th class="font-bold pb-12px product-name w-40 w-md-20 text-start border-bottom">
 						<span class="md-hidden">{{- __( 'Name', 'uni' ) -}}</span>&nbsp;
 					</th>
-					<th class="fw-bold pb-12px product-price text-start w-20 border-bottom">{{- __( 'Price', 'uni' ) -}}</th>
-					<th class="fw-bold pb-12px product-quantity w-20 text-end border-bottom">{{- __( 'Quantity', 'uni' ) -}}</th>
-					<th class="fw-bold pb-12px product-subtotal text-end w-20 border-bottom">{{- __( 'Total', 'uni' ) -}}</th>
+					<th class="font-bold pb-12px product-price text-start w-20 border-bottom">{{- __( 'Price', 'uni' ) -}}</th>
+					<th class="font-bold pb-12px product-quantity w-20 text-end border-bottom">{{- __( 'Quantity', 'uni' ) -}}</th>
+					<th class="font-bold pb-12px product-subtotal text-end w-20 border-bottom">{{- __( 'Total', 'uni' ) -}}</th>
 				</tr>
 			</thead>
 
@@ -51,7 +51,7 @@
 							{{- include( 'partials/image.html.twig', { classes: [ 'bg-gray-very-light-01', 'h-128vh', 'w-100', 'object-fit-contain', 'object-position-center', 'rounded', 'block' ], size: 'size-300', image: product.image_id } ) -}}
 							{{- product.url ? '</a>' -}}
 						</td>
-						<td class="border-bottom py-12px product-name text-xs w-40 w-md-20 ff-title fst-italic" data-title="{{ __( 'Product', 'uni' ) }}">
+						<td class="border-bottom py-12px product-name text-xs w-40 w-md-20 ff-title italic" data-title="{{ __( 'Product', 'uni' ) }}">
 							{{- product.name -}}
 							{{- formatted_cart_item_data -}}
 							{{- product.backorder -}}
@@ -73,7 +73,7 @@
 				{% if coupons_enabled %}
 					<tr>
 						<td colspan="5" class="actions">
-							{{- include( 'components/input-coupon.html.twig', { classes: [ 'mt-20px', 'pb-md-20px' ] } ) -}}
+							{{- include( 'components/input-coupon.html.twig', { classes: [ 'my-20px' ] } ) -}}
 							{#
 							 # Hook: woocommerce_cart_coupon.
 							 #}

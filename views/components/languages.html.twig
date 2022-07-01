@@ -6,11 +6,11 @@
 
 <ul class="text-2xs list-style-type-none flex flex-column {{ classes ? classes | join( ' ' ) | trim }}">
 	{% for lang in pll_the_languages() %}
-		<li class="border-bottom border-bottom-none-last-child text-uppercase text-center px-2px {{ loop.first ? 'pb-12px' : loop.last ? 'pt-12px' : 'py-12px' }}">
+		<li class="border-bottom border-bottom-none-last-child uppercase text-center px-2px {{ loop.first ? 'pb-12px' : loop.last ? 'pt-12px' : 'py-12px' }}">
 			<a
 				id="lang-{{ lang.id }}"
 				href="{{ lang.url }}"
-				class="block {{ lang.classes | join( ' ' ) }} {{ 'current-lang' in lang.classes ? 'fw-light tracking-wider' : 'fw-extralight' }}"
+				class="block {{ lang.classes | join( ' ' ) }} {{ 'current-lang' in lang.classes ? 'font-light tracking-wider' : 'font-extralight' }}"
 				aria-label="{{ lang.name }}">
 				{{- lang.slug -}}
 			</a>

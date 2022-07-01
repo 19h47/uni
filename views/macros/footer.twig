@@ -10,7 +10,7 @@
 			{% for item in items %}
 				<li class="text-3xs {{ loop.last ? 'mt-8px' : 'my-8px' }}">
 					<a
-						class="d-inline-block text-decoration-underline-hover {{ item.current ? 'text-decoration-underline' : '' }} text-decoration-underline-focus ff-title"
+						class="inline-block text-decoration-underline-hover {{ item.current ? 'text-decoration-underline' : '' }} text-decoration-underline-focus ff-title"
 						href="{{ item.url }}"
 						itemprop="url"
 						{{ item.target ? " target=\"#{item.target}\" rel=\"noopener noreferer\"" }}

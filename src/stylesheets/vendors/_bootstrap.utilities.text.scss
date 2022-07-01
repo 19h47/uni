@@ -1,0 +1,93 @@
+@use 'sass:math';
+
+$font-sizes: (
+	3xs: #{math.div(8, $base-font-size)}rem math.div(8, $base-font-size),
+	2xs: #{math.div(10, $base-font-size)}rem math.div(12, $base-font-size),
+	xs: #{math.div(12, $base-font-size)}rem math.div(16, $base-font-size),
+	sm: #{math.div(14, $base-font-size)}rem math.div(20, $base-font-size),
+	base: #{math.div(16, $base-font-size)}rem math.div(24, $base-font-size),
+	lg: #{math.div(18, $base-font-size)}rem math.div(28, $base-font-size),
+	xl: #{math.div(20, $base-font-size)}rem math.div(28, $base-font-size),
+	2xl: #{math.div(24, $base-font-size)}rem math.div(32, $base-font-size),
+	3xl: #{math.div(30, $base-font-size)}rem math.div(36, $base-font-size),
+	4xl: #{math.div(36, $base-font-size)}rem math.div(40, $base-font-size),
+	5xl: #{math.div(48, $base-font-size)}rem 1,
+	7xl: #{math.div(72, $base-font-size)}rem 1,
+);
+
+@each $key, $value in $font-sizes {
+	.text-#{$key} {
+		font-size: nth($value, 1);
+		line-height: nth($value, 2);
+	}
+
+	@include media-breakpoint-up(md) {
+		.text-md-#{$key} {
+			font-size: nth($value, 1);
+			line-height: nth($value, 2);
+		}
+	}
+}
+
+$utilities: map-merge(
+	$utilities,
+	(
+		'font-family': (
+			property: font-family,
+			values: $font-families,
+			class: ff,
+		),
+		'font-style':
+			map-merge(
+				map-get($utilities, 'font-style'),
+				(
+					class: '',
+					values: (
+						italic: italic,
+						not-italic: normal,
+					),
+				)
+			),
+		'font-weight': (
+			property: font-weight,
+			values: $font-weights,
+			class: font,
+		),
+		'line-height':
+			map-merge(
+				map-get($utilities, 'line-height'),
+				(
+					responsive: true,
+					values:
+						map-merge(
+							map-get(map-get($utilities, 'line-height'), 'values'),
+							(
+								none: 1,
+								5: #{math.div(20, $base-font-size)}rem,
+							)
+						),
+				)
+			),
+		'text-align': map-merge(map-get($utilities, 'text-align'), ()),
+		'text-decoration':
+			map-merge(
+				map-get($utilities, 'text-decoration'),
+				(
+					state: hover focus,
+				)
+			),
+		'text-transform':
+			map-merge(
+				map-get($utilities, 'text-transform'),
+				(
+					class: '',
+					values: (
+						lowercase: lowercase,
+						uppercase: uppercase,
+						capitalize: capitalize,
+						normal-case: none,
+					),
+				)
+			),
+	)
+);

@@ -27,7 +27,7 @@
 								{
 									tag: 'a',
 									label: 'Voir notre campagne Ulule',
-									classes: [ 'd-inline-block', 'text-white', 'bg-black' ],
+									classes: [ 'inline-block', 'text-white', 'bg-black' ],
 									attributes: {
 										href: 'https://fr.ulule.com/uni-design-d-espace-et-mobilier-contemporain/',
 										target: '_blank',
@@ -48,7 +48,7 @@
 		{% endblock %}
 	{% endembed %}
 
-	<div class="rounded-md-5px overflow-md-hidden my-md-20px ms-md-100px me-md-20px text-white size-100 relative h-md-auto">
+	<div class="rounded-md overflow-md-hidden my-md-20px ms-md-100px me-md-20px text-white size-100 relative h-md-auto">
 		<div class="px-20px pt-140px pb-60px z-2 mh-100 h-100 flex flex-column py-md-60vh relative" data-front-page="grid">
 
 
@@ -66,16 +66,36 @@
 			<footer class="mt-auto">
 				<div class="flex">
 					<a class="text-center block w-50" href="{{ shop_url }}">
-						{{- include( 'partials/page-title.html.twig', { tag: 'p', classes: [ 'text-md-4xl', 'text-2xl', 'ff-title', 'fw-normal', 'text-uppercase' ], subtitle: _x( 'Explore our:', 'front page', 'uni' ), title: __( 'Store', 'uni' ) } ) -}}
+						{{-
+							include(
+								'partials/page-title.html.twig',
+								 {
+									tag: 'p',
+									classes: [ 'text-md-4xl', 'text-2xl', 'ff-title', 'font-normal', 'uppercase' ],
+									title: __( 'Store', 'uni' ),
+									subtitle: _x( 'Explore our:', 'front page', 'uni' ),
+								}
+							)
+						-}}
 					</a>
 
 					<a class="text-center block w-50" href="{{ habitat_page.link }}">
-						{{- include( 'partials/page-title.html.twig', { tag: 'p', classes: [ 'text-md-4xl', 'text-2xl', 'ff-title', 'fw-normal', 'text-uppercase' ], subtitle: _x( 'Discover our:', 'front page', 'uni' ), title: __( 'Spaces', 'uni' ) } ) -}}
+						{{-
+							include(
+								'partials/page-title.html.twig',
+								{
+									tag: 'p',
+									classes: [ 'text-md-4xl', 'text-2xl', 'ff-title', 'font-normal', 'uppercase' ],
+									title: __( 'Spaces', 'uni' ),
+									subtitle: _x( 'Discover our:', 'front page', 'uni' ),
+								}
+							)
+						-}}
 					</a>
 				</div>
 
 				{% if post.meta( 'footer' ) %}
-					<div class="mt-40px Wysiwyg ff-title fst-italic text-center">
+					<div class="mt-40px Wysiwyg ff-title italic text-center">
 						{{- post.meta( 'footer' ) -}}
 					</div>
 				{% endif %}
