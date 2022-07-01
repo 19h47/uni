@@ -7,6 +7,8 @@
 {% extends 'pages/horizontal-page.html.twig' %}
 
 {% block content %}
+	{{ parent() }}
+
 	{% embed 'components/panel.html.twig' with { id: 'project-information' } %}
 		{% block content %}
 			<div class="px-md-200vw min-h-100 pt-md-200vh pb-md-60vh h-md-100">
@@ -22,7 +24,7 @@
 					)
 				-}}
 
-				<div class="ps-md-200vw d-md-flex">
+				<div class="ps-md-200vw md-flex">
 					<div class="w-md-800vw mt-20px">
 						{% if post.meta( 'project_content' ) %}
 							<div class="Wysiwyg">{{- post.meta( 'project_content' ) -}}</div>
@@ -38,20 +40,18 @@
 			</div>
 		{% endblock %}
 	{% endembed %}
-
-	{{ parent() }}
 {% endblock %}
 
 {% block track %}
-	<div class="d-md-flex flex-md-nowrap my-md-20px bg-white flex-md-shrink-0" data-module-wrapper-page>
+	<div class="md-flex flex-md-nowrap my-md-20px bg-white flex-md-shrink-0" data-module-wrapper-page>
 		<div
 			class="{{ [
 				'pt-md-200vh',
 				'ps-md-200vw',
 				'mb-20px',
 				'mb-md-0',
-				'position-relative',
-				'z-index-1',
+				'relative',
+				'z-1',
 				'h-md-100',
 				'w-md-1000vw'
 			] | join( ' ' ) | trim }}"
@@ -70,7 +70,7 @@
 
 				{% if post.attributes or post.meta( 'project_content' ) %}
 					<button
-						class="d-none d-md-inline-block mt-8px"
+						class="hidden md-inline-block mt-8px"
 						type="button"
 						data-module-panel-button
 						data-panel-button-id="project-information"
@@ -85,7 +85,7 @@
 		</div>
 
 		{% if post.images is iterable %}
-			<ul class="ms-md-n200vw mx-n20px mx-md-0 py-md-60vh list-style-type-none pe-none d-flex flex-column flex-md-row position-relative z-index-2">
+			<ul class="ms-md-n200vw mx-n20px mx-md-0 py-md-60vh list-style-type-none pe-none flex flex-column flex-md-row relative z-2">
 
 				{% for image in post.images %}
 					<li class="my-md-0 h-md-100 ms-md-200vw {{ loop.first ? 'mb-20px' : ( loop.last ? 'mt-20px' : 'my-20px' ) }}">
@@ -94,7 +94,7 @@
 							include(
 								'partials/image.html.twig',
 								{
-									classes: [ 'd-block', 'w-100', 'w-md-auto', 'h-auto', 'h-md-100' ],
+									classes: [ 'block', 'w-100', 'w-md-auto', 'h-auto', 'h-md-100' ],
 									image: image,
 									loading: 'eager',
 									attributes: {
@@ -115,7 +115,7 @@
 	</div>
 
 	{% if post.meta( 'project_content' ) %}
-		<div class="text-center my-20px d-md-none">
+		<div class="text-center my-20px md-hidden">
 			{{-
 				include(
 					'components/button.html.twig',
@@ -145,7 +145,7 @@
 		{{- include(
 			'components/heading.html.twig',
 			{
-				classes: [ 'text-gray-dark', 'd-md-none' ],
+				classes: [ 'text-gray-dark', 'md-hidden' ],
 				link: post.prev.link, title: __( 'Next Project', 'uni' )
 			},
 			with_context = false
@@ -154,7 +154,7 @@
 		{{- include(
 			'components/heading.html.twig',
 			{
-				classes: [ 'flex-md-shrink-0', 'text-gray-dark', 'd-md-none' ],
+				classes: [ 'flex-md-shrink-0', 'text-gray-dark', 'md-hidden' ],
 				link: post.first_project.link, title: __( 'Next Project', 'uni' )
 			},
 			with_context = false
@@ -177,12 +177,12 @@
 	{% if post.prev %}
 		{{- include(
 			'components/heading.html.twig',
-			{ classes: [ 'flex-md-shrink-0', 'text-gray-dark', 'd-none', 'd-md-block' ], link: post.prev.link, title: __( 'Next Project', 'uni' )  }, with_context = false
+			{ classes: [ 'flex-shrink-0', 'text-gray-dark', 'hidden', 'md-block' ], link: post.prev.link, title: __( 'Next Project', 'uni' )  }, with_context = false
 		) -}}
 	{% else %}
 		{{- include(
 			'components/heading.html.twig',
-			{ classes: [ 'flex-md-shrink-0', 'text-gray-dark', 'd-none', 'd-md-block' ], link: post.first_project.link, title: __( 'Next Project', 'uni' )  }, with_context = false
+			{ classes: [ 'flex-shrink-0', 'text-gray-dark', 'hidden', 'md-block' ], link: post.first_project.link, title: __( 'Next Project', 'uni' )  }, with_context = false
 		) -}}
 	{% endif %}
 

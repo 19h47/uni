@@ -19,7 +19,7 @@
 					{{- fn( 'wc_get_template', 'checkout/payment-method.php',  { 'gateway': gateway } ) -}}
 				{% endfor %}
 			{% else %}
-				<li class="py-12px border-bottom border-1 border-gray-very-dark woocommerce-notice woocommerce-notice--info woocommerce-info">
+				<li class="py-12px border-bottom woocommerce-notice woocommerce-notice--info woocommerce-info">
 
 					{% filter apply_filters( 'woocommerce_no_available_payment_methods_message' ) %}
 						{% if customer.get_billing_country() %}

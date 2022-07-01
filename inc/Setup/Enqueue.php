@@ -20,7 +20,7 @@ class Enqueue {
 	 * @return void
 	 */
 	public function run() : void {
-		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_style' ) );
+		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_styles' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 		add_filter( 'style_loader_tag', array( $this, 'style_loader_tag' ), 10, 4 );
 		add_action( 'wp_head', array( $this, 'preload' ) );
@@ -124,9 +124,10 @@ class Enqueue {
 	 * @return void
 	 * @since  1.0.0
 	 */
-	public function enqueue_style() : void {
+	public function enqueue_styles() : void {
 
 		wp_dequeue_style( 'wp-block-library' );
+		wp_dequeue_style( 'wp-block-library-theme' );
 		wp_dequeue_style( 'wc-blocks-style' );
 		wp_dequeue_style( 'wp-mediaelement' );
 

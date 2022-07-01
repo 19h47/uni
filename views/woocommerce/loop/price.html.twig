@@ -7,7 +7,7 @@
  #}
 
 {% if price_html and render and not upcoming %}
-	<span class="price fs-xs">{{- price_html -}}</span>
+	<span class="price text-xs">{{- price_html -}}</span>
 {% elseif upcoming and render %}
-	<span class="price fs-xs">{{- __( 'Coming soon', 'uni' ) -}}</span>
+	<span class="price text-xs">{{- __( 'Coming soon', 'uni' ) -}}</span>
 {% endif %}

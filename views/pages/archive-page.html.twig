@@ -6,7 +6,7 @@
 {% extends 'pages/horizontal-page.html.twig' %}
 
 {% block track %}
-	<div class="d-md-flex flex-md-nowrap my-md-20px flex-md-shrink-0">
+	<div class="md-flex flex-md-nowrap my-md-20px flex-md-shrink-0">
 		{{-
 			include(
 				'partials/page-content.html.twig',
@@ -28,10 +28,10 @@
 		{% if post.items %}
 			{{- include( 'woocommerce/loop/loop-start.html.twig', { columns: loop_columns } ) -}}
 				{% for item in post.items %}
-					<li class="Loop w-md-800vw h-md-100 d-flex flex-column flex-md-row">
+					<li class="Loop w-md-800vw h-md-100 flex flex-column flex-md-row">
 
 						<{{- item.project ? "a href=\"#{item.project.link}\"" | raw : 'div' | raw }}
-							class="Thumbnail h-360vh w-100 h-md-100 position-relative d-block {{ item.project.color ? '' : 'bg-gray-very-light-01' }}"
+							class="Thumbnail h-360vh w-100 h-md-100 relative block {{ item.project.color ? '' : 'bg-gray-very-light-01' }}"
 							style="{{ item.project.color ? 'background-color: ' ~ item.project.color | raw : '' }}"
 							data-product-content="link"
 						>
@@ -43,13 +43,13 @@
 											'Thumbnail__image',
 											'transition-opacity-visibility',
 											'inset-md-0',
-											'position-md-absolute',
+											'md-absolute',
 											'object-position-center',
-											'z-index-1',
+											'z-1',
 											'is-active',
 											'object-fit-cover',
 											'size-100',
-											item.mobile.image ? 'd-none d-md-block' : 'd-block'
+											item.mobile.image ? 'hidden md-block' : 'block'
 										],
 										image: item.image,
 										attributes: { 'data-product-content': 'image' },
@@ -64,11 +64,11 @@
 										classes: [
 											'Thumbnail__image',
 											'transition-opacity-visibility',
-											'z-index-1',
+											'z-1',
 											'is-active',
 											'object-position-center',
 											'object-fit-cover',
-											'd-md-none',
+											'md-hidden',
 											'size-100',
 										],
 										image: item.mobile.image,
@@ -84,14 +84,14 @@
 										classes: [
 											'Thumbnail__overview',
 											'transition-opacity-visibility',
-											'position-absolute',
+											'absolute',
 											'inset-0',
 											'object-position-center',
 											'object-fit-cover',
-											'z-index-2',
+											'z-2',
 											'is-active',
 											'size-100',
-											item.mobile.overview ? 'd-none d-md-block' : 'd-block'
+											item.mobile.overview ? 'hidden md-block' : 'block'
 										],
 										image: item.image_hover,
 										attributes: { 'data-product-content': 'image' },
@@ -106,12 +106,12 @@
 										classes: [
 											'Thumbnail__overview',
 											'transition-opacity-visibility',
-											'd-md-none',
-											'position-absolute',
+											'md-hidden',
+											'absolute',
 											'inset-0',
 											'object-position-center',
 											'object-fit-cover',
-											'z-index-2',
+											'z-2',
 											'is-active',
 											'size-100',
 										],
@@ -124,11 +124,11 @@
 						</{{-  item.project ? 'a' : 'div' -}}>
 
 						{% if item.project %}
-							<header class="writing-mode-md-vertical-rl origin-md-center rotate-md-180 p-md-20px d-md-flex flex-md-row justify-content-md-between m-md-0 m-20px h-md-100">
+							<header class="writing-mode-md-vertical-rl origin-md-center rotate-md-180 p-md-20px md-flex flex-md-row justify-content-md-between m-md-0 m-20px h-md-100">
 								<h3 class="{{ fn(
 									'apply_filters',
 									'woocommerce_product_loop_title_classes',
-									'm-0 fs-xs fst-italic woocommerce-loop-product__title'
+									'm-0 text-xs fst-italic woocommerce-loop-product__title'
 								) }}">
 									{{- item.project.title -}}
 								</h3>
@@ -140,7 +140,7 @@
 			{{- include( 'woocommerce/loop/loop-end.html.twig' ) -}}
 		{% endif %}
 
-		<div class="text-center my-20px d-md-none">
+		<div class="text-center my-20px md-hidden">
 			{{-
 				include(
 					'components/button.html.twig',

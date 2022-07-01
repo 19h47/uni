@@ -2,20 +2,18 @@
  # Input: Coupon
  #}
 
-<div class="coupon d-md-flex justify-content-md-end {{ classes ? classes | join( ' ' ) | trim }}">
+<div class="coupon md-flex justify-content-md-end {{ classes ? classes | join( ' ' ) | trim }}">
 	<input
 		type="text"
 		name="coupon_code"
 		class="{{ [
 			'border',
-			'border-1',
-			'border-gray-very-dark',
 			'shadow-focus-focus',
 			'transition-box-shadow',
 			'outline-none-focus',
 			'p-12px',
 			'w-100',
-			'rounded-5px',
+			'rounded',
 			'me-md-12px'
 		] | join( ' ' ) }}"
 		placeholder="{{ __( 'Coupon code', 'uni' ) }}"

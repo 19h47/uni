@@ -9,7 +9,7 @@
 
 {% block content %}
 
-	<div class="mt-100px mx-20px mb-20px mt-md-200vh ms-md-100px position-relative w-md-100">
+	<div class="mt-100px mx-20px mb-20px mt-md-200vh ms-md-100px relative w-md-100">
 
 		<div class="mx-md-200vw mb-md-200vh mw-md-1200vw">
 			{{-
@@ -32,7 +32,7 @@
 
 				{# <div class=""><p><a href="mailto:contact@uni-objets.fr">contact@uni-objets.fr</a></p></div> #}
 
-				<div class="d-flex flex-column gap-y-20px">
+				<div class="flex flex-column gap-y-20px">
 					{{-
 						include(
 							'components/input-text.html.twig',
@@ -53,13 +53,13 @@
 					-}}
 
 					<div class="form-row w-100">
-						<label for="interest" class="mb-12px d-block">
+						<label for="interest" class="mb-12px block">
 							{{- _x( 'Are you interested in?', 'contact page', 'uni' ) -}}
 							&nbsp;<abbr class="required text-decoration-none" title="{{ __( 'required', 'woocommerce' ) | e }}">*</abbr>
 						</label>
 
-						<p class="d-block m-0 position-relative">
-							<select class="p-12px outline-none-focus shadow-focus-focus w-100 border border-1 border-gray-very-dark rounded-5px transition-box-shadow" id="interest" name="interest" required>
+						<p class="block m-0 relative">
+							<select class="p-12px outline-none-focus shadow-focus-focus w-100 border rounded transition-box-shadow" id="interest" name="interest" required>
 								<option value="habitat">{{- _x( 'Habitat', 'contact page', 'uni' ) -}}</option>
 								<option value="object">{{- _x( 'Object', 'contact page', 'uni' ) -}}</option>
 							</select>
@@ -83,13 +83,13 @@
 					-}}
 
 					<div class="form-row w-100">
-						<label for="you" class="mb-12px d-block">
+						<label for="you" class="mb-12px block">
 							{{- _x( 'You are?', 'contact page', 'uni' ) -}}
 							&nbsp;<abbr class="required text-decoration-none" title="{{ __( 'required', 'woocommerce' ) | e }}">*</abbr>
 						</label>
 
-						<p class="d-block m-0 position-relative">
-							<select class="p-12px outline-none-focus shadow-focus-focus w-100 border border-1 border-gray-very-dark rounded-5px transition-box-shadow" id="you" name="you" required>
+						<p class="block m-0 relative">
+							<select class="p-12px outline-none-focus shadow-focus-focus w-100 border rounded transition-box-shadow" id="you" name="you" required>
 								<option value="a-particular">{{- _x( 'A particular', 'contact page', 'uni' ) -}}</option>
 								<option value="a-professional">{{- _x( 'A professional', 'contact page', 'uni' ) -}}</option>
 								<option value="a-shop">{{- _x( 'A shop', 'contact page', 'uni' ) -}}</option>
@@ -139,7 +139,7 @@
 					</div>
 
 
-					<div class="w-100 fs-xs m-md-0">
+					<div class="w-100 text-xs m-md-0">
 						{{- _x( 'All fields marked with * are required', 'contact page', 'uni' ) -}}
 					</div>
 				</div>

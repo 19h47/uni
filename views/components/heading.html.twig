@@ -6,13 +6,13 @@
 
 <div
 	class="{{ [
-		'position-relative',
-		'd-md-flex',
+		'relative',
+		'md-flex',
 		'align-items-md-center',
 		'justify-content-md-center',
-		'z-index-2',
-		'fs-xl',
-		'fs-md-2xl'
+		'z-2',
+		'text-xl',
+		'text-md-2xl'
 	] | merge( classes | default( [] ) ) | join( ' ' ) | trim }}"
 >
 	<h2 class="{{
@@ -25,7 +25,7 @@
 			'my-md-0',
 			'text-center',
 			'text-uppercase',
-			'letter-spacing-100'
+			'tracking-widest'
 		] | join( ' ' )
 	}}">
 		{{- link ? "<a href=\"#{ link }\">" | raw -}}

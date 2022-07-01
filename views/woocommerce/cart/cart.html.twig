@@ -13,7 +13,7 @@
 	 #}
 	{% do action( 'woocommerce_before_cart' ) %}
 
-	<form class="border-spacing-0 text-break w-md-60 border-end-md border-md-1 border-md-gray-very-dark py-md-250vh ps-md-200vw pe-md-100vw woocommerce-cart-form" action="{{ cart_url | e }}" method="post">
+	<form class="border-spacing-0 text-break w-md-60 border-end-md border-md-gray-very-dark py-md-250vh ps-md-200vw pe-md-100vw woocommerce-cart-form" action="{{ cart_url | e }}" method="post">
 
 		{#
 		 # Hook: woocommerce_before_cart_table
@@ -26,13 +26,13 @@
 
 			<thead>
 				<tr>
-					<th class="fw-bold pb-12px product-thumbnail d-none d-md-table-cell w-20 text-start border-bottom border-1 border-gray-very-dark">&nbsp;</th>
-					<th class="fw-bold pb-12px product-name w-40 w-md-20 text-start border-bottom border-1 border-gray-very-dark">
-						<span class="d-md-none">{{- __( 'Name', 'uni' ) -}}</span>&nbsp;
+					<th class="fw-bold pb-12px product-thumbnail hidden md-table-cell w-20 text-start border-bottom">&nbsp;</th>
+					<th class="fw-bold pb-12px product-name w-40 w-md-20 text-start border-bottom">
+						<span class="md-hidden">{{- __( 'Name', 'uni' ) -}}</span>&nbsp;
 					</th>
-					<th class="fw-bold pb-12px product-price text-start w-20 border-bottom border-1 border-gray-very-dark">{{- __( 'Price', 'uni' ) -}}</th>
-					<th class="fw-bold pb-12px product-quantity w-20 text-end border-bottom border-1 border-gray-very-dark">{{- __( 'Quantity', 'uni' ) -}}</th>
-					<th class="fw-bold pb-12px product-subtotal text-end w-20 border-bottom border-1 border-gray-very-dark">{{- __( 'Total', 'uni' ) -}}</th>
+					<th class="fw-bold pb-12px product-price text-start w-20 border-bottom">{{- __( 'Price', 'uni' ) -}}</th>
+					<th class="fw-bold pb-12px product-quantity w-20 text-end border-bottom">{{- __( 'Quantity', 'uni' ) -}}</th>
+					<th class="fw-bold pb-12px product-subtotal text-end w-20 border-bottom">{{- __( 'Total', 'uni' ) -}}</th>
 				</tr>
 			</thead>
 
@@ -46,21 +46,21 @@
 				{% for product in products %}
 
 					<tr class="woocommerce-cart-form__cart-item {{ product.item_class }}">
-						<td class="py-12px fs-xs pe-20px product-thumbnail d-none d-md-table-cell border-bottom border-1 border-gray-very-dark">
-							{{- product.url ? '<a class="d-block" href="%s">' | format( product.url ) -}}
-							{{- include( 'partials/image.html.twig', { classes: [ 'bg-gray-very-light-01', 'h-128vh', 'w-100', 'object-fit-contain', 'object-position-center', 'rounded-5px', 'd-block' ], size: 'size-300', image: product.image_id } ) -}}
+						<td class="py-12px text-xs pe-20px product-thumbnail hidden md-table-cell border-bottom">
+							{{- product.url ? '<a class="block" href="%s">' | format( product.url ) -}}
+							{{- include( 'partials/image.html.twig', { classes: [ 'bg-gray-very-light-01', 'h-128vh', 'w-100', 'object-fit-contain', 'object-position-center', 'rounded', 'block' ], size: 'size-300', image: product.image_id } ) -}}
 							{{- product.url ? '</a>' -}}
 						</td>
-						<td class="border-bottom border-1 border-gray-very-dark py-12px product-name fs-xs w-40 w-md-20 ff-title fst-italic" data-title="{{ __( 'Product', 'uni' ) }}">
+						<td class="border-bottom py-12px product-name text-xs w-40 w-md-20 ff-title fst-italic" data-title="{{ __( 'Product', 'uni' ) }}">
 							{{- product.name -}}
 							{{- formatted_cart_item_data -}}
 							{{- product.backorder -}}
 						</td>
-						<td class="border-bottom border-1 border-gray-very-dark py-12px product-price fs-xs text-start w-20" data-title="{{ __( 'Price', 'uni' ) }}">{{- product.price -}}</td>
-						<td class="border-bottom border-1 border-gray-very-dark py-12px product-quantity fs-xs w-20" data-title="{{ __( 'Quantity', 'uni' ) }}">
+						<td class="border-bottom py-12px product-price text-xs text-start w-20" data-title="{{ __( 'Price', 'uni' ) }}">{{- product.price -}}</td>
+						<td class="border-bottom py-12px product-quantity text-xs w-20" data-title="{{ __( 'Quantity', 'uni' ) }}">
 							{{- product.quantity -}}
 						</td>
-						<td class="border-bottom border-1 border-gray-very-dark py-12px product-subtotal fs-xs text-end w-20" data-title="{{ __( 'Total', 'uni' ) }}">{{- product.subtotal -}}</td>
+						<td class="border-bottom py-12px product-subtotal text-xs text-end w-20" data-title="{{ __( 'Total', 'uni' ) }}">{{- product.subtotal -}}</td>
 					</tr>
 
 				{% endfor %}

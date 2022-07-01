@@ -8,6 +8,24 @@ $utilities: map-merge(
 					responsive: true,
 				)
 			),
+		'border-x':
+			map-merge(
+				map-get($utilities, 'border'),
+				(
+					class: border-x,
+					property: border-right border-left,
+					responsive: true,
+				)
+			),
+		'border-y':
+			map-merge(
+				map-get($utilities, 'border'),
+				(
+					class: border-y,
+					property: border-top border-bottom,
+					responsive: true,
+				)
+			),
 		'border-color':
 			map-merge(
 				map-get($utilities, 'border-color'),
@@ -44,15 +62,5 @@ $utilities: map-merge(
 					responsive: true,
 				)
 			),
-		'rounded': (
-			property: border-radius,
-			class: rounded,
-			responsive: true,
-			values: (
-				'5px': #{math.div(5, 16)}rem,
-				'5px-0-0-5px': #{math.div(5, 16)}rem 0 0 #{math.div(5, 16)}rem,
-				'0-5px-5px-0': 0 #{math.div(5, 16)}rem #{math.div(5, 16)}rem 0,
-			),
-		),
 	)
 );

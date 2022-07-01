@@ -21,7 +21,7 @@
 		for="{{ key | e }}"
 		class="{{
 			[
-				'mb-12px d-block'
+				'mb-12px block'
 			] | merge( args.label_class | default( [] ) ) | join( ' ' ) | trim
 		}}">
 		{{- args.label | e( 'wp_kses_post' ) -}}
@@ -30,7 +30,7 @@
 		{% endif %}
 	</label>
 
-	<p class="d-block m-0 position-relative">
+	<p class="block m-0 relative">
 		<select
 			name="{{ key | e }}"
 			id="{{ key | e }}"

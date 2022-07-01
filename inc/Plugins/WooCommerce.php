@@ -232,7 +232,7 @@ class WooCommerce {
 			array(
 				'label'      => esc_html__( 'Return to shop', 'uni' ),
 				'tag'        => 'a',
-				'classes'    => array( 'me-12px', 'd-inline-block', 'w-100', 'w-md-auto', 'button', 'wc-backward' ),
+				'classes'    => array( 'me-12px', 'inline-block', 'w-100', 'w-md-auto', 'button', 'wc-backward' ),
 				'attributes' => array(
 					'href' => esc_url( apply_filters( 'woocommerce_return_to_shop_redirect', wc_get_page_permalink( 'shop' ) ) ),
 				),
@@ -277,7 +277,7 @@ class WooCommerce {
 	 * @return void
 	 */
 	public function output_before_cart_wrapper() : void {
-		echo '<div class="d-md-flex">';
+		echo '<div class="flex">';
 	}
 
 

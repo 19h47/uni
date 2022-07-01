@@ -5,7 +5,7 @@
  #}
 {% import 'macros/footer.twig' as footer %}
 
-<footer class="shadow-uni py-20px py-md-100px px-20px px-md-200vw mt-20px flex-md-row flex-md-nowrap d-flex flex-wrap rounded-5px">
+<footer class="shadow-uni py-20px py-md-100px px-20px px-md-200vw mt-20px flex-md-row flex-md-nowrap flex flex-wrap rounded">
 	<div class="w-50 w-md-12.5">
 		{% if menus.footer_primary.items %}
 			{{- footer.list( menus.footer_primary.items, __( 'Navigation', 'uni' ) ) -}}
@@ -23,12 +23,12 @@
 	<div class="order-1 order-md-0 mt-20px mt-md-0 w-100 w-md-12.5">
 		<ul class="list-style-type-none">
 			<li class="mb-12px">
-				<h5 class="ff-body m-0 fs-2xs">{{- __( 'Credits:', 'uni' ) -}}</h5>
+				<h5 class="ff-body m-0 text-2xs">{{- __( 'Credits:', 'uni' ) -}}</h5>
 			</li>
-			<li class="fs-3xs my-8px">
+			<li class="text-3xs my-8px">
 				<a class="d-inline-block ff-title text-decoration-underline-hover" href="http://www.atelierinconnu.com/" target="_blank" rel="noopener noreferer">Atelier Inconu</a>
 			</li>
-			<li class="fs-3xs mt-8px">
+			<li class="text-3xs mt-8px">
 				<a class="d-inline-block ff-title text-decoration-underline-hover" href="https://19h47.fr" target="_blank" rel="noopener noreferer">19h47</a>
 			</li>
 		</ul>

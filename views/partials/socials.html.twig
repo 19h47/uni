@@ -9,17 +9,17 @@
 
 		{% if label %}
 			<li class="mb-12px">
-				<h5 class="ff-body m-0 fs-2xs">
+				<h5 class="ff-body m-0 text-2xs">
 					{{- label -}}
 				</h5>
 			</li>
 		{% endif %}
 
-		<ul class="d-flex align-items-center list-style-type-none">
+		<ul class="flex align-items-center list-style-type-none">
 			{%- for social in socials -%}
 				<li class="{{ loop.first ? 'me-8px' : loop.last ? 'ms-8px' : 'my-8px' }}">
 					<a class="ff-title text-gray-very-dark" href="{{ social.url }}" target="_blank" rel="noopener noreferer">
-						{{- include( 'svg/use.html.twig', { classes: [ 'size-24px', 'fill-current', 'fill-black-hover', 'd-block' ], icon: social.slug } ) -}}
+						{{- include( 'svg/use.html.twig', { classes: [ 'size-24px', 'fill-current', 'fill-black-hover', 'block' ], icon: social.slug } ) -}}
 					</a>
 				</li>
 			{%- endfor -%}

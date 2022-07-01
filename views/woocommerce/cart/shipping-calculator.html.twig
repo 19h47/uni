@@ -18,7 +18,7 @@
 				{
 					tag: 'a',
 					label: button_text | default( __( 'Calculate shipping', 'uni' ) ),
-					classes: [ 'w-100', 'd-block', 'shipping-calculator-button' ],
+					classes: [ 'w-100', 'block', 'shipping-calculator-button' ],
 					attributes: {
 						href: '#'
 					}
@@ -50,7 +50,7 @@
 						type="hidden"
 						name="calc_shipping_state"
 						id="calc_shipping_state"
-						class="outline-none-focus shadow-focus-focus w-100 rounded-5px transition-box-shadow"
+						class="outline-none-focus shadow-focus-focus w-100 rounded transition-box-shadow"
 						placeholder="{{ __( 'State / County', 'uni' ) }}"
 					/>
 				{% elseif states is iterable %}
@@ -79,7 +79,7 @@
 			<p class="form-row form-row-wide" id="calc_shipping_city_field">
 				<input
 					type="text"
-					class="input-text border border-1 border-gray-very-dark shadow-focus-focus transition-box-shadow outline-none-focus p-12px w-100 rounded-5px d-block"
+					class="input-text border shadow-focus-focus transition-box-shadow outline-none-focus p-12px w-100 rounded block"
 					value="{{ shipping.city }}"
 					placeholder="{{ __( 'City', 'uni' ) }}"
 					name="calc_shipping_city"
@@ -92,7 +92,7 @@
 			<p class="form-row form-row-wide" id="calc_shipping_postcode_field">
 				<input
 					type="text"
-					class="input-text border border-1 border-gray-very-dark shadow-focus-focus transition-box-shadow outline-none-focus p-12px w-100 rounded-5px d-block"
+					class="input-text border shadow-focus-focus transition-box-shadow outline-none-focus p-12px w-100 rounded block"
 					value="{{ shipping.postcode }}"
 					placeholder="{{ __( 'Postcode / ZIP', 'uni' ) }}"
 					name="calc_shipping_postcode"

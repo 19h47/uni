@@ -4,6 +4,10 @@ $prototype-width-unitless: 2560;
 $prototype-height-unitless: 1440;
 
 $base-font-size: 16;
+$base-line-height: 22;
+
+$font-size-root: $base-font-size;
+$line-height-base: math.div($base-line-height, $base-font-size);
 
 $enable-important-utilities: false;
 
@@ -164,9 +168,9 @@ $spacers: map-merge(
 $enable-negative-margins: true;
 $negative-spacers: if($enable-negative-margins, negativify-map($spacers), null);
 
+$gray-very-dark: #666666;
+
 $custom-theme-colors: (
-	white: #ffffff,
-	black: #000000,
 	red-bright: #dc3545,
 	red-light-grayish-01: #f8d7da,
 	red-light-grayish-02: #f5c6cb,
@@ -174,7 +178,7 @@ $custom-theme-colors: (
 	cyan-light-grayish-02: #bee5eb,
 	cyan-very-dark-01: #0c5460,
 	gray-dark: #999999,
-	gray-very-dark: #666666,
+	gray-very-dark: $gray-very-dark,
 	gray-very-light-01: #f8f8f8,
 	green-dark-lime: #28a745,
 	green-very-dark-lime-01: #155724,
@@ -190,3 +194,7 @@ $border-widths: (
 	4: #{math.div(4, $base-font-size)}rem,
 	5: #{math.div(5, $base-font-size)}rem,
 );
+$border-color: $gray-very-dark;
+$border-radius: #{math.div(5, $base-font-size)}rem;
+
+$headings-font-family: 'Suisse Works';

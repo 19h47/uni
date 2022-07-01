@@ -2,9 +2,9 @@
  # Payment method
  #
  #}
-<li class="py-12px border-bottom border-1 border-gray-very-dark wc_payment_method payment_method_{{ gateway.id }}">
+<li class="py-12px border-bottom wc_payment_method payment_method_{{ gateway.id }}">
 
-	<div class="d-flex justify-content-between align-items-center">
+	<div class="flex justify-content-between align-items-center">
 		<input
 			id="payment_method_{{ gateway.id }}"
 			type="radio" class="input-radio"
@@ -13,7 +13,7 @@
 			{{ gateway.order_button_text ? "data-order_button_text=\"#{ gateway.order_button_text }\"" | raw }}
 		/>
 
-		<label class="d-flex align-items-center flex-column" for="payment_method_{{ gateway.id }}">
+		<label class="flex align-items-center flex-column" for="payment_method_{{ gateway.id }}">
 			{{- gateway.get_title() }}&nbsp;{{ gateway.get_icon() -}}
 		</label>
 	</div>

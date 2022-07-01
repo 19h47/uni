@@ -4,12 +4,11 @@
 
 <header
 	class="{{ [
-		'position-fixed',
-		'd-flex',
+		'fixed',
+		'flex',
 		'flex-md-column-reverse',
 		'align-items-center',
 		'justify-content-between',
-		'top-0',
 		'inset-x-0',
 		'mx-md-20px',
 		'my-20px',
@@ -22,16 +21,16 @@
 		'h-md-100',
 		'bg-white',
 		'shadow-uni',
-		'z-index-5',
+		'z-5',
 	] | join( ' ' ) | trim }}"
 >
-	{{- include( 'components/mini-cart.html.twig', { classes: [ 'z-index-2' ] } ) -}}
+	{{- include( 'components/mini-cart.html.twig', { classes: [ 'relative', 'z-2' ] } ) -}}
 
 	{{- include( 'components/logo.html.twig' ) -}}
 
-	<div class="flex-row-reverse d-flex flex-md-column align-items-center">
+	<div class="flex-row-reverse flex flex-md-column align-items-center">
 		{{- include( 'components/button-menu.html.twig' ) -}}
-		{{- include( 'components/languages.html.twig', { classes: [ 'position-relative', 'z-index-2', 'mt-md-24px', 'me-20px', 'me-md-0' ] } ) -}}
+		{{- include( 'components/languages.html.twig', { classes: [ 'relative', 'z-2', 'mt-md-24px', 'me-20px', 'me-md-0' ] } ) -}}
 	</div>
 
 </header>

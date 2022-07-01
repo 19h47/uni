@@ -8,9 +8,9 @@
 {% extends 'pages/horizontal-page.html.twig' %}
 
 {% block track %}
-	<div class="d-md-flex flex-md-nowrap flex-md-shrink-0 mb-20px my-md-20px" data-module-wrapper-page>
+	<div class="md-flex flex-md-nowrap flex-md-shrink-0 mb-20px my-md-20px" data-module-wrapper-page>
 
-		<div class="d-md-flex flex-md-column position-relative">
+		<div class="md-flex flex-md-column relative">
 
 			{{-
 				include(
@@ -24,7 +24,9 @@
 							'mb-md-0',
 							'pt-md-0',
 							'pb-md-60vh',
-							'z-index-md-1', 'position-md-absolute', 'top-md-0', 'start-md-0', 'js-title',
+							'z-md-1',
+							'md-absolute',
+							'js-title',
 							'ps-md-200vw',
 							'w-md-1200vw'
 						],
@@ -34,11 +36,11 @@
 				)
 			-}}
 
-			<ul class="position-relative d-md-flex flex-md-nowrap list-style-type-none h-100 z-index-2">
+			<ul class="relative md-flex flex-md-nowrap list-style-type-none h-100 z-index-2">
 				{% for item in post.meta( 'layouts' ) %}
 					{% set classes = [
-						'text' == item.acf_fc_layout ? 'd-md-flex' : '',
-						'position-relative',
+						'text' == item.acf_fc_layout ? 'md-flex' : '',
+						'relative',
 						loop.first ? 'mb-20px' : ( loop.last ? 'mt-20px': 'my-20px' ),
 						'mx-md-0',
 						'column-' ~ item.columns,
@@ -64,7 +66,7 @@
 								include(
 									'partials/image.html.twig',
 									{
-										classes: [ loop.last ? 'me-md-200vw' : '', 'h-auto', 'h-md-100', 'w-100', 'object-fit-cover', 'object-position-center', 'd-block' ],
+										classes: [ loop.last ? 'me-md-200vw' : '', 'h-auto', 'h-md-100', 'w-100', 'object-fit-cover', 'object-position-center', 'block' ],
 										image: item.image,
 										size: 8 == item.columns ? 'size-1400' : ( 5 == item.columns ? 'size-800' : 'size-1720' )
 									}

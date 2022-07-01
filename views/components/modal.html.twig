@@ -16,26 +16,26 @@
 
 <div
 	id="modal-{{ id | e }}"
-	class="transition-opacity-visibility mt-100px mx-20px mb-20px mt-md-20px ms-md-100px z-index-3 position-fixed inset-0 d-flex align-items-center justify-content-center"
+	class="transition-opacity-visibility mt-100px mx-20px mb-20px mt-md-20px ms-md-100px z-3 fixed inset-0 flex align-items-center justify-content-center"
 	data-module-modal
 	{{ attributes ? attributes | map( ( value, key ) => "#{key}=\"#{value}\"" ) | join( ' ' ) | raw }}
 >
 	<div
 		class="{{ [
 			'shadow-uni',
-			'rounded-5px',
+			'rounded',
 			'px-20px',
 			'px-md-400vw',
 			'w-100',
-			'd-flex',
+			'flex',
 			'flex-column',
-			'position-relative',
+			'relative',
 			'overflow-auto',
 			'bg-white',
 		] | merge( size ) | join( ' ' ) | trim }}"
 	>
 		<button
-			class="size-16px mt-20px me-20px position-absolute top-0 end-0 d-flex"
+			class="size-16px mt-20px me-20px absolute end-0 flex"
 			type="button"
 			aria-label="{{ __( 'Close', 'uni' ) }}"
 			data-modal="close"

@@ -10,12 +10,12 @@
 
 	{% embed 'components/modal.html.twig' with { attributes: { style: 'opacity: 1; visibility: visible;' }, id: post.id, size: 'small' } %}
 		{% block body %}
-			<div class="my-16px my-md-40px text-center text-md-left">
+			<div class="my-20px text-center">
 
-				{{- include( 'svg/use.html.twig', { icon: 'logo-horizontal', classes: [ 'w-120px', 'h-40px', 'd-block', 'mx-auto' ] }, with_context = false ) -}}
-				{{- include( 'svg/use.html.twig', { icon: 'times', classes: [ 'my-16px', 'size-20px', 'd-block', 'mx-auto' ] }, with_context = false ) -}}
+				{{- include( 'svg/use.html.twig', { icon: 'logo-horizontal', classes: [ 'w-120px', 'h-40px', 'block', 'mx-auto' ] }, with_context = false ) -}}
+				{{- include( 'svg/use.html.twig', { icon: 'times', classes: [ 'my-16px', 'size-20px', 'block', 'mx-auto' ] }, with_context = false ) -}}
 
-				<img width="204" height="231" class="w-20 h-auto d-block mx-auto" src="{{ theme.link }}/{{ manifest['img/svg/logo-ulule.svg'] }}" alt="{{ __( 'Ulule', 'uni' ) }}" width="" height="">
+				<img width="204" height="231" class="w-20 h-auto block mx-auto" src="{{ theme.link }}/{{ manifest['img/svg/logo-ulule.svg'] }}" alt="{{ __( 'Ulule', 'uni' ) }}" width="" height="">
 
 				<div class="my-40px text-center">
 					<p>UNI x Ulule</p>
@@ -40,7 +40,7 @@
 				</div>
 
 				<p>Pour suivre toutes nos actualités,<br>inscrivez-vous à la newsletter UNI Habitat.</p>
-				<div class="d-md-flex">
+				<div class="md-flex">
 					{{- include( 'partials/signup-form.html.twig', { id: post.id, classes: [ 'me-md-20px', 'flex-grow-1' ] } ) -}}
 					{{- include( 'partials/socials.html.twig', { classes: [ 'mt-16px', 'mt-md-12px' ] } ) -}}
 				</div>
@@ -48,29 +48,29 @@
 		{% endblock %}
 	{% endembed %}
 
-	<div class="rounded-md-5px overflow-md-hidden my-md-20px ms-md-100px me-md-20px text-white size-100 position-relative h-md-auto">
-		<div class="px-20px pt-140px pb-60px z-index-2 mh-100 h-100 d-flex flex-column py-md-60vh position-relative" data-front-page="grid">
+	<div class="rounded-md-5px overflow-md-hidden my-md-20px ms-md-100px me-md-20px text-white size-100 relative h-md-auto">
+		<div class="px-20px pt-140px pb-60px z-2 mh-100 h-100 flex flex-column py-md-60vh relative" data-front-page="grid">
 
 
-			<img width="2001" height="186" src="{{ theme.link }}/{{ manifest['img/svg/logo-baseline.svg'] }}" alt="{{ site.description }}" class="d-none d-md-block w-10/12 mx-auto h-auto">
-			<img width="590" height="48" src="{{ theme.link }}/{{ manifest['img/svg/logo-mobile.svg'] }}" alt="{{ site.description }}" class="d-block d-md-none w-100 h-auto">
+			<img width="2001" height="186" src="{{ theme.link }}/{{ manifest['img/svg/logo-baseline.svg'] }}" alt="{{ site.description }}" class="hidden md-block w-10/12 mx-auto h-auto">
+			<img width="590" height="48" src="{{ theme.link }}/{{ manifest['img/svg/logo-mobile.svg'] }}" alt="{{ site.description }}" class="block md-hidden w-100 h-auto">
 
 
 			<div
-				class="Wysiwyg mt-40px w-1/3 mx-auto d-none fs-sm d-md-block letter-spacing-50"
+				class="Wysiwyg mt-40px w-1/3 mx-auto hidden text-sm md-block tracking-wider"
 				data-front-page="content"
 			>
 				{{- post.content -}}
 			</div>
 
 			<footer class="mt-auto">
-				<div class="d-flex">
-					<a class="text-center d-block w-50" href="{{ shop_url }}">
-						{{- include( 'partials/page-title.html.twig', { tag: 'p', classes: [ 'fs-md-4xl', 'fs-2xl', 'ff-title', 'fw-normal', 'text-uppercase' ], subtitle: _x( 'Explore our:', 'front page', 'uni' ), title: __( 'Store', 'uni' ) } ) -}}
+				<div class="flex">
+					<a class="text-center block w-50" href="{{ shop_url }}">
+						{{- include( 'partials/page-title.html.twig', { tag: 'p', classes: [ 'text-md-4xl', 'text-2xl', 'ff-title', 'fw-normal', 'text-uppercase' ], subtitle: _x( 'Explore our:', 'front page', 'uni' ), title: __( 'Store', 'uni' ) } ) -}}
 					</a>
 
-					<a class="text-center d-block w-50" href="{{ habitat_page.link }}">
-						{{- include( 'partials/page-title.html.twig', { tag: 'p', classes: [ 'fs-md-4xl', 'fs-2xl', 'ff-title', 'fw-normal', 'text-uppercase' ], subtitle: _x( 'Discover our:', 'front page', 'uni' ), title: __( 'Spaces', 'uni' ) } ) -}}
+					<a class="text-center block w-50" href="{{ habitat_page.link }}">
+						{{- include( 'partials/page-title.html.twig', { tag: 'p', classes: [ 'text-md-4xl', 'text-2xl', 'ff-title', 'fw-normal', 'text-uppercase' ], subtitle: _x( 'Discover our:', 'front page', 'uni' ), title: __( 'Spaces', 'uni' ) } ) -}}
 					</a>
 				</div>
 
@@ -82,10 +82,10 @@
 			</footer>
 		</div>
 
-		<div class="position-absolute inset-0 z-index-1">
+		<div class="absolute inset-0 z-1">
 
 			<video
-				class="inset-0 object-fit-cover object-position-center position-absolute d-none d-md-block size-100"
+				class="inset-0 object-fit-cover object-position-center absolute hidden md-block size-100"
 				preload
 				muted
 				playsinline
@@ -96,7 +96,7 @@
 				<source src="{{ theme.link }}/{{ manifest['videos/front-page-forward.mp4'] }}" type="video/mp4">
 			</video>
 			<video
-				class="inset-0 object-fit-cover object-position-center position-absolute size-100 d-none d-md-block"
+				class="inset-0 object-fit-cover object-position-center absolute size-100 hidden md-block"
 				preload
 				muted
 				playsinline
@@ -108,14 +108,13 @@
 			</video>
 
 			<video
-				class="inset-0 object-fit-cover object-position-center position-absolute size-100 d-md-none"
-				preload
+				class="inset-0 object-fit-cover object-position-center absolute size-100 md-hidden"
 				muted
 				playsinline
 				autoplay
 				loop
 			>
-				<source src="{{ theme.link }}/{{ manifest['videos/front-page-mobile.mp4'] }}" type="video/mp4">
+				<source media="(max-width:991px)" src="{{ theme.link }}/{{ manifest['videos/front-page-mobile.mp4'] }}" type="video/mp4">
 			</video>
 
 		</div>

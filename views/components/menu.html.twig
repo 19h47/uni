@@ -6,7 +6,7 @@
 
 {% embed 'components/panel.html.twig' with { id: 'menu' } %}
 	{% block content %}
-		<div class="p-20px d-flex flex-wrap px-md-400vw py-md-120vh h-100">
+		<div class="p-20px flex flex-wrap px-md-400vw py-md-120vh h-100">
 
 			<div class="w-100 w-md-8/12 mb-40px mb-md-0">
 				<ul class="list-style-type-none" itemscope itemtype="http://schema.org/SiteNavigationElement">
@@ -14,7 +14,7 @@
 						<li class="{{ loop.first ? 'mb-20px mb-md-40px' : loop.last ? 'mt-20px mt-md-40px' : 'my-20px my-md-40px' }}">
 							<a
 								href="{{ item.url }}"
-								class="fs-xl fs-md-3xl ff-title {{ item.current ? 'text-decoration-underline' }}"
+								class="text-xl text-md-3xl ff-title {{ item.current ? 'text-decoration-underline' }}"
 								itemprop="url"
 								{{ item.target ? " target=\"#{item.target}\"" }}
 							>
@@ -42,7 +42,7 @@
 				</ul>
 			</div>
 
-			<div class="mt-auto w-100 d-md-flex">
+			<div class="mt-auto w-100 md-flex">
 				{{- include( 'partials/socials.html.twig', { classes: [ 'me-md-20px' ], label: __( 'Follow us', 'uni' ) } ) -}}
 				{{- include( 'partials/signup-form.html.twig', { label: __( 'Newsletter subscriptions', 'uni' ), id: post.id, classes: [ 'mt-20px', 'mt-md-0', 'flex-fill' ] } ) -}}
 			</div>

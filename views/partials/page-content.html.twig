@@ -8,7 +8,7 @@
 	'pt-md-200vh',
 	'pb-md-60vh',
 	'px-md-200vw',
-	'z-index-100',
+	'z-100',
 ] | merge( classes | default( [] ) ) | join( ' ' ) | trim %}
 
 <div class="{{ classes }}">
@@ -24,7 +24,7 @@
 	-}}
 
 	{% block content %}
-		<div class="Wysiwyg d-none d-md-block mt-20px ps-md-200vw">
+		<div class="Wysiwyg hidden md-block mt-20px ps-200vw">
 			{{- content -}}
 		</div>
 	{% endblock %}

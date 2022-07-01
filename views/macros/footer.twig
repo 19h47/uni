@@ -5,10 +5,10 @@
 	{% if items is iterable %}
 		<ul class="list-style-type-none" itemscope itemtype="http://schema.org/SiteNavigationElement">
 			<li class="mb-12px">
-				<h5 class="ff-body m-0 fs-2xs">{{- title -}}</h5>
+				<h5 class="ff-body m-0 text-2xs">{{- title -}}</h5>
 			</li>
 			{% for item in items %}
-				<li class="fs-3xs {{ loop.last ? 'mt-8px' : 'my-8px' }}">
+				<li class="text-3xs {{ loop.last ? 'mt-8px' : 'my-8px' }}">
 					<a
 						class="d-inline-block text-decoration-underline-hover {{ item.current ? 'text-decoration-underline' : '' }} text-decoration-underline-focus ff-title"
 						href="{{ item.url }}"

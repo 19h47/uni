@@ -34,7 +34,7 @@ class MailchimpWooCommerce {
 	 */
 	public function newsletter_field( string $checkbox, bool $status, string $label ) : string {
 		$checkbox  = '<p class="m-0 w-100 form-row form-row-wide mailchimp-newsletter Checkbox">';
-		$checkbox .= '<label for="mailchimp_woocommerce_newsletter" class="inline d-flex align-items-center woocommerce-form__label woocommerce-form__label-for-checkbox">';
+		$checkbox .= '<label for="mailchimp_woocommerce_newsletter" class="inline flex align-items-center woocommerce-form__label woocommerce-form__label-for-checkbox">';
 		$checkbox .= '<input class="woocommerce-form__input woocommerce-form__input-checkbox input-checkbox" id="mailchimp_woocommerce_newsletter" type="checkbox" name="mailchimp_woocommerce_newsletter" value="1"' . ( $status ? ' checked="checked"' : '' ) . '>';
 		$checkbox .= '&nbsp;<span>' . __( 'Subscribe to our newsletter', 'uni' ) . '</span>';
 		$checkbox .= '</label></p>';

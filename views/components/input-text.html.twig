@@ -17,7 +17,7 @@
 		for="{{ key | e }}"
 		class="{{
 			[
-				'mb-12px d-block'
+				'mb-12px block'
 			] | merge( args.label_class | default( [] ) ) | join( ' ' ) | trim
 		}}">
 		{{- args.label | e( 'wp_kses_post' ) -}}
@@ -26,22 +26,20 @@
 		{% endif %}
 	</label>
 
-	<p class="d-block m-0 position-relative">
+	<p class="block m-0 relative">
 		<input
 			type="{{ args.type | default( 'text' ) | e }}"
 			class="{{
 				[
 					'input-text',
 					'border',
-					'border-1',
-					'border-gray-very-dark',
 					'shadow-focus-focus',
 					'transition-box-shadow',
 					'outline-none-focus',
 					'p-12px',
 					'w-100',
-					'rounded-5px',
-					'd-block'
+					'rounded',
+					'block'
 				] | merge( args.input_class | default( [] ) ) | join( ' ' ) | e
 			}}"
 			name="{{ key | e }}"

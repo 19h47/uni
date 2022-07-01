@@ -29,7 +29,7 @@
 								'partials/image.html.twig',
 								{
 									image: id,
-									classes: [ 'd-block', 'size-100', 'object-fit-scale-down', 'object-position-center' ],
+									classes: [ 'block', 'size-100', 'object-fit-scale-down', 'object-position-center' ],
 									size: 'size-1600'
 								},
 								with_context = false
@@ -40,14 +40,14 @@
 			</figure>
 		</div>
 
-		<div class="mt-20px d-flex justify-content-between align-items-center">
-			<button type="button" class="size-16px d-flex align-items-center" data-product-gallery="previous" aria-label="{{ __( 'Previous', 'uni' ) | e }}">
+		<div class="mt-20px flex justify-content-between align-items-center">
+			<button type="button" class="size-16px flex align-items-center" data-product-gallery="previous" aria-label="{{ __( 'Previous', 'uni' ) | e }}">
 				{{- include( 'svg/use.html.twig', { icon: 'arrow-left', classes: [ 'size-100' ] } ) -}}
 			</button>
-			<div class="letter-spacing-50 fs-xs">
+			<div class="tracking-wider text-xs">
 				<span data-product-gallery="current">01</span>&nbsp;/&nbsp;{{ "%02d" | format( image_ids | length ) }}
 			</div>
-			<button type="button" class="size-16px d-flex align-items-center" data-product-gallery="next"  aria-label="{{ __( 'Next', 'uni' ) | e }}">
+			<button type="button" class="size-16px flex align-items-center" data-product-gallery="next"  aria-label="{{ __( 'Next', 'uni' ) | e }}">
 				{{- include( 'svg/use.html.twig', { icon: 'arrow-right', classes: [ 'size-100' ] } ) -}}
 			</button>
 		</div>

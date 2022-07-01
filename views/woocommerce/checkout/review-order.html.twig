@@ -3,11 +3,11 @@
  #}
 <div class="shop_table woocommerce-checkout-review-order-table">
 
-	<div class="d-flex flex-wrap">
+	<div class="flex flex-wrap">
 		<div class="product-name w-50 fw-bold">
 			{{- __( 'Product', 'uni' ) -}}
 		</div>
-		<div class="product-total w-50 d-flex justify-content-end">
+		<div class="product-total w-50 flex justify-content-end">
 			{{- __( 'Subtotal', 'uni' ) -}}
 		</div>
 		<hr class="mt-12px w-100 bg-gray-very-dark">
@@ -25,7 +25,7 @@
 			{% set _product = item.data | apply_filters( 'woocommerce_cart_item_product', item, key ) %}
 
 			{% if _product and _product.exists() and item.quantity > 0 and true | apply_filters( 'woocommerce_checkout_cart_item_visible', item, key ) %}
-				<div class="d-flex flex-wrap mt-12px {{ 'cart_item' | apply_filters( 'woocommerce_cart_item_class', item, key ) }}">
+				<div class="flex flex-wrap mt-12px {{ 'cart_item' | apply_filters( 'woocommerce_cart_item_class', item, key ) }}">
 					<div class="w-50 product-name">
 
 						{% filter apply_filters( 'woocommerce_cart_item_name', item, key ) %}
@@ -38,7 +38,7 @@
 
 						{{- fn( 'wc_get_formatted_cart_item_data', item ) -}}
 					</div>
-					<div class="w-50 product-total d-flex justify-content-end">
+					<div class="w-50 product-total flex justify-content-end">
 						{% filter apply_filters( 'woocommerce_cart_item_subtotal', item, key ) %}
 							{{- cart.get_product_subtotal( _product, item.quantity )  -}}
 						{% endfilter %}
@@ -55,9 +55,9 @@
 	 #}
 	{% do action( 'woocommerce_review_order_after_cart_contents' ) %}
 
-	<div class="cart-subtotal d-flex flex-wrap mt-20px">
+	<div class="cart-subtotal flex flex-wrap mt-20px">
 		<div class="w-50 fw-bold">{{- __( 'Subtotal', 'uni' ) -}}</div>
-		<div class="w-50 d-flex justify-content-end">
+		<div class="w-50 flex justify-content-end">
 			{{- html.subtotal -}}
 		</div>
 		<div class="w-100 mt-12px"><hr class="bg-gray-very-dark"></div>
@@ -113,9 +113,9 @@
 	 #}
 	{% do action( 'woocommerce_review_order_before_order_total' ) %}
 
-	<div class="order-total d-flex flex-wrap mt-20px">
+	<div class="order-total flex flex-wrap mt-20px">
 		<div class="w-50 fw-bold">{{- __( 'Total', 'uni' ) -}}</div>
-		<div class="w-50 d-flex justify-content-end">
+		<div class="w-50 flex justify-content-end">
 			{{- html.order_total -}}
 		</div>
 		<hr class="bg-gray-very-dark mt-12px w-100">

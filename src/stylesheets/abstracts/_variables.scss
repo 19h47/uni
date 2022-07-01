@@ -42,44 +42,6 @@ $color-variations: (
 );
 
 /**
- *
- *
- *
- * @type map
- */
-$borders: (
-	radius: 5px,
-);
-
-/**
- * Font
- *
- * A map containing all information about fonts
- *
- * @type map
- */
-$font: (
-	/**
-	 * Font styles
-	 *
-	 * Each font style used in the theme.
-	 *
-	 * @uses map-get( $font, styles ) to retrieve font style value
-	 * @type list
-	 */
-		styles: italic normal,
-	/**
-	 * Font sizes
-	 *
-	 * Each font size used in the theme.
-	 *
-	 * @uses map-get( $font, sizes ) to retrieve font size value
-	 * @type list
-	 */
-		sizes: 30
-);
-
-/**
  * Base
  */
 $base-unit: px;
@@ -144,8 +106,3 @@ $directories: (
 	png: '../img/png/',
 	gif: '../img/gif/',
 );
-
-/**
- *
- */
-$pi: 3.14159265359;

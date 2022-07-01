@@ -1,7 +1,7 @@
 {#
  # Horizontal page
  #
- # @purgeCSS select2 select2-container select2-container select2-selection--single select2-selection__rendered select2-container select2-selection--single select2-selection__arrow
+ # @purgeCSS select2-results__option--highlighted[aria-selected] select2-results__option--highlighted[data-selected] select2-search__field select2 select2-results__option select2-search--dropdown select2-container select2-container select2-selection__rendered select2-container select2-selection--single select2-selection__arrow
  #}
 {% extends 'index.html.twig' %}
 
@@ -10,11 +10,8 @@
 	<div
 		class="{{
 			[
-				'position-md-fixed',
-				'start-md-0',
-				'inset-y-md-0',
-				'mx-md-0',
-				'my-md-0',
+				'md-fixed',
+				'm-md-0',
 				'mt-100px',
 				'mb-20px',
 				'px-20px',
@@ -26,11 +23,11 @@
 		data-horizontal-page="section"
 	>
 		<div
-			class="ps-md-100px d-md-flex flex-md-nowrap top-md-0 bottom-md-0 start-md-0 position-md-absolute z-index-md-0 h-md-100"
+			class="ps-md-100px md-flex flex-md-nowrap md-absolute z-md-0 h-md-100"
 			data-horizontal-page="track"
 		>
 			{% block track %}
-				<div class="d-md-flex flex-md-nowrap my-md-20px flex-md-shrink-0" data-module-wrapper-page>
+				<div class="md-flex flex-md-nowrap my-md-20px flex-md-shrink-0" data-module-wrapper-page>
 					<div class="{{ [ 'py-md-0', 'ps-md-0', 'js-grid' ] | join( ' ' ) | trim }}">
 						<div
 							class="{{ [
@@ -40,12 +37,18 @@
 								'pt-md-200vh',
 								'ps-md-400vw',
 								'pe-md-200vw',
-								'position-relative'
+								'relative'
 							] | join( ' ' ) | trim }}"
 						>
 
-							<div class="d-none d-md-block js-navigation position-md-absolute top-md-0 end-md-0 mt-md-200vh me-md-200vw">
-								{{- include( 'svg/use.html.twig', { classes: [ 'w-16px', 'h-24px' ], icon: 'arrow-right' }, with_context = false ) -}}
+							<div class="hidden md-block absolute top-0 end-0 mt-200vh me-200vw">
+								{{-
+									include(
+										'svg/use.html.twig',
+										{ classes: [ 'block', 'w-16px', 'h-24px' ], icon: 'arrow-right' },
+										with_context = false
+									)
+								-}}
 							</div>
 
 							{{-
@@ -59,7 +62,7 @@
 								)
 							-}}
 
-							<div class="text-center my-20px d-md-none">
+							<div class="text-center my-20px md-hidden">
 								{{-
 									include(
 										'components/button.html.twig',
@@ -83,35 +86,35 @@
 								{{- post.footer | nl2br -}}
 							</div>
 
-							<div class="Wysiwyg d-none d-md-block mt-md-20px ps-md-200vw">
+							<div class="Wysiwyg hidden md-block mt-20px ps-200vw">
 								{{- post.content -}}
 							</div>
 
-							<div class="ff-title fst-italic d-none d-md-block js-footer lh-md-5 position-md-absolute bottom-md-0 start-md-0 ms-md-400vw">
+							<div class="ff-title fst-italic hidden md-block js-footer lh-5 absolute bottom-0 start-0 ms-400vw">
 								{{- post.footer | nl2br -}}
 							</div>
 						</div>
 					</div>
 
 					{% if post.meta( 'gallery' ) %}
-						<div class="overflow-md-hidden mb-20px ms-md-200vw py-md-60vh bg-white position-relative d-md-flex flex-md-nowrap z-index-2" style="transform: translate3d(0,0,0);">
+						<div class="overflow-md-hidden mb-20px ms-md-200vw py-md-60vh bg-white relative md-flex flex-md-nowrap z-index-2" style="transform: translate3d(0,0,0);">
 							{% for image in post.meta( 'gallery' ) %}
 
 								{% set _product = TimberPost( image.id ).meta( 'product_link' ) %}
 
 								<div
 									id="image-{{ image.id }}"
-									class="h-md-100 d-md-flex my-md-0 {{ loop.first ? 'mb-20px' : ( loop.last ? 'mt-20px ms-md-200vw' : 'my-20px ms-md-200vw' ) }}"
+									class="h-md-100 md-flex my-md-0 {{ loop.first ? 'mb-20px' : ( loop.last ? 'mt-20px ms-md-200vw' : 'my-20px ms-md-200vw' ) }}"
 									data-index="{{ loop.index }}"
 									style="{{ loop.first ? 'background-color: transparent;' : '' }}"
 								>
-									<{{ _product ? "a href=\"#{ _product.link }\"" : 'div' }} class="h-md-100 mx-n20px mx-md-0 d-block w-md-100"{{ _product ? ' data-product-content="link"' : '' }}>
+									<{{ _product ? "a href=\"#{ _product.link }\"" : 'div' }} class="h-md-100 mx-n20px mx-md-0 block w-md-100"{{ _product ? ' data-product-content="link"' : '' }}>
 										{{-
 											include(
 												'partials/image.html.twig',
 												{
 													attributes: { 'data-horizontal-page' : 'image' },
-													classes: [ 'w-100', 'h-auto', 'w-md-auto', 'h-md-100', 'd-block' ],
+													classes: [ 'w-100', 'h-auto', 'w-md-auto', 'h-md-100', 'block' ],
 													image: image,
 													loading: 'eager',
 													size: 'size-1720'
@@ -122,7 +125,7 @@
 									</{{ _product ? 'a' : 'div' }}>
 
 									{%- if _product %}
-										<h5 class="fw-normal mt-20px fs-xs fst-italic my-md-0 pe-md-20vw writing-mode-md-vertical-rl rotate-md-180 origin-md-center">
+										<h5 class="fw-normal mt-20px text-xs fst-italic my-md-0 pe-md-20vw writing-mode-md-vertical-rl rotate-md-180 origin-md-center">
 											{{- _product.title -}}
 										</h5>
 									{%- endif -%}

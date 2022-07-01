@@ -7,9 +7,9 @@
 <button
 	type="submit"
 	value="{{ id }}"
-	class="d-flex flex-column align-items-center text-decoration-underline single_add_to_cart_button button alt"
+	class="flex flex-column align-items-center text-decoration-underline single_add_to_cart_button button alt"
 	data-add-to-cart="button"
 >
 	{{- text -}}
-	{{- include( 'svg/use.html.twig', { icon: 'cart', classes: [ 'mt-8px', 'size-20px' 'pe-none' ] }, with_context = false ) -}}
+	{{- include( 'svg/use.html.twig', { icon: 'cart', classes: [ 'mt-8px', 'size-20px', 'pe-none' ] }, with_context = false ) -}}
 </button>

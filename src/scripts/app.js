@@ -19,17 +19,18 @@ function init() {
 
 	setTimeout(() => html.classList.add('has-dom-ready'), 500);
 
-	window.addEventListener('mousemove', event => {
-		uni.clientX = event.clientX;
-		uni.clientY = event.clientY;
-	});
+	// window.addEventListener('mousemove', event => {
+	// 	uni.clientX = event.clientX;
+	// 	uni.clientY = event.clientY;
+	// });
 }
 
 window.onload = () => {
+
 	const $style = document.getElementById(`${uni.text_domain}-main-css`);
 
 	if ($style) {
-		// console.log(`✅ "${uni.text_domain}-main-css" stylesheet found`);
+		console.log(`✅ "${uni.text_domain}-main-css" stylesheet found`);
 
 		if ($style.isLoaded) {
 			init();

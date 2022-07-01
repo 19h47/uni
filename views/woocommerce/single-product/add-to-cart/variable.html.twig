@@ -15,17 +15,17 @@
 	{% do action( 'woocommerce_before_variations_form' ) %}
 
 	{% if available_variations %}
-		<ul class="letter-spacing-50 list-style-type-none variations" cellspacing="0">
+		<ul class="tracking-wider list-style-type-none variations" cellspacing="0">
 
 			{% for attribute_name, options in attributes %}
-				<li class="{{ loop.first and loop.last ? '' : loop.first ? 'mb-12px' : loop.last ? 'mt-12px' : 'my-12px' }} d-flex align-items-center">
+				<li class="{{ loop.first and loop.last ? '' : loop.first ? 'mb-12px' : loop.last ? 'mt-12px' : 'my-12px' }} flex align-items-center">
 					<div class="me-20px label">
 						<label for="{{ attribute_name | sanitize }}">
 							{{- fn ( 'wc_attribute_label', attribute_name ) -}}
 						</label>
 					</div>
 					<div class="Product-variations__value value">
-						<div class="Select  position-relative rounded-5px shadow-uni">
+						<div class="Select relative rounded shadow-uni">
 							{{-
 								fn( 'wc_dropdown_variation_attribute_options',
 									{
@@ -37,7 +37,7 @@
 									}
 								)
 							-}}
-							{{- include( 'svg/use.html.twig', { classes: [ 'w-6px', 'h-16px', 'me-4px', 'my-auto', 'd-block', 'position-absolute', 'inset-y-0', 'end-0' ], icon: 'arrows' }, with_context = false ) -}}
+							{{- include( 'svg/use.html.twig', { classes: [ 'w-6px', 'h-16px', 'me-4px', 'my-auto', 'block', 'absolute', 'inset-y-0', 'end-0' ], icon: 'arrows' }, with_context = false ) -}}
 						</div>
 						{# {{- ( attribute_keys | last ) == attribute_name ? "<a class=\"reset_variations\" href=\"#\">#{ __( 'Clear', 'uni' ) }</a>" | apply_filters( 'woocommerce_reset_variations_link' )  }} #}
 					</div>

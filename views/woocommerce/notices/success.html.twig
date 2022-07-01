@@ -3,14 +3,13 @@
  #}
 {% if notices is iterable and notices is not empty %}
 
-	<div class="d-flex gap-y-12px">
+	<div class="flex gap-y-12px">
 		{% for notice in notices %}
 			<div class="{{ [
 				'shadow-uni',
 				'p-12px',
 				'border',
-				'border-1',
-				'rounded-5px',
+				'rounded',
 				'text-green-very-dark-lime-01',
 				'bg-green-light-grayish-lime-01',
 				'border-green-light-grayish-lime-02'

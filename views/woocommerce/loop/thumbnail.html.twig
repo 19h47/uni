@@ -5,7 +5,7 @@
  #}
 
 <a
-	class="Thumbnail w-100 h-360vh h-md-100 bg-gray-very-light-01 position-relative d-block"
+	class="Thumbnail w-100 h-360vh h-md-100 bg-gray-very-light-01 relative block"
 	href="{{ product.link }}"
 	data-product-content="link"
 >
@@ -20,12 +20,12 @@
 							'object-position-center',
 							'object-fit-contain',
 							'size-100',
-							'position-absolute',
+							'absolute',
 							'inset-0',
 							'transition-opacity-visibility',
 							'Thumbnail__image',
-							'd-block',
-							'z-index-1',
+							'block',
+							'z-1',
 							product_color.current ? 'is-active'
 						],
 						attributes: {
@@ -44,13 +44,13 @@
 						classes: [
 							'Thumbnail__overview',
 							'transition-opacity-visibility',
-							'position-absolute',
+							'absolute',
 							'inset-0',
 							'size-100',
 							'object-position-center',
 							'object-fit-cover',
-							'z-index-2',
-							'd-block',
+							'z-2',
+							'block',
 							product_color.current ? 'is-active' : null
 						],
 						attributes: {
@@ -68,11 +68,11 @@
 					'partials/image.html.twig',
 					{
 						classes: [
-							'd-block',
+							'block',
 							'Thumbnail__image',
 							'transition-opacity-visibility',
 							'inset-md-0',
-							'position-md-absolute',
+							'md-absolute',
 							'size-100',
 							'object-position-center',
 							'object-fit-contain'
@@ -91,15 +91,15 @@
 					'partials/image.html.twig',
 					{
 						classes: [
-							'd-block',
+							'block',
 							'Thumbnail__overview',
 							'transition-opacity-visibility',
-							'position-absolute',
+							'absolute',
 							'inset-0',
 							'size-100',
 							'object-position-center',
 							'object-fit-cover',
-							'z-index-2'
+							'z-2'
 						],
 						attributes: {
 							'data-color': product.color,
@@ -117,10 +117,10 @@
 				'partials/image.html.twig',
 				{
 					classes: [
-						'd-block',
+						'block',
 						'Thumbnail__image',
 						'transition-opacity-visibility',
-						'z-index-1',
+						'z-1',
 						'is-active',
 						'size-100',
 						'object-position-center',
@@ -139,15 +139,15 @@
 				'partials/image.html.twig',
 				{
 					classes: [
-						'd-block',
+						'block',
 						'Thumbnail__overview',
 						'transition-opacity-visibility',
-						'position-absolute',
+						'absolute',
 						'inset-0',
 						'size-100',
 						'object-position-center',
 						'object-fit-cover',
-						'z-index-2',
+						'z-2',
 						'is-active'
 					],
 					image: product.meta( 'image_hover' ),

@@ -5,7 +5,7 @@
  #}
 {% if not upcoming %}
 	<p class="m-0 {{ 'price' | apply_filters( 'woocommerce_product_price_class' ) }}">
-		<span class="mb-8px	d-block text-decoration-underline woocommerce-Price-title title">
+		<span class="mb-8px	block text-decoration-underline woocommerce-Price-title title">
 			{{ __( 'Price:', 'uni' ) -}}
 		</span>
 		{{- price_html -}}

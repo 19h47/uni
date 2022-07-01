@@ -15,7 +15,7 @@
 			<h3 class="fst-italic">{{- __( 'Additional information', 'uni' ) -}}</h3>
 		{% endif %}
 
-		<div class="d-flex gap-y-20px">
+		<div class="flex gap-y-20px">
 			{% for key, field in checkout.get_checkout_fields( 'order' ) %}
 				{% if  field.type in [ 'text', 'password', 'datetime', 'datetime-local', 'date', 'month', 'time', 'week', 'number', 'email', 'url', 'tel', null ] %}
 					{{- include( 'components/input-text.html.twig', { key: key, args: field, value: checkout.get_value( key ) } ) -}}
@@ -40,7 +40,7 @@
 	<div{{ 'yes' is same as( enable_order_comments | apply_filters( 'woocommerce_enable_order_notes_field' ) ) ? ' class="mt-20px"' : '' }}>
 
 		<p id="ship-to-different-address">
-			<label class="d-flex align-items-center woocommerce-form__label woocommerce-form__label-for-checkbox checkbox">
+			<label class="flex align-items-center woocommerce-form__label woocommerce-form__label-for-checkbox checkbox">
 				<input
 					id="ship-to-different-address-checkbox"
 					class="woocommerce-form__input woocommerce-form__input-checkbox input-checkbox"
@@ -59,7 +59,7 @@
 			#}
 			{% do action( 'woocommerce_before_checkout_shipping_form', checkout ) %}
 
-			<div class="d-flex flex-wrap gap-y-20px woocommerce-shipping-fields__field-wrapper">
+			<div class="flex flex-wrap gap-y-20px woocommerce-shipping-fields__field-wrapper">
 				{% for key, field in checkout.get_checkout_fields( 'shipping' ) %}
 					{% if  field.type in [ 'text', 'password', 'datetime', 'datetime-local', 'date', 'month', 'time', 'week', 'number', 'email', 'url', 'tel', null ] %}
 						{{- include( 'components/input-text.html.twig', { key: key, args: field, value: checkout.get_value( key ) } ) -}}

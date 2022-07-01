@@ -12,7 +12,7 @@
 
 <main
 	id="{{ post.id ? "page-#{post.id}" : 'page' }}"
-	class="page-content d-flex flex-column flex-md-row flex-nowrap h-100"
+	class="page-content flex flex-column flex-md-row flex-nowrap h-100"
 	{{ post.modules ? post.modules | map( module => "data-module-#{ module }" ) | join( ' ' ) : '' }}
 >
 
@@ -22,7 +22,7 @@
 	{% do action( 'woocommerce_before_main_content' ) %}
 
 	{% block content %}
-		<div class="mt-100px mx-20px mb-20px mt-md-200vh ms-md-100px position-relative w-md-100">
+		<div class="mt-100px mx-20px mb-20px mt-md-200vh ms-md-100px relative w-md-100">
 
 			<div class="mx-md-200vw mb-md-200vh mw-md-1200vw">
 				{{-

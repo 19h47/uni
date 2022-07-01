@@ -8,47 +8,51 @@
 @use 'sass:math';
 
 .select2 {
-	$this: &;
-
 	@extend .text-start;
 
 	&-container {
-		@extend .d-block;
-
-		border-radius: map-get($borders, radius);
+		@extend .block, .rounded;
 
 		&.select2-container--focus {
 			outline: none;
 			box-shadow: 0 0 0 0.2rem rgba(the_color(gray, very-light-02), 0.5);
 		}
 
+		.select2-results__option {
+			@extend .p-12px;
+		}
+
+		.select2-search--dropdown {
+			@extend .p-12px;
+		}
+
+		.select2-dropdown {
+			@extend .border-x, .border-bottom, .rounded-bottom;
+		}
+
+		.select2-search--dropdown .select2-search__field {
+			@extend .border, .p-12px;
+		}
+
 		.select2-selection--single {
-			border: 1px solid the_color(gray, very-dark);
-			border-radius: map-get($borders, radius);
-			height: auto;
+			@extend .rounded, .m-0, .border, .h-auto, .outline-none-focus;
 
-			&:focus {
-				outline: none;
+			.select2-selection__rendered {
+				@extend .p-12px;
+
+				line-height: math.div($base-line-height, $base-font-size);
 			}
 
-			#{ $this }-selection__rendered {
-				@include padding(
-					top #{math.div(20, 30)}em right #{math.div(20, 30)}em bottom #{math.div(20, 30)}em
-						left #{math.div(20, 30)}em
-				);
-
-				line-height: math.div(30, 25);
-			}
-
-			#{ $this }-selection__arrow {
+			.select2-selection__arrow {
 				@include absolute(top 0 right 0 bottom 0);
-				@include margin(right #{math.div(20, 30)}em);
-				@include size(1em, auto);
+				@include size(#{math.div(1, $base-font-size)}rem, auto);
+
+				margin-right: #{math.div(20, $base-font-size)}rem;
 			}
 		}
 
-		.select2-selection__arrow {
-		}
+		// .select2-selection__arrow {
+		// }
 
 		[role='option']:focus,
 		input[type='text']:focus {

@@ -5,12 +5,14 @@
 
 {% block content %}
 
+	{{ parent() }}
+
 	{% embed 'components/modal.html.twig' with { attributes: { style: 'opacity: 0; visibility: hidden;' }, id: post.id } %}
 		{% block body %}
 			<p class="m-0">
 				{{- __( 'This item has been added to your basket:', 'uni' ) -}}
 			</p>
-			<div class="my-40px mx-auto d-block">
+			<div class="my-40px mx-auto block">
 				<p class="ff-title fst-italic mb-8px">
 					{{- post.title -}}
 				</p>
@@ -19,23 +21,23 @@
 					include(
 						'partials/image.html.twig',
 						{
-							classes: [ 'w-400px', 'mw-100', 'h-auto', 'd-block', 'object-fit-cover', 'object-position-center', 'rounded-5px' ],
+							classes: [ 'w-400px', 'mw-100', 'h-auto', 'block', 'object-fit-cover', 'object-position-center', 'rounded' ],
 							image: post.thumbnail
 						},
 						with_context = false
 					)
 				-}}
 
-				<p class="mt-8px d-flex" data-modal="price">
+				<p class="mt-8px flex" data-modal="price">
 					{{- fn( 'wc_price', post.product.get_price() ) -}}
 				</p>
 			</div>
-			<footer class="d-flex align-items-center flex-row justify-content-between">
-				<button type="submit" class="me-20px me-md-0 letter-spacing-50 d-flex align-items-center text-decoration-underline js-modal-button">
+			<footer class="flex align-items-center flex-row justify-content-between">
+				<button type="submit" class="me-20px me-md-0 tracking-wider flex align-items-center text-decoration-underline js-modal-button">
 					{{- include( 'svg/use.html.twig', { icon: 'times', classes: [ 'me-20px', 'size-20px', 'pe-none' ] }, with_context = false ) -}}
 					{{- __( 'Continue your purchases', 'uni' ) -}}
 				</button>
-				<a class="ms-20px ms-md-0 d-flex align-items-center text-decoration-underline" href="{{ cart_url | e( 'esc_url' ) }}">
+				<a class="ms-20px ms-md-0 flex align-items-center text-decoration-underline" href="{{ cart_url | e( 'esc_url' ) }}">
 					{{- include( 'svg/use.html.twig', { icon: 'cart', classes: [ 'me-20px', 'size-20px' ] }, with_context = false ) -}}
 					{{- __( 'Access your basket', 'uni' ) -}}
 				</a>
@@ -43,25 +45,23 @@
 		{% endblock %}
 	{% endembed %}
 
-	{{ parent() }}
-
 {% endblock %}
 
 {% block track %}
 
-	<div class="d-md-flex flex-md-nowrap my-md-20px flex-md-shrink-0" data-module-wrapper-page>
+	<div class="md-flex flex-md-nowrap my-md-20px flex-md-shrink-0" data-module-wrapper-page>
 		{#
-			# Hook: woocommerce_before_single_product.
-			#
-			# @hooked wc_print_notices - 10
-			#}
+		 # Hook: woocommerce_before_single_product.
+		 #
+		 # @hooked wc_print_notices - 10
+		 #}
 		{% do action( 'woocommerce_before_single_product' ) %}
 
 		<article
 			id="product-{{ post.id }}"
 			itemscope
 			itemtype="http://schema.org/Product"
-			class="Product d-md-flex mb-20px mb-md-0 {{ post.class }}"
+			class="Product md-flex mb-20px mb-md-0 {{ post.class }}"
 		>
 			<meta itemprop="url" content="{{ post.link }}" />
 
@@ -92,7 +92,7 @@
 					)
 				-}}
 
-				<div class="ps-md-200vw d-md-flex">
+				<div class="ps-md-200vw md-flex">
 
 					<div class="w-md-600vw mt-20px">
 						<div class="Wysiwyg">
@@ -106,7 +106,7 @@
 							{{- post.terms( 'product_cat' ) | map( c => "<p class=\"ff-title mt-20px fst-italic\">#{c.description}</p>" ) | join( ', ' ) -}}
 						</div>
 
-						<div class="mt-20px d-flex gap-20px flex-wrap">
+						<div class="mt-20px flex gap-20px flex-wrap">
 							{#
 							# Hook: woocommerce_single_product_price
 							#

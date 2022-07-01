@@ -26,12 +26,12 @@
 
 <button
 	id="button-menu-{{ id }}"
-	class="size-20px position-relative z-index-2"
+	class="size-20px relative z-2"
 	type="button"
 	data-module-panel-button
 	data-panel-button-id="menu"
 	aria-label="{{ __( 'Menu', 'uni' ) }}"
 >
-	{{- include( 'svg/use.html.twig', { icon: 'bars', classes: [ 'position-absolute', 'inset-0', 'size-100', 'pe-none' ] }, with_context = false ) -}}
-	{{- include( 'svg/use.html.twig', { icon: 'times', classes: [ 'position-absolute', 'inset-0', 'size-100', 'pe-none' ] }, with_context = false ) -}}
+	{{- include( 'svg/use.html.twig', { icon: 'bars', classes: [ 'absolute', 'inset-0', 'size-100', 'pe-none' ] }, with_context = false ) -}}
+	{{- include( 'svg/use.html.twig', { icon: 'times', classes: [ 'absolute', 'inset-0', 'size-100', 'pe-none' ] }, with_context = false ) -}}
 </button>

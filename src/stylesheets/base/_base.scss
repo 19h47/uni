@@ -5,12 +5,14 @@
 @use 'sass:math';
 
 html {
-	@include size(100%);
-
 	scroll-behavior: smooth;
 
 	font-size: $base-font-size-px;
 	line-height: math.div($base-line-height, $base-font-size);
+
+	-webkit-text-size-adjust: 100%;
+	-o-tab-size: 4;
+	tab-size: 4;
 
 	@include media-breakpoint-up(md) {
 		font-size: math.div(($base-font-size * 1.875) * 100vw, $prototype-width-unitless);
@@ -18,10 +20,8 @@ html {
 }
 
 body {
-	-moz-osx-font-smoothing: grayscale;
 	-webkit-font-smoothing: antialiased;
-
-	text-rendering: optimizeLegibility;
+	-moz-osx-font-smoothing: grayscale;
 
 	&.is-native-scroll.y-scroll {
 		@extend .overflow-y-scroll, .overflow-x-hidden;
@@ -46,7 +46,7 @@ a {
 
 p {
 	margin-top: 0;
-	margin-bottom: 1em;
+	margin-bottom: 1rem;
 }
 
 strong {
@@ -56,7 +56,7 @@ strong {
 hr {
 	border: none;
 	width: 100%;
-	height: 1px;
+	height: #{math.div(1, $base-font-size)}rem;
 }
 
 select {

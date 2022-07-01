@@ -11,11 +11,11 @@
 			<p class="mb-8px text-decoration-underline">{{- __( 'Exists in:', 'uni' ) -}}</p>
 		{% endif %}
 
-		<ul class="list-style-type-none d-flex m-n6px">
+		<ul class="list-style-type-none flex m-n6px">
 			{%- for product_color in product.product_colors -%}
 				<li class="Product-colors__item m-6px">
 					<a
-						class="d-block size-16px rounded-5px transition-box-shadow {{ 1 < loop.length ? 'js-color' }} {{ product_color.current and shadow ? 'shadow-uni' : '' }}"
+						class="block size-16px rounded transition-box-shadow {{ 1 < loop.length ? 'js-color' }} {{ product_color.current and shadow ? 'shadow-uni' : '' }}"
 						href="{{ product_color.link }}"
 						data-link="{{ product_color.link }}"
 						data-color="{{ product_color.color }}"

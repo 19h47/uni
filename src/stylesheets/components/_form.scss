@@ -7,6 +7,6 @@ form {
 
 	.error-message,
 	.success-message {
-		@extend .fs-2xs, .text-start, .text-red-bright, .mt-12px;
+		@extend .text-2xs, .text-start, .text-red-bright, .mt-12px;
 	}
 }
