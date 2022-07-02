@@ -97,7 +97,7 @@
 					</div>
 
 					{% if post.meta( 'gallery' ) %}
-						<div class="overflow-md-hidden mb-20px ms-md-200vw py-md-60vh bg-white relative md-flex flex-md-nowrap z-2" style="transform: translate3d(0,0,0);">
+						<div class="overflow-md-hidden mb-20px ms-md-200vw py-md-60vh bg-body relative md-flex flex-md-nowrap z-2" style="transform: translate3d(0,0,0);">
 							{% for image in post.meta( 'gallery' ) %}
 
 								{% set _product = TimberPost( image.id ).meta( 'product_link' ) %}
@@ -138,7 +138,7 @@
 						include(
 							'components/heading.html.twig',
 							{
-								classes: [ 'text-gray-dark', 'bg-white' ],
+								classes: [ 'text-body', 'bg-body' ],
 								link: post.meta( 'link' ).url | default( site.link ),
 								title: post.meta( 'link' ).title | default( __( 'Discover<br>our online store', 'uni' ) )
 							},

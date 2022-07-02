@@ -12,7 +12,7 @@
 @import 'bootstrap-variables';
 
 // Optional Sass map overrides here
-$theme-colors: $custom-theme-colors;
+// $theme-colors: $theme-colors;
 $colors: ();
 $grays: ();
 
@@ -305,6 +305,37 @@ $utilities: map-merge(
 
 .border-spacing-0 {
 	border-spacing: 0;
+}
+
+.bg-cyan-100 {
+	background-color: $cyan-100;
+}
+.bg-red-100 {
+	background-color: $red-100;
+}
+.bg-green-100 {
+	background-color: $green-100;
+}
+.bg-gray-100 {
+	background-color: $gray-100;
+}
+.border-cyan-200 {
+	--bs-border-color: #{$cyan-200};
+}
+.border-red-200 {
+	--bs-border-color: #{$red-200};
+}
+.border-green-200 {
+	--bs-border-color: #{$green-200};
+}
+.text-cyan-800 {
+	color: $cyan-800;
+}
+.text-red-800 {
+	color: $red-800;
+}
+.text-green-800 {
+	color: $green-800;
 }
 
 @import 'bootstrap.utilities.borders';

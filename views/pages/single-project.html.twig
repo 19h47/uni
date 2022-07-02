@@ -43,7 +43,7 @@
 {% endblock %}
 
 {% block track %}
-	<div class="md-flex flex-md-nowrap my-md-20px bg-white flex-md-shrink-0" data-module-wrapper-page>
+	<div class="md-flex flex-md-nowrap my-md-20px bg-body flex-md-shrink-0" data-module-wrapper-page>
 		<div
 			class="{{ [
 				'pt-md-200vh',
@@ -145,7 +145,7 @@
 		{{- include(
 			'components/heading.html.twig',
 			{
-				classes: [ 'text-gray-dark', 'md-hidden' ],
+				classes: [ 'text-body', 'md-hidden' ],
 				link: post.prev.link, title: __( 'Next Project', 'uni' )
 			},
 			with_context = false
@@ -154,7 +154,7 @@
 		{{- include(
 			'components/heading.html.twig',
 			{
-				classes: [ 'flex-md-shrink-0', 'text-gray-dark', 'md-hidden' ],
+				classes: [ 'flex-md-shrink-0', 'text-body', 'md-hidden' ],
 				link: post.first_project.link, title: __( 'Next Project', 'uni' )
 			},
 			with_context = false
@@ -177,12 +177,12 @@
 	{% if post.prev %}
 		{{- include(
 			'components/heading.html.twig',
-			{ classes: [ 'flex-shrink-0', 'text-gray-dark', 'hidden', 'md-block' ], link: post.prev.link, title: __( 'Next Project', 'uni' )  }, with_context = false
+			{ classes: [ 'flex-shrink-0', 'text-body', 'hidden', 'md-block' ], link: post.prev.link, title: __( 'Next Project', 'uni' )  }, with_context = false
 		) -}}
 	{% else %}
 		{{- include(
 			'components/heading.html.twig',
-			{ classes: [ 'flex-shrink-0', 'text-gray-dark', 'hidden', 'md-block' ], link: post.first_project.link, title: __( 'Next Project', 'uni' )  }, with_context = false
+			{ classes: [ 'flex-shrink-0', 'text-body', 'hidden', 'md-block' ], link: post.first_project.link, title: __( 'Next Project', 'uni' )  }, with_context = false
 		) -}}
 	{% endif %}
 

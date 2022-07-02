@@ -10,10 +10,10 @@
 					'shadow-uni',
 					'p-12px',
 					'border',
-					'border-cyan-light-grayish-02',
+					'border-cyan-200',
 					'rounded',
-					'bg-cyan-light-grayish-01',
-					'text-cyan-very-dark-01',
+					'bg-cyan-100',
+					'text-cyan-800',
 				] | merge( notice.classes | default( [] ) ) | join( ' ' ) | trim
 			}}"
 			{{ fn( 'wc_get_notice_data_attr', notice ) }}

@@ -12,10 +12,10 @@
 			'shadow-uni',
 			'p-12px',
 			'border',
-			'border-red-light-grayish-02',
+			'border-red-200',
 			'rounded',
-			'bg-red-light-grayish-01',
-			'text-red-very-dark-01'
+			'bg-red-100',
+			'text-red-800'
 		] | merge( notice.classes | default( [] ) ) | join( ' ' ) | trim
 	}}" role="alert">
 		{% for notice in notices %}

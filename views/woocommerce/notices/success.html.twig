@@ -3,16 +3,16 @@
  #}
 {% if notices is iterable and notices is not empty %}
 
-	<div class="flex gap-y-12px">
+	<div class="flex flex-column gap-y-12px">
 		{% for notice in notices %}
 			<div class="{{ [
 				'shadow-uni',
 				'p-12px',
 				'border',
 				'rounded',
-				'text-green-very-dark-lime-01',
-				'bg-green-light-grayish-lime-01',
-				'border-green-light-grayish-lime-02'
+				'text-green-800',
+				'bg-green-100',
+				'border-green-200'
 			] | join( ' ' ) | trim }}"
 			{{ fn( 'wc_get_notice_data_attr', notice ) }}
 			role="alert"

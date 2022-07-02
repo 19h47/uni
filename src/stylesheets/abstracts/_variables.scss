@@ -15,32 +15,6 @@
  */
 @use 'sass:math';
 
-$color-variations: (
-	red: (
-		bright: #dc3545,
-		pure: #ff0000,
-		very-dark-02: #721c24,
-		light-grayish-01: #f8d7da,
-		light-grayish-02: #f5c6cb,
-	),
-	blue: (
-		pure: #0000ff,
-	),
-	gray: (
-		very-light-02: #e4e4e4,
-	),
-	cyan: (
-		very-dark-02: #062c33,
-	),
-	socials: (
-		facebook: #3b5998,
-		twitter: #1da1f2,
-		google-plus: #dd4b39,
-		linkedin: #0077b5,
-		viadeo: #f07355,
-	),
-);
-
 /**
  * Base
  */

@@ -8,11 +8,11 @@ form {
 	[type='email'],
 	[type='text'],
 	textarea {
-		@include reset-placeholder(the_color(gray, very-light-02));
+		@include reset-placeholder($gray-300);
 	}
 
 	.error-message,
 	.success-message {
-		@extend .text-2xs, .text-start, .text-red-bright, .mt-12px;
+		@extend .text-2xs, .text-start, .text-danger, .mt-12px;
 	}
 }

@@ -169,23 +169,7 @@ $spacers: map-merge(
 $enable-negative-margins: true;
 $negative-spacers: if($enable-negative-margins, negativify-map($spacers), null);
 
-$gray-very-dark: #666666;
-
-$custom-theme-colors: (
-	red-bright: #dc3545,
-	red-light-grayish-01: #f8d7da,
-	red-light-grayish-02: #f5c6cb,
-	cyan-light-grayish-01: #d1ecf1,
-	cyan-light-grayish-02: #bee5eb,
-	cyan-very-dark-01: #0c5460,
-	gray-dark: #999999,
-	gray-very-dark: $gray-very-dark,
-	gray-very-light-01: #f8f8f8,
-	green-dark-lime: #28a745,
-	green-very-dark-lime-01: #155724,
-	green-light-grayish-lime-01: #d4edda,
-	green-light-grayish-lime-02: #c3e6cb,
-);
+$body-color: $gray-800;
 
 $border-width: #{math.div(1, $base-font-size)}rem;
 $border-widths: (
@@ -195,7 +179,7 @@ $border-widths: (
 	4: #{math.div(4, $base-font-size)}rem,
 	5: #{math.div(5, $base-font-size)}rem,
 );
-$border-color: $gray-very-dark;
+$border-color: $gray-800;
 $border-radius: #{math.div(5, $base-font-size)}rem;
 
 $headings-font-family: 'Suisse Works';

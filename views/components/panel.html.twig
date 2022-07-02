@@ -9,7 +9,7 @@
 	data-module-panel="{{ id | default( '' ) }}"
 	{{ attributes ? attributes | map( ( value, key ) => "#{key}=\"#{value}\"" ) | join( ' ' ) | raw }}
 >
-	<div class="bg-white bg-opacity-97 shadow-uni rounded h-100">
+	<div class="bg-body bg-opacity-97 shadow-uni rounded h-100">
 		{% block content %}{% endblock %}
 	</div>
 </div>

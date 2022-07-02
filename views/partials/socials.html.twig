@@ -18,7 +18,7 @@
 		<ul class="flex align-items-center list-style-type-none">
 			{%- for social in socials -%}
 				<li class="{{ loop.first ? 'me-8px' : loop.last ? 'ms-8px' : 'my-8px' }}">
-					<a class="ff-title text-gray-very-dark" href="{{ social.url }}" target="_blank" rel="noopener noreferer">
+					<a class="ff-title text-gray" href="{{ social.url }}" target="_blank" rel="noopener noreferer">
 						{{- include( 'svg/use.html.twig', { classes: [ 'size-24px', 'fill-current', 'fill-black-hover', 'block' ], icon: social.slug } ) -}}
 					</a>
 				</li>

@@ -31,7 +31,7 @@
 					<li class="Loop w-md-800vw h-md-100 flex flex-column flex-md-row">
 
 						<{{- item.project ? "a href=\"#{item.project.link}\"" | raw : 'div' | raw }}
-							class="Thumbnail h-360vh w-100 h-md-100 relative block {{ item.project.color ? '' : 'bg-gray-very-light-01' }}"
+							class="Thumbnail h-360vh w-100 h-md-100 relative block {{ item.project.color ? '' : 'bg-gray-100' }}"
 							style="{{ item.project.color ? 'background-color: ' ~ item.project.color | raw : '' }}"
 							data-product-content="link"
 						>
@@ -167,7 +167,7 @@
 				include(
 					'components/heading.html.twig',
 					{
-						classes: [ 'flex-md-shrink-0', 'text-gray-dark', 'bg-white' ],
+						classes: [ 'flex-md-shrink-0', 'text-body', 'bg-body' ],
 						link: post.meta( 'link' ).url,
 						title: post.meta( 'link' ).title
 					},
