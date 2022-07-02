@@ -232,8 +232,15 @@ $utilities: map-merge(
 				transform: unquote('transform .7s cubic-bezier(.19,1,.22,1)'),
 			),
 		),
+		'gap-x': (
+			property: column-gap,
+			responsive: true,
+			class: gap-x,
+			values: $spacers,
+		),
 		'gap-y': (
 			property: row-gap,
+			responsive: true,
 			class: gap-y,
 			values: $spacers,
 		),

@@ -8,6 +8,6 @@
 {% block content %}
 	<div class="mt-100px mx-20px mb-20px mt-md-20px ms-md-100px relative">
 		{{- post.content -}}
-		{{- include( 'components/footer-vertical.html.twig' ) -}}
+		{{- include( 'components/footer.html.twig', { classes: [ 'mt-20px' ] } ) -}}
 	</div>
 {% endblock %}

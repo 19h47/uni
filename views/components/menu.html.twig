@@ -11,10 +11,10 @@
 			<div class="w-100 w-md-8/12 mb-40px mb-md-0">
 				<ul class="list-style-type-none" itemscope itemtype="http://schema.org/SiteNavigationElement">
 					{% for item in menus.main_primary.items %}
-						<li class="{{ loop.first ? 'mb-20px mb-md-40px' : loop.last ? 'mt-20px mt-md-40px' : 'my-20px my-md-40px' }}">
+						<li class="text-xl text-md-3xl ff-title {{ loop.first ? 'mb-20px mb-md-40px' : loop.last ? 'mt-20px mt-md-40px' : 'my-20px my-md-40px' }}">
 							<a
 								href="{{ item.url }}"
-								class="text-xl text-md-3xl ff-title {{ item.current ? 'text-decoration-underline' }}"
+								class="text-decoration-underline-hover text-decoration-underline-focus {{ item.current ? 'text-decoration-underline' }}"
 								itemprop="url"
 								{{ item.target ? " target=\"#{item.target}\"" }}
 							>
@@ -31,7 +31,7 @@
 						<li class="{{ loop.first and loop.last ? '' : ( loop.first ? 'mb-20px' : ( loop.last ? 'mt-20px' : 'my-20px' ) ) }}">
 							<a
 								href="{{ item.url }}"
-								class="{{ item.current ? 'text-decoration-underline' : '' }}"
+								class="text-decoration-underline-hover text-decoration-underline-focus {{ item.current ? 'text-decoration-underline' : '' }}"
 								itemprop="url"
 								{{ item.target ? " target=\"#{item.target}\"" }}
 							>

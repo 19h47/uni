@@ -15,7 +15,7 @@
 				'mt-100px',
 				'mb-20px',
 				'px-20px',
-				'px-md-0',
+				'p-md-0',
 				'w-100',
 				'h-md-100'
 			] | join( ' ' ) | trim
@@ -23,12 +23,12 @@
 		data-horizontal-page="section"
 	>
 		<div
-			class="ps-md-100px md-flex flex-md-nowrap md-absolute z-md-0 h-md-100"
+			class="ps-md-100px pe-md-20px md-flex flex-md-nowrap md-absolute z-md-0 h-md-100"
 			data-horizontal-page="track"
 		>
 			{% block track %}
 				<div class="md-flex flex-md-nowrap my-md-20px flex-md-shrink-0" data-module-wrapper-page>
-					<div class="{{ [ 'py-md-0', 'ps-md-0', 'js-grid' ] | join( ' ' ) | trim }}">
+					<div class="js-grid">
 						<div
 							class="{{ [
 								'w-md-1900vw',
@@ -97,7 +97,7 @@
 					</div>
 
 					{% if post.meta( 'gallery' ) %}
-						<div class="overflow-md-hidden mb-20px ms-md-200vw py-md-60vh bg-white relative md-flex flex-md-nowrap z-index-2" style="transform: translate3d(0,0,0);">
+						<div class="overflow-md-hidden mb-20px ms-md-200vw py-md-60vh bg-white relative md-flex flex-md-nowrap z-2" style="transform: translate3d(0,0,0);">
 							{% for image in post.meta( 'gallery' ) %}
 
 								{% set _product = TimberPost( image.id ).meta( 'product_link' ) %}
@@ -125,7 +125,7 @@
 									</{{ _product ? 'a' : 'div' }}>
 
 									{%- if _product %}
-										<h5 class="font-normal mt-20px text-xs italic my-md-0 pe-md-20vw writing-mode-md-vertical-rl rotate-md-180 origin-md-center">
+										<h5 class="font-normal mt-20px m-md-0 text-xs italic pe-md-20vw writing-mode-md-vertical-rl rotate-md-180 origin-md-center">
 											{{- _product.title -}}
 										</h5>
 									{%- endif -%}
@@ -138,7 +138,7 @@
 						include(
 							'components/heading.html.twig',
 							{
-								classes: [ 'flex-md-shrink-0', 'text-gray-dark', 'bg-white' ],
+								classes: [ 'text-gray-dark', 'bg-white' ],
 								link: post.meta( 'link' ).url | default( site.link ),
 								title: post.meta( 'link' ).title | default( __( 'Discover<br>our online store', 'uni' ) )
 							},
@@ -150,7 +150,7 @@
 			{% endblock %}
 
 			{% block footer %}
-				{{- include( 'components/footer-horizontal.html.twig', { classes: [ 'flex-md-shrink-0' ] } ) -}}
+				{{- include( 'components/footer.html.twig', { vertical: true, classes: [ 'my-md-20px' ] } ) -}}
 			{% endblock %}
 
 		</div>

@@ -47,6 +47,7 @@
 			placeholder="{{ args.placeholder | e }}"
 			{{ args.custom_attributes.rows ? ' rows="2"' : '' }}
 			{{ args.custom_attributes.cols ? ' cols="5"' : '' }}
+			{{ args.required ? 'required' }}
 			{{ custom_attributes | join( ' ' ) }}>{{- value | e }}</textarea>
 	</p>
 </div>

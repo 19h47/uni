@@ -1,28 +1,15 @@
 {#
- # Footer Horizontal
+ # Footer
  #
  # @package UNI
  #}
 
 {% import 'macros/footer.twig' as footer %}
 
-<footer class="my-md-20px text-gray-very-dark bg-white {{ classes ? classes | join( ' ' ) }}">
-	<div class="{{
-		[
-			'me-md-20px',
-			'shadow-uni',
-			'rounded',
-			'p-20px',
-			'px-md-200vw',
-			'py-md-60vh',
-			'w-md-1000vw',
-			'flex',
-			'flex-md-column',
-			'flex-row',
-			'h-md-100'
-		] | join( ' ' )
-	}}">
-		<div class="flex">
+
+<footer class="{{ classes ? classes | join( ' ' ) | trim }}">
+	<div class="shadow-uni rounded p-20px px-md-200vw flex flex-column {{ vertical ? 'h-md-100 w-md-1000vw py-md-60vh me-md-20px' : 'py-md-100px flex-md-row gap-x-md-20px' }}">
+		<div class="flex {{ vertical ? '' : 'w-md-3/12 gap-x-20px' }}">
 			<div class="w-50">
 				{{- footer.list( menus.footer_primary.items, __( 'Navigation', 'uni' ) ) -}}
 			</div>
@@ -30,16 +17,16 @@
 				{{- footer.list( menus.footer_secondary.items, __( 'Information', 'uni' ) ) -}}
 			</div>
 		</div>
-		<div class="mt-20px mt-md-40px">
+		<div class="mt-20px {{ vertical ? 'mt-md-40px' : 'm-md-0 w-md-1.5/12 order-md-1' }}">
 			{{- footer.list( menus.footer_tertiary.items, __( 'Downloads', 'uni' ) ) -}}
 		</div>
-		<div class="pt-md-40px mt-20px mt-md-auto">
-			{{- include( 'partials/socials.html.twig', { label: __( 'Follow us', 'uni' ) } ) -}}
+		<div class="mt-20px {{ vertical ? 'pt-md-40px mt-md-auto' : 'm-md-0 w-md-1.5/12 order-md-0' }}">
+			{{- include( 'partials/socials.html.twig', { label: __( 'Follow us', 'uni' ), classes: [] } ) -}}
 		</div>
-		<div class="mt-20px mt-md-40px">
-			{{- include( 'partials/signup-form.html.twig', { label: __( 'Newsletter subscriptions', 'uni' ), id: post.id } ) -}}
+		<div class="mt-20px {{ vertical ? 'mt-md-40px' : 'm-md-0 order-md-4 w-md-4.5/12' }}">
+			{{- include( 'partials/signup-form.html.twig', { label: __( 'Newsletter subscriptions', 'uni' ), id: post.id, classes: [] } ) -}}
 		</div>
-		<div class="mt-20px mt-md-40px">
+		<div class="mt-20px {{ vertical ? 'mt-md-40px' : 'm-md-0 order-md-3 w-md-1.5/12' }}">
 			<ul class="list-style-type-none">
 				<li class="mb-12px">
 					<h5 class="ff-body m-0 text-2xs">{{- __( 'Credits:', 'uni' ) -}}</h5>
@@ -53,3 +40,4 @@
 		</div>
 	</div>
 </footer>
+

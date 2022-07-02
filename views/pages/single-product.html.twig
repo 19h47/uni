@@ -171,7 +171,7 @@
 		{%- embed 'partials/page-content.html.twig' with {
 				title: post.terms( 'product_cat' )[0].name,
 				subtitle: post.terms( 'product_cat' )[0].meta( 'number' ) ? __( 'Collection N°%s', 'uni' ) | format( post.terms( 'product_cat' )[0].meta( 'number' ) ) : '',
-				classes: [ 'mt-20px', 'my-md-0', 'w-md-1400vw' ]
+				classes: [ 'mt-20px', 'm-md-0', 'w-md-1400vw' ]
 			}
 		-%}
 			{% block content %}
