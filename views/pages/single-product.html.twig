@@ -155,7 +155,8 @@
 				include(
 					'components/heading.html.twig',
 					{
-						title: __( 'In the same collection', 'uni' ) | apply_filters( 'woocommerce_product_related_products_heading' )
+						title: __( 'In the same collection', 'uni' ) | apply_filters( 'woocommerce_product_related_products_heading' ),
+						classes: [  'md-flex' ]
 					},
 					with_context = false
 				)
@@ -185,7 +186,7 @@
 			include(
 				'components/heading.html.twig',
 				{
-					classes: [ 'flex-md-shrink-0', 'text-body' ],
+					classes: [ 'md-flex', 'flex-md-shrink-0', 'text-body' ],
 					link: shop_url,
 					title: __( 'Return to shop', 'uni' )
 				},
