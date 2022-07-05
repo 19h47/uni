@@ -8,7 +8,7 @@
 
 use Timber\{ Timber, Helper };
 
-$context = Timber::get_context();
+$context = Timber::context();
 
 $context['html'] = array(
 	'subtotal'    => Helper::ob_function( 'wc_cart_totals_subtotal_html' ),

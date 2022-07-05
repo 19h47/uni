@@ -98,9 +98,9 @@
 
 					{% if post.meta( 'gallery' ) %}
 						<div class="overflow-md-hidden mb-20px ms-md-200vw py-md-60vh bg-body relative md-flex flex-md-nowrap z-2" style="transform: translate3d(0,0,0);">
-							{% for image in post.meta( 'gallery' ) %}
+							{% for image in post.get_field( 'gallery' ) %}
 
-								{% set _product = TimberPost( image.id ).meta( 'product_link' ) %}
+								{% set _product = get_post( get_post( image ).meta( 'product_link' ) ) %}
 
 								<div
 									id="image-{{ image.id }}"

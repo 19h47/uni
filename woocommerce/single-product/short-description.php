@@ -14,7 +14,7 @@ use Timber\{ Timber };
 
 global $post;
 
-$context = Timber::get_context();
+$context = Timber::context();
 
 $context['short_description'] = apply_filters( 'woocommerce_short_description', $post->post_excerpt );
 

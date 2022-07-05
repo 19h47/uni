@@ -13,7 +13,7 @@
 
 use Timber\{ Timber };
 
-$context = Timber::get_context();
+$context = Timber::context();
 
 // @see https://github.com/woocommerce/woocommerce/blob/master/includes/wc-template-functions.php#L2240
 $context['checkout']           = (object) $checkout;

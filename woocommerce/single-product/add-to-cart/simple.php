@@ -12,7 +12,7 @@ use Timber\{ Timber };
 
 global $product;
 
-$context = Timber::get_context();
+$context = Timber::context();
 
 $context['id']             = $product->get_id();
 $context['stock_html']     = wc_get_stock_html( $product );

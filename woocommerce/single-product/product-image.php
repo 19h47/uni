@@ -12,7 +12,7 @@ global $product;
 
 use Timber\{ Timber };
 
-$context = Timber::get_context();
+$context = Timber::context();
 
 $context['columns'] = apply_filters( 'woocommerce_product_thumbnails_columns', 4 );
 

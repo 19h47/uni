@@ -25,9 +25,12 @@
 			)
 		-}}
 
+		{{ dump(post.items)}}
+
 		{% if post.items %}
 			{{- include( 'woocommerce/loop/loop-start.html.twig', { columns: loop_columns } ) -}}
 				{% for item in post.items %}
+
 					<li class="Loop w-md-800vw h-md-100 flex flex-column flex-md-row">
 
 						<{{- item.project ? "a href=\"#{item.project.link}\"" | raw : 'div' | raw }}

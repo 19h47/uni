@@ -8,7 +8,7 @@
 
 use Timber\{ Timber, Post };
 
-$context = Timber::get_context();
+$context = Timber::context();
 
 $context['page'] = array(
 	'id'        => wc_get_page_id( 'shop' ),

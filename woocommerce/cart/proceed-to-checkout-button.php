@@ -8,6 +8,6 @@
 
 use Timber\{ Timber };
 
-$context = Timber::get_context();
+$context = Timber::context();
 
 Timber::render( 'woocommerce/cart/proceed-to-checkout.html.twig', $context );

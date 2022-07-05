@@ -8,7 +8,7 @@
 
 use Timber\{ Timber, Helper };
 
-$context = Timber::get_context();
+$context = Timber::context();
 
 $context['tax_enabled']       = wc_tax_enabled();
 $context['tax_total_display'] = get_option( 'woocommerce_tax_total_display' );

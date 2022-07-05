@@ -12,7 +12,7 @@ global $product;
 use Timber\{ Timber };
 use UNI\Core\{ Transients };
 
-$data = Timber::get_context();
+$data = Timber::context();
 
 $data['products'] = Transients::products();
 

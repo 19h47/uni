@@ -68,7 +68,7 @@ class SendMessage {
 		$headers[] = 'From: UNI <contact@contact@uni-habitat.fr>';
 		$headers[] = 'Bcc: ' . get_option( 'admin_email' );
 
-		$context = Timber::get_context();
+		$context = Timber::context();
 
 		$context['post'] = new Post( $pid );
 

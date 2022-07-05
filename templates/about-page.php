@@ -9,7 +9,7 @@ global $product;
 
 use Timber\{ Timber };
 
-$data                  = Timber::get_context();
+$data                  = Timber::context();
 $data['post']          = Timber::get_post();
 $data['post']->modules = array( 'horizontal-page' );
 

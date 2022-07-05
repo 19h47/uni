@@ -14,7 +14,7 @@ use Timber\{ Timber };
 
 global $product;
 
-$context = Timber::get_context();
+$context = Timber::context();
 
 $sku = $product->get_sku();
 

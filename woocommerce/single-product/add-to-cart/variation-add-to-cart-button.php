@@ -10,7 +10,7 @@ global $product;
 
 use TImber\{ Timber };
 
-$context = Timber::get_context();
+$context = Timber::context();
 
 $context['quantity_input'] = woocommerce_quantity_input(
 	array(

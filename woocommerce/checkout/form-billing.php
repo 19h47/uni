@@ -9,7 +9,7 @@
 
 use Timber\{ Timber };
 
-$context = Timber::get_context();
+$context = Timber::context();
 
 $context['checkout'] = $checkout;
 $context['cart']     = WC()->cart;

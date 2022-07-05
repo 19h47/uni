@@ -19,7 +19,7 @@
 
 use Timber\{ Timber };
 
-$context = Timber::get_context();
+$context = Timber::context();
 
 $context['package_name']             = $package_name;
 $context['available_methods']        = $available_methods;

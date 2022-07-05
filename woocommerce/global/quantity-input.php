@@ -18,7 +18,7 @@
  * @version 4.0.0
  */
 
-$context = Timber::get_context();
+$context = Timber::context();
 
 $context['input'] = array(
 	'id'          => $input_id,

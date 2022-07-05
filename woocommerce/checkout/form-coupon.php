@@ -8,7 +8,7 @@
 
 use Timber\{ Timber };
 
-$context = Timber::get_context();
+$context = Timber::context();
 
 $context['coupons_enabled'] = wc_coupons_enabled();
 $context['classes']         = array( 'mb-12px' );

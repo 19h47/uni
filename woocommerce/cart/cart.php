@@ -8,7 +8,7 @@
 
 use Timber\{ Timber, Post };
 
-$context = Timber::get_context();
+$context = Timber::context();
 
 $context['coupons_enabled'] = wc_coupons_enabled();
 $context['nonce_field']     = wp_nonce_field( 'woocommerce-cart', 'woocommerce-cart-nonce', true, false );

@@ -8,7 +8,7 @@
 
 use Timber\{ Timber, Helper };
 
-$context = Timber::get_context();
+$context = Timber::context();
 
 $context['checkbox'] = array(
 	'enabled' => wc_terms_and_conditions_checkbox_enabled(),

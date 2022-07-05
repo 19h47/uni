@@ -10,7 +10,7 @@
 
 use Timber\{ Timber };
 
-$context = Timber::get_context();
+$context = Timber::context();
 
 $context['order']              = $order; // $order;
 $context['order_date_created'] = $order ? wc_format_datetime( $order->get_date_created() ) : false;

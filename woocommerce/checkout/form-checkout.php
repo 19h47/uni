@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 use Timber\{ Timber };
 
-$context = Timber::get_context();
+$context = Timber::context();
 
 $context['checkout'] = (object) $checkout;
 
