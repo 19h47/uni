@@ -25,8 +25,6 @@
 			)
 		-}}
 
-		{{ dump(post.items)}}
-
 		{% if post.items %}
 			{{- include( 'woocommerce/loop/loop-start.html.twig', { columns: loop_columns } ) -}}
 				{% for item in post.items %}

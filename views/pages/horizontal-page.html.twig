@@ -28,7 +28,7 @@
 		>
 			{% block track %}
 				<div class="md-flex flex-md-nowrap my-md-20px flex-md-shrink-0" data-module-wrapper-page>
-					<div class="js-grid">
+					<div class="js-grid mb-20px m-md-0">
 						<div
 							class="{{ [
 								'w-md-1900vw',
@@ -61,30 +61,6 @@
 									}
 								)
 							-}}
-
-							<div class="text-center my-20px md-hidden">
-								{{-
-									include(
-										'components/button.html.twig',
-										{
-											label: __( 'Find out more &plus;', 'uni' ),
-											attributes: {
-												'data-module-disclosure-button': '',
-												'aria-expanded': 'false',
-												'aria-controls': 'content,footer'
-											}
-										}
-									)
-								-}}
-							</div>
-
-							<div class="Wysiwyg my-20px" style="display: none;" id="content">
-								{{- post.content -}}
-							</div>
-
-							<div class="ff-title italic my-20px" style="display: none;" id="footer">
-								{{- post.footer | nl2br -}}
-							</div>
 
 							<div class="Wysiwyg hidden md-block mt-20px ps-200vw">
 								{{- post.content -}}
@@ -133,6 +109,30 @@
 							{% endfor %}
 						</div>
 					{% endif %}
+
+					<div class="text-center my-20px md-hidden">
+						{{-
+							include(
+								'components/button.html.twig',
+								{
+									label: __( 'Find out more &plus;', 'uni' ),
+									attributes: {
+										'data-module-disclosure-button': '',
+										'aria-expanded': 'false',
+										'aria-controls': 'content,footer'
+									}
+								}
+							)
+						-}}
+					</div>
+
+					<div class="Wysiwyg my-20px" style="display: none;" id="content">
+						{{- post.content -}}
+					</div>
+
+					<div class="ff-title italic my-20px" style="display: none;" id="footer">
+						{{- post.footer | nl2br -}}
+					</div>
 
 					{{-
 						include(

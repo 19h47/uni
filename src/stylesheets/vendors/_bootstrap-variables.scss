@@ -170,6 +170,7 @@ $enable-negative-margins: true;
 $negative-spacers: if($enable-negative-margins, negativify-map($spacers), null);
 
 $body-color: $gray-800;
+$secondary: $gray-800;
 
 $border-width: #{math.div(1, $base-font-size)}rem;
 $border-widths: (

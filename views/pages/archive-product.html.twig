@@ -19,7 +19,7 @@
 					{{- post.meta( 'long_description' ) ? post.meta( 'long_description' ) : post.content -}}
 
 					{% if post.description %}
-						<div class="ff-title italic">
+						<div class="ff-title italic mt-20px">
 							{#
 							 # Hook: woocommerce_archive_description.
 							 #
@@ -70,6 +70,38 @@
 			 #}
 			{% do action( 'woocommerce_no_products_found' ) %}
 		{% endif %}
+
+		<div class="text-center my-20px md-hidden">
+			{{-
+				include(
+					'components/button.html.twig',
+					{
+						label: __( 'Find out more &plus;', 'uni' ),
+						attributes: {
+							'data-module-disclosure-button': '',
+							'aria-expanded': 'false',
+							'aria-controls': 'content'
+						}
+					}
+				)
+			-}}
+		</div>
+
+		<div class="Wysiwyg mt-20px"  style="display: none;" id="content">
+			{{- post.meta( 'long_description' ) ? post.meta( 'long_description' ) : post.content -}}
+
+			{% if post.description %}
+				<div class="ff-title italic mt-20px">
+					{#
+						# Hook: woocommerce_archive_description.
+						#
+						# @hooked woocommerce_taxonomy_archive_description - 10
+						# @hooked woocommerce_product_archive_description - 10
+						#}
+					{%- do action( 'woocommerce_archive_description' ) -%}
+				</div>
+			{% endif %}
+		</div>
 
 		{{-
 			include(

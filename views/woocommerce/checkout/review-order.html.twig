@@ -10,7 +10,7 @@
 		<div class="product-total w-50 flex justify-content-end">
 			{{- __( 'Subtotal', 'uni' ) -}}
 		</div>
-		<hr class="mt-12px w-100 bg-gray">
+		<hr class="mt-12px w-100 bg-secondary">
 	</div>
 
 
@@ -47,7 +47,7 @@
 			{% endif %}
 		{% endfor %}
 
-		<hr class="mt-12px bg-gray">
+		<hr class="mt-12px bg-secondary">
 	{% endif %}
 
 	{#
@@ -60,7 +60,7 @@
 		<div class="w-50 flex justify-content-end">
 			{{- html.subtotal -}}
 		</div>
-		<div class="w-100 mt-12px"><hr class="bg-gray"></div>
+		<div class="w-100 mt-12px"><hr class="bg-secondary"></div>
 	</div>
 
 	{% for code, coupon in cart.get_coupons() %}
@@ -118,7 +118,7 @@
 		<div class="w-50 flex justify-content-end">
 			{{- html.order_total -}}
 		</div>
-		<hr class="bg-gray mt-12px w-100">
+		<hr class="bg-secondary mt-12px w-100">
 	</div>
 
 	{#
