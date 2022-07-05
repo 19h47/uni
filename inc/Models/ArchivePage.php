@@ -31,7 +31,7 @@ class ArchivePage extends Post {
 	public $modules = array( 'horizontal-page' );
 
 	public function items() : array {
-		$items = $this->meta( 'gallery' );
+		$items = get_field( 'gallery', $this->ID );
 		$array = array();
 
 		foreach ( $items as $key => $item ) {
@@ -43,11 +43,10 @@ class ArchivePage extends Post {
 			);
 
 			if ( $item['project'][0] ) {
-				$array[ $key ]['project'] = new ProjectPost( $item['project'][0] );
+				$array[ $key ]['project'] = Timber::get_post( $item['project'][0] );
 			}
 		}
 
 		return $array;
-
 	}
 }

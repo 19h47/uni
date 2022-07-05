@@ -9,15 +9,13 @@
  * @version 0.0.0
  */
 
-use Timber\{ Timber, Post };
-
-$context = Timber::context();
-
-$context['post']      = new Post();
-$context['namespace'] = 'page';
-
-$context['post']->body_classes = array( 'Checkout' );
+use Timber\{ Timber };
 
 $templates = array( 'pages/checkout-page.html.twig' );
 
-Timber::render( $templates, $context );
+$data                       = Timber::context();
+$data['post']               = Timber::get_post();
+$data['namespace']          = 'page';
+$data['post']->body_classes = array( 'Checkout' );
+
+Timber::render( $templates, $data );

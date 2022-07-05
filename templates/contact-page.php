@@ -5,12 +5,10 @@
  * @package uni
  */
 
-use Timber\{ Timber, Post };
+use Timber\{ Timber };
 
-$context = Timber::get_context();
+$data                  = Timber::get_context();
+$data['post']          = Timber::get_post();
+$data['post']->modules = array( 'contact-page' );
 
-$context['post'] = new Post();
-
-$context['post']->modules = array( 'contact-page' );
-
-Timber::render( 'pages/contact-page.html.twig', $context );
+Timber::render( 'pages/contact-page.html.twig', $data );

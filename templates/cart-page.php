@@ -9,15 +9,13 @@
  * @version 0.0.0
  */
 
-use Timber\{ Timber, Post };
-
-$context = Timber::context();
-
-$context['post']      = new Post();
-$context['namespace'] = 'page';
-
-$context['post']->body_classes = array( 'Cart' );
+use Timber\{ Timber };
 
 $templates = array( 'pages/cart-page.html.twig' );
 
-Timber::render( $templates, $context );
+$data                       = Timber::context();
+$data['post']               = Timber::get_post();
+$data['namespace']          = 'page';
+$data['post']->body_classes = array( 'Cart' );
+
+Timber::render( $templates, $data );

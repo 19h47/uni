@@ -14,14 +14,12 @@
  * @version 0.0.0
  */
 
-use Timber\{ Timber, Post };
-
-
-$context = Timber::context();
-
-$context['post']      = new Post();
-$context['namespace'] = 'page';
+use Timber\{ Timber };
 
 $templates = array( 'pages/404.html.twig' );
 
-Timber::render( $templates, $context );
+$data              = Timber::context();
+$data['post']      = Timber::get_post();
+$data['namespace'] = 'page';
+
+Timber::render( $templates, $data );

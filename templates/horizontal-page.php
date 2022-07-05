@@ -5,13 +5,11 @@
  * @package uni
  */
 
-use Timber\{ Timber, Post };
+use Timber\{ Timber };
 
-$context = Timber::get_context();
+$data                       = Timber::get_context();
+$data['post']               = Timber::get_post();
+$data['post']->modules      = array( 'horizontal-page' );
+$data['post']->body_classes = array( 'Horizontal-page' );
 
-$context['post'] = new Post();
-
-$context['post']->modules      = array( 'horizontal-page' );
-$context['post']->body_classes = array( 'Horizontal-page' );
-
-Timber::render( 'pages/horizontal-page.html.twig', $context );
+Timber::render( 'pages/horizontal-page.html.twig', $data );

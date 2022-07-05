@@ -1,6 +1,6 @@
 {
 	"require": {
-		"timber/timber": "^1.19"
+		"timber/timber": "2.0.0-alpha.6"
 	},
 	"name": "19h47/uni",
 	"description": "UNI's WordPress theme",

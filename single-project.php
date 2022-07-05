@@ -5,11 +5,9 @@
  * @package UNI
  */
 
-use Timber\{ Timber, Post };
-use UNI\Models\{ ProjectPost };
+use Timber\{ Timber };
 
-$context = Timber::get_context();
+$data         = Timber::get_context();
+$data['post'] = Timber::get_post();
 
-$context['post'] = new ProjectPost();
-
-Timber::render( 'pages/single-project.html.twig', $context );
+Timber::render( 'pages/single-project.html.twig', $data );

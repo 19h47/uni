@@ -11,8 +11,8 @@ namespace UNI\Setup;
 use Timber\{ Timber, Menu };
 use Twig\{ TwigFunction };
 use UNI\Core\{ SendMessage };
-
-$timber = new Timber();
+use UNI\Models\{ ArchivePage, ProjectPost, ProductPost};
+use WP_Post;
 
 Timber::$dirname = array( 'views', 'templates', 'dist' );
 
@@ -41,10 +41,11 @@ class Theme {
 		new SendMessage();
 
 		add_filter( 'timber/twig', array( $this, 'add_to_twig' ) );
-		add_filter( 'timber_context', array( $this, 'add_socials_to_context' ) );
-		add_filter( 'timber_context', array( $this, 'add_manifest_to_context' ) );
-		add_filter( 'timber_context', array( $this, 'add_menus_to_context' ) );
-		add_filter( 'timber_context', array( $this, 'add_to_context' ) );
+		add_filter( 'timber/context', array( $this, 'add_socials_to_context' ) );
+		add_filter( 'timber/context', array( $this, 'add_manifest_to_context' ) );
+		add_filter( 'timber/context', array( $this, 'add_menus_to_context' ) );
+		add_filter( 'timber/context', array( $this, 'add_to_context' ) );
+		add_filter( 'timber/post/classmap', array( $this, 'add_post_classmap' ) );
 	}
 
 
@@ -185,7 +186,7 @@ class Theme {
 		$menus = get_registered_nav_menus();
 
 		foreach ( $menus as $menu => $value ) {
-			$context['menus'][ $menu ] = new Menu( $menu );
+			$context['menus'][ $menu ] = Timber::get_menu( $menu );
 		}
 
 		return $context;
@@ -235,5 +236,25 @@ class Theme {
 		$context['allowed_countries']  = WC()->countries->get_allowed_countries();
 
 		return $context;
+	}
+
+
+		/**
+		 * Add post classmap
+		 *
+		 * @return array
+		 */
+	public function add_post_classmap( $classmap ) : array {
+		$custom_classmap = array(
+			'page'    => function( WP_Post $post ) {
+				if ( 'templates/archive-page.php' === get_post_meta( $post->ID, '_wp_page_template', true ) ) {
+					return ArchivePage::class;
+				}
+			},
+			'product' => ProductPost::class,
+			'project' => ProjectPost::class,
+		);
+
+		return array_merge( $classmap, $custom_classmap );
 	}
 }

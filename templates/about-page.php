@@ -9,11 +9,8 @@ global $product;
 
 use Timber\{ Timber };
 
-$context = Timber::get_context();
+$data                  = Timber::get_context();
+$data['post']          = Timber::get_post();
+$data['post']->modules = array( 'horizontal-page' );
 
-
-$context['post'] = Timber::get_post();
-
-$context['post']->modules = array( 'horizontal-page' );
-
-Timber::render( 'pages/about-page.html.twig', $context );
+Timber::render( 'pages/about-page.html.twig', $data );

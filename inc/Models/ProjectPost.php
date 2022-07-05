@@ -59,7 +59,7 @@ class ProjectPost extends Post {
 	 * @return array
 	 */
 	public function images() : array {
-		$images = $this->get_field( 'images' );
+		$images = get_field( 'images', $this->ID );
 
 		if ( $images ) {
 			$count = count( $images );

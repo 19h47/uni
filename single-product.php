@@ -13,13 +13,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 global $product;
 
 use Timber\{ Timber };
-use UNI\Models\{ ProductPost };
 
-$context = Timber::get_context();
-
-$context['post'] = new ProductPost();
+$data         = Timber::get_context();
+$data['post'] = Timber::get_post();
 
 // Restore the context and loop back to the main query loop 🤔.
 wp_reset_postdata();
 
-Timber::render( 'pages/single-product.html.twig', $context );
+Timber::render( 'pages/single-product.html.twig', $data );

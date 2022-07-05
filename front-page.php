@@ -9,17 +9,14 @@
  * @version 0.0.0
  */
 
-use Timber\{ Timber, Post };
-
-
-$context = Timber::context();
-
-$context['post']      = new Post();
-$context['namespace'] = 'front-page';
-
-$context['post']->modules      = array( 'front-page' );
-$context['post']->body_classes = array( 'modal--is-open' );
+use Timber\{ Timber };
 
 $templates = array( 'pages/front-page.html.twig' );
 
-Timber::render( $templates, $context );
+$data                       = Timber::context();
+$data['post']               = Timber::get_post();
+$data['namespace']          = 'front-page';
+$data['post']->modules      = array( 'front-page' );
+$data['post']->body_classes = array( 'modal--is-open' );
+
+Timber::render( $templates, $data );
