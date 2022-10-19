@@ -10,13 +10,13 @@
 	<div class="md-flex flex-md-nowrap my-md-20px">
 		{%- embed 'partials/page-content.html.twig' with {
 			title: post.title,
-			subtitle: post.subtitle,
+			subtitle: post.meta( 'number' ) ? __( 'Collection N°%s', 'uni' ) | format( post.meta( 'number' ) ) : post.subtitle,
 			classes: [ 'w-md-1400vw', 'h-md-100', 'mb-20px', 'mb-md-0', 'min-h-100' ]
 		} -%}
 
 			{% block content %}
 				<div class="Wysiwyg hidden md-block mt-20px ms-200vw">
-					{{- post.meta( 'long_description' ) ? post.meta( 'long_description' ) : post.content -}}
+					{{- post.meta( 'long_description' ) ? '<p>' ~ post.meta( 'long_description' ) | nl2br ~ '</p>' : post.content -}}
 
 					{% if post.description %}
 						<div class="ff-title italic mt-20px">
@@ -88,7 +88,7 @@
 		</div>
 
 		<div class="Wysiwyg mt-20px"  style="display: none;" id="content">
-			{{- post.meta( 'long_description' ) ? post.meta( 'long_description' ) : post.content -}}
+			{{- post.meta( 'long_description' ) ? '<p>' ~ post.meta( 'long_description' ) | nl2br ~ '</p>' : post.content -}}
 
 			{% if post.description %}
 				<div class="ff-title italic mt-20px">

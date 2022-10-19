@@ -132,10 +132,11 @@ class Message {
 			'can_export'          => true,
 			'has_archive'         => false,
 			'exclude_from_search' => true,
-			'publicly_queryable'  => true,
+			'publicly_queryable'  => false,
 			'map_meta_cap'        => true,
 			'show_in_rest'        => false,
 		);
+
 		register_post_type( 'message', $args );
 	}
 }

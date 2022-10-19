@@ -28,10 +28,10 @@ class Result {
 	/**
 	 * Product colors result
 	 *
-	 * @param string  $title The text displayed for this post object
-	 * @param WP_Post $post The post object
-	 * @param array   $field The field array containing all attributes & settings
-	 * @param int     $post_id The current post ID being edited
+	 * @param string  $title   The text displayed for this post object.
+	 * @param WP_Post $post    The post object.
+	 * @param array   $field   The field array containing all attributes & settings.
+	 * @param int     $post_id The current post ID being edited.
 	 *
 	 * @return string $title
 	 */

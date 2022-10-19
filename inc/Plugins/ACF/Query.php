@@ -27,8 +27,8 @@ class Query {
 	/**
 	 * Product colors query
 	 *
-	 * @param array $args The WP_Query args used to find choices.
-	 * @param array $field The field array containing all attributes & settings.
+	 * @param array $args     The WP_Query args used to find choices.
+	 * @param array $field    The field array containing all attributes & settings.
 	 * @param int   $post_id  The current post ID being edited.
 	 *
 	 * @return array $args

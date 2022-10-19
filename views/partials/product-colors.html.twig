@@ -13,7 +13,7 @@
 
 		<ul class="list-style-type-none flex m-n6px">
 			{%- for product_color in product.product_colors -%}
-				<li class="Product-colors__item m-6px">
+				<li class="m-6px">
 					<a
 						class="block size-16px rounded transition-box-shadow {{ 1 < loop.length ? 'js-color' }} {{ product_color.current and shadow ? 'shadow-uni' : '' }}"
 						href="{{ product_color.link }}"

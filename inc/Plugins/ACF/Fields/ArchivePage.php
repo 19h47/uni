@@ -1,4 +1,4 @@
-<?php // phpcs:ignore
+<?php // phpcs:ignore WordPress.Files.FileName.NotHyphenatedLowercase
 /**
  * Archive Page
  *

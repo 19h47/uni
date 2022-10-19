@@ -12,29 +12,6 @@ $line-height-base: math.div($base-line-height, $base-font-size);
 $enable-important-utilities: false;
 
 /**
- * Grid columns number
- *
- * Number of columns in the grid, it override `$grid-columns` from
- * bootstrap-sass. It means, if you wish, that you can instantiate a grid of 8,
- * for example.
- *
- * @see https://github.com/twbs/bootstrap-sass/blob/master/assets/stylesheets/bootstrap/_variables.scss#L329
- */
-// $grid-columns: 14;
-
-/**
- * Gutter width
- *
- * Padding between columns. Gets divided in half for the left and right, it
- * overide `$grid-gutter-width` from bootstrap-sass
- *
- * @see http://stackoverflow.com/a/28193872/5091221
- * @see https://github.com/twbs/bootstrap-sass/blob/master/assets/stylesheets/bootstrap/_variables.scss#L331
- */
-// $grid-gutter-width-unitless: 24;
-// $grid-gutter-width: ($grid-gutter-width-unitless * 1px);
-
-/**
  * Grid breakpoints
  *
  * Define the minimum dimensions at which your layout will change,
@@ -61,7 +38,7 @@ $sizes: (
 	20px: #{math.div(20, $base-font-size)}rem,
 	24px: #{math.div(24, $base-font-size)}rem,
 	40px: #{math.div(40, $base-font-size)}rem,
-	60px: #{math.div(60, $base-font-size)}rem,
+	64px: #{math.div(64, $base-font-size)}rem,
 	120px: #{math.div(120, $base-font-size)}rem,
 	400px: #{math.div(400, $base-font-size)}rem,
 	1\.5\/12: percentage(math.div(1.5, 12)),
@@ -149,7 +126,7 @@ $spacers: map-merge(
 		24px: #{math.div(24, $base-font-size)}rem,
 		28px: #{math.div(28, $base-font-size)}rem,
 		40px: #{math.div(40, $base-font-size)}rem,
-		60px: #{math.div(60, $base-font-size)}rem,
+		64px: #{math.div(64, $base-font-size)}rem,
 		80px: #{math.div(80, $base-font-size)}rem,
 		100px: #{math.div(100, $base-font-size)}rem,
 		140px: #{math.div(140, $base-font-size)}rem,

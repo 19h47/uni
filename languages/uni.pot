@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: uni\n"
-"POT-Creation-Date: 2022-06-30 12:28+0200\n"
+"POT-Creation-Date: 2022-10-19 14:55+0200\n"
 "PO-Revision-Date: 2020-04-27 09:39+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
-"X-Generator: Poedit 3.1\n"
+"X-Generator: Poedit 3.1.1\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-Flags-xgettext: --add-comments=translators:\n"
 "X-Poedit-WPHeader: style.css\n"
@@ -25,35 +25,43 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-3: wpcs\n"
 "X-Poedit-SearchPathExcluded-4: dist\n"
 
-#: inc/Api/Customizer/Contact.php:40
-msgid "Contact"
+#: 404.php:24
+msgid "Nothing here"
+msgstr ""
+
+#: 404.php:25
+msgid "It looks like nothing was found at this location. Maybe try a search?"
 msgstr ""
 
 #: inc/Api/Customizer/Contact.php:41
+msgid "Contact"
+msgstr ""
+
+#: inc/Api/Customizer/Contact.php:42
 msgid "Contact Settings"
 msgstr ""
 
-#: inc/Api/Customizer/Contact.php:57
+#: inc/Api/Customizer/Contact.php:58
 msgid "Instagram"
 msgstr ""
 
-#: inc/Api/Customizer/Contact.php:58
+#: inc/Api/Customizer/Contact.php:59
 msgid "Instagram URL"
 msgstr ""
 
-#: inc/Api/Customizer/Contact.php:76
+#: inc/Api/Customizer/Contact.php:77
 msgid "Facebook"
 msgstr ""
 
-#: inc/Api/Customizer/Contact.php:77
+#: inc/Api/Customizer/Contact.php:78
 msgid "Facebook URL"
 msgstr ""
 
-#: inc/Api/Customizer/Contact.php:95
+#: inc/Api/Customizer/Contact.php:96
 msgid "Phone number"
 msgstr ""
 
-#: inc/Api/Customizer/Contact.php:113 inc/Plugins/WooCommerce.php:212
+#: inc/Api/Customizer/Contact.php:114 inc/Plugins/WooCommerce.php:212
 msgid "Address"
 msgstr ""
 
@@ -615,7 +623,7 @@ msgid "Images"
 msgstr ""
 
 #: inc/Plugins/ACF/Init.php:39 inc/Plugins/ACF/Init.php:40
-#: inc/Plugins/ACF/RuleMatch.php:89 inc/Plugins/ACF/RuleMatch.php:90
+#: inc/Plugins/ACF/RuleMatch.php:95 inc/Plugins/ACF/RuleMatch.php:96
 msgid "Projects Settings"
 msgstr ""
 
@@ -631,7 +639,7 @@ msgstr ""
 msgid "Note"
 msgstr ""
 
-#: inc/Plugins/WooCommerce.php:176 views/pages/contact-page.html.twig:42
+#: inc/Plugins/WooCommerce.php:176 views/pages/contact-page.html.twig:51
 msgid "Email address"
 msgstr ""
 
@@ -643,7 +651,7 @@ msgstr ""
 msgid "Country"
 msgstr ""
 
-#: inc/Plugins/WooCommerce.php:233 views/pages/single-product.html.twig:190
+#: inc/Plugins/WooCommerce.php:233 views/pages/single-product.html.twig:189
 #: views/woocommerce/cart/cart-empty.html.twig:23
 msgid "Return to shop"
 msgstr ""
@@ -713,15 +721,15 @@ msgctxt "settings"
 msgid "Please select a page"
 msgstr ""
 
-#: inc/Setup/Theme.php:136
+#: inc/Setup/Theme.php:137
 msgid "Share on Twitter"
 msgstr ""
 
-#: inc/Setup/Theme.php:143
+#: inc/Setup/Theme.php:144
 msgid "Share on Facebook"
 msgstr ""
 
-#: inc/Setup/Theme.php:155
+#: inc/Setup/Theme.php:156
 msgid "Share on LinkedIn"
 msgstr ""
 
@@ -777,42 +785,34 @@ msgstr[1] ""
 msgid "Menu"
 msgstr ""
 
-#: views/components/footer-horizontal.html.twig:26
-#: views/components/footer-vertical.html.twig:6
+#: views/components/footer.html.twig:14
 msgid "Navigation"
 msgstr ""
 
-#: views/components/footer-horizontal.html.twig:29
-#: views/components/footer-vertical.html.twig:10
+#: views/components/footer.html.twig:17
 msgid "Information"
 msgstr ""
 
-#: views/components/footer-horizontal.html.twig:33
-#: views/components/footer-vertical.html.twig:16
+#: views/components/footer.html.twig:21
 msgid "Downloads"
 msgstr ""
 
-#: views/components/footer-horizontal.html.twig:36
-#: views/components/footer-vertical.html.twig:13
-#: views/components/menu.html.twig:46
+#: views/components/footer.html.twig:24 views/components/menu.html.twig:46
 msgid "Follow us"
 msgstr ""
 
-#: views/components/footer-horizontal.html.twig:39
-#: views/components/footer-vertical.html.twig:32
-#: views/components/menu.html.twig:47
+#: views/components/footer.html.twig:27 views/components/menu.html.twig:47
 msgid "Newsletter subscriptions"
 msgstr ""
 
-#: views/components/footer-horizontal.html.twig:44
-#: views/components/footer-vertical.html.twig:21
+#: views/components/footer.html.twig:32
 msgid "Credits:"
 msgstr ""
 
 #: views/components/input-country.html.twig:29
 #: views/components/input-text.html.twig:25
 #: views/components/input-textarea.html.twig:26
-#: views/pages/contact-page.html.twig:58 views/pages/contact-page.html.twig:88
+#: views/pages/contact-page.html.twig:67 views/pages/contact-page.html.twig:97
 msgid "required"
 msgstr ""
 
@@ -827,12 +827,12 @@ msgstr ""
 msgid "Update country / region"
 msgstr ""
 
-#: views/components/input-coupon.html.twig:21
+#: views/components/input-coupon.html.twig:19
 msgid "Coupon code"
 msgstr ""
 
-#: views/components/input-coupon.html.twig:31
-#: views/components/input-coupon.html.twig:35
+#: views/components/input-coupon.html.twig:29
+#: views/components/input-coupon.html.twig:33
 msgid "Apply coupon"
 msgstr ""
 
@@ -840,146 +840,159 @@ msgstr ""
 msgid "Close"
 msgstr ""
 
-#: views/pages/archive-page.html.twig:148
-#: views/pages/horizontal-page.html.twig:79
+#: views/pages/archive-page.html.twig:149
+#: views/pages/archive-product.html.twig:79
+#: views/pages/horizontal-page.html.twig:118
 #: views/pages/single-project.html.twig:123
 msgid "Find out more &plus;"
 msgstr ""
 
-#: views/pages/archive-product.html.twig:80
+#: views/pages/archive-product.html.twig:13
+#: views/pages/single-product.html.twig:172
+#, php-format
+msgid "Collection N°%s"
+msgstr ""
+
+#: views/pages/archive-product.html.twig:112
 msgid "Discover<br>our habitat"
 msgstr ""
 
-#: views/pages/contact-page.html.twig:48
-msgid "Enter your email address"
+#: views/pages/contact-page.html.twig:37
+msgid "Oops, something went wrong. Please try again."
+msgstr ""
+
+#: views/pages/contact-page.html.twig:41
+msgid "Thank you! Your submission has been sent."
 msgstr ""
 
 #: views/pages/contact-page.html.twig:57
+msgid "Enter your email address"
+msgstr ""
+
+#: views/pages/contact-page.html.twig:66
 msgctxt "contact page"
 msgid "Are you interested in?"
 msgstr ""
 
-#: views/pages/contact-page.html.twig:63
+#: views/pages/contact-page.html.twig:72
 msgctxt "contact page"
 msgid "Habitat"
 msgstr ""
 
-#: views/pages/contact-page.html.twig:64
+#: views/pages/contact-page.html.twig:73
 msgctxt "contact page"
 msgid "Object"
 msgstr ""
 
-#: views/pages/contact-page.html.twig:76
+#: views/pages/contact-page.html.twig:85
 msgctxt "contact page"
 msgid "The subject of your message"
 msgstr ""
 
-#: views/pages/contact-page.html.twig:79
+#: views/pages/contact-page.html.twig:88
+msgctxt "contact page"
 msgid "Enter your subject"
-msgstr ""
-
-#: views/pages/contact-page.html.twig:87
-msgctxt "contact page"
-msgid "You are?"
-msgstr ""
-
-#: views/pages/contact-page.html.twig:93
-msgctxt "contact page"
-msgid "A particular"
-msgstr ""
-
-#: views/pages/contact-page.html.twig:94
-msgctxt "contact page"
-msgid "A professional"
-msgstr ""
-
-#: views/pages/contact-page.html.twig:95
-msgctxt "contact page"
-msgid "A shop"
 msgstr ""
 
 #: views/pages/contact-page.html.twig:96
 msgctxt "contact page"
+msgid "You are?"
+msgstr ""
+
+#: views/pages/contact-page.html.twig:102
+msgctxt "contact page"
+msgid "A particular"
+msgstr ""
+
+#: views/pages/contact-page.html.twig:103
+msgctxt "contact page"
+msgid "A professional"
+msgstr ""
+
+#: views/pages/contact-page.html.twig:104
+msgctxt "contact page"
+msgid "A shop"
+msgstr ""
+
+#: views/pages/contact-page.html.twig:105
+msgctxt "contact page"
 msgid "Other"
 msgstr ""
 
-#: views/pages/contact-page.html.twig:108
+#: views/pages/contact-page.html.twig:117
 msgctxt "contact page"
 msgid "How did you hear about us?"
 msgstr ""
 
-#: views/pages/contact-page.html.twig:109
+#: views/pages/contact-page.html.twig:118
+msgctxt "contact page"
 msgid "How did you hear about us"
 msgstr ""
 
-#: views/pages/contact-page.html.twig:122
+#: views/pages/contact-page.html.twig:131
 msgctxt "contact page"
 msgid "Your message"
 msgstr ""
 
-#: views/pages/contact-page.html.twig:124
+#: views/pages/contact-page.html.twig:133
+msgctxt "contact page"
 msgid "Enter your message"
 msgstr ""
 
-#: views/pages/contact-page.html.twig:136
+#: views/pages/contact-page.html.twig:145
 msgctxt "contact page"
 msgid "Send"
 msgstr ""
 
-#: views/pages/contact-page.html.twig:143
+#: views/pages/contact-page.html.twig:152
 msgctxt "contact page"
 msgid "All fields marked with * are required"
 msgstr ""
 
-#: views/pages/front-page.html.twig:18
-msgid "Ulule"
+#: views/pages/front-page.html.twig:22
+msgid "Le Super Marché"
 msgstr ""
 
-#: views/pages/front-page.html.twig:69
-msgctxt "front page"
-msgid "Explore our:"
-msgstr ""
-
-#: views/pages/front-page.html.twig:69
+#: views/pages/front-page.html.twig:59
 msgid "Store"
 msgstr ""
 
-#: views/pages/front-page.html.twig:73
+#: views/pages/front-page.html.twig:60
 msgctxt "front page"
-msgid "Discover our:"
+msgid "Explore our:"
 msgstr ""
 
 #: views/pages/front-page.html.twig:73
 msgid "Spaces"
 msgstr ""
 
-#: views/pages/horizontal-page.html.twig:152
+#: views/pages/front-page.html.twig:74
+msgctxt "front page"
+msgid "Discover our:"
+msgstr ""
+
+#: views/pages/horizontal-page.html.twig:143
 msgid "Discover<br>our online store"
 msgstr ""
 
-#: views/pages/single-product.html.twig:11
+#: views/pages/single-product.html.twig:13
 msgid "This item has been added to your basket:"
 msgstr ""
 
-#: views/pages/single-product.html.twig:36
+#: views/pages/single-product.html.twig:38
 msgid "Continue your purchases"
 msgstr ""
 
-#: views/pages/single-product.html.twig:40
+#: views/pages/single-product.html.twig:42
 msgid "Access your basket"
 msgstr ""
 
-#: views/pages/single-product.html.twig:158
+#: views/pages/single-product.html.twig:156
 msgid "In the same collection"
 msgstr ""
 
-#: views/pages/single-product.html.twig:173
-#, php-format
-msgid "Collection N°%s"
-msgstr ""
-
 #: views/pages/single-project.html.twig:80
-#: views/woocommerce/checkout/form-billing.html.twig:5
+#: views/woocommerce/checkout/form-billing.html.twig:7
 msgid "Informations"
 msgstr ""
 
@@ -990,7 +1003,7 @@ msgstr ""
 msgid "Next Project"
 msgstr ""
 
-#: views/partials/empty-cart-message.html.twig:10
+#: views/partials/empty-cart-message.html.twig:12
 msgid "Your cart is currently empty."
 msgstr ""
 
@@ -1119,15 +1132,15 @@ msgstr ""
 msgid "Update"
 msgstr ""
 
-#: views/woocommerce/checkout/form-billing.html.twig:9
+#: views/woocommerce/checkout/form-billing.html.twig:11
 msgid "Billing &amp; Shipping"
 msgstr ""
 
-#: views/woocommerce/checkout/form-billing.html.twig:11
+#: views/woocommerce/checkout/form-billing.html.twig:13
 msgid "Billing"
 msgstr ""
 
-#: views/woocommerce/checkout/form-billing.html.twig:59
+#: views/woocommerce/checkout/form-billing.html.twig:61
 msgid "Create an account?"
 msgstr ""
 
@@ -1231,7 +1244,7 @@ msgstr ""
 msgid "Thank you. Your order has been received."
 msgstr ""
 
-#: views/woocommerce/global/quantity-input.html.twig:42
+#: views/woocommerce/global/quantity-input.html.twig:40
 msgctxt "quantity input title"
 msgid "Qty"
 msgstr ""

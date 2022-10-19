@@ -1,7 +1,8 @@
 {#
  # Contact page
  #
- # @package UNI
+ # @package WordPress
+ # @subpackage UNI
  # @purgeCSS Contact-page error-message form
  #}
 
@@ -17,7 +18,7 @@
 					'partials/page-title.html.twig',
 					{
 						classes: [ 'text-center', 'text-md-start' ],
-						subtitle: include( 'svg/use.html.twig', { icon: 'logo-horizontal', classes: [ 'w-60px', 'h-20px', 'inline-block', 'align-middle' ] }, with_context = false ),
+						subtitle: include( 'svg/use.html.twig', { icon: 'logo-horizontal', classes: [ 'w-64px', 'h-20px', 'inline-block', 'align-middle' ] }, with_context = false ),
 						title: post.title
 					}
 				)
@@ -32,7 +33,15 @@
 
 				{# <div class=""><p><a href="mailto:contact@uni-objets.fr">contact@uni-objets.fr</a></p></div> #}
 
-				<div class="flex flex-column gap-y-20px">
+				<div data-contact-page="error" style="display: none;">
+					{{- include( 'woocommerce/notices/error.html.twig', { notices: [ { notice: __( 'Oops, something went wrong. Please try again.', 'uni' ) } ] } ) -}}
+				</div>
+
+				<div data-contact-page="success" style="display: none;">
+					{{- include( 'woocommerce/notices/success.html.twig', { notices: [ { notice: __( 'Thank you! Your submission has been sent.', 'uni' ) } ] } ) -}}
+				</div>
+
+				<div class="flex-column gap-y-20px" data-contact-page="content" style="display: flex;">
 					{{-
 						include(
 							'components/input-text.html.twig',
@@ -76,7 +85,7 @@
 									label: _x( 'The subject of your message', 'contact page', 'uni' ),
 									required: true,
 									class: [ 'w-100' ],
-									placeholder: __( 'Enter your subject', 'contact page', 'uni' )
+									placeholder: _x( 'Enter your subject', 'contact page', 'uni' )
 								}
 							}
 						)
@@ -106,7 +115,7 @@
 								args: {
 									class: [ 'w-100' ],
 									label: _x( 'How did you hear about us?', 'contact page', 'uni' ),
-									placeholder: __( 'How did you hear about us', 'uni' )
+									placeholder: _x( 'How did you hear about us', 'contact page', 'uni' )
 								}
 							}
 						)
@@ -121,7 +130,7 @@
 								args: {
 									label: _x( 'Your message', 'contact page', 'uni' ),
 									required: true,
-									placeholder: __( 'Enter your message', 'uni' ),
+									placeholder: _x( 'Enter your message', 'contact page', 'uni' ),
 								},
 								class: [ 'w-100' ]
 							}

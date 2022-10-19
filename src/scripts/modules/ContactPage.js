@@ -40,6 +40,10 @@ class ContactPage extends M {
 			this.$('form')[0].style.setProperty('pointer-events', 'none');
 			this.$('form')[0].style.setProperty('opacity', '0.6');
 
+			this.$('error')[0].style.setProperty('display', 'none');
+			this.$('success')[0].style.setProperty('display', 'none');
+			this.$('content')[0].style.setProperty('display', 'flex');
+
 			fetch(this.url, {
 				method: 'POST',
 				body: form,
@@ -52,11 +56,18 @@ class ContactPage extends M {
 					this.$('form')[0].style.removeProperty('pointer-events');
 					this.$('form')[0].style.removeProperty('opacity');
 
+					this.$('error')[0].style.setProperty('display', 'none');
+					this.$('success')[0].style.setProperty('display', 'block');
+					this.$('content')[0].style.setProperty('display', 'none');
 				})
 				.catch(error => {
 					console.log(error.message);
 					remove(this.el);
 					this.$('form')[0].classList.add('is-error');
+
+					this.$('error')[0].style.setProperty('display', 'block');
+					this.$('success')[0].style.setProperty('display', 'none');
+					this.$('content')[0].style.setProperty('display', 'none');
 				});
 		});
 	}

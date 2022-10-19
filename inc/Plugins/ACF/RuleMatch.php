@@ -26,8 +26,14 @@ class RuleMatch {
 
 	/**
 	 * Rule match page type
+	 *
+	 * @param bool  $match   The true / false variable which must be returned.
+	 * @param array $rule    The current rule that you are matching against. This is an array with keys for ‘param’, ‘operator’, ‘value’.
+	 * @param array $options An array of data about the current edit screen (post_id, page_template, post_type, etc). This array will also include any data posted in an ajax call (ajax calls are made on a post / page when you change the category, page_template, etc).
+	 *
+	 * @return bool $match
 	 */
-	public function rule_match_page_type( $match, $rule, $options ) {
+	public function rule_match_page_type( bool $match, array $rule, array $options ) : bool {
 		if ( empty( $options['post_id'] ) ) {
 			return $match;
 		}

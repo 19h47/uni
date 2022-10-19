@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: uni\n"
-"POT-Creation-Date: 2022-06-30 11:38+0200\n"
-"PO-Revision-Date: 2022-06-30 11:38+0200\n"
+"POT-Creation-Date: 2022-10-19 14:54+0200\n"
+"PO-Revision-Date: 2022-10-19 14:55+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fr_FR\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 3.1\n"
+"X-Generator: Poedit 3.1.1\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-Flags-xgettext: --add-comments=translators:\n"
 "X-Poedit-WPHeader: style.css\n"
@@ -25,35 +25,45 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-3: wpcs\n"
 "X-Poedit-SearchPathExcluded-4: dist\n"
 
-#: inc/Api/Customizer/Contact.php:40
+#: 404.php:24
+msgid "Nothing here"
+msgstr "Rien ici"
+
+#: 404.php:25
+msgid "It looks like nothing was found at this location. Maybe try a search?"
+msgstr ""
+"On dirait que rien n'a été trouvé à cet endroit. Essayez peut-être une "
+"recherche ?"
+
+#: inc/Api/Customizer/Contact.php:41
 msgid "Contact"
 msgstr "Contact"
 
-#: inc/Api/Customizer/Contact.php:41
+#: inc/Api/Customizer/Contact.php:42
 msgid "Contact Settings"
 msgstr "Paramètres de contact"
 
-#: inc/Api/Customizer/Contact.php:57
+#: inc/Api/Customizer/Contact.php:58
 msgid "Instagram"
 msgstr "Instagram"
 
-#: inc/Api/Customizer/Contact.php:58
+#: inc/Api/Customizer/Contact.php:59
 msgid "Instagram URL"
 msgstr "URL du compte Instagram"
 
-#: inc/Api/Customizer/Contact.php:76
+#: inc/Api/Customizer/Contact.php:77
 msgid "Facebook"
 msgstr "Facebook"
 
-#: inc/Api/Customizer/Contact.php:77
+#: inc/Api/Customizer/Contact.php:78
 msgid "Facebook URL"
 msgstr "URL du compte Facebook"
 
-#: inc/Api/Customizer/Contact.php:95
+#: inc/Api/Customizer/Contact.php:96
 msgid "Phone number"
 msgstr "Numéro de téléphone"
 
-#: inc/Api/Customizer/Contact.php:113 inc/Plugins/WooCommerce.php:212
+#: inc/Api/Customizer/Contact.php:114 inc/Plugins/WooCommerce.php:212
 msgid "Address"
 msgstr "Adresse"
 
@@ -619,7 +629,7 @@ msgid "Images"
 msgstr "Images"
 
 #: inc/Plugins/ACF/Init.php:39 inc/Plugins/ACF/Init.php:40
-#: inc/Plugins/ACF/RuleMatch.php:89 inc/Plugins/ACF/RuleMatch.php:90
+#: inc/Plugins/ACF/RuleMatch.php:95 inc/Plugins/ACF/RuleMatch.php:96
 msgid "Projects Settings"
 msgstr "Paramètres des projects"
 
@@ -635,7 +645,7 @@ msgstr "Valider votre commande"
 msgid "Note"
 msgstr "Note"
 
-#: inc/Plugins/WooCommerce.php:176 views/pages/contact-page.html.twig:42
+#: inc/Plugins/WooCommerce.php:176 views/pages/contact-page.html.twig:51
 msgid "Email address"
 msgstr "Adresse e-mail"
 
@@ -647,7 +657,7 @@ msgstr "Entreprise"
 msgid "Country"
 msgstr "Pays"
 
-#: inc/Plugins/WooCommerce.php:233 views/pages/single-product.html.twig:190
+#: inc/Plugins/WooCommerce.php:233 views/pages/single-product.html.twig:189
 #: views/woocommerce/cart/cart-empty.html.twig:23
 msgid "Return to shop"
 msgstr "Retour à la boutique"
@@ -717,15 +727,15 @@ msgctxt "settings"
 msgid "Please select a page"
 msgstr "Veuillez choisir une page"
 
-#: inc/Setup/Theme.php:136
+#: inc/Setup/Theme.php:137
 msgid "Share on Twitter"
 msgstr "Partager sur Twitter"
 
-#: inc/Setup/Theme.php:143
+#: inc/Setup/Theme.php:144
 msgid "Share on Facebook"
 msgstr "Partager sur Facebook"
 
-#: inc/Setup/Theme.php:155
+#: inc/Setup/Theme.php:156
 msgid "Share on LinkedIn"
 msgstr "Partager sur LinkedIn"
 
@@ -781,44 +791,36 @@ msgstr[1] "Étiquettes :"
 msgid "Menu"
 msgstr "Menu"
 
-#: views/components/footer-horizontal.html.twig:26
-#: views/components/footer-vertical.html.twig:6
+#: views/components/footer.html.twig:14
 msgid "Navigation"
 msgstr "Navigation"
 
-#: views/components/footer-horizontal.html.twig:29
-#: views/components/footer-vertical.html.twig:10
+#: views/components/footer.html.twig:17
 msgid "Information"
 msgstr "Informations"
 
-#: views/components/footer-horizontal.html.twig:33
-#: views/components/footer-vertical.html.twig:16
+#: views/components/footer.html.twig:21
 msgid "Downloads"
 msgstr "Téléchargements"
 
-#: views/components/footer-horizontal.html.twig:36
-#: views/components/footer-vertical.html.twig:13
-#: views/components/menu.html.twig:46
+#: views/components/footer.html.twig:24 views/components/menu.html.twig:46
 msgid "Follow us"
 msgstr "Suivez-nous"
 
-#: views/components/footer-horizontal.html.twig:39
-#: views/components/footer-vertical.html.twig:32
-#: views/components/menu.html.twig:47
+#: views/components/footer.html.twig:27 views/components/menu.html.twig:47
 msgid "Newsletter subscriptions"
 msgstr "Inscription à la newsletter"
 
-#: views/components/footer-horizontal.html.twig:44
-#: views/components/footer-vertical.html.twig:21
+#: views/components/footer.html.twig:32
 msgid "Credits:"
 msgstr "Crédits :"
 
 #: views/components/input-country.html.twig:29
 #: views/components/input-text.html.twig:25
 #: views/components/input-textarea.html.twig:26
-#: views/pages/contact-page.html.twig:58 views/pages/contact-page.html.twig:88
+#: views/pages/contact-page.html.twig:67 views/pages/contact-page.html.twig:97
 msgid "required"
-msgstr ""
+msgstr "requis"
 
 #: views/components/input-country.html.twig:38
 #: views/components/input-country.html.twig:42
@@ -829,14 +831,14 @@ msgstr "Sélectionner un pays/région&hellip;"
 #: views/components/input-country.html.twig:56
 #: views/components/input-country.html.twig:57
 msgid "Update country / region"
-msgstr ""
+msgstr "Mettre à jour le pays/la région"
 
-#: views/components/input-coupon.html.twig:21
+#: views/components/input-coupon.html.twig:19
 msgid "Coupon code"
 msgstr "Code promo"
 
-#: views/components/input-coupon.html.twig:31
-#: views/components/input-coupon.html.twig:35
+#: views/components/input-coupon.html.twig:29
+#: views/components/input-coupon.html.twig:33
 msgid "Apply coupon"
 msgstr "Appliquer le code promo"
 
@@ -844,146 +846,159 @@ msgstr "Appliquer le code promo"
 msgid "Close"
 msgstr "Fermer"
 
-#: views/pages/archive-page.html.twig:148
-#: views/pages/horizontal-page.html.twig:79
+#: views/pages/archive-page.html.twig:149
+#: views/pages/archive-product.html.twig:79
+#: views/pages/horizontal-page.html.twig:118
 #: views/pages/single-project.html.twig:123
 msgid "Find out more &plus;"
 msgstr "En savoir plus &plus;"
 
-#: views/pages/archive-product.html.twig:80
+#: views/pages/archive-product.html.twig:13
+#: views/pages/single-product.html.twig:172
+#, php-format
+msgid "Collection N°%s"
+msgstr "Collection N°%s"
+
+#: views/pages/archive-product.html.twig:112
 msgid "Discover<br>our habitat"
 msgstr "Découvrez<br>nos habitats"
 
-#: views/pages/contact-page.html.twig:48
+#: views/pages/contact-page.html.twig:37
+msgid "Oops, something went wrong. Please try again."
+msgstr "Oups, quelque chose s'est mal passé. Veuillez réessayer."
+
+#: views/pages/contact-page.html.twig:41
+msgid "Thank you! Your submission has been sent."
+msgstr "Merci ! Votre message a bien été envoyé."
+
+#: views/pages/contact-page.html.twig:57
 msgid "Enter your email address"
 msgstr "Entrer une adresse email"
 
-#: views/pages/contact-page.html.twig:57
+#: views/pages/contact-page.html.twig:66
 msgctxt "contact page"
 msgid "Are you interested in?"
 msgstr "Vous êtes intéressé(e) par ?"
 
-#: views/pages/contact-page.html.twig:63
+#: views/pages/contact-page.html.twig:72
 msgctxt "contact page"
 msgid "Habitat"
 msgstr "L’habitat"
 
-#: views/pages/contact-page.html.twig:64
+#: views/pages/contact-page.html.twig:73
 msgctxt "contact page"
 msgid "Object"
 msgstr "L’objet"
 
-#: views/pages/contact-page.html.twig:76
+#: views/pages/contact-page.html.twig:85
 msgctxt "contact page"
 msgid "The subject of your message"
 msgstr "L’objet de votre message"
 
-#: views/pages/contact-page.html.twig:79
+#: views/pages/contact-page.html.twig:88
+msgctxt "contact page"
 msgid "Enter your subject"
-msgstr ""
+msgstr "Entrez votre sujet"
 
-#: views/pages/contact-page.html.twig:87
+#: views/pages/contact-page.html.twig:96
 msgctxt "contact page"
 msgid "You are?"
 msgstr "Vous êtes ?"
 
-#: views/pages/contact-page.html.twig:93
+#: views/pages/contact-page.html.twig:102
 msgctxt "contact page"
 msgid "A particular"
 msgstr "Un particulier"
 
-#: views/pages/contact-page.html.twig:94
+#: views/pages/contact-page.html.twig:103
 msgctxt "contact page"
 msgid "A professional"
 msgstr "Un professionnel"
 
-#: views/pages/contact-page.html.twig:95
+#: views/pages/contact-page.html.twig:104
 msgctxt "contact page"
 msgid "A shop"
 msgstr "Une boutique"
 
-#: views/pages/contact-page.html.twig:96
+#: views/pages/contact-page.html.twig:105
 msgctxt "contact page"
 msgid "Other"
 msgstr "Autre"
 
-#: views/pages/contact-page.html.twig:108
+#: views/pages/contact-page.html.twig:117
 msgctxt "contact page"
 msgid "How did you hear about us?"
 msgstr "Comment nous avez-vous connus ?"
 
-#: views/pages/contact-page.html.twig:109
+#: views/pages/contact-page.html.twig:118
+msgctxt "contact page"
 msgid "How did you hear about us"
-msgstr "Comment nous avez-vous connus ?"
+msgstr "Comment nous avez-vous connus"
 
-#: views/pages/contact-page.html.twig:122
+#: views/pages/contact-page.html.twig:131
 msgctxt "contact page"
 msgid "Your message"
 msgstr "Votre message"
 
-#: views/pages/contact-page.html.twig:124
+#: views/pages/contact-page.html.twig:133
+msgctxt "contact page"
 msgid "Enter your message"
 msgstr "Entrez votre message"
 
-#: views/pages/contact-page.html.twig:136
+#: views/pages/contact-page.html.twig:145
 msgctxt "contact page"
 msgid "Send"
 msgstr "Envoyez"
 
-#: views/pages/contact-page.html.twig:143
+#: views/pages/contact-page.html.twig:152
 msgctxt "contact page"
 msgid "All fields marked with * are required"
 msgstr "Les champs suivis d’un astérisque* sont obligatoire"
 
-#: views/pages/front-page.html.twig:18
-msgid "Ulule"
-msgstr "Ulule"
+#: views/pages/front-page.html.twig:22
+msgid "Le Super Marché"
+msgstr "Le Super Marché"
 
-#: views/pages/front-page.html.twig:69
-msgctxt "front page"
-msgid "Explore our:"
-msgstr "Explorer notre :"
-
-#: views/pages/front-page.html.twig:69
+#: views/pages/front-page.html.twig:59
 msgid "Store"
 msgstr "Boutique"
 
-#: views/pages/front-page.html.twig:73
+#: views/pages/front-page.html.twig:60
 msgctxt "front page"
-msgid "Discover our:"
-msgstr "Découvrir nos :"
+msgid "Explore our:"
+msgstr "Explorer notre :"
 
 #: views/pages/front-page.html.twig:73
 msgid "Spaces"
 msgstr "Espaces"
 
-#: views/pages/horizontal-page.html.twig:152
+#: views/pages/front-page.html.twig:74
+msgctxt "front page"
+msgid "Discover our:"
+msgstr "Découvrir nos :"
+
+#: views/pages/horizontal-page.html.twig:143
 msgid "Discover<br>our online store"
 msgstr "Découvrir notre boutique<br>en ligne"
 
-#: views/pages/single-product.html.twig:11
+#: views/pages/single-product.html.twig:13
 msgid "This item has been added to your basket:"
 msgstr "Cet objet a été ajouté à votre panier :"
 
-#: views/pages/single-product.html.twig:36
+#: views/pages/single-product.html.twig:38
 msgid "Continue your purchases"
 msgstr "Continuer vos achats"
 
-#: views/pages/single-product.html.twig:40
+#: views/pages/single-product.html.twig:42
 msgid "Access your basket"
 msgstr "Accéder à votre panier"
 
-#: views/pages/single-product.html.twig:158
+#: views/pages/single-product.html.twig:156
 msgid "In the same collection"
 msgstr "Dans la même collection"
 
-#: views/pages/single-product.html.twig:173
-#, php-format
-msgid "Collection N°%s"
-msgstr "Collection N°%s"
-
 #: views/pages/single-project.html.twig:80
-#: views/woocommerce/checkout/form-billing.html.twig:5
+#: views/woocommerce/checkout/form-billing.html.twig:7
 msgid "Informations"
 msgstr "Informations"
 
@@ -994,7 +1009,7 @@ msgstr "Informations"
 msgid "Next Project"
 msgstr "Projet suivant"
 
-#: views/partials/empty-cart-message.html.twig:10
+#: views/partials/empty-cart-message.html.twig:12
 msgid "Your cart is currently empty."
 msgstr "Votre panier est actuellement vide."
 
@@ -1127,15 +1142,15 @@ msgstr "Code postal"
 msgid "Update"
 msgstr "Mettre à jour le panier"
 
-#: views/woocommerce/checkout/form-billing.html.twig:9
+#: views/woocommerce/checkout/form-billing.html.twig:11
 msgid "Billing &amp; Shipping"
 msgstr "Facturation &amp; Expédition"
 
-#: views/woocommerce/checkout/form-billing.html.twig:11
+#: views/woocommerce/checkout/form-billing.html.twig:13
 msgid "Billing"
 msgstr "Facturation"
 
-#: views/woocommerce/checkout/form-billing.html.twig:59
+#: views/woocommerce/checkout/form-billing.html.twig:61
 msgid "Create an account?"
 msgstr "Créer un compte ?"
 
@@ -1251,7 +1266,7 @@ msgstr "Méthode paiement :"
 msgid "Thank you. Your order has been received."
 msgstr "Merci. Votre commande a été reçue."
 
-#: views/woocommerce/global/quantity-input.html.twig:42
+#: views/woocommerce/global/quantity-input.html.twig:40
 msgctxt "quantity input title"
 msgid "Qty"
 msgstr "Qté"
@@ -1302,6 +1317,9 @@ msgstr "19h47"
 #. Author URI of the plugin/theme
 msgid "https://19h47.fr/"
 msgstr "https://19h47.fr/"
+
+#~ msgid "Ulule"
+#~ msgstr "Ulule"
 
 #~ msgid "Remove this item"
 #~ msgstr "Enlever cet élément"

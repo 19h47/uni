@@ -1,0 +1,33 @@
+{#
+ # 404
+ #
+ # @package WordPress
+ # @subpackage UNI
+ #}
+
+{% extends 'index.html.twig' %}
+
+{% block content %}
+
+	<div class="mt-100px mx-20px mb-20px mt-md-200vh ms-md-100px relative w-md-100">
+
+		<div class="mx-md-200vw mb-md-200vh mw-md-1200vw">
+			{{-
+				include(
+					'partials/page-title.html.twig',
+					{
+						classes: [ 'text-center', 'text-md-start' ],
+						subtitle: include( 'svg/use.html.twig', { icon: 'logo-horizontal', classes: [ 'w-64px', 'h-20px', 'inline-block', 'align-middle' ] }, with_context = false ),
+						title: post.title
+					}
+				)
+			-}}
+
+			<div class="Wysiwyg mt-20px">{{- post.content -}}</div>
+		</div>
+
+		{{- include( 'components/footer.html.twig', { classes: [ 'mt-20px' ] } ) -}}
+
+	</div>
+
+{% endblock  %}

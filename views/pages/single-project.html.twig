@@ -18,7 +18,7 @@
 						'partials/page-title.html.twig',
 						{
 							classes: [ 'text-start' ],
-							subtitle: post.get_terms( 'project_cat' ) ? post.get_terms( 'project_cat' ) | map( cat => cat.name ) | join( ', ' ),
+							subtitle: post.terms( { taxonomy: 'project_cat' } ) ? post.terms( { taxonomy: 'project_cat' } ) | map( cat => cat.name ) | join( ', ' ),
 							title: post.title
 						}
 					)
@@ -27,7 +27,7 @@
 				<div class="ps-md-200vw md-flex">
 					<div class="w-md-800vw mt-20px">
 						{% if post.meta( 'project_content' ) %}
-							<div class="Wysiwyg">{{- post.meta( 'project_content' ) -}}</div>
+							<div class="Wysiwyg"><p>{{- post.meta( 'project_content' ) | nl2br -}}</p></div>
 						{% endif %}
 					</div>
 
@@ -62,7 +62,7 @@
 						'partials/page-title.html.twig',
 						{
 							classes: [ 'text-center', 'text-md-start' ],
-							subtitle: post.get_terms( 'project_cat' ) ? post.get_terms( 'project_cat' ) | map( cat => cat.name ) | join( ', ' ),
+							subtitle: post.terms( 'project_cat' ) ? post.terms( 'project_cat' ) | map( cat => cat.name ) | join( ', ' ),
 							title: post.title
 						},
 					)

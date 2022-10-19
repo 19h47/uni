@@ -37,7 +37,7 @@ class Enqueue {
 	 *
 	 * @see https://developer.wordpress.org/reference/functions/wp_default_scripts/
 	 */
-	function default_scripts( WP_Scripts $scripts ) {
+	public function default_scripts( WP_Scripts $scripts ) {
 
 		if ( ! is_admin() && isset( $scripts->registered['jquery'] ) ) {
 
@@ -138,7 +138,7 @@ class Enqueue {
 			$webfonts[] = "font-$name";
 		}
 
-		wp_register_style(
+		wp_register_style( // phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion
 			'flickity',
 			'//cdnjs.cloudflare.com/ajax/libs/flickity/3.0.0/flickity.min.css',
 			array(),
@@ -146,14 +146,14 @@ class Enqueue {
 		);
 
 		// Theme stylesheet.
-		wp_register_style( // phpcs:ignore
+		wp_register_style( // phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion
 			get_theme_text_domain() . '-main',
 			get_template_directory_uri() . '/' . get_theme_manifest()['main.css'],
 			$webfonts,
 			null
 		);
 
-		wp_register_script( get_theme_text_domain() . '-feature', false ); // phpcs:ignore
+		wp_register_script( get_theme_text_domain() . '-feature', false ); // phpcs:ignore WordPress.WP.EnqueuedResourceParameters.NotInFooter, WordPress.WP.EnqueuedResourceParameters.MissingVersion
 		wp_add_inline_script( get_theme_text_domain() . '-feature', '!function(e,n,o){("ontouchstart"in e||e.DocumentTouch&&n instanceof DocumentTouch||o.MaxTouchPoints>0||o.msMaxTouchPoints>0)&&(n.documentElement.className=n.documentElement.className.replace(/\bno-touch\b/,"touch")),n.documentElement.className=n.documentElement.className.replace(/\bno-js\b/,"js")}(window,document,navigator);' );
 
 		wp_enqueue_script( get_theme_text_domain() . '-feature' );
@@ -166,10 +166,10 @@ class Enqueue {
 	/**
 	 * Style Loader Tag
 	 *
-	 * @param string $html The link tag for the enqueued style.
+	 * @param string $html   The link tag for the enqueued style.
 	 * @param string $handle The style's registered handle.
-	 * @param string $href The stylesheet's source URL.
-	 * @param string $media The stylesheet's media attribute.
+	 * @param string $href   The stylesheet's source URL.
+	 * @param string $media  The stylesheet's media attribute.
 	 *
 	 * @return string
 	 */
@@ -198,7 +198,7 @@ class Enqueue {
 
 			if ( isset( $script->extra['group'] ) && 1 === $script->extra['group'] ) {
 				$href = $script->src . ( $script->ver ? "?ver={$script->ver}" : '' );
-				echo '<link rel="preload" as="script" href="' . $href . '">';
+				echo '<link rel="preload" as="script" href="' . esc_url( $href ) . '">';
 			}
 		}
 
@@ -211,7 +211,7 @@ class Enqueue {
 			}
 
 			$href = $style->src . ( $style->ver ? "?ver={$style->ver}" : '' );
-			echo '<link rel="preload" as="style" href="' . $href . '">';
+			echo '<link rel="preload" as="style" href="' . esc_url( $href ) . '">';
 
 		}
 
@@ -221,7 +221,7 @@ class Enqueue {
 				$extension = pathinfo( $key, PATHINFO_EXTENSION );
 				$href      = get_template_directory_uri() . '/' . $value;
 
-				echo '<link rel="preload" as="font" href="' . $href . '" type="font/' . $extension . '" crossorigin>';
+				echo '<link rel="preload" as="font" href="' . esc_url( $href ) . '" type="font/' . esc_attr( $extension ) . '" crossorigin>';
 			}
 		}
 	}
