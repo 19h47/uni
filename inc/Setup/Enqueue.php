@@ -188,6 +188,9 @@ class Enqueue {
 	public function preload() {
 		global $wp_scripts, $wp_styles;
 
+		// Mailchimp.
+		echo '<link rel="preconnect" href="https://chimpstatic.com">';
+
 		// Scripts.
 		foreach ( $wp_scripts->queue as $handle ) {
 			$script = $wp_scripts->registered[ $handle ];

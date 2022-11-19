@@ -8,14 +8,14 @@
 
 {% block content %}
 
-	{% embed 'components/modal.html.twig' with { attributes: { style: 'opacity: 1; visibility: visible;' }, id: post.id, size: 'small' } %}
+	{# {% embed 'components/modal.html.twig' with { attributes: { style: 'opacity: 1; visibility: visible;' }, id: post.id, size: 'small' } %}
 		{% block body %}
 			<div class="my-20px text-center">
 
 				{{- include( 'svg/use.html.twig', { icon: 'logo-horizontal', classes: [ 'w-120px', 'h-40px', 'block', 'mx-auto' ] }, with_context = false ) -}}
 
 				<div class="my-20px text-center">
-					<p>Retrouvé nous pour le SUPER MARCHÉ<br>au Little Atlantique Brewery les 22 et 23 octobre</p>
+					<p>Retrouvez nous pour le SUPER MARCHÉ<br>au Little Atlantique Brewery les 22 et 23 octobre</p>
 				</div>
 
 				<div class="my-20px text-center">
@@ -30,7 +30,7 @@
 				</div>
 			</div>
 		{% endblock %}
-	{% endembed %}
+	{% endembed %} #}
 
 	<div class="rounded-md overflow-md-hidden my-md-20px ms-md-100px me-md-20px text-white size-100 relative h-md-auto">
 		<div class="px-20px pt-140px pb-64px z-2 mh-100 h-100 flex flex-column py-md-60vh relative" data-front-page="grid">

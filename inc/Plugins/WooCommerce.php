@@ -244,7 +244,7 @@ class WooCommerce {
 			array(
 				'type'       => 'submit',
 				'label'      => esc_html__( 'Update cart', 'uni' ),
-				'classes'    => array( 'w-100', 'w-md-auto', 'mt-12px', 'mt-md-0' ),
+				'classes'    => array( 'w-100', 'w-md-auto', 'mt-12px', 'mt-md-0', wc_wp_theme_get_element_class_name( 'button' ) ),
 				'attributes' => array(
 					'name'  => 'update_cart',
 					'value' => __( 'Update cart', 'uni' ),

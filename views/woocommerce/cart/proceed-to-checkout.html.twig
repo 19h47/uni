@@ -12,7 +12,7 @@
 		{
 			tag: 'a',
 			label: __( 'Proceed to checkout', 'uni' ),
-			classes: [ 'alt', 'wc-forward', 'inline-block', 'w-100' ],
+			classes: [ 'alt', 'wc-forward', 'inline-block', 'w-100', fn( 'wc_wp_theme_get_element_class_name', 'button' ) ],
 			attributes: {
 				href: checkout_url | e( 'esc_url' )
 			}

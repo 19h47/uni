@@ -108,7 +108,7 @@
 					{
 						type: 'submit',
 						label: __( 'Update', 'uni' ),
-						classes: [ 'w-100', 'button' ],
+						classes: [ 'w-100', 'button', fn( 'wc_wp_theme_get_element_class_name', 'button' ) ],
 						attributes: {
 							name: 'calc_shipping',
 							value: '1'

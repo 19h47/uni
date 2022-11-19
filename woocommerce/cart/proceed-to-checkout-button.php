@@ -3,7 +3,7 @@
  * Proceed to checkout button
  *
  * @package UNI/Templates
- * @version 2.4.0
+ * @version 7.0.1
  */
 
 use Timber\{ Timber };

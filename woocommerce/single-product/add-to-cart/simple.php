@@ -3,7 +3,7 @@
  * Simple product add to cart
  *
  * @package UNI/Templates
- * @version 3.4.0
+ * @version 7.0.1
  */
 
 defined( 'ABSPATH' ) || exit;

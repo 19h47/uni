@@ -45,7 +45,7 @@
 					{
 						type: 'submit',
 						label: __( 'Update totals', 'uni' ),
-						classes: [ 'mt-12px', 'w-100', 'w-md-auto', 'mt-md-0' ],
+						classes: [ 'mt-12px', 'w-100', 'w-md-auto', 'mt-md-0', fn( 'wc_wp_theme_get_element_class_name', 'button' ) ],
 						attributes: {
 							name: 'woocommerce_checkout_update_totals',
 							value: __( 'Update totals', 'uni' )
@@ -74,7 +74,7 @@
 						type: 'submit',
 						label: order_button_text,
 						type: 'submit',
-						classes: [ 'button', 'alt', 'w-100' ],
+						classes: [ 'button', 'alt', 'w-100', fn( 'wc_wp_theme_get_element_class_name', 'button' ) ],
 						attributes: {
 							name: 'woocommerce_checkout_place_order',
 							id: 'place_order',

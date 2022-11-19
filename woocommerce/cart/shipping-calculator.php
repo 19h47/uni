@@ -3,7 +3,7 @@
  * Shipping Calculator
  *
  * @package UNI/Templates
- * @version 4.0.0
+ * @version 7.0.1
  */
 
 use Timber\{ Timber };

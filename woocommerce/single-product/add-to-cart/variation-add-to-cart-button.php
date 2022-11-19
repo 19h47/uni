@@ -3,7 +3,7 @@
  * Single variation cart button
  *
  * @package UNNI/Templates
- * @version 3.4.0
+ * @version 7.0.1
  */
 
 global $product;

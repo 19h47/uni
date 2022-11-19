@@ -21,12 +21,21 @@
 					{
 						tag: 'a',
 						label: __( 'Return to shop', 'uni' ) | apply_filters( 'woocommerce_return_to_shop_text' ),
-						classes: [ 'inline-block', 'w-100', 'w-md-auto', 'button', 'wc-backward' ],
+						classes: [
+							'inline-block',
+							'w-100',
+							'w-md-auto',
+							'button',
+							'wc-backward',
+							fn( 'wc_wp_theme_get_element_class_name', 'button' )
+						],
 						attributes: { href: page.permalink }
 					}
 				)
 			-}}
 		</div>
 	{% endif %}
+
+	<?php echo esc_attr(  ); ?>
 
 {% endblock %}

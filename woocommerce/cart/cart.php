@@ -3,7 +3,7 @@
  * Cart Page
  *
  * @package UNI
- * @version 3.8.0
+ * @version 7.0.1
  */
 
 use Timber\{ Timber, Post };

@@ -8,7 +8,7 @@
  *
  * @see     https://github.com/woocommerce/woocommerce/blob/master/includes/wc-template-functions.php#L2227
  * @package UNI/Templates
- * @version 3.5.3
+ * @version 7.0.1
  */
 
 use Timber\{ Timber };
