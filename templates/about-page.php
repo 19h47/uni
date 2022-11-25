@@ -2,7 +2,7 @@
 /**
  * Template Name: About page
  *
- * @package uniUNI
+ * @package UNI
  */
 
 global $product;

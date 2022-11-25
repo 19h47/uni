@@ -3,7 +3,7 @@
  * Send message
  *
  * @author Jérémy Levron <jeremylevron@19h47.fr> (https://19h47.fr)
- * @package LeagleCup
+ * @package UNI
  */
 
 namespace UNI\Core;
